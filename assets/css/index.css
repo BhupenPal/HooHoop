@@ -1,0 +1,124 @@
+.html, body{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.Head{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ajax-wrapper{
+    margin: 0 auto;
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo img{
+    width: 250px;
+}
+
+.search-engine{
+    display: flex;
+}
+
+.search-engine input{
+    width: 500px;
+    height: 40px;
+    border: 1px solid #707070;
+    outline: none;
+    padding: 0 20px;
+}
+
+.mag-search{
+    height: 40px;
+    width: 40px;
+    border-left: 0 !important;
+    border: 1px solid #707070;
+    background:#F6B500;
+    display: flex;
+    align-items: center;
+    justify-content: center ;
+    font-size: 1.5em;
+}
+
+.user-panel{
+    width: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Fira;
+    transition: 0.2s;
+    cursor: pointer;
+    font-size: 1.5em;
+    color: rgb(180, 180, 180);
+}
+
+.user-panel:hover{
+    color: #F6B500;
+    transition: 0.2s;
+}
+
+#slasher{
+    transform: rotate(70deg);
+    font-size: 18px;
+}
+
+.avatar{
+    padding: 0 10px;
+}
+
+.menu-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 66px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+}
+
+.menu-wrapper ul{
+    list-style: none;
+    display: flex;
+}
+
+.menu-wrapper ul li{
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+    border: 20px solid transparent;
+    font-family: Raleway;
+    cursor: pointer;
+}
+
+.menu-wrapper ul li:hover{
+    background-color: #F6B500;
+    color: white;
+}
+
+.slide{
+    background-image: url('../images/Slider.jpg');
+    background-size: cover;
+    background-position: 50% 50%;
+    width: 100%;
+    height: 540px;
+    display: flex;
+    align-items: center;
+}
+
+.sell-car{
+    width: 300px;
+    height: 350px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 5px 5px 5px #FFFFFF29;
+    border: 1px solid #707070;
+    border-radius: 0px 50px 0px 0px;
+    margin-left: 250px;
+    position: absolute;
+}
