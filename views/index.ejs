@@ -25,9 +25,7 @@
             </div>
             <div class="user-panel">
                 <div class="login-btn">Login</div>
-                <i class="far fa-slash" id="slasher"></i>
-                <div class="login-btn">Register</div>
-                <div class="avatar"><i class="fas fa-user"></i></div>
+                <div class="login-btn sign-up">sign up</div>
             </div>
         </div>
         <div class="menu-wrapper">
@@ -42,11 +40,41 @@
 
     <div class="slide">
         <div class="sell-car">
+            <div class="card-heading">sell your car</div>
+            <div class="form">
             <form action="" method="POST">
-                <input type="text">
-                <input type="text">
-                <select name="" id=""></select>
+                <input type="text" class="input-region" placeholder="Brand" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Brand'">
+                <input type="text" class="input-region" placeholder="Model" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Model'">
+                <select name="sell-car-dropdown" id="option-dropdown" class="input-region dropdown">
+                    <option value="">NEW</option>
+                    <option value="1">VINTAGE</option>
+                    <option value="2">USED</option>
+                </select>
+                <button class="submit-btn" type="submit">SUBMIT</button>
             </form>
+        </div>   
+        </div>
+    </div>
+
+    <div class="Heading-enclosure">
+        <h2 class="content-heading">
+            <span class="heading">Want to Sell?</span><br />
+            <span class="heading">It's easy and stress free</span>
+            <br />
+            <span class="subheading">Follow the steps below</span>
+        </h2>
+    </div>
+
+    <div class="Process-wrapper">
+        <div class="process-item"></div>
+        <div class="process-item"></div>
+        <div class="process-item"></div>
+        <div class="process-item"></div>
+
+        <div class="arrow-division">
+            <div class="arrow-right"><i class="fal fa-chevron-right"></i></div>
+            <div class="arrow-right"><i class="fal fa-chevron-right"></i></div>
+            <div class="arrow-right"><i class="fal fa-chevron-right"></i></div>
         </div>
     </div>
 </body>
