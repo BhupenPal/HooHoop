@@ -21,6 +21,7 @@
     outline: none;
 }
 
+/* Navbar */
 .Head{
     width: 100vw;
     display: flex;
@@ -133,3 +134,276 @@
     color: white;
 }
 
+/* Slider */
+.slider{
+    height: 600px;
+    width: 100%;
+    display: flex;
+    place-content: flex-start;
+    place-items: center;
+    background-image: url("../images/Slider.jpg"); 
+    background-size: cover;
+    background-position: 20% 50%;
+}
+
+.buy_car_wrapdiv{
+    height: 100%;
+    width: 30%;
+    display: flex;
+    place-content: flex-end;
+    place-items: center;
+}
+
+.buy-car{
+    height: 90%;
+    width: 75%;
+    border-top-right-radius: 100px;
+    border-bottom-left-radius: 100px;
+    background: white;
+}
+
+.card_headline{
+    height: 15%;
+    width: 70%;
+    margin-top: 20px;
+    display: flex;
+    place-items: flex-end;
+    place-content: flex-start;
+    padding-left: 50px;
+    font-size: 50px;
+    font-family: Fira;
+    font-weight: bold;
+}
+
+.data_fetch{
+    display: flex;
+    flex-direction: column;
+    place-content: space-evenly;
+    align-items: center;
+    height: 75%;
+}
+
+.card_input_info{
+    height: 100%;
+    width: 90%;
+    display: flex;
+    place-items: center;
+    place-content: center;
+    flex-direction: column;
+}
+
+.card_input_info div select{
+    height: 100%;
+    width: 100%;
+    text-align-last: center;
+    font-size: x-large;
+    color: gray;
+    font-family: Poppins;
+}
+
+.input_div{
+    height: 15%;
+    width: 80%;
+    cursor: pointer;
+    text-align: center;
+}
+
+.input_div + .input_div{
+    margin-top: 10px;
+}
+
+.submit_input_info{
+    height: 20%;
+    width:100%;
+    display: flex;
+    place-content: center;
+    place-items: flex-start;
+}
+
+.submit_data{
+    height: 80%;
+    width: 60%;
+    background-color: gold;
+    border: none;
+    border-radius: 10px;
+    font-size: xx-large;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: Fira;
+    cursor: pointer;
+}
+
+/* Home-Content */
+
+.car_data_wrapper{
+    height: 450px;
+    width: 70%;
+    box-shadow: 0px 0px 2px 2px rgb(220, 220, 220);
+    margin: 20px 0;
+    border-radius: 5px;
+}
+
+.card_head{
+    height: 100%;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    place-items: center;
+    place-content: center;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.card_head *{
+    margin: 0;
+    padding: 0;
+}
+
+.car_type_filter{
+    height: 20%;
+    width: 90%;
+    font-family: Fira;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.car_type_filter h1{
+    margin: 0;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+* hr{
+    background: #c9c9d4;
+    height: 1px;
+    width: 100%;
+    border: none;
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+.filter_item{
+    height: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.filter_item ul{
+    display: flex;
+    padding: 0;
+}
+
+.item_content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.item_content + .item_content{
+    margin-left: 20px;
+}
+
+.selected_item::after{
+    content: "";
+    height: 5px;
+    width: 100%;
+    left: 0;
+    background: orange;
+    margin-top: 10px;
+}
+
+.car_data_info_card{
+    height: 75%;
+    width: 90%;
+    display: inline-flex;
+    place-items: center;
+    place-content: start;
+    padding-left: 2px;
+    overflow: auto;
+}
+
+.car_data_info_card::-webkit-scrollbar{
+    display: none;
+}
+
+.car_data_card{
+    height: 90%;
+    min-width: 23.5%;
+    margin-top: 15px;
+    box-shadow: 0 0 2px 2px rgb(220, 220, 220);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.car_data_card + .car_data_card{
+    margin-left: 10px;
+}
+
+.car_image_data{
+    height: 70%;
+    width: 100%;
+    background-color: royalblue;
+}
+
+.car_image_data img{
+    height: 100%;
+    width: 100%;
+}
+
+.car_fetched_info{
+    height: 30%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.fetched_data{
+    font-family: Fira;
+    text-align: center;
+}
+
+.view-details{
+    background-color: gold;
+    font-family: Fira;
+    text-transform: uppercase;
+    border: none;
+    height: 20px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.view-details:hover{
+    background-color: white;
+    color: green;
+}
+
+.view_all_selected_v-type{
+    height: 8%;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    font-family: Fira;
+    flex-direction: column;
+}
+
+.view_all_selected_v-type hr{
+    margin-bottom: 5px;
+}
+
+.view_all_selected_v-type div:hover{
+    color: green;
+    user-select: none;
+    cursor: pointer;
+}
