@@ -487,6 +487,10 @@
     padding-bottom: 5px;
 }
 
+.pakage_info{ 
+    font-family: Fira;
+}
+
 .pakage_info button{
     height: 50px;
     width: 200px;
@@ -495,6 +499,7 @@
     font-size: 20px;
     cursor: pointer;
     transition: 0.2s ease-in-out;
+    font-family: Fira;
 }
 
 .pakage_info button:hover{
