@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HooHoop - Register</title>
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <link rel="stylesheet" href="/assets/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/fonts.css">
+</head>
+<body>
+
+    <%-include('./Components/Header.ejs') %>
+
+    <div class="card">
+        <h1 class="alignment-text">
+          Register
+        </h1>
+        <form action="/register" method="POST" name="form1">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="name" id="firstName" name="firstName" class="form-input" placeholder="Enter First Name"
+              value="<%= typeof firstName != 'undefined' ? firstName : '' %>" />
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="name" id="lastName" name="lastName" class="form-input" placeholder="Enter Last Name"
+              value="<%= typeof firstName != 'undefined' ? lastName : '' %>" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" class="form-input" placeholder="Enter Email"
+              value="<%= typeof email != 'undefined' ? email : '' %>" />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" class="form-input" placeholder="Create Password"
+              value="<%= typeof password != 'undefined' ? password : '' %>" />
+          </div>
+          <div class="form-group">
+            <label for="password2">Confirm Password</label>
+            <input type="password" id="password2" name="password2" class="form-input" placeholder="Confirm Password"
+              value="<%= typeof password2 != 'undefined' ? password2 : '' %>" />
+          </div>
+          <button type="submit" class="button-2" name="submit" value="Submit">
+            Register
+          </button>
+        </form>
+        <p class="alignment-text-2">Have An Account? <a href="/login">Login</a></p>
+      </div>
+</body>
+</html>

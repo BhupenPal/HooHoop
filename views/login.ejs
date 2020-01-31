@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HooHoop - Login</title>
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <link rel="stylesheet" href="/assets/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/fonts.css">
+</head>
+<body>
+    <%-include('./Components/Header.ejs') %>
+
+    <div class="card">
+        <h1 class="alignment-text"> Login</h1>
+        <form action="/login" method="POST">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" class="form-input" placeholder="Enter Email" />
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" class="form-input"
+                    placeholder="Enter Password" />
+            </div>
+            <button type="submit" class="button-2">Login</button>
+        </form>
+        <p class="alignment-text-2">
+            No Account? <a href="/register">Register</a>
+        </p>
+    </div>
+</body>
+</html>

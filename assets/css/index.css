@@ -90,7 +90,11 @@
     transition: 0.2s;
     cursor: pointer;
     font-size: 1.5em;
+}
+
+.user-panel a{
     color: rgb(180, 180, 180);
+    text-decoration: none;
 }
 
 .login-btn:hover{
@@ -393,18 +397,11 @@
     font-family: Fira;
     color: #F6B500;
     text-transform: uppercase;
-<<<<<<< HEAD
-    cursor: pointer;
-    border: none;
-    height: 20px;
-    width: 100px;
-=======
     background-color: transparent;
     height: 40px;
     width: 90%;
     transition: 0.1s;
     margin-top: 10px;
->>>>>>> 7e749c6da086857ef88a6c9f3fd2e71347955842
     display: flex;
     justify-content: center;
     align-items: center;
