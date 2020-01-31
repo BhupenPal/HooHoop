@@ -221,6 +221,10 @@
     text-align: center;
 }
 
+.input_div select{
+    background-color: white !important;
+}
+
 .input_div + .input_div{
     margin-top: 10px;
 }
@@ -399,6 +403,7 @@
     align-items: center;
     text-align: center;
     border-radius: 5px;
+    background-color: white !important;
 }
 
 .view-details:hover{
@@ -437,6 +442,8 @@
     flex-direction: column;
     margin-top: 50px;
     box-shadow: 0px 0px 20px 10px #dadada;
+    border-top-right-radius: 100px;
+    border-bottom-left-radius: 100px;
 }
 
 .pakages{
