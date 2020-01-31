@@ -8,37 +8,13 @@
     <link rel="stylesheet" href="/assets/css/index.css">
     <link rel="stylesheet" href="/assets/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/fonts.css">
+    <script src="/assets/scripts/script.js"></script>
     <title>HooHoop</title>
 </head>
 
-<body>
-    <!--Navbar-->
-    <nav class="Head">
-        <div class="ajax-wrapper">
-            <div class="logo">
-                <img src="/assets/images/Logo.png" alt="">
-            </div>
-            <div class="search-engine">
-                <form method="POST">
-                <input type="text" placeholder="Search Car or Brands" class="search-box">
-                <div class="mag-search" role="button">
-                    <i class="fal fa-search"></i>
-                </form>
-                </div>
-            </div>
-            <div class="user-panel">
-                <div class="login-btn">Login</div>
-                <div class="login-btn sign-up">sign up</div>
-            </div>
-        </div>
-        <div class="menu-wrapper">
-            <ul>
-                <li>HOME</li>
-                <li>SELL CAR</li>
-                <li>BUY CAR</li>
-            </ul>
-        </div>
-    </nav>  
+<body class="preloader">
+
+    <%-include('./Components/Header.ejs') %> 
     <!--Navbar-end-->
     
     <!--Slider-->
@@ -79,14 +55,16 @@
         <div class="card_head">
             <div class="car_type_filter">
                 <h1>Popular Cars</h1>
+                <form method="get">
                 <div class="filter_item">
                     <ul>
-                    <li class="item_content selected_item" style="color: orange;">Hatchback</li>
+                    <li class="item_content selected_item">Hatchback</li>
                     <li class="item_content">Sedan</li>
                     <li class="item_content">SUV</li>
                     <li class="item_content">Luxury</li>
                     <ul>
                 </div>
+                </form>
                 <hr />
             </div>
             <div class="car_data_info_card">
