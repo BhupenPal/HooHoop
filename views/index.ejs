@@ -8,10 +8,11 @@
     <link rel="stylesheet" href="/assets/css/index.css">
     <link rel="stylesheet" href="/assets/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/fonts.css">
+    <script src="/assets/scripts/script.js"></script>
     <title>HooHoop</title>
 </head>
 
-<body>
+<body class="preloader">
 
     <%-include('./Components/Header.ejs') %> 
     <!--Navbar-end-->
@@ -54,14 +55,16 @@
         <div class="card_head">
             <div class="car_type_filter">
                 <h1>Popular Cars</h1>
+                <form method="get">
                 <div class="filter_item">
                     <ul>
-                    <li class="item_content selected_item" style="color: orange;">Hatchback</li>
+                    <li class="item_content selected_item">Hatchback</li>
                     <li class="item_content">Sedan</li>
                     <li class="item_content">SUV</li>
                     <li class="item_content">Luxury</li>
                     <ul>
                 </div>
+                </form>
                 <hr />
             </div>
             <div class="car_data_info_card">
