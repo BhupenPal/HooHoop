@@ -374,6 +374,7 @@
     background-color: gold;
     font-family: Fira;
     text-transform: uppercase;
+    cursor: pointer;
     border: none;
     height: 20px;
     width: 100px;
