@@ -1,35 +1,34 @@
 //Express Config
 const express = require('express');
 const Router = express.Router();
+const carjam = require('./carjam');
 
-//Authenticator Config
-const { ensureAuthenticated, forwardAuthenticated } = require('./log/auth');
+Router.use('/', carjam);
 
-//Body-Parser Config
-const bodyParser = require('body-parser');
-const urlencoded = bodyParser.urlencoded({ extended: !1 });
-
-//bcrypt Config
-const bcrypt = require('bcryptjs');
-
-//Models Config
-const userModel = require("../models/userModels");
-
-//Passport Config
-const passport = require('passport');
-
+/* HOME ROUTES */
 Router.get('/', (req, res) => {
     res.render('index')
 })
 
+/* SELL YOUR CAR ROUTES*/
 Router.get('/sell-car', (req, res) => {
     res.render('sell_car');
 })
 
+Router.get('/car-submit', (req, res) => {
+    res.render('sell_form')
+})
+
+Router.post('/car-submit', (req, res) => {
+
+})
+
+/* BUY CAR ROUTES */
 Router.get('/buy-car', (req, res) => {
     res.render('buy_car')
 })
 
+/* USER PANEL ROUTES*/
 Router.get('/login', (req, res) => {
     res.render('login')
 })
@@ -37,5 +36,6 @@ Router.get('/login', (req, res) => {
 Router.get('/sign-up', (req, res) => {
     res.render('register')
 })
+
 
 module.exports = Router;
