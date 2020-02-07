@@ -1,21 +1,27 @@
 const express = require('express');
 const Router = express();
 const fetch = require("node-fetch");
-const reqNum='KZF737';
-const secret = 'B2C45C806CBC78480310F6B0401CEE2A4FCCCFD4';
-const urlReq = `https://carjam.co.nz/a/vehicle:abcd?key=${secret}&plate=${reqNum}`
+const bodyParser = require("body-parser");
+const urlencodedParser = bodyParser.urlencoded({
+    extended: !1
+});
+
+let vinFigure = '';
 
 Router.set('view engine', 'ejs')
 
-Router.get("/hello", async(req, res) => {
-    const obj = await fetchData()
-    res.render("landingPage", { obj });
-});
+Router.post('/car-submit/data', urlencodedParser, async(req, res) => {
+    vinFigure = req.body.vinFigure;
+    const detailedCarObject = await fetchData();
+    res.render("sell_form", {vinFigured: true, detailedCarObject: detailedCarObject});
+})
   
 function fetchData(){
-  return fetch(urlReq)
+    const secret = 'B2C45C806CBC78480310F6B0401CEE2A4FCCCFD4';
+    let urlReq = `https://carjam.co.nz/a/vehicle:abcd?key=${secret}&plate=${vinFigure}`
+    
+    return fetch(urlReq)
       .then(res => res.json())
-      .then(res => console.log(res))
 }
 
 module.exports = Router;

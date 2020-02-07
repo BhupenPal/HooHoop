@@ -3,8 +3,6 @@ const express = require('express');
 const Router = express.Router();
 const carjam = require('./carjam');
 
-Router.use('/', carjam);
-
 /* HOME ROUTES */
 Router.get('/', (req, res) => {
     res.render('index')
@@ -16,12 +14,10 @@ Router.get('/sell-car', (req, res) => {
 })
 
 Router.get('/car-submit', (req, res) => {
-    res.render('sell_form')
+    res.render('sell_form', {vinFigured: false, detailedCarObject: false})
 })
 
-Router.post('/car-submit', (req, res) => {
-
-})
+Router.use('/', carjam);
 
 /* BUY CAR ROUTES */
 Router.get('/buy-car', (req, res) => {

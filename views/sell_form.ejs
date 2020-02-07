@@ -15,15 +15,41 @@
     <%-include('./Components/Header.ejs') %>
     <!-- navbar end -->
 
+
+
     <div class="VIN-input">
         <form method="POST">
             <h1 class="sell_head">Tell Us About the Vehicle you are selling</h1>
-            <div class="ip_box  ">
-                <input type="text" class="v_enter" placeholder="Enter your number plate or VIN">
-                <button>Submit</button>
+            <div class="ip_box">
+                <input type="text" class="v_enter" placeholder="Enter your number plate or VIN" name="vinFigure">
+                <button onclick="carinfo()" formaction="/car-submit/data">FIND</button>
             </div>
-            </form>
         </form>
-    </div>
+
+        <% if (vinFigured) { %>
+            <div class="car_info" id="car_jam">
+                <h1>Check your car details</h1>
+                <div class="car_api_data">
+                    <div class="colspan_1">
+                       <span class="a_dta">Make: <%= detailedCarObject.make %> </span> <br>
+                       <span class="a_dta">Model: <%= detailedCarObject.model %> </span> <br>
+                       <span class="a_dta">Fuel Type: <%= detailedCarObject.fuel_type %> </span> <br>
+                       <span class="a_dta">Plate No: <%= detailedCarObject.plate %> </span> <br>
+                    </div>
+                    <div class="colspan_1">
+                        <span class="a_dta">Year: <%= detailedCarObject.year_of_manufacture %> </span> <br>
+                        <span class="a_dta">No Of Owners: <%= detailedCarObject.number_of_owners %> </span> <br>
+                        <span class="a_dta">VIN: <%= detailedCarObject.vin %> </span> <br>
+                        <span class="a_dta">Chassis: <%= detailedCarObject.chassis %> </span> <br>
+                    </div>
+                    <div class="colspan_1">
+                        <span class="a_dta">Body style: <%= detailedCarObject.body_style %> </span> <br>
+                        <span class="a_dta">Color: <%= detailedCarObject.main_colour %> </span> <br>
+                        <span class="a_dta">Engine No: <%= detailedCarObject.engine_no %> </span> <br>
+                        <span class="a_dta">Seats: <%= detailedCarObject.no_of_seats %> </span> <br>
+                    </div>
+            </div>
+        </div>
+        <% } %>
 </body>
 </html>
