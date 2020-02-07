@@ -26,4 +26,16 @@ Router.get('/sell-car', (req, res) => {
     res.render('sell_car');
 })
 
+Router.get('/buy-car', (req, res) => {
+    res.render('buy_car')
+})
+
+Router.get('/login', (req, res) => {
+    res.render('login')
+})
+
+Router.get('/sign-up', (req, res) => {
+    res.render('register')
+})
+
 module.exports = Router;
