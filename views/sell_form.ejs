@@ -16,14 +16,36 @@
     <!-- navbar end -->
 
     <div class="VIN-input">
-        <form method="GET">
+        <form>
             <h1 class="sell_head">Tell Us About the Vehicle you are selling</h1>
-            <div class="ip_box  ">
+            <div class="ip_box">
                 <input type="text" class="v_enter" placeholder="Enter your number plate or VIN">
-                <button>Submit</button>
+                <button onclick="carinfo()">FIND</button>
             </div>
-            </form>
         </form>
+
+        <div class="car_info vanish" id="car_jam">
+            <h1>Check your car details</h1>
+            <div class="car_api_data">
+                <div class="colspan_1">
+                   <span class="a_dta">Make:</span> <br>
+                   <span class="a_dta">Model:</span> <br>
+                   <span class="a_dta">Fuel Type:</span> <br>
+                   <span class="a_dta">Plate No:</span> <br>
+                </div>
+                <div class="colspan_1">
+                    <span class="a_dta">Year:</span> <br>
+                    <span class="a_dta">No Of Owners:</span> <br>
+                    <span class="a_dta">VIN:</span> <br>
+                    <span class="a_dta">Chassis:</span> <br>
+                </div>
+                <div class="colspan_1">
+                    <span class="a_dta">Body style:</span> <br>
+                    <span class="a_dta">Color:</span> <br>
+                    <span class="a_dta">Engine No:</span> <br>
+                    <span class="a_dta">Seats:</span> <br>
+                </div>
+        </div>
     </div>
 </body>
 </html>
