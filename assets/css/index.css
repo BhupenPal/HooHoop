@@ -504,7 +504,7 @@
 }
 
 .VIN-input{
-    min-height: 20vh;
+    min-height: 25vh;
     min-width: 1000px;
     border: 1px solid #e1e1e1;
     border-radius: 10px;
@@ -597,3 +597,270 @@
 .a_dta{
     font-size: large;
 }
+
+.sell_form_submission{
+    display: flex;
+    min-height: 50vh;
+    width: 1000px;
+    border: 1px solid #e1e1e1;
+    border-radius: 10px;
+    margin: 40px 0;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 5px;
+}
+
+.form_head{
+    display: flex;
+    width: 100%;
+    height: 80px;
+    align-items: center;
+    background-color: #f5bf2b;
+    padding-left: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.form_head h1{
+    text-transform: capitalize;
+    font-family: Fira;
+}
+
+.form_head input{
+    margin-left: 20px;
+    height: 50%;
+    width: 30%;
+    border-radius: 5px;
+    border: 1px solid gray;
+    padding-left: 20px;
+    font-size: 20px;
+    color: gray;
+    font-family: Raleway;
+    box-sizing: border-box;
+}
+
+.form_inp{
+    width: 100%;
+    min-height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.form_inp form{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: space-between;
+    box-sizing: border-box;
+}
+
+.inp_form_tag{
+    height: 44px;
+    width: 300px;
+    border: 2px solid gray;   
+    border-radius: 5px;
+    margin: 10px;
+    padding: 0 10px;
+    font-family: Fira;
+    font-size: 16px;
+    box-sizing: border-box;
+    color: gray;
+    text-transform: capitalize;
+}
+
+.inp_form_tag:focus{
+    border: 2px solid #43b4ff;
+}
+
+.drive-type{
+    width: 100%;
+    height: 100px;
+    font-family: Poppins;
+    text-transform: capitalize;
+    font-weight: lighter;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+.drive-type input{
+    height: 25px;
+    width: 25px;
+    margin-left: 20px;
+}
+
+.form2{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.orcincluded{
+    padding: 10px;
+    box-sizing: border-box;
+    font-family: Fira;   
+}
+
+.describecar{
+    font-family: Fira;
+    width: 98.8%;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+#t_area{
+    width: 100%;
+    font-size: 20px;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.rq360{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: Fira;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.rq360 input{
+    margin-right: 10px;
+}
+
+.contact_details{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 10px;
+    box-sizing: border-box;
+    font-family: Raleway;
+    font-size: 20px;
+    font-weight: lighter;
+}
+
+.contact_details div:nth-child(2){
+    margin: 10px 10px;
+}
+
+.contact_details div:nth-child(3){
+    margin: 0 10px;
+}
+
+.sub-btn{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.sub-btn button{
+    height: 100%;
+    width: 200px;
+    border: none;
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-family: Poppins;
+    font-weight: bold;
+    background-color: #f5bf2b;
+}
+/* select-tag-css */
+
+.select{
+    height: 40px;
+    width: 300px;
+    border: 2px solid gray;   
+    border-radius: 5px;
+    position: relative; 
+    cursor: pointer;
+    margin: 10px;
+    box-sizing: border-box;
+}
+
+.placeholder{
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    font-family: Fira;
+    color: gray;
+    text-transform: capitalize;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+
+.placeholder_text{
+    width: 200px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+}
+
+.select_opener{
+    width: 50px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.select_opener hr{
+    height: 2px;
+    width: 15px;
+    border: none;
+    background-color: black;
+    transition: 0.2s;
+}
+
+.select_opener hr:nth-child(1){
+    transform: rotate(45deg) translateX(5px);
+}
+
+.select_opener hr:nth-child(2){
+    transform: rotate(-45deg) translateX(-3.5px) translateY(1.5px);
+}
+
+.opt_enclose{
+    width: 100%;
+    border-radius: 5px;
+    font-size: 25px;
+    position: absolute;
+    margin-top: 50px;
+    display: none;
+    z-index: 10;
+}
+
+.option{
+    cursor: pointer;
+    width: 100%;
+    height: 30px;
+    font-family: Fira;
+    padding-left: 10px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+}
+
+.option:nth-last-child(1){
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.option:hover{
+    background-color: #43b4ff;
+}
+
+/* select-tag-css */
+
+/* sell-car-form */

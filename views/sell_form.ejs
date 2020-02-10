@@ -51,5 +51,259 @@
             </div>
         </div>
         <% } %>
+    </div>
+
+    <div class="sell_form_submission">
+            <div class="form_head">
+                <h1>selling price</h1>
+                <input type="text" placeholder="Selling Price">
+            </div>
+
+            <div class="form_inp">
+                
+                <form>
+                    
+                    <div class="select" onclick="sld_unsld(0)">
+                        <div class="placeholder">
+                            <div class="placeholder_text">select make</div>
+                            <div class="select_opener">
+                                <hr class="arr"><hr class="arr">
+                            </div>
+                        </div>
+                        <div class="opt_enclose">
+                        <div class="option" onclick="opt_select(0,0)">1</div>
+                        <div class="option" onclick="opt_select(1,0)">2</div>
+                        <div class="option" onclick="opt_select(2,0)">3</div>
+                        <div class="option" onclick="opt_select(3,0)">4</div>
+                        <div class="option" onclick="opt_select(4,0)">5</div>
+                        </div>
+                    </div>
+
+                    <div class="select" onclick="sld_unsld(1)">
+                        <div class="placeholder">
+                            <div class="placeholder_text">select model</div>
+                            <div class="select_opener">
+                                <hr class="arr"><hr class="arr">
+                            </div>
+                        </div>
+                        <div class="opt_enclose">
+                        <div class="option" onclick="opt_select(0,1)">1</div>
+                        <div class="option" onclick="opt_select(1,1)">2</div>
+                        <div class="option" onclick="opt_select(2,1)">3</div>
+                        <div class="option" onclick="opt_select(3,1)">4</div>
+                        <div class="option" onclick="opt_select(4,1)">5</div>
+                        </div>
+                    </div>
+
+                    <div class="select" onclick="sld_unsld(2)">
+                        <div class="placeholder">
+                            <div class="placeholder_text">select model year</div>
+                            <div class="select_opener">
+                                <hr class="arr"><hr class="arr">
+                            </div>
+                        </div>
+                        <div class="opt_enclose">
+                        <div class="option" onclick="opt_select(0,2)">1</div>
+                        <div class="option" onclick="opt_select(1,2)">2</div>
+                        <div class="option" onclick="opt_select(2,2)">3</div>
+                        <div class="option" onclick="opt_select(3,2)">4</div>
+                        <div class="option" onclick="opt_select(4,2)">5</div>
+                        </div>
+                    </div>
+
+                    <div class="select" onclick="sld_unsld(3)">
+                        <div class="placeholder">
+                            <div class="placeholder_text">body type</div>
+                            <div class="select_opener">
+                                <hr class="arr"><hr class="arr">
+                            </div>
+                        </div>
+                        <div class="opt_enclose">
+                        <div class="option" onclick="opt_select(0,3)">1</div>
+                        <div class="option" onclick="opt_select(1,3)">2</div>
+                        <div class="option" onclick="opt_select(2,3)">3</div>
+                        <div class="option" onclick="opt_select(3,3)">4</div>
+                        <div class="option" onclick="opt_select(4,3)">5</div>
+                        </div>
+                    </div>
+
+                    <div class="select" onclick="sld_unsld(4)">
+                        <div class="placeholder">
+                            <div class="placeholder_text">doors (optional)</div>
+                            <div class="select_opener">
+                                <hr class="arr"><hr class="arr">
+                            </div>
+                        </div>
+                        <div class="opt_enclose">
+                        <div class="option" onclick="opt_select(0,4)">1</div>
+                        <div class="option" onclick="opt_select(1,4)">2</div>
+                        <div class="option" onclick="opt_select(2,4)">3</div>
+                        <div class="option" onclick="opt_select(3,4)">4</div>
+                        <div class="option" onclick="opt_select(4,4)">5</div>
+                        </div>
+                    </div>
+
+                    <input type="text" class="inp_form_tag" placeholder="seats (optional)">
+
+                    <input type="text" class="inp_form_tag" placeholder="model detail (optional)">
+
+                    <div class="select" onclick="sld_unsld(5)">
+                        <div class="placeholder">
+                            <div class="placeholder_text">Import history (optional)</div>
+                            <div class="select_opener">
+                                <hr class="arr"><hr class="arr">
+                            </div>
+                        </div>
+                        <div class="opt_enclose">
+                        <div class="option" onclick="opt_select(0,5)">1</div>
+                        <div class="option" onclick="opt_select(1,5)">2</div>
+                        <div class="option" onclick="opt_select(2,5)">3</div>
+                        <div class="option" onclick="opt_select(3,5)">4</div>
+                        <div class="option" onclick="opt_select(4,5)">5</div>
+                        </div>
+                    </div>
+
+                    <div class="select" onclick="sld_unsld(6)">
+                        <div class="placeholder">
+                            <div class="placeholder_text">previous owners (optional)</div>
+                            <div class="select_opener">
+                                <hr class="arr"><hr class="arr">
+                            </div>
+                        </div>
+                        <div class="opt_enclose">
+                        <div class="option" onclick="opt_select(0,6)">1</div>
+                        <div class="option" onclick="opt_select(1,6)">2</div>
+                        <div class="option" onclick="opt_select(2,6)">3</div>
+                        <div class="option" onclick="opt_select(3,6)">4</div>
+                        <div class="option" onclick="opt_select(4,6)">5</div>
+                        </div>
+                    </div>
+
+                    <input type="text" class="inp_form_tag" placeholder="Number plate or VIN (optional)">
+
+                    <input type="text" class="inp_form_tag" placeholder="Kilometres">
+
+                    <input type="text" class="inp_form_tag" placeholder="Colour (optional)">
+
+                    <input type="text" class="inp_form_tag" placeholder="Engine size (CC) (optional)">
+
+                    <div class="select" onclick="sld_unsld(7)">
+                        <div class="placeholder">
+                            <div class="placeholder_text">transmission (optional)</div>
+                            <div class="select_opener">
+                                <hr class="arr"><hr class="arr">
+                            </div>
+                        </div>
+                        <div class="opt_enclose">
+                        <div class="option" onclick="opt_select(0,7)">1</div>
+                        <div class="option" onclick="opt_select(1,7)">2</div>
+                        <div class="option" onclick="opt_select(2,7)">3</div>
+                        <div class="option" onclick="opt_select(3,7)">4</div>
+                        <div class="option" onclick="opt_select(4,7)">5</div>
+                        </div>
+                    </div>
+
+                    <div class="select" onclick="sld_unsld(8)">
+                        <div class="placeholder">
+                            <div class="placeholder_text">fuel type</div>
+                            <div class="select_opener">
+                                <hr class="arr"><hr class="arr">
+                            </div>
+                        </div>
+                        <div class="opt_enclose">
+                        <div class="option" onclick="opt_select(0,8)">1</div>
+                        <div class="option" onclick="opt_select(1,8)">2</div>
+                        <div class="option" onclick="opt_select(2,8)">3</div>
+                        <div class="option" onclick="opt_select(3,8)">4</div>
+                        <div class="option" onclick="opt_select(4,8)">5</div>
+                        </div>
+                    </div>
+
+                    <div class="select" onclick="sld_unsld(9)">
+                        <div class="placeholder">
+                            <div class="placeholder_text">cylinders</div>
+                            <div class="select_opener">
+                                <hr class="arr"><hr class="arr">
+                            </div>
+                        </div>
+                        <div class="opt_enclose">
+                        <div class="option" onclick="opt_select(0,9)">1</div>
+                        <div class="option" onclick="opt_select(1,9)">2</div>
+                        <div class="option" onclick="opt_select(2,9)">3</div>
+                        <div class="option" onclick="opt_select(3,9)">4</div>
+                        <div class="option" onclick="opt_select(4,9)">5</div>
+                        </div>
+                    </div>
+
+                    <div class="select" onclick="sld_unsld(10)">
+                        <div class="placeholder">
+                            <div class="placeholder_text">wof expiry (optional)</div>
+                            <div class="select_opener">
+                                <hr class="arr"><hr class="arr">
+                            </div>
+                        </div>
+                        <div class="opt_enclose">
+                        <div class="option" onclick="opt_select(0,10)">1</div>
+                        <div class="option" onclick="opt_select(1,10)">2</div>
+                        <div class="option" onclick="opt_select(2,10)">3</div>
+                        <div class="option" onclick="opt_select(3,10)">4</div>
+                        <div class="option" onclick="opt_select(4,10)">5</div>
+                        </div>
+                    </div>
+
+                    <div class="select" onclick="sld_unsld(11)">
+                        <div class="placeholder">
+                            <div class="placeholder_text">Reg. expiry (optional)</div>
+                            <div class="select_opener">
+                                <hr class="arr"><hr class="arr">
+                            </div>
+                        </div>
+                        <div class="opt_enclose">
+                        <div class="option" onclick="opt_select(0,11)">1</div>
+                        <div class="option" onclick="opt_select(1,11)">2</div>
+                        <div class="option" onclick="opt_select(2,11)">3</div>
+                        <div class="option" onclick="opt_select(3,11)">4</div>
+                        <div class="option" onclick="opt_select(4,11)">5</div>
+                        </div>
+                    </div>
+
+            <div class="form_inp form2">
+
+                <div class="drive-type">
+                    <h3>drive type: 4WD</h3>
+                    <input type="checkbox">
+                </div>
+
+                <div class="orcincluded">
+                    <h2>Are on road costs included?</h2>
+                    <div><input type="radio" name="yn">Yes - the car will be sold with a current WoF, licensing (rego) and road user charges</div>
+                    <div><input type="radio" name="yn">No - the buyer may need to pay additional costs to legally drive the car on NZ roads</div>
+                </div>
+
+                <div class="describecar">
+                    <h2>Describe the car (optional)</h2>
+                    <textarea name="tarea" id="t_area" rows="6" placeholder="E.g. condition and other information"></textarea>
+                </div>
+
+                <div class="rq360">
+                    <input type="checkbox">
+                    <h2>Request for 360 photography</h2>
+                </div>
+
+                <div class="contact_details">
+                    <div>Would you like to show your personal details</div>  
+                    <div><input type="checkbox"><span>Email</span></div>
+                    <div><input type="checkbox"><span>Phone Number</span></div>           
+                </div>
+            </div>
+            
+            <div  class="sub-btn">
+            <button>Submit</button>
+            </div>
+
+            </form>
+        </div>
+        </div>
+    </div>
 </body>
 </html>
