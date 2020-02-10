@@ -504,7 +504,7 @@
 }
 
 .VIN-input{
-    min-height: 20vh;
+    min-height: 25vh;
     min-width: 1000px;
     border: 1px solid #e1e1e1;
     border-radius: 10px;
@@ -597,3 +597,136 @@
 .a_dta{
     font-size: large;
 }
+
+.sell_form_submission{
+    display: flex;
+    min-height: 20vh;
+    min-width: 1000px;
+    border: 1px solid #e1e1e1;
+    border-radius: 10px;
+    margin: 40px 0;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 5px;
+}
+
+.form_head{
+    display: flex;
+    width: 100%;
+    height: 80px;
+    align-items: center;
+    background-color: #f5bf2b;
+    padding-left: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.form_head h1{
+    text-transform: capitalize;
+    font-family: Fira;
+}
+
+.form_head input{
+    margin-left: 20px;
+    height: 50%;
+    width: 30%;
+    border-radius: 5px;
+    border: 1px solid gray;
+    padding-left: 20px;
+    font-size: 20px;
+    color: gray;
+    font-family: Raleway;
+    box-sizing: border-box;
+}
+
+.form_inp{
+    width: 100%;
+    height: 50vh;
+}
+
+/* select-tag-css */
+
+.select{
+    height: 30px;
+    width: 250px;
+    border: 2px solid gray;   
+    border-radius: 5px;
+    position: relative; 
+    cursor: pointer;
+}
+
+.placeholder{
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    font-family: Fira;
+    color: gray;
+    text-transform: capitalize;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+
+.placeholder_text{
+    width: 200px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+}
+
+.select_opener{
+    width: 50px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.select_opener hr{
+    height: 2px;
+    width: 15px;
+    border: none;
+    background-color: black;
+}
+
+.select_opener hr:nth-child(1){
+    transform: rotate(45deg) translateX(5px);
+}
+
+.select_opener hr:nth-child(2){
+    transform: rotate(-45deg) translateX(-3.5px) translateY(1.5px);
+}
+
+.opt_enclose{
+    width: 100%;
+    border-radius: 5px;
+    font-size: 25px;
+    position: absolute;
+    margin-top: 40px;
+    display: none;
+    z-index: 10;
+}
+
+.option{
+    cursor: pointer;
+    width: 100%;
+    height: 30px;
+    font-family: Fira;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+.option:nth-last-child(1){
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.option:hover{
+    background-color: #43b4ff;
+}
+
+/* select-tag-css */
