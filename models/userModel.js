@@ -10,35 +10,35 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
     firstName: {
         type: String,
-        required: true
+        required: false
     },
     lastName: {
         type: String,
-        required: true
+        required: false
     },
     userName: {
         type: String,
-        required: true
+        required: false
     },
     email: {
         type: String,
-        required: true
+        required: false
     },
     phoneNum:{
         type: Number,
-        required: true
+        required: false
     },
     password: {
         type: String,
-        required: true
+        required: false
     },
     district:{
         type: String,
-        required: true
+        required: false
     },
     address: {
         type: String,
-        required: true
+        required: false
     }
 })
 

@@ -1,7 +1,8 @@
 //Express Config
 const express = require('express');
 const Router = express.Router();
-const carjam = require('./carjam');
+const userPanel = require('./userPanel');
+const carJam = require('./carjam');
 
 /* HOME ROUTES */
 Router.get('/', (req, res) => {
@@ -17,21 +18,15 @@ Router.get('/car-submit', (req, res) => {
     res.render('sell_form', {vinFigured: false, detailedCarObject: false})
 })
 
-Router.use('/', carjam);
+Router.use('/', carJam);
 
 /* BUY CAR ROUTES */
 Router.get('/buy-car', (req, res) => {
     res.render('buy_car')
 })
 
-/* USER PANEL ROUTES*/
-Router.get('/login', (req, res) => {
-    res.render('login')
-})
+/* LOGIN and SIGNUP ROUTE */
 
-Router.get('/sign-up', (req, res) => {
-    res.render('register')
-})
-
+Router.use('/', userPanel);
 
 module.exports = Router;
