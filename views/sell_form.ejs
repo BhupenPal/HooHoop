@@ -65,7 +65,7 @@
                     
                     <div class="select" onclick="sld_unsld(0)">
                         <div class="placeholder">
-                            <div class="placeholder_text">select make</div>
+                            <div class="placeholder_text"> <%= detailedCarObject.make %> </div>
                             <div class="select_opener">
                                 <hr class="arr"><hr class="arr">
                             </div>
@@ -81,7 +81,7 @@
 
                     <div class="select" onclick="sld_unsld(1)">
                         <div class="placeholder">
-                            <div class="placeholder_text">select model</div>
+                            <div class="placeholder_text"> <%= detailedCarObject.model %> </div>
                             <div class="select_opener">
                                 <hr class="arr"><hr class="arr">
                             </div>
@@ -97,7 +97,7 @@
 
                     <div class="select" onclick="sld_unsld(2)">
                         <div class="placeholder">
-                            <div class="placeholder_text">select model year</div>
+                            <div class="placeholder_text"> <%= detailedCarObject.year_of_manufacture %> </div>
                             <div class="select_opener">
                                 <hr class="arr"><hr class="arr">
                             </div>
@@ -113,7 +113,7 @@
 
                     <div class="select" onclick="sld_unsld(3)">
                         <div class="placeholder">
-                            <div class="placeholder_text">body type</div>
+                            <div class="placeholder_text"> <%= detailedCarObject.body_style %> </div>
                             <div class="select_opener">
                                 <hr class="arr"><hr class="arr">
                             </div>
@@ -143,7 +143,7 @@
                         </div>
                     </div>
 
-                    <input type="text" class="inp_form_tag" placeholder="seats (optional)">
+                    <input type="text" class="inp_form_tag" placeholder="seats (optional)" value="<%= detailedCarObject.no_of_seats %>">
 
                     <input type="text" class="inp_form_tag" placeholder="model detail (optional)">
 
@@ -179,17 +179,17 @@
                         </div>
                     </div>
 
-                    <input type="text" class="inp_form_tag" placeholder="Number plate or VIN (optional)">
+                    <input type="text" class="inp_form_tag" placeholder="Number plate or VIN (optional)" value="<%= detailedCarObject.plate %>">
 
-                    <input type="text" class="inp_form_tag" placeholder="Kilometres">
+                    <input type="text" class="inp_form_tag" placeholder="Kilometres" value="<% detailedCarObject.latest_odometer_reading %>">
 
-                    <input type="text" class="inp_form_tag" placeholder="Colour (optional)">
+                    <input type="text" class="inp_form_tag" placeholder="Colour (optional)" value="<%= detailedCarObject.main_colour %>">
 
-                    <input type="text" class="inp_form_tag" placeholder="Engine size (CC) (optional)">
+                    <input type="text" class="inp_form_tag" placeholder="Engine size (CC) (optional)" value="<% detailedCarObject.cc_rating %>" >
 
                     <div class="select" onclick="sld_unsld(7)">
                         <div class="placeholder">
-                            <div class="placeholder_text">transmission (optional)</div>
+                            <div class="placeholder_text"> <% detailedCarObject.transmission %> </div>
                             <div class="select_opener">
                                 <hr class="arr"><hr class="arr">
                             </div>
