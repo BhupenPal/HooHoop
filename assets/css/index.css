@@ -513,6 +513,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .VIN-input form{
@@ -611,6 +612,31 @@
     padding: 5px;
 }
 
+.form_see{
+    font-size: 16px;
+    font-family: Raleway;
+    color: #43b4ff;
+    cursor: pointer;
+    transition: 0.2s;
+    position: absolute;
+    left: 200px;
+    top: 150px;
+}
+
+.form_see:hover{
+    color: green;
+}
+
+.input-wrapper{
+    display: flex;
+    flex-direction: column;
+}
+
+.input-wrapper span{
+    font-family: Poppins;
+    padding-left: 20px;
+}
+
 .form_head{
     display: flex;
     width: 100%;
@@ -646,6 +672,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 50px;
     box-sizing: border-box;
 }
 

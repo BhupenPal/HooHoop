@@ -13,6 +13,7 @@ Router.set('view engine', 'ejs')
 Router.post('/car-submit/data', urlencodedParser, async(req, res) => {
     vinFigure = req.body.vinFigure;
     const detailedCarObject = await fetchData();
+    console.log(detailedCarObject)
     res.render("sell_form", {vinFigured: true, detailedCarObject: detailedCarObject});
 })
   

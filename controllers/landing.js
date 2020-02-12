@@ -1,32 +1,28 @@
 //Express Config
-const express = require('express');
+const express = require("express");
 const Router = express.Router();
-const userPanel = require('./userPanel');
-const carJam = require('./carjam');
+const userPanel = require("./userPanel");
+const carJam = require("./carjam");
 
 /* HOME ROUTES */
-Router.get('/', (req, res) => {
-    res.render('index')
-})
+Router.get("/", (req, res) => {
+  res.render("index");
+});
 
 /* SELL YOUR CAR ROUTES*/
-Router.get('/sell-car', (req, res) => {
-    res.render('sell_car');
-})
+Router.get("/sell-car", (req, res) => {
+  res.render("sell_car");
+});
 
-Router.get('/car-submit', (req, res) => {
-    res.render('sell_form', {vinFigured: false, detailedCarObject: false})
-})
-
-Router.use('/', carJam);
+Router.use("/", carJam);
 
 /* BUY CAR ROUTES */
-Router.get('/buy-car', (req, res) => {
-    res.render('buy_car')
-})
+Router.get("/buy-car", (req, res) => {
+  res.render("buy_car");
+});
 
 /* LOGIN and SIGNUP ROUTE */
 
-Router.use('/', userPanel);
+Router.use("/", userPanel);
 
 module.exports = Router;
