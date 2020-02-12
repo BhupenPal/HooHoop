@@ -42,3 +42,15 @@
     src: url('../fonts/Raleway Light.ttf');
     font-weight: lighter;
 }
+
+@font-face{
+    font-family: Lato;
+    src: url("../fonts/Lato-Regular.ttf");
+    font-weight: normal;
+}
+
+@font-face{
+    font-family: Lato;
+    src: url("../fonts/Lato-Bold.ttf");
+    font-weight: bold;
+}

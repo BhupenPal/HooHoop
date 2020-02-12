@@ -38,3 +38,12 @@ function opt_select(k,j){
         y[j].innerHTML = x[k].innerHTML
     
 }
+
+function activate(j){
+    var x = document.getElementsByClassName("list_item")
+    
+    for(i=0;i<4;i++){
+        x[i].classList.remove("list_active")
+    }
+    x[j].classList.add("list_active")
+}
