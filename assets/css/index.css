@@ -915,19 +915,19 @@
 /* Login/Register */
 
 .reg_body{
-    background-color: #F1F1F1;
+    background-color: #f7f7f7;
 }
 
 .card{
-    min-height: 450px;
+    min-height: 550px;
     width: 400px;
-    border: 1px solid gray;
     margin-top: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: white;
+    box-shadow: 0 0 3px 3px #e6e6e6;
     position: relative;
 }
 
@@ -963,13 +963,17 @@
 }
 
 .hlogin{
-    height: 50px;
-    width: 50%;
+    height: 70px;
+    width: 70%;
 }
 
 .hlogin img{
     height: 100%;
     width: 100%;
+}
+
+.alignment-text{
+    font-family: Lato;
 }
 
 /* Login/Register */
