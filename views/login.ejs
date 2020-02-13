@@ -10,11 +10,11 @@
     <link rel="stylesheet" href="/assets/css/fonts.css">
     <script src="/assets/scripts/script.js"></script>
 </head>
-<body>
+<body class="reg_body">
     <%-include('./Components/Header.ejs') %>
 
     <div class="card">
-        <h1 class="alignment-text"> Login</h1>
+        <div class="hlogin"><img src="../assets/images/Logo.png" alt=""></div>
 
 
         <form action="/login" method="POST">
@@ -31,7 +31,7 @@
         </form>
 
         
-        <p class="alignment-text-2">
+        <p class="reg_link">
             No Account? <a href="/sign-up">Register</a>
         </p>
 

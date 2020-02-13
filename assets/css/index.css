@@ -27,6 +27,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background-color: white;
 }
 
 .ajax-wrapper{
@@ -36,6 +37,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 15px 0;
+    background-color: white;
 }
 
 .logo img{
@@ -328,6 +330,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    scroll-behavior: smooth;
 }
 
 .cd_content::-webkit-scrollbar{
@@ -910,5 +913,63 @@
 /* select-tag-css */
 
 /* Login/Register */
+
+.reg_body{
+    background-color: #F1F1F1;
+}
+
+.card{
+    min-height: 450px;
+    width: 400px;
+    border: 1px solid gray;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    position: relative;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px 0;
+    font-family: Lato;
+}
+
+.form-group input{
+    height: 40px;
+    width: 320px;
+    margin-top: 10px;
+    box-sizing: border-box;
+    padding-left: 20px;
+    font-family: Fira;
+    font-size: 24px;
+    border-radius: 10px;
+    border: 1px solid #e1e1e1;
+}
+
+.button-2{
+    height: 30px;
+    width: 100px;
+    font-size: 20px;
+    color: white;
+    background-color: #008EC2;
+    border: none;
+    border-radius: 5px;
+    margin-left: 200px;
+}
+
+.hlogin{
+    height: 50px;
+    width: 50%;
+}
+
+.hlogin img{
+    height: 100%;
+    width: 100%;
+}
 
 /* Login/Register */

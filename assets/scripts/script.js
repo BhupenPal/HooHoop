@@ -47,3 +47,13 @@ function activate(j){
     }
     x[j].classList.add("list_active")
 }
+
+function scrolldiv(j){
+    let x = document.getElementsByClassName("cd_content")[0]
+    if(j==0){
+        x.scrollBy(-380, 0)
+    }
+    else{
+        x.scrollBy(380, 0)
+    }
+}
