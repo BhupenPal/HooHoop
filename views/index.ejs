@@ -1,100 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/assets/css/index.css">
-    <link rel="stylesheet" href="/assets/css/all.min.css">
-    <link rel="stylesheet" href="/assets/css/fonts.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="/assets/css/index.css" />
+    <link rel="stylesheet" href="/assets/css/all.min.css" />
+    <link rel="stylesheet" href="/assets/css/fonts.css" />
     <script src="/assets/scripts/script.js"></script>
     <title>HooHoop</title>
-    <link rel="icon" href="/assets/images/favicon.ico" type="image/ico" sizes="16*16">
-</head>
+    <link
+      rel="icon"
+      href="/assets/images/favicon.ico"
+      type="image/ico"
+      sizes="16*16"
+    />
+  </head>
 
-<body>
-
-    <%-include('./Components/Header.ejs') %> 
+  <body>
+    <%-include('./Components/Header.ejs') %>
     <!--Navbar-end-->
-    
+
     <!--Slider-->
     <div class="slider">
-        <div class="buy_car_wrapdiv">
+      <div class="buy_car_wrapdiv">
         <div class="buy-car">
-            <div class="card_headline">Need a Car ?</div>
-            <form method="POST" class="data_fetch">
+          <div class="card_headline">Need a Car ?</div>
+          <form method="POST" class="data_fetch">
             <div class="card_input_info">
-                <div class="vehicle_state input_div">
-                    <select name="State" id="v-state">
-                        <option value="">New</option>
-                        <option value="1">Used</option>
-                    </select>
-                </div>
-                <div class="vehicle_budget input_div">
-                    <select name="Budget" id="v-budget">
-                        <option value="">Select Budget</option>
-                    </select>
-                </div>
-                <div class="vehicle_info_wrap input_div">
-                    <select name="Type" id="v-type">
-                        <option value="">Select Vehicle Type</option>
-                    </select>
-                </div>
+              <div class="vehicle_state input_div">
+                <select name="State" id="v-state">
+                  <option value="">New</option>
+                  <option value="1">Used</option>
+                </select>
+              </div>
+              <div class="vehicle_budget input_div">
+                <select name="Budget" id="v-budget">
+                  <option value="">Select Budget</option>
+                </select>
+              </div>
+              <div class="vehicle_info_wrap input_div">
+                <select name="Type" id="v-type">
+                  <option value="">Select Vehicle Type</option>
+                </select>
+              </div>
             </div>
             <div class="submit_input_info">
-                <button class="submit_data">submit</button>
+              <button class="submit_data">submit</button>
             </div>
-        </form>
+          </form>
         </div>
-    </div>
+      </div>
     </div>
     <!--Slider-end-->
 
     <!--Home-content-->
-    <div class="car_data_wrapper">
-        <div class="card_head">
-            <div class="car_type_filter">
-                <h1>Popular Cars</h1>
-                <form method="get">
-                <div class="filter_item">
-                    <ul>
-                    <li class="item_content selected_item">Hatchback</li>
-                    <li class="item_content">Sedan</li>
-                    <li class="item_content">SUV</li>
-                    <li class="item_content">Luxury</li>
-                    <ul>
-                </div>
-                </form>
-                <hr />
-            </div>
 
-
-
-
-            <div class="car_data_info_card">
-                <div class="car_data_card">
-                    <div class="car_image_data"><img src="../assets/images/1BMW.jpg" alt=""></div>
-                    <div class="car_fetched_info">
-                        <div class="fetched_data">
-                            <h4>BMW I6</h4>
-                            <h3>$ 15000-20000</h3>
-                        </div>
-                        <button class="view-details" type="submit">View details</button>
-                    </div>
-                </div>
-            </div>
-
-
-
-
-            
-            <div class="view_all_selected_v-type">
-                <hr />
-                <div>View All</div>
-            </div>
+    <div class="cardbd_1">
+      <div class="cd_head">
+        <div class="cd_headline">Popular Cars</div>
+        <div class="cd_list">
+          <ul>
+            <li class="list_active list_item" onclick="activate(0)">
+              hatchback
+            </li>
+            <li class="list_item" onclick="activate(1)">sedan</li>
+            <li class="list_item" onclick="activate(2)">luxury</li>
+            <li class="list_item" onclick="activate(3)">SUV</li>
+          </ul>
         </div>
+      </div>
+      <div class="cd_content">
+        <div class="cd_car_data">
+          <div class="img_contain">
+            <div class="view-details">View details</div>
+            <img src="../assets/images/1BMW.jpg" />
+          </div>
+          <div class="info_contain">
+            <div class="con_name">BMW I6</div>
+            <div class="con_price">$100000</div>
+            <div></div>
+          </div>
+        </div>
+      </div>
+      <div class="cd_btn">
+        <button><i class="fal fa-chevron-left"></i></button>
+        <button><i class="fal fa-chevron-right"></i></button>
+      </div>
+      <div class="cd_link"><a href="/buy-car">view all</a></div>
     </div>
-</body>
 
+    <!-- Home-content-end -->
+  </body>
 </html>
