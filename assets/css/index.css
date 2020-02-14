@@ -18,12 +18,12 @@ body {
   border-radius: 10px;
 }
 
-*::-webkit-scrollbar-track-piece{
-    background-color: white;
+*::-webkit-scrollbar-track-piece {
+  background-color: white;
 }
 
-*::-webkit-scrollbar-track{
-    background-color: white;
+*::-webkit-scrollbar-track {
+  background-color: white;
 }
 
 *:focus {
@@ -656,7 +656,6 @@ body {
 .input-wrapper {
   display: flex;
   flex-direction: column;
-
 }
 
 .input-wrapper span {
@@ -843,7 +842,7 @@ body {
   box-sizing: border-box;
 }
 
-.select input{
+.select input {
   display: none;
 }
 
@@ -885,11 +884,11 @@ body {
 }
 
 .select_opener hr:nth-child(1) {
-  transform: rotate(45deg) translate3d(12px,-12px,0);
+  transform: rotate(45deg) translate3d(12px, -12px, 0);
 }
 
 .select_opener hr:nth-child(2) {
-  transform: rotate(-45deg) translate3d(1.5px,1px,0);
+  transform: rotate(-45deg) translate3d(1.5px, 1px, 0);
 }
 
 .opt_enclose {
@@ -994,8 +993,8 @@ body {
 /* Login/Register */
 
 /* buy-car-section */
-.bc_card{
-  height: 450px;
+.bc_card {
+  height: 400px;
   width: 800px;
   border-radius: 5px;
   display: flex;
@@ -1005,18 +1004,19 @@ body {
   box-shadow: 0 0 3px 3px #e6e6e6;
 }
 
-.bcimg_sec{
+.bcimg_sec {
   height: 100%;
   width: 65%;
-  margin-right:5px;
+  margin-right: 5px;
 }
 
-.bcimg_sec img{
-  height: 100%;
+.bcimg_sec img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.inf_sec{
+.inf_sec {
   width: 35%;
   height: 100%;
   background-color: #ffffff;
@@ -1026,7 +1026,7 @@ body {
   align-items: center;
 }
 
-.locate{
+.locate {
   height: 10%;
   width: 100%;
   display: flex;
@@ -1037,17 +1037,17 @@ body {
   font-family: Lato;
 }
 
-.locate span:nth-child(1){
+.locate span:nth-child(1) {
   font-size: 16px;
 }
 
-.locate span:nth-child(2){
+.locate span:nth-child(2) {
   font-size: 12px;
   color: red;
   text-transform: capitalize;
 }
 
-.c_deta_sec{
+.c_deta_sec {
   height: 70%;
   width: 100%;
   display: flex;
@@ -1058,12 +1058,12 @@ body {
   border-bottom: 1px solid #e2e2e2;
 }
 
-.c_deta_sec *{
+.c_deta_sec * {
   margin: 0;
   font-family: Lato;
 }
 
-.c_deta_sec p{
+.c_deta_sec p {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1071,11 +1071,11 @@ body {
   margin: 0;
 }
 
-.c_deta_sec h3{
+.c_deta_sec h3 {
   color: gray;
 }
 
-.price{
+.price {
   height: 20% !important;
   display: flex;
   width: 100%;
@@ -1087,7 +1087,7 @@ body {
   font-family: Helvetica;
 }
 
-.as_p span{
+.as_p span {
   font-size: 14px;
   color: gray;
   font-weight: normal;
@@ -1099,7 +1099,7 @@ body {
   margin-bottom: 10px;
 }
 
-.on_r_cst_1{
+.on_r_cst_1 {
   color: green;
 }
 /* buy-car-section */

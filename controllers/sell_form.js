@@ -1,9 +1,6 @@
 var express = require("express");
 var Router = express.Router();
 
-Router.set("view engine", "ejs");
-Router.use("/static", express.static("public"));
-
 var multer = require("multer");
 
 var storage = multer.diskStorage({
