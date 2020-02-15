@@ -25,4 +25,9 @@ Router.get("/buy-car", (req, res) => {
 
 Router.use("/", userPanel);
 
+/* CAR360 ROUTE */ 
+Router.get("/Listing", (req, res) => {
+  res.render("cpage_info")
+})
+
 module.exports = Router;
