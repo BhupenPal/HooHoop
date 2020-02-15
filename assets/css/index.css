@@ -712,7 +712,7 @@ body {
 }
 
 .inp_form_tag {
-  height: 44px;
+  height: 42px;
   width: 300px;
   border: 2px solid gray;
   border-radius: 5px;
@@ -832,7 +832,7 @@ body {
 /* select-tag-css */
 
 .select {
-  height: 40px;
+  height: 42px;
   width: 300px;
   border: 2px solid gray;
   border-radius: 5px;

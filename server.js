@@ -4,6 +4,10 @@ const app = express();
 app.set("view engine", "ejs");
 app.use("/assets", express.static("assets"));
 
+// Passport Config
+const passport = require("passport");
+require("./controllers/log/passport")(passport);
+
 //Connect Flash
 const flash = require("connect-flash");
 
@@ -20,7 +24,7 @@ app.use(
 //Connect Flash
 app.use(flash());
 
-// Global variables for connect-flash
+//Global variables for connect-flash
 app.use(function(req, res, next) {
   res.locals.success_msg = req.flash("success_msg");
   res.locals.error_msg = req.flash("error_msg");
@@ -28,6 +32,17 @@ app.use(function(req, res, next) {
   next();
 });
 
+// Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use(function(req, res, next) {
+  res.locals.isAuthenticated = req.isAuthenticated();
+  if (req.isAuthenticated) {
+    res.locals.user = req.user || null;
+  }
+  next();
+});
 const landing = require("./controllers/landing");
 app.use("/", landing);
 
