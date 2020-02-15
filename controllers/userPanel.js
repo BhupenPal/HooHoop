@@ -47,7 +47,15 @@ Router.get("/sign-up", (req, res) => {
 });
 
 Router.post("/sign-up", urlencoded, (req, res) => {
-  const { firstName, lastName, email, password, password2 } = req.body;
+  const {
+    firstName,
+    lastName,
+    email,
+    phoneNum,
+    password,
+    password2,
+    address
+  } = req.body;
   let errors = [];
 
   //Check required fields
@@ -92,6 +100,7 @@ Router.post("/sign-up", urlencoded, (req, res) => {
       firstName,
       lastName,
       email,
+      phoneNum,
       password,
       password2
     });
@@ -104,15 +113,19 @@ Router.post("/sign-up", urlencoded, (req, res) => {
           firstName,
           lastName,
           email,
+          phoneNum,
           password,
-          password2
+          password2,
+          address
         });
       } else {
         const newUser = new userModel({
           firstName,
           lastName,
+          phoneNum,
           email,
-          password
+          password,
+          address
         });
 
         //Hash Password
@@ -141,14 +154,13 @@ Router.post("/sign-up", urlencoded, (req, res) => {
 //Logout Route
 Router.get("/logout", (req, res) => {
   req.logout();
-  console.log("Logged Out");
+  req.session.destroy();
   res.redirect("/login");
 });
 
 //Dashboard Route
 Router.get("/dashboard", ensureAuthenticated, (req, res) => {
-  res.render("dashboard");
-  // , { userName: req.user.firstName }
+  res.render("dashboard", { userName: req.user.firstName });
 });
 
 module.exports = Router;

@@ -6,7 +6,11 @@ const carJam = require("./carjam");
 
 /* HOME ROUTES */
 Router.get("/", (req, res) => {
-  res.render("index");
+  if (req.isAuthenticated()) {
+    res.render("index", { user: req.user });
+  } else {
+    res.render("index", { user: false });
+  }
 });
 
 /* SELL YOUR CAR ROUTES*/
