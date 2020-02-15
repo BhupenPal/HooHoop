@@ -1,45 +1,51 @@
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost:27017/HooHoop", { 
-    useNewUrlParser: !0, 
-    useUnifiedTopology: !0 
+mongoose.connect("mongodb://localhost:27017/HooHoop", {
+  useNewUrlParser: !0,
+  useUnifiedTopology: !0,
+  useCreateIndex: 1
 });
 
-mongoose.connection.on('connected', () => console.log('Mongoose is connected!!!!'));
+mongoose.connection.on("connected", () =>
+  console.log("Mongoose User Model Intitialized!!!!")
+);
 
 const Schema = mongoose.Schema;
 const UserSchema = new Schema({
-    firstName: {
-        type: String,
-        required: false
-    },
-    lastName: {
-        type: String,
-        required: false
-    },
-    userName: {
-        type: String,
-        required: false
-    },
-    email: {
-        type: String,
-        required: false
-    },
-    phoneNum:{
-        type: Number,
-        required: false
-    },
-    password: {
-        type: String,
-        required: false
-    },
-    district:{
-        type: String,
-        required: false
-    },
-    address: {
-        type: String,
-        required: false
-    }
-})
+  firstName: {
+    type: String,
+    required: true
+  },
+  lastName: {
+    type: String,
+    required: true
+  },
+  userName: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  phoneNum: {
+    type: Number,
+    required: true,
+    unique: true
+  },
+  password: {
+    type: String,
+    required: true
+  },
+  district: {
+    type: String,
+    required: true
+  },
+  address: {
+    type: String,
+    required: false
+  }
+});
 
 module.exports = mongoose.model("Users", UserSchema);

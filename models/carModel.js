@@ -2,30 +2,57 @@ const mongoose = require("mongoose");
 
 mongoose.connect("mongodb://localhost:27017/HooHoop", {
   useNewUrlParser: !0,
-  useUnifiedTopology: !0
+  useUnifiedTopology: !0,
+  useCreateIndex: 1
 });
 
 mongoose.connection.on("connected", () =>
-  console.log("Mongoose is connected!!!!")
+  console.log("Mongoose Car Model Intitialized!!!!")
 );
 
 const Schema = mongoose.Schema,
   CarSchema = new Schema({
-    Make: String,
-    Model: String,
-    ModelYear: Number,
-    BodyType: String,
+    Price: {
+      type: Number,
+      required: true
+    },
+    Make: {
+      type: String,
+      required: true
+    },
+    Model: {
+      type: String,
+      required: true
+    },
+    ModelYear: {
+      type: Number,
+      required: true
+    },
+    BodyType: {
+      type: String,
+      required: true
+    },
     DoorNum: Number,
     SeatNum: Number,
     ModelDetail: String,
     ImportHistory: String,
     PreviousOwners: String,
-    vinNum: String,
-    kMeters: Number,
+    vinNum: {
+      type: String,
+      required: true,
+      unique: true
+    },
+    kMeters: {
+      type: Number,
+      required: true
+    },
     Colour: String,
     engineSize: Number,
     Transmission: String,
-    fuelType: String,
+    fuelType: {
+      type: String,
+      required: true
+    },
     cylinderNum: String,
     WoFexpiry: String,
     regExpiry: String,
@@ -34,9 +61,10 @@ const Schema = mongoose.Schema,
     Description: String,
     CarFolder: String,
     photo360: Boolean,
-    author: ObjectId,
+    author: String,
     authorEmail: Boolean,
-    authorNumber: Boolean
+    authorNumber: Boolean,
+    Approved: Boolean
   });
 
 module.exports = mongoose.model("CarList", CarSchema);

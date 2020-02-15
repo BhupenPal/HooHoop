@@ -1,5 +1,6 @@
 const express = require("express");
 const Router = express();
+const sell_form = require("./sell_form");
 const fetch = require("node-fetch");
 const bodyParser = require("body-parser");
 const urlencodedParser = bodyParser.urlencoded({
@@ -26,5 +27,7 @@ function fetchData() {
 
   return fetch(urlReq).then(res => res.json());
 }
+
+Router.use("/", sell_form);
 
 module.exports = Router;
