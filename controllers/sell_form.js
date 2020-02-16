@@ -11,29 +11,42 @@ const urlencodedParser = bodyParser.urlencoded({
 const carModel = require("../models/carModel");
 const userModel = require("../models/userModel");
 
-var storage = multer.diskStorage({
+var storeExterior = multer.diskStorage({
   destination: function(req, file, cb) {
     fs.mkdir("assets/Uploads/" + req.body.vinNum, () => {
-      cb(null, `assets/Uploads/${req.body.vinNum}`);
+      fs.mkdir("assets/Uploads/" + req.body.vinNum + "/exteior", () => {});
+      cb(null, `assets/Uploads/${req.body.vinNum}/`);
     });
   },
   filename: function(req, file, cb) {
     let ext = file.originalname.split(".")[1];
     let filename = "Photo-" + Date.now() + "." + ext;
+    console.log(file);
     cb(null, filename);
   }
 });
 
-var multipleupload = multer({ storage: storage }).array("file");
+var storeInterior = multer.diskStorage({
+  destination: function(req, file, cb) {
+    fs.mkdir("assets/Uploads/" + req.body.vinNum + "/Interior", () => {
+      cb(nul);
+    });
+  }
+});
+
+var exterior = multer({ stroage: storeExterior }).array("exterior");
+var interior = multer({ storage: storeInterior }).array("inetrior");
 
 Router.post(
   "/car-submit/submit",
   urlencodedParser,
-  multipleupload,
-  async (req, res) => {
+  exterior,
+  interior,
+  (req, res) => {
     console.log(req.body);
     const newCar = new carModel();
     newCar.Price = req.body.Price;
+    newCar.minPrice = req.body.minPrice;
     newCar.Make = req.body.Make;
     newCar.Model = req.body.model;
     newCar.ModelYear = req.body.ModelYear;
@@ -79,6 +92,7 @@ Router.post(
       newCar.authorPhone = 0;
     }
 
+    console.log(newCar);
     newCar.save();
     res.send("HELLO");
   }

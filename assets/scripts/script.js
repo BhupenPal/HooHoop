@@ -43,7 +43,10 @@ function sld_unsld(j) {
 }
 
 function opt_select(k, j) {
-  let x = document.getElementsByClassName("opt-num-" + j)[k];
+  let x = document
+    .getElementsByClassName("select")
+    [j].getElementsByClassName("option")[k];
+  // let x = document.getElementsByClassName("option")[k];
   let y = document.getElementsByClassName("placeholder_text")[j];
   let z = document.getElementsByClassName("select-input")[j];
 

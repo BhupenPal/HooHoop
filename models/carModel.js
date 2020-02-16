@@ -16,6 +16,10 @@ const Schema = mongoose.Schema,
       type: Number,
       required: true
     },
+    minPrice: {
+      type: Number,
+      required: true
+    },
     Make: {
       type: String,
       required: true

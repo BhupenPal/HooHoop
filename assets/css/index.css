@@ -843,7 +843,7 @@ body {
 }
 
 .select input {
-  display: none;
+  display: block;
 }
 
 .placeholder {
@@ -1105,104 +1105,103 @@ body {
 /* buy-car-section */
 
 /* Listing-Section */
-.th_sxty_info{
+.th_sxty_info {
   margin: 20px 0;
   display: flex;
-}  
+}
 
-.th60_container{
-    height: 700px;
-    width: 900px;
-  }
+.th60_container {
+  height: 700px;
+  width: 900px;
+}
 
-  .viewthsxty{
-    height: 600px;
-    width: 100%;
-    background-color: #e2e2e2;
-  }
+.viewthsxty {
+  height: 600px;
+  width: 100%;
+  background-color: #e2e2e2;
+}
 
-  .car_name_price{
-    height: 100px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-family: Fira;
-    font-size: 30px;
-    font-weight: bold;
-  }
-  
-  .c_price{
-    color: orange;
-  }
+.car_name_price {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Fira;
+  font-size: 30px;
+  font-weight: bold;
+}
 
-  .c_price span{
-    font-size: 20px;
-    color: black;
-    font-weight: normal;
-  }
+.c_price {
+  color: orange;
+}
 
-  .cardetails_tab{
-    height: 600px;
-    width: 400px;
-    box-sizing: border-box;
-    padding: 20px; 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: Fira;
-  }
+.c_price span {
+  font-size: 20px;
+  color: black;
+  font-weight: normal;
+}
 
-  .cardetails_tab h1{
-    letter-spacing: 0.02em;
-    margin: 10px 0;
-  }  
+.cardetails_tab {
+  height: 600px;
+  width: 400px;
+  box-sizing: border-box;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Fira;
+}
 
-  .det_connect{
-    height: 65px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    margin: 1px 0;
-  }
+.cardetails_tab h1 {
+  letter-spacing: 0.02em;
+  margin: 10px 0;
+}
 
-  .det_connect .prop_hold{
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    width: 240px;
-    align-items: center;
-    box-sizing: border-box;
-    font-family: Lato;
-    font-weight: bold;
-    font-size: 20px;
-    background-color: #f1f1f1;
-  }
-  
-  .ico_hold{
-    display: flex;
-    height: 100%;
-    box-sizing: border-box;
-    width: 160px;
-    align-items: flex-start;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    font-family: Poppins;
-    background-color: #e1e1e1;
-  }
+.det_connect {
+  height: 65px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin: 1px 0;
+}
 
-  .ico_hold *{
-    margin: 0;
-    color: rgb(41, 39, 39);
-  }
+.det_connect .prop_hold {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  width: 240px;
+  align-items: center;
+  box-sizing: border-box;
+  font-family: Lato;
+  font-weight: bold;
+  font-size: 20px;
+  background-color: #f1f1f1;
+}
 
-  .ico_hold i{
-    font-size: 30px;
-    color: grey;
-    margin-bottom: 5px;
-    padding-top: 10px;
-  }
+.ico_hold {
+  display: flex;
+  height: 100%;
+  box-sizing: border-box;
+  width: 160px;
+  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: Poppins;
+  background-color: #e1e1e1;
+}
+
+.ico_hold * {
+  margin: 0;
+  color: rgb(41, 39, 39);
+}
+
+.ico_hold i {
+  font-size: 30px;
+  color: grey;
+  margin-bottom: 5px;
+  padding-top: 10px;
+}
 /* Listing-Section */
-

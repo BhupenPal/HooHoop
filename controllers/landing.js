@@ -26,12 +26,11 @@ Router.get("/buy-car", (req, res) => {
 });
 
 /* LOGIN and SIGNUP ROUTE */
-
 Router.use("/", userPanel);
 
-/* CAR360 ROUTE */ 
+/* CAR360 ROUTE */
 Router.get("/Listing", (req, res) => {
-  res.render("cpage_info")
-})
+  res.render("cpage_info");
+});
 
 module.exports = Router;
