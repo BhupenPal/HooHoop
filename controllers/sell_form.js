@@ -81,6 +81,10 @@ Router.post("/car-submit/submit", urlencodedParser, exterior, (req, res) => {
   newCar.regExpiry = req.body.regExpiry; //TO BE CHANGED
   newCar.RoadCost = req.body.RoadCost;
   newCar.Description = req.body.Description;
+  newCar.authorID = req.user._id;
+  newCar.authorName = `${req.user.firstName} ${req.user.lastName}`;
+  newCar.authorMail = req.user.email;
+  newCar.authorNumber = `${req.user.phoneNum}`;
   newCar.Approved = false;
 
   if (req.body.DriveWheel4 === "on") {
@@ -107,7 +111,7 @@ Router.post("/car-submit/submit", urlencodedParser, exterior, (req, res) => {
   }
 
   newCar.save();
-  res.send("HELLO");
+  res.render("dashboard");
 });
 
 module.exports = Router;

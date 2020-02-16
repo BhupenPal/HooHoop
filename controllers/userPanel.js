@@ -159,7 +159,7 @@ Router.get("/logout", (req, res) => {
 
 //Dashboard Route
 Router.get("/dashboard", ensureAuthenticated, (req, res) => {
-  res.render("dashboard", { userName: req.user.firstName });
+  res.render("dashboard");
 });
 
 module.exports = Router;

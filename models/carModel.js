@@ -65,9 +65,10 @@ const Schema = mongoose.Schema,
     Description: String,
     CarFolder: String,
     photo360: Boolean,
-    author: String,
-    authorEmail: Boolean,
-    authorNumber: Boolean,
+    authorID: String,
+    authorName: String,
+    authorNumber: String,
+    authorMail: String,
     Approved: Boolean
   });
 

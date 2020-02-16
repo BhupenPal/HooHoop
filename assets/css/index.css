@@ -843,7 +843,7 @@ body {
 }
 
 .select input {
-  display: block;
+  display: none;
 }
 
 .placeholder {
