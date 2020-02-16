@@ -1,35 +1,42 @@
 <header class="Head">
-  <div class="ajax-wrapper">
-    <div class="logo">
-      <a href="/">
-        <img src="/assets/images/Logo.png" alt="" />
-      </a>
-    </div>
-    <div class="search-engine">
-      <form action="/buy-car" method="GET">
-        <input
-          type="text"
-          placeholder="Search Car or Brands"
-          class="search-box"
-          name="search"
-        />
-        <div class="mag-search" role="button">
-          <i class="fal fa-search"></i>
+    <div class="ajax-wrapper">
+        <div class="logo">
+            <a href="/">
+                <img src="/assets/images/Logo.png" alt="">
+            </a>
+        </div>
+        <div class="search-engine">
+            <form method="POST">
+            <input type="text" placeholder="Search Car or Brands" class="search-box">
+            <div class="mag-search" role="button">
+                <i class="fal fa-search"></i>
+            </form>
+            </div>
+        </div>
+        <div class="user-panel">
+            <% if (user){ %>
+                <div>Hi, <%=user.firstName %></div>
+                <div class="userico" onclick="userinfo()">
+                    <i class="fad fa-user-circle"></i>
+                    <div class="user_options">
+                        <div class="userprofile">My Profile</div>
+                        <div class="userlistings">My Listings</div>
+                        <div class="userlogout"><a href="/logout">Logout</a></div>
+                    </div>
+                </div>
+            <% } else { %>
+                <a href="/login">
+                    <div class="login-btn">Login</div>
+                </a>
+                <a href="/sign-up">
+                    <div class="login-btn sign-up">sign up</div>
+                </a>
+            <% } %>
+
         </div>
       </form>
     </div>
-    <div class="user-panel">
-      <% if (user){ %>
-      <h1>Hi, <%=user.firstName %></h1>
-      <% } else { %>
-      <a href="/login">
-        <div class="login-btn">Login</div>
-      </a>
-      <a href="/sign-up">
-        <div class="login-btn sign-up">sign up</div>
-      </a>
-      <% } %>
-    </div>
+   
   </div>
   <div class="menu-wrapper">
     <ul>

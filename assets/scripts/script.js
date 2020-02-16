@@ -1,9 +1,5 @@
-function carinfo() {
-  var x = document.getElementById("car_jam");
-  x.classList.remove("vanish");
-}
-
 let i = 0;
+let z = 0;
 
 function sld_unsld(j) {
   let x = document.getElementsByClassName("select");
@@ -89,4 +85,14 @@ function tabselect(j){
   }
 
   y[j].classList.remove('vanish')
+}
+
+function userinfo(){
+  if(z%2==0){
+    document.getElementsByClassName("user_options")[0].style.display = 'block';
+    z++;
+  }else {
+    document.getElementsByClassName("user_options")[0].style.display = 'none';
+    z--;
+  }
 }
