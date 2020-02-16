@@ -23,7 +23,7 @@ Router.use(passport.initialize());
 Router.use(passport.session());
 
 //SELL CAR FORM ROUTE
-Router.get("/car-submit", ensureAuthenticated, (req, res) => {
+Router.get("/car-submit", ensureAuthenticated ,(req, res) => {
   res.render("sell_form", { vinFigured: false, detailedCarObject: false });
 });
 

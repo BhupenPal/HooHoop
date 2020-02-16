@@ -72,3 +72,21 @@ function scrolldiv(j) {
     x.scrollBy(380, 0);
   }
 }
+
+function tabselect(j){
+  let x = document.getElementsByClassName("tabs")
+
+  for(r=0;r<3;r++){
+    x[r].classList.remove("active-tab")
+  }
+
+  x[j].classList.add("active-tab")
+
+  let y = document.getElementsByClassName("p-body")
+
+  for(r=0;r<3;r++){
+    y[r].classList.add("vanish")
+  }
+
+  y[j].classList.remove('vanish')
+}
