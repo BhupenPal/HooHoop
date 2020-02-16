@@ -2,6 +2,7 @@
 const express = require("express");
 const Router = express.Router();
 const userPanel = require("./userPanel");
+const listCars = require("./listCars");
 const carJam = require("./carjam");
 
 /* HOME ROUTES */
@@ -21,9 +22,7 @@ Router.get("/sell-car", (req, res) => {
 Router.use("/", carJam);
 
 /* BUY CAR ROUTES */
-Router.get("/buy-car", (req, res) => {
-  res.render("buy_car");
-});
+Router.use("/", listCars);
 
 /* LOGIN and SIGNUP ROUTE */
 Router.use("/", userPanel);
