@@ -1,35 +1,47 @@
 const express = require("express");
 const Router = express.Router();
+const mongoose = require("mongoose");
 const carModel = require("../models/carModel");
 
-// Router.get("/buy-car", (req, res) => {
-//     res.render("buy_car");
-//   });
-
-Router.get("/buy-car", (req, res) => {
-  var PageNo = parseInt(req.query.PageNo);
-  var size = parseInt(req.query.size);
-
-  var query = {};
-
-  if (PageNo < 0 || PageNo === 0) {
-    Response = { error: true, message: "invalid page number" };
-    return res.json(Response);
-  }
-
-  query.skip = size * (PageNo - 1);
-  query.limit = size;
-
-  carModel.find({}, {}, query, function(err, data) {
-    if (err) {
-      response = { error: true, message: "Error fetching data" };
-    } else {
-      response = { error: false, message: data };
-    }
-    console.log(response + "___________________");
-    console.log(data);
-    res.render("buy_car", { record: data });
-  });
+Router.get("/buy-car", Paginator(carModel), (req, res) => {
+  res.render("buy_car", { record: res.Paginator });
 });
+
+function Paginator(model) {
+  return async (req, res, next) => {
+    const page = parseInt(req.query.page);
+    const limit = 10;
+
+    const startIndex = (page - 1) * limit;
+    const endIndex = page * limit;
+
+    const results = {};
+
+    if (endIndex < (await model.countDocuments().exec())) {
+      results.next = {
+        page: page + 1,
+        limit: limit
+      };
+    }
+    if (startIndex > 0) {
+      results.previous = {
+        page: page - 1,
+        limit: limit
+      };
+    }
+
+    try {
+      results.results = await model
+        .find()
+        .limit(limit)
+        .skip(startIndex)
+        .exec();
+      res.Paginator = results;
+      next();
+    } catch (e) {
+      console.log(e);
+    }
+  };
+}
 
 module.exports = Router;
