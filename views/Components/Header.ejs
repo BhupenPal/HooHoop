@@ -15,7 +15,15 @@
         </div>
         <div class="user-panel">
             <% if (user){ %>
-                <h1>Hi, <%=user.firstName %></h1>
+                <div>Hi, <%=user.firstName %></div>
+                <div class="userico" onclick="userinfo()">
+                    <i class="fad fa-user-circle"></i>
+                    <div class="user_options">
+                        <div class="userprofile">My Profile</div>
+                        <div class="userlistings">My Listings</div>
+                        <div class="userlogout"><a href="/logout">Logout</a></div>
+                    </div>
+                </div>
             <% } else { %>
                 <a href="/login">
                     <div class="login-btn">Login</div>
