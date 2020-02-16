@@ -26,8 +26,8 @@ Router.get("/buy-car", (req, res) => {
     } else {
       response = { error: false, message: data };
     }
-    console.log(response + "___________________");
-    console.log(data);
+    // console.log(response + "___________________");
+    // console.log(data);
     res.render("buy_car", { record: data });
   });
 });
