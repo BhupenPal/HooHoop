@@ -9,93 +9,105 @@ const urlencodedParser = bodyParser.urlencoded({
 
 //MODELS
 const carModel = require("../models/carModel");
-const userModel = require("../models/userModel");
 
 var storeExterior = multer.diskStorage({
-  destination: function(req, file, cb) {
-    fs.mkdir("assets/Uploads/" + req.body.vinNum, () => {
-      fs.mkdir("assets/Uploads/" + req.body.vinNum + "/exteior", () => {});
-      cb(null, `assets/Uploads/${req.body.vinNum}/`);
-    });
+  destination: (req, file, cb) => {
+    let dirMain = `assets/Uploads/${req.body.vinNum}/`;
+    let dirExt = `assets/Uploads/${req.body.vinNum}/exterior`;
+    let dirInt = `assets/Uploads/${req.body.vinNum}/interior`;
+    if (file.fieldname === "exterior") {
+      if (fs.existsSync(dirExt)) {
+        cb(null, dirExt);
+      } else if (fs.existsSync(dirMain)) {
+        fs.mkdir(dirExt, () => {
+          cb(null, dirExt);
+        });
+      } else {
+        fs.mkdir(dirMain, () => {
+          fs.mkdir(dirExt, () => {
+            cb(null, dirExt);
+          });
+        });
+      }
+    } else if (file.fieldname === "interior") {
+      if (fs.existsSync(dirInt)) {
+        cb(null, dirInt);
+      } else if (fs.existsSync(dirMain)) {
+        fs.mkdir(dirInt, () => {
+          cb(null, dirInt);
+        });
+      } else {
+        fs.mkdir(dirMain, () => {
+          fs.mkdir(dirInt, () => {
+            cb(null, dirInt);
+          });
+        });
+      }
+    }
   },
   filename: function(req, file, cb) {
     let ext = file.originalname.split(".")[1];
     let filename = "Photo-" + Date.now() + "." + ext;
-    console.log(file);
     cb(null, filename);
   }
 });
 
-var storeInterior = multer.diskStorage({
-  destination: function(req, file, cb) {
-    fs.mkdir("assets/Uploads/" + req.body.vinNum + "/Interior", () => {
-      cb(nul);
-    });
+var exterior = multer({ storage: storeExterior }).fields([
+  { name: "exterior" },
+  { name: "interior" }
+]);
+
+Router.post("/car-submit/submit", urlencodedParser, exterior, (req, res) => {
+  const newCar = new carModel();
+  newCar.Price = req.body.Price;
+  newCar.minPrice = req.body.minPrice;
+  newCar.Make = req.body.Make;
+  newCar.Model = req.body.model;
+  newCar.ModelYear = req.body.ModelYear;
+  newCar.BodyType = req.body.BodyType; //TO BE CHANGED
+  newCar.DoorNum = req.body.DoorNum;
+  newCar.SeatNum = req.body.SeatNum;
+  newCar.ModelDetail = req.body.ModelDetail;
+  newCar.ImportHistory = req.body.ImportHistory;
+  newCar.PreviousOwners = req.body.PreviousOwners;
+  newCar.vinNum = req.body.vinNum;
+  newCar.kMeters = req.body.kMeters;
+  newCar.Colour = req.body.Colour;
+  newCar.engineSize = req.body.engineSize;
+  newCar.Transmission = req.body.Transmission;
+  newCar.fuelType = req.body.fuelType; //TO BE CHANGED
+  newCar.cylinderNum = req.body.cylinderNum;
+  newCar.WoFexpiry = req.body.WoFexpiry; //TO BE CHANGED
+  newCar.regExpiry = req.body.regExpiry; //TO BE CHANGED
+  newCar.RoadCost = req.body.RoadCost;
+  newCar.Description = req.body.Description;
+  newCar.Approved = false;
+
+  if (req.body.DriveWheel4 === "on") {
+    newCar.DriveWheel4 = 1;
+  } else {
+    newCar.DriveWheel4 = 0;
   }
+  if (req.body.photo360 === "on") {
+    newCar.photo360 = 1;
+  } else {
+    newCar.photo360 = 0;
+  }
+
+  if (req.body.authorEmail === "on") {
+    newCar.authorEmail = 1;
+  } else {
+    newCar.authorEmail = 0;
+  }
+
+  if (req.body.authorPhone === "on") {
+    newCar.authorPhone = 1;
+  } else {
+    newCar.authorPhone = 0;
+  }
+
+  newCar.save();
+  res.send("HELLO");
 });
-
-var exterior = multer({ stroage: storeExterior }).array("exterior");
-var interior = multer({ storage: storeInterior }).array("inetrior");
-
-Router.post(
-  "/car-submit/submit",
-  urlencodedParser,
-  exterior,
-  interior,
-  (req, res) => {
-    console.log(req.body);
-    const newCar = new carModel();
-    newCar.Price = req.body.Price;
-    newCar.minPrice = req.body.minPrice;
-    newCar.Make = req.body.Make;
-    newCar.Model = req.body.model;
-    newCar.ModelYear = req.body.ModelYear;
-    newCar.BodyType = req.body.BodyType; //TO BE CHANGED
-    newCar.DoorNum = req.body.DoorNum;
-    newCar.SeatNum = req.body.SeatNum;
-    newCar.ModelDetail = req.body.ModelDetail;
-    newCar.ImportHistory = req.body.ImportHistory;
-    newCar.PreviousOwners = req.body.PreviousOwners;
-    newCar.vinNum = req.body.vinNum;
-    newCar.kMeters = req.body.kMeters;
-    newCar.Colour = req.body.Colour;
-    newCar.engineSize = req.body.engineSize;
-    newCar.Transmission = req.body.Transmission;
-    newCar.fuelType = req.body.fuelType; //TO BE CHANGED
-    newCar.cylinderNum = req.body.cylinderNum;
-    newCar.WoFexpiry = req.body.WoFexpiry; //TO BE CHANGED
-    newCar.regExpiry = req.body.regExpiry; //TO BE CHANGED
-    newCar.RoadCost = req.body.RoadCost;
-    newCar.Description = req.body.Description;
-    newCar.Approved = false;
-
-    if (req.body.DriveWheel4 === "on") {
-      newCar.DriveWheel4 = 1;
-    } else {
-      newCar.DriveWheel4 = 0;
-    }
-    if (req.body.photo360 === "on") {
-      newCar.photo360 = 1;
-    } else {
-      newCar.photo360 = 0;
-    }
-
-    if (req.body.authorEmail === "on") {
-      newCar.authorEmail = 1;
-    } else {
-      newCar.authorEmail = 0;
-    }
-
-    if (req.body.authorPhone === "on") {
-      newCar.authorPhone = 1;
-    } else {
-      newCar.authorPhone = 0;
-    }
-
-    console.log(newCar);
-    newCar.save();
-    res.send("HELLO");
-  }
-);
 
 module.exports = Router;
