@@ -10,6 +10,8 @@ const urlencodedParser = bodyParser.urlencoded({
 //MODELS
 const carModel = require("../models/carModel");
 
+let photoIndex = 0;
+
 var storeExterior = multer.diskStorage({
   destination: (req, file, cb) => {
     let dirMain = `assets/Uploads/${req.body.vinNum}/`;
@@ -29,7 +31,35 @@ var storeExterior = multer.diskStorage({
           });
         });
       }
-    } else if (file.fieldname === "interior") {
+    } else if (file.fieldname === "interiorFront") {
+      if (fs.existsSync(dirInt)) {
+        cb(null, dirInt);
+      } else if (fs.existsSync(dirMain)) {
+        fs.mkdir(dirInt, () => {
+          cb(null, dirInt);
+        });
+      } else {
+        fs.mkdir(dirMain, () => {
+          fs.mkdir(dirInt, () => {
+            cb(null, dirInt);
+          });
+        });
+      }
+    } else if (file.fieldname === "interiorMiddle") {
+      if (fs.existsSync(dirInt)) {
+        cb(null, dirInt);
+      } else if (fs.existsSync(dirMain)) {
+        fs.mkdir(dirInt, () => {
+          cb(null, dirInt);
+        });
+      } else {
+        fs.mkdir(dirMain, () => {
+          fs.mkdir(dirInt, () => {
+            cb(null, dirInt);
+          });
+        });
+      }
+    } else if (file.fieldname === "interiorRear") {
       if (fs.existsSync(dirInt)) {
         cb(null, dirInt);
       } else if (fs.existsSync(dirMain)) {
@@ -46,11 +76,16 @@ var storeExterior = multer.diskStorage({
     }
   },
   filename: function(req, file, cb) {
-    let photoIndex = 0;
-    let ext = file.originalname.split(".")[1];
-    let filename = "Photo-" + photoIndex + "." + ext;
-    photoIndex++;
-    cb(null, filename);
+    if (file.fieldname === "exterior") {
+      let ext = file.originalname.split(".")[1];
+      let filename = "Photo-" + photoIndex + "." + ext;
+      photoIndex++;
+      cb(null, filename);
+    } else if (file.fieldname !== "exterior") {
+      let ext = file.originalname.split(".")[1];
+      let filename = file.fieldname + "." + ext;
+      cb(null, filename);
+    }
   }
 });
 
@@ -89,7 +124,7 @@ Router.post("/car-submit/submit", urlencodedParser, exterior, (req, res) => {
   newCar.authorName = `${req.user.firstName} ${req.user.lastName}`;
   newCar.authorMail = req.user.email;
   newCar.authorNumber = `${req.user.phoneNum}`;
-  newCar.Approved = false;
+  newCar.views = 0;
 
   if (req.body.DriveWheel4 === "on") {
     newCar.DriveWheel4 = 1;
