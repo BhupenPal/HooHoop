@@ -46,15 +46,19 @@ var storeExterior = multer.diskStorage({
     }
   },
   filename: function(req, file, cb) {
+    let photoIndex = 0;
     let ext = file.originalname.split(".")[1];
-    let filename = "Photo-" + Date.now() + "." + ext;
+    let filename = "Photo-" + photoIndex + "." + ext;
+    photoIndex++;
     cb(null, filename);
   }
 });
 
 var exterior = multer({ storage: storeExterior }).fields([
   { name: "exterior" },
-  { name: "interior" }
+  { name: "interiorFront" },
+  { name: "interiorMiddle" },
+  { name: "interiorRear" }
 ]);
 
 Router.post("/car-submit/submit", urlencodedParser, exterior, (req, res) => {

@@ -30,7 +30,11 @@
         <% for(var i = 0; i < record.length; i++) { %>
         <a href="http://localhost:8080/buy-car/<%= record[i].id%>" class="cardanchor">
           <div class="bc_card">
-            <div class="bcimg_sec"><img src="../assets/images/5.jpg" /></div>
+            <div class="bcimg_sec">
+              <img
+                src="/assets/Uploads/<%= record[i].vinNum %>/exterior/Photo-0.png"
+              />
+            </div>
 
             <div class="inf_sec">
               <div class="locate">
