@@ -23,8 +23,8 @@
       <div class="th60_container">
         <div class="viewthsxty"></div>
         <div class="car_name_price">
-          <div class="c_name">Honda CITY 2010</div>
-          <div class="c_price">$20,000 <span>NZ</span></div>
+          <div class="c_name"><%= record.Make %></div>
+          <div class="c_price">$<%= record.Price%><span>NZ</span></div>
         </div>
       </div>
       <div class="cardetails_tab">
@@ -34,7 +34,7 @@
             <i class="fad fa-joystick"></i>
             <p>Transmission</p>
           </div>
-          <div class="prop_hold">Automatic</div>
+          <div class="prop_hold"><%= record.Transmission %></div>
         </div>
 
         <div class="det_connect">
@@ -42,7 +42,7 @@
             <i class="fal fa-tachometer"></i>
             <span>KM</span>
           </div>
-          <div class="prop_hold">106,88</div>
+          <div class="prop_hold"><%= record.kMeters %></div>
         </div>
 
         <div class="det_connect">
@@ -50,7 +50,7 @@
             <i class="fad fa-gas-pump"></i>
             <span>Fuel Type</span>
           </div>
-          <div class="prop_hold">Petrol</div>
+          <div class="prop_hold"><%= record.fuelType %></div>
         </div>
 
         <div class="det_connect">
@@ -58,7 +58,7 @@
             <i class="fas fa-loveseat"></i>
             <span>Seats</span>
           </div>
-          <div class="prop_hold">5</div>
+          <div class="prop_hold"><%= record.SeatNum %></div>
         </div>
 
         <div class="det_connect">
@@ -66,7 +66,7 @@
             <i class="fad fa-cogs"></i>
             <span>Engine</span>
           </div>
-          <div class="prop_hold">1496 cc</div>
+          <div class="prop_hold"><%= record.engineSize %> cc</div>
         </div>
 
         <div class="det_connect">
@@ -74,7 +74,7 @@
             <i class="fad fa-car-alt"></i>
             <span>Body style</span>
           </div>
-          <div class="prop_hold">Convertible</div>
+          <div class="prop_hold"><%= record.BodyType %></div>
         </div>
 
         <div class="det_connect">
@@ -82,7 +82,7 @@
             <i class="fad fa-paint-brush-alt"></i>
             <span>Color</span>
           </div>
-          <div class="prop_hold">Silver</div>
+          <div class="prop_hold"><%= record.Colour %></div>
         </div>
       </div>
     </div>

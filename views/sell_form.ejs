@@ -398,13 +398,6 @@
                         </div>
                     </div>
 
-                    <div>
-                        <label for="">INTERIOR</label>
-                        <input type="file" name="interior" accept="image/*" multiple />
-                        <label for="">EXTERIOR</label>
-                        <input type="file" name="exterior" accept="image/*" multiple />
-                    </div>
-
                     <div class="form_inp form2">
                     
                         <div class="drive-type">
@@ -422,7 +415,31 @@
                             <h2>Describe the car (optional)</h2>
                             <textarea name="tarea" id="t_area" rows="6" placeholder="E.g. condition and other information" name="Description"></textarea>
                         </div>
-                    
+                        
+                        <div class="file_upload">
+                            <h2>Upload Interior</h2>
+                                <div class="int_images">
+                                <label for="car-front">Front
+                                    <input type="file" name="interior" id="car_front" accept="image/*"/>
+                                </label>
+                            
+                                <label for="car-middle">Middle
+                                    <input type="file" name="interior" id="car_middle" accept="image/*"/>
+                                </label>
+                            
+                                <label for="car-rear">Rear
+                                    <input type="file" name="interior" id="car_rear" accept="image/*"/>
+                                </label>
+                                </div>
+                                
+                                <h2>Upload Exterior</h2>
+                                <div class="ext_images">
+                                <label for="">Exterior
+                                    <input type="file" name="exterior" accept="image/*" multiple/>
+                                </label>
+                                </div>
+                        </div>
+
                         <div class="rq360">
                             <input type="checkbox" name="photo360">
                             <h2>Request for 360 photography</h2>

@@ -20,5 +20,44 @@
   <body class="preloader">
     <%-include('./Components/Header.ejs') %>
     <!-- navbar end -->
+    <div class="buy_car_page_wrapper">
+      <div class="infohandle30">
+        <div class="bc_card_fltr">
+          filter daal diyo css mai dekh loonga
+        </div>
+      </div>
+      <div class="infohadle60">
+        <% for(var i = 0; i < record.length; i++) { %>
+        <a href="http://localhost:8080/buy-car/<%= record[i].id%>">
+          <div class="bc_card">
+            <div class="bcimg_sec"><img src="../assets/images/5.jpg" /></div>
+
+            <div class="inf_sec">
+              <div class="locate">
+                <span>Location</span>
+                <span>TIME UPLOADED</span>
+              </div>
+
+              <div class="c_deta_sec">
+                <h2 class="c_nme"><%= record[i].Make %></h2>
+                <h3 class="c_tpe"><%= record[i].BodyType %></h3>
+                <p class="odo_rding"><%= record[i].kMeters %></p>
+                <p>
+                  <span class="e-sze">2000cc,</span>
+                  <span class="f_tpe"> Petrol</span>
+                </p>
+                <p class="tmssn">Transmission</p>
+              </div>
+
+              <div class="price">
+                <div class="as_p"><span>Asking price: </span>$Price</div>
+                <div class="on_r_cst_1">On Road Costs (Status)</div>
+              </div>
+            </div>
+          </div>
+        </a>
+        <% } %>
+      </div>
+    </div>
   </body>
 </html>

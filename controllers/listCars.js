@@ -1,15 +1,22 @@
 const express = require("express");
 const Router = express.Router();
-const mongoose = require("mongoose");
 const carModel = require("../models/carModel");
 
-Router.get("/buy-car", Paginator(carModel), (req, res) => {
-  res.render("buy_car", { record: res.Paginator });
+Router.get("/search-car/:page", Paginator(carModel), (req, res) => {
+  res.render("buy_car", { record: res.Paginator.results });
+});
+
+Router.get("/buy-car/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+    let result = await carModel.find({ _id: id }).exec();
+    res.render("cpage_info", { record: result[0] });
+  } catch (e) {}
 });
 
 function Paginator(model) {
   return async (req, res, next) => {
-    const page = parseInt(req.query.page);
+    const page = parseInt(req.params.page) || 1;
     const limit = 10;
 
     const startIndex = (page - 1) * limit;

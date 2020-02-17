@@ -584,7 +584,7 @@ body {
   background-color: #f6b500;
 }
 /* Sell-Car-Page */
-/* SELL_FORM */
+/* SELL-FORM */
 
 .VIN-input {
   min-height: 300px;
@@ -829,6 +829,55 @@ body {
   padding: 10px;
 }
 
+.file_upload{
+  padding-left: 10px;
+  margin-top: 30px;
+  font-family: Fira;
+  font-weight: bolder;
+  font-size: 18px;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.file_upload h2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.int_images,.ext_images{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.int_images label,.ext_images label{
+  height: 50px;
+  min-width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5bf2b;
+  border: none;
+  position: relative;
+  margin: 0 50px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.int_images label input,.ext_images label input{
+  position: absolute;
+  height: 50px;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  cursor: pointer;
+}
+
+
 .rq360 {
   display: flex;
   justify-content: flex-start;
@@ -882,7 +931,7 @@ body {
   background-color: #f5bf2b;
 }
 
-/* SELL_FORM */
+/* SELL-FORM */
 
 /* select-tag-css */
 
@@ -1048,6 +1097,27 @@ body {
 /* Login/Register */
 
 /* buy-car-section */
+.buy_car_page_wrapper{
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.infohandle30{
+  width: 30%;
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.infohandle60{
+  width: 60%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 .bc_card {
   height: 400px;
   width: 800px;
