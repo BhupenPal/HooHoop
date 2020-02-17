@@ -53,15 +53,16 @@
     </div>
 
     <div class="sell_form_submission">
-            <div class="form_head">
-                <h1>selling price</h1>
-                <input type="text" placeholder="Preferred Selling Price" name="Price" required>
-                <input type="text" placeholder="Minimum Selling Price" name="minPrice" required>
-            </div>
+
 
             <div class="form_inp">
                 
                 <form method="post" enctype="multipart/form-data" action="submit">
+                    <div class="form_head">
+                        <h1>selling price</h1>
+                        <input type="text" placeholder="Preferred Selling Price" name="Price" required>
+                        <input type="text" placeholder="Minimum Selling Price" name="minPrice" required>
+                    </div>
                     
                     <div class="input-wrapper">
                         <span> Select Make </span>
@@ -284,7 +285,7 @@
 
                     <div class="input-wrapper">
                         <span> Kilometres </span>
-                        <input type="text" class="inp_form_tag" value="<%= detailedCarObject.latest_odometer_reading %>" name="kMtere" required>
+                        <input type="text" class="inp_form_tag" value="<%= detailedCarObject.latest_odometer_reading %>" name="kMeters" required>
                     </div>
 
                     <div class="input-wrapper">
@@ -460,5 +461,7 @@
         </div>
     </div>
     <%-include('./Components/Footer.ejs') %>
+    <script>
+    </script>
 </body>
 </html>
