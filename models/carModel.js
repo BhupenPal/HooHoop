@@ -69,7 +69,7 @@ const Schema = mongoose.Schema,
     authorName: String,
     authorNumber: String,
     authorMail: String,
-    Approved: Boolean
+    views: Number
   });
 
 module.exports = mongoose.model("CarList", CarSchema);

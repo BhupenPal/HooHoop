@@ -10,6 +10,8 @@ const urlencodedParser = bodyParser.urlencoded({
 //MODELS
 const carModel = require("../models/carModel");
 
+let photoIndex = 0;
+
 var storeExterior = multer.diskStorage({
   destination: (req, file, cb) => {
     let dirMain = `assets/Uploads/${req.body.vinNum}/`;
@@ -75,7 +77,6 @@ var storeExterior = multer.diskStorage({
   },
   filename: function(req, file, cb) {
     if (file.fieldname === "exterior") {
-      let photoIndex = 0;
       let ext = file.originalname.split(".")[1];
       let filename = "Photo-" + photoIndex + "." + ext;
       photoIndex++;
@@ -123,7 +124,7 @@ Router.post("/car-submit/submit", urlencodedParser, exterior, (req, res) => {
   newCar.authorName = `${req.user.firstName} ${req.user.lastName}`;
   newCar.authorMail = req.user.email;
   newCar.authorNumber = `${req.user.phoneNum}`;
-  newCar.Approved = false;
+  newCar.views = 0;
 
   if (req.body.DriveWheel4 === "on") {
     newCar.DriveWheel4 = 1;

@@ -58,6 +58,8 @@ function activate(j) {
     x[i].classList.remove("list_active");
   }
   x[j].classList.add("list_active");
+
+  document.getElementById("BodyTypeSelector").innerHTML = x[j].innerHTML;
 }
 
 function scrolldiv(j) {
@@ -69,30 +71,30 @@ function scrolldiv(j) {
   }
 }
 
-function tabselect(j){
-  let x = document.getElementsByClassName("tabs")
+function tabselect(j) {
+  let x = document.getElementsByClassName("tabs");
 
-  for(r=0;r<3;r++){
-    x[r].classList.remove("active-tab")
+  for (r = 0; r < 3; r++) {
+    x[r].classList.remove("active-tab");
   }
 
-  x[j].classList.add("active-tab")
+  x[j].classList.add("active-tab");
 
-  let y = document.getElementsByClassName("p-body")
+  let y = document.getElementsByClassName("p-body");
 
-  for(r=0;r<3;r++){
-    y[r].classList.add("vanish")
+  for (r = 0; r < 3; r++) {
+    y[r].classList.add("vanish");
   }
 
-  y[j].classList.remove('vanish')
+  y[j].classList.remove("vanish");
 }
 
-function userinfo(){
-  if(z%2==0){
-    document.getElementsByClassName("user_options")[0].style.display = 'block';
+function userinfo() {
+  if (z % 2 == 0) {
+    document.getElementsByClassName("user_options")[0].style.display = "block";
     z++;
-  }else {
-    document.getElementsByClassName("user_options")[0].style.display = 'none';
+  } else {
+    document.getElementsByClassName("user_options")[0].style.display = "none";
     z--;
   }
 }
