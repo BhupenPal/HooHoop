@@ -517,10 +517,8 @@ body {
   justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
-  margin-top: 50px;
+  margin: 50px 0;
   box-shadow: 0px 0px 20px 10px #dadada;
-  border-top-right-radius: 100px;
-  border-bottom-left-radius: 100px;
 }
 
 .pakages {
@@ -1039,7 +1037,7 @@ body {
 .card {
   min-height: 550px;
   width: 400px;
-  margin-top: 100px;
+  margin: 100px 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1094,6 +1092,21 @@ body {
   font-family: Lato;
 }
 
+.reg_link{
+  font-family: Lato;
+  transition: 0.2s;
+}
+
+.reg_link a{
+  text-decoration: none;
+  font-size: large;
+  font-weight: bolder;
+  color: #1EA1F3;
+}
+
+.reg_link a:hover{
+  color: #f6b500;
+}
 /* Login/Register */
 
 /* buy-car-section */
