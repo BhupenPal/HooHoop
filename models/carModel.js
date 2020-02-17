@@ -14,27 +14,27 @@ const Schema = mongoose.Schema,
   CarSchema = new Schema({
     Price: {
       type: Number,
-      required: false
+      required: true
     },
     minPrice: {
       type: Number,
-      required: false
+      required: true
     },
     Make: {
       type: String,
-      required: false
+      required: true
     },
     Model: {
       type: String,
-      required: false
+      required: true
     },
     ModelYear: {
       type: Number,
-      required: false
+      required: true
     },
     BodyType: {
       type: String,
-      required: false
+      required: true
     },
     DoorNum: Number,
     SeatNum: Number,
@@ -43,19 +43,19 @@ const Schema = mongoose.Schema,
     PreviousOwners: String,
     vinNum: {
       type: String,
-      required: false,
-      unique: false
+      required: true,
+      unique: true
     },
     kMeters: {
       type: Number,
-      required: false
+      required: true
     },
     Colour: String,
     engineSize: Number,
     Transmission: String,
     fuelType: {
       type: String,
-      required: false
+      required: true
     },
     cylinderNum: String,
     WoFexpiry: String,
