@@ -29,7 +29,35 @@ var storeExterior = multer.diskStorage({
           });
         });
       }
-    } else if (file.fieldname === "interior") {
+    } else if (file.fieldname === "interiorFront") {
+      if (fs.existsSync(dirInt)) {
+        cb(null, dirInt);
+      } else if (fs.existsSync(dirMain)) {
+        fs.mkdir(dirInt, () => {
+          cb(null, dirInt);
+        });
+      } else {
+        fs.mkdir(dirMain, () => {
+          fs.mkdir(dirInt, () => {
+            cb(null, dirInt);
+          });
+        });
+      }
+    } else if (file.fieldname === "interiorMiddle") {
+      if (fs.existsSync(dirInt)) {
+        cb(null, dirInt);
+      } else if (fs.existsSync(dirMain)) {
+        fs.mkdir(dirInt, () => {
+          cb(null, dirInt);
+        });
+      } else {
+        fs.mkdir(dirMain, () => {
+          fs.mkdir(dirInt, () => {
+            cb(null, dirInt);
+          });
+        });
+      }
+    } else if (file.fieldname === "interiorRear") {
       if (fs.existsSync(dirInt)) {
         cb(null, dirInt);
       } else if (fs.existsSync(dirMain)) {
@@ -46,11 +74,17 @@ var storeExterior = multer.diskStorage({
     }
   },
   filename: function(req, file, cb) {
-    let photoIndex = 0;
-    let ext = file.originalname.split(".")[1];
-    let filename = "Photo-" + photoIndex + "." + ext;
-    photoIndex++;
-    cb(null, filename);
+    if (file.fieldname === "exterior") {
+      let photoIndex = 0;
+      let ext = file.originalname.split(".")[1];
+      let filename = "Photo-" + photoIndex + "." + ext;
+      photoIndex++;
+      cb(null, filename);
+    } else if (file.fieldname !== "exterior") {
+      let ext = file.originalname.split(".")[1];
+      let filename = file.fieldname + "." + ext;
+      cb(null, filename);
+    }
   }
 });
 
