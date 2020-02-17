@@ -1,8 +1,28 @@
 const express = require("express");
 const Router = express.Router();
 const carModel = require("../models/carModel");
+const fs = require("fs");
 
-Router.get("/search-car/:page", Paginator(carModel), (req, res) => {
+Router.get("/search-car/:page", Paginator(carModel), async (req, res) => {
+  // let results = res.Paginator.results;
+  // let imageData = [];
+
+  // for (let i = 0; i < results.length; i++) {
+  //   fs.readdir(`assets/Uploads/${results[i].vinNum}`, (err, files) => {
+  //     files.forEach(file => {
+  //       fs.readdir(
+  //         `assets/Uploads/${results[i].vinNum}/${file}`,
+  //         (err, files) => {
+  //           files.forEach(file => {
+  //             imageData.push({ vinNum: results[i].vinNum, thumbNail: file });
+  //             console.log(imageData);
+  //           });
+  //         }
+  //       );
+  //     });
+  //   });
+  // }
+
   res.render("buy_car", { record: res.Paginator.results });
 });
 
