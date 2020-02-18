@@ -71,6 +71,10 @@ body {
   display: flex;
 }
 
+.search-engine form button{
+  height: 100%;
+}
+
 .mag-search {
   height: 40px;
   width: 40px;
@@ -1145,6 +1149,8 @@ body {
   margin: 20px 10px;
   border-radius: 5px;
   display: flex;
+  justify-content: center;
+  align-content: flex-start;
   flex-wrap: wrap;
 }
 
