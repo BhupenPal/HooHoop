@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="/assets/css/index.css" />
+    <link rel="stylesheet" href="/assets/css/all.min.css" />
+    <link rel="stylesheet" href="/assets/css/fonts.css" />
+    <script src="/assets/scripts/script.js"></script>
+    <title>HooHoop</title>
+    <link
+      rel="icon"
+      href="/assets/images/favicon.ico"
+      type="image/ico"
+      sizes="16*16"
+    />
+  </head>
+  <body class="bgset">
+    <%-include('./Components/Header.ejs') %>
+
+        <div class="User_listings_wrapper">
+            <div class="Head">My Listings</div>
+
+            <div class="usli_card_wrap">
+                <div class="listing_card">
+                    <div class="lis_img"></div>
+                    <div class="list_info">
+                        <div class="list_info_make"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+     %> <%-include('./Components/Footer.ejs') %>
+  </body>
+</html>

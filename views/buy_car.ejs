@@ -142,16 +142,16 @@
         <% for(var i = 0; i < record.length; i++) { %>
           <a href="http://localhost:8080/buy-car/<%= record[i].id%>" class="cardanchor">
           <div class="bc-card">
-            <div class="cb_img"><img src="../assets/images/4.jpg"></div>
+            <div class="cb_img"><img src="/assets/Uploads/<%= record[i].vinNum %>/exterior/Photo-0.jpg"></div>
             <div class="cb_info">
               <div class="cb_main">
                 <span class="cb_name"><%= record[i].Make %></span>
-                <span class="cb_price">$ 20000</span>
+                <span class="cb_price">$ <%= record[i].Price %></span>
               </div>
               <div class="cb_add_info">
-                <span class="kms_info">12000</span>
-                <span class="trans_info">Automatic</span>
-                <span class="model_info">C250</span>
+                <span class="kms_info"><%= record[i].kMeters %></span>
+                <span class="trans_info"><%= record[i].Transmission %></span>
+                <span class="model_info"><%= record[i].Model %></span>
               </div>
             </div>
           </div>

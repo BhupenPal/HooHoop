@@ -1206,6 +1206,8 @@ body {
   justify-content: center;
   align-items: center;
   font-family: Roboto;
+  text-transform: capitalize;
+  text-align: center;
 }
 
 .filters{
@@ -1496,6 +1498,21 @@ body {
   cursor: pointer;
 }
 /* Listing-Section */
+
+/* User-Listing-Page */
+
+.User_listings_wrapper{
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 90%;
+  background-color: #ffffff;
+  min-height: 100vh;
+  margin: 20px 0;
+}
+
+/* User-Listing-Page */
 
 /* Footer */
   .foot{

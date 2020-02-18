@@ -32,4 +32,9 @@ Router.get("/Listing", (req, res) => {
   res.render("cpage_info");
 });
 
+/* USER LISTING ROUTE */ 
+Router.get("/My-listings",(req, res) => {
+  res.render("userlistings");
+})
+
 module.exports = Router;
