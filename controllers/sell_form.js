@@ -139,13 +139,13 @@ Router.post("/car-submit/submit", urlencodedParser, exterior, (req, res) => {
     newCar.BodyType = "Other"
   }
 
-  if(req.body.fuelType === "01"){
+  if(req.body.fuelType === 01){
     newCar.fuelType = "Petrol"
-  }else if(req.body.fuelType === "HA"){
+  }else if(req.body.fuelType === 02){
     newCar.fuelType = "Diesel"
-  }else if(req.body.fuelType === "HV"){
+  }else if(req.body.fuelType === 05){
     newCar.fuelType = "Electric"
-  }else if(req.body.fuelType === "LV"){
+  }else if(req.body.fuelType === 93){
     newCar.fuelType = "Hybrid"
   }else{
     newCar.fuelType = "Other"
@@ -184,7 +184,6 @@ Router.post("/car-submit/submit", urlencodedParser, exterior, (req, res) => {
   } else {
     newCar.authorPhone = 0;
   }
-  console.log(newCar);
   newCar.save();
   res.render("dashboard");
 });

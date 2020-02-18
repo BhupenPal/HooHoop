@@ -1510,12 +1510,111 @@ body {
 .User_listings_wrapper{
   padding: 20px;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
-  justify-content: center;
+  align-items: center;
   width: 90%;
   background-color: #ffffff;
   min-height: 100vh;
   margin: 20px 0;
+}
+
+.Userlisting_Head{
+  height: 100px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-family: Lato;
+  font-size: 50px;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.usli_card_wrap{
+  min-height: 90vh;
+  width: 100%;
+  display: flex;
+  padding: 20px;
+}
+
+.listing_card{
+  height: 550px;
+  width: 350px;
+  box-shadow: 0 0 5px 5px #e1e1e1;
+}
+
+.list_img{
+  height: 50%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.list_img img{
+  height: 100%;
+  width: 100%;
+}
+
+.list_info{
+  display: flex;
+  flex-direction: column;
+  height: 35%;
+}
+
+.list_info div{
+  height: 25%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 10px;
+  border-bottom: 1px solid #f1f1f1;
+  font-family: Lato;
+}
+
+.list_info div strong{
+  margin-right: 10px;
+}
+
+.list_option_btn_wrap{
+  height: 15%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.list_option_btn{
+  height: 60px;
+  width: 60px;
+  border-radius: 5px;
+  border: none;
+  margin: 10px;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+  opacity: 0.7;
+  transition: 0.2s;
+}
+
+.list_option_btn:nth-child(1){
+  background-color: rgb(10, 156, 179);
+}
+
+.list_option_btn:nth-child(2){
+  background-color: rgb(211, 42, 59);
+}
+
+.list_option_btn:nth-child(3){
+  background-color: #099126;
+}
+
+.list_option_btn:nth-child(4){
+  background-color: #f6b500;
+}
+
+.list_option_btn:hover{
+  opacity: 1;
 }
 
 /* User-Listing-Page */
