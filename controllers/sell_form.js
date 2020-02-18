@@ -112,7 +112,6 @@ Router.post("/car-submit/submit", urlencodedParser, exterior, (req, res) => {
   newCar.kMeters = req.body.kMeters;
   newCar.Colour = req.body.Colour;
   newCar.engineSize = req.body.engineSize;
-  newCar.Transmission = req.body.Transmission;
   newCar.cylinderNum = req.body.cylinderNum;
   newCar.RoadCost = req.body.RoadCost;
   newCar.Description = req.body.Description;
@@ -125,13 +124,13 @@ Router.post("/car-submit/submit", urlencodedParser, exterior, (req, res) => {
   photoIndex = 0;
 
   if(req.body.BodyType === "CV"){
-    newCar.BodyType = "	Convertible"
+    newCar.BodyType = "Convertible"
   }else if(req.body.BodyType === "HA"){
-    newCar.BodyType = "	Hatchback"
+    newCar.BodyType = "Hatchback"
   }else if(req.body.BodyType === "HV"){
-    newCar.BodyType = "	Heavy Van"
+    newCar.BodyType = "Heavy Van"
   }else if(req.body.BodyType === "LV"){
-    newCar.BodyType = "	Light Van"
+    newCar.BodyType = "Light Van"
   }else if(req.body.BodyType === "SW"){
     newCar.BodyType = "Station Wagon"
   }else if(req.body.BodyType === "UT"){
@@ -141,15 +140,23 @@ Router.post("/car-submit/submit", urlencodedParser, exterior, (req, res) => {
   }
 
   if(req.body.fuelType === "01"){
-    newCar.fuelType = "	Petrol"
+    newCar.fuelType = "Petrol"
   }else if(req.body.fuelType === "HA"){
-    newCar.fuelType = "	Diesel"
+    newCar.fuelType = "Diesel"
   }else if(req.body.fuelType === "HV"){
-    newCar.fuelType = "	Electric"
+    newCar.fuelType = "Electric"
   }else if(req.body.fuelType === "LV"){
-    newCar.fuelType = "	Hybrid"
+    newCar.fuelType = "Hybrid"
   }else{
     newCar.fuelType = "Other"
+  }
+
+  if(req.body.Transmission.includes("automatic")){
+    newCar.Transmission = "Automatic"
+  } else if(req.body.Transmission.includes("manual")){
+    newCar.Transmission = "Manual"
+  } else if(req.body.Transmission.includes("triptonic")){
+    newCar.Transmission = "Triptonic";
   }
 
   newCar.WoFexpiry = theDate(req.body.WoFexpiry);
@@ -177,7 +184,7 @@ Router.post("/car-submit/submit", urlencodedParser, exterior, (req, res) => {
   } else {
     newCar.authorPhone = 0;
   }
-
+  console.log(newCar);
   newCar.save();
   res.render("dashboard");
 });
