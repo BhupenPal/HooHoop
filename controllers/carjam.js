@@ -13,12 +13,15 @@ Router.set("view engine", "ejs");
 Router.use("/assets", express.static("assets"));
 
 Router.post("/car-submit/data", urlencodedParser, async (req, res) => {
+
   vinFigure = req.body.vinFigure;
   const detailedCarObject = await fetchData();
+
   res.render("sell_form", {
     vinFigured: true,
-    detailedCarObject: detailedCarObject
+    detailedCarObject: await detailedCarObject
   });
+
 });
 
 function fetchData() {
@@ -27,6 +30,7 @@ function fetchData() {
 
   return fetch(urlReq).then(res => res.json());
 }
+
 
 Router.use("/", sell_form);
 

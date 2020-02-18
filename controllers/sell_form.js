@@ -103,7 +103,6 @@ Router.post("/car-submit/submit", urlencodedParser, exterior, (req, res) => {
   newCar.Make = req.body.Make;
   newCar.Model = req.body.Model;
   newCar.ModelYear = req.body.ModelYear;
-  newCar.BodyType = req.body.BodyType; //TO BE CHANGED
   newCar.DoorNum = req.body.DoorNum;
   newCar.SeatNum = req.body.SeatNum;
   newCar.ModelDetail = req.body.ModelDetail;
@@ -114,10 +113,7 @@ Router.post("/car-submit/submit", urlencodedParser, exterior, (req, res) => {
   newCar.Colour = req.body.Colour;
   newCar.engineSize = req.body.engineSize;
   newCar.Transmission = req.body.Transmission;
-  newCar.fuelType = req.body.fuelType; //TO BE CHANGED
   newCar.cylinderNum = req.body.cylinderNum;
-  newCar.WoFexpiry = req.body.WoFexpiry; //TO BE CHANGED
-  newCar.regExpiry = req.body.regExpiry; //TO BE CHANGED
   newCar.RoadCost = req.body.RoadCost;
   newCar.Description = req.body.Description;
   newCar.authorID = req.user._id;
@@ -127,6 +123,37 @@ Router.post("/car-submit/submit", urlencodedParser, exterior, (req, res) => {
   newCar.views = 0;
 
   photoIndex = 0;
+
+  if(req.body.BodyType === "CV"){
+    newCar.BodyType = "	Convertible"
+  }else if(req.body.BodyType === "HA"){
+    newCar.BodyType = "	Hatchback"
+  }else if(req.body.BodyType === "HV"){
+    newCar.BodyType = "	Heavy Van"
+  }else if(req.body.BodyType === "LV"){
+    newCar.BodyType = "	Light Van"
+  }else if(req.body.BodyType === "SW"){
+    newCar.BodyType = "Station Wagon"
+  }else if(req.body.BodyType === "UT"){
+    newCar.BodyType = "Utility"
+  }else {
+    newCar.BodyType = "Other"
+  }
+
+  if(req.body.fuelType === "01"){
+    newCar.fuelType = "	Petrol"
+  }else if(req.body.fuelType === "HA"){
+    newCar.fuelType = "	Diesel"
+  }else if(req.body.fuelType === "HV"){
+    newCar.fuelType = "	Electric"
+  }else if(req.body.fuelType === "LV"){
+    newCar.fuelType = "	Hybrid"
+  }else{
+    newCar.fuelType = "Other"
+  }
+
+  newCar.WoFexpiry = theDate(req.body.WoFexpiry);
+  newCar.regExpiry = theDate(req.body.regExpiry);
 
   if (req.body.DriveWheel4 === "on") {
     newCar.DriveWheel4 = 1;
@@ -154,5 +181,10 @@ Router.post("/car-submit/submit", urlencodedParser, exterior, (req, res) => {
   newCar.save();
   res.render("dashboard");
 });
+
+const theDate = (timeStamp) => {
+  const dateString = new Date(timeStamp * 1000);
+  return dateString.toGMTString();
+}
 
 module.exports = Router;

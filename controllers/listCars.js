@@ -2,6 +2,27 @@ const express = require("express");
 const Router = express.Router();
 const carModel = require("../models/carModel");
 
+Router.get('/search-car', (req, res) => {
+
+  if(!req.query.item){
+    res.redirect('/search-car/1')
+  } else if(req.query.item){
+
+    const regex = new RegExp(escapeRegex(req.query.item), 'gi');
+    carModel.find( {$or: [ { Make: regex }, { Model: regex } ] }, function(err, allCars){
+      if(err){
+          console.log(err);
+      } else {
+         if(allCars.length < 1) {
+             noMatch = "No campgrounds match that query, please try again.";
+         }
+         res.render("buy_car",{record: allCars});
+      }
+   });
+  }
+
+})
+
 Router.get("/search-car/:page", Paginator(carModel), async (req, res) => {
   res.render("buy_car", { record: res.Paginator.results });
 });
@@ -18,8 +39,9 @@ Router.get("/buy-car/:id", async (req, res) => {
 
 function Paginator(model) {
   return async (req, res, next) => {
-    const page = parseInt(req.params.page) || 1;
-    const limit = 10;
+
+    const page = parseInt(req.params.page);
+    const limit = 9;
 
     const startIndex = (page - 1) * limit;
     const endIndex = page * limit;
@@ -52,5 +74,9 @@ function Paginator(model) {
     }
   };
 }
+
+function escapeRegex(text) {
+  return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+};
 
 module.exports = Router;

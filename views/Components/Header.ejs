@@ -6,12 +6,12 @@
             </a>
         </div>
         <div class="search-engine">
-            <form method="POST">
-            <input type="text" placeholder="Search Car or Brands" class="search-box">
-            <div class="mag-search" role="button">
+            <form action="/search-car/" method="GET">
+            <input type="text" placeholder="Search Car or Brands" class="search-box" name="item">
+            <button class="mag-search" role="button">
                 <i class="fal fa-search"></i>
+            </button>
             </form>
-            </div>
         </div>
         <div class="user-panel">
             <% if (user){ %>
