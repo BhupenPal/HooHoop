@@ -98,3 +98,33 @@ function userinfo() {
     z--;
   }
 }
+
+let filOptions = [0,0,0,0,0,0,0,0,0];
+function foption(j){
+
+  if(filOptions[j]==0){
+    let x = document.getElementsByClassName("Filter_class")[j].lastChild
+    let y = document.getElementsByClassName("filter_option")
+    let z = document.getElementsByClassName("foption_encloser")
+
+    x.style.transform = "rotate(90deg)";
+    z[j].style.display = "block";
+    for(p=0;p<9;p++){
+      y[p].classList.remove("opened_filter")
+    }
+    y[j].classList.add("opened_filter");
+    filOptions[j] = 1
+  }
+
+  else{
+    let x = document.getElementsByClassName("Filter_class")[j].lastChild
+    let y = document.getElementsByClassName("filter_option");
+    let z = document.getElementsByClassName("foption_encloser");
+
+    x.style.transform = "rotate(0deg)";
+    z[j].style.display = "none";
+    y[j].classList.remove("opened_filter");
+    filOptions[j] = 0
+  }
+  console.log(n)
+}

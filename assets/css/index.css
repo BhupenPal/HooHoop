@@ -1110,38 +1110,42 @@ body {
 /* Login/Register */
 
 /* buy-car-section */
-.buy_car_page_wrapper{
-  width: 80%;
-  margin: 0 auto;
-  display: flex;
-  justify-content: flex-start;
+.bgset{
+  background-color: #f2f2f2;
 }
 
-.infohandle30{
-  width: 30%;
-  height: 800px;
+.buy_car_wrap{
+  width: 90vw;
   display: flex;
-  flex-direction: column;
+}
+
+.filterwrap{
+  min-height: 100vh;
+  width: 20vw;
+  margin: 20px 0;
+  border-radius: 5px;
+}
+
+.fltr_head{
+  border-bottom: 1px solid #e1e1e1;
+  font-family: Roboto,Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  display: flex;
   align-items: center;
+  padding-left: 30px;
   box-sizing: border-box;
-  padding-top: 100px;
+  height: 50px;
+  background-color: white;
 }
 
-.infohandle60{
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.bc_card {
-  height: 400px;
-  width: 800px;
+.contentwrap{
+  min-height: 100vh;
+  width: 70vw;
+  background-color: white;
+  margin: 20px 10px;
   border-radius: 5px;
   display: flex;
-  box-sizing: border-box;
-  margin-top: 20px;
-  box-shadow: 0 0 3px 3px #e6e6e6;
-  cursor: pointer;
+  flex-wrap: wrap;
 }
 
 .cardanchor{
@@ -1149,107 +1153,124 @@ body {
   color: black;
 }
 
-.bcimg_sec {
-  height: 100%;
-  width: 65%;
-  margin-right: 5px;
-}
-
-.bcimg_sec img {
-  width: 100%;
-  height: 100%;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  border: none;
-}
-
-.inf_sec {
-  width: 35%;
-  height: 100%;
-  background-color: #ffffff;
+.bc-card{
+  height: 500px;
+  width: 380px;
+  margin: 20px 20px;
+  box-shadow: 0 0 3px 3px #f3f3f3;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
-.locate {
-  height: 10%;
+.cb_img, .cb_img img{
+  height: 380px;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.cb_info{
+  padding: 10px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 120px;
+}
+
+.cb_main{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  font-family: Roboto;
+  font-size: 24px;
+  height: 50%;
+  align-items: center;
+}
+
+.cb_add_info{
+  height: 30%;
   width: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: space-between;
+  border-top: 2px solid #f2f2f2;
+  padding-top: 20px;
   box-sizing: border-box;
-  font-family: Lato;
-  padding: 5px;
 }
 
-.locate span:nth-child(1) {
-  font-size: 16px;
-}
-
-.locate span:nth-child(2) {
-  font-size: 12px;
-  color: red;
-  text-transform: capitalize;
-}
-
-.c_deta_sec {
-  height: 70%;
-  width: 100%;
+.cb_add_info span{
+  height: 100%;
+  width: 33%;
   display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
   justify-content: center;
   align-items: center;
-  border-bottom: 1px solid #e2e2e2;
+  font-family: Roboto;
 }
 
-.c_deta_sec * {
-  margin: 0;
-  font-family: Lato;
+.filters{
+  margin-top: 40px;
 }
 
-.c_deta_sec p {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: Poppins;
-  margin: 0;
-}
-
-.c_deta_sec h3 {
-  color: gray;
-}
-
-.price {
-  height: 20% !important;
-  display: flex;
+.filter_option{
   width: 100%;
-  box-sizing: border-box;
-  padding-right: 10px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
-  font-family: Helvetica;
-}
-
-.as_p span {
-  font-size: 14px;
-  color: gray;
-  font-weight: normal;
-}
-
-.as_p {
-  font-weight: bold;
+  min-height: 75px;
+  background-color: white;
+  font-family: Roboto;
   font-size: 20px;
-  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  cursor: pointer;
 }
 
-.on_r_cst_1 {
-  color: green;
+.Filter_class:hover{
+  background-color: #f5bf2b;
 }
+
+.Filter_class{
+  height: 75px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 20px;
+  box-sizing: border-box;
+  transition: 0.2s;
+}
+
+.Filter_class i{
+  margin-right: 20px;
+  transition: 0.2s;
+}
+
+.foption{
+  font-size: 16px;
+  font-family: Raleway;
+  font-weight: bold;
+  padding-left: 20px;
+  box-sizing: border-box;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+  transition: 0.3s;
+}
+
+.foption:hover{
+  background-color: #000000;
+  color: white;
+}
+
+.opened_filter{
+  min-height: 175px !important;
+  transition: 0.2s;
+}
+
+.foption_encloser{
+  display: none;
+}
+
 /* buy-car-section */
 
 /* Listing-Section */

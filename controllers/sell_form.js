@@ -126,6 +126,8 @@ Router.post("/car-submit/submit", urlencodedParser, exterior, (req, res) => {
   newCar.authorNumber = `${req.user.phoneNum}`;
   newCar.views = 0;
 
+  photoIndex = 0;
+
   if (req.body.DriveWheel4 === "on") {
     newCar.DriveWheel4 = 1;
   } else {

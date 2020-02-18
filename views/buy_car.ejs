@@ -17,51 +17,151 @@
     />
   </head>
 
-  <body class="preloader">
+  <body class="bgset">
     <%-include('./Components/Header.ejs') %>
     <!-- navbar end -->
-    <div class="buy_car_page_wrapper">
-      <div class="infohandle30">
-        <div class="bc_card_fltr">
-            
+    
+    <div class="buy_car_wrap">
+      <div class="filterwrap">
+        <div class="fltr_head">Filters</div>
+        <div class="filters">
+          <div id="make" class="filter_option">
+            <div class="Filter_class" onclick="foption('0')"><span>Make</span><i class="fas fa-chevron-right"></i></div>
+              <div class="foption_encloser">
+                <div class="foption">Audi</div>
+                <div class="foption">BMW</div>
+                <div class="foption">FIAT</div>
+                <div class="foption">FORD</div>
+                <div class="foption">Holden</div>
+                <div class="foption">Honda</div>
+                <div class="foption">Hyundai</div>
+                <div class="foption">Jaguar</div>
+                <div class="foption">Land Rover</div>
+                <div class="foption">Mazda</div>
+                <div class="foption">Mercedes Benz</div>
+                <div class="foption">Mitsubishi</div>
+                <div class="foption">Nissan</div>
+                <div class="foption">Porsche</div>
+                <div class="foption">Subaru</div>
+                <div class="foption">Suzuki</div>
+                <div class="foption">Toyota</div>
+                <div class="foption">Volkswagon</div>
+                <div class="foption">Volvo</div>
+              </div>
+          </div>  
+          <div id="model" class="filter_option">
+            <div class="Filter_class" onclick="foption('1')"><span>Model</span><i class="fas fa-chevron-right"></i></div>
+            <div class="foption_encloser">
+              <div class="foption">320I</div>
+              <div class="foption">325I</div>
+              <div class="foption">500</div>
+              <div class="foption">523I</div>
+              <div class="foption">A180</div>
+              <div class="foption">A4</div>
+              <div class="foption">Atenza</div>
+              <div class="foption">Axela</div>
+              <div class="foption">Boxster</div>
+              <div class="foption">C250</div>
+              <div class="foption">CAMRY</div>
+              <div class="foption">City</div>
+              <div class="foption">Colorado</div>
+              <div class="foption">Commodore</div>
+              <div class="foption">Corolla</div>
+              <div class="foption">Cross Polo</div>
+              <div class="foption">CRV</div>
+              <div class="foption">Demio</div>
+              <div class="foption">Exiga</div>
+              <div class="foption">Fit</div>
+              <div class="foption">Fuga</div>
+              <div class="foption">Galant</div>
+              <div class="foption">Golf</div>
+              <div class="foption">HIGHLANDER</div>
+              <div class="foption">HILUX</div>
+              <div class="foption">Impreza</div>
+              <div class="foption">Insight G Hybrid</div>
+              <div class="foption">IQ</div>
+              <div class="foption">L300</div>
+              <div class="foption">Lafesta</div>
+              <div class="foption">Leaf</div>
+              <div class="foption">Legacy</div>
+              <div class="foption">Lexus</div>
+              <div class="foption">Mark-X</div>
+              <div class="foption">Mustang</div>
+              <div class="foption">Odyssey</div>
+              <div class="foption">Premacy</div>
+              <div class="foption">Prius</div>
+              <div class="foption">Q7</div>
+              <div class="foption">Ractis</div>
+              <div class="foption">Range Rover</div>
+              <div class="foption">Ranger</div>
+              <div class="foption">Santa Fe</div>
+              <div class="foption">Stream</div>
+              <div class="foption">Swift</div>
+              <div class="foption">SX4</div>
+              <div class="foption">Tilda</div>
+              <div class="foption">V60</div>
+              <div class="foption">VITZ</div>
+              <div class="foption">Wish</div>
+              <div class="foption">XC60</div>
+              <div class="foption">XJ</div>
+              <div class="foption">Z3</div>
+            </div>
+          </div>
+          <div id="price" class="filter_option">
+            <div class="Filter_class" onclick="foption('2')"><span>Price</span><i class="fas fa-chevron-right"></i></div>
+            <div class="foption_encloser">
+              <div class="foption">$ 0 To $ 3000</div>
+              <div class="foption">$ 3001 To $ 5000</div>
+              <div class="foption">$ 5001 To $ 8000</div>
+              <div class="foption">$ 8001 To $ 10000</div>
+              <div class="foption">$ 10001 +</div>
+            </div>
+          </div>
+          <div id="fuel_type" class="filter_option">
+            <div class="Filter_class"><span>Fuel Type</span><i class="fas fa-chevron-right"></i></div>
+          </div>
+          <div id="kms" class="filter_option">
+            <div class="Filter_class"><span>KMs</span><i class="fas fa-chevron-right"></i></div>
+          </div>
+          <div id="age" class="filter_option">
+            <div class="Filter_class"><span>AGE</span><i class="fas fa-chevron-right"></i></div>
+          </div>
+          <div id="transmission" class="filter_option">
+            <div class="Filter_class"><span>Transmission</span><i class="fas fa-chevron-right"></i></div>
+          </div>
+          <div id="body_type" class="filter_option">
+            <div class="Filter_class"><span>Body Type</span><i class="fas fa-chevron-right"></i></div>
+          </div>
+          <div id="color" class="filter_option">
+            <div class="Filter_class"><span>Color</span><i class="fas fa-chevron-right"></i></div>
+          </div>
         </div>
       </div>
-      <div class="infohadle60">
+  
+      <div class="contentwrap">
         <% for(var i = 0; i < record.length; i++) { %>
-        <a href="http://localhost:8080/buy-car/<%= record[i].id%>" class="cardanchor">
-          <div class="bc_card">
-            <div class="bcimg_sec">
-              <img
-                src="/assets/Uploads/<%= record[i].vinNum %>/exterior/Photo-0.png"
-              />
-            </div>
-
-            <div class="inf_sec">
-              <div class="locate">
-                <span>Location</span>
-                <span>TIME UPLOADED</span>
+          <a href="http://localhost:8080/buy-car/<%= record[i].id%>" class="cardanchor">
+          <div class="bc-card">
+            <div class="cb_img"><img src="../assets/images/4.jpg"></div>
+            <div class="cb_info">
+              <div class="cb_main">
+                <span class="cb_name"><%= record[i].Make %></span>
+                <span class="cb_price">$ 20000</span>
               </div>
-
-              <div class="c_deta_sec">
-                <h2 class="c_nme"><%= record[i].Make %></h2>
-                <h3 class="c_tpe"><%= record[i].BodyType %></h3>
-                <p class="odo_rding"><%= record[i].kMeters %></p>
-                <p>
-                  <span class="e-sze">2000cc,</span>
-                  <span class="f_tpe"> Petrol</span>
-                </p>
-                <p class="tmssn">Transmission</p>
-              </div>
-
-              <div class="price">
-                <div class="as_p"><span>Asking price: </span>$Price</div>
-                <div class="on_r_cst_1">On Road Costs (Status)</div>
+              <div class="cb_add_info">
+                <span class="kms_info">12000</span>
+                <span class="trans_info">Automatic</span>
+                <span class="model_info">C250</span>
               </div>
             </div>
           </div>
         </a>
         <% } %>
       </div>
+
     </div>
+
+    <!-- Buy-car ended -->
+    <%-include('./Components/Footer.ejs') %>
   </body>
 </html>
