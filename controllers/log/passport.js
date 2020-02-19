@@ -15,7 +15,7 @@ module.exports = function (passport) {
           return done(null, false, { message: 'Email is not registered' });
         }
 
-        //
+        //Activated User Check
         if(!user.active){
           return done(null, false, {message: 'You need to activate your account first'})
         }
