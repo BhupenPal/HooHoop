@@ -227,7 +227,7 @@ body {
 
 .buy_car_wrapdiv {
   height: 100%;
-  width: 30%;
+  width: 550px;
   display: flex;
   place-content: flex-end;
   place-items: center;
@@ -1149,7 +1149,6 @@ body {
   margin: 20px 10px;
   border-radius: 5px;
   display: flex;
-  justify-content: center;
   align-content: flex-start;
   flex-wrap: wrap;
 }
@@ -1539,6 +1538,7 @@ body {
 .listing_card{
   height: 550px;
   width: 350px;
+  margin: 20px 10px;
   box-shadow: 0 0 5px 5px #e1e1e1;
 }
 
