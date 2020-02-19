@@ -30,9 +30,11 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
-  address: {
-    type: String,
-    required: false
+  address: String,
+  secretToken: String,
+  active: {
+    type: Boolean,
+    required: true
   }
 });
 

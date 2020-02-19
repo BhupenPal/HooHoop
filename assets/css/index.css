@@ -234,10 +234,8 @@ body {
 }
 
 .buy-car {
-  height: 90%;
+  height: 85%;
   width: 75%;
-  border-top-right-radius: 100px;
-  border-bottom-left-radius: 100px;
   background: white;
 }
 
@@ -1533,6 +1531,7 @@ body {
   min-height: 90vh;
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   padding: 20px;
 }
 

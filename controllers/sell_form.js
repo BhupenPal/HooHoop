@@ -3,7 +3,7 @@ const Router = express.Router();
 const fs = require("fs");
 const multer = require("multer");
 const bodyParser = require("body-parser");
-const urlencodedParser = bodyParser.urlencoded({
+const urlencoded = bodyParser.urlencoded({
   extended: !1
 });
 
@@ -96,7 +96,7 @@ var exterior = multer({ storage: storeExterior }).fields([
   { name: "interiorRear" }
 ]);
 
-Router.post("/car-submit/submit", urlencodedParser, exterior, (req, res) => {
+Router.post("/car-submit/submit", urlencoded, exterior, (req, res) => {
   const newCar = new carModel();
   newCar.Price = req.body.Price;
   newCar.minPrice = req.body.minPrice;

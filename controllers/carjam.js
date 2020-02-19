@@ -3,7 +3,7 @@ const Router = express();
 const sell_form = require("./sell_form");
 const fetch = require("node-fetch");
 const bodyParser = require("body-parser");
-const urlencodedParser = bodyParser.urlencoded({
+const urlencoded = bodyParser.urlencoded({
   extended: !1
 });
 
@@ -12,7 +12,7 @@ let vinFigure = "";
 Router.set("view engine", "ejs");
 Router.use("/assets", express.static("assets"));
 
-Router.post("/car-submit/data", urlencodedParser, async (req, res) => {
+Router.post("/car-submit/data", urlencoded, async (req, res) => {
 
   vinFigure = req.body.vinFigure;
   const detailedCarObject = await fetchData();

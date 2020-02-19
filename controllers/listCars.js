@@ -2,6 +2,8 @@ const express = require("express");
 const Router = express.Router();
 const carModel = require("../models/carModel");
 
+const {ensureAuthenticated} = require('./log/auth');
+
 Router.get('/search-car', (req, res) => {
 
   if(!req.query.item){
@@ -36,6 +38,12 @@ Router.get("/buy-car/:id", async (req, res) => {
     res.render("cpage_info", { record: result[0] });
   } catch (e) {}
 });
+
+Router.get("/my-listings", ensureAuthenticated, async (req, res) => {
+  const myAds = {};
+  myAds.listing = await carModel.find({ authorID: req.user.id}).exec();
+  res.render("userlistings", {myAds: myAds.listing});
+})
 
 function Paginator(model) {
   return async (req, res, next) => {
