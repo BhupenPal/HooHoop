@@ -121,8 +121,6 @@ Router.post("/car-submit/submit", urlencoded, exterior, (req, res) => {
   newCar.authorNumber = `${req.user.phoneNum}`;
   newCar.views = 0;
 
-  photoIndex = 0;
-
   if(req.body.BodyType === "CV"){
     newCar.BodyType = "Convertible"
   }else if(req.body.BodyType === "HA"){
@@ -189,8 +187,8 @@ Router.post("/car-submit/submit", urlencoded, exterior, (req, res) => {
 });
 
 const theDate = (timeStamp) => {
-  const dateString = new Date(timeStamp * 1000);
-  return dateString.toGMTString();
+  var dateString = new Date(timeStamp * 1000).toGMTString;
+  return dateString.split(' ').slice(0, 4).join(' ');
 }
 
 module.exports = Router;
