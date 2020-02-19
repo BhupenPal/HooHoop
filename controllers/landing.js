@@ -4,14 +4,20 @@ const Router = express.Router();
 const userPanel = require("./userPanel");
 const listCars = require("./listCars");
 const carJam = require("./carjam");
-const mailer = require("./mail/mailer");
+const carModel = require('../models/carModel');
+const mailer = require('./mail/mailer');
 
 /* HOME ROUTES */
-Router.get("/", (req, res) => {
+Router.get("/", async (req, res) => {
+
+  const popularCars = await carModel.find().limit(10).sort({views: -1}).exec();
+  const hatchCars = await carModel.find({BodyType: "Hatchback"}).limit(10).exec();
+  const sedanCars = await carModel.find({BodyType: "Sedan"}).limit(10).exec();
+
   if (req.isAuthenticated()) {
-    res.render("index", { user: req.user });
+    res.render("index", { user: req.user, popCarData: popularCars, hatchCarData: hatchCars, sedanCarData: sedanCars });
   } else {
-    res.render("index", { user: false });
+    res.render("index", { user: false, popCarData: popularCars, hatchCarData: hatchCars, sedanCarData: sedanCars });
   }
 });
 
