@@ -15,11 +15,11 @@ Router.use("/assets", express.static("assets"));
 Router.post("/car-submit/data", urlencoded, async (req, res) => {
 
   vinFigure = req.body.vinFigure;
-  const detailedCarObject = await fetchData();
+  const carDetails = await fetchData();
 
   res.render("sell_form", {
-    vinFigured: true,
-    detailedCarObject: await detailedCarObject
+    detailedCarObject: await carDetails,
+    vinFigured: true
   });
 
 });

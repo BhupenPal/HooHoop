@@ -57,6 +57,10 @@ const Schema = mongoose.Schema,
       type: String,
       required: true
     },
+    thumbnail : {
+      type: String,
+      required: true
+    },
     cylinderNum: String,
     WoFexpiry: String,
     regExpiry: String,

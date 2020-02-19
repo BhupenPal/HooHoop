@@ -8,7 +8,8 @@ const urlencoded = bodyParser.urlencoded({
   extended: !1
 });
 
-let photoIndex = 0;
+let photoIndex = 1;
+let thumbnail = null;
 
 var storeExterior = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -75,10 +76,17 @@ var storeExterior = multer.diskStorage({
   },
   filename: function(req, file, cb) {
     if (file.fieldname === "exterior") {
-      let ext = file.originalname.split(".")[1];
-      let filename = "Photo-" + photoIndex + "." + ext;
-      photoIndex++;
-      cb(null, filename);
+      if(file.originalname === req.body.thumbnail){
+        let ext = file.originalname.split(".")[1];
+        let filename = "Photo-0." + ext;
+        thumbnail = filename;
+        cb(null, filename);
+        }else {
+          let ext = file.originalname.split(".")[1];
+          let filename = "Photo-" + photoIndex + "." + ext;
+          photoIndex++;
+          cb(null, filename);
+        } 
     } else if (file.fieldname !== "exterior") {
       let ext = file.originalname.split(".")[1];
       let filename = file.fieldname + "." + ext;
@@ -117,7 +125,10 @@ Router.post("/car-submit/submit", urlencoded, exterior, (req, res) => {
   newCar.authorName = `${req.user.firstName} ${req.user.lastName}`;
   newCar.authorMail = req.user.email;
   newCar.authorNumber = `${req.user.phoneNum}`;
+  newCar.thumbnail = thumbnail;
   newCar.views = 0;
+
+  photoIndex = 0;
 
   if(req.body.BodyType === "CV"){
     newCar.BodyType = "Convertible"
@@ -193,8 +204,7 @@ Router.post("/car-submit/submit", urlencoded, exterior, (req, res) => {
 });
 
 const theDate = (timeStamp) => {
-  var dateString = new Date(timeStamp * 1000).toGMTString;
-  return dateString.split(' ').slice(0, 4).join(' ');
+  return new Date(timeStamp * 1000).toGMTString;
 }
 
 module.exports = Router;
