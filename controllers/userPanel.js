@@ -32,7 +32,7 @@ Router.get("/sell-car", (req, res) => {
 });
 
 //SELL CAR FORM ROUTE
-Router.get("/car-submit", ensureAuthenticated, (req, res) => {
+Router.get("/car-submit", (req, res) => {
   res.render("sell_form", { vinFigured: false, detailedCarObject: false });
 });
 

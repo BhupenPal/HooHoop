@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="/assets/css/index.css">
     <link rel="stylesheet" href="/assets/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/fonts.css">
-    <script src="../assets/scripts/script.js"></script>
     <link rel="icon" href="/assets/images/favicon.ico" type="image/ico" sizes="16*16">
     <title>HooHoop</title>
 </head>
@@ -416,28 +415,25 @@
                             <h2>Describe the car (optional)</h2>
                             <textarea name="tarea" id="t_area" rows="6" placeholder="E.g. condition and other information" name="Description"></textarea>
                         </div>
-                        
+                        <input type="text" value="" id="up_clickfk" name="thumbnail" class="vanish" style="display: block !important;">
                         <div class="file_upload">
                             <h2>Upload Interior</h2>
                                 <div class="int_images">
-                                <label for="car-front">Front
-                                    <input type="file" name="interiorFront" id="car_front" accept="image/*"/>
-                                </label>
-                            
-                                <label for="car-middle">Middle
-                                    <input type="file" name="interiorMiddle" id="car_middle" accept="image/*"/>
-                                </label>
-                            
-                                <label for="car-rear">Rear
-                                    <input type="file" name="interiorRear" id="car_rear" accept="image/*"/>
-                                </label>
+                                    <label for="Front" onclick="upload_img(this)">Front</label>
+                                    <label for="Middle" onclick="upload_img(this)">Middle</label>
+                                    <label for="Rear" onclick="upload_img(this)">Rear</label>
+                                    <input type="file" name="interiorFront" id="Front" accept="image/*"/>   
+                                    <input type="file" name="interiorMiddle" id="Middle" accept="image/*"/>
+                                    <input type="file" name="interiorRear" id="Rear" accept="image/*"/>
+
                                 </div>
                                 
                                 <h2>Upload Exterior</h2>
+                                <h5>Select A Thumbnail For Your Listing</h5>
                                 <div class="ext_images">
-                                <label for="">Exterior
-                                    <input type="file" name="exterior" accept="image/*" multiple/>
-                                </label>
+                                <label for="Exterior" onclick="upload_img(this)">Exterior</label>
+                                <input type="file" name="exterior" id="Exterior" accept="image/*" multiple/> 
+                                <div id="preview"></div>
                                 </div>
                         </div>
 
@@ -460,8 +456,9 @@
         </div>
         </div>
     </div>
+
     <%-include('./Components/Footer.ejs') %>
-    <script>
-    </script>
+    <script src="../assets/scripts/script.js"></script>
+    <script src="../assets/scripts/selecttag.js"></script>
 </body>
 </html>

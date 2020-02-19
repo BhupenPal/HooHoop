@@ -836,8 +836,14 @@ body {
   font-weight: bolder;
   font-size: 18px;
   display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   flex-direction: column;
+}
+
+.s_img{
+  border: 5px solid black;
 }
 
 .file_upload h2{
@@ -866,17 +872,9 @@ body {
   border-radius: 5px;
 }
 
-.int_images label input,.ext_images label input{
-  position: absolute;
-  height: 50px;
-  width: 80px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  cursor: pointer;
+.int_images input, .ext_images input{
+  display: none;
 }
-
 
 .rq360 {
   display: flex;
