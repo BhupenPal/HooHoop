@@ -59,30 +59,24 @@
     <div class="cardbd_1">
       <div class="cd_head">
         <div class="cd_headline">Popular Cars</div>
-        <div class="cd_list">
-          <ul>
-            <li class="list_active list_item" onclick="activate(0)">
-              hatchback
-            </li>
-            <li class="list_item" onclick="activate(1)">sedan</li>
-            <li class="list_item" onclick="activate(2)">luxury</li>
-            <li class="list_item" onclick="activate(3)">SUV</li>
-          </ul>
-        </div>
       </div>
       <div class="cd_content">
-        <div class="cd_car_data">
-          <div class="img_contain">
-            <div class="view-details">View details</div>
-            <img src="../assets/images/1BMW.jpg" />
+      <% for( let i = 0; i < popCarData.length; i++ ) { %>
+
+          <div class="cd_car_data">
+            <div class="img_contain">
+              <div class="view-details">View details</div>
+              <img src="../assets/images/1BMW.jpg" />
+            </div>
+            <div class="info_contain">
+              <div class="con_name"> <%= popCarData[i].Make %> </div>
+              <div class="con_price">$100000</div>
+              <div></div>
+            </div>
           </div>
-          <div class="info_contain">
-            <div class="con_name">BMW I6</div>
-            <div class="con_price">$100000</div>
-            <div></div>
-          </div>
-        </div>
-      </div>
+
+      <% } %>
+    </div>
       <div class="cd_btn">
         <button onclick="scrolldiv(0)">
           <i class="fal fa-chevron-left"></i>
@@ -92,11 +86,78 @@
         </button>
       </div>
       <div class="cd_link">
-        <a href="/buy-car"
-          >view all <span id="BodyTypeSelector">hatchback</span>
-        </a>
+        <a href="/buy-car">View All</a>
       </div>
     </div>
+
+    <div class="cardbd_1">
+      <div class="cd_head">
+        <div class="cd_headline">Hatchbacks</div>
+      </div>
+      <div class="cd_content">
+      <% for( let i = 0; i < hatchCarData.length; i++ ) { %>
+
+          <div class="cd_car_data">
+            <div class="img_contain">
+              <div class="view-details">View details</div>
+              <img src="../assets/images/1BMW.jpg" />
+            </div>
+            <div class="info_contain">
+              <div class="con_name"> <%= hatchCarData[i].Make %> </div>
+              <div class="con_price">$100000</div>
+              <div></div>
+            </div>
+          </div>
+
+      <% } %>
+    </div>
+      <div class="cd_btn">
+        <button onclick="scrolldiv(0)">
+          <i class="fal fa-chevron-left"></i>
+        </button>
+        <button onclick="scrolldiv(1)">
+          <i class="fal fa-chevron-right"></i>
+        </button>
+      </div>
+      <div class="cd_link">
+        <a href="/buy-car">View All</a>
+      </div>
+    </div>
+
+    <div class="cardbd_1">
+      <div class="cd_head">
+        <div class="cd_headline">Sedans</div>
+      </div>
+      <div class="cd_content">
+      <% for( let i = 0; i < sedanCarData.length; i++ ) { %>
+
+          <div class="cd_car_data">
+            <div class="img_contain">
+              <div class="view-details">View details</div>
+              <img src="../assets/images/1BMW.jpg" />
+            </div>
+            <div class="info_contain">
+              <div class="con_name"> <%= hatchCarData[i].Make %> </div>
+              <div class="con_price">$100000</div>
+              <div></div>
+            </div>
+          </div>
+
+      <% } %>
+    </div>
+      <div class="cd_btn">
+        <button onclick="scrolldiv(0)">
+          <i class="fal fa-chevron-left"></i>
+        </button>
+        <button onclick="scrolldiv(1)">
+          <i class="fal fa-chevron-right"></i>
+        </button>
+      </div>
+      <div class="cd_link">
+        <a href="/buy-car">View All</a>
+      </div>
+    </div>
+
 
     <!-- Home-content-end -->
     <%-include('./Components/Footer.ejs') %>

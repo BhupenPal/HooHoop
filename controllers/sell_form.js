@@ -2,13 +2,11 @@ const express = require("express");
 const Router = express.Router();
 const fs = require("fs");
 const multer = require("multer");
+const carModel = require("../models/carModel");
 const bodyParser = require("body-parser");
 const urlencoded = bodyParser.urlencoded({
   extended: !1
 });
-
-//MODELS
-const carModel = require("../models/carModel");
 
 let photoIndex = 0;
 
@@ -133,6 +131,10 @@ Router.post("/car-submit/submit", urlencoded, exterior, (req, res) => {
     newCar.BodyType = "Station Wagon"
   }else if(req.body.BodyType === "UT"){
     newCar.BodyType = "Utility"
+  }else if(req.body.BodyType === "SL"){
+    newCar.BodyType = "Sedan"
+  }else if(req.body.BodyType === "SP"){
+    newCar.BodyType = "Sports Car"
   }else {
     newCar.BodyType = "Other"
   }
@@ -141,9 +143,13 @@ Router.post("/car-submit/submit", urlencoded, exterior, (req, res) => {
     newCar.fuelType = "Petrol"
   }else if(req.body.fuelType === 02){
     newCar.fuelType = "Diesel"
+  }else if(req.body.fuelType === 03){
+    newCar.fuelType = "CNG"
+  }else if(req.body.fuelType === 04){
+    newCar.fuelType = "LPG"
   }else if(req.body.fuelType === 05){
     newCar.fuelType = "Electric"
-  }else if(req.body.fuelType === 93){
+  }else if(req.body.fuelType === 93 || 07 || 08 || 09 || 10 || 11 || 12 || 91 || 92 || 94 || 95 || 96){
     newCar.fuelType = "Hybrid"
   }else{
     newCar.fuelType = "Other"
