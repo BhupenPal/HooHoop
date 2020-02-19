@@ -4,6 +4,7 @@ const Router = express.Router();
 const userPanel = require("./userPanel");
 const listCars = require("./listCars");
 const carJam = require("./carjam");
+const mailer = require("./mail/mailer");
 
 /* HOME ROUTES */
 Router.get("/", (req, res) => {
@@ -14,11 +15,7 @@ Router.get("/", (req, res) => {
   }
 });
 
-/* SELL YOUR CAR ROUTES*/
-Router.get("/sell-car", (req, res) => {
-  res.render("sell_car");
-});
-
+/* CARJAM API */
 Router.use("/", carJam);
 
 /* BUY CAR ROUTES */
@@ -27,14 +24,6 @@ Router.use("/", listCars);
 /* LOGIN and SIGNUP ROUTE */
 Router.use("/", userPanel);
 
-/* CAR360 ROUTE */
-Router.get("/Listing", (req, res) => {
-  res.render("cpage_info");
-});
-
-/* USER LISTING ROUTE */ 
-Router.get("/My-listings",(req, res) => {
-  res.render("userlistings");
-})
+Router.use("/", mailer);
 
 module.exports = Router;

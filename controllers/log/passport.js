@@ -15,6 +15,11 @@ module.exports = function (passport) {
           return done(null, false, { message: 'Email is not registered' });
         }
 
+        //
+        if(!user.active){
+          return done(null, false, {message: 'You need to activate your account first'})
+        }
+
         // Match password
         bcrypt.compare(password, user.password, (err, isMatch) => {
           if (err) throw err;

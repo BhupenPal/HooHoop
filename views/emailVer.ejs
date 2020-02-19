@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>HooHoop - Login</title>
+    <link rel="stylesheet" href="/assets/css/index.css" />
+    <link rel="stylesheet" href="/assets/css/all.min.css" />
+    <link rel="stylesheet" href="/assets/css/fonts.css" />
+    <script src="/assets/scripts/script.js"></script>
+  </head>
+  <body class="reg_body">
+    <%-include('./Components/Header.ejs') %>
+
+    <div class="email-verification">
+        <form action="/user/verify/" method="POST">
+        <h2>Veryify Your Email</h2>
+        <label for="secretToken">Secret Token</label>
+            <input type="text" id="secretToken" name="secretToken" placeholder="Secret Token" required autofocus>
+            <br>
+            <button type="submit">Verify User</button>
+        </form>
+    </div>
+
+    <%-include('./Components/Footer.ejs') %>
+  </body>
+</html>

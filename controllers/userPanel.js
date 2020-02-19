@@ -1,5 +1,8 @@
 const express = require("express");
 const Router = express.Router();
+const randomstring = require('randomstring');
+const transporter = require('./mail/config/trasnport');
+
 
 //Authenticator Config
 const { ensureAuthenticated, forwardAuthenticated } = require("./log/auth");
@@ -21,6 +24,12 @@ require("./log/passport")(passport);
 // Passport middleware
 Router.use(passport.initialize());
 Router.use(passport.session());
+
+
+/* SELL YOUR CAR ROUTES*/
+Router.get("/sell-car", (req, res) => {
+  res.render("sell_car");
+});
 
 //SELL CAR FORM ROUTE
 Router.get("/car-submit", ensureAuthenticated, (req, res) => {
@@ -104,6 +113,8 @@ Router.post("/sign-up", urlencoded, (req, res) => {
       password2
     });
   } else {
+    const secretToken = randomstring.generate();
+    const active = false;
     userModel.findOne({ email: email }).then(user => {
       if (user) {
         errors.push({ msg: "Email already exists" });
@@ -124,9 +135,11 @@ Router.post("/sign-up", urlencoded, (req, res) => {
           phoneNum,
           email,
           password,
-          address
+          address,
+          secretToken,
+          active
         });
-
+    
         //Hash Password
         bcrypt.genSalt(10, (err, salt) =>
           bcrypt.hash(newUser.password, salt, (err, hash) => {
@@ -145,6 +158,26 @@ Router.post("/sign-up", urlencoded, (req, res) => {
               });
           })
         );
+
+        let mailOptions = {
+          from: '"HooHoop" <contactus@edudictive.in>', // sender address
+          to: 'bhupen16pal@gmail.com', // list of receivers
+          subject: 'Node Contact Request', // Subject line
+          text: 'Hello world?', // plain text body
+          html: '<h1>Hello</h1>' // html body
+      };
+    
+      // send mail with defined transport object
+      transporter.sendMail(mailOptions, (error, info) => {
+          if (error) {
+              return console.log(error);
+          }
+          console.log('Message sent: %s', info.messageId);   
+          console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+    
+          res.render('contact', {msg:'Email has been sent'});
+      });
+
       }
     });
   }

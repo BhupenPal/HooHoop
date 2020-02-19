@@ -23,10 +23,11 @@
             <div class="Userlisting_Head">My Listings</div>
 
             <div class="usli_card_wrap">
+              <% for(var i = 0; i < myAds.length; i++) { %>
                 <div class="listing_card">
                     <div class="list_img"><img src="../assets/images/4.jpg" alt=""></div>
                     <div class="list_info">
-                        <div class="list_info_make"><strong>Make :</strong>Mercedes-Benz</div>
+                        <div class="list_info_make"><strong>Make :</strong> Mercedes-Benz </div>
                         <div class="list_info_model"><strong>Model :</strong>C250</div>
                         <div class="list_info_price"><strong>Price :</strong>$ 10999</div>
                         <div class="list_info_status"><strong>Status :</strong>Published</div>
@@ -38,6 +39,7 @@
                         <button class="list_option_btn"><i class="fad fa-eye"></i></button>
                     </div>
                 </div>
+              <% } %>
             </div>
         </div>
 
