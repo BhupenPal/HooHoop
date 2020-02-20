@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/assets/css/index.css" />
+    <link rel="stylesheet" href="/assets/css/all.min.css" />
+    <link rel="stylesheet" href="/assets/css/fonts.css" />
+  </head>
+  <body>
+    <%-include('./Components/Header.ejs') %> <%-include('./Flash/message.ejs')
+    %> <% if (mailSent) { %>
+    <h1>Mail sent to your email</h1>
+
+    <% } else if(tokenReceived) { %>
+
+    <form action="/user/reset-password/reset" method="POST">
+      <input type="text" name="password" />
+      <input type="text" name="password2" />
+      <button type="submit">Submit</button>
+    </form>
+
+    <% } else { %>
+
+    <form action="/user/reset-password" method="POST">
+      <input type="text" name="email" />
+      <button type="submit">Forgot Password</button>
+    </form>
+
+    <% } %> <%-include('./Components/Footer.ejs') %>
+  </body>
+</html>
