@@ -3,7 +3,6 @@ const Router = express.Router();
 const randomstring = require('randomstring');
 const transporter = require('./mail/config/trasnport');
 
-
 //Authenticator Config
 const { ensureAuthenticated, forwardAuthenticated } = require("./log/auth");
 
@@ -55,6 +54,7 @@ Router.get("/sign-up", (req, res) => {
 });
 
 Router.post("/sign-up", urlencoded, (req, res) => {
+
   const {
     firstName,
     lastName,
@@ -64,6 +64,8 @@ Router.post("/sign-up", urlencoded, (req, res) => {
     password2,
     address
   } = req.body;
+
+
   let errors = [];
 
   //Check required fields
@@ -139,7 +141,7 @@ Router.post("/sign-up", urlencoded, (req, res) => {
           secretToken,
           active
         });
-    
+
         //Hash Password
         bcrypt.genSalt(10, (err, salt) =>
           bcrypt.hash(newUser.password, salt, (err, hash) => {
@@ -154,19 +156,94 @@ Router.post("/sign-up", urlencoded, (req, res) => {
               })
               .catch(err => {
                 console.log(err);
-                console.log(errors);
               });
           })
         );
 
-        let mailHTML  = ``;
+        let mailHTML = `<!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+          <style>
+            #verify_btn{
+              margin: 50px auto; 
+              width: 25%;
+              min-width: 150px; 
+              height: 50px; 
+              border-radius: 50px; 
+              border: none; 
+              text-align: center; 
+              background-color: #1EA1F3; 
+              color: white;
+              font-size: large; 
+              cursor: pointer;
+              transition: 0.2s;
+              outline: 0;
+            }
+        
+            #verify_btn:hover{
+              background-color: white;
+              border: 2px solid #1EA1F3;
+              color: #1EA1F3;
+            }
+          </style>
+        </head>
+        <body>
+          
+          <table width="60%" cellsapcing="0" cellpadding="0" style="background-color: #F0F2F5; padding: 80px; margin: 0 auto;">
+            <tr>
+              <td>
+                <table width="100%" cellsapcing="0" cellpadding="0" style="background-color: #fff; font-family: Arial; padding: 20px;">
+                  <!-- Header -->
+                  <tr>
+                    <td><img src="./Logo.png" alt="HooHoop Logo" style="display: block; margin: 10px auto; padding: 0; width: 300px;"></td>
+                  </tr>
+        
+                  <tr>
+                    <td>
+                      <h1 style="margin: 3vh auto; width: 100%; text-align: center; font-size: 30px;">Verify your email address</h1>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p style="margin: 0px auto; width: 100%; font-weight: bold; font-size: 20px; margin-bottom: 10px;">Hi ${req.body.firstName},</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p style="margin: 0px auto; width: 100%;">Please confirm that you want to use this as your HooHoop account email address. Once it's done you will be able to use HooHoop.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="display: flex !important; justify-content: center !important; align-items: center !important;">
+                      <a href="localhost:8080/user/verify?token=${secretToken}" style="margin:0 auto"><button id="verify_btn">Verify my email</button></a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p style="margin: 0 auto; width: 100%; text-align: center;">or paste this link below into your browser: </p></td>
+                  </tr>
+                  <tr>
+                    <td style="display: flex; justify-content: center; align-items: center;"><p style="margin: 0 auto; width: 100%; text-align: center;">https://localhost:8080/user/verify?=token${secretToken}</p></td>
+                  </tr>
+        
+                  <tr>
+                    <td></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        
+        </body>
+        </html>`;
 
         let mailOptions = {
           from: '"HooHoop" <contactus@edudictive.in>', // sender address
-          to: 'bhupen16pal@gmail.com', // list of receivers
-          subject: 'Node Contact Request', // Subject line
-          text: 'Hello world?', // plain text body
-          html: `<a href="localhost:8080/user/verify/?token=${secretToken}">Click Here to verify</a>` // html body
+          to: req.body.email, // list of receivers
+          subject: 'HooHoop Account Verification Email', // Subject line
+          html: mailHTML // html body
       };
     
       // send mail with defined transport object
@@ -174,9 +251,6 @@ Router.post("/sign-up", urlencoded, (req, res) => {
           if (error) {
               return console.log(error);
           }
-          console.log('Message sent: %s', info.messageId);   
-          console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-    
           res.render('contact', {msg:'Email has been sent'});
       });
 
