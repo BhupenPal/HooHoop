@@ -66,7 +66,7 @@
           <div class="cd_car_data">
             <div class="img_contain">
               <div class="view-details">View details</div>
-              <img src="../assets/images/1BMW.jpg" />
+              <img src="/assets/Uploads/<%= popCarData[i].vinNum %>/exterior/<%= popCarData[i].thumbnail %>" />
             </div>
             <div class="info_contain">
               <div class="con_name"> <%= popCarData[i].Make %> </div>
@@ -78,10 +78,10 @@
       <% } %>
     </div>
       <div class="cd_btn">
-        <button onclick="scrolldiv(0)">
+        <button onclick="scrolldiv(0,0)">
           <i class="fal fa-chevron-left"></i>
         </button>
-        <button onclick="scrolldiv(1)">
+        <button onclick="scrolldiv(1,0)">
           <i class="fal fa-chevron-right"></i>
         </button>
       </div>
@@ -112,10 +112,10 @@
       <% } %>
     </div>
       <div class="cd_btn">
-        <button onclick="scrolldiv(0)">
+        <button onclick="scrolldiv(2,1)">
           <i class="fal fa-chevron-left"></i>
         </button>
-        <button onclick="scrolldiv(1)">
+        <button onclick="scrolldiv(3,1)">
           <i class="fal fa-chevron-right"></i>
         </button>
       </div>
@@ -134,10 +134,10 @@
           <div class="cd_car_data">
             <div class="img_contain">
               <div class="view-details">View details</div>
-              <img src="../assets/images/1BMW.jpg" />
+              <img src="/assets/Uploads/<%= sedanCarData[i].vinNum %>/exterior/<%= sedanCarData[i].thumbnail %>" />
             </div>
             <div class="info_contain">
-              <div class="con_name"> <%= hatchCarData[i].Make %> </div>
+              <div class="con_name"> <%= sedanCarData[i].Make %> </div>
               <div class="con_price">$100000</div>
               <div></div>
             </div>
@@ -146,10 +146,10 @@
       <% } %>
     </div>
       <div class="cd_btn">
-        <button onclick="scrolldiv(0)">
+        <button onclick="scrolldiv(4,2)">
           <i class="fal fa-chevron-left"></i>
         </button>
-        <button onclick="scrolldiv(1)">
+        <button onclick="scrolldiv(5,2)">
           <i class="fal fa-chevron-right"></i>
         </button>
       </div>

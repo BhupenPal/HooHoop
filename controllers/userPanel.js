@@ -225,7 +225,7 @@ Router.post("/sign-up", urlencoded, (req, res) => {
                     <td><p style="margin: 0 auto; width: 100%; text-align: center;">or paste this link below into your browser: </p></td>
                   </tr>
                   <tr>
-                    <td style="display: flex; justify-content: center; align-items: center;"><p style="margin: 0 auto; width: 100%; text-align: center;">https://localhost:8080/user/verify?=token${secretToken}</p></td>
+                    <td style="display: flex; justify-content: center; align-items: center;"><p style="margin: 0 auto; width: 100%; text-align: center;">https://localhost:8080/user/verify?token=${secretToken}</p></td>
                   </tr>
         
                   <tr>

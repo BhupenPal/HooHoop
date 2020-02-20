@@ -62,9 +62,9 @@ function activate(j) {
   document.getElementById("BodyTypeSelector").innerHTML = x[j].innerHTML;
 }
 
-function scrolldiv(j) {
-  let x = document.getElementsByClassName("cd_content")[0];
-  if (j == 0) {
+function scrolldiv(j,k) {
+  let x = document.getElementsByClassName("cd_content")[k];
+  if (j == 0 || j==2 || j==4) {
     x.scrollBy(-380, 0);
   } else {
     x.scrollBy(380, 0);
