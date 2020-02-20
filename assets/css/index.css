@@ -843,7 +843,7 @@ body {
 }
 
 .thumb-selected{
-  border: 10px solid black;
+  border: 2px solid #1EA1F3;
 }
 
 .file_upload h2{

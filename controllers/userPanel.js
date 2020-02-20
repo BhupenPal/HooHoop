@@ -166,7 +166,7 @@ Router.post("/sign-up", urlencoded, (req, res) => {
           to: 'bhupen16pal@gmail.com', // list of receivers
           subject: 'Node Contact Request', // Subject line
           text: 'Hello world?', // plain text body
-          html: '<h1>Hello</h1>' // html body
+          html: `<a href="localhost:8080/user/verify/?token=${secretToken}">Click Here to verify</a>` // html body
       };
     
       // send mail with defined transport object

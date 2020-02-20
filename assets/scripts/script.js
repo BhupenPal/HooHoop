@@ -152,10 +152,16 @@ function previewImages() {
       image.height = 100;
       image.title  = file.name;
       image.src    = this.result;
-      image.classList.add('thumb-opt')
-      console.log(image)
+      image.classList.add('thumbnail-options')
       image.onclick = (() => {
         document.getElementById('up_clickfk').value = image.title;
+        var thumbs = document.getElementsByClassName('thumbnail-options');
+        var l = 0;
+        while(thumbs[l]){
+          thumbs[l].classList.remove('thumb-selected')
+          l++;
+        }
+        image.classList.add('thumb-selected');
     })
       preview.appendChild(image);
     });
