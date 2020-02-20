@@ -43,7 +43,7 @@ Router.get("/login", forwardAuthenticated, (req, res) => {
 
 Router.post("/login", urlencoded, (req, res, next) => {
   passport.authenticate("local", {
-    successRedirect: "/",
+    successRedirect: (req.session.redirectTo || '/'),
     failureRedirect: "/login",
     failureFlash: true
   })(req, res, next);
@@ -158,6 +158,8 @@ Router.post("/sign-up", urlencoded, (req, res) => {
               });
           })
         );
+
+        let mailHTML  = ``;
 
         let mailOptions = {
           from: '"HooHoop" <contactus@edudictive.in>', // sender address

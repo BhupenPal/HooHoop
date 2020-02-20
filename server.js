@@ -21,6 +21,13 @@ app.use(
   })
 );
 
+//Cache Controller
+app.use(function(req, res, next) {
+  if (!req.user)
+      res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+  next();
+});
+
 //Connect Flash
 app.use(flash());
 

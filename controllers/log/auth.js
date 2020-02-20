@@ -3,6 +3,7 @@ module.exports = {
     if (req.isAuthenticated()) {
       return next();
     }
+    req.session.redirectTo = req.path;
     res.redirect("/login");
   },
 
