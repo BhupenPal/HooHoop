@@ -77,8 +77,8 @@ function Paginator(model) {
         .exec();
       res.Paginator = results;
       next();
-    } catch (e) {
-      console.log(e);
+    } catch (err) {
+      console.log(err);
     }
   };
 }
