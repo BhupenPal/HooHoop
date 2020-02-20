@@ -152,9 +152,16 @@ function previewImages() {
       image.height = 100;
       image.title  = file.name;
       image.src    = this.result;
-      image.classList.add('qwerty')
+      image.classList.add('thumbnail-options')
       image.onclick = (() => {
         document.getElementById('up_clickfk').value = image.title;
+        var thumbs = document.getElementsByClassName('thumbnail-options');
+        var i = 0;
+        while(thumbs[i]){
+          thumbs[i].classList.remove('thumb-selected')
+          i++;
+        }
+        image.classList.add('thumb-selected');
     })
       preview.appendChild(image);
     });
@@ -164,9 +171,3 @@ function previewImages() {
 }
 
 document.querySelector('#Exterior').addEventListener("change", previewImages);
-
-function upload_img(j){
-
-  document.getElementById(j.innerHTML);
-  console.log(j.innerHTML)
-}
