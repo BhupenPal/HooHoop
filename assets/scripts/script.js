@@ -62,9 +62,9 @@ function activate(j) {
   document.getElementById("BodyTypeSelector").innerHTML = x[j].innerHTML;
 }
 
-function scrolldiv(j) {
-  let x = document.getElementsByClassName("cd_content")[0];
-  if (j == 0) {
+function scrolldiv(j,k) {
+  let x = document.getElementsByClassName("cd_content")[k];
+  if (j == 0 || j==2 || j==4) {
     x.scrollBy(-380, 0);
   } else {
     x.scrollBy(380, 0);
@@ -147,7 +147,7 @@ function previewImages() {
     
     var reader = new FileReader();
     
-    reader.addEventListener("load", function() {
+    reader.addEventListener("load", function(){
       var image = new Image();
       image.height = 100;
       image.title  = file.name;
@@ -156,10 +156,10 @@ function previewImages() {
       image.onclick = (() => {
         document.getElementById('up_clickfk').value = image.title;
         var thumbs = document.getElementsByClassName('thumbnail-options');
-        var i = 0;
-        while(thumbs[i]){
-          thumbs[i].classList.remove('thumb-selected')
-          i++;
+        var l = 0;
+        while(thumbs[l]){
+          thumbs[l].classList.remove('thumb-selected')
+          l++;
         }
         image.classList.add('thumb-selected');
     })
