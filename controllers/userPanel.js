@@ -1,7 +1,7 @@
 const express = require("express");
 const Router = express.Router();
-const randomstring = require('randomstring');
-const transporter = require('./mail/config/trasnport');
+const randomstring = require("randomstring");
+const transporter = require("./mail/config/trasnport");
 
 //Authenticator Config
 const { ensureAuthenticated, forwardAuthenticated } = require("./log/auth");
@@ -41,7 +41,7 @@ Router.get("/login", forwardAuthenticated, (req, res) => {
 
 Router.post("/login", urlencoded, (req, res, next) => {
   passport.authenticate("local", {
-    successRedirect: (req.session.redirectTo || '/'),
+    successRedirect: req.session.redirectTo || "/",
     failureRedirect: "/login",
     failureFlash: true
   })(req, res, next);
@@ -53,7 +53,6 @@ Router.get("/sign-up", (req, res) => {
 });
 
 Router.post("/sign-up", urlencoded, (req, res) => {
-
   const {
     firstName,
     lastName,
@@ -115,6 +114,7 @@ Router.post("/sign-up", urlencoded, (req, res) => {
   } else {
     const secretToken = randomstring.generate();
     const active = false;
+    const resetToken = null;
     userModel.findOne({ email: email }).then(user => {
       if (user) {
         errors.push({ msg: "Email already exists" });
@@ -137,7 +137,8 @@ Router.post("/sign-up", urlencoded, (req, res) => {
           password,
           address,
           secretToken,
-          active
+          active,
+          resetToken
         });
 
         //Hash Password
@@ -147,28 +148,25 @@ Router.post("/sign-up", urlencoded, (req, res) => {
             //Set password to hashed
             newUser.password = hash;
             //Save User
-            newUser.save()
+            newUser.save();
           })
         );
-
-
 
         let mailOptions = {
           from: '"HooHoop" <contactus@edudictive.in>', // sender address
           to: req.body.email, // list of receivers
-          subject: 'HooHoop Account Verification Email', // Subject line
+          subject: "HooHoop Account Verification Email", // Subject line
           html: mailHTML(req.body.firstName, secretToken) // html body
-      };
-    
-      // send mail with defined transport object
-      transporter.sendMail(mailOptions, (error, info) => {
+        };
+
+        // send mail with defined transport object
+        transporter.sendMail(mailOptions, (error, info) => {
           if (error) {
-              return console.log(error);
+            return console.log(error);
           }
           errors.push({ msg: "Email has been sent" });
-          res.render('login', {errors});
-      });
-
+          res.render("login", { errors });
+        });
       }
     });
   }
@@ -186,7 +184,120 @@ Router.get("/dashboard", ensureAuthenticated, (req, res) => {
   res.render("dashboard");
 });
 
-function mailHTML(NameTo, TokenCode){
+Router.get("/user/reset-password", async (req, res) => {
+  let errors = [];
+
+  if (req.query.token === undefined) {
+    return res.render("forgotPass", { mailSent: false, tokenReceived: false });
+  }
+
+  const user = await userModel.findOne({ resetToken: req.query.token }).exec();
+
+  if (!user) {
+    errors.push({ msg: "Invalid reset code" });
+    res.render("forgotPass", { errors, mailSent: false, tokenReceived: false });
+  }
+
+  res.render("forgotPass", { mailSent: false, tokenReceived: true });
+});
+
+Router.post("/user/reset-password", urlencoded, async (req, res) => {
+  const { email } = req.body;
+  let errors = [];
+
+  const user = await userModel.findOne({ email: email }).exec();
+
+  if (!user) {
+    errors.push({ msg: "The email is not registered" });
+    return res.render("forgotPass", {
+      errors,
+      mailSent: false,
+      tokenReceived: false
+    });
+  }
+
+  const resetToken = randomstring.generate();
+  user.resetToken = resetToken;
+  user.save();
+
+  let mailOptions = {
+    from: '"HooHoop" <contactus@edudictive.in>', // sender address
+    to: req.body.email, // list of receivers
+    subject: "HooHoop Account Password Reset", // Subject line
+    html: mailHTML(user.firstName, resetToken) // html body
+  };
+
+  // send mail with defined transport object
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      return console.log(error);
+    }
+    errors.push({ msg: "Password reset link has been sent to your mail" });
+    res.render("forgotPass", { errors, mailSent: true, tokenReceived: false });
+  });
+});
+
+Router.post("/user/reset-password/reset", urlencoded, (req, res) => {
+  let errors = [];
+  let { password, password2 } = req.body;
+  const resetToken = req.query.token;
+
+  const user = userModel.findOne({ resetToken: resetToken }).exec();
+
+  //Check passwords match
+  if (password !== password2) {
+    errors.push({ msg: "Passwords do not match" });
+  }
+
+  //Check password length
+  if (password.length < 6) {
+    errors.push({ msg: "Password should be atleast 6 characters" });
+  }
+
+  if (password.length > 14) {
+    errors.push({ msg: "Password length should not exceed 14 characters" });
+  }
+
+  //Check password strength
+  if (!password.match(/[a-z]/)) {
+    errors.push({ msg: "Password must contain a Lowercase Letter." });
+  }
+
+  if (!password.match(/[A-Z]/)) {
+    errors.push({ msg: "Password must contain a Uppercase Letter." });
+  }
+
+  if (!password.match(/[0-9]/)) {
+    errors.push({ msg: "Password must contain a Numeric Digit." });
+  }
+
+  if (!password.match(/[\W]/)) {
+    errors.push({ msg: "Password must contain a Special Character." });
+  }
+
+  if (errors.length > 0) {
+    res.render("register", {
+      password,
+      password2
+    });
+  } else {
+    //Hash Password
+    bcrypt.genSalt(10, (err, salt) =>
+      bcrypt.hash(user.password, salt, (err, hash) => {
+        if (err) throw err;
+        //Set password to hashed
+        user.password = hash;
+        //Save User
+        user.save();
+      })
+    );
+
+    errors.push({ msg: "Password reset succesfull" });
+    res.render("login", { errors });
+  }
+});
+
+function mailHTML(NameTo, TokenCode) {
   return `<!DOCTYPE html>
   <html lang="en">
   <head>
