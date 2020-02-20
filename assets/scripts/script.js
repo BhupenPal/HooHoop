@@ -147,12 +147,13 @@ function previewImages() {
     
     var reader = new FileReader();
     
-    reader.addEventListener("load", function() {
+    reader.addEventListener("load", function(){
       var image = new Image();
       image.height = 100;
       image.title  = file.name;
       image.src    = this.result;
-      image.classList.add('qwerty')
+      image.classList.add('thumb-opt')
+      console.log(image)
       image.onclick = (() => {
         document.getElementById('up_clickfk').value = image.title;
     })
@@ -164,9 +165,3 @@ function previewImages() {
 }
 
 document.querySelector('#Exterior').addEventListener("change", previewImages);
-
-function upload_img(j){
-
-  document.getElementById(j.innerHTML);
-  console.log(j.innerHTML)
-}

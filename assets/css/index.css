@@ -727,6 +727,7 @@ body {
   padding-left: 10px;
   box-sizing: border-box;
   border-radius: 5px;
+  margin-bottom: 40px;
 }
 
 .form_head h1 {
@@ -753,7 +754,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
   box-sizing: border-box;
 }
 
@@ -842,8 +842,8 @@ body {
   flex-direction: column;
 }
 
-.s_img{
-  border: 5px solid black;
+.thumb-selected{
+  border: 10px solid black;
 }
 
 .file_upload h2{
