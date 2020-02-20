@@ -276,7 +276,8 @@ Router.post("/user/reset-password/reset", urlencoded, (req, res) => {
   }
 
   if (errors.length > 0) {
-    res.render("register", {
+    res.render("forgotPass", {
+      errors,
       password,
       password2
     });
