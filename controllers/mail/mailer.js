@@ -8,10 +8,11 @@ const urlencoded = bodyParser.urlencoded({ extended: !1 });
 // Verify User
 Router.get("/user/verify", urlencoded, async(req, res) => {
     const secretToken = req.query.token;
+    let errors = [];
 
     const user = await userModel.findOne({secretToken: secretToken});
     if(!user) {
-        req.flash('error', 'No User found');
+        errors.push({ msg: "No user found" });
         res.redirect('/sign-up');
         return;
     }

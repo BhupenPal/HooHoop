@@ -65,7 +65,6 @@ Router.post("/sign-up", urlencoded, (req, res) => {
     address
   } = req.body;
 
-
   let errors = [];
 
   //Check required fields
@@ -149,14 +148,7 @@ Router.post("/sign-up", urlencoded, (req, res) => {
             //Set password to hashed
             newUser.password = hash;
             //Save User
-            newUser
-              .save()
-              .then(user => {
-                res.redirect("/login");
-              })
-              .catch(err => {
-                console.log(err);
-              });
+            newUser.save()
           })
         );
 
@@ -182,7 +174,6 @@ Router.post("/sign-up", urlencoded, (req, res) => {
               transition: 0.2s;
               outline: 0;
             }
-        
             #verify_btn:hover{
               background-color: white;
               border: 2px solid #1EA1F3;
@@ -191,7 +182,6 @@ Router.post("/sign-up", urlencoded, (req, res) => {
           </style>
         </head>
         <body>
-          
           <table width="60%" cellsapcing="0" cellpadding="0" style="background-color: #F0F2F5; padding: 80px; margin: 0 auto;">
             <tr>
               <td>
@@ -200,7 +190,6 @@ Router.post("/sign-up", urlencoded, (req, res) => {
                   <tr>
                     <td><img src="./Logo.png" alt="HooHoop Logo" style="display: block; margin: 10px auto; padding: 0; width: 300px;"></td>
                   </tr>
-        
                   <tr>
                     <td>
                       <h1 style="margin: 3vh auto; width: 100%; text-align: center; font-size: 30px;">Verify your email address</h1>
@@ -218,16 +207,15 @@ Router.post("/sign-up", urlencoded, (req, res) => {
                   </tr>
                   <tr>
                     <td style="display: flex !important; justify-content: center !important; align-items: center !important;">
-                      <a href="localhost:8080/user/verify?token=${secretToken}" style="margin:0 auto"><button id="verify_btn">Verify my email</button></a>
+                      <a href="http://localhost:8080/user/verify?token=${secretToken}" style="margin:0 auto"><button id="verify_btn">Verify my email</button></a>
                     </td>
                   </tr>
                   <tr>
                     <td><p style="margin: 0 auto; width: 100%; text-align: center;">or paste this link below into your browser: </p></td>
                   </tr>
                   <tr>
-                    <td style="display: flex; justify-content: center; align-items: center;"><p style="margin: 0 auto; width: 100%; text-align: center;">https://localhost:8080/user/verify?=token${secretToken}</p></td>
+                    <td style="display: flex; justify-content: center; align-items: center;"><p style="margin: 0 auto; width: 100%; text-align: center;">http://localhost:8080/user/verify?token=${secretToken}</p></td>
                   </tr>
-        
                   <tr>
                     <td></td>
                   </tr>
@@ -235,7 +223,6 @@ Router.post("/sign-up", urlencoded, (req, res) => {
               </td>
             </tr>
           </table>
-        
         </body>
         </html>`;
 
@@ -251,7 +238,8 @@ Router.post("/sign-up", urlencoded, (req, res) => {
           if (error) {
               return console.log(error);
           }
-          res.render('contact', {msg:'Email has been sent'});
+          errors.push({ msg: "Email has been sent" });
+          res.render('login', {errors});
       });
 
       }
