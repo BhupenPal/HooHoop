@@ -7,6 +7,14 @@
     <link rel="stylesheet" href="/assets/css/index.css" />
     <link rel="stylesheet" href="/assets/css/all.min.css" />
     <link rel="stylesheet" href="/assets/css/fonts.css" />
+    <link
+      rel="stylesheet"
+      href="https://naver.github.io/egjs-view360/common/css/demo.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://naver.github.io/egjs-view360/common/css/PanoControls.css"
+    />
     <script src="/assets/scripts/script.js"></script>
     <title>HooHoop</title>
     <link
@@ -22,20 +30,11 @@
     <div class="th_sxty_info">
       <div class="th60_container">
         <div class="viewthsxty">
-
-
-          <div class="interior">
-            <div class="message"></div>
+          <div class="panoviewer-container viewer">
+            <div id="panoSet">
+              <div class="panoviewer container" id="myPanoViewer"></div>
             </div>
-            <div class="panoviewer-container viewer">
-                <div id="panoSet">
-                    <div class="panoviewer container" id="myPanoViewer"></div>
-                </div>
-            </div>
-            
-
-
-
+          </div>
         </div>
         <div class="car_name_price">
           <div class="c_name"><%= record.Make %></div>
@@ -209,5 +208,28 @@
       <div class="seller-details"></div>
     </div>
     <%-include('./Components/Footer.ejs') %>
+
+    <script src="/assets/scripts/view360/jquery.js"></script>
+    <script src="/assets/scripts/view360/gyro.js"></script>
+    <script src="/assets/scripts/view360/pano.js"></script>
+    <script src="/assets/scripts/view360/pieview.js"></script>
+    <script src="/assets/scripts/view360/screenfull.js"></script>
+    <script src="/assets/scripts/view360/view360.js"></script>
+    <script>
+      var PanoViewer = eg.view360.PanoViewer;
+      var container = document.getElementById("myPanoViewer");
+      var panoViewer = new PanoViewer(container, {
+        image:
+          "https://naver.github.io/egjs-view360/examples/panoviewer/controls/equi-car-inside.jpg",
+        projectionType: "equirectangular"
+      });
+
+      var panoviewerSet = document.getElementById("panoSet");
+      PanoControls.init(panoviewerSet, panoViewer, {
+        enableGyroOption: true,
+        enableTouchOption: true
+      });
+      PanoControls.showLoading();
+    </script>
   </body>
 </html>

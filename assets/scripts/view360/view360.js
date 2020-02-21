@@ -4,6 +4,16907 @@ Copyright (c) 2017 NAVER Corp.
 @egjs/view360 JavaScript library
 https://github.com/naver/egjs-view360
 @version 3.3.0-snapshot
+All-in-one packaged file for ease use of '@egjs/view360' with below dependencies.
+- @egjs/agent ^2.1.5, @egjs/axes ^2.5.8, @egjs/component ^2.1.2, es6-promise ^4.2.5, gl-matrix ^3.1.0, motion-sensors-polyfill ^0.3.1
 */
-!function(t,e){"object"==typeof exports&&"undefined"!=typeof module?e(exports,require("@egjs/axes"),require("@egjs/component")):"function"==typeof define&&define.amd?define(["exports","@egjs/axes","@egjs/component"],e):e((t.eg=t.eg||{},t.eg.view360={}),t.eg.Axes,t.eg.Component)}(this,(function(t,e,n){"use strict";function i(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}function r(t,e,n){return e&&i(t.prototype,e),n&&i(t,n),t}function o(){return(o=Object.assign||function(t){for(var e=1;e<arguments.length;e++){var n=arguments[e];for(var i in n)Object.prototype.hasOwnProperty.call(n,i)&&(t[i]=n[i])}return t}).apply(this,arguments)}function a(t,e){t.prototype=Object.create(e.prototype),t.prototype.constructor=t,t.__proto__=e}function s(t){if(void 0===t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return t}var u="undefined"!=typeof globalThis?globalThis:"undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof self?self:{};var h=function(t,e){return t(e={exports:{}},e.exports),e.exports}((function(t,e){t.exports=function(){function t(t){return"function"==typeof t}var e=Array.isArray?Array.isArray:function(t){return"[object Array]"===Object.prototype.toString.call(t)},n=0,i=void 0,r=void 0,o=function(t,e){f[n]=t,f[n+1]=e,2===(n+=2)&&(r?r(_):E())},a="undefined"!=typeof window?window:void 0,s=a||{},h=s.MutationObserver||s.WebKitMutationObserver,c="undefined"==typeof self&&"undefined"!=typeof process&&"[object process]"==={}.toString.call(process),l="undefined"!=typeof Uint8ClampedArray&&"undefined"!=typeof importScripts&&"undefined"!=typeof MessageChannel;function d(){var t=setTimeout;return function(){return t(_,1)}}var f=new Array(1e3);function _(){for(var t=0;t<n;t+=2)(0,f[t])(f[t+1]),f[t]=void 0,f[t+1]=void 0;n=0}var v,g,p,m,E=void 0;function y(t,e){var n=this,i=new this.constructor(x);void 0===i[R]&&V(i);var r=n._state;if(r){var a=arguments[r-1];o((function(){return L(r,i,a,n._result)}))}else D(n,i,t,e);return i}function w(t){if(t&&"object"==typeof t&&t.constructor===this)return t;var e=new this(x);return I(e,t),e}c?E=function(){return process.nextTick(_)}:h?(g=0,p=new h(_),m=document.createTextNode(""),p.observe(m,{characterData:!0}),E=function(){m.data=g=++g%2}):l?((v=new MessageChannel).port1.onmessage=_,E=function(){return v.port2.postMessage(0)}):E=void 0===a?function(){try{var t=Function("return this")().require("vertx");return void 0!==(i=t.runOnLoop||t.runOnContext)?function(){i(_)}:d()}catch(t){return d()}}():d();var R=Math.random().toString(36).substring(2);function x(){}var T=void 0,C=1,A=2;function b(e,n,i){n.constructor===e.constructor&&i===y&&n.constructor.resolve===w?function(t,e){e._state===C?P(t,e._result):e._state===A?O(t,e._result):D(e,void 0,(function(e){return I(t,e)}),(function(e){return O(t,e)}))}(e,n):void 0===i?P(e,n):t(i)?function(t,e,n){o((function(t){var i=!1,r=function(t,e,n,i){try{t.call(e,n,i)}catch(t){return t}}(n,e,(function(n){i||(i=!0,e!==n?I(t,n):P(t,n))}),(function(e){i||(i=!0,O(t,e))}),t._label);!i&&r&&(i=!0,O(t,r))}),t)}(e,n,i):P(e,n)}function I(t,e){if(t===e)O(t,new TypeError("You cannot resolve a promise with itself"));else if(function(t){var e=typeof t;return null!==t&&("object"===e||"function"===e)}(e)){var n=void 0;try{n=e.then}catch(e){return void O(t,e)}b(t,e,n)}else P(t,e)}function S(t){t._onerror&&t._onerror(t._result),M(t)}function P(t,e){t._state===T&&(t._result=e,t._state=C,0!==t._subscribers.length&&o(M,t))}function O(t,e){t._state===T&&(t._state=A,t._result=e,o(S,t))}function D(t,e,n,i){var r=t._subscribers,a=r.length;t._onerror=null,r[a]=e,r[a+C]=n,r[a+A]=i,0===a&&t._state&&o(M,t)}function M(t){var e=t._subscribers,n=t._state;if(0!==e.length){for(var i=void 0,r=void 0,o=t._result,a=0;a<e.length;a+=3)i=e[a],r=e[a+n],i?L(n,i,r,o):r(o);t._subscribers.length=0}}function L(e,n,i,r){var o=t(i),a=void 0,s=void 0,u=!0;if(o){try{a=i(r)}catch(t){u=!1,s=t}if(n===a)return void O(n,new TypeError("A promises callback cannot return that same promise."))}else a=r;n._state!==T||(o&&u?I(n,a):!1===u?O(n,s):e===C?P(n,a):e===A&&O(n,a))}var N=0;function V(t){t[R]=N++,t._state=void 0,t._result=void 0,t._subscribers=[]}var U=function(){function t(t,n){this._instanceConstructor=t,this.promise=new t(x),this.promise[R]||V(this.promise),e(n)?(this.length=n.length,this._remaining=n.length,this._result=new Array(this.length),0===this.length?P(this.promise,this._result):(this.length=this.length||0,this._enumerate(n),0===this._remaining&&P(this.promise,this._result))):O(this.promise,new Error("Array Methods must be provided an Array"))}return t.prototype._enumerate=function(t){for(var e=0;this._state===T&&e<t.length;e++)this._eachEntry(t[e],e)},t.prototype._eachEntry=function(t,e){var n=this._instanceConstructor,i=n.resolve;if(i===w){var r=void 0,o=void 0,a=!1;try{r=t.then}catch(t){a=!0,o=t}if(r===y&&t._state!==T)this._settledAt(t._state,e,t._result);else if("function"!=typeof r)this._remaining--,this._result[e]=t;else if(n===F){var s=new n(x);a?O(s,o):b(s,t,r),this._willSettleAt(s,e)}else this._willSettleAt(new n((function(e){return e(t)})),e)}else this._willSettleAt(i(t),e)},t.prototype._settledAt=function(t,e,n){var i=this.promise;i._state===T&&(this._remaining--,t===A?O(i,n):this._result[e]=n),0===this._remaining&&P(i,this._result)},t.prototype._willSettleAt=function(t,e){var n=this;D(t,void 0,(function(t){return n._settledAt(C,e,t)}),(function(t){return n._settledAt(A,e,t)}))},t}(),F=function(){function e(t){this[R]=N++,this._result=this._state=void 0,this._subscribers=[],x!==t&&("function"!=typeof t&&function(){throw new TypeError("You must pass a resolver function as the first argument to the promise constructor")}(),this instanceof e?function(t,e){try{e((function(e){I(t,e)}),(function(e){O(t,e)}))}catch(e){O(t,e)}}(this,t):function(){throw new TypeError("Failed to construct 'Promise': Please use the 'new' operator, this object constructor cannot be called as a function.")}())}return e.prototype.catch=function(t){return this.then(null,t)},e.prototype.finally=function(e){var n=this.constructor;return t(e)?this.then((function(t){return n.resolve(e()).then((function(){return t}))}),(function(t){return n.resolve(e()).then((function(){throw t}))})):this.then(e,e)},e}();return F.prototype.then=y,F.all=function(t){return new U(this,t).promise},F.race=function(t){var n=this;return e(t)?new n((function(e,i){for(var r=t.length,o=0;o<r;o++)n.resolve(t[o]).then(e,i)})):new n((function(t,e){return e(new TypeError("You must pass an array to race."))}))},F.resolve=w,F.reject=function(t){var e=new this(x);return O(e,t),e},F._setScheduler=function(t){r=t},F._setAsap=function(t){o=t},F._asap=o,F.polyfill=function(){var t=void 0;if(void 0!==u)t=u;else if("undefined"!=typeof self)t=self;else try{t=Function("return this")()}catch(t){throw new Error("polyfill failed because global object is unavailable in this environment")}var e=t.Promise;if(e){var n=null;try{n=Object.prototype.toString.call(e.resolve())}catch(t){}if("[object Promise]"===n&&!e.cast)return}t.Promise=F},F.Promise=F,F}()})),c=1e-6,l="undefined"!=typeof Float32Array?Float32Array:Array,d=Math.PI/180;function f(t){return t*d}function _(){var t=new l(9);return l!=Float32Array&&(t[1]=0,t[2]=0,t[3]=0,t[5]=0,t[6]=0,t[7]=0),t[0]=1,t[4]=1,t[8]=1,t}function v(t,e){return t[0]=e[0],t[1]=e[1],t[2]=e[2],t[3]=e[4],t[4]=e[5],t[5]=e[6],t[6]=e[8],t[7]=e[9],t[8]=e[10],t}function g(t,e){var n=e[0],i=e[1],r=e[2],o=e[3],a=e[4],s=e[5],u=e[6],h=e[7],c=e[8],l=c*a-s*h,d=-c*o+s*u,f=h*o-a*u,_=n*l+i*d+r*f;return _?(_=1/_,t[0]=l*_,t[1]=(-c*i+r*h)*_,t[2]=(s*i-r*a)*_,t[3]=d*_,t[4]=(c*n-r*u)*_,t[5]=(-s*n+r*o)*_,t[6]=f*_,t[7]=(-h*n+i*u)*_,t[8]=(a*n-i*o)*_,t):null}function p(){var t=new l(16);return l!=Float32Array&&(t[1]=0,t[2]=0,t[3]=0,t[4]=0,t[6]=0,t[7]=0,t[8]=0,t[9]=0,t[11]=0,t[12]=0,t[13]=0,t[14]=0),t[0]=1,t[5]=1,t[10]=1,t[15]=1,t}function m(t,e,n){var i=Math.sin(n),r=Math.cos(n),o=e[4],a=e[5],s=e[6],u=e[7],h=e[8],c=e[9],l=e[10],d=e[11];return e!==t&&(t[0]=e[0],t[1]=e[1],t[2]=e[2],t[3]=e[3],t[12]=e[12],t[13]=e[13],t[14]=e[14],t[15]=e[15]),t[4]=o*r+h*i,t[5]=a*r+c*i,t[6]=s*r+l*i,t[7]=u*r+d*i,t[8]=h*r-o*i,t[9]=c*r-a*i,t[10]=l*r-s*i,t[11]=d*r-u*i,t}function E(t,e,n){var i=Math.sin(n),r=Math.cos(n),o=e[0],a=e[1],s=e[2],u=e[3],h=e[8],c=e[9],l=e[10],d=e[11];return e!==t&&(t[4]=e[4],t[5]=e[5],t[6]=e[6],t[7]=e[7],t[12]=e[12],t[13]=e[13],t[14]=e[14],t[15]=e[15]),t[0]=o*r-h*i,t[1]=a*r-c*i,t[2]=s*r-l*i,t[3]=u*r-d*i,t[8]=o*i+h*r,t[9]=a*i+c*r,t[10]=s*i+l*r,t[11]=u*i+d*r,t}function y(t,e,n,i,r){var o,a=1/Math.tan(e/2);return t[0]=a/n,t[1]=0,t[2]=0,t[3]=0,t[4]=0,t[5]=a,t[6]=0,t[7]=0,t[8]=0,t[9]=0,t[11]=-1,t[12]=0,t[13]=0,t[15]=0,null!=r&&r!==1/0?(o=1/(i-r),t[10]=(r+i)*o,t[14]=2*r*i*o):(t[10]=-1,t[14]=-2*i),t}function w(){var t=new l(3);return l!=Float32Array&&(t[0]=0,t[1]=0,t[2]=0),t}function R(t){var e=t[0],n=t[1],i=t[2];return Math.hypot(e,n,i)}function x(t,e,n){var i=new l(3);return i[0]=t,i[1]=e,i[2]=n,i}function T(t,e,n){return t[0]=e[0]-n[0],t[1]=e[1]-n[1],t[2]=e[2]-n[2],t}function C(t,e){var n=e[0],i=e[1],r=e[2],o=n*n+i*i+r*r;return o>0&&(o=1/Math.sqrt(o)),t[0]=e[0]*o,t[1]=e[1]*o,t[2]=e[2]*o,t}function A(t,e){return t[0]*e[0]+t[1]*e[1]+t[2]*e[2]}function b(t,e,n){var i=e[0],r=e[1],o=e[2],a=n[0],s=n[1],u=n[2];return t[0]=r*u-o*s,t[1]=o*a-i*u,t[2]=i*s-r*a,t}function I(t,e,n){var i=e[0],r=e[1],o=e[2];return t[0]=i*n[0]+r*n[3]+o*n[6],t[1]=i*n[1]+r*n[4]+o*n[7],t[2]=i*n[2]+r*n[5]+o*n[8],t}function S(t,e,n){var i=n[0],r=n[1],o=n[2],a=n[3],s=e[0],u=e[1],h=e[2],c=r*h-o*u,l=o*s-i*h,d=i*u-r*s,f=r*d-o*l,_=o*c-i*d,v=i*l-r*c,g=2*a;return c*=g,l*=g,d*=g,f*=2,_*=2,v*=2,t[0]=s+c+f,t[1]=u+l+_,t[2]=h+d+v,t}Math.hypot||(Math.hypot=function(){for(var t=0,e=arguments.length;e--;)t+=arguments[e]*arguments[e];return Math.sqrt(t)});var P,O=T,D=R;P=w();!function(){var t,e=(t=new l(4),l!=Float32Array&&(t[0]=0,t[1]=0,t[2]=0,t[3]=0),t)}();function M(){var t=new l(4);return l!=Float32Array&&(t[0]=0,t[1]=0,t[2]=0),t[3]=1,t}function L(t,e,n){n*=.5;var i=Math.sin(n);return t[0]=i*e[0],t[1]=i*e[1],t[2]=i*e[2],t[3]=Math.cos(n),t}function N(t,e,n){var i=e[0],r=e[1],o=e[2],a=e[3],s=n[0],u=n[1],h=n[2],c=n[3];return t[0]=i*c+a*s+r*h-o*u,t[1]=r*c+a*u+o*s-i*h,t[2]=o*c+a*h+i*u-r*s,t[3]=a*c-i*s-r*u-o*h,t}function V(t,e,n,i){var r,o,a,s,u,h=e[0],l=e[1],d=e[2],f=e[3],_=n[0],v=n[1],g=n[2],p=n[3];return(o=h*_+l*v+d*g+f*p)<0&&(o=-o,_=-_,v=-v,g=-g,p=-p),1-o>c?(r=Math.acos(o),a=Math.sin(r),s=Math.sin((1-i)*r)/a,u=Math.sin(i*r)/a):(s=1-i,u=i),t[0]=s*h+u*_,t[1]=s*l+u*v,t[2]=s*d+u*g,t[3]=s*f+u*p,t}function U(t,e){return t[0]=-e[0],t[1]=-e[1],t[2]=-e[2],t[3]=e[3],t}var F,B,W,X,Y,H,G=function(t){var e=new l(4);return e[0]=t[0],e[1]=t[1],e[2]=t[2],e[3]=t[3],e},k=function(t,e){return t[0]=e[0],t[1]=e[1],t[2]=e[2],t[3]=e[3],t},j=N,q=function(t,e){var n=e[0],i=e[1],r=e[2],o=e[3],a=n*n+i*i+r*r+o*o;return a>0&&(a=1/Math.sqrt(a)),t[0]=n*a,t[1]=i*a,t[2]=r*a,t[3]=o*a,t},z=function(t,e){return t[0]===e[0]&&t[1]===e[1]&&t[2]===e[2]&&t[3]===e[3]};F=w(),B=x(1,0,0),W=x(0,1,0),X=M(),Y=M(),H=_();function Q(t,e){var n=new l(2);return n[0]=t,n[1]=e,n}function K(t,e){return t[0]=e[0],t[1]=e[1],t}function Z(t,e){var n=e[0],i=e[1],r=n*n+i*i;return r>0&&(r=1/Math.sqrt(r)),t[0]=e[0]*r,t[1]=e[1]*r,t}!function(){var t,e=(t=new l(2),l!=Float32Array&&(t[0]=0,t[1]=0),t)}();var J="undefined"!=typeof window&&window.Math===Math?window:"undefined"!=typeof self&&self.Math===Math?self:Function("return this")(),$=J.document,tt=J.navigator&&J.navigator.userAgent||"",et=navigator.platform&&/iPad|iPhone|iPod/.test(navigator.platform),nt=-1!==tt.indexOf("Safari")&&-1===tt.indexOf("Chrome")&&-1!==tt.indexOf("Mac OS X")&&!et;/SamsungBrowser/i.test(tt);J.Float32Array=void 0!==J.Float32Array?J.Float32Array:J.Array;J.Float32Array;var it=J.getComputedStyle,rt=J.navigator.userAgent,ot="ontouchstart"in J,at="ondevicemotion"in J,st=J.DeviceMotionEvent,ut=J.devicePixelRatio,ht=function(){for(var t=$.documentElement.style,e=["transform","webkitTransform","msTransform","mozTransform"],n=0,i=e.length;n<i;n++)if(e[n]in t)return e[n];return""}(),ct=J.CSS&&J.CSS.supports&&J.CSS.supports("will-change","transform"),lt=!1,dt=function(){navigator.xr&&(navigator.xr.isSessionSupported?navigator.xr.isSessionSupported("immersive-vr").then((function(t){lt=t})).catch((function(){})):navigator.xr.supportsSession&&navigator.xr.supportsSession("immersive-vr").then((function(t){lt=t})).catch((function(){})))};function ft(t){return 180*t/Math.PI}var _t={isPowerOfTwo:function(t){return t&&0==(t&t-1)}};_t.extractPitchFromQuat=function(t){var e=function(t){var e=x(0,0,1);return S(e,e,t),e}(t);return-1*Math.atan2(e[1],Math.sqrt(Math.pow(e[0],2)+Math.pow(e[2],2)))},_t.hypot=Math.hypot||function(t,e){return Math.sqrt(t*t+e*e)};var vt={PITCH_DELTA:1,YAW_DELTA_BY_ROLL:2,YAW_DELTA_BY_YAW:3};function gt(t,e){var n=t[0]*e[1]-e[0]*t[1];return-Math.atan2(n,function(t,e){return t[0]*e[0]+t[1]*e[1]}(t,e))}vt[vt.PITCH_DELTA]={targetAxis:[0,1,0],meshPoint:[0,0,1]},vt[vt.YAW_DELTA_BY_ROLL]={targetAxis:[0,1,0],meshPoint:[1,0,0]},vt[vt.YAW_DELTA_BY_YAW]={targetAxis:[1,0,0],meshPoint:[0,0,1]},_t.yawOffsetBetween=function(t,e){var n=Q(t[0],t[2]),i=Q(e[0],e[2]);return Z(n,n),Z(i,i),-gt(n,i)},_t.toDegree=ft,_t.getRotationDelta=function(t,e,n){var i=x(vt[n].targetAxis[0],vt[n].targetAxis[1],vt[n].targetAxis[2]),r=vt[n].meshPoint,o=G(t),a=G(e);q(o,o),q(a,a);var s=x(0,0,1),u=x(0,0,1);S(s,s,o),S(u,u,a),S(i,i,a);var h,c=A(i,b(w(),s,u))>0?1:-1,l=x(r[0],r[1],r[2]);h=n!==vt.YAW_DELTA_BY_YAW?x(0,c,0):x(c,0,0),S(l,l,a),S(h,h,a);var d=l,f=h,_=w();b(_,d,f),C(_,_);var v=_[0],g=_[1],p=_[2];S(u=x(r[0],r[1],r[2]),u,a),S(s=x(r[0],r[1],r[2]),s,o);var m=Math.abs(s[0]*v+s[1]*g+s[2]*p),E=w();T(E,s,function(t,e,n){return t[0]=e[0]*n,t[1]=e[1]*n,t[2]=e[2]*n,t}(w(),_,m));var y=(E[0]*u[0]+E[1]*u[1]+E[2]*u[2])/(R(E)*R(u));y>1&&(y=1);var I=Math.acos(y),P=b(w(),u,E);return m=v*P[0]+g*P[1]+p*P[2],ft(I*(n!==vt.YAW_DELTA_BY_YAW?m>0?1:-1:m<0?1:-1)*c)},_t.angleBetweenVec2=gt;var pt=function(t){function n(n,i,r){var o;return(o=t.call(this,n,i)||this)._useRotation=!1,o._deviceSensor=r,o.setUseRotation(!(!i||!i.useRotation)),o._userDirection=e.DIRECTION_ALL,o}a(n,t);var i=n.prototype;return i.setUseRotation=function(t){this._useRotation=t},i.connect=function(n){this._userDirection=this._direction,this._useRotation&&this._direction&e.DIRECTION_ALL&&(this._direction=e.DIRECTION_HORIZONTAL),t.prototype.connect.call(this,n)},i.getOffset=function(n,i){if(!1===this._useRotation)return t.prototype.getOffset.call(this,n,i);var r=t.prototype.getOffset.call(this,n,[!0,!0]),o=[0,0],a=this._deviceSensor.getDeviceHorizontalRight(),s=Q(a[0],a[1]),u=Q(1,0),h=_t.angleBetweenVec2(s,u),c=Math.cos(h),l=Math.sin(h);return o[0]=r[0]*c-r[1]*l,o[1]=r[1]*c+r[0]*l,this._userDirection&e.DIRECTION_HORIZONTAL?this._userDirection&e.DIRECTION_VERTICAL||(o[1]=0):o[0]=0,o},i.destroy=function(){t.prototype.destroy.call(this)},n}(e.PanInput);const mt=Symbol("__sensor__"),Et=mt;function yt(t,e){for(const n in e)Object.defineProperty(t,n,{configurable:!0,value:e[n]})}const wt=(t,...e)=>(class extends t{constructor(...t){super(t);const e=document.createDocumentFragment();this.addEventListener=(t,...n)=>e.addEventListener(t,...n),this.removeEventListener=(...t)=>e.removeEventListener(...t),this.dispatchEvent=t=>{yt(t,{currentTarget:this}),t.target||yt(t,{target:this});const n=`on${t.type}`;"function"==typeof this[n]&&this[n](t);const i=e.dispatchEvent(t);return i&&this.parentNode&&this.parentNode.dispatchEvent(t),yt(t,{currentTarget:null,target:null}),i}}});class Rt extends(wt(Object)){}function xt(t,e,n){const i=t[e];for(const e in n)i[e]=n[e],Object.defineProperty(t,e,{get:()=>i[e]})}class Tt extends Event{constructor(t,e){if(super(t,e),!(e&&e.error instanceof DOMException))throw TypeError("Failed to construct 'SensorErrorEvent':2nd argument much contain 'error' property");Object.defineProperty(this,"error",{configurable:!1,writable:!1,value:e.error})}}function Ct(t,e){Object.defineProperty(t,`on${e}`,{enumerable:!0,configurable:!1,writable:!0,value:null})}const At={IDLE:1,ACTIVATING:2,ACTIVE:3};class bt extends Rt{constructor(t){if(super(),this[Et]=new WeakMap,Ct(this,"reading"),Ct(this,"activate"),Ct(this,"error"),xt(this,Et,{activated:!1,hasReading:!1,timestamp:null}),this[Et].state=At.IDLE,this[Et].notifyError=(t,e)=>{let n=new Tt("error",{error:new DOMException(t,e)});this.dispatchEvent(n),this.stop()},this[Et].notifyActivatedState=()=>{let t=new Event("activate");this[Et].activated=!0,this.dispatchEvent(t),this[Et].state=At.ACTIVE},this[Et].activateCallback=()=>{},this[Et].deactivateCallback=()=>{},this[Et].frequency=null,window&&window.parent!=window.top)throw new DOMException("Only instantiable in a top-level browsing context","SecurityError");t&&"number"==typeof t.frequency&&t.frequency>60&&(this.frequency=t.frequency)}start(){this[Et].state!==At.ACTIVATING&&this[Et].state!==At.ACTIVE&&(this[Et].state=At.ACTIVATING,this[Et].activateCallback())}stop(){this[Et].state!==At.IDLE&&(this[Et].activated=!1,this[Et].hasReading=!1,this[Et].timestamp=null,this[Et].deactivateCallback(),this[Et].state=At.IDLE)}}const It=mt;let St;screen.orientation?St=screen.orientation:screen.msOrientation?St=screen.msOrientation:(St={},Object.defineProperty(St,"angle",{get:()=>window.orientation||0}));const Pt=(t,...e)=>(class extends t{constructor(...t){super(t);for(const t of e)if(`on${t}`in window){this[It].eventName=t;break}this[It].activateCallback=()=>{window.addEventListener(this[It].eventName,this[It].handleEvent,{capture:!0})},this[It].deactivateCallback=()=>{window.removeEventListener(this[It].eventName,this[It].handleEvent,{capture:!0})}}});function Ot(t,e,n){const i=Math.PI/180,r=(e||0)*i,o=(n||0)*i,a=(t||0)*i,s=Math.cos(.5*a),u=Math.sin(.5*a),h=Math.cos(.5*o),c=Math.sin(.5*o),l=Math.cos(.5*r),d=Math.sin(.5*r);return[d*h*s-l*c*u,l*c*s+d*h*u,l*h*u+d*c*s,l*h*s-d*c*u]}function Dt(t,e){return(t instanceof Float32Array||t instanceof Float64Array)&&t.length>=16&&(t[0]=1-2*(e[1]**2+e[2]**2),t[1]=2*(e[0]*e[1]-e[2]*e[3]),t[2]=2*(e[0]*e[2]+e[1]*e[3]),t[3]=0,t[4]=2*(e[0]*e[1]+e[2]*e[3]),t[5]=1-2*(e[0]**2+e[2]**2),t[6]=2*(e[1]*e[2]-e[0]*e[3]),t[7]=0,t[8]=2*(e[0]*e[2]-e[1]*e[3]),t[9]=2*(e[1]*e[2]+e[0]*e[3]),t[10]=1-2*(e[0]**2+e[1]**2),t[11]=0,t[12]=0,t[13]=0,t[14]=0,t[15]=1),t}function Mt(t){return t?function(t,e,n){const i=Math.sin(n/2),r=Math.cos(n/2);return function(t){const e=Math.sqrt(t[0]**2+t[1]**2+t[2]**2+t[3]**2);return 0===e?[0,0,0,1]:t.map(t=>t/e)}(function(t,e){return[t[0]*e[3]+t[3]*e[0]+t[1]*e[2]-t[2]*e[1],t[1]*e[3]+t[3]*e[1]+t[2]*e[0]-t[0]*e[2],t[2]*e[3]+t[3]*e[2]+t[0]*e[1]-t[1]*e[0],t[3]*e[3]-t[0]*e[0]-t[1]*e[1]-t[2]*e[2]]}(t,[e[0]*i,e[1]*i,e[2]*i,r]))}(t,[0,0,1],-St.angle*Math.PI/180):null}const Lt=window.RelativeOrientationSensor||class extends(Pt(bt,"deviceorientation")){constructor(t={}){switch(super(t),t.coordinateSystem||"world"){case"screen":Object.defineProperty(this,"quaternion",{get:()=>Mt(this[It].quaternion)});break;case"world":default:Object.defineProperty(this,"quaternion",{get:()=>this[It].quaternion})}this[It].handleEvent=t=>{t.absolute||null===t.alpha?this[It].notifyError("Could not connect to a sensor","NotReadableError"):(this[It].activated||this[It].notifyActivatedState(),this[It].timestamp=performance.now(),this[It].quaternion=Ot(t.alpha,t.beta,t.gamma),this[It].hasReading=!0,this.dispatchEvent(new Event("reading")))},this[It].deactivateCallback=()=>{this[It].quaternion=null}}populateMatrix(t){Dt(t,this.quaternion)}};window.AbsoluteOrientationSensor||Pt(bt,"deviceorientationabsolute","deviceorientation"),window.Gyroscope||Pt(bt,"devicemotion"),window.Accelerometer||Pt(bt,"devicemotion"),window.LinearAccelerationSensor||Pt(bt,"devicemotion"),window.GravitySensor||Pt(bt,"devicemotion");function Nt(t,e){return _t.getRotationDelta(t,e,vt.PITCH_DELTA)}var Vt=/Chrome\/([0-9]+)\.(?:[0-9]*)\.([0-9]*)\.([0-9]*)/i.exec(rt);Vt&&(parseInt(Vt[1],10),Vt[2],Vt[3]);/Android/i.test(rt);var Ut=6,Ft=[.2,.2],Bt={NONE:"none",YAWPITCH:"yawPitch",VR:"VR"},Wt="undefined"==typeof Promise?h.Promise:Promise,Xt=x(1,0,0),Yt=x(0,1,0),Ht=L(M(),Xt,-Math.PI/2),Gt=function(){return function(t){function e(e){var n;return(n=t.call(this)||this)._onFirstRead=function(){var t=n._sensor,e=n._getOrientation(),i=x(0,0,-1),r=S(w(),i,e),o=_t.yawOffsetBetween(r,i);if(0!==o){var a=L(M(),Yt,-o);j(Ht,a,Ht),n._calibrated=!0,t.removeEventListener("reading",n._onFirstRead),t.addEventListener("reading",n._onSensorRead)}},n._onSensorRead=function(){if(n._observer&&n._gyroMode===Bt.YAWPITCH){var t=n.getYawPitchDelta();n._observer.change(s(n),{},{yaw:t.yaw,pitch:t.pitch})}n.trigger("change",{isTrusted:!0})},n._enabled=!1,n._calibrated=!1,n._sensor=new Lt({frequency:60,coordinateSystem:"screen",referenceFrame:"screen"}),n._prevQuaternion=null,n._gyroMode=e,n._observer=null,n.axes=null,n}a(e,t);var n=e.prototype;return n.mapAxes=function(t){this.axes=t},n.connect=function(t){return this._observer?this:(this._observer=t,this)},n.disconnect=function(){return this._observer?(this._observer=null,this):this},n.setGyroMode=function(t){this._gyroMode=t},n.enable=function(){var t=this;return this._enabled?Wt.resolve("Sensor already enabled"):navigator&&navigator.permissions?Wt.all([navigator.permissions.query({name:"accelerometer"}),navigator.permissions.query({name:"gyroscope"})]).then((function(e){e.every((function(t){return"granted"===t.state}))&&t._startSensor()})).catch((function(){t._startSensor()})):(this._startSensor(),Wt.resolve())},n.disable=function(){this._enabled&&(this._prevQuaternion=null,this._sensor.removeEventListener("read",this._onSensorRead),this._sensor.stop())},n.isEnabled=function(){return this._enabled},n.getYawPitchDelta=function(){var t=this._prevQuaternion,e=this._getOrientation();if(!t)return this._prevQuaternion=e,{yaw:0,pitch:0};var n,i,r,o={yaw:(n=t,i=e,r=_t.getRotationDelta(n,i,vt.YAW_DELTA_BY_YAW),_t.getRotationDelta(n,i,vt.YAW_DELTA_BY_ROLL)*Math.sin(_t.extractPitchFromQuat(i))+r),pitch:Nt(t,e)};return k(t,e),o},n.getCombinedQuaternion=function(t){var e=this._getOrientation();this._prevQuaternion||(this._prevQuaternion=k(M(),e));var n=L(M(),Yt,f(t)),i=N(M(),n,e);return U(i,i),k(this._prevQuaternion,e),i},n.getDeviceHorizontalRight=function(t){var e=t||this._getOrientation(),n=U(M(),e),i=x(0,0,-1),r=S(w(),i,e),o=b(w(),r,Yt),a=function(t,e,n){return t[0]=e[0]+n[0],t[1]=e[1]+n[1],t[2]=e[2]+n[2],t}(w(),r,o),s=w();return S(s,a,n),O(s,s,i),s[2]=0,C(s,s),s},n.destroy=function(){this.disable()},n._getOrientation=function(){return this._sensor.quaternion?N(M(),Ht,this._sensor.quaternion):M()},n._startSensor=function(){var t=this._sensor;t.start(),this._calibrated?t.addEventListener("reading",this._onSensorRead):t.addEventListener("reading",this._onFirstRead),this._enabled=!0},e}(n)}(),kt="3.3.0-snapshot",jt="undefined"==typeof Promise?h.Promise:Promise,qt=[-180,180],zt=[-90,90],Qt=[-180,180],Kt=function(){var t=function(t){function n(e){var n;n=t.call(this)||this;var i=o({element:null,yaw:0,pitch:0,fov:65,showPolePoint:!1,useZoom:!0,useKeyboard:!0,gyroMode:Bt.YAWPITCH,touchDirection:Ut,yawRange:qt,pitchRange:zt,fovRange:[30,110],aspectRatio:1},e);return n._element=i.element,n._initialFov=i.fov,n._enabled=!1,n._isAnimating=!1,n._deviceSensor=(new Gt).on("change",(function(t){n._triggerChange(t)})),n._initAxes(i),n.option(i),n}a(n,t);var i=n.prototype;return i._initAxes=function(t){var i=this,r=this._updateYawRange(t.yawRange,t.fov,t.aspectRatio),o=this._updatePitchRange(t.pitchRange,t.fov,t.showPolePoint),a=t.gyroMode===Bt.VR;this.axesPanInput=new pt(this._element,{useRotation:a},this._deviceSensor),this.axesWheelInput=new e.WheelInput(this._element,{scale:-4}),this.axesPinchInput=ot?new e.PinchInput(this._element,{scale:-1}):null,this.axesMoveKeyInput=new e.MoveKeyInput(this._element,{scale:[-6,6]}),this.axes=new e({yaw:{range:r,circular:n.isCircular(r),bounce:[0,0]},pitch:{range:o,circular:n.isCircular(o),bounce:[0,0]},fov:{range:t.fovRange,circular:[!1,!1],bounce:[0,0]}},{deceleration:.0014,maximumDuration:1e3},{yaw:t.yaw,pitch:t.pitch,fov:t.fov}).on({hold:function(t){i.axes.options.maximumDuration=1e3,i.trigger("hold",{isTrusted:t.isTrusted})},change:function(t){0!==t.delta.fov&&(i._updateControlScale(t),i.updatePanScale()),i._triggerChange(t)},release:function(t){i._triggerChange(t)},animationStart:function(t){},animationEnd:function(t){i.trigger("animationEnd",{isTrusted:t.isTrusted})}})},i.updatePanScale=function(t){void 0===t&&(t={});var e=this.axes.get().fov,n=t.height||parseInt(it(this._element).height,10),i=Ft[0]*e/this._initialFov*320/n;return this.axesPanInput.options.scale=[i,i],this.axes.options.deceleration=.0014*e/110,this},i.option=function(){for(var t=arguments.length,e=new Array(t),n=0;n<t;n++)e[n]=arguments[n];var i=e.length;if(0===i)return this._getOptions();if(1===i&&"string"==typeof e[0])return this._getOptions(e[0]);var r=o({},this.options),a={},s=[];return 1===i?(s=Object.keys(e[0]),a=o({},e[0])):i>=2&&(s.push(e[0]),a[e[0]]=e[1]),this._setOptions(this._getValidatedOptions(a)),this._applyOptions(s,r),this},i._getValidatedOptions=function(t){return t.yawRange&&(t.yawRange=this._getValidYawRange(t.yawRange,t.fov,t.aspectRatio)),t.pitchRange&&(t.pitchRange=this._getValidPitchRange(t.pitchRange,t.fov)),t},i._getOptions=function(t){var e;return"string"==typeof t?e=this.options[t]:0===arguments.length&&(e=this.options),e},i._setOptions=function(t){for(var e in t)this.options[e]=t[e]},i._applyOptions=function(t,e){var n=this.options,i=this.axes,r=n.gyroMode===Bt.VR,o=n.gyroMode===Bt.YAWPITCH,a=r?2&n.touchDirection:n.touchDirection;if(t.some((function(t){return"showPolePoint"===t||"fov"===t||"aspectRatio"===t||"yawRange"===t||"pitchRange"===t}))&&(t.indexOf("fov")>=0&&(i.setTo({fov:n.fov}),this.updatePanScale()),this._updateControlScale()),t.some((function(t){return"fovRange"===t}))){var s=n.fovRange,u=i.get().fov,h=i.get().fov;K(i.axis.fov.range,s),h<s[0]?h=s[0]:u>s[1]&&(h=s[1]),u!==h&&(i.setTo({fov:h},0),this._updateControlScale(),this.updatePanScale())}(t.some((function(t){return"gyroMode"===t}))&&at&&(r||o?(i.connect(["yaw","pitch"],this._deviceSensor),this._deviceSensor.enable().catch((function(){}))):(i.disconnect(this._deviceSensor),this._deviceSensor.disable()),this._deviceSensor.setGyroMode(n.gyroMode),r&&this.axesPanInput.setUseRotation(r)),t.some((function(t){return"useKeyboard"===t})))&&(n.useKeyboard?i.connect(["yaw","pitch"],this.axesMoveKeyInput):i.disconnect(this.axesMoveKeyInput));if(t.some((function(t){return"useZoom"===t}))){var c=n.useZoom;i.disconnect(this.axesWheelInput),c&&i.connect(["fov"],this.axesWheelInput)}this._togglePinchInputByOption(n.touchDirection,n.useZoom),t.some((function(t){return"touchDirection"===t}))&&this._enabled&&this._enableTouch(a)},i._togglePinchInputByOption=function(t,e){this.axesPinchInput&&(this.axes.disconnect(this.axesPinchInput),e&&t===Ut&&-1===this.axes._inputs.indexOf(this.axesPinchInput)&&this.axes.connect(["fov"],this.axesPinchInput))},i._enableTouch=function(t){this.axesPanInput&&this.axes.disconnect(this.axesPanInput);var e=2&t?"yaw":null,n=4&t?"pitch":null;this.axes.connect([e,n],this.axesPanInput)},i._getValidYawRange=function(t,e,i){var r=n.adjustAspectRatio(i||this.options.aspectRatio||1),o=(e||this.axes.get().fov)*r;return t[1]-t[0]>=o?t:this.options.yawRange||qt},i._getValidPitchRange=function(t,e){var n=e||this.axes.get().fov;return t[1]-t[0]>=n?t:this.options.pitchRange||zt},n.isCircular=function(t){return t[1]-t[0]<360?[!1,!1]:[!0,!0]},i._updateControlScale=function(t){var e=this.options,i=this.axes.get().fov,r=this._updatePitchRange(e.pitchRange,i,e.showPolePoint),o=this._updateYawRange(e.yawRange,i,e.aspectRatio),a=this.axes.get(),s=a.yaw,u=a.pitch;return K(this.axes.axis.yaw.range,o),K(this.axes.axis.pitch.range,r),this.axes.axis.yaw.circular=n.isCircular(o),this.axes.axis.pitch.circular=n.isCircular(r),s<o[0]?s=o[0]:s>o[1]&&(s=o[1]),u<r[0]?u=r[0]:u>r[1]&&(u=r[1]),t&&t.set({yaw:s,pitch:u}),this.axes.setTo({yaw:s,pitch:u},0),this},i._updatePitchRange=function(t,e,n){if(this.options.gyroMode===Bt.VR)return Qt;var i=t[1]-t[0],r=e/2;return n&&!(i<180)?t.concat():[t[0]+r,t[1]-r]},i._updateYawRange=function(t,e,n){if(this.options.gyroMode===Bt.VR)return qt;if(t[1]-t[0]>=360)return t.concat();var i=_t.toDegree(Math.atan2(n,1/Math.tan(f(e/2))));return[t[0]+i,t[1]-i]},i._triggerChange=function(t){var e=this.axes.get(),n=this.options,i={targetElement:n.element,isTrusted:t.isTrusted};i.yaw=e.yaw,i.pitch=e.pitch,i.fov=e.fov,n.gyroMode===Bt.VR&&(i.quaternion=this._deviceSensor.getCombinedQuaternion(e.yaw)),this.trigger("change",i)},n.adjustAspectRatio=function(t){for(var e=[.52,.54,.563,.57,.584,.59,.609,.67,.702,.72,.76,.78,.82,.92,.97,1,1.07,1.14,1.19,1.25,1.32,1.38,1.4,1.43,1.53,1.62,1.76,1.77,1.86,1.96,2.26,2.3,2.6,3,5,6],i=[.51,.54,.606,.56,.628,.63,.647,.71,.736,.757,.78,.77,.8,.89,.975,1,1.07,1.1,1.15,1.18,1.22,1.27,1.3,1.33,1.39,1.45,1.54,1.55,1.58,1.62,1.72,1.82,1.92,2,2.24,2.3],r=-1,o=0;o<e.length-1;o++)if(e[o]<=t&&e[o+1]>=t){r=o;break}if(-1===r)return e[0]>t?i[0]:i[i[0].length-1];var a=e[r],s=e[r+1],u=i[r],h=i[r+1];return n.lerp(u,h,(t-a)/(s-a))},n.lerp=function(t,e,n){return t+n*(e-t)},i.enable=function(){return this._enabled?this:(this._enabled=!0,this._applyOptions(Object.keys(this.options),this.options),this.updatePanScale(),this.enableSensor().catch((function(){})),this)},i.disable=function(t){return this._enabled?(t||this._resetOrientation(),this.axes.disconnect(),this.disableSensor(),this._enabled=!1,this):this},i._resetOrientation=function(){var t=this.options;return this.axes.setTo({yaw:t.yaw,pitch:t.pitch,fov:t.fov},0),this},i.lookAt=function(t,e){var n=t.yaw,i=t.pitch,r=t.fov,o=this.axes.get(),a=void 0===n?0:n-o.yaw,s=void 0===i?0:i-o.pitch,u=void 0===r?0:r-o.fov;this.axes.options.maximumDuration=1/0,this.axes.setBy({yaw:a,pitch:s,fov:u},e)},i.enableSensor=function(){var t=this;return new jt((function(e,n){var i=function(){t.options.gyroMode!==Bt.NONE?(t._deviceSensor.enable(),e()):n(new Error("gyroMode not set"))};DeviceMotionEvent&&"function"==typeof DeviceMotionEvent.requestPermission?DeviceMotionEvent.requestPermission().then((function(t){"granted"===t?i():n(new Error("denied"))})).catch((function(t){n(t)})):i()}))},i.disableSensor=function(){this._deviceSensor.disable()},i.getYawPitch=function(){var t=this.axes.get();return{yaw:t.yaw,pitch:t.pitch}},i.getFov=function(){return this.axes.get().fov},i.getQuaternion=function(){var t=this.axes.get();return this._deviceSensor.getCombinedQuaternion(t.yaw)},i.shouldRenderWithQuaternion=function(){return this.options.gyroMode===Bt.VR},i.destroy=function(){this.axes&&this.axes.destroy(),this.axisPanInput&&this.axisPanInput.destroy(),this.axesWheelInput&&this.axesWheelInput.destroy(),this.axesDeviceOrientationInput&&this.axesDeviceOrientationInput.destroy(),this.axesPinchInput&&this.axesPinchInput.destroy(),this.axesMoveKeyInput&&this.axesMoveKeyInput.destroy(),this._deviceSensor&&this._deviceSensor.destroy()},n}(n);return t.VERSION=kt,t.CONTROL_MODE_VR=1,t.CONTROL_MODE_YAWPITCH=2,t.TOUCH_DIRECTION_ALL=Ut,t.TOUCH_DIRECTION_YAW=2,t.TOUCH_DIRECTION_PITCH=4,t.TOUCH_DIRECTION_NONE=1,t}(),Zt="undefined"==typeof Promise?h.Promise:Promise,Jt={NONE:0,LOADING:1,LOADED:2,ERROR:3},$t="readystatechange",te=function(){var t=function(t){function e(e){var n;return(n=t.call(this)||this)._image=null,n._onceHandlers=[],n._loadStatus=Jt.NONE,e&&n.set(e),n}a(e,t);var n=e.prototype;return n.get=function(){var t=this;return new Zt((function(n,i){t._image?t._loadStatus===Jt.LOADED?n(t.getElement()):t._loadStatus===Jt.LOADING?e.isMaybeLoaded(t._image)?(t._loadStatus=Jt.LOADED,n(t.getElement())):t.on($t,(function(e){e.type===Jt.LOADED?n(t.getElement()):i("ImageLoader: failed to load images.")})):i("ImageLoader: failed to load images"):i("ImageLoader: image is not defiend")}))},n.set=function(t){var n=this;this._loadStatus=Jt.LOADING,this._image=e.createElement(t),e.isMaybeLoaded(this._image)?this._loadStatus=Jt.LOADED:this.onceLoaded(this._image,(function(){n._loadStatus=Jt.LOADED,n.trigger($t,{type:Jt.LOADED})}),(function(){n._loadStatus=Jt.ERROR,n.trigger($t,{type:Jt.ERROR})}))},e.createElement=function(t){return(t instanceof Array?t:[t]).map((function(t){var e=t;return"string"==typeof t&&((e=new Image).crossOrigin="anonymous",e.src=t),e}))},n.getElement=function(){return 1===this._image.length?this._image[0]:this._image},e.isMaybeLoaded=function(t){var e=!1;return t instanceof Image?e=t.complete&&0!==t.naturalWidth:t instanceof Array&&(e=!t.some((function(t){return!t.complete||0===t.naturalWidth}))),e},n.onceLoaded=function(t,n,i){var r=this,o=t instanceof Array?t:[t],a=o.filter((function(t){return!e.isMaybeLoaded(t)})).map((function(t){return new Zt((function(e,n){r._once(t,"load",(function(){return e(t)})),r._once(t,"error",(function(){return n(t)}))}))}));Zt.all(a).then((function(t){return n(1===o.length?o[0]:o)}),(function(t){return i(t)}))},n._once=function(t,e,n){var i=function i(r){t.removeEventListener(e,i),n(r)};t.addEventListener(e,i),this._onceHandlers.push({target:t,type:e,fn:i})},n.getStatus=function(){return this._loadStatus},n.destroy=function(){this._onceHandlers.forEach((function(t){t.target.removeEventListener(t.type,t.fn)})),this._onceHandlers=[],this._image.src="",this._image=null,this._loadStatus=Jt.NONE},e}(n);return t.STATUS=Jt,t}(),ee="undefined"==typeof Promise?h.Promise:Promise,ne={HAVE_NOTHING:0,HAVE_METADATA:1,HAVE_CURRENT_DATA:2,HAVE_FUTURE_DATA:3,HAVE_ENOUGH_DATA:4,LOADING_FAILED:-1},ie={};ie[ne.HAVE_METADATA]="loadedmetadata",ie[ne.HAVE_CURRENT_DATA]="loadeddata",ie[ne.HAVE_FUTURE_DATA]="canplay",ie[ne.HAVE_ENOUGH_DATA]="canplaythrough";var re=function(){function t(t){this._handlers=[],this._sourceCount=0,this._thresholdReadyState=ne.HAVE_METADATA,this._thresholdEventName=ie[this._thresholdReadyState],this._loadStatus=t&&t.readyState||ne.HAVE_NOTHING,this._onerror=this._onerror.bind(this),t&&this.set(t)}var e=t.prototype;return e._onerror=function(){this._errorCount++,this._errorCount>=this._sourceCount&&(this._loadStatus=ne.LOADING_FAILED,this._detachErrorHandler(this._onerror))},e._appendSourceElement=function(t){var e,n;if("object"==typeof t?(e=t.src,n=t.type):"string"==typeof t&&(e=t),!e)return!1;var i=document.createElement("source");return i.src=e,n&&(i.type=n),this._video.appendChild(i),!0},e.set=function(t){var e=this;this._reset(),t&&(t instanceof HTMLVideoElement?this._video=t:"string"!=typeof t&&"object"!=typeof t||(this._video=document.createElement("video"),this._video.setAttribute("crossorigin","anonymous"),this._video.setAttribute("webkit-playsinline",""),this._video.setAttribute("playsinline",""),t instanceof Array?t.forEach((function(t){return e._appendSourceElement(t)})):this._appendSourceElement(t),this._sourceCount=this._video.querySelectorAll("source").length,this._sourceCount>0?this._video.readyState<this._thresholdReadyState&&(this._video.load(),this._attachErrorHandler(this._onerror)):this._video=null))},e._attachErrorHandler=function(t){this._video.addEventListener("error",t),this._sources=this._video.querySelectorAll("source"),[].forEach.call(this._sources,(function(e){e.addEventListener("error",t)}))},e._detachErrorHandler=function(t){this._video.removeEventListener("error",t),[].forEach.call(this._sources,(function(e){e.removeEventListener("error",t)}))},e.get=function(){var t=this;return new ee((function(e,n){if(t._video)if(t._loadStatus===ne.LOADING_FAILED)n("VideoLoader: video source is invalid");else if(t._video.readyState>=t._thresholdReadyState)e(t._video);else{t._attachErrorHandler((function e(){t._loadStatus===ne.LOADING_FAILED&&(t._detachErrorHandler(e),n("VideoLoader: video source is invalid"))})),t._once(t._thresholdEventName,(function(){return e(t._video)}))}else n("VideoLoader: video is undefined")}))},e.getElement=function(){return this._video},e.destroy=function(){this._reset()},e._reset=function(){var t=this;this._handlers.forEach((function(e){t._video.removeEventListener(e.type,e.fn)})),this._handlers=[],this._video=null,this._sourceCount=0,this._errorCount=0},e._once=function(t,e){var n=this._video,i=function i(r){n.removeEventListener(t,i),e(r)};n.addEventListener(t,i,!0),this._handlers.push({type:t,fn:i})},t}(),oe="undefined"!=typeof window&&window||{},ae=(oe.RegExp,oe.navigator),se={browser:[{criteria:"PhantomJS",identity:"PhantomJS"},{criteria:/Whale/,identity:"Whale",versionSearch:"Whale"},{criteria:/Edge/,identity:"Edge",versionSearch:"Edge"},{criteria:/MSIE|Trident|Windows Phone/,identity:"IE",versionSearch:"IEMobile|MSIE|rv"},{criteria:/MiuiBrowser/,identity:"MIUI Browser",versionSearch:"MiuiBrowser"},{criteria:/SamsungBrowser/,identity:"Samsung Internet",versionSearch:"SamsungBrowser"},{criteria:/SAMSUNG /,identity:"Samsung Internet",versionSearch:"Version"},{criteria:/Chrome|CriOS/,identity:"Chrome"},{criteria:/Android/,identity:"Android Browser",versionSearch:"Version"},{criteria:/iPhone|iPad/,identity:"Safari",versionSearch:"Version"},{criteria:"Apple",identity:"Safari",versionSearch:"Version"},{criteria:"Firefox",identity:"Firefox"}],os:[{criteria:/Windows Phone/,identity:"Windows Phone",versionSearch:"Windows Phone"},{criteria:"Windows 2000",identity:"Window",versionAlias:"5.0"},{criteria:/Windows NT/,identity:"Window",versionSearch:"Windows NT"},{criteria:/iPhone|iPad/,identity:"iOS",versionSearch:"iPhone OS|CPU OS"},{criteria:"Mac",versionSearch:"OS X",identity:"MAC"},{criteria:/Android/,identity:"Android"},{criteria:/Tizen/,identity:"Tizen"},{criteria:/Web0S/,identity:"WebOS"}],webview:[{criteria:/iPhone|iPad/,browserVersionSearch:"Version",webviewBrowserVersion:/-1/},{criteria:/iPhone|iPad|Android/,webviewToken:/NAVER|DAUM|; wv/}],defaultString:{browser:{version:"-1",name:"unknown"},os:{version:"-1",name:"unknown"}}};function ue(t,e){for(var n=[],i=0;i<t.length;i++)e(t[i])&&n.push(t[i]);return n}var he=void 0;function ce(t,e){return e&&e.test?!!e.test(t):t.indexOf(e)>-1}function le(t,e){var n=ue(t,(function(t){return ce(he,t.criteria)}))[0];return n&&n.identity||e.name}function de(t,e){return ue(t,(function(t){var n=t.criteria,i=new RegExp(t.identity,"i").test(e);return!!(n?i&&ce(he,n):i)}))[0]}function fe(t,e){var n=se.defaultString.browser.version,i=new RegExp("("+t+")","i").exec(e);if(!i)return n;var r=i.index,o=i[0];if(r>-1){var a=r+o.length+1;n=e.substring(a).split(" ")[0].replace(/_/g,".").replace(/;|\)/g,"")}return n}function _e(t){if(t)return fe(function(t){var e=de(se.browser,t);return e||(e={criteria:t,versionSearch:t,identity:t}),e}(t).versionSearch||t,he)}function ve(t){var e=function(t){return de(se.os,t)}(t)||{},n=se.defaultString.os.version,i=void 0;if(t){if(e.versionAlias)return e.versionAlias;var r=e.versionSearch||t,o=new RegExp("("+r+")\\s([\\d_\\.]+|\\d_0)","i");return o.exec(he)&&(i=o.exec(he)[2].replace(/_/g,".").replace(/;|\)/g,"")),i||n}}function ge(){var t=le(se.os,se.defaultString.os);return{name:t,version:ve(t)}}function pe(){var t,e,n=le(se.browser,se.defaultString.browser);return{name:n,version:_e(n),webview:(t=se.webview,e=void 0,function(t,e){for(var n=0;n<t.length;n++)if(e(t[n]))return!0;return!1}(ue(t,(function(t){return ce(he,t.criteria)})),(function(t){return e=fe(t.browserVersionSearch,he),!(!ce(he,t.webviewToken)&&!ce(e,t.webviewBrowserVersion))})))}}function me(){!function(t){he=t}(arguments.length>0&&void 0!==arguments[0]?arguments[0]:ae.userAgent);var t={os:ge(),browser:pe(),isMobile:-1!==he.indexOf("Mobi")};return t.browser.name=t.browser.name.toLowerCase(),t.os.name=t.os.name.toLowerCase(),t.os.version=t.os.version.toLowerCase(),"ios"===t.os.name&&t.browser.webview&&(t.browser.version="-1"),t}me.VERSION="2.1.5";var Ee,ye,we={0:"NO_ERROR",1280:"INVALID_ENUM",1281:"INVALID_VALUE",1282:"INVALID_OPERATION",1285:"OUT_OF_MEMORY",1286:"INVALID_FRAMEBUFFER_OPERATION",37442:"CONTEXT_LOST_WEBGL"},Re=null,xe=function(){function t(){}return t.createShader=function(t,e,n){var i=t.createShader(e);return t.shaderSource(i,n),t.compileShader(i),t.getShaderParameter(i,t.COMPILE_STATUS)?i:(console.error(t.getShaderInfoLog(i)),null)},t.createProgram=function(t,e,n){var i=t.createProgram();return t.attachShader(i,e),t.attachShader(i,n),t.linkProgram(i),t.detachShader(i,e),t.detachShader(i,n),t.deleteShader(e),t.deleteShader(n),t.getProgramParameter(i,t.LINK_STATUS)?i:(t.deleteProgram(i),null)},t.initBuffer=function(t,e,n,i,r){var o=t.createBuffer();return t.bindBuffer(e,o),t.bufferData(e,n,t.STATIC_DRAW),o&&(o.itemSize=i,o.numItems=n.length/i),void 0!==r&&(t.enableVertexAttribArray(r),t.vertexAttribPointer(r,o.itemSize,t.FLOAT,!1,0,0)),o},t.getWebglContext=function(t,e){var n=["webgl","experimental-webgl","webkit-3d","moz-webgl"],i=null,r=o({preserveDrawingBuffer:!1,antialias:!1,xrCompatible:!0},e);function a(t){return t.statusMessage}t.addEventListener("webglcontextcreationerror",a);for(var s=0;s<n.length;s++){try{i=t.getContext(n[s],r)}catch(t){}if(i)break}return t.removeEventListener("webglcontextcreationerror",a),i},t.createTexture=function(t,e){var n=t.createTexture();return t.bindTexture(e,n),t.texParameteri(e,t.TEXTURE_MAG_FILTER,t.LINEAR),t.texParameteri(e,t.TEXTURE_MIN_FILTER,t.LINEAR),t.texParameteri(e,t.TEXTURE_WRAP_S,t.CLAMP_TO_EDGE),t.texParameteri(e,t.TEXTURE_WRAP_T,t.CLAMP_TO_EDGE),t.bindTexture(e,null),n},t.isWebGLAvailable=function(){if(null===Re){var e=document.createElement("canvas"),n=t.getWebglContext(e);if(Re=!!n,n){var i=n.getExtension("WEBGL_lose_context");i&&i.loseContext()}}return Re},t.isStableWebGL=function(){var t=me(),e=!0;return"android"===t.os.name&&parseFloat(t.os.version)<=4.3?e=!1:"android"===t.os.name&&4.4===parseFloat(t.os.version)&&"chrome"!==t.browser.name&&(e=!1),e},t.getErrorNameFromWebGLErrorCode=function(t){return t in we?we[t]:"UNKNOWN_ERROR"},t.texImage2D=function(t,e,n){try{t.texImage2D(e,0,t.RGBA,t.RGBA,t.UNSIGNED_BYTE,n)}catch(t){console.error("WebGLUtils.texImage2D error:",t)}},t.getMaxTextureSize=function(t){return t.getParameter(t.MAX_TEXTURE_SIZE)},t}(),Te=me(),Ce="ie"===Te.browser.name&&"11.0"===Te.browser.version,Ae={ERROR:"error"},be=function(){var t=function(t){function e(){var e;return(e=t.call(this)||this)._forceDimension=null,e._pixelCanvas=null,e._pixelContext=null,e}a(e,t);var n=e.prototype;return n.render=function(t){var e=t.gl,n=t.shaderProgram,i=t.indexBuffer,r=t.mvMatrix,o=t.pMatrix;e.uniformMatrix4fv(n.pMatrixUniform,!1,o),e.uniformMatrix4fv(n.mvMatrixUniform,!1,r),i&&e.drawElements(e.TRIANGLES,i.numItems,e.UNSIGNED_SHORT,0)},n.getDimension=function(t){return{width:t.naturalWidth||t.videoWidth,height:t.naturalHeight||t.videoHeight}},n.updateShaderData=function(t){},n._initPixelSource=function(t,e){if(Ce&&t instanceof HTMLVideoElement||e){var n=e||this.getDimension(t),i=n.width,r=n.height;this._pixelCanvas=document.createElement("canvas"),this._pixelCanvas.width=i,this._pixelCanvas.height=r,this._pixelContext=this._pixelCanvas.getContext("2d")}this._forceDimension=e},n._getPixelSource=function(t){if(!this._pixelCanvas)return t;var e=this.getDimension(t),n=this._forceDimension||e;return this._pixelCanvas.width!==n.width&&(this._pixelCanvas.width=n.width),this._pixelCanvas.height!==n.height&&(this._pixelCanvas.height=n.height),this._forceDimension?this._pixelContext.drawImage(t,0,0,e.width,e.height,0,0,n.width,n.height):this._pixelContext.drawImage(t,0,0),this._pixelCanvas},n._extractTileConfig=function(t){var e=Array.isArray(t.tileConfig)?t.tileConfig:Array.apply(void 0,Array(6)).map((function(){return t.tileConfig}));return e=e.map((function(t){return o({flipHorizontal:!1,rotation:0},t)}))},n._triggerError=function(t){console.error("Renderer Error:",t),this.trigger(Ae.ERROR,{message:"string"==typeof t?t:t.message})},e}(n);return t.EVENTS=Ae,t}(),Ie=function(){var t=function(t){function e(){return t.apply(this,arguments)||this}a(e,t);var n=e.prototype;return n.getVertexPositionData=function(){return e._VERTEX_POSITION_DATA=null!==e._VERTEX_POSITION_DATA?e._VERTEX_POSITION_DATA:[1,-1,1,-1,-1,1,-1,1,1,1,1,1,-1,-1,-1,1,-1,-1,1,1,-1,-1,1,-1,-1,1,-1,1,1,-1,1,1,1,-1,1,1,1,-1,-1,-1,-1,-1,-1,-1,1,1,-1,1,1,-1,-1,1,-1,1,1,1,1,1,1,-1,-1,-1,1,-1,-1,-1,-1,1,-1,-1,1,1],e._VERTEX_POSITION_DATA},n.getIndexData=function(){if(e._INDEX_DATA)return e._INDEX_DATA;for(var t=[],n=this.getVertexPositionData(),i=0;i<n.length/3;i+=4)t.push(i,i+2,i+1,i,i+3,i+2);return e._INDEX_DATA=t,t},e.extractOrder=function(t){return t.order||"RLUDBF"},n.getTextureCoordData=function(t){var n=e.extractOrder(t),i=this.getVertexPositionData(),r=this._extractTileConfig(t);return"BFUDRL".split("").map((function(t){return r[n.indexOf(t)]})).map((function(t,e){for(var n=parseInt(t.rotation/90,10),r=t.flipHorizontal?[0,1,2,3]:[1,0,3,2],o=0;o<Math.abs(n);o++)t.flipHorizontal&&n>0||!t.flipHorizontal&&n<0?r.push(r.shift()):r.unshift(r.pop());for(var a=i.slice(12*e,12*e+12),s=[],u=0;u<4;u++)s[r[u]]=a.splice(0,3);return s})).join().split(",").map((function(t){return parseInt(t,10)}))},n.getVertexShaderSource=function(){return"\nattribute vec3 aVertexPosition;\nattribute vec3 aTextureCoord;\nuniform mat4 uMVMatrix;\nuniform mat4 uPMatrix;\nvarying highp vec3 vVertexDirectionVector;\nvoid main(void) {\n\tvVertexDirectionVector = aTextureCoord;\n\tgl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0);\n}"},n.getFragmentShaderSource=function(){return"\nprecision highp float;\nuniform samplerCube uSampler;\nvarying highp vec3 vVertexDirectionVector;\nvoid main(void) {\n\tgl_FragColor = textureCube(uSampler, vVertexDirectionVector);\n}"},n.updateTexture=function(t,n,i){var r=e.extractOrder(i),o={};r.split("").forEach((function(t,e){o[t]=e}));try{if(n instanceof Array)for(var a=0;a<6;a++){var s=o["RLUDBF"[a]];xe.texImage2D(t,t.TEXTURE_CUBE_MAP_POSITIVE_X+a,n[s])}else for(var u=this.getMaxCubeMapTextureSize(t,n),h=0;h<6;h++){var c=o["RLUDBF"[h]],l=this.extractTileFromImage(n,c,u);xe.texImage2D(t,t.TEXTURE_CUBE_MAP_POSITIVE_X+h,l)}}catch(t){this._triggerError(t)}},n.bindTexture=function(t,e,n,i){t.bindTexture(t.TEXTURE_CUBE_MAP,e),this.updateTexture(t,n,i)},n.getSourceTileSize=function(t){var e=this.getDimension(t),n=e.width,i=e.height,r=n/i;return r===1/6?n:6===r?i:r===2/3?n/2:n/3},n.extractTileFromImage=function(t,e,n){var i=this.getDimension(t).width,r=this.getSourceTileSize(t),o=document.createElement("canvas");o.width=n,o.height=n;var a=o.getContext("2d"),s=i/r,u=r*e%(r*s),h=parseInt(e/s,10)*r;return a.drawImage(t,u,h,r,r,0,0,n,n),o},n.getMaxCubeMapTextureSize=function(t,e){var n=me(),i=t.getParameter(t.MAX_CUBE_MAP_TEXTURE_SIZE),r=this.getSourceTileSize(e);if("ie"===n.browser.name&&11===parseInt(n.browser.version,10)&&!_t.isPowerOfTwo(r))for(var o=1;o<i;o*=2)if(!(o<r)){r=o;break}return"ios"===n.os.name&&9===parseInt(n.os.version,10)&&(r=1024),"ios"===n.os.name&&8===parseInt(n.os.version,10)&&(r=512),Math.min(i,r)},e}(be);return t._VERTEX_POSITION_DATA=null,t._INDEX_DATA=null,t}(),Se=function(t){function e(){return t.apply(this,arguments)||this}a(e,t);var n=e.prototype;return n.getVertexShaderSource=function(){return"\nattribute vec3 aVertexPosition;\nattribute vec2 aTextureCoord;\nuniform mat4 uMVMatrix;\nuniform mat4 uPMatrix;\nvarying highp vec2 vTextureCoord;\nvoid main(void) {\n\tvTextureCoord = aTextureCoord;\n\tgl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0);\n}"},n.getFragmentShaderSource=function(){return"\n#define PI 3.14159265359\nprecision highp float;\nvarying highp vec2 vTextureCoord;\nuniform sampler2D uSampler;\nuniform bool uIsEAC;\nconst vec2 OPERATE_COORDS_RANGE = vec2(-1.0, 1.0);\nconst vec2 TEXTURE_COORDS_RANGE = vec2(0.0, 1.0);\n// vector type is used for initializing values instead of array.\nconst vec4 TEXTURE_DIVISION_X = vec4(0.0, 1.0 / 3.0, 2.0 / 3.0, 1.0);\nconst vec3 TEXTURE_DIVISION_Y = vec3(0.0, 1.0 / 2.0, 1.0);\nconst float EAC_CONST = 2.0 / PI;\nfloat scale(vec2 domainRange, vec2 targetRange, float val) {\n\tfloat unit = 1.0 / (domainRange[1] - domainRange[0]);\n\treturn targetRange[0] + (targetRange[1] - targetRange[0]) * (val - domainRange[0]) * unit;\n}\nvoid main(void) {\n\tfloat transformedCoordX;\n\tfloat transformedCoordY;\n\n\tif (uIsEAC) {\n\t\tvec2 orgTextureRangeX;\n\t\tvec2 orgTextureRangeY;\n\n\t\t// Apply EAC transform\n\t\tif (vTextureCoord.s >= TEXTURE_DIVISION_X[2]) {\n\t\t\torgTextureRangeX = vec2(TEXTURE_DIVISION_X[2], TEXTURE_DIVISION_X[3]);\n\t\t} else if (vTextureCoord.s >= TEXTURE_DIVISION_X[1]) {\n\t\t\torgTextureRangeX = vec2(TEXTURE_DIVISION_X[1], TEXTURE_DIVISION_X[2]);\n\t\t} else {\n\t\t\torgTextureRangeX = vec2(TEXTURE_DIVISION_X[0], TEXTURE_DIVISION_X[1]);\n\t\t}\n\n\t\tif (vTextureCoord.t >= TEXTURE_DIVISION_Y[1]) {\n\t\t\torgTextureRangeY = vec2(TEXTURE_DIVISION_Y[1], TEXTURE_DIVISION_Y[2]);\n\t\t} else {\n\t\t\torgTextureRangeY = vec2(TEXTURE_DIVISION_Y[0], TEXTURE_DIVISION_Y[1]);\n\t\t}\n\n\t\t// scaling coors by the coordinates following the range from -1.0 to 1.0.\n\t\tfloat px = scale(orgTextureRangeX, OPERATE_COORDS_RANGE, vTextureCoord.s);\n\t\tfloat py = scale(orgTextureRangeY, OPERATE_COORDS_RANGE, vTextureCoord.t);\n\n\t\tfloat qu = EAC_CONST * atan(px) + 0.5;\n\t\tfloat qv = EAC_CONST * atan(py) + 0.5;\n\n\t\t// re-scaling coors by original coordinates ranges\n\t\ttransformedCoordX = scale(TEXTURE_COORDS_RANGE, orgTextureRangeX, qu);\n\t\ttransformedCoordY = scale(TEXTURE_COORDS_RANGE, orgTextureRangeY, qv);\n\t} else {\n\t\t// normal cubemap\n\t\ttransformedCoordX = vTextureCoord.s;\n\t\ttransformedCoordY = vTextureCoord.t;\n\t}\n\n\tgl_FragColor = texture2D(uSampler, vec2(transformedCoordX, transformedCoordY));\n}"},n.getVertexPositionData=function(){return this._vertices||(this._vertices=[1,-1,1,-1,-1,1,-1,1,1,1,1,1,-1,-1,-1,1,-1,-1,1,1,-1,-1,1,-1,-1,1,-1,1,1,-1,1,1,1,-1,1,1,-1,-1,1,1,-1,1,1,-1,-1,-1,-1,-1,1,-1,-1,1,-1,1,1,1,1,1,1,-1,-1,-1,1,-1,-1,-1,-1,1,-1,-1,1,1]),this._vertices},n.getIndexData=function(){var t=this;return function(){for(var e=[],n=0;n<t._vertices.length/3;n+=4)e.push(n,n+1,n+2,n,n+2,n+3);return e}()},n.getTextureCoordData=function(t){for(var e=this,n=t.order||"RLUDFB",i=[],r=1;r>=0;r--)for(var o=0;o<3;o++){var a=[o/3,r/2,(o+1)/3,r/2,(o+1)/3,(r+1)/2,o/3,(r+1)/2];i.push(a)}var s=this._extractTileConfig(t);return i=i.map((function(t){return e._shrinkCoord(t)})).map((function(t,n){return e._transformCoord(t,s[n])})),"BFUDRL".split("").map((function(t){return n.indexOf(t)})).map((function(t){return i[t]})).reduce((function(t,e){return t.concat(e)}),[])},n.updateTexture=function(t,e){xe.texImage2D(t,t.TEXTURE_2D,this._getPixelSource(e))},n.bindTexture=function(t,e,n){var i=this.getDimension(n),r=i.width,o=i.height,a=Math.max(r,o),s=xe.getMaxTextureSize(t);a>s?this._triggerError("Image width("+r+") exceeds device limit("+s+"))"):(this._initPixelSource(n),t.activeTexture(t.TEXTURE0),t.pixelStorei(t.UNPACK_FLIP_Y_WEBGL,!0),t.bindTexture(t.TEXTURE_2D,e),this.updateTexture(t,n))},n._transformCoord=function(t,e){var n=t.slice();return e.flipHorizontal&&(n=this._flipHorizontalCoord(n)),e.rotation&&(n=this._rotateCoord(n,e.rotation)),n},n._shrinkCoord=function(t){return[t[0]+0,t[1]+0,t[2]-0,t[3]+0,t[4]-0,t[5]-0,t[6]+0,t[7]-0]},n._rotateCoord=function(t,e){var n,i=parseInt(e/90,10)%4;if(0===i)return t;var r=[];return i>0?(n=t.splice(0,2*i),r=t.concat(n)):r=(n=t.splice(2*(4+i),2*-i)).concat(t),r},n._flipHorizontalCoord=function(t){return[t[2],t[3],t[0],t[1],t[6],t[7],t[4],t[5]]},e}(be),Pe={INVALID_DEVICE:10,NO_WEBGL:11,FAIL_IMAGE_LOAD:12,FAIL_BIND_TEXTURE:13,INVALID_RESOURCE:14,RENDERING_CONTEXT_LOST:15},Oe={READY:"ready",VIEW_CHANGE:"viewChange",ANIMATION_END:"animationEnd",ERROR:"error"},De={EQUIRECTANGULAR:"equirectangular",CUBEMAP:"cubemap",CUBESTRIP:"cubestrip",PANORAMA:"panorama",STEREOSCOPIC_EQUI:"stereoequi"},Me={TOP_BOTTOM:"3dv",LEFT_RIGHT:"3dh",NONE:""},Le=-.5*Math.PI,Ne=[],Ve=[],Ue=[];for(Ee=0;Ee<=60;Ee++){var Fe=(Ee/60-.5)*Math.PI,Be=Math.sin(Fe),We=Math.cos(Fe);for(ye=0;ye<=60;ye++){var Xe=2*(ye/60-.5)*Math.PI+Le,Ye=Math.sin(Xe),He=Math.cos(Xe)*We,Ge=Be,ke=Ye*We,je=ye/60,qe=Ee/60;if(Ne.push(je,qe),Ve.push(2*He,2*Ge,2*ke),60!==ye&&60!==Ee){var ze=61*Ee+ye,Qe=ze+60+1;Ue.push(ze,Qe,ze+1,Qe,Qe+1,ze+1)}}}var Ke=function(){var t=function(t){function e(e){var n;return(n=t.call(this)||this)._stereoFormat=e,n}a(e,t);var n=e.prototype;return n.render=function(e){var n,i,r=e.gl,o=e.shaderProgram;switch(this._stereoFormat){case Me.TOP_BOTTOM:n=[1,.5,0,0],i=[1,.5,0,.5];break;case Me.LEFT_RIGHT:n=[.5,1,0,0],i=[.5,1,.5,0];break;default:n=[1,1,0,0],i=[1,1,0,0]}var a=r.getUniformLocation(o,"uTexScaleOffset");r.uniform4fv(a,[].concat(n,i)),t.prototype.render.call(this,e)},n.getVertexPositionData=function(){return e._VERTEX_POSITION_DATA},n.getIndexData=function(){return e._INDEX_DATA},n.getTextureCoordData=function(){return e._TEXTURE_COORD_DATA},n.getVertexShaderSource=function(){return"\nattribute vec3 aVertexPosition;\nattribute vec2 aTextureCoord;\nuniform mat4 uMVMatrix;\nuniform mat4 uPMatrix;\nuniform float uEye;\nuniform vec4 uTexScaleOffset[2];\nvarying highp vec2 vTextureCoord;\nvoid main(void) {\n\tvec4 scaleOffset = uTexScaleOffset[int(uEye)];\n\tvTextureCoord = aTextureCoord.xy * scaleOffset.xy + scaleOffset.zw;\n\tgl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0);\n}"},n.getFragmentShaderSource=function(){return"\nprecision highp float;\nvarying highp vec2 vTextureCoord;\nuniform sampler2D uSampler;\nvoid main(void) {\n\tgl_FragColor = texture2D(uSampler, vTextureCoord.st);\n}"},n.updateTexture=function(t,e){xe.texImage2D(t,t.TEXTURE_2D,this._getPixelSource(e))},n.bindTexture=function(t,e,n){var i=this.getDimension(n),r=i.width,o=i.height,a=Math.max(r,o),s=xe.getMaxTextureSize(t);a>s?this._triggerError("Image width("+r+") exceeds device limit("+s+"))"):(this._initPixelSource(n),t.activeTexture(t.TEXTURE0),t.pixelStorei(t.UNPACK_FLIP_Y_WEBGL,!0),t.bindTexture(t.TEXTURE_2D,e),this.updateTexture(t,n))},e}(be);return t._VERTEX_POSITION_DATA=Ve,t._TEXTURE_COORD_DATA=Ne,t._INDEX_DATA=Ue,t}(),Ze=[],Je=[],$e=[],tn=function(){var t=function(t){function e(){return t.apply(this,arguments)||this}a(e,t);var n=e.prototype;return n.getVertexPositionData=function(){return e._VERTEX_POSITION_DATA},n.getIndexData=function(){return e._INDEX_DATA},n.getTextureCoordData=function(){return e._TEXTURE_COORD_DATA},n.getVertexShaderSource=function(){return"\nattribute vec3 aVertexPosition;\nattribute vec2 aTextureCoord;\nuniform mat4 uMVMatrix;\nuniform mat4 uPMatrix;\nvarying highp vec2 vTextureCoord;\nvoid main(void) {\n\tvTextureCoord = aTextureCoord;\n\tgl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0);\n}"},n.getFragmentShaderSource=function(){return"\nprecision highp float;\nvarying highp vec2 vTextureCoord;\nuniform sampler2D uSampler;\nvoid main(void) {\n\tgl_FragColor = texture2D(uSampler, vec2(vTextureCoord.s, vTextureCoord.t));\n}"},n.updateTexture=function(t,e){xe.texImage2D(t,t.TEXTURE_2D,this._getPixelSource(e))},n.bindTexture=function(t,e,n){var i,r=this.getDimension(n),o=r.width,a=r.height,s=Math.max(o,a),u=xe.getMaxTextureSize(t);s>u&&(this._triggerError("Image width("+o+") exceeds device texture limit("+u+"))"),i=o>a?{width:u,height:u*a/o}:{width:u*o/a,height:u}),this._initPixelSource(n,i),t.activeTexture(t.TEXTURE0),t.pixelStorei(t.UNPACK_FLIP_Y_WEBGL,!0),t.bindTexture(t.TEXTURE_2D,e),this.updateTexture(t,n)},n.updateShaderData=function(t){var e,n,i,r,o,a=t.imageAspectRatio,s=void 0===a?6:a;if(s<1?(r=!0,o=1/s):(r=!1,o=s),o>=6){var u=360/o;n=2*Math.PI,i=Math.tan(f(u/2))}else n=o,i=.5;Ze.length=0,Je.length=0,$e.length=0;for(var h=[-i,i],c=Math.PI/2+(2*Math.PI-n)/2,l=0,d=h.length;l<d;l++)for(e=0;e<=60;e++){var _=c+e/60*n,v=Math.cos(_),g=h[l],p=Math.sin(_),m=void 0,E=void 0;if(r?(m=1-l,E=e/60):(m=e/60,E=l),Ze.push(m,E),Je.push(v,g,p),0===l&&e<60){var y=e,w=y+60+1;$e.push(y,w,y+1,w,w+1,y+1)}}},e}(be);return t._VERTEX_POSITION_DATA=Je,t._TEXTURE_COORD_DATA=Ze,t._INDEX_DATA=$e,t}(),en="undefined"==typeof Promise?h.Promise:Promise,nn=[0,0,.5,1],rn=[.5,0,.5,1],on="left",an="right",sn=function(){return function(){function t(){var t=this;this.destroy=function(){var e=t._vrDisplay;t.removeEndCallback(t.destroy),e&&e.isPresenting&&e.exitPresent(),t._clear()},this._frameData=new window.VRFrameData,this._clear()}r(t,[{key:"context",get:function(){return this._vrDisplay}}]);var e=t.prototype;return e.canRender=function(){return Boolean(this._vrDisplay)},e.beforeRender=function(t){t.bindFramebuffer(t.FRAMEBUFFER,null)},e.afterRender=function(){this._vrDisplay.submitFrame()},e.getEyeParams=function(t){var e=this._vrDisplay,n=.5*t.drawingBufferWidth,i=t.drawingBufferHeight,r=this._frameData;e.getFrameData(r);var o=r.leftViewMatrix,a=r.rightViewMatrix;return E(o,o,this._yawOffset),E(a,a,this._yawOffset),[{viewport:[0,0,n,i],mvMatrix:o,pMatrix:r.leftProjectionMatrix},{viewport:[n,0,n,i],mvMatrix:a,pMatrix:r.rightProjectionMatrix}]},e.isPresenting=function(){return Boolean(this._vrDisplay&&this._vrDisplay.isPresenting)},e.addEndCallback=function(t){window.addEventListener("vrdisplaypresentchange",t)},e.removeEndCallback=function(t){window.removeEventListener("vrdisplaypresentchange",t)},e.requestPresent=function(t){var e=this;return new en((function(n,i){navigator.getVRDisplays().then((function(r){var o=r.length&&r[0];o?o.capabilities.canPresent?o.requestPresent([{source:t}]).then((function(){var i=o.getEyeParameters(on),r=o.getEyeParameters(an);t.width=2*Math.max(i.renderWidth,r.renderWidth),t.height=Math.max(i.renderHeight,r.renderHeight),e._setDisplay(o),n()})):i(new Error("Display lacking capability to present.")):i(new Error("No displays available."))}))}))},e.setYawOffset=function(t){this._yawOffset=t},e._setDisplay=function(t){this._vrDisplay=t;var e=t.getLayers();if(e.length){var n=e[0];this._leftBounds=n.leftBounds,this._rightBounds=n.rightBounds}this.addEndCallback(this.destroy)},e._clear=function(){this._vrDisplay=null,this._leftBounds=nn,this._rightBounds=rn,this._yawOffset=0},t}()}(),un=function(){return function(){function t(){var t=this;this.destroy=function(){var e=t._xrSession;t.removeEndCallback(t.destroy),e&&e.end().then((function(){}),(function(){})),t._clear()},this._clear()}r(t,[{key:"context",get:function(){return this._xrSession}}]);var e=t.prototype;return e.canRender=function(t){var e=t.getViewerPose(this._xrRefSpace);return Boolean(e)},e.beforeRender=function(t,e){var n=e.session.renderState.baseLayer;t.bindFramebuffer(t.FRAMEBUFFER,n.framebuffer)},e.afterRender=function(){},e.getEyeParams=function(t,e){var n=this,i=e.session,r=e.getViewerPose(this._xrRefSpace);if(!r)return null;var o=i.renderState.baseLayer;return r.views.map((function(t){var e=o.getViewport(t),i=t.transform.inverse.matrix;return nt&&m(i,i,f(180)),E(i,i,n._yawOffset),{viewport:[e.x,e.y,e.width,e.height],mvMatrix:i,pMatrix:t.projectionMatrix}}))},e.isPresenting=function(){return this._presenting},e.addEndCallback=function(t){var e=this._xrSession;e&&e.addEventListener("end",t)},e.removeEndCallback=function(t){var e=this._xrSession;e&&e.removeEventListener("end",t)},e.requestPresent=function(t,e){var n=this;return navigator.xr.requestSession("immersive-vr",{requiredFeatures:["local"]}).then((function(t){var i=new window.XRWebGLLayer(t,e);return t.updateRenderState({baseLayer:i}),t.requestReferenceSpace("local").then((function(e){n._setSession(t,i,e)}))}))},e.setYawOffset=function(t){this._yawOffset=t},e._setSession=function(t,e,n){this._xrSession=t,this._xrLayer=e,this._xrRefSpace=n,this._presenting=!0,this.addEndCallback(this.destroy)},e._clear=function(){this._xrSession=null,this._xrLayer=null,this._xrRefSpace=null,this._presenting=!1,this._yawOffset=0},t}()}(),hn=function(){return function(){function t(){var t=this;this._onLoop=function(){t._callback.apply(t,arguments),t._rafId=t._context.requestAnimationFrame(t._onLoop)},this._onLoopNextTick=function(){var e=performance.now();t._callback.apply(t,arguments);var n=performance.now()-e;t._rafTimer>=0&&(clearTimeout(t._rafTimer),t._rafTimer=-1),n<16?t._rafId=t._context.requestAnimationFrame(t._onLoop):t._rafTimer=setTimeout(t._onLoop,0)},this._callback=null,this._context=window,this._rafId=-1,this._rafTimer=-1}var e=t.prototype;return e.setCallback=function(t){this._callback=t},e.setContext=function(t){this._context=t},e.start=function(){var t=this._context,e=this._callback;t&&e&&(this._rafId>=0||this._rafTimer>=0||(this._rafId=nt?t.requestAnimationFrame(this._onLoopNextTick):t.requestAnimationFrame(this._onLoop)))},e.stop=function(){this._rafId>=0&&this._context.cancelAnimationFrame(this._rafId),this._rafTimer>=0&&clearTimeout(this._rafTimer),this._rafId=-1,this._rafTimer=-1},t}()}(),cn="undefined"==typeof Promise?h.Promise:Promise,ln=De,dn=ut||1;dn>2&&(dn=2);var fn={BIND_TEXTURE:"bindTexture",IMAGE_LOADED:"imageLoaded",ERROR:"error",RENDERING_CONTEXT_LOST:"renderingContextLost",RENDERING_CONTEXT_RESTORE:"renderingContextRestore"},_n={INVALID_DEVICE:10,NO_WEBGL:11,FAIL_IMAGE_LOAD:12,RENDERER_ERROR:13},vn=function(){var t=function(t){function e(e,n,i,r,o,a){var u;return(u=t.call(this)||this)._renderStereo=function(t,e){var n=u._vr,i=u.context,r=n.getEyeParams(i,e);if(r){n.beforeRender(i,e);for(var o=0,a=[0,1];o<a.length;o++){var s=a[o],h=r[s];u.mvMatrix=h.mvMatrix,u.pMatrix=h.pMatrix,i.viewport.apply(i,h.viewport),i.uniform1f(u.shaderProgram.uEye,s),u._bindBuffers(),u._draw()}n.afterRender()}},u.exitVR=function(){var t=u._vr,e=u.context,n=u._animator;t&&(t.removeEndCallback(u.exitVR),t.destroy(),u._vr=null,et&&u._restoreStyle(),u.updateViewportDimensions(u.width,u.height),u._updateViewport(),e.bindFramebuffer(e.FRAMEBUFFER,null),u._bindBuffers(),u._shouldForceDraw=!0,n.stop(),n.setContext(window),n.setCallback(u._render.bind(s(u))),n.start())},u._onFirstVRFrame=function(t,e){var n=u._vr,i=u.context,r=u._animator;if(n.canRender(e)){var o=x(0,0,-1),a=n.getEyeParams(i,e)[0],s=v(_(),a.mvMatrix),h=v(_(),a.pMatrix),c=g(_(),s),l=g(_(),h),d=I(w(),o,l);I(d,d,c);var f=_t.yawOffsetBetween(d,x(0,0,1));0!==f&&(n.setYawOffset(f),r.setCallback(u._renderStereo))}},u.sphericalConfig=o,u.fieldOfView=o.fieldOfView,u.width=n,u.height=i,u._lastQuaternion=null,u._lastYaw=null,u._lastPitch=null,u._lastFieldOfView=null,u.pMatrix=p(),u.mvMatrix=p(),y(u.pMatrix,f(u.fieldOfView),n/i,.1,100),u.textureCoordBuffer=null,u.vertexBuffer=null,u.indexBuffer=null,u.canvas=u._initCanvas(n,i),u._setDefaultCanvasStyle(),u._wrapper=null,u._wrapperOrigStyle=null,u._renderingContextAttributes=a,u._image=null,u._imageConfig=null,u._imageIsReady=!1,u._shouldForceDraw=!1,u._keepUpdate=!1,u._onContentLoad=u._onContentLoad.bind(s(u)),u._onContentError=u._onContentError.bind(s(u)),u._animator=new hn,u._vr=null,e&&u.setImage({image:e,imageType:o.imageType,isVideo:r,cubemapConfig:o.cubemapConfig}),u}a(e,t);var n=e.prototype;return n.setYawPitchControl=function(t){this._yawPitchControl=t},n.getContent=function(){return this._image},n.setImage=function(t){var e=t.image,n=t.imageType,i=t.isVideo,r=void 0!==i&&i,a=t.cubemapConfig;return this._imageIsReady=!1,this._isVideo=r,this._imageConfig=o({order:n===ln.CUBEMAP?"RLUDBF":"RLUDFB",tileConfig:{flipHorizontal:!1,rotation:0}},a),this._setImageType(n),this._contentLoader&&this._contentLoader.destroy(),r?(this._contentLoader=new re,this._keepUpdate=!0):(this._contentLoader=new te,this._keepUpdate=!1),this._contentLoader.set(e),this._image=this._contentLoader.getElement(),this._contentLoader.get().then(this._onContentLoad,this._onContentError).catch((function(t){return setTimeout((function(){throw t}))}))},n._setImageType=function(t){var e=this;if(t&&this._imageType!==t){switch(this._imageType=t,this._isCubeMap=t===ln.CUBEMAP,this._renderer&&this._renderer.off(),t){case ln.CUBEMAP:this._renderer=new Ie;break;case ln.CUBESTRIP:this._renderer=new Se;break;case ln.PANORAMA:this._renderer=new tn;break;case ln.STEREOSCOPIC_EQUI:this._renderer=new Ke(this.sphericalConfig.stereoFormat);break;default:this._renderer=new Ke(Me.NONE)}this._renderer.on(be.EVENTS.ERROR,(function(t){e.trigger(fn.ERROR,{type:_n.RENDERER_ERROR,message:t.message})})),this._initWebGL()}},n._initCanvas=function(t,e){var n=document.createElement("canvas");return n.width=t,n.height=e,this._onWebglcontextlost=this._onWebglcontextlost.bind(this),this._onWebglcontextrestored=this._onWebglcontextrestored.bind(this),n.addEventListener("webglcontextlost",this._onWebglcontextlost),n.addEventListener("webglcontextrestored",this._onWebglcontextrestored),n},n._setDefaultCanvasStyle=function(){var t=this.canvas;t.style.bottom=0,t.style.left=0,t.style.right=0,t.style.top=0,t.style.margin="auto",t.style.maxHeight="100%",t.style.maxWidth="100%",t.style.outline="none",t.style.position="absolute"},n._onContentError=function(t){return this._imageIsReady=!1,this._image=null,this.trigger(fn.ERROR,{type:_n.FAIL_IMAGE_LOAD,message:"failed to load image"}),!1},n._triggerContentLoad=function(){this.trigger(fn.IMAGE_LOADED,{content:this._image,isVideo:this._isVideo,projectionType:this._imageType})},n._onContentLoad=function(t){return this._imageIsReady=!0,this._triggerContentLoad(),!0},n.isImageLoaded=function(){return!!this._image&&this._imageIsReady&&(!this._isVideo||this._image.readyState>=2)},n.bindTexture=function(){var t=this;return new cn((function(e,n){t._contentLoader?t._contentLoader.get().then((function(){t._bindTexture()}),n).then(e):n("ImageLoader is not initialized")}))},n.attachTo=function(t){this.detach(),t.appendChild(this.canvas),this._wrapper=t},n.forceContextLoss=function(){if(this.hasRenderingContext()){var t=this.context.getExtension("WEBGL_lose_context");t&&t.loseContext()}},n.detach=function(){this.canvas.parentElement&&this.canvas.parentElement.removeChild(this.canvas)},n.destroy=function(){this._contentLoader&&this._contentLoader.destroy(),this._animator.stop(),this.detach(),this.forceContextLoss(),this.off(),this.canvas.removeEventListener("webglcontextlost",this._onWebglcontextlost),this.canvas.removeEventListener("webglcontextrestored",this._onWebglcontextrestored)},n.hasRenderingContext=function(){return!(!this.context||this.context.isContextLost())&&!(this.context&&!this.context.getProgramParameter(this.shaderProgram,this.context.LINK_STATUS))},n._initShaderProgram=function(){var t=this.context;this.shaderProgram&&(t.deleteProgram(this.shaderProgram),this.shaderProgram=null);var e=this._renderer,n=e.getVertexShaderSource(),i=e.getFragmentShaderSource(),r=xe.createShader(t,t.VERTEX_SHADER,n),o=xe.createShader(t,t.FRAGMENT_SHADER,i),a=xe.createProgram(t,r,o);if(!a)throw new Error("Failed to intialize shaders: "+xe.getErrorNameFromWebGLErrorCode(t.getError()));t.useProgram(a),a.vertexPositionAttribute=t.getAttribLocation(a,"aVertexPosition"),t.enableVertexAttribArray(a.vertexPositionAttribute),a.pMatrixUniform=t.getUniformLocation(a,"uPMatrix"),a.mvMatrixUniform=t.getUniformLocation(a,"uMVMatrix"),a.samplerUniform=t.getUniformLocation(a,"uSampler"),a.textureCoordAttribute=t.getAttribLocation(a,"aTextureCoord"),a.uEye=t.getUniformLocation(a,"uEye"),t.enableVertexAttribArray(a.textureCoordAttribute),t.clear(t.COLOR_BUFFER_BIT|t.DEPTH_BUFFER_BIT|t.STENCIL_BUFFER_BIT),t.uniform1i(a.samplerUniform,0),this.shaderProgram=a},n._onWebglcontextlost=function(t){t.preventDefault(),this.trigger(fn.RENDERING_CONTEXT_LOST)},n._onWebglcontextrestored=function(t){this._initWebGL(),this.trigger(fn.RENDERING_CONTEXT_RESTORE)},n.updateFieldOfView=function(t){this.fieldOfView=t,this._updateViewport()},n.updateViewportDimensions=function(t,e){var n=!1;this.width=t,this.height=e;var i=t*dn,r=e*dn;i!==this.canvas.width&&(this.canvas.width=i,n=!0),r!==this.canvas.height&&(this.canvas.height=r,n=!0),n&&(this._updateViewport(),this._shouldForceDraw=!0)},n._updateViewport=function(){y(this.pMatrix,f(this.fieldOfView),this.canvas.width/this.canvas.height,.1,100),this.context.viewport(0,0,this.context.drawingBufferWidth,this.context.drawingBufferHeight)},n._initWebGL=function(){var t;try{this._initRenderingContext(),t=this.context,this.updateViewportDimensions(this.width,this.height),this._initShaderProgram()}catch(t){return this.trigger(fn.ERROR,{type:_n.NO_WEBGL,message:"no webgl support"}),this.destroy(),void console.error(t)}t.clearColor(0,0,0,0);var e=this._isCubeMap?t.TEXTURE_CUBE_MAP:t.TEXTURE_2D;this.texture&&t.deleteTexture(this.texture),this.texture=xe.createTexture(t,e),this._imageType===ln.CUBESTRIP&&t.enable(t.CULL_FACE)},n._initRenderingContext=function(){if(!this.hasRenderingContext()){if(!window.WebGLRenderingContext)throw new Error("WebGLRenderingContext not available.");if(this.context=xe.getWebglContext(this.canvas,this._renderingContextAttributes),!this.context)throw new Error("Failed to acquire 3D rendering context")}},n._initBuffers=function(){var t=this._renderer.getVertexPositionData(),e=this._renderer.getIndexData(),n=this._renderer.getTextureCoordData(this._imageConfig),i=this.context;this.vertexBuffer=xe.initBuffer(i,i.ARRAY_BUFFER,new Float32Array(t),3,this.shaderProgram.vertexPositionAttribute),this.indexBuffer=xe.initBuffer(i,i.ELEMENT_ARRAY_BUFFER,new Uint16Array(e),1),this.textureCoordBuffer=xe.initBuffer(i,i.ARRAY_BUFFER,new Float32Array(n),this._isCubeMap?3:2,this.shaderProgram.textureCoordAttribute),this._bindBuffers()},n._bindTexture=function(){if(this._imageType===ln.CUBESTRIP){var t=this._renderer.getDimension(this._image),e=t.width,n=t.height,i=e&&n&&e/n!=1.5;this.context.uniform1f(this.context.getUniformLocation(this.shaderProgram,"uIsEAC"),i)}else if(this._imageType===ln.PANORAMA){var r=this._renderer.getDimension(this._image),o=r.width,a=r.height,s=o&&a&&o/a;this._renderer.updateShaderData({imageAspectRatio:s})}this._initBuffers(),this._renderer.bindTexture(this.context,this.texture,this._image,this._imageConfig),this._shouldForceDraw=!0,this.trigger(fn.BIND_TEXTURE)},n._updateTexture=function(){this._renderer.updateTexture(this.context,this._image,this._imageConfig)},n.keepUpdate=function(t){t&&!1===this.isImageLoaded()&&(this._shouldForceDraw=!0),this._keepUpdate=t},n.startRender=function(){this._animator.setCallback(this._render.bind(this)),this._animator.start()},n.stopRender=function(){this._animator.stop()},n.renderWithQuaternion=function(t,e){this.isImageLoaded()&&(!1===this._keepUpdate&&this._lastQuaternion&&z(this._lastQuaternion,t)&&this.fieldOfView&&this.fieldOfView===e&&!1===this._shouldForceDraw||(void 0!==e&&e!==this.fieldOfView&&this.updateFieldOfView(e),this.mvMatrix=function(t,e){var n=e[0],i=e[1],r=e[2],o=e[3],a=n+n,s=i+i,u=r+r,h=n*a,c=i*a,l=i*s,d=r*a,f=r*s,_=r*u,v=o*a,g=o*s,p=o*u;return t[0]=1-l-_,t[1]=c+p,t[2]=d-g,t[3]=0,t[4]=c-p,t[5]=1-h-_,t[6]=f+v,t[7]=0,t[8]=d+g,t[9]=f-v,t[10]=1-h-l,t[11]=0,t[12]=0,t[13]=0,t[14]=0,t[15]=1,t}(p(),t),this._draw(),this._lastQuaternion=G(t),this._shouldForceDraw&&(this._shouldForceDraw=!1)))},n.renderWithYawPitch=function(t,e,n){var i;this.isImageLoaded()&&(!1===this._keepUpdate&&null!==this._lastYaw&&this._lastYaw===t&&null!==this._lastPitch&&this._lastPitch===e&&this.fieldOfView&&this.fieldOfView===n&&!1===this._shouldForceDraw||(void 0!==n&&n!==this.fieldOfView&&this.updateFieldOfView(n),(i=this.mvMatrix)[0]=1,i[1]=0,i[2]=0,i[3]=0,i[4]=0,i[5]=1,i[6]=0,i[7]=0,i[8]=0,i[9]=0,i[10]=1,i[11]=0,i[12]=0,i[13]=0,i[14]=0,i[15]=1,m(this.mvMatrix,this.mvMatrix,-f(e)),E(this.mvMatrix,this.mvMatrix,-f(t)),this._draw(),this._lastYaw=t,this._lastPitch=e,this._shouldForceDraw&&(this._shouldForceDraw=!1)))},n._render=function(){var t=this._yawPitchControl,e=t.getFov();if(t.shouldRenderWithQuaternion()){var n=t.getQuaternion();this.renderWithQuaternion(n,e)}else{var i=t.getYawPitch();this.renderWithYawPitch(i.yaw,i.pitch,e)}},n._bindBuffers=function(){var t=this.context,e=this.shaderProgram,n=this.vertexBuffer,i=this.textureCoordBuffer;t.bindBuffer(t.ARRAY_BUFFER,n),t.enableVertexAttribArray(e.vertexPositionAttribute),t.vertexAttribPointer(e.vertexPositionAttribute,n.itemSize,t.FLOAT,!1,0,0),t.bindBuffer(t.ELEMENT_ARRAY_BUFFER,this.indexBuffer),t.bindBuffer(t.ARRAY_BUFFER,i),t.enableVertexAttribArray(e.textureCoordAttribute),t.vertexAttribPointer(e.textureCoordAttribute,i.itemSize,t.FLOAT,!1,0,0)},n._draw=function(){this._isVideo&&this._keepUpdate&&this._updateTexture(),this._renderer.render({gl:this.context,shaderProgram:this.shaderProgram,indexBuffer:this.indexBuffer,mvMatrix:this.mvMatrix,pMatrix:this.pMatrix})},n.getProjectionRenderer=function(){return this._renderer},n.enterVR=function(){var t=this._vr;return lt||navigator.getVRDisplays?t&&t.isPresenting()?cn.resolve("VR already enabled."):this._requestPresent():cn.reject("VR is not available on this browser.")},n._requestPresent=function(){var t=this,e=this.context,n=this.canvas,i=this._animator;this._vr=lt?new un:new sn;var r=this._vr;return i.stop(),new cn((function(o,a){r.requestPresent(n,e).then((function(){r.addEndCallback(t.exitVR),i.setContext(r.context),i.setCallback(t._onFirstVRFrame),et&&t._setWrapperFullscreen(),t._shouldForceDraw=!0,i.start(),o("success")})).catch((function(e){r.destroy(),t._vr=null,i.start(),a(e)}))}))},n._setWrapperFullscreen=function(){var t=this._wrapper;if(t){this._wrapperOrigStyle=t.getAttribute("style");var e=t.style;e.width="100vw",e.height="100vh",e.position="fixed",e.left="0",e.top="0",e.zIndex="9999"}},n._restoreStyle=function(){var t=this._wrapper,e=this.canvas;t&&(this._wrapperOrigStyle?t.setAttribute("style",this._wrapperOrigStyle):t.removeAttribute("style"),this._wrapperOrigStyle=null,e.removeAttribute("style"),this._setDefaultCanvasStyle())},e}(n);return t.EVENTS=fn,t.ERROR_TYPE=_n,t}(),gn="undefined"==typeof Promise?h.Promise:Promise,pn=function(){var t=function(t){function e(n,i){var r;if(void 0===i&&(i={}),r=t.call(this)||this,!xe.isWebGLAvailable())return setTimeout((function(){r.trigger(Oe.ERROR,{type:Pe.NO_WEBGL,message:"no webgl support"})}),0),s(r)||s(r);if(!xe.isStableWebGL())return setTimeout((function(){r.trigger(Oe.ERROR,{type:Pe.INVALID_DEVICE,message:"blacklisted browser"})}),0),s(r)||s(r);if(i.image&&i.video)return setTimeout((function(){r.trigger(Oe.ERROR,{type:Pe.INVALID_RESOURCE,message:"Specifying multi resouces(both image and video) is not valid."})}),0),s(r)||s(r);dt(),r._container=n,r._image=i.image||i.video,r._isVideo=!!i.video,r._projectionType=i.projectionType||De.EQUIRECTANGULAR,r._cubemapConfig=o({order:r._projectionType===De.CUBEMAP?"RLUDBF":"RLUDFB",tileConfig:{flipHorizontal:!1,rotation:0}},i.cubemapConfig),r._stereoFormat=i.stereoFormat||Me.TOP_BOTTOM,r._width=i.width||parseInt(window.getComputedStyle(n).width,10),r._height=i.height||parseInt(window.getComputedStyle(n).height,10),r._yaw=i.yaw||0,r._pitch=i.pitch||0,r._fov=i.fov||65,r._gyroMode=i.gyroMode||Bt.YAWPITCH,r._quaternion=null,r._aspectRatio=0!==r._height?r._width/r._height:1;var a=i.fovRange||[30,110],u=e._isValidTouchDirection(i.touchDirection)?i.touchDirection:Kt.TOUCH_DIRECTION_ALL,h=o(i,{element:n,yaw:r._yaw,pitch:r._pitch,fov:r._fov,gyroMode:r._gyroMode,fovRange:a,aspectRatio:r._aspectRatio,touchDirection:u});return r._isReady=!1,r._initYawPitchControl(h),r._initRenderer(r._yaw,r._pitch,r._fov,r._projectionType,r._cubemapConfig),r}a(e,t);var n=e.prototype;return n.getVideo=function(){return this._isVideo?this._photoSphereRenderer.getContent():null},n.setVideo=function(t,e){return void 0===e&&(e={}),t&&this.setImage(t,{projectionType:e.projectionType,isVideo:!0,cubemapConfig:e.cubemapConfig,stereoFormat:e.stereoFormat}),this},n.getImage=function(){return this._isVideo?null:this._photoSphereRenderer.getContent()},n.setImage=function(t,e){void 0===e&&(e={});var n=o({order:"RLUDBF",tileConfig:{flipHorizontal:!1,rotation:0}},e.cubemapConfig),i=e.stereoFormat||Me.TOP_BOTTOM,r=!!e.isVideo;return this._image&&this._isVideo!==r?(console.warn("Currently not supporting to change content type(Image <--\x3e Video)"),this):(t&&(this._image=t,this._isVideo=r,this._projectionType=e.projectionType||De.EQUIRECTANGULAR,this._cubemapConfig=n,this._stereoFormat=i,this._deactivate(),this._initRenderer(this._yaw,this._pitch,this._fov,this._projectionType,this._cubemapConfig)),this)},n.keepUpdate=function(t){return this._photoSphereRenderer.keepUpdate(t),this},n.getProjectionType=function(){return this._projectionType},n.enableSensor=function(){return this._yawPitchControl.enableSensor()},n.disableSensor=function(){return this._yawPitchControl.disableSensor(),this},n.enterVR=function(){var t=this;return this._isReady?new gn((function(e,n){t.enableSensor().then((function(){return t._photoSphereRenderer.enterVR()})).then((function(t){return e(t)})).catch((function(t){return n(t)}))})):gn.reject(new Error("PanoViewer is not ready to show image."))},n.exitVR=function(){return this._photoSphereRenderer.exitVR(),this},n._initRenderer=function(t,e,n,i,r){var o=this;this._photoSphereRenderer=new vn(this._image,this._width,this._height,this._isVideo,{initialYaw:t,initialPitch:e,fieldOfView:n,imageType:i,cubemapConfig:r,stereoFormat:this._stereoFormat}),this._photoSphereRenderer.setYawPitchControl(this._yawPitchControl),this._bindRendererHandler(),this._photoSphereRenderer.bindTexture().then((function(){return o._activate()})).catch((function(){o._triggerEvent(Oe.ERROR,{type:Pe.FAIL_BIND_TEXTURE,message:"failed to bind texture"})}))},n._updateYawPitchIfNeeded=function(){if(this._projectionType===e.ProjectionType.PANORAMA){var t,n,i,r=this._photoSphereRenderer.getContent(),o=r.naturalWidth/r.naturalHeight;o<1&&(o=1/o),o<6?(n=_t.toDegree(o),t=!1,i=2*_t.toDegree(Math.atan(.5))):(n=360,t=!0,i=360/o);var a=this._yawPitchControl.option("fovRange")[0];this._yawPitchControl.option({fov:i,yawRange:[-n/2,n/2],isCircular:t,pitchRange:[-i/2,i/2],fovRange:[a,i]}),this.lookAt({fov:i})}},n._bindRendererHandler=function(){var t=this;this._photoSphereRenderer.on(vn.EVENTS.ERROR,(function(e){t.trigger(Oe.ERROR,e)})),this._photoSphereRenderer.on(vn.EVENTS.RENDERING_CONTEXT_LOST,(function(e){t._deactivate(),t.trigger(Oe.ERROR,{type:Pe.RENDERING_CONTEXT_LOST,message:"webgl rendering context lost"})}))},n._initYawPitchControl=function(t){var e=this;this._yawPitchControl=new Kt(t),this._yawPitchControl.on(Oe.ANIMATION_END,(function(t){e._triggerEvent(Oe.ANIMATION_END,t)})),this._yawPitchControl.on("change",(function(t){e._yaw=t.yaw,e._pitch=t.pitch,e._fov=t.fov,e._quaternion=t.quaternion,e._triggerEvent(Oe.VIEW_CHANGE,t)}))},n._triggerEvent=function(t,e){var n=e||{};return this.trigger(t,n)},n.setUseZoom=function(t){return"boolean"==typeof t&&this._yawPitchControl.option("useZoom",t),this},n.setUseKeyboard=function(t){return this._yawPitchControl.option("useKeyboard",t),this},n.setGyroMode=function(t){return this._yawPitchControl.option("gyroMode",t),this},n.setFovRange=function(t){return this._yawPitchControl.option("fovRange",t),this},n.getFovRange=function(){return this._yawPitchControl.option("fovRange")},n.updateViewportDimensions=function(t){if(void 0===t&&(t={width:void 0,height:void 0}),!this._isReady)return this;var e;void 0!==t.width&&void 0!==t.height||(e=window.getComputedStyle(this._container));var n=t.width||parseInt(e.width,10),i=t.height||parseInt(e.height,10);return n===this._width&&i===this._height?this:(this._width=n,this._height=i,this._aspectRatio=n/i,this._photoSphereRenderer.updateViewportDimensions(n,i),this._yawPitchControl.option("aspectRatio",this._aspectRatio),this._yawPitchControl.updatePanScale({height:i}),this.lookAt({},0),this)},n.getFov=function(){return this._fov},n._getHFov=function(){return _t.toDegree(2*Math.atan(this._aspectRatio*Math.tan(f(this._fov)/2)))},n.getYaw=function(){return this._yaw},n.getPitch=function(){return this._pitch},n.getYawRange=function(){return this._yawPitchControl.option("yawRange")},n.getPitchRange=function(){return this._yawPitchControl.option("pitchRange")},n.setYawRange=function(t){return this._yawPitchControl.option("yawRange",t),this},n.setPitchRange=function(t){return this._yawPitchControl.option("pitchRange",t),this},n.setShowPolePoint=function(t){return this._yawPitchControl.option("showPolePoint",t),this},n.lookAt=function(t,e){if(!this._isReady)return this;var n=void 0!==t.yaw?t.yaw:this._yaw,i=void 0!==t.pitch?t.pitch:this._pitch,r=this._yawPitchControl.option("pitchRange"),o=r[1]-r[0],a=void 0!==t.fov?t.fov:this._fov;return o<a&&(a=o),this._yawPitchControl.lookAt({yaw:n,pitch:i,fov:a},e),0===e&&this._photoSphereRenderer.renderWithYawPitch(n,i,a),this},n._activate=function(){this._photoSphereRenderer.attachTo(this._container),this._yawPitchControl.enable(),this.updateViewportDimensions(),this._isReady=!0,this._updateYawPitchIfNeeded(),this._triggerEvent(Oe.READY),this._photoSphereRenderer.startRender()},n._deactivate=function(){this._isReady&&(this._photoSphereRenderer.stopRender(),this._yawPitchControl.disable(),this._isReady=!1),this._photoSphereRenderer&&(this._photoSphereRenderer.destroy(),this._photoSphereRenderer=null)},e._isValidTouchDirection=function(t){return t===e.TOUCH_DIRECTION.NONE||t===e.TOUCH_DIRECTION.YAW||t===e.TOUCH_DIRECTION.PITCH||t===e.TOUCH_DIRECTION.ALL},n.setTouchDirection=function(t){return e._isValidTouchDirection(t)&&this._yawPitchControl.option("touchDirection",t),this},n.getTouchDirection=function(){return this._yawPitchControl.option("touchDirection")},n.destroy=function(){return this._deactivate(),this._yawPitchControl&&(this._yawPitchControl.destroy(),this._yawPitchControl=null),this},e.isSupported=function(){return xe.isWebGLAvailable()&&xe.isStableWebGL()},e.isWebGLAvailable=function(){return xe.isWebGLAvailable()},e.isGyroSensorAvailable=function(t){var n;st?gn.race([new gn((function(t,e){n=function(e){var n=!(null==e.rotationRate.alpha);t(n)},window.addEventListener("devicemotion",n)})),new gn((function(t,e){setTimeout((function(){return t(!1)}),1e3)}))]).then((function(i){window.removeEventListener("devicemotion",n),t&&t(i),e.isGyroSensorAvailable=function(t){return t&&t(i),i}})):t&&t(!1)},e}(n);return t.VERSION=kt,t.ERROR_TYPE=Pe,t.EVENTS=Oe,t.PROJECTION_TYPE=De,t.GYRO_MODE=Bt,t.ProjectionType=De,t.STEREO_FORMAT=Me,t.TOUCH_DIRECTION={NONE:Kt.TOUCH_DIRECTION_NONE,YAW:Kt.TOUCH_DIRECTION_YAW,PITCH:Kt.TOUCH_DIRECTION_PITCH,ALL:Kt.TOUCH_DIRECTION_ALL},t}(),mn=function(){var t=function(t){function e(n,i){var r;r=t.call(this)||this;var o=i||{};return r._el=n,r._rowCount=o.rowCount||1,r._colCount=o.colCount||1,r._totalCount=r._rowCount*r._colCount,r._width=o.width||"auto",r._height=o.height||"auto",r._autoHeight=null!=o.autoHeight?o.autoHeight:"true",r._colRow=[0,0],o.colRow?r._colRow=o.colRow:o.frameIndex&&r.setFrameIndex(o.frameIndex),r._el.style.width=e._getSizeString(r._width),r._el.style.height=e._getSizeString(r._height),o.imageUrl?(r._image=new Image,r._image.onload=function(){r._bg=e._createBgDiv(r._image,r._rowCount,r._colCount,r._autoHeight),r._el.appendChild(r._bg),r.setColRow(r._colRow[0],r._colRow[1]),r.trigger("load",{target:r._el,bgElement:r._bg}),r._autoPlayReservedInfo&&(r.play(r._autoPlayReservedInfo),r._autoPlayReservedInfo=null)},r._image.onerror=function(t){r.trigger("imageError",{imageUrl:o.imageUrl})},r._image.src=o.imageUrl,r):(setTimeout((function(){r.trigger("imageError",{imageUrl:o.imageUrl})}),0),s(r))}a(e,t),e._createBgDiv=function(t,e,n,i){var r=document.createElement("div");r.style.position="relative",r.style.overflow="hidden",t.style.position="absolute",t.style.width=100*n+"%",t.style.height=100*e+"%",t.ondragstart=function(){return!1},ct&&(t.style.willChange="transform"),r.appendChild(t);var o=t.width/n,a=t.height/e;if(i){var s=a/o;r.style.paddingBottom=100*s+"%"}else r.style.height="100%";return r};var n=e.prototype;return n.setFrameIndex=function(t){var e=this.toColRow(t);this.setColRow(e[0],e[1])},n.getFrameIndex=function(){return this._colRow[1]*this._colCount+this._colRow[0]},n.setColRow=function(t,e){e>this._rowCount-1||t>this._colCount-1||(this._image&&ht&&(this._image.style[ht]="translate("+-t/this._colCount*100+"%, "+-e/this._rowCount*100+"%)"),this._colRow=[t,e])},n.getColRow=function(){return this._colRow},e._getSizeString=function(t){return"number"==typeof t?t+"px":t},n.stop=function(){this._autoPlayTimer&&(clearInterval(this._autoPlayTimer),this._autoPlayTimer=null)},n.play=function(t){var e=this,n=void 0===t?{interval:1e3/this._totalCount,playCount:0}:t,i=n.interval,r=n.playCount;if(this._bg){this._autoPlayTimer&&(clearInterval(this._autoPlayTimer),this._autoPlayTimer=null);var o=this.getFrameIndex(),a=0,s=0;this._autoPlayTimer=setInterval((function(){o%=e._totalCount;var t=e.toColRow(o);e.setColRow(t[0],t[1]),o++,++s===e._totalCount&&(s=0,a++),r>0&&a===r&&clearInterval(e._autoPlayTimer)}),i)}else this._autoPlayReservedInfo={interval:i,playCount:r}},n.toColRow=function(t){var e=this._colCount,n=this._rowCount;return t<0?[0,0]:t>=this._totalCount?[e-1,n-1]:[t%e,Math.floor(t/e)]},e}(n);return t.VERSION=kt,t}(),En=.21,yn=function(){var t=function(t){function n(n,i){var r;(r=t.call(this)||this)._el=n;var a=o({},i),s=a.colCount||1,u=a.rowCount||1;return r._scale=a.scale||1,r._panScale=r._scale*En,r._frameCount=s*u,r._sprites=new mn(n,a).on({load:function(t){r.trigger("load",t)},imageError:function(t){r.trigger("imageError",{imageUrl:t.imageUrl})}}),r._panInput=new e.PanInput(r._el,{scale:[r._panScale,r._panScale]}),r._axes=new e({angle:{range:[0,359],circular:!0}}).on({change:function(t){var e=Math.floor(t.pos.angle/(360/r._frameCount)),n=r._frameCount-e-1;r._sprites.setFrameIndex(n),r.trigger("change",{frameIndex:n,colRow:r._sprites.getColRow(),angle:t.pos.angle})},animationEnd:function(t){r.trigger("animationEnd",{isTrusted:t.isTrusted})}}),r._axes.connect("angle",r._panInput),r}a(n,t);var i=n.prototype;return i.setScale=function(t){return isNaN(t)||t<0?this:(this._scale=t,this._panScale=t*En,this._panInput.options.scale=[this._panScale,this._panScale],this)},i.getScale=function(){return this._scale},i.spinBy=function(t,e){return void 0===t&&(t=0),void 0===e&&(e={duration:0}),this._axes.setBy({angle:t},e.duration),this},i.spinTo=function(t,e){return void 0===t&&(t=0),void 0===e&&(e={duration:0}),this._axes.setTo({angle:t},e.duration),this},i.getAngle=function(){return this._axes.get().angle||0},n}(n);return t.VERSION=kt,t}();t.PanoViewer=pn,t.SpinViewer=yn,t.SpriteImage=mn,t.VERSION=kt,Object.defineProperty(t,"__esModule",{value:!0})}));
-//# sourceMappingURL=view360.min.js.map
+(function(global, factory) {
+  typeof exports === "object" && typeof module !== "undefined"
+    ? factory(exports)
+    : typeof define === "function" && define.amd
+    ? define(["exports"], factory)
+    : factory(((global.eg = global.eg || {}), (global.eg.view360 = {})));
+})(this, function(exports) {
+  "use strict";
+
+  function _defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ("value" in descriptor) descriptor.writable = true;
+      Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }
+
+  function _createClass(Constructor, protoProps, staticProps) {
+    if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) _defineProperties(Constructor, staticProps);
+    return Constructor;
+  }
+
+  function _extends() {
+    _extends =
+      Object.assign ||
+      function(target) {
+        for (var i = 1; i < arguments.length; i++) {
+          var source = arguments[i];
+
+          for (var key in source) {
+            if (Object.prototype.hasOwnProperty.call(source, key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+
+        return target;
+      };
+
+    return _extends.apply(this, arguments);
+  }
+
+  function _inheritsLoose(subClass, superClass) {
+    subClass.prototype = Object.create(superClass.prototype);
+    subClass.prototype.constructor = subClass;
+    subClass.__proto__ = superClass;
+  }
+
+  function _assertThisInitialized(self) {
+    if (self === void 0) {
+      throw new ReferenceError(
+        "this hasn't been initialised - super() hasn't been called"
+      );
+    }
+
+    return self;
+  }
+
+  var commonjsGlobal =
+    typeof globalThis !== "undefined"
+      ? globalThis
+      : typeof window !== "undefined"
+      ? window
+      : typeof global !== "undefined"
+      ? global
+      : typeof self !== "undefined"
+      ? self
+      : {};
+
+  function commonjsRequire() {
+    throw new Error(
+      "Dynamic requires are not currently supported by rollup-plugin-commonjs"
+    );
+  }
+
+  function createCommonjsModule(fn, module) {
+    return (
+      (module = { exports: {} }), fn(module, module.exports), module.exports
+    );
+  }
+
+  var es6Promise = createCommonjsModule(function(module, exports) {
+    /*!
+     * @overview es6-promise - a tiny implementation of Promises/A+.
+     * @copyright Copyright (c) 2014 Yehuda Katz, Tom Dale, Stefan Penner and contributors (Conversion to ES6 API by Jake Archibald)
+     * @license   Licensed under MIT license
+     *            See https://raw.githubusercontent.com/stefanpenner/es6-promise/master/LICENSE
+     * @version   v4.2.8+1e68dce6
+     */
+    (function(global, factory) {
+      module.exports = factory();
+    })(commonjsGlobal, function() {
+      function objectOrFunction(x) {
+        var type = typeof x;
+        return x !== null && (type === "object" || type === "function");
+      }
+
+      function isFunction(x) {
+        return typeof x === "function";
+      }
+
+      var _isArray = void 0;
+
+      if (Array.isArray) {
+        _isArray = Array.isArray;
+      } else {
+        _isArray = function(x) {
+          return Object.prototype.toString.call(x) === "[object Array]";
+        };
+      }
+
+      var isArray = _isArray;
+      var len = 0;
+      var vertxNext = void 0;
+      var customSchedulerFn = void 0;
+
+      var asap = function asap(callback, arg) {
+        queue[len] = callback;
+        queue[len + 1] = arg;
+        len += 2;
+
+        if (len === 2) {
+          // If len is 2, that means that we need to schedule an async flush.
+          // If additional callbacks are queued before the queue is flushed, they
+          // will be processed by this flush that we are scheduling.
+          if (customSchedulerFn) {
+            customSchedulerFn(flush);
+          } else {
+            scheduleFlush();
+          }
+        }
+      };
+
+      function setScheduler(scheduleFn) {
+        customSchedulerFn = scheduleFn;
+      }
+
+      function setAsap(asapFn) {
+        asap = asapFn;
+      }
+
+      var browserWindow = typeof window !== "undefined" ? window : undefined;
+      var browserGlobal = browserWindow || {};
+      var BrowserMutationObserver =
+        browserGlobal.MutationObserver || browserGlobal.WebKitMutationObserver;
+      var isNode =
+        typeof self === "undefined" &&
+        typeof process !== "undefined" &&
+        {}.toString.call(process) === "[object process]"; // test for web worker but not in IE10
+
+      var isWorker =
+        typeof Uint8ClampedArray !== "undefined" &&
+        typeof importScripts !== "undefined" &&
+        typeof MessageChannel !== "undefined"; // node
+
+      function useNextTick() {
+        // node version 0.10.x displays a deprecation warning when nextTick is used recursively
+        // see https://github.com/cujojs/when/issues/410 for details
+        return function() {
+          return process.nextTick(flush);
+        };
+      } // vertx
+
+      function useVertxTimer() {
+        if (typeof vertxNext !== "undefined") {
+          return function() {
+            vertxNext(flush);
+          };
+        }
+
+        return useSetTimeout();
+      }
+
+      function useMutationObserver() {
+        var iterations = 0;
+        var observer = new BrowserMutationObserver(flush);
+        var node = document.createTextNode("");
+        observer.observe(node, {
+          characterData: true
+        });
+        return function() {
+          node.data = iterations = ++iterations % 2;
+        };
+      } // web worker
+
+      function useMessageChannel() {
+        var channel = new MessageChannel();
+        channel.port1.onmessage = flush;
+        return function() {
+          return channel.port2.postMessage(0);
+        };
+      }
+
+      function useSetTimeout() {
+        // Store setTimeout reference so es6-promise will be unaffected by
+        // other code modifying setTimeout (like sinon.useFakeTimers())
+        var globalSetTimeout = setTimeout;
+        return function() {
+          return globalSetTimeout(flush, 1);
+        };
+      }
+
+      var queue = new Array(1000);
+
+      function flush() {
+        for (var i = 0; i < len; i += 2) {
+          var callback = queue[i];
+          var arg = queue[i + 1];
+          callback(arg);
+          queue[i] = undefined;
+          queue[i + 1] = undefined;
+        }
+
+        len = 0;
+      }
+
+      function attemptVertx() {
+        try {
+          var vertx = Function("return this")().require("vertx");
+
+          vertxNext = vertx.runOnLoop || vertx.runOnContext;
+          return useVertxTimer();
+        } catch (e) {
+          return useSetTimeout();
+        }
+      }
+
+      var scheduleFlush = void 0; // Decide what async method to use to triggering processing of queued callbacks:
+
+      if (isNode) {
+        scheduleFlush = useNextTick();
+      } else if (BrowserMutationObserver) {
+        scheduleFlush = useMutationObserver();
+      } else if (isWorker) {
+        scheduleFlush = useMessageChannel();
+      } else if (
+        browserWindow === undefined &&
+        typeof commonjsRequire === "function"
+      ) {
+        scheduleFlush = attemptVertx();
+      } else {
+        scheduleFlush = useSetTimeout();
+      }
+
+      function then(onFulfillment, onRejection) {
+        var parent = this;
+        var child = new this.constructor(noop);
+
+        if (child[PROMISE_ID] === undefined) {
+          makePromise(child);
+        }
+
+        var _state = parent._state;
+
+        if (_state) {
+          var callback = arguments[_state - 1];
+          asap(function() {
+            return invokeCallback(_state, child, callback, parent._result);
+          });
+        } else {
+          subscribe(parent, child, onFulfillment, onRejection);
+        }
+
+        return child;
+      }
+      /**
+        `Promise.resolve` returns a promise that will become resolved with the
+        passed `value`. It is shorthand for the following:
+      
+        ```javascript
+        let promise = new Promise(function(resolve, reject){
+          resolve(1);
+        });
+      
+        promise.then(function(value){
+          // value === 1
+        });
+        ```
+      
+        Instead of writing the above, your code now simply becomes the following:
+      
+        ```javascript
+        let promise = Promise.resolve(1);
+      
+        promise.then(function(value){
+          // value === 1
+        });
+        ```
+      
+        @method resolve
+        @static
+        @param {Any} value value that the returned promise will be resolved with
+        Useful for tooling.
+        @return {Promise} a promise that will become fulfilled with the given
+        `value`
+      */
+
+      function resolve$1(object) {
+        /*jshint validthis:true */
+        var Constructor = this;
+
+        if (
+          object &&
+          typeof object === "object" &&
+          object.constructor === Constructor
+        ) {
+          return object;
+        }
+
+        var promise = new Constructor(noop);
+        resolve(promise, object);
+        return promise;
+      }
+
+      var PROMISE_ID = Math.random()
+        .toString(36)
+        .substring(2);
+
+      function noop() {}
+
+      var PENDING = void 0;
+      var FULFILLED = 1;
+      var REJECTED = 2;
+
+      function selfFulfillment() {
+        return new TypeError("You cannot resolve a promise with itself");
+      }
+
+      function cannotReturnOwn() {
+        return new TypeError(
+          "A promises callback cannot return that same promise."
+        );
+      }
+
+      function tryThen(then$$1, value, fulfillmentHandler, rejectionHandler) {
+        try {
+          then$$1.call(value, fulfillmentHandler, rejectionHandler);
+        } catch (e) {
+          return e;
+        }
+      }
+
+      function handleForeignThenable(promise, thenable, then$$1) {
+        asap(function(promise) {
+          var sealed = false;
+          var error = tryThen(
+            then$$1,
+            thenable,
+            function(value) {
+              if (sealed) {
+                return;
+              }
+
+              sealed = true;
+
+              if (thenable !== value) {
+                resolve(promise, value);
+              } else {
+                fulfill(promise, value);
+              }
+            },
+            function(reason) {
+              if (sealed) {
+                return;
+              }
+
+              sealed = true;
+              reject(promise, reason);
+            },
+            "Settle: " + (promise._label || " unknown promise")
+          );
+
+          if (!sealed && error) {
+            sealed = true;
+            reject(promise, error);
+          }
+        }, promise);
+      }
+
+      function handleOwnThenable(promise, thenable) {
+        if (thenable._state === FULFILLED) {
+          fulfill(promise, thenable._result);
+        } else if (thenable._state === REJECTED) {
+          reject(promise, thenable._result);
+        } else {
+          subscribe(
+            thenable,
+            undefined,
+            function(value) {
+              return resolve(promise, value);
+            },
+            function(reason) {
+              return reject(promise, reason);
+            }
+          );
+        }
+      }
+
+      function handleMaybeThenable(promise, maybeThenable, then$$1) {
+        if (
+          maybeThenable.constructor === promise.constructor &&
+          then$$1 === then &&
+          maybeThenable.constructor.resolve === resolve$1
+        ) {
+          handleOwnThenable(promise, maybeThenable);
+        } else {
+          if (then$$1 === undefined) {
+            fulfill(promise, maybeThenable);
+          } else if (isFunction(then$$1)) {
+            handleForeignThenable(promise, maybeThenable, then$$1);
+          } else {
+            fulfill(promise, maybeThenable);
+          }
+        }
+      }
+
+      function resolve(promise, value) {
+        if (promise === value) {
+          reject(promise, selfFulfillment());
+        } else if (objectOrFunction(value)) {
+          var then$$1 = void 0;
+
+          try {
+            then$$1 = value.then;
+          } catch (error) {
+            reject(promise, error);
+            return;
+          }
+
+          handleMaybeThenable(promise, value, then$$1);
+        } else {
+          fulfill(promise, value);
+        }
+      }
+
+      function publishRejection(promise) {
+        if (promise._onerror) {
+          promise._onerror(promise._result);
+        }
+
+        publish(promise);
+      }
+
+      function fulfill(promise, value) {
+        if (promise._state !== PENDING) {
+          return;
+        }
+
+        promise._result = value;
+        promise._state = FULFILLED;
+
+        if (promise._subscribers.length !== 0) {
+          asap(publish, promise);
+        }
+      }
+
+      function reject(promise, reason) {
+        if (promise._state !== PENDING) {
+          return;
+        }
+
+        promise._state = REJECTED;
+        promise._result = reason;
+        asap(publishRejection, promise);
+      }
+
+      function subscribe(parent, child, onFulfillment, onRejection) {
+        var _subscribers = parent._subscribers;
+        var length = _subscribers.length;
+        parent._onerror = null;
+        _subscribers[length] = child;
+        _subscribers[length + FULFILLED] = onFulfillment;
+        _subscribers[length + REJECTED] = onRejection;
+
+        if (length === 0 && parent._state) {
+          asap(publish, parent);
+        }
+      }
+
+      function publish(promise) {
+        var subscribers = promise._subscribers;
+        var settled = promise._state;
+
+        if (subscribers.length === 0) {
+          return;
+        }
+
+        var child = void 0,
+          callback = void 0,
+          detail = promise._result;
+
+        for (var i = 0; i < subscribers.length; i += 3) {
+          child = subscribers[i];
+          callback = subscribers[i + settled];
+
+          if (child) {
+            invokeCallback(settled, child, callback, detail);
+          } else {
+            callback(detail);
+          }
+        }
+
+        promise._subscribers.length = 0;
+      }
+
+      function invokeCallback(settled, promise, callback, detail) {
+        var hasCallback = isFunction(callback),
+          value = void 0,
+          error = void 0,
+          succeeded = true;
+
+        if (hasCallback) {
+          try {
+            value = callback(detail);
+          } catch (e) {
+            succeeded = false;
+            error = e;
+          }
+
+          if (promise === value) {
+            reject(promise, cannotReturnOwn());
+            return;
+          }
+        } else {
+          value = detail;
+        }
+
+        if (promise._state !== PENDING);
+        else if (hasCallback && succeeded) {
+          resolve(promise, value);
+        } else if (succeeded === false) {
+          reject(promise, error);
+        } else if (settled === FULFILLED) {
+          fulfill(promise, value);
+        } else if (settled === REJECTED) {
+          reject(promise, value);
+        }
+      }
+
+      function initializePromise(promise, resolver) {
+        try {
+          resolver(
+            function resolvePromise(value) {
+              resolve(promise, value);
+            },
+            function rejectPromise(reason) {
+              reject(promise, reason);
+            }
+          );
+        } catch (e) {
+          reject(promise, e);
+        }
+      }
+
+      var id = 0;
+
+      function nextId() {
+        return id++;
+      }
+
+      function makePromise(promise) {
+        promise[PROMISE_ID] = id++;
+        promise._state = undefined;
+        promise._result = undefined;
+        promise._subscribers = [];
+      }
+
+      function validationError() {
+        return new Error("Array Methods must be provided an Array");
+      }
+
+      var Enumerator = (function() {
+        function Enumerator(Constructor, input) {
+          this._instanceConstructor = Constructor;
+          this.promise = new Constructor(noop);
+
+          if (!this.promise[PROMISE_ID]) {
+            makePromise(this.promise);
+          }
+
+          if (isArray(input)) {
+            this.length = input.length;
+            this._remaining = input.length;
+            this._result = new Array(this.length);
+
+            if (this.length === 0) {
+              fulfill(this.promise, this._result);
+            } else {
+              this.length = this.length || 0;
+
+              this._enumerate(input);
+
+              if (this._remaining === 0) {
+                fulfill(this.promise, this._result);
+              }
+            }
+          } else {
+            reject(this.promise, validationError());
+          }
+        }
+
+        Enumerator.prototype._enumerate = function _enumerate(input) {
+          for (var i = 0; this._state === PENDING && i < input.length; i++) {
+            this._eachEntry(input[i], i);
+          }
+        };
+
+        Enumerator.prototype._eachEntry = function _eachEntry(entry, i) {
+          var c = this._instanceConstructor;
+          var resolve$$1 = c.resolve;
+
+          if (resolve$$1 === resolve$1) {
+            var _then = void 0;
+
+            var error = void 0;
+            var didError = false;
+
+            try {
+              _then = entry.then;
+            } catch (e) {
+              didError = true;
+              error = e;
+            }
+
+            if (_then === then && entry._state !== PENDING) {
+              this._settledAt(entry._state, i, entry._result);
+            } else if (typeof _then !== "function") {
+              this._remaining--;
+              this._result[i] = entry;
+            } else if (c === Promise$1) {
+              var promise = new c(noop);
+
+              if (didError) {
+                reject(promise, error);
+              } else {
+                handleMaybeThenable(promise, entry, _then);
+              }
+
+              this._willSettleAt(promise, i);
+            } else {
+              this._willSettleAt(
+                new c(function(resolve$$1) {
+                  return resolve$$1(entry);
+                }),
+                i
+              );
+            }
+          } else {
+            this._willSettleAt(resolve$$1(entry), i);
+          }
+        };
+
+        Enumerator.prototype._settledAt = function _settledAt(state, i, value) {
+          var promise = this.promise;
+
+          if (promise._state === PENDING) {
+            this._remaining--;
+
+            if (state === REJECTED) {
+              reject(promise, value);
+            } else {
+              this._result[i] = value;
+            }
+          }
+
+          if (this._remaining === 0) {
+            fulfill(promise, this._result);
+          }
+        };
+
+        Enumerator.prototype._willSettleAt = function _willSettleAt(
+          promise,
+          i
+        ) {
+          var enumerator = this;
+          subscribe(
+            promise,
+            undefined,
+            function(value) {
+              return enumerator._settledAt(FULFILLED, i, value);
+            },
+            function(reason) {
+              return enumerator._settledAt(REJECTED, i, reason);
+            }
+          );
+        };
+
+        return Enumerator;
+      })();
+      /**
+        `Promise.all` accepts an array of promises, and returns a new promise which
+        is fulfilled with an array of fulfillment values for the passed promises, or
+        rejected with the reason of the first passed promise to be rejected. It casts all
+        elements of the passed iterable to promises as it runs this algorithm.
+      
+        Example:
+      
+        ```javascript
+        let promise1 = resolve(1);
+        let promise2 = resolve(2);
+        let promise3 = resolve(3);
+        let promises = [ promise1, promise2, promise3 ];
+      
+        Promise.all(promises).then(function(array){
+          // The array here would be [ 1, 2, 3 ];
+        });
+        ```
+      
+        If any of the `promises` given to `all` are rejected, the first promise
+        that is rejected will be given as an argument to the returned promises's
+        rejection handler. For example:
+      
+        Example:
+      
+        ```javascript
+        let promise1 = resolve(1);
+        let promise2 = reject(new Error("2"));
+        let promise3 = reject(new Error("3"));
+        let promises = [ promise1, promise2, promise3 ];
+      
+        Promise.all(promises).then(function(array){
+          // Code here never runs because there are rejected promises!
+        }, function(error) {
+          // error.message === "2"
+        });
+        ```
+      
+        @method all
+        @static
+        @param {Array} entries array of promises
+        @param {String} label optional string for labeling the promise.
+        Useful for tooling.
+        @return {Promise} promise that is fulfilled when all `promises` have been
+        fulfilled, or rejected if any of them become rejected.
+        @static
+      */
+
+      function all(entries) {
+        return new Enumerator(this, entries).promise;
+      }
+      /**
+        `Promise.race` returns a new promise which is settled in the same way as the
+        first passed promise to settle.
+      
+        Example:
+      
+        ```javascript
+        let promise1 = new Promise(function(resolve, reject){
+          setTimeout(function(){
+            resolve('promise 1');
+          }, 200);
+        });
+      
+        let promise2 = new Promise(function(resolve, reject){
+          setTimeout(function(){
+            resolve('promise 2');
+          }, 100);
+        });
+      
+        Promise.race([promise1, promise2]).then(function(result){
+          // result === 'promise 2' because it was resolved before promise1
+          // was resolved.
+        });
+        ```
+      
+        `Promise.race` is deterministic in that only the state of the first
+        settled promise matters. For example, even if other promises given to the
+        `promises` array argument are resolved, but the first settled promise has
+        become rejected before the other promises became fulfilled, the returned
+        promise will become rejected:
+      
+        ```javascript
+        let promise1 = new Promise(function(resolve, reject){
+          setTimeout(function(){
+            resolve('promise 1');
+          }, 200);
+        });
+      
+        let promise2 = new Promise(function(resolve, reject){
+          setTimeout(function(){
+            reject(new Error('promise 2'));
+          }, 100);
+        });
+      
+        Promise.race([promise1, promise2]).then(function(result){
+          // Code here never runs
+        }, function(reason){
+          // reason.message === 'promise 2' because promise 2 became rejected before
+          // promise 1 became fulfilled
+        });
+        ```
+      
+        An example real-world use case is implementing timeouts:
+      
+        ```javascript
+        Promise.race([ajax('foo.json'), timeout(5000)])
+        ```
+      
+        @method race
+        @static
+        @param {Array} promises array of promises to observe
+        Useful for tooling.
+        @return {Promise} a promise which settles in the same way as the first passed
+        promise to settle.
+      */
+
+      function race(entries) {
+        /*jshint validthis:true */
+        var Constructor = this;
+
+        if (!isArray(entries)) {
+          return new Constructor(function(_, reject) {
+            return reject(new TypeError("You must pass an array to race."));
+          });
+        } else {
+          return new Constructor(function(resolve, reject) {
+            var length = entries.length;
+
+            for (var i = 0; i < length; i++) {
+              Constructor.resolve(entries[i]).then(resolve, reject);
+            }
+          });
+        }
+      }
+      /**
+        `Promise.reject` returns a promise rejected with the passed `reason`.
+        It is shorthand for the following:
+      
+        ```javascript
+        let promise = new Promise(function(resolve, reject){
+          reject(new Error('WHOOPS'));
+        });
+      
+        promise.then(function(value){
+          // Code here doesn't run because the promise is rejected!
+        }, function(reason){
+          // reason.message === 'WHOOPS'
+        });
+        ```
+      
+        Instead of writing the above, your code now simply becomes the following:
+      
+        ```javascript
+        let promise = Promise.reject(new Error('WHOOPS'));
+      
+        promise.then(function(value){
+          // Code here doesn't run because the promise is rejected!
+        }, function(reason){
+          // reason.message === 'WHOOPS'
+        });
+        ```
+      
+        @method reject
+        @static
+        @param {Any} reason value that the returned promise will be rejected with.
+        Useful for tooling.
+        @return {Promise} a promise rejected with the given `reason`.
+      */
+
+      function reject$1(reason) {
+        /*jshint validthis:true */
+        var Constructor = this;
+        var promise = new Constructor(noop);
+        reject(promise, reason);
+        return promise;
+      }
+
+      function needsResolver() {
+        throw new TypeError(
+          "You must pass a resolver function as the first argument to the promise constructor"
+        );
+      }
+
+      function needsNew() {
+        throw new TypeError(
+          "Failed to construct 'Promise': Please use the 'new' operator, this object constructor cannot be called as a function."
+        );
+      }
+      /**
+        Promise objects represent the eventual result of an asynchronous operation. The
+        primary way of interacting with a promise is through its `then` method, which
+        registers callbacks to receive either a promise's eventual value or the reason
+        why the promise cannot be fulfilled.
+      
+        Terminology
+        -----------
+      
+        - `promise` is an object or function with a `then` method whose behavior conforms to this specification.
+        - `thenable` is an object or function that defines a `then` method.
+        - `value` is any legal JavaScript value (including undefined, a thenable, or a promise).
+        - `exception` is a value that is thrown using the throw statement.
+        - `reason` is a value that indicates why a promise was rejected.
+        - `settled` the final resting state of a promise, fulfilled or rejected.
+      
+        A promise can be in one of three states: pending, fulfilled, or rejected.
+      
+        Promises that are fulfilled have a fulfillment value and are in the fulfilled
+        state.  Promises that are rejected have a rejection reason and are in the
+        rejected state.  A fulfillment value is never a thenable.
+      
+        Promises can also be said to *resolve* a value.  If this value is also a
+        promise, then the original promise's settled state will match the value's
+        settled state.  So a promise that *resolves* a promise that rejects will
+        itself reject, and a promise that *resolves* a promise that fulfills will
+        itself fulfill.
+      
+      
+        Basic Usage:
+        ------------
+      
+        ```js
+        let promise = new Promise(function(resolve, reject) {
+          // on success
+          resolve(value);
+      
+          // on failure
+          reject(reason);
+        });
+      
+        promise.then(function(value) {
+          // on fulfillment
+        }, function(reason) {
+          // on rejection
+        });
+        ```
+      
+        Advanced Usage:
+        ---------------
+      
+        Promises shine when abstracting away asynchronous interactions such as
+        `XMLHttpRequest`s.
+      
+        ```js
+        function getJSON(url) {
+          return new Promise(function(resolve, reject){
+            let xhr = new XMLHttpRequest();
+      
+            xhr.open('GET', url);
+            xhr.onreadystatechange = handler;
+            xhr.responseType = 'json';
+            xhr.setRequestHeader('Accept', 'application/json');
+            xhr.send();
+      
+            function handler() {
+              if (this.readyState === this.DONE) {
+                if (this.status === 200) {
+                  resolve(this.response);
+                } else {
+                  reject(new Error('getJSON: `' + url + '` failed with status: [' + this.status + ']'));
+                }
+              }
+            };
+          });
+        }
+      
+        getJSON('/posts.json').then(function(json) {
+          // on fulfillment
+        }, function(reason) {
+          // on rejection
+        });
+        ```
+      
+        Unlike callbacks, promises are great composable primitives.
+      
+        ```js
+        Promise.all([
+          getJSON('/posts'),
+          getJSON('/comments')
+        ]).then(function(values){
+          values[0] // => postsJSON
+          values[1] // => commentsJSON
+      
+          return values;
+        });
+        ```
+      
+        @class Promise
+        @param {Function} resolver
+        Useful for tooling.
+        @constructor
+      */
+
+      var Promise$1 = (function() {
+        function Promise(resolver) {
+          this[PROMISE_ID] = nextId();
+          this._result = this._state = undefined;
+          this._subscribers = [];
+
+          if (noop !== resolver) {
+            typeof resolver !== "function" && needsResolver();
+            this instanceof Promise
+              ? initializePromise(this, resolver)
+              : needsNew();
+          }
+        }
+        /**
+        The primary way of interacting with a promise is through its `then` method,
+        which registers callbacks to receive either a promise's eventual value or the
+        reason why the promise cannot be fulfilled.
+         ```js
+        findUser().then(function(user){
+          // user is available
+        }, function(reason){
+          // user is unavailable, and you are given the reason why
+        });
+        ```
+         Chaining
+        --------
+         The return value of `then` is itself a promise.  This second, 'downstream'
+        promise is resolved with the return value of the first promise's fulfillment
+        or rejection handler, or rejected if the handler throws an exception.
+         ```js
+        findUser().then(function (user) {
+          return user.name;
+        }, function (reason) {
+          return 'default name';
+        }).then(function (userName) {
+          // If `findUser` fulfilled, `userName` will be the user's name, otherwise it
+          // will be `'default name'`
+        });
+         findUser().then(function (user) {
+          throw new Error('Found user, but still unhappy');
+        }, function (reason) {
+          throw new Error('`findUser` rejected and we're unhappy');
+        }).then(function (value) {
+          // never reached
+        }, function (reason) {
+          // if `findUser` fulfilled, `reason` will be 'Found user, but still unhappy'.
+          // If `findUser` rejected, `reason` will be '`findUser` rejected and we're unhappy'.
+        });
+        ```
+        If the downstream promise does not specify a rejection handler, rejection reasons will be propagated further downstream.
+         ```js
+        findUser().then(function (user) {
+          throw new PedagogicalException('Upstream error');
+        }).then(function (value) {
+          // never reached
+        }).then(function (value) {
+          // never reached
+        }, function (reason) {
+          // The `PedgagocialException` is propagated all the way down to here
+        });
+        ```
+         Assimilation
+        ------------
+         Sometimes the value you want to propagate to a downstream promise can only be
+        retrieved asynchronously. This can be achieved by returning a promise in the
+        fulfillment or rejection handler. The downstream promise will then be pending
+        until the returned promise is settled. This is called *assimilation*.
+         ```js
+        findUser().then(function (user) {
+          return findCommentsByAuthor(user);
+        }).then(function (comments) {
+          // The user's comments are now available
+        });
+        ```
+         If the assimliated promise rejects, then the downstream promise will also reject.
+         ```js
+        findUser().then(function (user) {
+          return findCommentsByAuthor(user);
+        }).then(function (comments) {
+          // If `findCommentsByAuthor` fulfills, we'll have the value here
+        }, function (reason) {
+          // If `findCommentsByAuthor` rejects, we'll have the reason here
+        });
+        ```
+         Simple Example
+        --------------
+         Synchronous Example
+         ```javascript
+        let result;
+         try {
+          result = findResult();
+          // success
+        } catch(reason) {
+          // failure
+        }
+        ```
+         Errback Example
+         ```js
+        findResult(function(result, err){
+          if (err) {
+            // failure
+          } else {
+            // success
+          }
+        });
+        ```
+         Promise Example;
+         ```javascript
+        findResult().then(function(result){
+          // success
+        }, function(reason){
+          // failure
+        });
+        ```
+         Advanced Example
+        --------------
+         Synchronous Example
+         ```javascript
+        let author, books;
+         try {
+          author = findAuthor();
+          books  = findBooksByAuthor(author);
+          // success
+        } catch(reason) {
+          // failure
+        }
+        ```
+         Errback Example
+         ```js
+         function foundBooks(books) {
+         }
+         function failure(reason) {
+         }
+         findAuthor(function(author, err){
+          if (err) {
+            failure(err);
+            // failure
+          } else {
+            try {
+              findBoooksByAuthor(author, function(books, err) {
+                if (err) {
+                  failure(err);
+                } else {
+                  try {
+                    foundBooks(books);
+                  } catch(reason) {
+                    failure(reason);
+                  }
+                }
+              });
+            } catch(error) {
+              failure(err);
+            }
+            // success
+          }
+        });
+        ```
+         Promise Example;
+         ```javascript
+        findAuthor().
+          then(findBooksByAuthor).
+          then(function(books){
+            // found books
+        }).catch(function(reason){
+          // something went wrong
+        });
+        ```
+         @method then
+        @param {Function} onFulfilled
+        @param {Function} onRejected
+        Useful for tooling.
+        @return {Promise}
+        */
+
+        /**
+        `catch` is simply sugar for `then(undefined, onRejection)` which makes it the same
+        as the catch block of a try/catch statement.
+        ```js
+        function findAuthor(){
+        throw new Error('couldn't find that author');
+        }
+        // synchronous
+        try {
+        findAuthor();
+        } catch(reason) {
+        // something went wrong
+        }
+        // async with promises
+        findAuthor().catch(function(reason){
+        // something went wrong
+        });
+        ```
+        @method catch
+        @param {Function} onRejection
+        Useful for tooling.
+        @return {Promise}
+        */
+
+        Promise.prototype.catch = function _catch(onRejection) {
+          return this.then(null, onRejection);
+        };
+        /**
+          `finally` will be invoked regardless of the promise's fate just as native
+          try/catch/finally behaves
+        
+          Synchronous example:
+        
+          ```js
+          findAuthor() {
+            if (Math.random() > 0.5) {
+              throw new Error();
+            }
+            return new Author();
+          }
+        
+          try {
+            return findAuthor(); // succeed or fail
+          } catch(error) {
+            return findOtherAuther();
+          } finally {
+            // always runs
+            // doesn't affect the return value
+          }
+          ```
+        
+          Asynchronous example:
+        
+          ```js
+          findAuthor().catch(function(reason){
+            return findOtherAuther();
+          }).finally(function(){
+            // author was either found, or not
+          });
+          ```
+        
+          @method finally
+          @param {Function} callback
+          @return {Promise}
+        */
+
+        Promise.prototype.finally = function _finally(callback) {
+          var promise = this;
+          var constructor = promise.constructor;
+
+          if (isFunction(callback)) {
+            return promise.then(
+              function(value) {
+                return constructor.resolve(callback()).then(function() {
+                  return value;
+                });
+              },
+              function(reason) {
+                return constructor.resolve(callback()).then(function() {
+                  throw reason;
+                });
+              }
+            );
+          }
+
+          return promise.then(callback, callback);
+        };
+
+        return Promise;
+      })();
+
+      Promise$1.prototype.then = then;
+      Promise$1.all = all;
+      Promise$1.race = race;
+      Promise$1.resolve = resolve$1;
+      Promise$1.reject = reject$1;
+      Promise$1._setScheduler = setScheduler;
+      Promise$1._setAsap = setAsap;
+      Promise$1._asap = asap;
+      /*global self*/
+
+      function polyfill() {
+        var local = void 0;
+
+        if (typeof commonjsGlobal !== "undefined") {
+          local = commonjsGlobal;
+        } else if (typeof self !== "undefined") {
+          local = self;
+        } else {
+          try {
+            local = Function("return this")();
+          } catch (e) {
+            throw new Error(
+              "polyfill failed because global object is unavailable in this environment"
+            );
+          }
+        }
+
+        var P = local.Promise;
+
+        if (P) {
+          var promiseToString = null;
+
+          try {
+            promiseToString = Object.prototype.toString.call(P.resolve());
+          } catch (e) {
+            // silently ignored
+          }
+
+          if (promiseToString === "[object Promise]" && !P.cast) {
+            return;
+          }
+        }
+
+        local.Promise = Promise$1;
+      } // Strange compat..
+
+      Promise$1.polyfill = polyfill;
+      Promise$1.Promise = Promise$1;
+      return Promise$1;
+    });
+  });
+
+  /*
+    Copyright (c) 2017 NAVER Corp.
+    @egjs/component project is licensed under the MIT license
+  
+    @egjs/component JavaScript library
+    https://naver.github.io/egjs-component
+  
+    @version 2.1.2
+    */
+
+  /**
+   * Copyright (c) 2015 NAVER Corp.
+   * egjs projects are licensed under the MIT license
+   */
+  function isUndefined(value) {
+    return typeof value === "undefined";
+  }
+  /**
+   * A class used to manage events in a component
+   * @ko 컴포넌트의 이벤트을 관리할 수 있게 하는 클래스
+   * @alias eg.Component
+   */
+
+  var Component =
+    /*#__PURE__*/
+    (function() {
+      var Component =
+        /*#__PURE__*/
+        (function() {
+          /**
+           * Version info string
+           * @ko 버전정보 문자열
+           * @name VERSION
+           * @static
+           * @type {String}
+           * @example
+           * eg.Component.VERSION;  // ex) 2.0.0
+           * @memberof eg.Component
+           */
+
+          /**
+           * @support {"ie": "7+", "ch" : "latest", "ff" : "latest",  "sf" : "latest", "edge" : "latest", "ios" : "7+", "an" : "2.1+ (except 3.x)"}
+           */
+          function Component() {
+            this._eventHandler = {};
+            this.options = {};
+          }
+          /**
+         * Triggers a custom event.
+         * @ko 커스텀 이벤트를 발생시킨다
+         * @param {String} eventName The name of the custom event to be triggered <ko>발생할 커스텀 이벤트의 이름</ko>
+         * @param {Object} customEvent Event data to be sent when triggering a custom event <ko>커스텀 이벤트가 발생할 때 전달할 데이터</ko>
+         * @return {Boolean} Indicates whether the event has occurred. If the stop() method is called by a custom event handler, it will return false and prevent the event from occurring. <a href="https://github.com/naver/egjs-component/wiki/How-to-make-Component-event-design%3F">Ref</a> <ko>이벤트 발생 여부. 커스텀 이벤트 핸들러에서 stop() 메서드를 호출하면 'false'를 반환하고 이벤트 발생을 중단한다. <a href="https://github.com/naver/egjs-component/wiki/How-to-make-Component-event-design%3F">참고</a></ko>
+         * @example
+        class Some extends eg.Component {
+         some(){
+             if(this.trigger("beforeHi")){ // When event call to stop return false.
+            this.trigger("hi");// fire hi event.
+             }
+         }
+        }
+        const some = new Some();
+        some.on("beforeHi", (e) => {
+        if(condition){
+            e.stop(); // When event call to stop, `hi` event not call.
+        }
+        });
+        some.on("hi", (e) => {
+        // `currentTarget` is component instance.
+        console.log(some === e.currentTarget); // true
+        });
+        // If you want to more know event design. You can see article.
+        // https://github.com/naver/egjs-component/wiki/How-to-make-Component-event-design%3F
+         */
+
+          var _proto = Component.prototype;
+
+          _proto.trigger = function trigger(eventName, customEvent) {
+            if (customEvent === void 0) {
+              customEvent = {};
+            }
+
+            var handlerList = this._eventHandler[eventName] || [];
+            var hasHandlerList = handlerList.length > 0;
+
+            if (!hasHandlerList) {
+              return true;
+            } // If detach method call in handler in first time then handler list calls.
+
+            handlerList = handlerList.concat();
+            customEvent.eventType = eventName;
+            var isCanceled = false;
+            var arg = [customEvent];
+            var i = 0;
+
+            customEvent.stop = function() {
+              isCanceled = true;
+            };
+
+            customEvent.currentTarget = this;
+
+            for (
+              var _len = arguments.length,
+                restParam = new Array(_len > 2 ? _len - 2 : 0),
+                _key = 2;
+              _key < _len;
+              _key++
+            ) {
+              restParam[_key - 2] = arguments[_key];
+            }
+
+            if (restParam.length >= 1) {
+              arg = arg.concat(restParam);
+            }
+
+            for (i = 0; handlerList[i]; i++) {
+              handlerList[i].apply(this, arg);
+            }
+
+            return !isCanceled;
+          };
+          /**
+         * Executed event just one time.
+         * @ko 이벤트가 한번만 실행된다.
+         * @param {eventName} eventName The name of the event to be attached <ko>등록할 이벤트의 이름</ko>
+         * @param {Function} handlerToAttach The handler function of the event to be attached <ko>등록할 이벤트의 핸들러 함수</ko>
+         * @return {eg.Component} An instance of a component itself<ko>컴포넌트 자신의 인스턴스</ko>
+         * @example
+        class Some extends eg.Component {
+         hi() {
+           alert("hi");
+         }
+         thing() {
+           this.once("hi", this.hi);
+         }
+        }
+        var some = new Some();
+        some.thing();
+        some.trigger("hi");
+        // fire alert("hi");
+        some.trigger("hi");
+        // Nothing happens
+         */
+
+          _proto.once = function once(eventName, handlerToAttach) {
+            if (typeof eventName === "object" && isUndefined(handlerToAttach)) {
+              var eventHash = eventName;
+              var i;
+
+              for (i in eventHash) {
+                this.once(i, eventHash[i]);
+              }
+
+              return this;
+            } else if (
+              typeof eventName === "string" &&
+              typeof handlerToAttach === "function"
+            ) {
+              var self = this;
+              this.on(eventName, function listener() {
+                for (
+                  var _len2 = arguments.length,
+                    arg = new Array(_len2),
+                    _key2 = 0;
+                  _key2 < _len2;
+                  _key2++
+                ) {
+                  arg[_key2] = arguments[_key2];
+                }
+
+                handlerToAttach.apply(self, arg);
+                self.off(eventName, listener);
+              });
+            }
+
+            return this;
+          };
+          /**
+         * Checks whether an event has been attached to a component.
+         * @ko 컴포넌트에 이벤트가 등록됐는지 확인한다.
+         * @param {String} eventName The name of the event to be attached <ko>등록 여부를 확인할 이벤트의 이름</ko>
+         * @return {Boolean} Indicates whether the event is attached. <ko>이벤트 등록 여부</ko>
+         * @example
+        class Some extends eg.Component {
+         some() {
+           this.hasOn("hi");// check hi event.
+         }
+        }
+         */
+
+          _proto.hasOn = function hasOn(eventName) {
+            return !!this._eventHandler[eventName];
+          };
+          /**
+         * Attaches an event to a component.
+         * @ko 컴포넌트에 이벤트를 등록한다.
+         * @param {eventName} eventName The name of the event to be attached <ko>등록할 이벤트의 이름</ko>
+         * @param {Function} handlerToAttach The handler function of the event to be attached <ko>등록할 이벤트의 핸들러 함수</ko>
+         * @return {eg.Component} An instance of a component itself<ko>컴포넌트 자신의 인스턴스</ko>
+         * @example
+        class Some extends eg.Component {
+         hi() {
+           console.log("hi");
+         }
+         some() {
+           this.on("hi",this.hi); //attach event
+         }
+        }
+        */
+
+          _proto.on = function on(eventName, handlerToAttach) {
+            if (typeof eventName === "object" && isUndefined(handlerToAttach)) {
+              var eventHash = eventName;
+              var name;
+
+              for (name in eventHash) {
+                this.on(name, eventHash[name]);
+              }
+
+              return this;
+            } else if (
+              typeof eventName === "string" &&
+              typeof handlerToAttach === "function"
+            ) {
+              var handlerList = this._eventHandler[eventName];
+
+              if (isUndefined(handlerList)) {
+                this._eventHandler[eventName] = [];
+                handlerList = this._eventHandler[eventName];
+              }
+
+              handlerList.push(handlerToAttach);
+            }
+
+            return this;
+          };
+          /**
+         * Detaches an event from the component.
+         * @ko 컴포넌트에 등록된 이벤트를 해제한다
+         * @param {eventName} eventName The name of the event to be detached <ko>해제할 이벤트의 이름</ko>
+         * @param {Function} handlerToDetach The handler function of the event to be detached <ko>해제할 이벤트의 핸들러 함수</ko>
+         * @return {eg.Component} An instance of a component itself <ko>컴포넌트 자신의 인스턴스</ko>
+         * @example
+        class Some extends eg.Component {
+         hi() {
+           console.log("hi");
+         }
+         some() {
+           this.off("hi",this.hi); //detach event
+         }
+        }
+         */
+
+          _proto.off = function off(eventName, handlerToDetach) {
+            // All event detach.
+            if (isUndefined(eventName)) {
+              this._eventHandler = {};
+              return this;
+            } // All handler of specific event detach.
+
+            if (isUndefined(handlerToDetach)) {
+              if (typeof eventName === "string") {
+                this._eventHandler[eventName] = undefined;
+                return this;
+              } else {
+                var eventHash = eventName;
+                var name;
+
+                for (name in eventHash) {
+                  this.off(name, eventHash[name]);
+                }
+
+                return this;
+              }
+            } // The handler of specific event detach.
+
+            var handlerList = this._eventHandler[eventName];
+
+            if (handlerList) {
+              var k;
+              var handlerFunction;
+
+              for (
+                k = 0;
+                (handlerFunction = handlerList[k]) !== undefined;
+                k++
+              ) {
+                if (handlerFunction === handlerToDetach) {
+                  handlerList = handlerList.splice(k, 1);
+                  break;
+                }
+              }
+            }
+
+            return this;
+          };
+
+          return Component;
+        })();
+
+      Component.VERSION = "2.1.2";
+      return Component;
+    })();
+
+  /**
+   * Common utilities
+   * @module glMatrix
+   */
+  // Configuration Constants
+  var EPSILON = 0.000001;
+  var ARRAY_TYPE = typeof Float32Array !== "undefined" ? Float32Array : Array;
+  var degree = Math.PI / 180;
+  /**
+   * Convert Degree To Radian
+   *
+   * @param {Number} a Angle in Degrees
+   */
+
+  function toRadian(a) {
+    return a * degree;
+  }
+  if (!Math.hypot)
+    Math.hypot = function() {
+      var y = 0,
+        i = arguments.length;
+
+      while (i--) {
+        y += arguments[i] * arguments[i];
+      }
+
+      return Math.sqrt(y);
+    };
+
+  /**
+   * 3x3 Matrix
+   * @module mat3
+   */
+
+  /**
+   * Creates a new identity mat3
+   *
+   * @returns {mat3} a new 3x3 matrix
+   */
+
+  function create$2() {
+    var out = new ARRAY_TYPE(9);
+
+    if (ARRAY_TYPE != Float32Array) {
+      out[1] = 0;
+      out[2] = 0;
+      out[3] = 0;
+      out[5] = 0;
+      out[6] = 0;
+      out[7] = 0;
+    }
+
+    out[0] = 1;
+    out[4] = 1;
+    out[8] = 1;
+    return out;
+  }
+  /**
+   * Copies the upper-left 3x3 values into the given mat3.
+   *
+   * @param {mat3} out the receiving 3x3 matrix
+   * @param {mat4} a   the source 4x4 matrix
+   * @returns {mat3} out
+   */
+
+  function fromMat4(out, a) {
+    out[0] = a[0];
+    out[1] = a[1];
+    out[2] = a[2];
+    out[3] = a[4];
+    out[4] = a[5];
+    out[5] = a[6];
+    out[6] = a[8];
+    out[7] = a[9];
+    out[8] = a[10];
+    return out;
+  }
+  /**
+   * Inverts a mat3
+   *
+   * @param {mat3} out the receiving matrix
+   * @param {mat3} a the source matrix
+   * @returns {mat3} out
+   */
+
+  function invert$2(out, a) {
+    var a00 = a[0],
+      a01 = a[1],
+      a02 = a[2];
+    var a10 = a[3],
+      a11 = a[4],
+      a12 = a[5];
+    var a20 = a[6],
+      a21 = a[7],
+      a22 = a[8];
+    var b01 = a22 * a11 - a12 * a21;
+    var b11 = -a22 * a10 + a12 * a20;
+    var b21 = a21 * a10 - a11 * a20; // Calculate the determinant
+
+    var det = a00 * b01 + a01 * b11 + a02 * b21;
+
+    if (!det) {
+      return null;
+    }
+
+    det = 1.0 / det;
+    out[0] = b01 * det;
+    out[1] = (-a22 * a01 + a02 * a21) * det;
+    out[2] = (a12 * a01 - a02 * a11) * det;
+    out[3] = b11 * det;
+    out[4] = (a22 * a00 - a02 * a20) * det;
+    out[5] = (-a12 * a00 + a02 * a10) * det;
+    out[6] = b21 * det;
+    out[7] = (-a21 * a00 + a01 * a20) * det;
+    out[8] = (a11 * a00 - a01 * a10) * det;
+    return out;
+  }
+
+  /**
+   * 4x4 Matrix<br>Format: column-major, when typed out it looks like row-major<br>The matrices are being post multiplied.
+   * @module mat4
+   */
+
+  /**
+   * Creates a new identity mat4
+   *
+   * @returns {mat4} a new 4x4 matrix
+   */
+
+  function create$3() {
+    var out = new ARRAY_TYPE(16);
+
+    if (ARRAY_TYPE != Float32Array) {
+      out[1] = 0;
+      out[2] = 0;
+      out[3] = 0;
+      out[4] = 0;
+      out[6] = 0;
+      out[7] = 0;
+      out[8] = 0;
+      out[9] = 0;
+      out[11] = 0;
+      out[12] = 0;
+      out[13] = 0;
+      out[14] = 0;
+    }
+
+    out[0] = 1;
+    out[5] = 1;
+    out[10] = 1;
+    out[15] = 1;
+    return out;
+  }
+  /**
+   * Set a mat4 to the identity matrix
+   *
+   * @param {mat4} out the receiving matrix
+   * @returns {mat4} out
+   */
+
+  function identity$3(out) {
+    out[0] = 1;
+    out[1] = 0;
+    out[2] = 0;
+    out[3] = 0;
+    out[4] = 0;
+    out[5] = 1;
+    out[6] = 0;
+    out[7] = 0;
+    out[8] = 0;
+    out[9] = 0;
+    out[10] = 1;
+    out[11] = 0;
+    out[12] = 0;
+    out[13] = 0;
+    out[14] = 0;
+    out[15] = 1;
+    return out;
+  }
+  /**
+   * Rotates a matrix by the given angle around the X axis
+   *
+   * @param {mat4} out the receiving matrix
+   * @param {mat4} a the matrix to rotate
+   * @param {Number} rad the angle to rotate the matrix by
+   * @returns {mat4} out
+   */
+
+  function rotateX(out, a, rad) {
+    var s = Math.sin(rad);
+    var c = Math.cos(rad);
+    var a10 = a[4];
+    var a11 = a[5];
+    var a12 = a[6];
+    var a13 = a[7];
+    var a20 = a[8];
+    var a21 = a[9];
+    var a22 = a[10];
+    var a23 = a[11];
+
+    if (a !== out) {
+      // If the source and destination differ, copy the unchanged rows
+      out[0] = a[0];
+      out[1] = a[1];
+      out[2] = a[2];
+      out[3] = a[3];
+      out[12] = a[12];
+      out[13] = a[13];
+      out[14] = a[14];
+      out[15] = a[15];
+    } // Perform axis-specific matrix multiplication
+
+    out[4] = a10 * c + a20 * s;
+    out[5] = a11 * c + a21 * s;
+    out[6] = a12 * c + a22 * s;
+    out[7] = a13 * c + a23 * s;
+    out[8] = a20 * c - a10 * s;
+    out[9] = a21 * c - a11 * s;
+    out[10] = a22 * c - a12 * s;
+    out[11] = a23 * c - a13 * s;
+    return out;
+  }
+  /**
+   * Rotates a matrix by the given angle around the Y axis
+   *
+   * @param {mat4} out the receiving matrix
+   * @param {mat4} a the matrix to rotate
+   * @param {Number} rad the angle to rotate the matrix by
+   * @returns {mat4} out
+   */
+
+  function rotateY(out, a, rad) {
+    var s = Math.sin(rad);
+    var c = Math.cos(rad);
+    var a00 = a[0];
+    var a01 = a[1];
+    var a02 = a[2];
+    var a03 = a[3];
+    var a20 = a[8];
+    var a21 = a[9];
+    var a22 = a[10];
+    var a23 = a[11];
+
+    if (a !== out) {
+      // If the source and destination differ, copy the unchanged rows
+      out[4] = a[4];
+      out[5] = a[5];
+      out[6] = a[6];
+      out[7] = a[7];
+      out[12] = a[12];
+      out[13] = a[13];
+      out[14] = a[14];
+      out[15] = a[15];
+    } // Perform axis-specific matrix multiplication
+
+    out[0] = a00 * c - a20 * s;
+    out[1] = a01 * c - a21 * s;
+    out[2] = a02 * c - a22 * s;
+    out[3] = a03 * c - a23 * s;
+    out[8] = a00 * s + a20 * c;
+    out[9] = a01 * s + a21 * c;
+    out[10] = a02 * s + a22 * c;
+    out[11] = a03 * s + a23 * c;
+    return out;
+  }
+  /**
+   * Calculates a 4x4 matrix from the given quaternion
+   *
+   * @param {mat4} out mat4 receiving operation result
+   * @param {quat} q Quaternion to create matrix from
+   *
+   * @returns {mat4} out
+   */
+
+  function fromQuat$1(out, q) {
+    var x = q[0],
+      y = q[1],
+      z = q[2],
+      w = q[3];
+    var x2 = x + x;
+    var y2 = y + y;
+    var z2 = z + z;
+    var xx = x * x2;
+    var yx = y * x2;
+    var yy = y * y2;
+    var zx = z * x2;
+    var zy = z * y2;
+    var zz = z * z2;
+    var wx = w * x2;
+    var wy = w * y2;
+    var wz = w * z2;
+    out[0] = 1 - yy - zz;
+    out[1] = yx + wz;
+    out[2] = zx - wy;
+    out[3] = 0;
+    out[4] = yx - wz;
+    out[5] = 1 - xx - zz;
+    out[6] = zy + wx;
+    out[7] = 0;
+    out[8] = zx + wy;
+    out[9] = zy - wx;
+    out[10] = 1 - xx - yy;
+    out[11] = 0;
+    out[12] = 0;
+    out[13] = 0;
+    out[14] = 0;
+    out[15] = 1;
+    return out;
+  }
+  /**
+   * Generates a perspective projection matrix with the given bounds.
+   * Passing null/undefined/no value for far will generate infinite projection matrix.
+   *
+   * @param {mat4} out mat4 frustum matrix will be written into
+   * @param {number} fovy Vertical field of view in radians
+   * @param {number} aspect Aspect ratio. typically viewport width/height
+   * @param {number} near Near bound of the frustum
+   * @param {number} far Far bound of the frustum, can be null or Infinity
+   * @returns {mat4} out
+   */
+
+  function perspective(out, fovy, aspect, near, far) {
+    var f = 1.0 / Math.tan(fovy / 2),
+      nf;
+    out[0] = f / aspect;
+    out[1] = 0;
+    out[2] = 0;
+    out[3] = 0;
+    out[4] = 0;
+    out[5] = f;
+    out[6] = 0;
+    out[7] = 0;
+    out[8] = 0;
+    out[9] = 0;
+    out[11] = -1;
+    out[12] = 0;
+    out[13] = 0;
+    out[15] = 0;
+
+    if (far != null && far !== Infinity) {
+      nf = 1 / (near - far);
+      out[10] = (far + near) * nf;
+      out[14] = 2 * far * near * nf;
+    } else {
+      out[10] = -1;
+      out[14] = -2 * near;
+    }
+
+    return out;
+  }
+
+  /**
+   * 3 Dimensional Vector
+   * @module vec3
+   */
+
+  /**
+   * Creates a new, empty vec3
+   *
+   * @returns {vec3} a new 3D vector
+   */
+
+  function create$4() {
+    var out = new ARRAY_TYPE(3);
+
+    if (ARRAY_TYPE != Float32Array) {
+      out[0] = 0;
+      out[1] = 0;
+      out[2] = 0;
+    }
+
+    return out;
+  }
+  /**
+   * Calculates the length of a vec3
+   *
+   * @param {vec3} a vector to calculate length of
+   * @returns {Number} length of a
+   */
+
+  function length(a) {
+    var x = a[0];
+    var y = a[1];
+    var z = a[2];
+    return Math.hypot(x, y, z);
+  }
+  /**
+   * Creates a new vec3 initialized with the given values
+   *
+   * @param {Number} x X component
+   * @param {Number} y Y component
+   * @param {Number} z Z component
+   * @returns {vec3} a new 3D vector
+   */
+
+  function fromValues$4(x, y, z) {
+    var out = new ARRAY_TYPE(3);
+    out[0] = x;
+    out[1] = y;
+    out[2] = z;
+    return out;
+  }
+  /**
+   * Adds two vec3's
+   *
+   * @param {vec3} out the receiving vector
+   * @param {vec3} a the first operand
+   * @param {vec3} b the second operand
+   * @returns {vec3} out
+   */
+
+  function add$4(out, a, b) {
+    out[0] = a[0] + b[0];
+    out[1] = a[1] + b[1];
+    out[2] = a[2] + b[2];
+    return out;
+  }
+  /**
+   * Subtracts vector b from vector a
+   *
+   * @param {vec3} out the receiving vector
+   * @param {vec3} a the first operand
+   * @param {vec3} b the second operand
+   * @returns {vec3} out
+   */
+
+  function subtract$4(out, a, b) {
+    out[0] = a[0] - b[0];
+    out[1] = a[1] - b[1];
+    out[2] = a[2] - b[2];
+    return out;
+  }
+  /**
+   * Scales a vec3 by a scalar number
+   *
+   * @param {vec3} out the receiving vector
+   * @param {vec3} a the vector to scale
+   * @param {Number} b amount to scale the vector by
+   * @returns {vec3} out
+   */
+
+  function scale$4(out, a, b) {
+    out[0] = a[0] * b;
+    out[1] = a[1] * b;
+    out[2] = a[2] * b;
+    return out;
+  }
+  /**
+   * Normalize a vec3
+   *
+   * @param {vec3} out the receiving vector
+   * @param {vec3} a vector to normalize
+   * @returns {vec3} out
+   */
+
+  function normalize(out, a) {
+    var x = a[0];
+    var y = a[1];
+    var z = a[2];
+    var len = x * x + y * y + z * z;
+
+    if (len > 0) {
+      //TODO: evaluate use of glm_invsqrt here?
+      len = 1 / Math.sqrt(len);
+    }
+
+    out[0] = a[0] * len;
+    out[1] = a[1] * len;
+    out[2] = a[2] * len;
+    return out;
+  }
+  /**
+   * Calculates the dot product of two vec3's
+   *
+   * @param {vec3} a the first operand
+   * @param {vec3} b the second operand
+   * @returns {Number} dot product of a and b
+   */
+
+  function dot(a, b) {
+    return a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
+  }
+  /**
+   * Computes the cross product of two vec3's
+   *
+   * @param {vec3} out the receiving vector
+   * @param {vec3} a the first operand
+   * @param {vec3} b the second operand
+   * @returns {vec3} out
+   */
+
+  function cross(out, a, b) {
+    var ax = a[0],
+      ay = a[1],
+      az = a[2];
+    var bx = b[0],
+      by = b[1],
+      bz = b[2];
+    out[0] = ay * bz - az * by;
+    out[1] = az * bx - ax * bz;
+    out[2] = ax * by - ay * bx;
+    return out;
+  }
+  /**
+   * Transforms the vec3 with a mat3.
+   *
+   * @param {vec3} out the receiving vector
+   * @param {vec3} a the vector to transform
+   * @param {mat3} m the 3x3 matrix to transform with
+   * @returns {vec3} out
+   */
+
+  function transformMat3(out, a, m) {
+    var x = a[0],
+      y = a[1],
+      z = a[2];
+    out[0] = x * m[0] + y * m[3] + z * m[6];
+    out[1] = x * m[1] + y * m[4] + z * m[7];
+    out[2] = x * m[2] + y * m[5] + z * m[8];
+    return out;
+  }
+  /**
+   * Transforms the vec3 with a quat
+   * Can also be used for dual quaternions. (Multiply it with the real part)
+   *
+   * @param {vec3} out the receiving vector
+   * @param {vec3} a the vector to transform
+   * @param {quat} q quaternion to transform with
+   * @returns {vec3} out
+   */
+
+  function transformQuat(out, a, q) {
+    // benchmarks: https://jsperf.com/quaternion-transform-vec3-implementations-fixed
+    var qx = q[0],
+      qy = q[1],
+      qz = q[2],
+      qw = q[3];
+    var x = a[0],
+      y = a[1],
+      z = a[2]; // var qvec = [qx, qy, qz];
+    // var uv = vec3.cross([], qvec, a);
+
+    var uvx = qy * z - qz * y,
+      uvy = qz * x - qx * z,
+      uvz = qx * y - qy * x; // var uuv = vec3.cross([], qvec, uv);
+
+    var uuvx = qy * uvz - qz * uvy,
+      uuvy = qz * uvx - qx * uvz,
+      uuvz = qx * uvy - qy * uvx; // vec3.scale(uv, uv, 2 * w);
+
+    var w2 = qw * 2;
+    uvx *= w2;
+    uvy *= w2;
+    uvz *= w2; // vec3.scale(uuv, uuv, 2);
+
+    uuvx *= 2;
+    uuvy *= 2;
+    uuvz *= 2; // return vec3.add(out, a, vec3.add(out, uv, uuv));
+
+    out[0] = x + uvx + uuvx;
+    out[1] = y + uvy + uuvy;
+    out[2] = z + uvz + uuvz;
+    return out;
+  }
+  /**
+   * Alias for {@link vec3.subtract}
+   * @function
+   */
+
+  var sub$4 = subtract$4;
+  /**
+   * Alias for {@link vec3.length}
+   * @function
+   */
+
+  var len = length;
+  /**
+   * Perform some operation over an array of vec3s.
+   *
+   * @param {Array} a the array of vectors to iterate over
+   * @param {Number} stride Number of elements between the start of each vec3. If 0 assumes tightly packed
+   * @param {Number} offset Number of elements to skip at the beginning of the array
+   * @param {Number} count Number of vec3s to iterate over. If 0 iterates over entire array
+   * @param {Function} fn Function to call for each vector in the array
+   * @param {Object} [arg] additional argument to pass to fn
+   * @returns {Array} a
+   * @function
+   */
+
+  var forEach = (function() {
+    var vec = create$4();
+    return function(a, stride, offset, count, fn, arg) {
+      var i, l;
+
+      if (!stride) {
+        stride = 3;
+      }
+
+      if (!offset) {
+        offset = 0;
+      }
+
+      if (count) {
+        l = Math.min(count * stride + offset, a.length);
+      } else {
+        l = a.length;
+      }
+
+      for (i = offset; i < l; i += stride) {
+        vec[0] = a[i];
+        vec[1] = a[i + 1];
+        vec[2] = a[i + 2];
+        fn(vec, vec, arg);
+        a[i] = vec[0];
+        a[i + 1] = vec[1];
+        a[i + 2] = vec[2];
+      }
+
+      return a;
+    };
+  })();
+
+  /**
+   * 4 Dimensional Vector
+   * @module vec4
+   */
+
+  /**
+   * Creates a new, empty vec4
+   *
+   * @returns {vec4} a new 4D vector
+   */
+
+  function create$5() {
+    var out = new ARRAY_TYPE(4);
+
+    if (ARRAY_TYPE != Float32Array) {
+      out[0] = 0;
+      out[1] = 0;
+      out[2] = 0;
+      out[3] = 0;
+    }
+
+    return out;
+  }
+  /**
+   * Creates a new vec4 initialized with values from an existing vector
+   *
+   * @param {vec4} a vector to clone
+   * @returns {vec4} a new 4D vector
+   */
+
+  function clone$5(a) {
+    var out = new ARRAY_TYPE(4);
+    out[0] = a[0];
+    out[1] = a[1];
+    out[2] = a[2];
+    out[3] = a[3];
+    return out;
+  }
+  /**
+   * Copy the values from one vec4 to another
+   *
+   * @param {vec4} out the receiving vector
+   * @param {vec4} a the source vector
+   * @returns {vec4} out
+   */
+
+  function copy$5(out, a) {
+    out[0] = a[0];
+    out[1] = a[1];
+    out[2] = a[2];
+    out[3] = a[3];
+    return out;
+  }
+  /**
+   * Normalize a vec4
+   *
+   * @param {vec4} out the receiving vector
+   * @param {vec4} a vector to normalize
+   * @returns {vec4} out
+   */
+
+  function normalize$1(out, a) {
+    var x = a[0];
+    var y = a[1];
+    var z = a[2];
+    var w = a[3];
+    var len = x * x + y * y + z * z + w * w;
+
+    if (len > 0) {
+      len = 1 / Math.sqrt(len);
+    }
+
+    out[0] = x * len;
+    out[1] = y * len;
+    out[2] = z * len;
+    out[3] = w * len;
+    return out;
+  }
+  /**
+   * Returns whether or not the vectors have exactly the same elements in the same position (when compared with ===)
+   *
+   * @param {vec4} a The first vector.
+   * @param {vec4} b The second vector.
+   * @returns {Boolean} True if the vectors are equal, false otherwise.
+   */
+
+  function exactEquals$5(a, b) {
+    return a[0] === b[0] && a[1] === b[1] && a[2] === b[2] && a[3] === b[3];
+  }
+  /**
+   * Perform some operation over an array of vec4s.
+   *
+   * @param {Array} a the array of vectors to iterate over
+   * @param {Number} stride Number of elements between the start of each vec4. If 0 assumes tightly packed
+   * @param {Number} offset Number of elements to skip at the beginning of the array
+   * @param {Number} count Number of vec4s to iterate over. If 0 iterates over entire array
+   * @param {Function} fn Function to call for each vector in the array
+   * @param {Object} [arg] additional argument to pass to fn
+   * @returns {Array} a
+   * @function
+   */
+
+  var forEach$1 = (function() {
+    var vec = create$5();
+    return function(a, stride, offset, count, fn, arg) {
+      var i, l;
+
+      if (!stride) {
+        stride = 4;
+      }
+
+      if (!offset) {
+        offset = 0;
+      }
+
+      if (count) {
+        l = Math.min(count * stride + offset, a.length);
+      } else {
+        l = a.length;
+      }
+
+      for (i = offset; i < l; i += stride) {
+        vec[0] = a[i];
+        vec[1] = a[i + 1];
+        vec[2] = a[i + 2];
+        vec[3] = a[i + 3];
+        fn(vec, vec, arg);
+        a[i] = vec[0];
+        a[i + 1] = vec[1];
+        a[i + 2] = vec[2];
+        a[i + 3] = vec[3];
+      }
+
+      return a;
+    };
+  })();
+
+  /**
+   * Quaternion
+   * @module quat
+   */
+
+  /**
+   * Creates a new identity quat
+   *
+   * @returns {quat} a new quaternion
+   */
+
+  function create$6() {
+    var out = new ARRAY_TYPE(4);
+
+    if (ARRAY_TYPE != Float32Array) {
+      out[0] = 0;
+      out[1] = 0;
+      out[2] = 0;
+    }
+
+    out[3] = 1;
+    return out;
+  }
+  /**
+   * Sets a quat from the given angle and rotation axis,
+   * then returns it.
+   *
+   * @param {quat} out the receiving quaternion
+   * @param {vec3} axis the axis around which to rotate
+   * @param {Number} rad the angle in radians
+   * @returns {quat} out
+   **/
+
+  function setAxisAngle(out, axis, rad) {
+    rad = rad * 0.5;
+    var s = Math.sin(rad);
+    out[0] = s * axis[0];
+    out[1] = s * axis[1];
+    out[2] = s * axis[2];
+    out[3] = Math.cos(rad);
+    return out;
+  }
+  /**
+   * Multiplies two quat's
+   *
+   * @param {quat} out the receiving quaternion
+   * @param {quat} a the first operand
+   * @param {quat} b the second operand
+   * @returns {quat} out
+   */
+
+  function multiply$6(out, a, b) {
+    var ax = a[0],
+      ay = a[1],
+      az = a[2],
+      aw = a[3];
+    var bx = b[0],
+      by = b[1],
+      bz = b[2],
+      bw = b[3];
+    out[0] = ax * bw + aw * bx + ay * bz - az * by;
+    out[1] = ay * bw + aw * by + az * bx - ax * bz;
+    out[2] = az * bw + aw * bz + ax * by - ay * bx;
+    out[3] = aw * bw - ax * bx - ay * by - az * bz;
+    return out;
+  }
+  /**
+   * Performs a spherical linear interpolation between two quat
+   *
+   * @param {quat} out the receiving quaternion
+   * @param {quat} a the first operand
+   * @param {quat} b the second operand
+   * @param {Number} t interpolation amount, in the range [0-1], between the two inputs
+   * @returns {quat} out
+   */
+
+  function slerp(out, a, b, t) {
+    // benchmarks:
+    //    http://jsperf.com/quaternion-slerp-implementations
+    var ax = a[0],
+      ay = a[1],
+      az = a[2],
+      aw = a[3];
+    var bx = b[0],
+      by = b[1],
+      bz = b[2],
+      bw = b[3];
+    var omega, cosom, sinom, scale0, scale1; // calc cosine
+
+    cosom = ax * bx + ay * by + az * bz + aw * bw; // adjust signs (if necessary)
+
+    if (cosom < 0.0) {
+      cosom = -cosom;
+      bx = -bx;
+      by = -by;
+      bz = -bz;
+      bw = -bw;
+    } // calculate coefficients
+
+    if (1.0 - cosom > EPSILON) {
+      // standard case (slerp)
+      omega = Math.acos(cosom);
+      sinom = Math.sin(omega);
+      scale0 = Math.sin((1.0 - t) * omega) / sinom;
+      scale1 = Math.sin(t * omega) / sinom;
+    } else {
+      // "from" and "to" quaternions are very close
+      //  ... so we can do a linear interpolation
+      scale0 = 1.0 - t;
+      scale1 = t;
+    } // calculate final values
+
+    out[0] = scale0 * ax + scale1 * bx;
+    out[1] = scale0 * ay + scale1 * by;
+    out[2] = scale0 * az + scale1 * bz;
+    out[3] = scale0 * aw + scale1 * bw;
+    return out;
+  }
+  /**
+   * Calculates the conjugate of a quat
+   * If the quaternion is normalized, this function is faster than quat.inverse and produces the same result.
+   *
+   * @param {quat} out the receiving quaternion
+   * @param {quat} a quat to calculate conjugate of
+   * @returns {quat} out
+   */
+
+  function conjugate(out, a) {
+    out[0] = -a[0];
+    out[1] = -a[1];
+    out[2] = -a[2];
+    out[3] = a[3];
+    return out;
+  }
+  /**
+   * Creates a quaternion from the given 3x3 rotation matrix.
+   *
+   * NOTE: The resultant quaternion is not normalized, so you should be sure
+   * to renormalize the quaternion yourself where necessary.
+   *
+   * @param {quat} out the receiving quaternion
+   * @param {mat3} m rotation matrix
+   * @returns {quat} out
+   * @function
+   */
+
+  function fromMat3(out, m) {
+    // Algorithm in Ken Shoemake's article in 1987 SIGGRAPH course notes
+    // article "Quaternion Calculus and Fast Animation".
+    var fTrace = m[0] + m[4] + m[8];
+    var fRoot;
+
+    if (fTrace > 0.0) {
+      // |w| > 1/2, may as well choose w > 1/2
+      fRoot = Math.sqrt(fTrace + 1.0); // 2w
+
+      out[3] = 0.5 * fRoot;
+      fRoot = 0.5 / fRoot; // 1/(4w)
+
+      out[0] = (m[5] - m[7]) * fRoot;
+      out[1] = (m[6] - m[2]) * fRoot;
+      out[2] = (m[1] - m[3]) * fRoot;
+    } else {
+      // |w| <= 1/2
+      var i = 0;
+      if (m[4] > m[0]) i = 1;
+      if (m[8] > m[i * 3 + i]) i = 2;
+      var j = (i + 1) % 3;
+      var k = (i + 2) % 3;
+      fRoot = Math.sqrt(m[i * 3 + i] - m[j * 3 + j] - m[k * 3 + k] + 1.0);
+      out[i] = 0.5 * fRoot;
+      fRoot = 0.5 / fRoot;
+      out[3] = (m[j * 3 + k] - m[k * 3 + j]) * fRoot;
+      out[j] = (m[j * 3 + i] + m[i * 3 + j]) * fRoot;
+      out[k] = (m[k * 3 + i] + m[i * 3 + k]) * fRoot;
+    }
+
+    return out;
+  }
+  /**
+   * Creates a new quat initialized with values from an existing quaternion
+   *
+   * @param {quat} a quaternion to clone
+   * @returns {quat} a new quaternion
+   * @function
+   */
+
+  var clone$6 = clone$5;
+  /**
+   * Copy the values from one quat to another
+   *
+   * @param {quat} out the receiving quaternion
+   * @param {quat} a the source quaternion
+   * @returns {quat} out
+   * @function
+   */
+
+  var copy$6 = copy$5;
+  /**
+   * Alias for {@link quat.multiply}
+   * @function
+   */
+
+  var mul$6 = multiply$6;
+  /**
+   * Normalize a quat
+   *
+   * @param {quat} out the receiving quaternion
+   * @param {quat} a quaternion to normalize
+   * @returns {quat} out
+   * @function
+   */
+
+  var normalize$2 = normalize$1;
+  /**
+   * Returns whether or not the quaternions have exactly the same elements in the same position (when compared with ===)
+   *
+   * @param {quat} a The first quaternion.
+   * @param {quat} b The second quaternion.
+   * @returns {Boolean} True if the vectors are equal, false otherwise.
+   */
+
+  var exactEquals$6 = exactEquals$5;
+  /**
+   * Sets a quaternion to represent the shortest rotation from one
+   * vector to another.
+   *
+   * Both vectors are assumed to be unit length.
+   *
+   * @param {quat} out the receiving quaternion.
+   * @param {vec3} a the initial vector
+   * @param {vec3} b the destination vector
+   * @returns {quat} out
+   */
+
+  var rotationTo = (function() {
+    var tmpvec3 = create$4();
+    var xUnitVec3 = fromValues$4(1, 0, 0);
+    var yUnitVec3 = fromValues$4(0, 1, 0);
+    return function(out, a, b) {
+      var dot$$1 = dot(a, b);
+
+      if (dot$$1 < -0.999999) {
+        cross(tmpvec3, xUnitVec3, a);
+        if (len(tmpvec3) < 0.000001) cross(tmpvec3, yUnitVec3, a);
+        normalize(tmpvec3, tmpvec3);
+        setAxisAngle(out, tmpvec3, Math.PI);
+        return out;
+      } else if (dot$$1 > 0.999999) {
+        out[0] = 0;
+        out[1] = 0;
+        out[2] = 0;
+        out[3] = 1;
+        return out;
+      } else {
+        cross(tmpvec3, a, b);
+        out[0] = tmpvec3[0];
+        out[1] = tmpvec3[1];
+        out[2] = tmpvec3[2];
+        out[3] = 1 + dot$$1;
+        return normalize$2(out, out);
+      }
+    };
+  })();
+  /**
+   * Performs a spherical linear interpolation with two control points
+   *
+   * @param {quat} out the receiving quaternion
+   * @param {quat} a the first operand
+   * @param {quat} b the second operand
+   * @param {quat} c the third operand
+   * @param {quat} d the fourth operand
+   * @param {Number} t interpolation amount, in the range [0-1], between the two inputs
+   * @returns {quat} out
+   */
+
+  var sqlerp = (function() {
+    var temp1 = create$6();
+    var temp2 = create$6();
+    return function(out, a, b, c, d, t) {
+      slerp(temp1, a, d, t);
+      slerp(temp2, b, c, t);
+      slerp(out, temp1, temp2, 2 * t * (1 - t));
+      return out;
+    };
+  })();
+  /**
+   * Sets the specified quaternion with values corresponding to the given
+   * axes. Each axis is a vec3 and is expected to be unit length and
+   * perpendicular to all other specified axes.
+   *
+   * @param {vec3} view  the vector representing the viewing direction
+   * @param {vec3} right the vector representing the local "right" direction
+   * @param {vec3} up    the vector representing the local "up" direction
+   * @returns {quat} out
+   */
+
+  var setAxes = (function() {
+    var matr = create$2();
+    return function(out, view, right, up) {
+      matr[0] = right[0];
+      matr[3] = right[1];
+      matr[6] = right[2];
+      matr[1] = up[0];
+      matr[4] = up[1];
+      matr[7] = up[2];
+      matr[2] = -view[0];
+      matr[5] = -view[1];
+      matr[8] = -view[2];
+      return normalize$2(out, fromMat3(out, matr));
+    };
+  })();
+
+  /**
+   * 2 Dimensional Vector
+   * @module vec2
+   */
+
+  /**
+   * Creates a new, empty vec2
+   *
+   * @returns {vec2} a new 2D vector
+   */
+
+  function create$8() {
+    var out = new ARRAY_TYPE(2);
+
+    if (ARRAY_TYPE != Float32Array) {
+      out[0] = 0;
+      out[1] = 0;
+    }
+
+    return out;
+  }
+  /**
+   * Creates a new vec2 initialized with the given values
+   *
+   * @param {Number} x X component
+   * @param {Number} y Y component
+   * @returns {vec2} a new 2D vector
+   */
+
+  function fromValues$8(x, y) {
+    var out = new ARRAY_TYPE(2);
+    out[0] = x;
+    out[1] = y;
+    return out;
+  }
+  /**
+   * Copy the values from one vec2 to another
+   *
+   * @param {vec2} out the receiving vector
+   * @param {vec2} a the source vector
+   * @returns {vec2} out
+   */
+
+  function copy$8(out, a) {
+    out[0] = a[0];
+    out[1] = a[1];
+    return out;
+  }
+  /**
+   * Normalize a vec2
+   *
+   * @param {vec2} out the receiving vector
+   * @param {vec2} a vector to normalize
+   * @returns {vec2} out
+   */
+
+  function normalize$4(out, a) {
+    var x = a[0],
+      y = a[1];
+    var len = x * x + y * y;
+
+    if (len > 0) {
+      //TODO: evaluate use of glm_invsqrt here?
+      len = 1 / Math.sqrt(len);
+    }
+
+    out[0] = a[0] * len;
+    out[1] = a[1] * len;
+    return out;
+  }
+  /**
+   * Calculates the dot product of two vec2's
+   *
+   * @param {vec2} a the first operand
+   * @param {vec2} b the second operand
+   * @returns {Number} dot product of a and b
+   */
+
+  function dot$4(a, b) {
+    return a[0] * b[0] + a[1] * b[1];
+  }
+  /**
+   * Perform some operation over an array of vec2s.
+   *
+   * @param {Array} a the array of vectors to iterate over
+   * @param {Number} stride Number of elements between the start of each vec2. If 0 assumes tightly packed
+   * @param {Number} offset Number of elements to skip at the beginning of the array
+   * @param {Number} count Number of vec2s to iterate over. If 0 iterates over entire array
+   * @param {Function} fn Function to call for each vector in the array
+   * @param {Object} [arg] additional argument to pass to fn
+   * @returns {Array} a
+   * @function
+   */
+
+  var forEach$2 = (function() {
+    var vec = create$8();
+    return function(a, stride, offset, count, fn, arg) {
+      var i, l;
+
+      if (!stride) {
+        stride = 2;
+      }
+
+      if (!offset) {
+        offset = 0;
+      }
+
+      if (count) {
+        l = Math.min(count * stride + offset, a.length);
+      } else {
+        l = a.length;
+      }
+
+      for (i = offset; i < l; i += stride) {
+        vec[0] = a[i];
+        vec[1] = a[i + 1];
+        fn(vec, vec, arg);
+        a[i] = vec[0];
+        a[i + 1] = vec[1];
+      }
+
+      return a;
+    };
+  })();
+
+  /**
+   * Copyright (c) 2015 NAVER Corp.
+   * egjs projects are licensed under the MIT license
+   */
+
+  /* eslint-disable no-new-func, no-nested-ternary */
+  var win =
+    typeof window !== "undefined" && window.Math === Math
+      ? window
+      : typeof self !== "undefined" && self.Math === Math
+      ? self
+      : Function("return this")();
+  /* eslint-enable no-new-func, no-nested-ternary */
+
+  var doc = win.document;
+  var userAgent = (win.navigator && win.navigator.userAgent) || "";
+  var IS_IOS =
+    navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
+  var IS_SAFARI_ON_DESKTOP =
+    userAgent.indexOf("Safari") !== -1 &&
+    userAgent.indexOf("Chrome") === -1 &&
+    userAgent.indexOf("Mac OS X") !== -1 &&
+    !IS_IOS;
+  var IS_SAMSUNG_BROWSER = /SamsungBrowser/i.test(userAgent);
+
+  /**
+   * Copyright (c) 2015 NAVER Corp.
+   * egjs projects are licensed under the MIT license
+   */
+  win.Float32Array =
+    typeof win.Float32Array !== "undefined" ? win.Float32Array : win.Array;
+  var Float32Array$1 = win.Float32Array;
+  var getComputedStyle = win.getComputedStyle;
+  var userAgent$1 = win.navigator.userAgent;
+  var SUPPORT_TOUCH = "ontouchstart" in win;
+  var SUPPORT_DEVICEMOTION = "ondevicemotion" in win;
+  var DeviceMotionEvent$1 = win.DeviceMotionEvent;
+  var devicePixelRatio = win.devicePixelRatio;
+
+  var TRANSFORM = (function() {
+    var docStyle = doc.documentElement.style;
+    var target = [
+      "transform",
+      "webkitTransform",
+      "msTransform",
+      "mozTransform"
+    ];
+
+    for (var i = 0, len = target.length; i < len; i++) {
+      if (target[i] in docStyle) {
+        return target[i];
+      }
+    }
+
+    return "";
+  })(); // check for will-change support
+
+  var SUPPORT_WILLCHANGE =
+    win.CSS && win.CSS.supports && win.CSS.supports("will-change", "transform");
+  var WEBXR_SUPPORTED = false;
+
+  var checkXRSupport = function checkXRSupport() {
+    if (!navigator.xr) {
+      return;
+    }
+
+    if (navigator.xr.isSessionSupported) {
+      navigator.xr
+        .isSessionSupported("immersive-vr")
+        .then(function(res) {
+          WEBXR_SUPPORTED = res;
+        })
+        ["catch"](function() {});
+    } else if (navigator.xr.supportsSession) {
+      navigator.xr
+        .supportsSession("immersive-vr")
+        .then(function(res) {
+          WEBXR_SUPPORTED = res;
+        })
+        ["catch"](function() {});
+    }
+  };
+
+  /*! Hammer.JS - v2.0.17-rc - 2019-12-16
+   * http://naver.github.io/egjs
+   *
+   * Forked By Naver egjs
+   * Copyright (c) hammerjs
+   * Licensed under the MIT license */
+  function _extends$1() {
+    _extends$1 =
+      Object.assign ||
+      function(target) {
+        for (var i = 1; i < arguments.length; i++) {
+          var source = arguments[i];
+
+          for (var key in source) {
+            if (Object.prototype.hasOwnProperty.call(source, key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+
+        return target;
+      };
+
+    return _extends$1.apply(this, arguments);
+  }
+
+  function _inheritsLoose$1(subClass, superClass) {
+    subClass.prototype = Object.create(superClass.prototype);
+    subClass.prototype.constructor = subClass;
+    subClass.__proto__ = superClass;
+  }
+
+  function _assertThisInitialized$1(self) {
+    if (self === void 0) {
+      throw new ReferenceError(
+        "this hasn't been initialised - super() hasn't been called"
+      );
+    }
+
+    return self;
+  }
+  /**
+   * @private
+   * extend object.
+   * means that properties in dest will be overwritten by the ones in src.
+   * @param {Object} target
+   * @param {...Object} objects_to_assign
+   * @returns {Object} target
+   */
+
+  var assign;
+
+  if (typeof Object.assign !== "function") {
+    assign = function assign(target) {
+      if (target === undefined || target === null) {
+        throw new TypeError("Cannot convert undefined or null to object");
+      }
+
+      var output = Object(target);
+
+      for (var index = 1; index < arguments.length; index++) {
+        var source = arguments[index];
+
+        if (source !== undefined && source !== null) {
+          for (var nextKey in source) {
+            if (source.hasOwnProperty(nextKey)) {
+              output[nextKey] = source[nextKey];
+            }
+          }
+        }
+      }
+
+      return output;
+    };
+  } else {
+    assign = Object.assign;
+  }
+
+  var assign$1 = assign;
+  var VENDOR_PREFIXES = ["", "webkit", "Moz", "MS", "ms", "o"];
+  var TEST_ELEMENT =
+    typeof document === "undefined"
+      ? {
+          style: {}
+        }
+      : document.createElement("div");
+  var TYPE_FUNCTION = "function";
+  var round$3 = Math.round,
+    abs = Math.abs;
+  var now = Date.now;
+  /**
+   * @private
+   * get the prefixed property
+   * @param {Object} obj
+   * @param {String} property
+   * @returns {String|Undefined} prefixed
+   */
+
+  function prefixed(obj, property) {
+    var prefix;
+    var prop;
+    var camelProp = property[0].toUpperCase() + property.slice(1);
+    var i = 0;
+
+    while (i < VENDOR_PREFIXES.length) {
+      prefix = VENDOR_PREFIXES[i];
+      prop = prefix ? prefix + camelProp : property;
+
+      if (prop in obj) {
+        return prop;
+      }
+
+      i++;
+    }
+
+    return undefined;
+  }
+  /* eslint-disable no-new-func, no-nested-ternary */
+
+  var win$1;
+
+  if (typeof window === "undefined") {
+    // window is undefined in node.js
+    win$1 = {};
+  } else {
+    win$1 = window;
+  }
+
+  var PREFIXED_TOUCH_ACTION = prefixed(TEST_ELEMENT.style, "touchAction");
+  var NATIVE_TOUCH_ACTION = PREFIXED_TOUCH_ACTION !== undefined;
+
+  function getTouchActionProps() {
+    if (!NATIVE_TOUCH_ACTION) {
+      return false;
+    }
+
+    var touchMap = {};
+    var cssSupports = win$1.CSS && win$1.CSS.supports;
+    ["auto", "manipulation", "pan-y", "pan-x", "pan-x pan-y", "none"].forEach(
+      function(val) {
+        // If css.supports is not supported but there is native touch-action assume it supports
+        // all values. This is the case for IE 10 and 11.
+        return (touchMap[val] = cssSupports
+          ? win$1.CSS.supports("touch-action", val)
+          : true);
+      }
+    );
+    return touchMap;
+  }
+
+  var TOUCH_ACTION_COMPUTE = "compute";
+  var TOUCH_ACTION_AUTO = "auto";
+  var TOUCH_ACTION_MANIPULATION = "manipulation"; // not implemented
+
+  var TOUCH_ACTION_NONE = "none";
+  var TOUCH_ACTION_PAN_X = "pan-x";
+  var TOUCH_ACTION_PAN_Y = "pan-y";
+  var TOUCH_ACTION_MAP = getTouchActionProps();
+  var MOBILE_REGEX = /mobile|tablet|ip(ad|hone|od)|android/i;
+  var SUPPORT_TOUCH$1 = "ontouchstart" in win$1;
+  var SUPPORT_POINTER_EVENTS = prefixed(win$1, "PointerEvent") !== undefined;
+  var SUPPORT_ONLY_TOUCH =
+    SUPPORT_TOUCH$1 && MOBILE_REGEX.test(navigator.userAgent);
+  var INPUT_TYPE_TOUCH = "touch";
+  var INPUT_TYPE_PEN = "pen";
+  var INPUT_TYPE_MOUSE = "mouse";
+  var INPUT_TYPE_KINECT = "kinect";
+  var COMPUTE_INTERVAL = 25;
+  var INPUT_START = 1;
+  var INPUT_MOVE = 2;
+  var INPUT_END = 4;
+  var INPUT_CANCEL = 8;
+  var DIRECTION_NONE = 1;
+  var DIRECTION_LEFT = 2;
+  var DIRECTION_RIGHT = 4;
+  var DIRECTION_UP = 8;
+  var DIRECTION_DOWN = 16;
+  var DIRECTION_HORIZONTAL = DIRECTION_LEFT | DIRECTION_RIGHT;
+  var DIRECTION_VERTICAL = DIRECTION_UP | DIRECTION_DOWN;
+  var DIRECTION_ALL = DIRECTION_HORIZONTAL | DIRECTION_VERTICAL;
+  var PROPS_XY = ["x", "y"];
+  var PROPS_CLIENT_XY = ["clientX", "clientY"];
+  /**
+   * @private
+   * walk objects and arrays
+   * @param {Object} obj
+   * @param {Function} iterator
+   * @param {Object} context
+   */
+
+  function each(obj, iterator, context) {
+    var i;
+
+    if (!obj) {
+      return;
+    }
+
+    if (obj.forEach) {
+      obj.forEach(iterator, context);
+    } else if (obj.length !== undefined) {
+      i = 0;
+
+      while (i < obj.length) {
+        iterator.call(context, obj[i], i, obj);
+        i++;
+      }
+    } else {
+      for (i in obj) {
+        obj.hasOwnProperty(i) && iterator.call(context, obj[i], i, obj);
+      }
+    }
+  }
+  /**
+   * @private
+   * let a boolean value also be a function that must return a boolean
+   * this first item in args will be used as the context
+   * @param {Boolean|Function} val
+   * @param {Array} [args]
+   * @returns {Boolean}
+   */
+
+  function boolOrFn(val, args) {
+    if (typeof val === TYPE_FUNCTION) {
+      return val.apply(args ? args[0] || undefined : undefined, args);
+    }
+
+    return val;
+  }
+  /**
+   * @private
+   * small indexOf wrapper
+   * @param {String} str
+   * @param {String} find
+   * @returns {Boolean} found
+   */
+
+  function inStr(str, find) {
+    return str.indexOf(find) > -1;
+  }
+  /**
+   * @private
+   * when the touchActions are collected they are not a valid value, so we need to clean things up. *
+   * @param {String} actions
+   * @returns {*}
+   */
+
+  function cleanTouchActions(actions) {
+    // none
+    if (inStr(actions, TOUCH_ACTION_NONE)) {
+      return TOUCH_ACTION_NONE;
+    }
+
+    var hasPanX = inStr(actions, TOUCH_ACTION_PAN_X);
+    var hasPanY = inStr(actions, TOUCH_ACTION_PAN_Y); // if both pan-x and pan-y are set (different recognizers
+    // for different directions, e.g. horizontal pan but vertical swipe?)
+    // we need none (as otherwise with pan-x pan-y combined none of these
+    // recognizers will work, since the browser would handle all panning
+
+    if (hasPanX && hasPanY) {
+      return TOUCH_ACTION_NONE;
+    } // pan-x OR pan-y
+
+    if (hasPanX || hasPanY) {
+      return hasPanX ? TOUCH_ACTION_PAN_X : TOUCH_ACTION_PAN_Y;
+    } // manipulation
+
+    if (inStr(actions, TOUCH_ACTION_MANIPULATION)) {
+      return TOUCH_ACTION_MANIPULATION;
+    }
+
+    return TOUCH_ACTION_AUTO;
+  }
+  /**
+   * @private
+   * Touch Action
+   * sets the touchAction property or uses the js alternative
+   * @param {Manager} manager
+   * @param {String} value
+   * @constructor
+   */
+
+  var TouchAction =
+    /*#__PURE__*/
+    (function() {
+      function TouchAction(manager, value) {
+        this.manager = manager;
+        this.set(value);
+      }
+      /**
+       * @private
+       * set the touchAction value on the element or enable the polyfill
+       * @param {String} value
+       */
+
+      var _proto = TouchAction.prototype;
+
+      _proto.set = function set(value) {
+        // find out the touch-action by the event handlers
+        if (value === TOUCH_ACTION_COMPUTE) {
+          value = this.compute();
+        }
+
+        if (
+          NATIVE_TOUCH_ACTION &&
+          this.manager.element.style &&
+          TOUCH_ACTION_MAP[value]
+        ) {
+          this.manager.element.style[PREFIXED_TOUCH_ACTION] = value;
+        }
+
+        this.actions = value.toLowerCase().trim();
+      };
+      /**
+       * @private
+       * just re-set the touchAction value
+       */
+
+      _proto.update = function update() {
+        this.set(this.manager.options.touchAction);
+      };
+      /**
+       * @private
+       * compute the value for the touchAction property based on the recognizer's settings
+       * @returns {String} value
+       */
+
+      _proto.compute = function compute() {
+        var actions = [];
+        each(this.manager.recognizers, function(recognizer) {
+          if (boolOrFn(recognizer.options.enable, [recognizer])) {
+            actions = actions.concat(recognizer.getTouchAction());
+          }
+        });
+        return cleanTouchActions(actions.join(" "));
+      };
+      /**
+       * @private
+       * this method is called on each input cycle and provides the preventing of the browser behavior
+       * @param {Object} input
+       */
+
+      _proto.preventDefaults = function preventDefaults(input) {
+        var srcEvent = input.srcEvent;
+        var direction = input.offsetDirection; // if the touch action did prevented once this session
+
+        if (this.manager.session.prevented) {
+          srcEvent.preventDefault();
+          return;
+        }
+
+        var actions = this.actions;
+        var hasNone =
+          inStr(actions, TOUCH_ACTION_NONE) &&
+          !TOUCH_ACTION_MAP[TOUCH_ACTION_NONE];
+        var hasPanY =
+          inStr(actions, TOUCH_ACTION_PAN_Y) &&
+          !TOUCH_ACTION_MAP[TOUCH_ACTION_PAN_Y];
+        var hasPanX =
+          inStr(actions, TOUCH_ACTION_PAN_X) &&
+          !TOUCH_ACTION_MAP[TOUCH_ACTION_PAN_X];
+
+        if (hasNone) {
+          // do not prevent defaults if this is a tap gesture
+          var isTapPointer = input.pointers.length === 1;
+          var isTapMovement = input.distance < 2;
+          var isTapTouchTime = input.deltaTime < 250;
+
+          if (isTapPointer && isTapMovement && isTapTouchTime) {
+            return;
+          }
+        }
+
+        if (hasPanX && hasPanY) {
+          // `pan-x pan-y` means browser handles all scrolling/panning, do not prevent
+          return;
+        }
+
+        if (
+          hasNone ||
+          (hasPanY && direction & DIRECTION_HORIZONTAL) ||
+          (hasPanX && direction & DIRECTION_VERTICAL)
+        ) {
+          return this.preventSrc(srcEvent);
+        }
+      };
+      /**
+       * @private
+       * call preventDefault to prevent the browser's default behavior (scrolling in most cases)
+       * @param {Object} srcEvent
+       */
+
+      _proto.preventSrc = function preventSrc(srcEvent) {
+        this.manager.session.prevented = true;
+        srcEvent.preventDefault();
+      };
+
+      return TouchAction;
+    })();
+  /**
+   * @private
+   * find if a node is in the given parent
+   * @method hasParent
+   * @param {HTMLElement} node
+   * @param {HTMLElement} parent
+   * @return {Boolean} found
+   */
+
+  function hasParent(node, parent) {
+    while (node) {
+      if (node === parent) {
+        return true;
+      }
+
+      node = node.parentNode;
+    }
+
+    return false;
+  }
+  /**
+   * @private
+   * get the center of all the pointers
+   * @param {Array} pointers
+   * @return {Object} center contains `x` and `y` properties
+   */
+
+  function getCenter(pointers) {
+    var pointersLength = pointers.length; // no need to loop when only one touch
+
+    if (pointersLength === 1) {
+      return {
+        x: round$3(pointers[0].clientX),
+        y: round$3(pointers[0].clientY)
+      };
+    }
+
+    var x = 0;
+    var y = 0;
+    var i = 0;
+
+    while (i < pointersLength) {
+      x += pointers[i].clientX;
+      y += pointers[i].clientY;
+      i++;
+    }
+
+    return {
+      x: round$3(x / pointersLength),
+      y: round$3(y / pointersLength)
+    };
+  }
+  /**
+   * @private
+   * create a simple clone from the input used for storage of firstInput and firstMultiple
+   * @param {Object} input
+   * @returns {Object} clonedInputData
+   */
+
+  function simpleCloneInputData(input) {
+    // make a simple copy of the pointers because we will get a reference if we don't
+    // we only need clientXY for the calculations
+    var pointers = [];
+    var i = 0;
+
+    while (i < input.pointers.length) {
+      pointers[i] = {
+        clientX: round$3(input.pointers[i].clientX),
+        clientY: round$3(input.pointers[i].clientY)
+      };
+      i++;
+    }
+
+    return {
+      timeStamp: now(),
+      pointers: pointers,
+      center: getCenter(pointers),
+      deltaX: input.deltaX,
+      deltaY: input.deltaY
+    };
+  }
+  /**
+   * @private
+   * calculate the absolute distance between two points
+   * @param {Object} p1 {x, y}
+   * @param {Object} p2 {x, y}
+   * @param {Array} [props] containing x and y keys
+   * @return {Number} distance
+   */
+
+  function getDistance(p1, p2, props) {
+    if (!props) {
+      props = PROPS_XY;
+    }
+
+    var x = p2[props[0]] - p1[props[0]];
+    var y = p2[props[1]] - p1[props[1]];
+    return Math.sqrt(x * x + y * y);
+  }
+  /**
+   * @private
+   * calculate the angle between two coordinates
+   * @param {Object} p1
+   * @param {Object} p2
+   * @param {Array} [props] containing x and y keys
+   * @return {Number} angle
+   */
+
+  function getAngle$1(p1, p2, props) {
+    if (!props) {
+      props = PROPS_XY;
+    }
+
+    var x = p2[props[0]] - p1[props[0]];
+    var y = p2[props[1]] - p1[props[1]];
+    return (Math.atan2(y, x) * 180) / Math.PI;
+  }
+  /**
+   * @private
+   * get the direction between two points
+   * @param {Number} x
+   * @param {Number} y
+   * @return {Number} direction
+   */
+
+  function getDirection(x, y) {
+    if (x === y) {
+      return DIRECTION_NONE;
+    }
+
+    if (abs(x) >= abs(y)) {
+      return x < 0 ? DIRECTION_LEFT : DIRECTION_RIGHT;
+    }
+
+    return y < 0 ? DIRECTION_UP : DIRECTION_DOWN;
+  }
+
+  function computeDeltaXY(session, input) {
+    var center = input.center; // let { offsetDelta:offset = {}, prevDelta = {}, prevInput = {} } = session;
+    // jscs throwing error on defalut destructured values and without defaults tests fail
+
+    var offset = session.offsetDelta || {};
+    var prevDelta = session.prevDelta || {};
+    var prevInput = session.prevInput || {};
+
+    if (input.eventType === INPUT_START || prevInput.eventType === INPUT_END) {
+      prevDelta = session.prevDelta = {
+        x: prevInput.deltaX || 0,
+        y: prevInput.deltaY || 0
+      };
+      offset = session.offsetDelta = {
+        x: center.x,
+        y: center.y
+      };
+    }
+
+    input.deltaX = prevDelta.x + (center.x - offset.x);
+    input.deltaY = prevDelta.y + (center.y - offset.y);
+  }
+  /**
+   * @private
+   * calculate the velocity between two points. unit is in px per ms.
+   * @param {Number} deltaTime
+   * @param {Number} x
+   * @param {Number} y
+   * @return {Object} velocity `x` and `y`
+   */
+
+  function getVelocity(deltaTime, x, y) {
+    return {
+      x: x / deltaTime || 0,
+      y: y / deltaTime || 0
+    };
+  }
+  /**
+   * @private
+   * calculate the scale factor between two pointersets
+   * no scale is 1, and goes down to 0 when pinched together, and bigger when pinched out
+   * @param {Array} start array of pointers
+   * @param {Array} end array of pointers
+   * @return {Number} scale
+   */
+
+  function getScale(start, end) {
+    return (
+      getDistance(end[0], end[1], PROPS_CLIENT_XY) /
+      getDistance(start[0], start[1], PROPS_CLIENT_XY)
+    );
+  }
+  /**
+   * @private
+   * calculate the rotation degrees between two pointersets
+   * @param {Array} start array of pointers
+   * @param {Array} end array of pointers
+   * @return {Number} rotation
+   */
+
+  function getRotation$1(start, end) {
+    return (
+      getAngle$1(end[1], end[0], PROPS_CLIENT_XY) +
+      getAngle$1(start[1], start[0], PROPS_CLIENT_XY)
+    );
+  }
+  /**
+   * @private
+   * velocity is calculated every x ms
+   * @param {Object} session
+   * @param {Object} input
+   */
+
+  function computeIntervalInputData(session, input) {
+    var last = session.lastInterval || input;
+    var deltaTime = input.timeStamp - last.timeStamp;
+    var velocity;
+    var velocityX;
+    var velocityY;
+    var direction;
+
+    if (
+      input.eventType !== INPUT_CANCEL &&
+      (deltaTime > COMPUTE_INTERVAL || last.velocity === undefined)
+    ) {
+      var deltaX = input.deltaX - last.deltaX;
+      var deltaY = input.deltaY - last.deltaY;
+      var v = getVelocity(deltaTime, deltaX, deltaY);
+      velocityX = v.x;
+      velocityY = v.y;
+      velocity = abs(v.x) > abs(v.y) ? v.x : v.y;
+      direction = getDirection(deltaX, deltaY);
+      session.lastInterval = input;
+    } else {
+      // use latest velocity info if it doesn't overtake a minimum period
+      velocity = last.velocity;
+      velocityX = last.velocityX;
+      velocityY = last.velocityY;
+      direction = last.direction;
+    }
+
+    input.velocity = velocity;
+    input.velocityX = velocityX;
+    input.velocityY = velocityY;
+    input.direction = direction;
+  }
+  /**
+   * @private
+   * extend the data with some usable properties like scale, rotate, velocity etc
+   * @param {Object} manager
+   * @param {Object} input
+   */
+
+  function computeInputData(manager, input) {
+    var session = manager.session;
+    var pointers = input.pointers;
+    var pointersLength = pointers.length; // store the first input to calculate the distance and direction
+
+    if (!session.firstInput) {
+      session.firstInput = simpleCloneInputData(input);
+    } // to compute scale and rotation we need to store the multiple touches
+
+    if (pointersLength > 1 && !session.firstMultiple) {
+      session.firstMultiple = simpleCloneInputData(input);
+    } else if (pointersLength === 1) {
+      session.firstMultiple = false;
+    }
+
+    var firstInput = session.firstInput,
+      firstMultiple = session.firstMultiple;
+    var offsetCenter = firstMultiple ? firstMultiple.center : firstInput.center;
+    var center = (input.center = getCenter(pointers));
+    input.timeStamp = now();
+    input.deltaTime = input.timeStamp - firstInput.timeStamp;
+    input.angle = getAngle$1(offsetCenter, center);
+    input.distance = getDistance(offsetCenter, center);
+    computeDeltaXY(session, input);
+    input.offsetDirection = getDirection(input.deltaX, input.deltaY);
+    var overallVelocity = getVelocity(
+      input.deltaTime,
+      input.deltaX,
+      input.deltaY
+    );
+    input.overallVelocityX = overallVelocity.x;
+    input.overallVelocityY = overallVelocity.y;
+    input.overallVelocity =
+      abs(overallVelocity.x) > abs(overallVelocity.y)
+        ? overallVelocity.x
+        : overallVelocity.y;
+    input.scale = firstMultiple
+      ? getScale(firstMultiple.pointers, pointers)
+      : 1;
+    input.rotation = firstMultiple
+      ? getRotation$1(firstMultiple.pointers, pointers)
+      : 0;
+    input.maxPointers = !session.prevInput
+      ? input.pointers.length
+      : input.pointers.length > session.prevInput.maxPointers
+      ? input.pointers.length
+      : session.prevInput.maxPointers;
+    computeIntervalInputData(session, input); // find the correct target
+
+    var target = manager.element;
+    var srcEvent = input.srcEvent;
+    var srcEventTarget;
+
+    if (srcEvent.composedPath) {
+      srcEventTarget = srcEvent.composedPath()[0];
+    } else if (srcEvent.path) {
+      srcEventTarget = srcEvent.path[0];
+    } else {
+      srcEventTarget = srcEvent.target;
+    }
+
+    if (hasParent(srcEventTarget, target)) {
+      target = srcEventTarget;
+    }
+
+    input.target = target;
+  }
+  /**
+   * @private
+   * handle input events
+   * @param {Manager} manager
+   * @param {String} eventType
+   * @param {Object} input
+   */
+
+  function inputHandler(manager, eventType, input) {
+    var pointersLen = input.pointers.length;
+    var changedPointersLen = input.changedPointers.length;
+    var isFirst =
+      eventType & INPUT_START && pointersLen - changedPointersLen === 0;
+    var isFinal =
+      eventType & (INPUT_END | INPUT_CANCEL) &&
+      pointersLen - changedPointersLen === 0;
+    input.isFirst = !!isFirst;
+    input.isFinal = !!isFinal;
+
+    if (isFirst) {
+      manager.session = {};
+    } // source event is the normalized value of the domEvents
+    // like 'touchstart, mouseup, pointerdown'
+
+    input.eventType = eventType; // compute scale, rotation etc
+
+    computeInputData(manager, input); // emit secret event
+
+    manager.emit("hammer.input", input);
+    manager.recognize(input);
+    manager.session.prevInput = input;
+  }
+  /**
+   * @private
+   * split string on whitespace
+   * @param {String} str
+   * @returns {Array} words
+   */
+
+  function splitStr(str) {
+    return str.trim().split(/\s+/g);
+  }
+  /**
+   * @private
+   * addEventListener with multiple events at once
+   * @param {EventTarget} target
+   * @param {String} types
+   * @param {Function} handler
+   */
+
+  function addEventListeners(target, types, handler) {
+    each(splitStr(types), function(type) {
+      target.addEventListener(type, handler, false);
+    });
+  }
+  /**
+   * @private
+   * removeEventListener with multiple events at once
+   * @param {EventTarget} target
+   * @param {String} types
+   * @param {Function} handler
+   */
+
+  function removeEventListeners(target, types, handler) {
+    each(splitStr(types), function(type) {
+      target.removeEventListener(type, handler, false);
+    });
+  }
+  /**
+   * @private
+   * get the window object of an element
+   * @param {HTMLElement} element
+   * @returns {DocumentView|Window}
+   */
+
+  function getWindowForElement(element) {
+    var doc = element.ownerDocument || element;
+    return doc.defaultView || doc.parentWindow || window;
+  }
+  /**
+   * @private
+   * create new input type manager
+   * @param {Manager} manager
+   * @param {Function} callback
+   * @returns {Input}
+   * @constructor
+   */
+
+  var Input =
+    /*#__PURE__*/
+    (function() {
+      function Input(manager, callback) {
+        var self = this;
+        this.manager = manager;
+        this.callback = callback;
+        this.element = manager.element;
+        this.target = manager.options.inputTarget; // smaller wrapper around the handler, for the scope and the enabled state of the manager,
+        // so when disabled the input events are completely bypassed.
+
+        this.domHandler = function(ev) {
+          if (boolOrFn(manager.options.enable, [manager])) {
+            self.handler(ev);
+          }
+        };
+
+        this.init();
+      }
+      /**
+       * @private
+       * should handle the inputEvent data and trigger the callback
+       * @virtual
+       */
+
+      var _proto = Input.prototype;
+
+      _proto.handler = function handler() {};
+      /**
+       * @private
+       * bind the events
+       */
+
+      _proto.init = function init() {
+        this.evEl &&
+          addEventListeners(this.element, this.evEl, this.domHandler);
+        this.evTarget &&
+          addEventListeners(this.target, this.evTarget, this.domHandler);
+        this.evWin &&
+          addEventListeners(
+            getWindowForElement(this.element),
+            this.evWin,
+            this.domHandler
+          );
+      };
+      /**
+       * @private
+       * unbind the events
+       */
+
+      _proto.destroy = function destroy() {
+        this.evEl &&
+          removeEventListeners(this.element, this.evEl, this.domHandler);
+        this.evTarget &&
+          removeEventListeners(this.target, this.evTarget, this.domHandler);
+        this.evWin &&
+          removeEventListeners(
+            getWindowForElement(this.element),
+            this.evWin,
+            this.domHandler
+          );
+      };
+
+      return Input;
+    })();
+  /**
+   * @private
+   * find if a array contains the object using indexOf or a simple polyFill
+   * @param {Array} src
+   * @param {String} find
+   * @param {String} [findByKey]
+   * @return {Boolean|Number} false when not found, or the index
+   */
+
+  function inArray(src, find, findByKey) {
+    if (src.indexOf && !findByKey) {
+      return src.indexOf(find);
+    } else {
+      var i = 0;
+
+      while (i < src.length) {
+        if (
+          (findByKey && src[i][findByKey] == find) ||
+          (!findByKey && src[i] === find)
+        ) {
+          // do not use === here, test fails
+          return i;
+        }
+
+        i++;
+      }
+
+      return -1;
+    }
+  }
+
+  var POINTER_INPUT_MAP = {
+    pointerdown: INPUT_START,
+    pointermove: INPUT_MOVE,
+    pointerup: INPUT_END,
+    pointercancel: INPUT_CANCEL,
+    pointerout: INPUT_CANCEL
+  }; // in IE10 the pointer types is defined as an enum
+
+  var IE10_POINTER_TYPE_ENUM = {
+    2: INPUT_TYPE_TOUCH,
+    3: INPUT_TYPE_PEN,
+    4: INPUT_TYPE_MOUSE,
+    5: INPUT_TYPE_KINECT // see https://twitter.com/jacobrossi/status/480596438489890816
+  };
+  var POINTER_ELEMENT_EVENTS = "pointerdown";
+  var POINTER_WINDOW_EVENTS = "pointermove pointerup pointercancel"; // IE10 has prefixed support, and case-sensitive
+
+  if (win$1.MSPointerEvent && !win$1.PointerEvent) {
+    POINTER_ELEMENT_EVENTS = "MSPointerDown";
+    POINTER_WINDOW_EVENTS = "MSPointerMove MSPointerUp MSPointerCancel";
+  }
+  /**
+   * @private
+   * Pointer events input
+   * @constructor
+   * @extends Input
+   */
+
+  var PointerEventInput =
+    /*#__PURE__*/
+    (function(_Input) {
+      _inheritsLoose$1(PointerEventInput, _Input);
+
+      function PointerEventInput() {
+        var _this;
+
+        var proto = PointerEventInput.prototype;
+        proto.evEl = POINTER_ELEMENT_EVENTS;
+        proto.evWin = POINTER_WINDOW_EVENTS;
+        _this = _Input.apply(this, arguments) || this;
+        _this.store = _this.manager.session.pointerEvents = [];
+        return _this;
+      }
+      /**
+       * @private
+       * handle mouse events
+       * @param {Object} ev
+       */
+
+      var _proto = PointerEventInput.prototype;
+
+      _proto.handler = function handler(ev) {
+        var store = this.store;
+        var removePointer = false;
+        var eventTypeNormalized = ev.type.toLowerCase().replace("ms", "");
+        var eventType = POINTER_INPUT_MAP[eventTypeNormalized];
+        var pointerType =
+          IE10_POINTER_TYPE_ENUM[ev.pointerType] || ev.pointerType;
+        var isTouch = pointerType === INPUT_TYPE_TOUCH; // get index of the event in the store
+
+        var storeIndex = inArray(store, ev.pointerId, "pointerId"); // start and mouse must be down
+
+        if (eventType & INPUT_START && (ev.button === 0 || isTouch)) {
+          if (storeIndex < 0) {
+            store.push(ev);
+            storeIndex = store.length - 1;
+          }
+        } else if (eventType & (INPUT_END | INPUT_CANCEL)) {
+          removePointer = true;
+        } // it not found, so the pointer hasn't been down (so it's probably a hover)
+
+        if (storeIndex < 0) {
+          return;
+        } // update the event in the store
+
+        store[storeIndex] = ev;
+        this.callback(this.manager, eventType, {
+          pointers: store,
+          changedPointers: [ev],
+          pointerType: pointerType,
+          srcEvent: ev
+        });
+
+        if (removePointer) {
+          // remove from the store
+          store.splice(storeIndex, 1);
+        }
+      };
+
+      return PointerEventInput;
+    })(Input);
+  /**
+   * @private
+   * convert array-like objects to real arrays
+   * @param {Object} obj
+   * @returns {Array}
+   */
+
+  function toArray(obj) {
+    return Array.prototype.slice.call(obj, 0);
+  }
+  /**
+   * @private
+   * unique array with objects based on a key (like 'id') or just by the array's value
+   * @param {Array} src [{id:1},{id:2},{id:1}]
+   * @param {String} [key]
+   * @param {Boolean} [sort=False]
+   * @returns {Array} [{id:1},{id:2}]
+   */
+
+  function uniqueArray(src, key, sort) {
+    var results = [];
+    var values = [];
+    var i = 0;
+
+    while (i < src.length) {
+      var val = key ? src[i][key] : src[i];
+
+      if (inArray(values, val) < 0) {
+        results.push(src[i]);
+      }
+
+      values[i] = val;
+      i++;
+    }
+
+    if (sort) {
+      if (!key) {
+        results = results.sort();
+      } else {
+        results = results.sort(function(a, b) {
+          return a[key] > b[key];
+        });
+      }
+    }
+
+    return results;
+  }
+
+  var TOUCH_INPUT_MAP = {
+    touchstart: INPUT_START,
+    touchmove: INPUT_MOVE,
+    touchend: INPUT_END,
+    touchcancel: INPUT_CANCEL
+  };
+  var TOUCH_TARGET_EVENTS = "touchstart touchmove touchend touchcancel";
+  /**
+   * @private
+   * Multi-user touch events input
+   * @constructor
+   * @extends Input
+   */
+
+  var TouchInput =
+    /*#__PURE__*/
+    (function(_Input) {
+      _inheritsLoose$1(TouchInput, _Input);
+
+      function TouchInput() {
+        var _this;
+
+        TouchInput.prototype.evTarget = TOUCH_TARGET_EVENTS;
+        _this = _Input.apply(this, arguments) || this;
+        _this.targetIds = {}; // this.evTarget = TOUCH_TARGET_EVENTS;
+
+        return _this;
+      }
+
+      var _proto = TouchInput.prototype;
+
+      _proto.handler = function handler(ev) {
+        var type = TOUCH_INPUT_MAP[ev.type];
+        var touches = getTouches.call(this, ev, type);
+
+        if (!touches) {
+          return;
+        }
+
+        this.callback(this.manager, type, {
+          pointers: touches[0],
+          changedPointers: touches[1],
+          pointerType: INPUT_TYPE_TOUCH,
+          srcEvent: ev
+        });
+      };
+
+      return TouchInput;
+    })(Input);
+
+  function getTouches(ev, type) {
+    var allTouches = toArray(ev.touches);
+    var targetIds = this.targetIds; // when there is only one touch, the process can be simplified
+
+    if (type & (INPUT_START | INPUT_MOVE) && allTouches.length === 1) {
+      targetIds[allTouches[0].identifier] = true;
+      return [allTouches, allTouches];
+    }
+
+    var i;
+    var targetTouches;
+    var changedTouches = toArray(ev.changedTouches);
+    var changedTargetTouches = [];
+    var target = this.target; // get target touches from touches
+
+    targetTouches = allTouches.filter(function(touch) {
+      return hasParent(touch.target, target);
+    }); // collect touches
+
+    if (type === INPUT_START) {
+      i = 0;
+
+      while (i < targetTouches.length) {
+        targetIds[targetTouches[i].identifier] = true;
+        i++;
+      }
+    } // filter changed touches to only contain touches that exist in the collected target ids
+
+    i = 0;
+
+    while (i < changedTouches.length) {
+      if (targetIds[changedTouches[i].identifier]) {
+        changedTargetTouches.push(changedTouches[i]);
+      } // cleanup removed touches
+
+      if (type & (INPUT_END | INPUT_CANCEL)) {
+        delete targetIds[changedTouches[i].identifier];
+      }
+
+      i++;
+    }
+
+    if (!changedTargetTouches.length) {
+      return;
+    }
+
+    return [
+      // merge targetTouches with changedTargetTouches so it contains ALL touches, including 'end' and 'cancel'
+      uniqueArray(
+        targetTouches.concat(changedTargetTouches),
+        "identifier",
+        true
+      ),
+      changedTargetTouches
+    ];
+  }
+
+  var MOUSE_INPUT_MAP = {
+    mousedown: INPUT_START,
+    mousemove: INPUT_MOVE,
+    mouseup: INPUT_END
+  };
+  var MOUSE_ELEMENT_EVENTS = "mousedown";
+  var MOUSE_WINDOW_EVENTS = "mousemove mouseup";
+  /**
+   * @private
+   * Mouse events input
+   * @constructor
+   * @extends Input
+   */
+
+  var MouseInput =
+    /*#__PURE__*/
+    (function(_Input) {
+      _inheritsLoose$1(MouseInput, _Input);
+
+      function MouseInput() {
+        var _this;
+
+        var proto = MouseInput.prototype;
+        proto.evEl = MOUSE_ELEMENT_EVENTS;
+        proto.evWin = MOUSE_WINDOW_EVENTS;
+        _this = _Input.apply(this, arguments) || this;
+        _this.pressed = false; // mousedown state
+
+        return _this;
+      }
+      /**
+       * @private
+       * handle mouse events
+       * @param {Object} ev
+       */
+
+      var _proto = MouseInput.prototype;
+
+      _proto.handler = function handler(ev) {
+        var eventType = MOUSE_INPUT_MAP[ev.type]; // on start we want to have the left mouse button down
+
+        if (eventType & INPUT_START && ev.button === 0) {
+          this.pressed = true;
+        }
+
+        if (eventType & INPUT_MOVE && ev.which !== 1) {
+          eventType = INPUT_END;
+        } // mouse must be down
+
+        if (!this.pressed) {
+          return;
+        }
+
+        if (eventType & INPUT_END) {
+          this.pressed = false;
+        }
+
+        this.callback(this.manager, eventType, {
+          pointers: [ev],
+          changedPointers: [ev],
+          pointerType: INPUT_TYPE_MOUSE,
+          srcEvent: ev
+        });
+      };
+
+      return MouseInput;
+    })(Input);
+  /**
+   * @private
+   * Combined touch and mouse input
+   *
+   * Touch has a higher priority then mouse, and while touching no mouse events are allowed.
+   * This because touch devices also emit mouse events while doing a touch.
+   *
+   * @constructor
+   * @extends Input
+   */
+
+  var DEDUP_TIMEOUT = 2500;
+  var DEDUP_DISTANCE = 25;
+
+  function setLastTouch(eventData) {
+    var _eventData$changedPoi = eventData.changedPointers,
+      touch = _eventData$changedPoi[0];
+
+    if (touch.identifier === this.primaryTouch) {
+      var lastTouch = {
+        x: touch.clientX,
+        y: touch.clientY
+      };
+      var lts = this.lastTouches;
+      this.lastTouches.push(lastTouch);
+
+      var removeLastTouch = function removeLastTouch() {
+        var i = lts.indexOf(lastTouch);
+
+        if (i > -1) {
+          lts.splice(i, 1);
+        }
+      };
+
+      setTimeout(removeLastTouch, DEDUP_TIMEOUT);
+    }
+  }
+
+  function recordTouches(eventType, eventData) {
+    if (eventType & INPUT_START) {
+      this.primaryTouch = eventData.changedPointers[0].identifier;
+      setLastTouch.call(this, eventData);
+    } else if (eventType & (INPUT_END | INPUT_CANCEL)) {
+      setLastTouch.call(this, eventData);
+    }
+  }
+
+  function isSyntheticEvent(eventData) {
+    var x = eventData.srcEvent.clientX;
+    var y = eventData.srcEvent.clientY;
+
+    for (var i = 0; i < this.lastTouches.length; i++) {
+      var t = this.lastTouches[i];
+      var dx = Math.abs(x - t.x);
+      var dy = Math.abs(y - t.y);
+
+      if (dx <= DEDUP_DISTANCE && dy <= DEDUP_DISTANCE) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  var TouchMouseInput =
+    /*#__PURE__*/
+    (function() {
+      var TouchMouseInput =
+        /*#__PURE__*/
+        (function(_Input) {
+          _inheritsLoose$1(TouchMouseInput, _Input);
+
+          function TouchMouseInput(_manager, callback) {
+            var _this;
+
+            _this = _Input.call(this, _manager, callback) || this;
+
+            _this.handler = function(manager, inputEvent, inputData) {
+              var isTouch = inputData.pointerType === INPUT_TYPE_TOUCH;
+              var isMouse = inputData.pointerType === INPUT_TYPE_MOUSE;
+
+              if (
+                isMouse &&
+                inputData.sourceCapabilities &&
+                inputData.sourceCapabilities.firesTouchEvents
+              ) {
+                return;
+              } // when we're in a touch event, record touches to  de-dupe synthetic mouse event
+
+              if (isTouch) {
+                recordTouches.call(
+                  _assertThisInitialized$1(_assertThisInitialized$1(_this)),
+                  inputEvent,
+                  inputData
+                );
+              } else if (
+                isMouse &&
+                isSyntheticEvent.call(
+                  _assertThisInitialized$1(_assertThisInitialized$1(_this)),
+                  inputData
+                )
+              ) {
+                return;
+              }
+
+              _this.callback(manager, inputEvent, inputData);
+            };
+
+            _this.touch = new TouchInput(_this.manager, _this.handler);
+            _this.mouse = new MouseInput(_this.manager, _this.handler);
+            _this.primaryTouch = null;
+            _this.lastTouches = [];
+            return _this;
+          }
+          /**
+           * @private
+           * handle mouse and touch events
+           * @param {Hammer} manager
+           * @param {String} inputEvent
+           * @param {Object} inputData
+           */
+
+          var _proto = TouchMouseInput.prototype;
+          /**
+           * @private
+           * remove the event listeners
+           */
+
+          _proto.destroy = function destroy() {
+            this.touch.destroy();
+            this.mouse.destroy();
+          };
+
+          return TouchMouseInput;
+        })(Input);
+
+      return TouchMouseInput;
+    })();
+  /**
+   * @private
+   * create new input type manager
+   * called by the Manager constructor
+   * @param {Hammer} manager
+   * @returns {Input}
+   */
+
+  function createInputInstance(manager) {
+    var Type; // let inputClass = manager.options.inputClass;
+
+    var inputClass = manager.options.inputClass;
+
+    if (inputClass) {
+      Type = inputClass;
+    } else if (SUPPORT_POINTER_EVENTS) {
+      Type = PointerEventInput;
+    } else if (SUPPORT_ONLY_TOUCH) {
+      Type = TouchInput;
+    } else if (!SUPPORT_TOUCH$1) {
+      Type = MouseInput;
+    } else {
+      Type = TouchMouseInput;
+    }
+
+    return new Type(manager, inputHandler);
+  }
+  /**
+   * @private
+   * if the argument is an array, we want to execute the fn on each entry
+   * if it aint an array we don't want to do a thing.
+   * this is used by all the methods that accept a single and array argument.
+   * @param {*|Array} arg
+   * @param {String} fn
+   * @param {Object} [context]
+   * @returns {Boolean}
+   */
+
+  function invokeArrayArg(arg, fn, context) {
+    if (Array.isArray(arg)) {
+      each(arg, context[fn], context);
+      return true;
+    }
+
+    return false;
+  }
+
+  var STATE_POSSIBLE = 1;
+  var STATE_BEGAN = 2;
+  var STATE_CHANGED = 4;
+  var STATE_ENDED = 8;
+  var STATE_RECOGNIZED = STATE_ENDED;
+  var STATE_CANCELLED = 16;
+  var STATE_FAILED = 32;
+  /**
+   * @private
+   * get a unique id
+   * @returns {number} uniqueId
+   */
+
+  var _uniqueId = 1;
+
+  function uniqueId() {
+    return _uniqueId++;
+  }
+  /**
+   * @private
+   * get a recognizer by name if it is bound to a manager
+   * @param {Recognizer|String} otherRecognizer
+   * @param {Recognizer} recognizer
+   * @returns {Recognizer}
+   */
+
+  function getRecognizerByNameIfManager(otherRecognizer, recognizer) {
+    var manager = recognizer.manager;
+
+    if (manager) {
+      return manager.get(otherRecognizer);
+    }
+
+    return otherRecognizer;
+  }
+  /**
+   * @private
+   * get a usable string, used as event postfix
+   * @param {constant} state
+   * @returns {String} state
+   */
+
+  function stateStr(state) {
+    if (state & STATE_CANCELLED) {
+      return "cancel";
+    } else if (state & STATE_ENDED) {
+      return "end";
+    } else if (state & STATE_CHANGED) {
+      return "move";
+    } else if (state & STATE_BEGAN) {
+      return "start";
+    }
+
+    return "";
+  }
+  /**
+   * @private
+   * Recognizer flow explained; *
+   * All recognizers have the initial state of POSSIBLE when a input session starts.
+   * The definition of a input session is from the first input until the last input, with all it's movement in it. *
+   * Example session for mouse-input: mousedown -> mousemove -> mouseup
+   *
+   * On each recognizing cycle (see Manager.recognize) the .recognize() method is executed
+   * which determines with state it should be.
+   *
+   * If the recognizer has the state FAILED, CANCELLED or RECOGNIZED (equals ENDED), it is reset to
+   * POSSIBLE to give it another change on the next cycle.
+   *
+   *               Possible
+   *                  |
+   *            +-----+---------------+
+   *            |                     |
+   *      +-----+-----+               |
+   *      |           |               |
+   *   Failed      Cancelled          |
+   *                          +-------+------+
+   *                          |              |
+   *                      Recognized       Began
+   *                                         |
+   *                                      Changed
+   *                                         |
+   *                                  Ended/Recognized
+   */
+
+  /**
+   * @private
+   * Recognizer
+   * Every recognizer needs to extend from this class.
+   * @constructor
+   * @param {Object} options
+   */
+
+  var Recognizer =
+    /*#__PURE__*/
+    (function() {
+      function Recognizer(options) {
+        if (options === void 0) {
+          options = {};
+        }
+
+        this.options = _extends$1(
+          {
+            enable: true
+          },
+          options
+        );
+        this.id = uniqueId();
+        this.manager = null; // default is enable true
+
+        this.state = STATE_POSSIBLE;
+        this.simultaneous = {};
+        this.requireFail = [];
+      }
+      /**
+       * @private
+       * set options
+       * @param {Object} options
+       * @return {Recognizer}
+       */
+
+      var _proto = Recognizer.prototype;
+
+      _proto.set = function set(options) {
+        assign$1(this.options, options); // also update the touchAction, in case something changed about the directions/enabled state
+
+        this.manager && this.manager.touchAction.update();
+        return this;
+      };
+      /**
+       * @private
+       * recognize simultaneous with an other recognizer.
+       * @param {Recognizer} otherRecognizer
+       * @returns {Recognizer} this
+       */
+
+      _proto.recognizeWith = function recognizeWith(otherRecognizer) {
+        if (invokeArrayArg(otherRecognizer, "recognizeWith", this)) {
+          return this;
+        }
+
+        var simultaneous = this.simultaneous;
+        otherRecognizer = getRecognizerByNameIfManager(otherRecognizer, this);
+
+        if (!simultaneous[otherRecognizer.id]) {
+          simultaneous[otherRecognizer.id] = otherRecognizer;
+          otherRecognizer.recognizeWith(this);
+        }
+
+        return this;
+      };
+      /**
+       * @private
+       * drop the simultaneous link. it doesnt remove the link on the other recognizer.
+       * @param {Recognizer} otherRecognizer
+       * @returns {Recognizer} this
+       */
+
+      _proto.dropRecognizeWith = function dropRecognizeWith(otherRecognizer) {
+        if (invokeArrayArg(otherRecognizer, "dropRecognizeWith", this)) {
+          return this;
+        }
+
+        otherRecognizer = getRecognizerByNameIfManager(otherRecognizer, this);
+        delete this.simultaneous[otherRecognizer.id];
+        return this;
+      };
+      /**
+       * @private
+       * recognizer can only run when an other is failing
+       * @param {Recognizer} otherRecognizer
+       * @returns {Recognizer} this
+       */
+
+      _proto.requireFailure = function requireFailure(otherRecognizer) {
+        if (invokeArrayArg(otherRecognizer, "requireFailure", this)) {
+          return this;
+        }
+
+        var requireFail = this.requireFail;
+        otherRecognizer = getRecognizerByNameIfManager(otherRecognizer, this);
+
+        if (inArray(requireFail, otherRecognizer) === -1) {
+          requireFail.push(otherRecognizer);
+          otherRecognizer.requireFailure(this);
+        }
+
+        return this;
+      };
+      /**
+       * @private
+       * drop the requireFailure link. it does not remove the link on the other recognizer.
+       * @param {Recognizer} otherRecognizer
+       * @returns {Recognizer} this
+       */
+
+      _proto.dropRequireFailure = function dropRequireFailure(otherRecognizer) {
+        if (invokeArrayArg(otherRecognizer, "dropRequireFailure", this)) {
+          return this;
+        }
+
+        otherRecognizer = getRecognizerByNameIfManager(otherRecognizer, this);
+        var index = inArray(this.requireFail, otherRecognizer);
+
+        if (index > -1) {
+          this.requireFail.splice(index, 1);
+        }
+
+        return this;
+      };
+      /**
+       * @private
+       * has require failures boolean
+       * @returns {boolean}
+       */
+
+      _proto.hasRequireFailures = function hasRequireFailures() {
+        return this.requireFail.length > 0;
+      };
+      /**
+       * @private
+       * if the recognizer can recognize simultaneous with an other recognizer
+       * @param {Recognizer} otherRecognizer
+       * @returns {Boolean}
+       */
+
+      _proto.canRecognizeWith = function canRecognizeWith(otherRecognizer) {
+        return !!this.simultaneous[otherRecognizer.id];
+      };
+      /**
+       * @private
+       * You should use `tryEmit` instead of `emit` directly to check
+       * that all the needed recognizers has failed before emitting.
+       * @param {Object} input
+       */
+
+      _proto.emit = function emit(input) {
+        var self = this;
+        var state = this.state;
+
+        function emit(event) {
+          self.manager.emit(event, input);
+        } // 'panstart' and 'panmove'
+
+        if (state < STATE_ENDED) {
+          emit(self.options.event + stateStr(state));
+        }
+
+        emit(self.options.event); // simple 'eventName' events
+
+        if (input.additionalEvent) {
+          // additional event(panleft, panright, pinchin, pinchout...)
+          emit(input.additionalEvent);
+        } // panend and pancancel
+
+        if (state >= STATE_ENDED) {
+          emit(self.options.event + stateStr(state));
+        }
+      };
+      /**
+       * @private
+       * Check that all the require failure recognizers has failed,
+       * if true, it emits a gesture event,
+       * otherwise, setup the state to FAILED.
+       * @param {Object} input
+       */
+
+      _proto.tryEmit = function tryEmit(input) {
+        if (this.canEmit()) {
+          return this.emit(input);
+        } // it's failing anyway
+
+        this.state = STATE_FAILED;
+      };
+      /**
+       * @private
+       * can we emit?
+       * @returns {boolean}
+       */
+
+      _proto.canEmit = function canEmit() {
+        var i = 0;
+
+        while (i < this.requireFail.length) {
+          if (!(this.requireFail[i].state & (STATE_FAILED | STATE_POSSIBLE))) {
+            return false;
+          }
+
+          i++;
+        }
+
+        return true;
+      };
+      /**
+       * @private
+       * update the recognizer
+       * @param {Object} inputData
+       */
+
+      _proto.recognize = function recognize(inputData) {
+        // make a new copy of the inputData
+        // so we can change the inputData without messing up the other recognizers
+        var inputDataClone = assign$1({}, inputData); // is is enabled and allow recognizing?
+
+        if (!boolOrFn(this.options.enable, [this, inputDataClone])) {
+          this.reset();
+          this.state = STATE_FAILED;
+          return;
+        } // reset when we've reached the end
+
+        if (this.state & (STATE_RECOGNIZED | STATE_CANCELLED | STATE_FAILED)) {
+          this.state = STATE_POSSIBLE;
+        }
+
+        this.state = this.process(inputDataClone); // the recognizer has recognized a gesture
+        // so trigger an event
+
+        if (
+          this.state &
+          (STATE_BEGAN | STATE_CHANGED | STATE_ENDED | STATE_CANCELLED)
+        ) {
+          this.tryEmit(inputDataClone);
+        }
+      };
+      /**
+       * @private
+       * return the state of the recognizer
+       * the actual recognizing happens in this method
+       * @virtual
+       * @param {Object} inputData
+       * @returns {constant} STATE
+       */
+
+      /* jshint ignore:start */
+
+      _proto.process = function process(inputData) {};
+      /* jshint ignore:end */
+
+      /**
+       * @private
+       * return the preferred touch-action
+       * @virtual
+       * @returns {Array}
+       */
+
+      _proto.getTouchAction = function getTouchAction() {};
+      /**
+       * @private
+       * called when the gesture isn't allowed to recognize
+       * like when another is being recognized or it is disabled
+       * @virtual
+       */
+
+      _proto.reset = function reset() {};
+
+      return Recognizer;
+    })();
+  /**
+   * @private
+   * A tap is recognized when the pointer is doing a small tap/click. Multiple taps are recognized if they occur
+   * between the given interval and position. The delay option can be used to recognize multi-taps without firing
+   * a single tap.
+   *
+   * The eventData from the emitted event contains the property `tapCount`, which contains the amount of
+   * multi-taps being recognized.
+   * @constructor
+   * @extends Recognizer
+   */
+
+  var TapRecognizer =
+    /*#__PURE__*/
+    (function(_Recognizer) {
+      _inheritsLoose$1(TapRecognizer, _Recognizer);
+
+      function TapRecognizer(options) {
+        var _this;
+
+        if (options === void 0) {
+          options = {};
+        }
+
+        _this =
+          _Recognizer.call(
+            this,
+            _extends$1(
+              {
+                event: "tap",
+                pointers: 1,
+                taps: 1,
+                interval: 300,
+                // max time between the multi-tap taps
+                time: 250,
+                // max time of the pointer to be down (like finger on the screen)
+                threshold: 9,
+                // a minimal movement is ok, but keep it low
+                posThreshold: 10
+              },
+              options
+            )
+          ) || this; // previous time and center,
+        // used for tap counting
+
+        _this.pTime = false;
+        _this.pCenter = false;
+        _this._timer = null;
+        _this._input = null;
+        _this.count = 0;
+        return _this;
+      }
+
+      var _proto = TapRecognizer.prototype;
+
+      _proto.getTouchAction = function getTouchAction() {
+        return [TOUCH_ACTION_MANIPULATION];
+      };
+
+      _proto.process = function process(input) {
+        var _this2 = this;
+
+        var options = this.options;
+        var validPointers = input.pointers.length === options.pointers;
+        var validMovement = input.distance < options.threshold;
+        var validTouchTime = input.deltaTime < options.time;
+        this.reset();
+
+        if (input.eventType & INPUT_START && this.count === 0) {
+          return this.failTimeout();
+        } // we only allow little movement
+        // and we've reached an end event, so a tap is possible
+
+        if (validMovement && validTouchTime && validPointers) {
+          if (input.eventType !== INPUT_END) {
+            return this.failTimeout();
+          }
+
+          var validInterval = this.pTime
+            ? input.timeStamp - this.pTime < options.interval
+            : true;
+          var validMultiTap =
+            !this.pCenter ||
+            getDistance(this.pCenter, input.center) < options.posThreshold;
+          this.pTime = input.timeStamp;
+          this.pCenter = input.center;
+
+          if (!validMultiTap || !validInterval) {
+            this.count = 1;
+          } else {
+            this.count += 1;
+          }
+
+          this._input = input; // if tap count matches we have recognized it,
+          // else it has began recognizing...
+
+          var tapCount = this.count % options.taps;
+
+          if (tapCount === 0) {
+            // no failing requirements, immediately trigger the tap event
+            // or wait as long as the multitap interval to trigger
+            if (!this.hasRequireFailures()) {
+              return STATE_RECOGNIZED;
+            } else {
+              this._timer = setTimeout(function() {
+                _this2.state = STATE_RECOGNIZED;
+
+                _this2.tryEmit();
+              }, options.interval);
+              return STATE_BEGAN;
+            }
+          }
+        }
+
+        return STATE_FAILED;
+      };
+
+      _proto.failTimeout = function failTimeout() {
+        var _this3 = this;
+
+        this._timer = setTimeout(function() {
+          _this3.state = STATE_FAILED;
+        }, this.options.interval);
+        return STATE_FAILED;
+      };
+
+      _proto.reset = function reset() {
+        clearTimeout(this._timer);
+      };
+
+      _proto.emit = function emit() {
+        if (this.state === STATE_RECOGNIZED) {
+          this._input.tapCount = this.count;
+          this.manager.emit(this.options.event, this._input);
+        }
+      };
+
+      return TapRecognizer;
+    })(Recognizer);
+  /**
+   * @private
+   * This recognizer is just used as a base for the simple attribute recognizers.
+   * @constructor
+   * @extends Recognizer
+   */
+
+  var AttrRecognizer =
+    /*#__PURE__*/
+    (function(_Recognizer) {
+      _inheritsLoose$1(AttrRecognizer, _Recognizer);
+
+      function AttrRecognizer(options) {
+        if (options === void 0) {
+          options = {};
+        }
+
+        return (
+          _Recognizer.call(
+            this,
+            _extends$1(
+              {
+                pointers: 1
+              },
+              options
+            )
+          ) || this
+        );
+      }
+      /**
+       * @private
+       * Used to check if it the recognizer receives valid input, like input.distance > 10.
+       * @memberof AttrRecognizer
+       * @param {Object} input
+       * @returns {Boolean} recognized
+       */
+
+      var _proto = AttrRecognizer.prototype;
+
+      _proto.attrTest = function attrTest(input) {
+        var optionPointers = this.options.pointers;
+        return optionPointers === 0 || input.pointers.length === optionPointers;
+      };
+      /**
+       * @private
+       * Process the input and return the state for the recognizer
+       * @memberof AttrRecognizer
+       * @param {Object} input
+       * @returns {*} State
+       */
+
+      _proto.process = function process(input) {
+        var state = this.state;
+        var eventType = input.eventType;
+        var isRecognized = state & (STATE_BEGAN | STATE_CHANGED);
+        var isValid = this.attrTest(input); // on cancel input and we've recognized before, return STATE_CANCELLED
+
+        if (isRecognized && (eventType & INPUT_CANCEL || !isValid)) {
+          return state | STATE_CANCELLED;
+        } else if (isRecognized || isValid) {
+          if (eventType & INPUT_END) {
+            return state | STATE_ENDED;
+          } else if (!(state & STATE_BEGAN)) {
+            return STATE_BEGAN;
+          }
+
+          return state | STATE_CHANGED;
+        }
+
+        return STATE_FAILED;
+      };
+
+      return AttrRecognizer;
+    })(Recognizer);
+  /**
+   * @private
+   * direction cons to string
+   * @param {constant} direction
+   * @returns {String}
+   */
+
+  function directionStr(direction) {
+    if (direction === DIRECTION_DOWN) {
+      return "down";
+    } else if (direction === DIRECTION_UP) {
+      return "up";
+    } else if (direction === DIRECTION_LEFT) {
+      return "left";
+    } else if (direction === DIRECTION_RIGHT) {
+      return "right";
+    }
+
+    return "";
+  }
+  /**
+   * @private
+   * Pan
+   * Recognized when the pointer is down and moved in the allowed direction.
+   * @constructor
+   * @extends AttrRecognizer
+   */
+
+  var PanRecognizer =
+    /*#__PURE__*/
+    (function(_AttrRecognizer) {
+      _inheritsLoose$1(PanRecognizer, _AttrRecognizer);
+
+      function PanRecognizer(options) {
+        var _this;
+
+        if (options === void 0) {
+          options = {};
+        }
+
+        _this =
+          _AttrRecognizer.call(
+            this,
+            _extends$1(
+              {
+                event: "pan",
+                threshold: 10,
+                pointers: 1,
+                direction: DIRECTION_ALL
+              },
+              options
+            )
+          ) || this;
+        _this.pX = null;
+        _this.pY = null;
+        return _this;
+      }
+
+      var _proto = PanRecognizer.prototype;
+
+      _proto.getTouchAction = function getTouchAction() {
+        var direction = this.options.direction;
+        var actions = [];
+
+        if (direction & DIRECTION_HORIZONTAL) {
+          actions.push(TOUCH_ACTION_PAN_Y);
+        }
+
+        if (direction & DIRECTION_VERTICAL) {
+          actions.push(TOUCH_ACTION_PAN_X);
+        }
+
+        return actions;
+      };
+
+      _proto.directionTest = function directionTest(input) {
+        var options = this.options;
+        var hasMoved = true;
+        var distance = input.distance;
+        var direction = input.direction;
+        var x = input.deltaX;
+        var y = input.deltaY; // lock to axis?
+
+        if (!(direction & options.direction)) {
+          if (options.direction & DIRECTION_HORIZONTAL) {
+            direction =
+              x === 0
+                ? DIRECTION_NONE
+                : x < 0
+                ? DIRECTION_LEFT
+                : DIRECTION_RIGHT;
+            hasMoved = x !== this.pX;
+            distance = Math.abs(input.deltaX);
+          } else {
+            direction =
+              y === 0 ? DIRECTION_NONE : y < 0 ? DIRECTION_UP : DIRECTION_DOWN;
+            hasMoved = y !== this.pY;
+            distance = Math.abs(input.deltaY);
+          }
+        }
+
+        input.direction = direction;
+        return (
+          hasMoved &&
+          distance > options.threshold &&
+          direction & options.direction
+        );
+      };
+
+      _proto.attrTest = function attrTest(input) {
+        return (
+          AttrRecognizer.prototype.attrTest.call(this, input) && // replace with a super call
+          (this.state & STATE_BEGAN ||
+            (!(this.state & STATE_BEGAN) && this.directionTest(input)))
+        );
+      };
+
+      _proto.emit = function emit(input) {
+        this.pX = input.deltaX;
+        this.pY = input.deltaY;
+        var direction = directionStr(input.direction);
+
+        if (direction) {
+          input.additionalEvent = this.options.event + direction;
+        }
+
+        _AttrRecognizer.prototype.emit.call(this, input);
+      };
+
+      return PanRecognizer;
+    })(AttrRecognizer);
+  /**
+   * @private
+   * Swipe
+   * Recognized when the pointer is moving fast (velocity), with enough distance in the allowed direction.
+   * @constructor
+   * @extends AttrRecognizer
+   */
+
+  var SwipeRecognizer =
+    /*#__PURE__*/
+    (function(_AttrRecognizer) {
+      _inheritsLoose$1(SwipeRecognizer, _AttrRecognizer);
+
+      function SwipeRecognizer(options) {
+        if (options === void 0) {
+          options = {};
+        }
+
+        return (
+          _AttrRecognizer.call(
+            this,
+            _extends$1(
+              {
+                event: "swipe",
+                threshold: 10,
+                velocity: 0.3,
+                direction: DIRECTION_HORIZONTAL | DIRECTION_VERTICAL,
+                pointers: 1
+              },
+              options
+            )
+          ) || this
+        );
+      }
+
+      var _proto = SwipeRecognizer.prototype;
+
+      _proto.getTouchAction = function getTouchAction() {
+        return PanRecognizer.prototype.getTouchAction.call(this);
+      };
+
+      _proto.attrTest = function attrTest(input) {
+        var direction = this.options.direction;
+        var velocity;
+
+        if (direction & (DIRECTION_HORIZONTAL | DIRECTION_VERTICAL)) {
+          velocity = input.overallVelocity;
+        } else if (direction & DIRECTION_HORIZONTAL) {
+          velocity = input.overallVelocityX;
+        } else if (direction & DIRECTION_VERTICAL) {
+          velocity = input.overallVelocityY;
+        }
+
+        return (
+          _AttrRecognizer.prototype.attrTest.call(this, input) &&
+          direction & input.offsetDirection &&
+          input.distance > this.options.threshold &&
+          input.maxPointers === this.options.pointers &&
+          abs(velocity) > this.options.velocity &&
+          input.eventType & INPUT_END
+        );
+      };
+
+      _proto.emit = function emit(input) {
+        var direction = directionStr(input.offsetDirection);
+
+        if (direction) {
+          this.manager.emit(this.options.event + direction, input);
+        }
+
+        this.manager.emit(this.options.event, input);
+      };
+
+      return SwipeRecognizer;
+    })(AttrRecognizer);
+  /**
+   * @private
+   * Pinch
+   * Recognized when two or more pointers are moving toward (zoom-in) or away from each other (zoom-out).
+   * @constructor
+   * @extends AttrRecognizer
+   */
+
+  var PinchRecognizer =
+    /*#__PURE__*/
+    (function(_AttrRecognizer) {
+      _inheritsLoose$1(PinchRecognizer, _AttrRecognizer);
+
+      function PinchRecognizer(options) {
+        if (options === void 0) {
+          options = {};
+        }
+
+        return (
+          _AttrRecognizer.call(
+            this,
+            _extends$1(
+              {
+                event: "pinch",
+                threshold: 0,
+                pointers: 2
+              },
+              options
+            )
+          ) || this
+        );
+      }
+
+      var _proto = PinchRecognizer.prototype;
+
+      _proto.getTouchAction = function getTouchAction() {
+        return [TOUCH_ACTION_NONE];
+      };
+
+      _proto.attrTest = function attrTest(input) {
+        return (
+          _AttrRecognizer.prototype.attrTest.call(this, input) &&
+          (Math.abs(input.scale - 1) > this.options.threshold ||
+            this.state & STATE_BEGAN)
+        );
+      };
+
+      _proto.emit = function emit(input) {
+        if (input.scale !== 1) {
+          var inOut = input.scale < 1 ? "in" : "out";
+          input.additionalEvent = this.options.event + inOut;
+        }
+
+        _AttrRecognizer.prototype.emit.call(this, input);
+      };
+
+      return PinchRecognizer;
+    })(AttrRecognizer);
+  /**
+   * @private
+   * Rotate
+   * Recognized when two or more pointer are moving in a circular motion.
+   * @constructor
+   * @extends AttrRecognizer
+   */
+
+  var RotateRecognizer =
+    /*#__PURE__*/
+    (function(_AttrRecognizer) {
+      _inheritsLoose$1(RotateRecognizer, _AttrRecognizer);
+
+      function RotateRecognizer(options) {
+        if (options === void 0) {
+          options = {};
+        }
+
+        return (
+          _AttrRecognizer.call(
+            this,
+            _extends$1(
+              {
+                event: "rotate",
+                threshold: 0,
+                pointers: 2
+              },
+              options
+            )
+          ) || this
+        );
+      }
+
+      var _proto = RotateRecognizer.prototype;
+
+      _proto.getTouchAction = function getTouchAction() {
+        return [TOUCH_ACTION_NONE];
+      };
+
+      _proto.attrTest = function attrTest(input) {
+        return (
+          _AttrRecognizer.prototype.attrTest.call(this, input) &&
+          (Math.abs(input.rotation) > this.options.threshold ||
+            this.state & STATE_BEGAN)
+        );
+      };
+
+      return RotateRecognizer;
+    })(AttrRecognizer);
+  /**
+   * @private
+   * Press
+   * Recognized when the pointer is down for x ms without any movement.
+   * @constructor
+   * @extends Recognizer
+   */
+
+  var PressRecognizer =
+    /*#__PURE__*/
+    (function(_Recognizer) {
+      _inheritsLoose$1(PressRecognizer, _Recognizer);
+
+      function PressRecognizer(options) {
+        var _this;
+
+        if (options === void 0) {
+          options = {};
+        }
+
+        _this =
+          _Recognizer.call(
+            this,
+            _extends$1(
+              {
+                event: "press",
+                pointers: 1,
+                time: 251,
+                // minimal time of the pointer to be pressed
+                threshold: 9
+              },
+              options
+            )
+          ) || this;
+        _this._timer = null;
+        _this._input = null;
+        return _this;
+      }
+
+      var _proto = PressRecognizer.prototype;
+
+      _proto.getTouchAction = function getTouchAction() {
+        return [TOUCH_ACTION_AUTO];
+      };
+
+      _proto.process = function process(input) {
+        var _this2 = this;
+
+        var options = this.options;
+        var validPointers = input.pointers.length === options.pointers;
+        var validMovement = input.distance < options.threshold;
+        var validTime = input.deltaTime > options.time;
+        this._input = input; // we only allow little movement
+        // and we've reached an end event, so a tap is possible
+
+        if (
+          !validMovement ||
+          !validPointers ||
+          (input.eventType & (INPUT_END | INPUT_CANCEL) && !validTime)
+        ) {
+          this.reset();
+        } else if (input.eventType & INPUT_START) {
+          this.reset();
+          this._timer = setTimeout(function() {
+            _this2.state = STATE_RECOGNIZED;
+
+            _this2.tryEmit();
+          }, options.time);
+        } else if (input.eventType & INPUT_END) {
+          return STATE_RECOGNIZED;
+        }
+
+        return STATE_FAILED;
+      };
+
+      _proto.reset = function reset() {
+        clearTimeout(this._timer);
+      };
+
+      _proto.emit = function emit(input) {
+        if (this.state !== STATE_RECOGNIZED) {
+          return;
+        }
+
+        if (input && input.eventType & INPUT_END) {
+          this.manager.emit(this.options.event + "up", input);
+        } else {
+          this._input.timeStamp = now();
+          this.manager.emit(this.options.event, this._input);
+        }
+      };
+
+      return PressRecognizer;
+    })(Recognizer);
+
+  var defaults = {
+    /**
+     * @private
+     * set if DOM events are being triggered.
+     * But this is slower and unused by simple implementations, so disabled by default.
+     * @type {Boolean}
+     * @default false
+     */
+    domEvents: false,
+
+    /**
+     * @private
+     * The value for the touchAction property/fallback.
+     * When set to `compute` it will magically set the correct value based on the added recognizers.
+     * @type {String}
+     * @default compute
+     */
+    touchAction: TOUCH_ACTION_COMPUTE,
+
+    /**
+     * @private
+     * @type {Boolean}
+     * @default true
+     */
+    enable: true,
+
+    /**
+     * @private
+     * EXPERIMENTAL FEATURE -- can be removed/changed
+     * Change the parent input target element.
+     * If Null, then it is being set the to main element.
+     * @type {Null|EventTarget}
+     * @default null
+     */
+    inputTarget: null,
+
+    /**
+     * @private
+     * force an input class
+     * @type {Null|Function}
+     * @default null
+     */
+    inputClass: null,
+
+    /**
+     * @private
+     * Some CSS properties can be used to improve the working of Hammer.
+     * Add them to this method and they will be set when creating a new Manager.
+     * @namespace
+     */
+    cssProps: {
+      /**
+       * @private
+       * Disables text selection to improve the dragging gesture. Mainly for desktop browsers.
+       * @type {String}
+       * @default 'none'
+       */
+      userSelect: "none",
+
+      /**
+       * @private
+       * Disable the Windows Phone grippers when pressing an element.
+       * @type {String}
+       * @default 'none'
+       */
+      touchSelect: "none",
+
+      /**
+       * @private
+       * Disables the default callout shown when you touch and hold a touch target.
+       * On iOS, when you touch and hold a touch target such as a link, Safari displays
+       * a callout containing information about the link. This property allows you to disable that callout.
+       * @type {String}
+       * @default 'none'
+       */
+      touchCallout: "none",
+
+      /**
+       * @private
+       * Specifies whether zooming is enabled. Used by IE10>
+       * @type {String}
+       * @default 'none'
+       */
+      contentZooming: "none",
+
+      /**
+       * @private
+       * Specifies that an entire element should be draggable instead of its contents. Mainly for desktop browsers.
+       * @type {String}
+       * @default 'none'
+       */
+      userDrag: "none",
+
+      /**
+       * @private
+       * Overrides the highlight color shown when the user taps a link or a JavaScript
+       * clickable element in iOS. This property obeys the alpha value, if specified.
+       * @type {String}
+       * @default 'rgba(0,0,0,0)'
+       */
+      tapHighlightColor: "rgba(0,0,0,0)"
+    }
+  };
+  /**
+   * @private
+   * Default recognizer setup when calling `Hammer()`
+   * When creating a new Manager these will be skipped.
+   * This is separated with other defaults because of tree-shaking.
+   * @type {Array}
+   */
+
+  var preset = [
+    [
+      RotateRecognizer,
+      {
+        enable: false
+      }
+    ],
+    [
+      PinchRecognizer,
+      {
+        enable: false
+      },
+      ["rotate"]
+    ],
+    [
+      SwipeRecognizer,
+      {
+        direction: DIRECTION_HORIZONTAL
+      }
+    ],
+    [
+      PanRecognizer,
+      {
+        direction: DIRECTION_HORIZONTAL
+      },
+      ["swipe"]
+    ],
+    [TapRecognizer],
+    [
+      TapRecognizer,
+      {
+        event: "doubletap",
+        taps: 2
+      },
+      ["tap"]
+    ],
+    [PressRecognizer]
+  ];
+  var STOP = 1;
+  var FORCED_STOP = 2;
+  /**
+   * @private
+   * add/remove the css properties as defined in manager.options.cssProps
+   * @param {Manager} manager
+   * @param {Boolean} add
+   */
+
+  function toggleCssProps(manager, add) {
+    var element = manager.element;
+
+    if (!element.style) {
+      return;
+    }
+
+    var prop;
+    each(manager.options.cssProps, function(value, name) {
+      prop = prefixed(element.style, name);
+
+      if (add) {
+        manager.oldCssProps[prop] = element.style[prop];
+        element.style[prop] = value;
+      } else {
+        element.style[prop] = manager.oldCssProps[prop] || "";
+      }
+    });
+
+    if (!add) {
+      manager.oldCssProps = {};
+    }
+  }
+  /**
+   * @private
+   * trigger dom event
+   * @param {String} event
+   * @param {Object} data
+   */
+
+  function triggerDomEvent(event, data) {
+    var gestureEvent = document.createEvent("Event");
+    gestureEvent.initEvent(event, true, true);
+    gestureEvent.gesture = data;
+    data.target.dispatchEvent(gestureEvent);
+  }
+  /**
+   * @private
+   * Manager
+   * @param {HTMLElement} element
+   * @param {Object} [options]
+   * @constructor
+   */
+
+  var Manager =
+    /*#__PURE__*/
+    (function() {
+      function Manager(element, options) {
+        var _this = this;
+
+        this.options = assign$1({}, defaults, options || {});
+        this.options.inputTarget = this.options.inputTarget || element;
+        this.handlers = {};
+        this.session = {};
+        this.recognizers = [];
+        this.oldCssProps = {};
+        this.element = element;
+        this.input = createInputInstance(this);
+        this.touchAction = new TouchAction(this, this.options.touchAction);
+        toggleCssProps(this, true);
+        each(
+          this.options.recognizers,
+          function(item) {
+            var recognizer = _this.add(new item[0](item[1]));
+
+            item[2] && recognizer.recognizeWith(item[2]);
+            item[3] && recognizer.requireFailure(item[3]);
+          },
+          this
+        );
+      }
+      /**
+       * @private
+       * set options
+       * @param {Object} options
+       * @returns {Manager}
+       */
+
+      var _proto = Manager.prototype;
+
+      _proto.set = function set(options) {
+        assign$1(this.options, options); // Options that need a little more setup
+
+        if (options.touchAction) {
+          this.touchAction.update();
+        }
+
+        if (options.inputTarget) {
+          // Clean up existing event listeners and reinitialize
+          this.input.destroy();
+          this.input.target = options.inputTarget;
+          this.input.init();
+        }
+
+        return this;
+      };
+      /**
+       * @private
+       * stop recognizing for this session.
+       * This session will be discarded, when a new [input]start event is fired.
+       * When forced, the recognizer cycle is stopped immediately.
+       * @param {Boolean} [force]
+       */
+
+      _proto.stop = function stop(force) {
+        this.session.stopped = force ? FORCED_STOP : STOP;
+      };
+      /**
+       * @private
+       * run the recognizers!
+       * called by the inputHandler function on every movement of the pointers (touches)
+       * it walks through all the recognizers and tries to detect the gesture that is being made
+       * @param {Object} inputData
+       */
+
+      _proto.recognize = function recognize(inputData) {
+        var session = this.session;
+
+        if (session.stopped) {
+          return;
+        } // run the touch-action polyfill
+
+        this.touchAction.preventDefaults(inputData);
+        var recognizer;
+        var recognizers = this.recognizers; // this holds the recognizer that is being recognized.
+        // so the recognizer's state needs to be BEGAN, CHANGED, ENDED or RECOGNIZED
+        // if no recognizer is detecting a thing, it is set to `null`
+
+        var curRecognizer = session.curRecognizer; // reset when the last recognizer is recognized
+        // or when we're in a new session
+
+        if (
+          !curRecognizer ||
+          (curRecognizer && curRecognizer.state & STATE_RECOGNIZED)
+        ) {
+          session.curRecognizer = null;
+          curRecognizer = null;
+        }
+
+        var i = 0;
+
+        while (i < recognizers.length) {
+          recognizer = recognizers[i]; // find out if we are allowed try to recognize the input for this one.
+          // 1.   allow if the session is NOT forced stopped (see the .stop() method)
+          // 2.   allow if we still haven't recognized a gesture in this session, or the this recognizer is the one
+          //      that is being recognized.
+          // 3.   allow if the recognizer is allowed to run simultaneous with the current recognized recognizer.
+          //      this can be setup with the `recognizeWith()` method on the recognizer.
+
+          if (
+            session.stopped !== FORCED_STOP && // 1
+            (!curRecognizer ||
+            recognizer === curRecognizer || // 2
+              recognizer.canRecognizeWith(curRecognizer))
+          ) {
+            // 3
+            recognizer.recognize(inputData);
+          } else {
+            recognizer.reset();
+          } // if the recognizer has been recognizing the input as a valid gesture, we want to store this one as the
+          // current active recognizer. but only if we don't already have an active recognizer
+
+          if (
+            !curRecognizer &&
+            recognizer.state & (STATE_BEGAN | STATE_CHANGED | STATE_ENDED)
+          ) {
+            session.curRecognizer = recognizer;
+            curRecognizer = recognizer;
+          }
+
+          i++;
+        }
+      };
+      /**
+       * @private
+       * get a recognizer by its event name.
+       * @param {Recognizer|String} recognizer
+       * @returns {Recognizer|Null}
+       */
+
+      _proto.get = function get(recognizer) {
+        if (recognizer instanceof Recognizer) {
+          return recognizer;
+        }
+
+        var recognizers = this.recognizers;
+
+        for (var i = 0; i < recognizers.length; i++) {
+          if (recognizers[i].options.event === recognizer) {
+            return recognizers[i];
+          }
+        }
+
+        return null;
+      };
+      /**
+       * @private add a recognizer to the manager
+       * existing recognizers with the same event name will be removed
+       * @param {Recognizer} recognizer
+       * @returns {Recognizer|Manager}
+       */
+
+      _proto.add = function add(recognizer) {
+        if (invokeArrayArg(recognizer, "add", this)) {
+          return this;
+        } // remove existing
+
+        var existing = this.get(recognizer.options.event);
+
+        if (existing) {
+          this.remove(existing);
+        }
+
+        this.recognizers.push(recognizer);
+        recognizer.manager = this;
+        this.touchAction.update();
+        return recognizer;
+      };
+      /**
+       * @private
+       * remove a recognizer by name or instance
+       * @param {Recognizer|String} recognizer
+       * @returns {Manager}
+       */
+
+      _proto.remove = function remove(recognizer) {
+        if (invokeArrayArg(recognizer, "remove", this)) {
+          return this;
+        }
+
+        var targetRecognizer = this.get(recognizer); // let's make sure this recognizer exists
+
+        if (recognizer) {
+          var recognizers = this.recognizers;
+          var index = inArray(recognizers, targetRecognizer);
+
+          if (index !== -1) {
+            recognizers.splice(index, 1);
+            this.touchAction.update();
+          }
+        }
+
+        return this;
+      };
+      /**
+       * @private
+       * bind event
+       * @param {String} events
+       * @param {Function} handler
+       * @returns {EventEmitter} this
+       */
+
+      _proto.on = function on(events, handler) {
+        if (events === undefined || handler === undefined) {
+          return this;
+        }
+
+        var handlers = this.handlers;
+        each(splitStr(events), function(event) {
+          handlers[event] = handlers[event] || [];
+          handlers[event].push(handler);
+        });
+        return this;
+      };
+      /**
+       * @private unbind event, leave emit blank to remove all handlers
+       * @param {String} events
+       * @param {Function} [handler]
+       * @returns {EventEmitter} this
+       */
+
+      _proto.off = function off(events, handler) {
+        if (events === undefined) {
+          return this;
+        }
+
+        var handlers = this.handlers;
+        each(splitStr(events), function(event) {
+          if (!handler) {
+            delete handlers[event];
+          } else {
+            handlers[event] &&
+              handlers[event].splice(inArray(handlers[event], handler), 1);
+          }
+        });
+        return this;
+      };
+      /**
+       * @private emit event to the listeners
+       * @param {String} event
+       * @param {Object} data
+       */
+
+      _proto.emit = function emit(event, data) {
+        // we also want to trigger dom events
+        if (this.options.domEvents) {
+          triggerDomEvent(event, data);
+        } // no handlers, so skip it all
+
+        var handlers = this.handlers[event] && this.handlers[event].slice();
+
+        if (!handlers || !handlers.length) {
+          return;
+        }
+
+        data.type = event;
+
+        data.preventDefault = function() {
+          data.srcEvent.preventDefault();
+        };
+
+        var i = 0;
+
+        while (i < handlers.length) {
+          handlers[i](data);
+          i++;
+        }
+      };
+      /**
+       * @private
+       * destroy the manager and unbinds all events
+       * it doesn't unbind dom events, that is the user own responsibility
+       */
+
+      _proto.destroy = function destroy() {
+        this.element && toggleCssProps(this, false);
+        this.handlers = {};
+        this.session = {};
+        this.input.destroy();
+        this.element = null;
+      };
+
+      return Manager;
+    })();
+
+  var SINGLE_TOUCH_INPUT_MAP = {
+    touchstart: INPUT_START,
+    touchmove: INPUT_MOVE,
+    touchend: INPUT_END,
+    touchcancel: INPUT_CANCEL
+  };
+  var SINGLE_TOUCH_TARGET_EVENTS = "touchstart";
+  var SINGLE_TOUCH_WINDOW_EVENTS = "touchstart touchmove touchend touchcancel";
+  /**
+   * @private
+   * Touch events input
+   * @constructor
+   * @extends Input
+   */
+
+  var SingleTouchInput =
+    /*#__PURE__*/
+    (function(_Input) {
+      _inheritsLoose$1(SingleTouchInput, _Input);
+
+      function SingleTouchInput() {
+        var _this;
+
+        var proto = SingleTouchInput.prototype;
+        proto.evTarget = SINGLE_TOUCH_TARGET_EVENTS;
+        proto.evWin = SINGLE_TOUCH_WINDOW_EVENTS;
+        _this = _Input.apply(this, arguments) || this;
+        _this.started = false;
+        return _this;
+      }
+
+      var _proto = SingleTouchInput.prototype;
+
+      _proto.handler = function handler(ev) {
+        var type = SINGLE_TOUCH_INPUT_MAP[ev.type]; // should we handle the touch events?
+
+        if (type === INPUT_START) {
+          this.started = true;
+        }
+
+        if (!this.started) {
+          return;
+        }
+
+        var touches = normalizeSingleTouches.call(this, ev, type); // when done, reset the started state
+
+        if (
+          type & (INPUT_END | INPUT_CANCEL) &&
+          touches[0].length - touches[1].length === 0
+        ) {
+          this.started = false;
+        }
+
+        this.callback(this.manager, type, {
+          pointers: touches[0],
+          changedPointers: touches[1],
+          pointerType: INPUT_TYPE_TOUCH,
+          srcEvent: ev
+        });
+      };
+
+      return SingleTouchInput;
+    })(Input);
+
+  function normalizeSingleTouches(ev, type) {
+    var all = toArray(ev.touches);
+    var changed = toArray(ev.changedTouches);
+
+    if (type & (INPUT_END | INPUT_CANCEL)) {
+      all = uniqueArray(all.concat(changed), "identifier", true);
+    }
+
+    return [all, changed];
+  }
+  /**
+   * @private
+   * wrap a method with a deprecation warning and stack trace
+   * @param {Function} method
+   * @param {String} name
+   * @param {String} message
+   * @returns {Function} A new function wrapping the supplied method.
+   */
+
+  function deprecate(method, name, message) {
+    var deprecationMessage =
+      "DEPRECATED METHOD: " + name + "\n" + message + " AT \n";
+    return function() {
+      var e = new Error("get-stack-trace");
+      var stack =
+        e && e.stack
+          ? e.stack
+              .replace(/^[^\(]+?[\n$]/gm, "")
+              .replace(/^\s+at\s+/gm, "")
+              .replace(/^Object.<anonymous>\s*\(/gm, "{anonymous}()@")
+          : "Unknown Stack Trace";
+      var log = window.console && (window.console.warn || window.console.log);
+
+      if (log) {
+        log.call(window.console, deprecationMessage, stack);
+      }
+
+      return method.apply(this, arguments);
+    };
+  }
+  /**
+   * @private
+   * extend object.
+   * means that properties in dest will be overwritten by the ones in src.
+   * @param {Object} dest
+   * @param {Object} src
+   * @param {Boolean} [merge=false]
+   * @returns {Object} dest
+   */
+
+  var extend = deprecate(
+    function(dest, src, merge) {
+      var keys = Object.keys(src);
+      var i = 0;
+
+      while (i < keys.length) {
+        if (!merge || (merge && dest[keys[i]] === undefined)) {
+          dest[keys[i]] = src[keys[i]];
+        }
+
+        i++;
+      }
+
+      return dest;
+    },
+    "extend",
+    "Use `assign`."
+  );
+  /**
+   * @private
+   * merge the values from src in the dest.
+   * means that properties that exist in dest will not be overwritten by src
+   * @param {Object} dest
+   * @param {Object} src
+   * @returns {Object} dest
+   */
+
+  var merge = deprecate(
+    function(dest, src) {
+      return extend(dest, src, true);
+    },
+    "merge",
+    "Use `assign`."
+  );
+  /**
+   * @private
+   * simple class inheritance
+   * @param {Function} child
+   * @param {Function} base
+   * @param {Object} [properties]
+   */
+
+  function inherit(child, base, properties) {
+    var baseP = base.prototype;
+    var childP;
+    childP = child.prototype = Object.create(baseP);
+    childP.constructor = child;
+    childP._super = baseP;
+
+    if (properties) {
+      assign$1(childP, properties);
+    }
+  }
+  /**
+   * @private
+   * simple function bind
+   * @param {Function} fn
+   * @param {Object} context
+   * @returns {Function}
+   */
+
+  function bindFn(fn, context) {
+    return function boundFn() {
+      return fn.apply(context, arguments);
+    };
+  }
+  /**
+   * @private
+   * Simple way to create a manager with a default set of recognizers.
+   * @param {HTMLElement} element
+   * @param {Object} [options]
+   * @constructor
+   */
+
+  var Hammer =
+    /*#__PURE__*/
+    (function() {
+      var Hammer =
+        /**
+         * @private
+         * @const {string}
+         */
+        function Hammer(element, options) {
+          if (options === void 0) {
+            options = {};
+          }
+
+          return new Manager(
+            element,
+            _extends$1(
+              {
+                recognizers: preset.concat()
+              },
+              options
+            )
+          );
+        };
+
+      Hammer.VERSION = "2.0.17-rc";
+      Hammer.DIRECTION_ALL = DIRECTION_ALL;
+      Hammer.DIRECTION_DOWN = DIRECTION_DOWN;
+      Hammer.DIRECTION_LEFT = DIRECTION_LEFT;
+      Hammer.DIRECTION_RIGHT = DIRECTION_RIGHT;
+      Hammer.DIRECTION_UP = DIRECTION_UP;
+      Hammer.DIRECTION_HORIZONTAL = DIRECTION_HORIZONTAL;
+      Hammer.DIRECTION_VERTICAL = DIRECTION_VERTICAL;
+      Hammer.DIRECTION_NONE = DIRECTION_NONE;
+      Hammer.DIRECTION_DOWN = DIRECTION_DOWN;
+      Hammer.INPUT_START = INPUT_START;
+      Hammer.INPUT_MOVE = INPUT_MOVE;
+      Hammer.INPUT_END = INPUT_END;
+      Hammer.INPUT_CANCEL = INPUT_CANCEL;
+      Hammer.STATE_POSSIBLE = STATE_POSSIBLE;
+      Hammer.STATE_BEGAN = STATE_BEGAN;
+      Hammer.STATE_CHANGED = STATE_CHANGED;
+      Hammer.STATE_ENDED = STATE_ENDED;
+      Hammer.STATE_RECOGNIZED = STATE_RECOGNIZED;
+      Hammer.STATE_CANCELLED = STATE_CANCELLED;
+      Hammer.STATE_FAILED = STATE_FAILED;
+      Hammer.Manager = Manager;
+      Hammer.Input = Input;
+      Hammer.TouchAction = TouchAction;
+      Hammer.TouchInput = TouchInput;
+      Hammer.MouseInput = MouseInput;
+      Hammer.PointerEventInput = PointerEventInput;
+      Hammer.TouchMouseInput = TouchMouseInput;
+      Hammer.SingleTouchInput = SingleTouchInput;
+      Hammer.Recognizer = Recognizer;
+      Hammer.AttrRecognizer = AttrRecognizer;
+      Hammer.Tap = TapRecognizer;
+      Hammer.Pan = PanRecognizer;
+      Hammer.Swipe = SwipeRecognizer;
+      Hammer.Pinch = PinchRecognizer;
+      Hammer.Rotate = RotateRecognizer;
+      Hammer.Press = PressRecognizer;
+      Hammer.on = addEventListeners;
+      Hammer.off = removeEventListeners;
+      Hammer.each = each;
+      Hammer.merge = merge;
+      Hammer.extend = extend;
+      Hammer.bindFn = bindFn;
+      Hammer.assign = assign$1;
+      Hammer.inherit = inherit;
+      Hammer.bindFn = bindFn;
+      Hammer.prefixed = prefixed;
+      Hammer.toArray = toArray;
+      Hammer.inArray = inArray;
+      Hammer.uniqueArray = uniqueArray;
+      Hammer.splitStr = splitStr;
+      Hammer.boolOrFn = boolOrFn;
+      Hammer.hasParent = hasParent;
+      Hammer.addEventListeners = addEventListeners;
+      Hammer.removeEventListeners = removeEventListeners;
+      Hammer.defaults = assign$1({}, defaults, {
+        preset: preset
+      });
+      return Hammer;
+    })(); //  style loader but by script tag, not by the loader.
+
+  /*
+    Copyright (c) 2017 NAVER Corp.
+    @egjs/axes project is licensed under the MIT license
+  
+    @egjs/axes JavaScript library
+    https://github.com/naver/egjs-axes
+  
+    @version 2.6.0
+    */
+  /*! *****************************************************************************
+    Copyright (c) Microsoft Corporation. All rights reserved.
+    Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+    this file except in compliance with the License. You may obtain a copy of the
+    License at http://www.apache.org/licenses/LICENSE-2.0
+  
+    THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+    KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
+    WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
+    MERCHANTABLITY OR NON-INFRINGEMENT.
+  
+    See the Apache Version 2.0 License for specific language governing permissions
+    and limitations under the License.
+    ***************************************************************************** */
+
+  /* global Reflect, Promise */
+
+  var extendStatics =
+    Object.setPrototypeOf ||
+    ({
+      __proto__: []
+    } instanceof Array &&
+      function(d, b) {
+        d.__proto__ = b;
+      }) ||
+    function(d, b) {
+      for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    };
+
+  function __extends(d, b) {
+    extendStatics(d, b);
+
+    function __() {
+      this.constructor = d;
+    }
+
+    d.prototype =
+      b === null ? Object.create(b) : ((__.prototype = b.prototype), new __());
+  }
+
+  var __assign =
+    Object.assign ||
+    function __assign(t) {
+      for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+
+        for (var p in s)
+          if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+      }
+
+      return t;
+    };
+
+  function getInsidePosition(destPos, range, circular, bounce) {
+    var toDestPos = destPos;
+    var targetRange = [
+      circular[0] ? range[0] : bounce ? range[0] - bounce[0] : range[0],
+      circular[1] ? range[1] : bounce ? range[1] + bounce[1] : range[1]
+    ];
+    toDestPos = Math.max(targetRange[0], toDestPos);
+    toDestPos = Math.min(targetRange[1], toDestPos);
+    return toDestPos;
+  } // determine outside
+
+  function isOutside(pos, range) {
+    return pos < range[0] || pos > range[1];
+  }
+
+  function getDuration(distance, deceleration) {
+    var duration = Math.sqrt((distance / deceleration) * 2); // when duration is under 100, then value is zero
+
+    return duration < 100 ? 0 : duration;
+  }
+
+  function isCircularable(destPos, range, circular) {
+    return (
+      (circular[1] && destPos > range[1]) || (circular[0] && destPos < range[0])
+    );
+  }
+
+  function getCirculatedPos(pos, range, circular) {
+    var toPos = pos;
+    var min = range[0];
+    var max = range[1];
+    var length = max - min;
+
+    if (circular[1] && pos > max) {
+      // right
+      toPos = ((toPos - max) % length) + min;
+    }
+
+    if (circular[0] && pos < min) {
+      // left
+      toPos = ((toPos - min) % length) + max;
+    }
+
+    return toPos;
+  }
+  /* eslint-disable no-new-func, no-nested-ternary */
+
+  var win$2;
+
+  if (typeof window === "undefined") {
+    // window is undefined in node.js
+    win$2 = {};
+  } else {
+    win$2 = window;
+  }
+
+  function toArray$1(nodes) {
+    // const el = Array.prototype.slice.call(nodes);
+    // for IE8
+    var el = [];
+
+    for (var i = 0, len = nodes.length; i < len; i++) {
+      el.push(nodes[i]);
+    }
+
+    return el;
+  }
+
+  function $(param, multi) {
+    if (multi === void 0) {
+      multi = false;
+    }
+
+    var el;
+
+    if (typeof param === "string") {
+      // String (HTML, Selector)
+      // check if string is HTML tag format
+      var match = param.match(/^<([a-z]+)\s*([^>]*)>/); // creating element
+
+      if (match) {
+        // HTML
+        var dummy = document.createElement("div");
+        dummy.innerHTML = param;
+        el = toArray$1(dummy.childNodes);
+      } else {
+        // Selector
+        el = toArray$1(document.querySelectorAll(param));
+      }
+
+      if (!multi) {
+        el = el.length >= 1 ? el[0] : undefined;
+      }
+    } else if (param === win$2) {
+      // window
+      el = param;
+    } else if (
+      param.nodeName &&
+      (param.nodeType === 1 || param.nodeType === 9)
+    ) {
+      // HTMLElement, Document
+      el = param;
+    } else if (
+      ("jQuery" in win$2 && param instanceof jQuery) ||
+      param.constructor.prototype.jquery
+    ) {
+      // jQuery
+      el = multi ? param.toArray() : param.get(0);
+    } else if (Array.isArray(param)) {
+      el = param.map(function(v) {
+        return $(v);
+      });
+
+      if (!multi) {
+        el = el.length >= 1 ? el[0] : undefined;
+      }
+    }
+
+    return el;
+  }
+
+  var raf = win$2.requestAnimationFrame || win$2.webkitRequestAnimationFrame;
+  var caf = win$2.cancelAnimationFrame || win$2.webkitCancelAnimationFrame;
+
+  if (raf && !caf) {
+    var keyInfo_1 = {};
+    var oldraf_1 = raf;
+
+    raf = function(callback) {
+      function wrapCallback(timestamp) {
+        if (keyInfo_1[key]) {
+          callback(timestamp);
+        }
+      }
+
+      var key = oldraf_1(wrapCallback);
+      keyInfo_1[key] = true;
+      return key;
+    };
+
+    caf = function(key) {
+      delete keyInfo_1[key];
+    };
+  } else if (!(raf && caf)) {
+    raf = function(callback) {
+      return win$2.setTimeout(function() {
+        callback(
+          (win$2.performance &&
+            win$2.performance.now &&
+            win$2.performance.now()) ||
+            new Date().getTime()
+        );
+      }, 16);
+    };
+
+    caf = win$2.clearTimeout;
+  }
+  /**
+   * A polyfill for the window.requestAnimationFrame() method.
+   * @see  https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame
+   * @private
+   */
+
+  function requestAnimationFrame(fp) {
+    return raf(fp);
+  }
+  /**
+   * A polyfill for the window.cancelAnimationFrame() method. It cancels an animation executed through a call to the requestAnimationFrame() method.
+   * @param {Number} key −	The ID value returned through a call to the requestAnimationFrame() method. <ko>requestAnimationFrame() 메서드가 반환한 아이디 값</ko>
+   * @see  https://developer.mozilla.org/en-US/docs/Web/API/Window/cancelAnimationFrame
+   * @private
+   */
+
+  function cancelAnimationFrame(key) {
+    caf(key);
+  }
+
+  function map(obj, callback) {
+    var tranformed = {};
+
+    for (var k in obj) {
+      k && (tranformed[k] = callback(obj[k], k));
+    }
+
+    return tranformed;
+  }
+
+  function filter(obj, callback) {
+    var filtered = {};
+
+    for (var k in obj) {
+      k && callback(obj[k], k) && (filtered[k] = obj[k]);
+    }
+
+    return filtered;
+  }
+
+  function every(obj, callback) {
+    for (var k in obj) {
+      if (k && !callback(obj[k], k)) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  function equal(target, base) {
+    return every(target, function(v, k) {
+      return v === base[k];
+    });
+  }
+
+  var roundNumFunc = {};
+
+  function roundNumber(num, roundUnit) {
+    // Cache for performance
+    if (!roundNumFunc[roundUnit]) {
+      roundNumFunc[roundUnit] = getRoundFunc(roundUnit);
+    }
+
+    return roundNumFunc[roundUnit](num);
+  }
+
+  function roundNumbers(num, roundUnit) {
+    if (!num || !roundUnit) {
+      return num;
+    }
+
+    var isNumber = typeof roundUnit === "number";
+    return map(num, function(value, key) {
+      return roundNumber(value, isNumber ? roundUnit : roundUnit[key]);
+    });
+  }
+
+  function getDecimalPlace(val) {
+    if (!isFinite(val)) {
+      return 0;
+    }
+
+    var v = val + "";
+
+    if (v.indexOf("e") >= 0) {
+      // Exponential Format
+      // 1e-10, 1e-12
+      var p = 0;
+      var e = 1;
+
+      while (Math.round(val * e) / e !== val) {
+        e *= 10;
+        p++;
+      }
+
+      return p;
+    } // In general, following has performance benefit.
+    // https://jsperf.com/precision-calculation
+
+    return v.indexOf(".") >= 0 ? v.length - v.indexOf(".") - 1 : 0;
+  }
+
+  function inversePow(n) {
+    // replace Math.pow(10, -n) to solve floating point issue.
+    // eg. Math.pow(10, -4) => 0.00009999999999999999
+    return 1 / Math.pow(10, n);
+  }
+
+  function getRoundFunc(v) {
+    var p = v < 1 ? Math.pow(10, getDecimalPlace(v)) : 1;
+    return function(n) {
+      if (v === 0) {
+        return 0;
+      }
+
+      return Math.round(Math.round(n / v) * v * p) / p;
+    };
+  }
+
+  function minMax(value, min, max) {
+    return Math.max(Math.min(value, max), min);
+  }
+
+  var AnimationManager =
+    /*#__PURE__*/
+    (function() {
+      function AnimationManager(_a) {
+        var options = _a.options,
+          itm = _a.itm,
+          em = _a.em,
+          axm = _a.axm;
+        this.options = options;
+        this.itm = itm;
+        this.em = em;
+        this.axm = axm;
+        this.animationEnd = this.animationEnd.bind(this);
+      }
+
+      var __proto = AnimationManager.prototype;
+
+      __proto.getDuration = function(depaPos, destPos, wishDuration) {
+        var _this = this;
+
+        var duration;
+
+        if (typeof wishDuration !== "undefined") {
+          duration = wishDuration;
+        } else {
+          var durations_1 = map(destPos, function(v, k) {
+            return getDuration(
+              Math.abs(v - depaPos[k]),
+              _this.options.deceleration
+            );
+          });
+          duration = Object.keys(durations_1).reduce(function(max, v) {
+            return Math.max(max, durations_1[v]);
+          }, -Infinity);
+        }
+
+        return minMax(
+          duration,
+          this.options.minimumDuration,
+          this.options.maximumDuration
+        );
+      };
+
+      __proto.createAnimationParam = function(pos, duration, option) {
+        var depaPos = this.axm.get();
+        var destPos = pos;
+        var inputEvent = (option && option.event) || null;
+        return {
+          depaPos: depaPos,
+          destPos: destPos,
+          duration: minMax(
+            duration,
+            this.options.minimumDuration,
+            this.options.maximumDuration
+          ),
+          delta: this.axm.getDelta(depaPos, destPos),
+          inputEvent: inputEvent,
+          input: (option && option.input) || null,
+          isTrusted: !!inputEvent,
+          done: this.animationEnd
+        };
+      };
+
+      __proto.grab = function(axes, option) {
+        if (this._animateParam && axes.length) {
+          var orgPos_1 = this.axm.get(axes);
+          var pos = this.axm.map(orgPos_1, function(v, opt) {
+            return getCirculatedPos(v, opt.range, opt.circular);
+          });
+
+          if (
+            !every(pos, function(v, k) {
+              return orgPos_1[k] === v;
+            })
+          ) {
+            this.em.triggerChange(pos, false, orgPos_1, option, !!option);
+          }
+
+          this._animateParam = null;
+          this._raf && cancelAnimationFrame(this._raf);
+          this._raf = null;
+          this.em.triggerAnimationEnd(!!(option && option.event));
+        }
+      };
+
+      __proto.getEventInfo = function() {
+        if (
+          this._animateParam &&
+          this._animateParam.input &&
+          this._animateParam.inputEvent
+        ) {
+          return {
+            input: this._animateParam.input,
+            event: this._animateParam.inputEvent
+          };
+        } else {
+          return null;
+        }
+      };
+
+      __proto.restore = function(option) {
+        var pos = this.axm.get();
+        var destPos = this.axm.map(pos, function(v, opt) {
+          return Math.min(opt.range[1], Math.max(opt.range[0], v));
+        });
+        this.animateTo(destPos, this.getDuration(pos, destPos), option);
+      };
+
+      __proto.animationEnd = function() {
+        var beforeParam = this.getEventInfo();
+        this._animateParam = null; // for Circular
+
+        var circularTargets = this.axm.filter(this.axm.get(), function(v, opt) {
+          return isCircularable(v, opt.range, opt.circular);
+        });
+        Object.keys(circularTargets).length > 0 &&
+          this.setTo(
+            this.axm.map(circularTargets, function(v, opt) {
+              return getCirculatedPos(v, opt.range, opt.circular);
+            })
+          );
+        this.itm.setInterrupt(false);
+        this.em.triggerAnimationEnd(!!beforeParam);
+
+        if (this.axm.isOutside()) {
+          this.restore(beforeParam);
+        } else {
+          this.finish(!!beforeParam);
+        }
+      };
+
+      __proto.finish = function(isTrusted) {
+        this._animateParam = null;
+        this.itm.setInterrupt(false);
+        this.em.triggerFinish(isTrusted);
+      };
+
+      __proto.animateLoop = function(param, complete) {
+        if (param.duration) {
+          this._animateParam = __assign({}, param);
+          var info_1 = this._animateParam;
+          var self_1 = this;
+          var destPos_1 = info_1.destPos;
+          var prevPos_1 = info_1.depaPos;
+          var prevEasingPer_1 = 0;
+          var directions_1 = map(prevPos_1, function(value, key) {
+            return value <= destPos_1[key] ? 1 : -1;
+          });
+          var originalIntendedPos_1 = map(destPos_1, function(v) {
+            return v;
+          });
+          var prevTime_1 = new Date().getTime();
+          info_1.startTime = prevTime_1;
+
+          (function loop() {
+            self_1._raf = null;
+            var currentTime = new Date().getTime();
+            var ratio = (currentTime - info_1.startTime) / param.duration;
+            var easingPer = self_1.easing(ratio);
+            var toPos = self_1.axm.map(prevPos_1, function(pos, options, key) {
+              var nextPos =
+                ratio >= 1
+                  ? destPos_1[key]
+                  : pos + info_1.delta[key] * (easingPer - prevEasingPer_1); // Subtract distance from distance already moved.
+              // Recalculate the remaining distance.
+              // Fix the bouncing phenomenon by changing the range.
+
+              var circulatedPos = getCirculatedPos(
+                nextPos,
+                options.range,
+                options.circular
+              );
+
+              if (nextPos !== circulatedPos) {
+                // circular
+                var rangeOffset =
+                  directions_1[key] * (options.range[1] - options.range[0]);
+                destPos_1[key] -= rangeOffset;
+                prevPos_1[key] -= rangeOffset;
+              }
+
+              return circulatedPos;
+            });
+            var isCanceled = !self_1.em.triggerChange(toPos, false, prevPos_1);
+            prevPos_1 = toPos;
+            prevTime_1 = currentTime;
+            prevEasingPer_1 = easingPer;
+
+            if (easingPer >= 1) {
+              destPos_1 = self_1.getFinalPos(destPos_1, originalIntendedPos_1);
+
+              if (!equal(destPos_1, self_1.axm.get(Object.keys(destPos_1)))) {
+                self_1.em.triggerChange(destPos_1, true, prevPos_1);
+              }
+
+              complete();
+              return;
+            } else if (isCanceled) {
+              self_1.finish(false);
+            } else {
+              // animationEnd
+              self_1._raf = requestAnimationFrame(loop);
+            }
+          })();
+        } else {
+          this.em.triggerChange(param.destPos, true);
+          complete();
+        }
+      };
+      /**
+       * Get estimated final value.
+       *
+       * If destPos is within the 'error range' of the original intended position, the initial intended position is returned.
+       *   - eg. original intended pos: 100, destPos: 100.0000000004 ==> return 100;
+       * If dest Pos is outside the 'range of error' compared to the originally intended pos, it is returned rounded based on the originally intended pos.
+       *   - eg. original intended pos: 100.123 destPos: 50.12345 => return 50.123
+       *
+       * @param originalIntendedPos
+       * @param destPos
+       */
+
+      __proto.getFinalPos = function(destPos, originalIntendedPos) {
+        var _this = this; // compare destPos and originalIntendedPos
+
+        var ERROR_LIMIT = 0.000001;
+        var finalPos = map(destPos, function(value, key) {
+          if (
+            value >= originalIntendedPos[key] - ERROR_LIMIT &&
+            value <= originalIntendedPos[key] + ERROR_LIMIT
+          ) {
+            // In error range, return original intended
+            return originalIntendedPos[key];
+          } else {
+            // Out of error range, return rounded pos.
+            var roundUnit = _this.getRoundUnit(value, key);
+
+            var result = roundNumber(value, roundUnit);
+            return result;
+          }
+        });
+        return finalPos;
+      };
+
+      __proto.getRoundUnit = function(val, key) {
+        var roundUnit = this.options.round; // manual mode
+
+        var minRoundUnit = null; // auto mode
+        // auto mode
+
+        if (!roundUnit) {
+          // Get minimum round unit
+          var options = this.axm.getAxisOptions(key);
+          minRoundUnit = inversePow(
+            Math.max(
+              getDecimalPlace(options.range[0]),
+              getDecimalPlace(options.range[1]),
+              getDecimalPlace(val)
+            )
+          );
+        }
+
+        return minRoundUnit || roundUnit;
+      };
+
+      __proto.getUserControll = function(param) {
+        var userWish = param.setTo();
+        userWish.destPos = this.axm.get(userWish.destPos);
+        userWish.duration = minMax(
+          userWish.duration,
+          this.options.minimumDuration,
+          this.options.maximumDuration
+        );
+        return userWish;
+      };
+
+      __proto.animateTo = function(destPos, duration, option) {
+        var _this = this;
+
+        var param = this.createAnimationParam(destPos, duration, option);
+
+        var depaPos = __assign({}, param.depaPos);
+
+        var retTrigger = this.em.triggerAnimationStart(param); // to control
+
+        var userWish = this.getUserControll(param); // You can't stop the 'animationStart' event when 'circular' is true.
+
+        if (
+          !retTrigger &&
+          this.axm.every(userWish.destPos, function(v, opt) {
+            return isCircularable(v, opt.range, opt.circular);
+          })
+        ) {
+          console.warn(
+            "You can't stop the 'animation' event when 'circular' is true."
+          );
+        }
+
+        if (retTrigger && !equal(userWish.destPos, depaPos)) {
+          var inputEvent = (option && option.event) || null;
+          this.animateLoop(
+            {
+              depaPos: depaPos,
+              destPos: userWish.destPos,
+              duration: userWish.duration,
+              delta: this.axm.getDelta(depaPos, userWish.destPos),
+              isTrusted: !!inputEvent,
+              inputEvent: inputEvent,
+              input: (option && option.input) || null
+            },
+            function() {
+              return _this.animationEnd();
+            }
+          );
+        }
+      };
+
+      __proto.easing = function(p) {
+        return p > 1 ? 1 : this.options.easing(p);
+      };
+
+      __proto.setTo = function(pos, duration) {
+        if (duration === void 0) {
+          duration = 0;
+        }
+
+        var axes = Object.keys(pos);
+        this.grab(axes);
+        var orgPos = this.axm.get(axes);
+
+        if (equal(pos, orgPos)) {
+          return this;
+        }
+
+        this.itm.setInterrupt(true);
+        var movedPos = filter(pos, function(v, k) {
+          return orgPos[k] !== v;
+        });
+
+        if (!Object.keys(movedPos).length) {
+          return this;
+        }
+
+        movedPos = this.axm.map(movedPos, function(v, opt) {
+          var range = opt.range,
+            circular = opt.circular;
+
+          if (circular && (circular[0] || circular[1])) {
+            return v;
+          } else {
+            return getInsidePosition(v, range, circular);
+          }
+        });
+
+        if (equal(movedPos, orgPos)) {
+          return this;
+        }
+
+        if (duration > 0) {
+          this.animateTo(movedPos, duration);
+        } else {
+          this.em.triggerChange(movedPos);
+          this.finish(false);
+        }
+
+        return this;
+      };
+
+      __proto.setBy = function(pos, duration) {
+        if (duration === void 0) {
+          duration = 0;
+        }
+
+        return this.setTo(
+          map(this.axm.get(Object.keys(pos)), function(v, k) {
+            return v + pos[k];
+          }),
+          duration
+        );
+      };
+
+      return AnimationManager;
+    })();
+
+  var EventManager =
+    /*#__PURE__*/
+    (function() {
+      function EventManager(axes) {
+        this.axes = axes;
+      }
+      /**
+       * This event is fired when a user holds an element on the screen of the device.
+       * @ko 사용자가 기기의 화면에 손을 대고 있을 때 발생하는 이벤트
+       * @name eg.Axes#hold
+       * @event
+       * @type {object} The object of data to be sent when the event is fired<ko>이벤트가 발생할 때 전달되는 데이터 객체</ko>
+       * @property {Object.<string, number>} pos coordinate <ko>좌표 정보</ko>
+       * @property {Object} input The instance of inputType where the event occurred<ko>이벤트가 발생한 inputType 인스턴스</ko>
+       * @property {Object} inputEvent The event object received from inputType <ko>inputType으로 부터 받은 이벤트 객체</ko>
+       * @property {Boolean} isTrusted Returns true if an event was generated by the user action, or false if it was caused by a script or API call <ko>사용자의 액션에 의해 이벤트가 발생하였으면 true, 스크립트나 API호출에 의해 발생하였을 경우에는 false를 반환한다.</ko>
+       *
+       * @example
+       * const axes = new eg.Axes({
+       *   "x": {
+       *      range: [0, 100]
+       *   },
+       *   "zoom": {
+       *      range: [50, 30]
+       *   }
+       * }).on("hold", function(event) {
+       *   // event.pos
+       *   // event.input
+       *   // event.inputEvent
+       *   // isTrusted
+       * });
+       */
+
+      var __proto = EventManager.prototype;
+
+      __proto.triggerHold = function(pos, option) {
+        var roundPos = this.getRoundPos(pos).roundPos;
+        this.axes.trigger("hold", {
+          pos: roundPos,
+          input: option.input || null,
+          inputEvent: option.event || null,
+          isTrusted: true
+        });
+      };
+      /**
+       * Specifies the coordinates to move after the 'change' event. It works when the holding value of the change event is true.
+       * @ko 'change' 이벤트 이후 이동할 좌표를 지정한다. change이벤트의 holding 값이 true일 경우에 동작한다
+       * @name set
+       * @function
+       * @param {Object.<string, number>} pos The coordinate to move to <ko>이동할 좌표</ko>
+       * @example
+       * const axes = new eg.Axes({
+       *   "x": {
+       *      range: [0, 100]
+       *   },
+       *   "zoom": {
+       *      range: [50, 30]
+       *   }
+       * }).on("change", function(event) {
+       *   event.holding && event.set({x: 10});
+       * });
+       */
+
+      /** Specifies the animation coordinates to move after the 'release' or 'animationStart' events.
+       * @ko 'release' 또는 'animationStart' 이벤트 이후 이동할 좌표를 지정한다.
+       * @name setTo
+       * @function
+       * @param {Object.<string, number>} pos The coordinate to move to <ko>이동할 좌표</ko>
+       * @param {Number} [duration] Duration of the animation (unit: ms) <ko>애니메이션 진행 시간(단위: ms)</ko>
+       * @example
+       * const axes = new eg.Axes({
+       *   "x": {
+       *      range: [0, 100]
+       *   },
+       *   "zoom": {
+       *      range: [50, 30]
+       *   }
+       * }).on("animationStart", function(event) {
+       *   event.setTo({x: 10}, 2000);
+       * });
+       */
+
+      /**
+       * This event is fired when a user release an element on the screen of the device.
+       * @ko 사용자가 기기의 화면에서 손을 뗐을 때 발생하는 이벤트
+       * @name eg.Axes#release
+       * @event
+       * @type {object} The object of data to be sent when the event is fired<ko>이벤트가 발생할 때 전달되는 데이터 객체</ko>
+       * @property {Object.<string, number>} depaPos The coordinates when releasing an element<ko>손을 뗐을 때의 좌표 </ko>
+       * @property {Object.<string, number>} destPos The coordinates to move to after releasing an element<ko>손을 뗀 뒤에 이동할 좌표</ko>
+       * @property {Object.<string, number>} delta  The movement variation of coordinate <ko>좌표의 변화량</ko>
+       * @property {Object} inputEvent The event object received from inputType <ko>inputType으로 부터 받은 이벤트 객체</ko>
+       * @property {Object} input The instance of inputType where the event occurred<ko>이벤트가 발생한 inputType 인스턴스</ko>
+       * @property {setTo} setTo Specifies the animation coordinates to move after the event <ko>이벤트 이후 이동할 애니메이션 좌표를 지정한다</ko>
+       * @property {Boolean} isTrusted Returns true if an event was generated by the user action, or false if it was caused by a script or API call <ko>사용자의 액션에 의해 이벤트가 발생하였으면 true, 스크립트나 API호출에 의해 발생하였을 경우에는 false를 반환한다.</ko>
+       *
+       * @example
+       * const axes = new eg.Axes({
+       *   "x": {
+       *      range: [0, 100]
+       *   },
+       *   "zoom": {
+       *      range: [50, 30]
+       *   }
+       * }).on("release", function(event) {
+       *   // event.depaPos
+       *   // event.destPos
+       *   // event.delta
+       *   // event.input
+       *   // event.inputEvent
+       *   // event.setTo
+       *   // event.isTrusted
+       *
+       *   // if you want to change the animation coordinates to move after the 'release' event.
+       *   event.setTo({x: 10}, 2000);
+       * });
+       */
+
+      __proto.triggerRelease = function(param) {
+        var _a = this.getRoundPos(param.destPos, param.depaPos),
+          roundPos = _a.roundPos,
+          roundDepa = _a.roundDepa;
+
+        param.destPos = roundPos;
+        param.depaPos = roundDepa;
+        param.setTo = this.createUserControll(param.destPos, param.duration);
+        this.axes.trigger("release", param);
+      };
+      /**
+       * This event is fired when coordinate changes.
+       * @ko 좌표가 변경됐을 때 발생하는 이벤트
+       * @name eg.Axes#change
+       * @event
+       * @type {object} The object of data to be sent when the event is fired <ko>이벤트가 발생할 때 전달되는 데이터 객체</ko>
+       * @property {Object.<string, number>} pos  The coordinate <ko>좌표</ko>
+       * @property {Object.<string, number>} delta  The movement variation of coordinate <ko>좌표의 변화량</ko>
+       * @property {Boolean} holding Indicates whether a user holds an element on the screen of the device.<ko>사용자가 기기의 화면을 누르고 있는지 여부</ko>
+       * @property {Object} input The instance of inputType where the event occurred. If the value is changed by animation, it returns 'null'.<ko>이벤트가 발생한 inputType 인스턴스. 애니메이션에 의해 값이 변경될 경우에는 'null'을 반환한다.</ko>
+       * @property {Object} inputEvent The event object received from inputType. If the value is changed by animation, it returns 'null'.<ko>inputType으로 부터 받은 이벤트 객체. 애니메이션에 의해 값이 변경될 경우에는 'null'을 반환한다.</ko>
+       * @property {set} set Specifies the coordinates to move after the event. It works when the holding value is true <ko>이벤트 이후 이동할 좌표를 지정한다. holding 값이 true일 경우에 동작한다.</ko>
+       * @property {Boolean} isTrusted Returns true if an event was generated by the user action, or false if it was caused by a script or API call <ko>사용자의 액션에 의해 이벤트가 발생하였으면 true, 스크립트나 API호출에 의해 발생하였을 경우에는 false를 반환한다.</ko>
+       *
+       * @example
+       * const axes = new eg.Axes({
+       *   "x": {
+       *      range: [0, 100]
+       *   },
+       *   "zoom": {
+       *      range: [50, 30]
+       *   }
+       * }).on("change", function(event) {
+       *   // event.pos
+       *   // event.delta
+       *   // event.input
+       *   // event.inputEvent
+       *   // event.holding
+       *   // event.set
+       *   // event.isTrusted
+       *
+       *   // if you want to change the coordinates to move after the 'change' event.
+       *   // it works when the holding value of the change event is true.
+       *   event.holding && event.set({x: 10});
+       * });
+       */
+
+      __proto.triggerChange = function(
+        pos,
+        isAccurate,
+        depaPos,
+        option,
+        holding
+      ) {
+        if (holding === void 0) {
+          holding = false;
+        }
+
+        var am = this.am;
+        var axm = am.axm;
+        var eventInfo = am.getEventInfo();
+
+        var _a = this.getRoundPos(pos, depaPos),
+          roundPos = _a.roundPos,
+          roundDepa = _a.roundDepa;
+
+        var moveTo = axm.moveTo(roundPos, roundDepa);
+        var inputEvent =
+          (option && option.event) || (eventInfo && eventInfo.event) || null;
+        var param = {
+          pos: moveTo.pos,
+          delta: moveTo.delta,
+          holding: holding,
+          inputEvent: inputEvent,
+          isTrusted: !!inputEvent,
+          input:
+            (option && option.input) || (eventInfo && eventInfo.input) || null,
+          set: inputEvent ? this.createUserControll(moveTo.pos) : function() {}
+        };
+        var result = this.axes.trigger("change", param);
+        inputEvent && axm.set(param.set()["destPos"]);
+        return result;
+      };
+      /**
+       * This event is fired when animation starts.
+       * @ko 에니메이션이 시작할 때 발생한다.
+       * @name eg.Axes#animationStart
+       * @event
+       * @type {object} The object of data to be sent when the event is fired<ko>이벤트가 발생할 때 전달되는 데이터 객체</ko>
+       * @property {Object.<string, number>} depaPos The coordinates when animation starts<ko>애니메이션이 시작 되었을 때의 좌표 </ko>
+       * @property {Object.<string, number>} destPos The coordinates to move to. If you change this value, you can run the animation<ko>이동할 좌표. 이값을 변경하여 애니메이션을 동작시킬수 있다</ko>
+       * @property {Object.<string, number>} delta  The movement variation of coordinate <ko>좌표의 변화량</ko>
+       * @property {Number} duration Duration of the animation (unit: ms). If you change this value, you can control the animation duration time.<ko>애니메이션 진행 시간(단위: ms). 이값을 변경하여 애니메이션의 이동시간을 조절할 수 있다.</ko>
+       * @property {Object} input The instance of inputType where the event occurred. If the value is changed by animation, it returns 'null'.<ko>이벤트가 발생한 inputType 인스턴스. 애니메이션에 의해 값이 변경될 경우에는 'null'을 반환한다.</ko>
+       * @property {Object} inputEvent The event object received from inputType <ko>inputType으로 부터 받은 이벤트 객체</ko>
+       * @property {setTo} setTo Specifies the animation coordinates to move after the event <ko>이벤트 이후 이동할 애니메이션 좌표를 지정한다</ko>
+       * @property {Boolean} isTrusted Returns true if an event was generated by the user action, or false if it was caused by a script or API call <ko>사용자의 액션에 의해 이벤트가 발생하였으면 true, 스크립트나 API호출에 의해 발생하였을 경우에는 false를 반환한다.</ko>
+       *
+       * @example
+       * const axes = new eg.Axes({
+       *   "x": {
+       *      range: [0, 100]
+       *   },
+       *   "zoom": {
+       *      range: [50, 30]
+       *   }
+       * }).on("release", function(event) {
+       *   // event.depaPos
+       *   // event.destPos
+       *   // event.delta
+       *   // event.input
+       *   // event.inputEvent
+       *   // event.setTo
+       *   // event.isTrusted
+       *
+       *   // if you want to change the animation coordinates to move after the 'animationStart' event.
+       *   event.setTo({x: 10}, 2000);
+       * });
+       */
+
+      __proto.triggerAnimationStart = function(param) {
+        var _a = this.getRoundPos(param.destPos, param.depaPos),
+          roundPos = _a.roundPos,
+          roundDepa = _a.roundDepa;
+
+        param.destPos = roundPos;
+        param.depaPos = roundDepa;
+        param.setTo = this.createUserControll(param.destPos, param.duration);
+        return this.axes.trigger("animationStart", param);
+      };
+      /**
+       * This event is fired when animation ends.
+       * @ko 에니메이션이 끝났을 때 발생한다.
+       * @name eg.Axes#animationEnd
+       * @event
+       * @type {object} The object of data to be sent when the event is fired<ko>이벤트가 발생할 때 전달되는 데이터 객체</ko>
+       * @property {Boolean} isTrusted Returns true if an event was generated by the user action, or false if it was caused by a script or API call <ko>사용자의 액션에 의해 이벤트가 발생하였으면 true, 스크립트나 API호출에 의해 발생하였을 경우에는 false를 반환한다.</ko>
+       *
+       * @example
+       * const axes = new eg.Axes({
+       *   "x": {
+       *      range: [0, 100]
+       *   },
+       *   "zoom": {
+       *      range: [50, 30]
+       *   }
+       * }).on("animationEnd", function(event) {
+       *   // event.isTrusted
+       * });
+       */
+
+      __proto.triggerAnimationEnd = function(isTrusted) {
+        if (isTrusted === void 0) {
+          isTrusted = false;
+        }
+
+        this.axes.trigger("animationEnd", {
+          isTrusted: isTrusted
+        });
+      };
+      /**
+       * This event is fired when all actions have been completed.
+       * @ko 에니메이션이 끝났을 때 발생한다.
+       * @name eg.Axes#finish
+       * @event
+       * @type {object} The object of data to be sent when the event is fired<ko>이벤트가 발생할 때 전달되는 데이터 객체</ko>
+       * @property {Boolean} isTrusted Returns true if an event was generated by the user action, or false if it was caused by a script or API call <ko>사용자의 액션에 의해 이벤트가 발생하였으면 true, 스크립트나 API호출에 의해 발생하였을 경우에는 false를 반환한다.</ko>
+       *
+       * @example
+       * const axes = new eg.Axes({
+       *   "x": {
+       *      range: [0, 100]
+       *   },
+       *   "zoom": {
+       *      range: [50, 30]
+       *   }
+       * }).on("finish", function(event) {
+       *   // event.isTrusted
+       * });
+       */
+
+      __proto.triggerFinish = function(isTrusted) {
+        if (isTrusted === void 0) {
+          isTrusted = false;
+        }
+
+        this.axes.trigger("finish", {
+          isTrusted: isTrusted
+        });
+      };
+
+      __proto.createUserControll = function(pos, duration) {
+        if (duration === void 0) {
+          duration = 0;
+        } // to controll
+
+        var userControl = {
+          destPos: __assign({}, pos),
+          duration: duration
+        };
+        return function(toPos, userDuration) {
+          toPos && (userControl.destPos = __assign({}, toPos));
+          userDuration !== undefined && (userControl.duration = userDuration);
+          return userControl;
+        };
+      };
+
+      __proto.setAnimationManager = function(am) {
+        this.am = am;
+      };
+
+      __proto.destroy = function() {
+        this.axes.off();
+      };
+
+      __proto.getRoundPos = function(pos, depaPos) {
+        // round value if round exist
+        var roundUnit = this.axes.options.round; // if (round == null) {
+        // 	return {pos, depaPos}; // undefined, undefined
+        // }
+
+        return {
+          roundPos: roundNumbers(pos, roundUnit),
+          roundDepa: roundNumbers(depaPos, roundUnit)
+        };
+      };
+
+      return EventManager;
+    })();
+
+  var InterruptManager =
+    /*#__PURE__*/
+    (function() {
+      function InterruptManager(options) {
+        this.options = options;
+        this._prevented = false; //  check whether the animation event was prevented
+      }
+
+      var __proto = InterruptManager.prototype;
+
+      __proto.isInterrupting = function() {
+        // when interruptable is 'true', return value is always 'true'.
+        return this.options.interruptable || this._prevented;
+      };
+
+      __proto.isInterrupted = function() {
+        return !this.options.interruptable && this._prevented;
+      };
+
+      __proto.setInterrupt = function(prevented) {
+        !this.options.interruptable && (this._prevented = prevented);
+      };
+
+      return InterruptManager;
+    })();
+
+  var AxisManager =
+    /*#__PURE__*/
+    (function() {
+      function AxisManager(axis, options) {
+        var _this = this;
+
+        this.axis = axis;
+        this.options = options;
+
+        this._complementOptions();
+
+        this._pos = Object.keys(this.axis).reduce(function(acc, v) {
+          acc[v] = _this.axis[v].range[0];
+          return acc;
+        }, {});
+      }
+      /**
+       * set up 'css' expression
+       * @private
+       */
+
+      var __proto = AxisManager.prototype;
+
+      __proto._complementOptions = function() {
+        var _this = this;
+
+        Object.keys(this.axis).forEach(function(axis) {
+          _this.axis[axis] = __assign(
+            {
+              range: [0, 100],
+              bounce: [0, 0],
+              circular: [false, false]
+            },
+            _this.axis[axis]
+          );
+          ["bounce", "circular"].forEach(function(v) {
+            var axisOption = _this.axis;
+            var key = axisOption[axis][v];
+
+            if (/string|number|boolean/.test(typeof key)) {
+              axisOption[axis][v] = [key, key];
+            }
+          });
+        });
+      };
+
+      __proto.getDelta = function(depaPos, destPos) {
+        var fullDepaPos = this.get(depaPos);
+        return map(this.get(destPos), function(v, k) {
+          return v - fullDepaPos[k];
+        });
+      };
+
+      __proto.get = function(axes) {
+        var _this = this;
+
+        if (axes && Array.isArray(axes)) {
+          return axes.reduce(function(acc, v) {
+            if (v && v in _this._pos) {
+              acc[v] = _this._pos[v];
+            }
+
+            return acc;
+          }, {});
+        } else {
+          return __assign({}, this._pos, axes || {});
+        }
+      };
+
+      __proto.moveTo = function(pos, depaPos) {
+        if (depaPos === void 0) {
+          depaPos = this._pos;
+        }
+
+        var delta = map(this._pos, function(v, key) {
+          return key in pos && key in depaPos ? pos[key] - depaPos[key] : 0;
+        });
+        this.set(
+          this.map(pos, function(v, opt) {
+            return opt ? getCirculatedPos(v, opt.range, opt.circular) : 0;
+          })
+        );
+        return {
+          pos: __assign({}, this._pos),
+          delta: delta
+        };
+      };
+
+      __proto.set = function(pos) {
+        for (var k in pos) {
+          if (k && k in this._pos) {
+            this._pos[k] = pos[k];
+          }
+        }
+      };
+
+      __proto.every = function(pos, callback) {
+        var axisOptions = this.axis;
+        return every(pos, function(value, key) {
+          return callback(value, axisOptions[key], key);
+        });
+      };
+
+      __proto.filter = function(pos, callback) {
+        var axisOptions = this.axis;
+        return filter(pos, function(value, key) {
+          return callback(value, axisOptions[key], key);
+        });
+      };
+
+      __proto.map = function(pos, callback) {
+        var axisOptions = this.axis;
+        return map(pos, function(value, key) {
+          return callback(value, axisOptions[key], key);
+        });
+      };
+
+      __proto.isOutside = function(axes) {
+        return !this.every(axes ? this.get(axes) : this._pos, function(v, opt) {
+          return !isOutside(v, opt.range);
+        });
+      };
+
+      __proto.getAxisOptions = function(key) {
+        return this.axis[key];
+      };
+
+      return AxisManager;
+    })();
+
+  var InputObserver =
+    /*#__PURE__*/
+    (function() {
+      function InputObserver(_a) {
+        var options = _a.options,
+          itm = _a.itm,
+          em = _a.em,
+          axm = _a.axm,
+          am = _a.am;
+        this.isOutside = false;
+        this.moveDistance = null;
+        this.isStopped = false;
+        this.options = options;
+        this.itm = itm;
+        this.em = em;
+        this.axm = axm;
+        this.am = am;
+      } // when move pointer is held in outside
+
+      var __proto = InputObserver.prototype;
+
+      __proto.atOutside = function(pos) {
+        var _this = this;
+
+        if (this.isOutside) {
+          return this.axm.map(pos, function(v, opt) {
+            var tn = opt.range[0] - opt.bounce[0];
+            var tx = opt.range[1] + opt.bounce[1];
+            return v > tx ? tx : v < tn ? tn : v;
+          });
+        } else {
+          // when start pointer is held in inside
+          // get a initialization slope value to prevent smooth animation.
+          var initSlope_1 = this.am.easing(0.00001) / 0.00001;
+          return this.axm.map(pos, function(v, opt) {
+            var min = opt.range[0];
+            var max = opt.range[1];
+            var out = opt.bounce;
+            var circular = opt.circular;
+
+            if (circular && (circular[0] || circular[1])) {
+              return v;
+            } else if (v < min) {
+              // left
+              return (
+                min -
+                _this.am.easing((min - v) / (out[0] * initSlope_1)) * out[0]
+              );
+            } else if (v > max) {
+              // right
+              return (
+                max +
+                _this.am.easing((v - max) / (out[1] * initSlope_1)) * out[1]
+              );
+            }
+
+            return v;
+          });
+        }
+      };
+
+      __proto.get = function(input) {
+        return this.axm.get(input.axes);
+      };
+
+      __proto.hold = function(input, event) {
+        if (this.itm.isInterrupted() || !input.axes.length) {
+          return;
+        }
+
+        var changeOption = {
+          input: input,
+          event: event
+        };
+        this.isStopped = false;
+        this.itm.setInterrupt(true);
+        this.am.grab(input.axes, changeOption);
+        !this.moveDistance && this.em.triggerHold(this.axm.get(), changeOption);
+        this.isOutside = this.axm.isOutside(input.axes);
+        this.moveDistance = this.axm.get(input.axes);
+      };
+
+      __proto.change = function(input, event, offset) {
+        if (
+          this.isStopped ||
+          !this.itm.isInterrupting() ||
+          this.axm.every(offset, function(v) {
+            return v === 0;
+          })
+        ) {
+          return;
+        }
+
+        var depaPos = this.moveDistance || this.axm.get(input.axes);
+        var destPos; // for outside logic
+
+        destPos = map(depaPos, function(v, k) {
+          return v + (offset[k] || 0);
+        });
+        this.moveDistance && (this.moveDistance = destPos); // from outside to inside
+
+        if (
+          this.isOutside &&
+          this.axm.every(depaPos, function(v, opt) {
+            return !isOutside(v, opt.range);
+          })
+        ) {
+          this.isOutside = false;
+        }
+
+        depaPos = this.atOutside(depaPos);
+        destPos = this.atOutside(destPos);
+        var isCanceled = !this.em.triggerChange(
+          destPos,
+          false,
+          depaPos,
+          {
+            input: input,
+            event: event
+          },
+          true
+        );
+
+        if (isCanceled) {
+          this.isStopped = true;
+          this.moveDistance = null;
+          this.am.finish(false);
+        }
+      };
+
+      __proto.release = function(input, event, offset, inputDuration) {
+        if (
+          this.isStopped ||
+          !this.itm.isInterrupting() ||
+          !this.moveDistance
+        ) {
+          return;
+        }
+
+        var pos = this.axm.get(input.axes);
+        var depaPos = this.axm.get();
+        var destPos = this.axm.get(
+          this.axm.map(offset, function(v, opt, k) {
+            if (opt.circular && (opt.circular[0] || opt.circular[1])) {
+              return pos[k] + v;
+            } else {
+              return getInsidePosition(
+                pos[k] + v,
+                opt.range,
+                opt.circular,
+                opt.bounce
+              );
+            }
+          })
+        );
+        var duration = this.am.getDuration(destPos, pos, inputDuration);
+
+        if (duration === 0) {
+          destPos = __assign({}, depaPos);
+        } // prepare params
+
+        var param = {
+          depaPos: depaPos,
+          destPos: destPos,
+          duration: duration,
+          delta: this.axm.getDelta(depaPos, destPos),
+          inputEvent: event,
+          input: input,
+          isTrusted: true
+        };
+        this.em.triggerRelease(param);
+        this.moveDistance = null; // to contol
+
+        var userWish = this.am.getUserControll(param);
+        var isEqual = equal(userWish.destPos, depaPos);
+        var changeOption = {
+          input: input,
+          event: event
+        };
+
+        if (isEqual || userWish.duration === 0) {
+          !isEqual &&
+            this.em.triggerChange(
+              userWish.destPos,
+              false,
+              depaPos,
+              changeOption,
+              true
+            );
+          this.itm.setInterrupt(false);
+
+          if (this.axm.isOutside()) {
+            this.am.restore(changeOption);
+          } else {
+            this.em.triggerFinish(true);
+          }
+        } else {
+          this.am.animateTo(userWish.destPos, userWish.duration, changeOption);
+        }
+      };
+
+      return InputObserver;
+    })(); // export const DIRECTION_NONE = 1;
+
+  var TRANSFORM$1 = (function() {
+    if (typeof document === "undefined") {
+      return "";
+    }
+
+    var bodyStyle = (document.head || document.getElementsByTagName("head")[0])
+      .style;
+    var target = [
+      "transform",
+      "webkitTransform",
+      "msTransform",
+      "mozTransform"
+    ];
+
+    for (var i = 0, len = target.length; i < len; i++) {
+      if (target[i] in bodyStyle) {
+        return target[i];
+      }
+    }
+
+    return "";
+  })();
+  /**
+   * @typedef {Object} AxisOption The Axis information. The key of the axis specifies the name to use as the logical virtual coordinate system.
+   * @ko 축 정보. 축의 키는 논리적인 가상 좌표계로 사용할 이름을 지정한다.
+   * @property {Number[]} [range] The coordinate of range <ko>좌표 범위</ko>
+   * @property {Number} [range.0=0] The coordinate of the minimum <ko>최소 좌표</ko>
+   * @property {Number} [range.1=0] The coordinate of the maximum <ko>최대 좌표</ko>
+   * @property {Number[]} [bounce] The size of bouncing area. The coordinates can exceed the coordinate area as much as the bouncing area based on user action. If the coordinates does not exceed the bouncing area when an element is dragged, the coordinates where bouncing effects are applied are retuned back into the coordinate area<ko>바운스 영역의 크기. 사용자의 동작에 따라 좌표가 좌표 영역을 넘어 바운스 영역의 크기만큼 더 이동할 수 있다. 사용자가 끌어다 놓는 동작을 했을 때 좌표가 바운스 영역에 있으면, 바운스 효과가 적용된 좌표가 다시 좌표 영역 안으로 들어온다</ko>
+   * @property {Number} [bounce.0=0] The size of coordinate of the minimum area <ko>최소 좌표 바운스 영역의 크기</ko>
+   * @property {Number} [bounce.1=0] The size of coordinate of the maximum area <ko>최대 좌표 바운스 영역의 크기</ko>
+   * @property {Boolean[]} [circular] Indicates whether a circular element is available. If it is set to "true" and an element is dragged outside the coordinate area, the element will appear on the other side.<ko>순환 여부. 'true'로 설정한 방향의 좌표 영역 밖으로 엘리먼트가 이동하면 반대 방향에서 엘리먼트가 나타난다</ko>
+   * @property {Boolean} [circular.0=false] Indicates whether to circulate to the coordinate of the minimum <ko>최소 좌표 방향의 순환 여부</ko>
+   * @property {Boolean} [circular.1=false] Indicates whether to circulate to the coordinate of the maximum <ko>최대 좌표 방향의 순환 여부</ko>
+   **/
+
+  /**
+   * @typedef {Object} AxesOption The option object of the eg.Axes module
+   * @ko eg.Axes 모듈의 옵션 객체
+   * @property {Function} [easing=easing.easeOutCubic] The easing function to apply to an animation <ko>애니메이션에 적용할 easing 함수</ko>
+   * @property {Number} [maximumDuration=Infinity] Maximum duration of the animation <ko>가속도에 의해 애니메이션이 동작할 때의 최대 좌표 이동 시간</ko>
+   * @property {Number} [minimumDuration=0] Minimum duration of the animation <ko>가속도에 의해 애니메이션이 동작할 때의 최소 좌표 이동 시간</ko>
+   * @property {Number} [deceleration=0.0006] Deceleration of the animation where acceleration is manually enabled by user. A higher value indicates shorter running time. <ko>사용자의 동작으로 가속도가 적용된 애니메이션의 감속도. 값이 높을수록 애니메이션 실행 시간이 짧아진다</ko>
+   * @property {Boolean} [interruptable=true] Indicates whether an animation is interruptible.<br>- true: It can be paused or stopped by user action or the API.<br>- false: It cannot be paused or stopped by user action or the API while it is running.<ko>진행 중인 애니메이션 중지 가능 여부.<br>- true: 사용자의 동작이나 API로 애니메이션을 중지할 수 있다.<br>- false: 애니메이션이 진행 중일 때는 사용자의 동작이나 API가 적용되지 않는다</ko>
+   * @property {Number} [round = null] Rounding unit. For example, 0.1 rounds to 0.1 decimal point(6.1234 => 6.1), 5 rounds to 5 (93 => 95) <br>[Details](https://github.com/naver/egjs-axes/wiki/round-option)<ko>반올림 단위. 예를 들어 0.1 은 소숫점 0.1 까지 반올림(6.1234 => 6.1), 5 는 5 단위로 반올림(93 => 95).<br>[상세내용](https://github.com/naver/egjs-axes/wiki/round-option)</ko>
+   **/
+
+  /**
+   * @class eg.Axes
+   * @classdesc A module used to change the information of user action entered by various input devices such as touch screen or mouse into the logical virtual coordinates. You can easily create a UI that responds to user actions.
+   * @ko 터치 입력 장치나 마우스와 같은 다양한 입력 장치를 통해 전달 받은 사용자의 동작을 논리적인 가상 좌표로 변경하는 모듈이다. 사용자 동작에 반응하는 UI를 손쉽게 만들수 있다.
+   * @extends eg.Component
+   *
+   * @param {Object.<string, AxisOption>} axis Axis information managed by eg.Axes. The key of the axis specifies the name to use as the logical virtual coordinate system.  <ko>eg.Axes가 관리하는 축 정보. 축의 키는 논리적인 가상 좌표계로 사용할 이름을 지정한다.</ko>
+   * @param {AxesOption} [options] The option object of the eg.Axes module<ko>eg.Axes 모듈의 옵션 객체</ko>
+   * @param {Object.<string, number>} [startPos] The coordinates to be moved when creating an instance. not triggering change event.<ko>인스턴스 생성시 이동할 좌표, change 이벤트는 발생하지 않음.</ko>
+   *
+   * @support {"ie": "10+", "ch" : "latest", "ff" : "latest",  "sf" : "latest", "edge" : "latest", "ios" : "7+", "an" : "2.3+ (except 3.x)"}
+   * @example
+   *
+   * // 1. Initialize eg.Axes
+   * const axes = new eg.Axes({
+   *	something1: {
+   *		range: [0, 150],
+   *		bounce: 50
+   *	},
+   *	something2: {
+   *		range: [0, 200],
+   *		bounce: 100
+   *	},
+   *	somethingN: {
+   *		range: [1, 10],
+   *	}
+   * }, {
+   *  deceleration : 0.0024
+   * });
+   *
+   * // 2. attach event handler
+   * axes.on({
+   *	"hold" : function(evt) {
+   *	},
+   *	"release" : function(evt) {
+   *	},
+   *	"animationStart" : function(evt) {
+   *	},
+   *	"animationEnd" : function(evt) {
+   *	},
+   *	"change" : function(evt) {
+   *	}
+   * });
+   *
+   * // 3. Initialize inputTypes
+   * const panInputArea = new eg.Axes.PanInput("#area", {
+   *	scale: [0.5, 1]
+   * });
+   * const panInputHmove = new eg.Axes.PanInput("#hmove");
+   * const panInputVmove = new eg.Axes.PanInput("#vmove");
+   * const pinchInputArea = new eg.Axes.PinchInput("#area", {
+   *	scale: 1.5
+   * });
+   *
+   * // 4. Connect eg.Axes and InputTypes
+   * // [PanInput] When the mouse or touchscreen is down and moved.
+   * // Connect the 'something2' axis to the mouse or touchscreen x position and
+   * // connect the 'somethingN' axis to the mouse or touchscreen y position.
+   * axes.connect(["something2", "somethingN"], panInputArea); // or axes.connect("something2 somethingN", panInputArea);
+   *
+   * // Connect only one 'something1' axis to the mouse or touchscreen x position.
+   * axes.connect(["something1"], panInputHmove); // or axes.connect("something1", panInputHmove);
+   *
+   * // Connect only one 'something2' axis to the mouse or touchscreen y position.
+   * axes.connect(["", "something2"], panInputVmove); // or axes.connect(" something2", panInputVmove);
+   *
+   * // [PinchInput] Connect 'something2' axis when two pointers are moving toward (zoom-in) or away from each other (zoom-out).
+   * axes.connect("something2", pinchInputArea);
+   */
+
+  var Axes =
+    /*#__PURE__*/
+    (function(_super) {
+      __extends(Axes, _super);
+
+      function Axes(axis, options, startPos) {
+        if (axis === void 0) {
+          axis = {};
+        }
+
+        if (options === void 0) {
+          options = {};
+        }
+
+        var _this = _super.call(this) || this;
+
+        _this.axis = axis;
+        _this._inputs = [];
+        _this.options = __assign(
+          {
+            easing: function easeOutCubic(x) {
+              return 1 - Math.pow(1 - x, 3);
+            },
+            interruptable: true,
+            maximumDuration: Infinity,
+            minimumDuration: 0,
+            deceleration: 0.0006,
+            round: null
+          },
+          options
+        );
+        _this.itm = new InterruptManager(_this.options);
+        _this.axm = new AxisManager(_this.axis, _this.options);
+        _this.em = new EventManager(_this);
+        _this.am = new AnimationManager(_this);
+        _this.io = new InputObserver(_this);
+
+        _this.em.setAnimationManager(_this.am);
+
+        startPos && _this.em.triggerChange(startPos);
+        return _this;
+      }
+      /**
+       * Connect the axis of eg.Axes to the inputType.
+       * @ko eg.Axes의 축과 inputType을 연결한다
+       * @method eg.Axes#connect
+       * @param {(String[]|String)} axes The name of the axis to associate with inputType <ko>inputType과 연결할 축의 이름</ko>
+       * @param {Object} inputType The inputType instance to associate with the axis of eg.Axes <ko>eg.Axes의 축과 연결할 inputType 인스턴스<ko>
+       * @return {eg.Axes} An instance of a module itself <ko>모듈 자신의 인스턴스</ko>
+       * @example
+       * const axes = new eg.Axes({
+       *   "x": {
+       *      range: [0, 100]
+       *   },
+       *   "xOther": {
+       *      range: [-100, 100]
+       *   }
+       * });
+       *
+       * axes.connect("x", new eg.Axes.PanInput("#area1"))
+       *    .connect("x xOther", new eg.Axes.PanInput("#area2"))
+       *    .connect(" xOther", new eg.Axes.PanInput("#area3"))
+       *    .connect(["x"], new eg.Axes.PanInput("#area4"))
+       *    .connect(["xOther", "x"], new eg.Axes.PanInput("#area5"))
+       *    .connect(["", "xOther"], new eg.Axes.PanInput("#area6"));
+       */
+
+      var __proto = Axes.prototype;
+
+      __proto.connect = function(axes, inputType) {
+        var mapped;
+
+        if (typeof axes === "string") {
+          mapped = axes.split(" ");
+        } else {
+          mapped = axes.concat();
+        } // check same instance
+
+        if (~this._inputs.indexOf(inputType)) {
+          this.disconnect(inputType);
+        } // check same element in hammer type for share
+
+        if ("hammer" in inputType) {
+          var targets = this._inputs.filter(function(v) {
+            return v.hammer && v.element === inputType.element;
+          });
+
+          if (targets.length) {
+            inputType.hammer = targets[0].hammer;
+          }
+        }
+
+        inputType.mapAxes(mapped);
+        inputType.connect(this.io);
+
+        this._inputs.push(inputType);
+
+        return this;
+      };
+      /**
+       * Disconnect the axis of eg.Axes from the inputType.
+       * @ko eg.Axes의 축과 inputType의 연결을 끊는다.
+       * @method eg.Axes#disconnect
+       * @param {Object} [inputType] An inputType instance associated with the axis of eg.Axes <ko>eg.Axes의 축과 연결한 inputType 인스턴스<ko>
+       * @return {eg.Axes} An instance of a module itself <ko>모듈 자신의 인스턴스</ko>
+       * @example
+       * const axes = new eg.Axes({
+       *   "x": {
+       *      range: [0, 100]
+       *   },
+       *   "xOther": {
+       *      range: [-100, 100]
+       *   }
+       * });
+       *
+       * const input1 = new eg.Axes.PanInput("#area1");
+       * const input2 = new eg.Axes.PanInput("#area2");
+       * const input3 = new eg.Axes.PanInput("#area3");
+       *
+       * axes.connect("x", input1);
+       *    .connect("x xOther", input2)
+       *    .connect(["xOther", "x"], input3);
+       *
+       * axes.disconnect(input1); // disconnects input1
+       * axes.disconnect(); // disconnects all of them
+       */
+
+      __proto.disconnect = function(inputType) {
+        if (inputType) {
+          var index = this._inputs.indexOf(inputType);
+
+          if (index >= 0) {
+            this._inputs[index].disconnect();
+
+            this._inputs.splice(index, 1);
+          }
+        } else {
+          this._inputs.forEach(function(v) {
+            return v.disconnect();
+          });
+
+          this._inputs = [];
+        }
+
+        return this;
+      };
+      /**
+       * Returns the current position of the coordinates.
+       * @ko 좌표의 현재 위치를 반환한다
+       * @method eg.Axes#get
+       * @param {Object} [axes] The names of the axis <ko>축 이름들</ko>
+       * @return {Object.<string, number>} Axis coordinate information <ko>축 좌표 정보</ko>
+       * @example
+       * const axes = new eg.Axes({
+       *   "x": {
+       *      range: [0, 100]
+       *   },
+       *   "xOther": {
+       *      range: [-100, 100]
+       *   },
+       * 	 "zoom": {
+       *      range: [50, 30]
+       *   }
+       * });
+       *
+       * axes.get(); // {"x": 0, "xOther": -100, "zoom": 50}
+       * axes.get(["x", "zoom"]); // {"x": 0, "zoom": 50}
+       */
+
+      __proto.get = function(axes) {
+        return this.axm.get(axes);
+      };
+      /**
+       * Moves an axis to specific coordinates.
+       * @ko 좌표를 이동한다.
+       * @method eg.Axes#setTo
+       * @param {Object.<string, number>} pos The coordinate to move to <ko>이동할 좌표</ko>
+       * @param {Number} [duration=0] Duration of the animation (unit: ms) <ko>애니메이션 진행 시간(단위: ms)</ko>
+       * @return {eg.Axes} An instance of a module itself <ko>모듈 자신의 인스턴스</ko>
+       * @example
+       * const axes = new eg.Axes({
+       *   "x": {
+       *      range: [0, 100]
+       *   },
+       *   "xOther": {
+       *      range: [-100, 100]
+       *   },
+       * 	 "zoom": {
+       *      range: [50, 30]
+       *   }
+       * });
+       *
+       * axes.setTo({"x": 30, "zoom": 60});
+       * axes.get(); // {"x": 30, "xOther": -100, "zoom": 60}
+       *
+       * axes.setTo({"x": 100, "xOther": 60}, 1000); // animatation
+       *
+       * // after 1000 ms
+       * axes.get(); // {"x": 100, "xOther": 60, "zoom": 60}
+       */
+
+      __proto.setTo = function(pos, duration) {
+        if (duration === void 0) {
+          duration = 0;
+        }
+
+        this.am.setTo(pos, duration);
+        return this;
+      };
+      /**
+       * Moves an axis from the current coordinates to specific coordinates.
+       * @ko 현재 좌표를 기준으로 좌표를 이동한다.
+       * @method eg.Axes#setBy
+       * @param {Object.<string, number>} pos The coordinate to move to <ko>이동할 좌표</ko>
+       * @param {Number} [duration=0] Duration of the animation (unit: ms) <ko>애니메이션 진행 시간(단위: ms)</ko>
+       * @return {eg.Axes} An instance of a module itself <ko>모듈 자신의 인스턴스</ko>
+       * @example
+       * const axes = new eg.Axes({
+       *   "x": {
+       *      range: [0, 100]
+       *   },
+       *   "xOther": {
+       *      range: [-100, 100]
+       *   },
+       * 	 "zoom": {
+       *      range: [50, 30]
+       *   }
+       * });
+       *
+       * axes.setBy({"x": 30, "zoom": 10});
+       * axes.get(); // {"x": 30, "xOther": -100, "zoom": 60}
+       *
+       * axes.setBy({"x": 70, "xOther": 60}, 1000); // animatation
+       *
+       * // after 1000 ms
+       * axes.get(); // {"x": 100, "xOther": -40, "zoom": 60}
+       */
+
+      __proto.setBy = function(pos, duration) {
+        if (duration === void 0) {
+          duration = 0;
+        }
+
+        this.am.setBy(pos, duration);
+        return this;
+      };
+      /**
+       * Returns whether there is a coordinate in the bounce area of ​​the target axis.
+       * @ko 대상 축 중 bounce영역에 좌표가 존재하는지를 반환한다
+       * @method eg.Axes#isBounceArea
+       * @param {Object} [axes] The names of the axis <ko>축 이름들</ko>
+       * @return {Boolen} Whether the bounce area exists. <ko>bounce 영역 존재 여부</ko>
+       * @example
+       * const axes = new eg.Axes({
+       *   "x": {
+       *      range: [0, 100]
+       *   },
+       *   "xOther": {
+       *      range: [-100, 100]
+       *   },
+       * 	 "zoom": {
+       *      range: [50, 30]
+       *   }
+       * });
+       *
+       * axes.isBounceArea(["x"]);
+       * axes.isBounceArea(["x", "zoom"]);
+       * axes.isBounceArea();
+       */
+
+      __proto.isBounceArea = function(axes) {
+        return this.axm.isOutside(axes);
+      };
+      /**
+       * Destroys properties, and events used in a module and disconnect all connections to inputTypes.
+       * @ko 모듈에 사용한 속성, 이벤트를 해제한다. 모든 inputType과의 연결을 끊는다.
+       * @method eg.Axes#destroy
+       */
+
+      __proto.destroy = function() {
+        this.disconnect();
+        this.em.destroy();
+      };
+      /**
+       * Version info string
+       * @ko 버전정보 문자열
+       * @name VERSION
+       * @static
+       * @type {String}
+       * @example
+       * eg.Axes.VERSION;  // ex) 3.3.3
+       * @memberof eg.Axes
+       */
+
+      Axes.VERSION = "2.6.0";
+      /**
+       * @name eg.Axes.TRANSFORM
+       * @desc Returns the transform attribute with CSS vendor prefixes.
+       * @ko CSS vendor prefixes를 붙인 transform 속성을 반환한다.
+       *
+       * @constant
+       * @type {String}
+       * @example
+       * eg.Axes.TRANSFORM; // "transform" or "webkitTransform"
+       */
+
+      Axes.TRANSFORM = TRANSFORM$1;
+      /**
+       * @name eg.Axes.DIRECTION_NONE
+       * @constant
+       * @type {Number}
+       */
+
+      Axes.DIRECTION_NONE = DIRECTION_NONE;
+      /**
+       * @name eg.Axes.DIRECTION_LEFT
+       * @constant
+       * @type {Number}
+       */
+
+      Axes.DIRECTION_LEFT = DIRECTION_LEFT;
+      /**
+       * @name eg.Axes.DIRECTION_RIGHT
+       * @constant
+       * @type {Number}
+       */
+
+      Axes.DIRECTION_RIGHT = DIRECTION_RIGHT;
+      /**
+       * @name eg.Axes.DIRECTION_UP
+       * @constant
+       * @type {Number}
+       */
+
+      Axes.DIRECTION_UP = DIRECTION_UP;
+      /**
+       * @name eg.Axes.DIRECTION_DOWN
+       * @constant
+       * @type {Number}
+       */
+
+      Axes.DIRECTION_DOWN = DIRECTION_DOWN;
+      /**
+       * @name eg.Axes.DIRECTION_HORIZONTAL
+       * @constant
+       * @type {Number}
+       */
+
+      Axes.DIRECTION_HORIZONTAL = DIRECTION_HORIZONTAL;
+      /**
+       * @name eg.Axes.DIRECTION_VERTICAL
+       * @constant
+       * @type {Number}
+       */
+
+      Axes.DIRECTION_VERTICAL = DIRECTION_VERTICAL;
+      /**
+       * @name eg.Axes.DIRECTION_ALL
+       * @constant
+       * @type {Number}
+       */
+
+      Axes.DIRECTION_ALL = DIRECTION_ALL;
+      return Axes;
+    })(Component);
+
+  var SUPPORT_POINTER_EVENTS$1 =
+    "PointerEvent" in win$2 || "MSPointerEvent" in win$2;
+  var SUPPORT_TOUCH$2 = "ontouchstart" in win$2;
+  var UNIQUEKEY = "_EGJS_AXES_INPUTTYPE_";
+
+  function toAxis(source, offset) {
+    return offset.reduce(function(acc, v, i) {
+      if (source[i]) {
+        acc[source[i]] = v;
+      }
+
+      return acc;
+    }, {});
+  }
+
+  function createHammer(element, options) {
+    try {
+      // create Hammer
+      return new Manager(element, __assign({}, options));
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function convertInputType(inputType) {
+    if (inputType === void 0) {
+      inputType = [];
+    }
+
+    var hasTouch = false;
+    var hasMouse = false;
+    var hasPointer = false;
+    inputType.forEach(function(v) {
+      switch (v) {
+        case "mouse":
+          hasMouse = true;
+          break;
+
+        case "touch":
+          hasTouch = SUPPORT_TOUCH$2;
+          break;
+
+        case "pointer":
+          hasPointer = SUPPORT_POINTER_EVENTS$1;
+        // no default
+      }
+    });
+
+    if (hasPointer) {
+      return PointerEventInput;
+    } else if (hasTouch && hasMouse) {
+      return TouchMouseInput;
+    } else if (hasTouch) {
+      return TouchInput;
+    } else if (hasMouse) {
+      return MouseInput;
+    }
+
+    return null;
+  } // get user's direction
+
+  function getDirectionByAngle(angle, thresholdAngle) {
+    if (thresholdAngle < 0 || thresholdAngle > 90) {
+      return DIRECTION_NONE;
+    }
+
+    var toAngle = Math.abs(angle);
+    return toAngle > thresholdAngle && toAngle < 180 - thresholdAngle
+      ? DIRECTION_VERTICAL
+      : DIRECTION_HORIZONTAL;
+  }
+
+  function getNextOffset(speeds, deceleration) {
+    var normalSpeed = Math.sqrt(speeds[0] * speeds[0] + speeds[1] * speeds[1]);
+    var duration = Math.abs(normalSpeed / -deceleration);
+    return [(speeds[0] / 2) * duration, (speeds[1] / 2) * duration];
+  }
+
+  function useDirection(checkType, direction, userDirection) {
+    if (userDirection) {
+      return !!(
+        direction === DIRECTION_ALL ||
+        (direction & checkType && userDirection & checkType)
+      );
+    } else {
+      return !!(direction & checkType);
+    }
+  }
+  /**
+   * @typedef {Object} PanInputOption The option object of the eg.Axes.PanInput module.
+   * @ko eg.Axes.PanInput 모듈의 옵션 객체
+   * @property {String[]} [inputType=["touch","mouse", "pointer"]] Types of input devices.<br>- touch: Touch screen<br>- mouse: Mouse <ko>입력 장치 종류.<br>- touch: 터치 입력 장치<br>- mouse: 마우스</ko>
+   * @property {Number[]} [scale] Coordinate scale that a user can move<ko>사용자의 동작으로 이동하는 좌표의 배율</ko>
+   * @property {Number} [scale.0=1] horizontal axis scale <ko>수평축 배율</ko>
+   * @property {Number} [scale.1=1] vertical axis scale <ko>수직축 배율</ko>
+   * @property {Number} [thresholdAngle=45] The threshold value that determines whether user action is horizontal or vertical (0~90) <ko>사용자의 동작이 가로 방향인지 세로 방향인지 판단하는 기준 각도(0~90)</ko>
+   * @property {Number} [threshold=0] Minimal pan distance required before recognizing <ko>사용자의 Pan 동작을 인식하기 위해산 최소한의 거리</ko>
+   * @property {Object} [hammerManagerOptions={cssProps: {userSelect: "none",touchSelect: "none",touchCallout: "none",userDrag: "none"}] Options of Hammer.Manager <ko>Hammer.Manager의 옵션</ko>
+   **/
+
+  /**
+   * @class eg.Axes.PanInput
+   * @classdesc A module that passes the amount of change to eg.Axes when the mouse or touchscreen is down and moved. use less than two axes.
+   * @ko 마우스나 터치 스크린을 누르고 움직일때의 변화량을 eg.Axes에 전달하는 모듈. 두개 이하의 축을 사용한다.
+   *
+   * @example
+   * const pan = new eg.Axes.PanInput("#area", {
+   * 		inputType: ["touch"],
+   * 		scale: [1, 1.3],
+   * });
+   *
+   * // Connect the 'something2' axis to the mouse or touchscreen x position when the mouse or touchscreen is down and moved.
+   * // Connect the 'somethingN' axis to the mouse or touchscreen y position when the mouse or touchscreen is down and moved.
+   * axes.connect(["something2", "somethingN"], pan); // or axes.connect("something2 somethingN", pan);
+   *
+   * // Connect only one 'something1' axis to the mouse or touchscreen x position when the mouse or touchscreen is down and moved.
+   * axes.connect(["something1"], pan); // or axes.connect("something1", pan);
+   *
+   * // Connect only one 'something2' axis to the mouse or touchscreen y position when the mouse or touchscreen is down and moved.
+   * axes.connect(["", "something2"], pan); // or axes.connect(" something2", pan);
+   *
+   * @param {HTMLElement|String|jQuery} element An element to use the eg.Axes.PanInput module <ko>eg.Axes.PanInput 모듈을 사용할 엘리먼트</ko>
+   * @param {PanInputOption} [options] The option object of the eg.Axes.PanInput module<ko>eg.Axes.PanInput 모듈의 옵션 객체</ko>
+   */
+
+  var PanInput =
+    /*#__PURE__*/
+    (function() {
+      function PanInput(el, options) {
+        this.axes = [];
+        this.hammer = null;
+        this.element = null;
+        this.panRecognizer = null;
+        /**
+         * Hammer helps you add support for touch gestures to your page
+         *
+         * @external Hammer
+         * @see {@link http://hammerjs.github.io|Hammer.JS}
+         * @see {@link http://hammerjs.github.io/jsdoc/Hammer.html|Hammer.JS API documents}
+         * @see Hammer.JS applies specific CSS properties by {@link http://hammerjs.github.io/jsdoc/Hammer.defaults.cssProps.html|default} when creating an instance. The eg.Axes module removes all default CSS properties provided by Hammer.JS
+         */
+
+        if (typeof Manager === "undefined") {
+          throw new Error(
+            "The Hammerjs must be loaded before eg.Axes.PanInput.\nhttp://hammerjs.github.io/"
+          );
+        }
+
+        this.element = $(el);
+        this.options = __assign(
+          {
+            inputType: ["touch", "mouse", "pointer"],
+            scale: [1, 1],
+            thresholdAngle: 45,
+            threshold: 0,
+            hammerManagerOptions: {
+              // css properties were removed due to usablility issue
+              // http://hammerjs.github.io/jsdoc/Hammer.defaults.cssProps.html
+              cssProps: {
+                userSelect: "none",
+                touchSelect: "none",
+                touchCallout: "none",
+                userDrag: "none"
+              }
+            }
+          },
+          options
+        );
+        this.onHammerInput = this.onHammerInput.bind(this);
+        this.onPanmove = this.onPanmove.bind(this);
+        this.onPanend = this.onPanend.bind(this);
+      }
+
+      var __proto = PanInput.prototype;
+
+      __proto.mapAxes = function(axes) {
+        var useHorizontal = !!axes[0];
+        var useVertical = !!axes[1];
+
+        if (useHorizontal && useVertical) {
+          this._direction = DIRECTION_ALL;
+        } else if (useHorizontal) {
+          this._direction = DIRECTION_HORIZONTAL;
+        } else if (useVertical) {
+          this._direction = DIRECTION_VERTICAL;
+        } else {
+          this._direction = DIRECTION_NONE;
+        }
+
+        this.axes = axes;
+      };
+
+      __proto.connect = function(observer) {
+        var hammerOption = {
+          direction: this._direction,
+          threshold: this.options.threshold
+        };
+
+        if (this.hammer) {
+          // for sharing hammer instance.
+          // hammer remove previous PanRecognizer.
+          this.removeRecognizer();
+          this.dettachEvent();
+        } else {
+          var keyValue = this.element[UNIQUEKEY];
+
+          if (!keyValue) {
+            keyValue = String(Math.round(Math.random() * new Date().getTime()));
+          }
+
+          var inputClass = convertInputType(this.options.inputType);
+
+          if (!inputClass) {
+            throw new Error("Wrong inputType parameter!");
+          }
+
+          this.hammer = createHammer(
+            this.element,
+            __assign(
+              {
+                inputClass: inputClass
+              },
+              this.options.hammerManagerOptions
+            )
+          );
+          this.element[UNIQUEKEY] = keyValue;
+        }
+
+        this.panRecognizer = new PanRecognizer(hammerOption);
+        this.hammer.add(this.panRecognizer);
+        this.attachEvent(observer);
+        return this;
+      };
+
+      __proto.disconnect = function() {
+        this.removeRecognizer();
+
+        if (this.hammer) {
+          this.dettachEvent();
+        }
+
+        this._direction = DIRECTION_NONE;
+        return this;
+      };
+      /**
+       * Destroys elements, properties, and events used in a module.
+       * @ko 모듈에 사용한 엘리먼트와 속성, 이벤트를 해제한다.
+       * @method eg.Axes.PanInput#destroy
+       */
+
+      __proto.destroy = function() {
+        this.disconnect();
+
+        if (this.hammer && this.hammer.recognizers.length === 0) {
+          this.hammer.destroy();
+        }
+
+        delete this.element[UNIQUEKEY];
+        this.element = null;
+        this.hammer = null;
+      };
+      /**
+       * Enables input devices
+       * @ko 입력 장치를 사용할 수 있게 한다
+       * @method eg.Axes.PanInput#enable
+       * @return {eg.Axes.PanInput} An instance of a module itself <ko>모듈 자신의 인스턴스</ko>
+       */
+
+      __proto.enable = function() {
+        this.hammer && (this.hammer.get("pan").options.enable = true);
+        return this;
+      };
+      /**
+       * Disables input devices
+       * @ko 입력 장치를 사용할 수 없게 한다.
+       * @method eg.Axes.PanInput#disable
+       * @return {eg.Axes.PanInput} An instance of a module itself <ko>모듈 자신의 인스턴스</ko>
+       */
+
+      __proto.disable = function() {
+        this.hammer && (this.hammer.get("pan").options.enable = false);
+        return this;
+      };
+      /**
+       * Returns whether to use an input device
+       * @ko 입력 장치를 사용 여부를 반환한다.
+       * @method eg.Axes.PanInput#isEnable
+       * @return {Boolean} Whether to use an input device <ko>입력장치 사용여부</ko>
+       */
+
+      __proto.isEnable = function() {
+        return !!(this.hammer && this.hammer.get("pan").options.enable);
+      };
+
+      __proto.removeRecognizer = function() {
+        if (this.hammer && this.panRecognizer) {
+          this.hammer.remove(this.panRecognizer);
+          this.panRecognizer = null;
+        }
+      };
+
+      __proto.onHammerInput = function(event) {
+        if (this.isEnable()) {
+          if (event.isFirst) {
+            this.observer.hold(this, event);
+          } else if (event.isFinal) {
+            this.onPanend(event);
+          }
+        }
+      };
+
+      __proto.onPanmove = function(event) {
+        var userDirection = getDirectionByAngle(
+          event.angle,
+          this.options.thresholdAngle
+        ); // not support offset properties in Hammerjs - start
+
+        var prevInput = this.hammer.session.prevInput;
+        /* eslint-disable no-param-reassign */
+
+        if (prevInput) {
+          event.offsetX = event.deltaX - prevInput.deltaX;
+          event.offsetY = event.deltaY - prevInput.deltaY;
+        } else {
+          event.offsetX = 0;
+          event.offsetY = 0;
+        }
+
+        var offset = this.getOffset(
+          [event.offsetX, event.offsetY],
+          [
+            useDirection(DIRECTION_HORIZONTAL, this._direction, userDirection),
+            useDirection(DIRECTION_VERTICAL, this._direction, userDirection)
+          ]
+        );
+        var prevent = offset.some(function(v) {
+          return v !== 0;
+        });
+
+        if (prevent) {
+          event.srcEvent.preventDefault();
+          event.srcEvent.stopPropagation();
+        }
+
+        event.preventSystemEvent = prevent;
+        prevent && this.observer.change(this, event, toAxis(this.axes, offset));
+      };
+
+      __proto.onPanend = function(event) {
+        var offset = this.getOffset(
+          [
+            Math.abs(event.velocityX) * (event.deltaX < 0 ? -1 : 1),
+            Math.abs(event.velocityY) * (event.deltaY < 0 ? -1 : 1)
+          ],
+          [
+            useDirection(DIRECTION_HORIZONTAL, this._direction),
+            useDirection(DIRECTION_VERTICAL, this._direction)
+          ]
+        );
+        offset = getNextOffset(offset, this.observer.options.deceleration);
+        this.observer.release(this, event, toAxis(this.axes, offset));
+      };
+
+      __proto.attachEvent = function(observer) {
+        this.observer = observer;
+        this.hammer
+          .on("hammer.input", this.onHammerInput)
+          .on("panstart panmove", this.onPanmove);
+      };
+
+      __proto.dettachEvent = function() {
+        this.hammer
+          .off("hammer.input", this.onHammerInput)
+          .off("panstart panmove", this.onPanmove);
+        this.observer = null;
+      };
+
+      __proto.getOffset = function(properties, direction) {
+        var offset = [0, 0];
+        var scale = this.options.scale;
+
+        if (direction[0]) {
+          offset[0] = properties[0] * scale[0];
+        }
+
+        if (direction[1]) {
+          offset[1] = properties[1] * scale[1];
+        }
+
+        return offset;
+      };
+
+      return PanInput;
+    })();
+  /**
+   * @class eg.Axes.RotatePanInput
+   * @classdesc A module that passes the angle moved by touch to Axes and uses one axis of rotation.<br>[Details](https://github.com/naver/egjs-axes/wiki/RotatePanInput)
+   * @ko 터치에 의해 움직인 각도를 Axes 에 전달하며 1개의 회전축만 사용한다.<br>[상세내용](https://github.com/naver/egjs-axes/wiki/RotatePanInput-%7C-%ED%95%9C%EA%B5%AD%EC%96%B4)
+   *
+   * @example
+   * const input = new eg.Axes.RotatePanInput("#area");
+   *
+   * var axes = new eg.Axes({
+   *	// property name('angle') could be anything you want (eg. x, y, z...)
+   * 	angle: {
+   * 		range: [-180, 180] // from -180deg to 180deg
+   * 	}
+   * });
+   *
+   * axes.connect("angle", input)
+   *
+   * @param {HTMLElement|String|jQuery} element An element to use the eg.Axes.RotatePanInput module <ko>eg.Axes.RotatePanInput 모듈을 사용할 엘리먼트</ko>
+   * @param {PanInputOption} [options] The option object of the eg.Axes.PanInput module<ko>eg.Axes.PanInput 모듈의 옵션 객체</ko>
+   * @extends eg.Axes.PanInput
+   */
+
+  var RotatePanInput =
+    /*#__PURE__*/
+    (function(_super) {
+      __extends(RotatePanInput, _super);
+
+      function RotatePanInput(el, options) {
+        var _this = _super.call(this, el, options) || this;
+
+        _this.prevQuadrant = null;
+        _this.lastDiff = 0;
+        return _this;
+      }
+
+      var __proto = RotatePanInput.prototype;
+
+      __proto.mapAxes = function(axes) {
+        this._direction = Axes.DIRECTION_ALL;
+        this.axes = axes;
+      };
+
+      __proto.onHammerInput = function(event) {
+        if (this.isEnable()) {
+          if (event.isFirst) {
+            this.observer.hold(this, event);
+            this.onPanstart(event);
+          } else if (event.isFinal) {
+            this.onPanend(event);
+          }
+        }
+      };
+
+      __proto.onPanstart = function(event) {
+        var rect = this.element.getBoundingClientRect();
+        /**
+         * Responsive
+         */
+        // TODO: how to do if element is ellipse not circle.
+
+        this.coefficientForDistanceToAngle = 360 / (rect.width * Math.PI); // from 2*pi*r * x / 360
+        // TODO: provide a way to set origin like https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin
+
+        this.rotateOrigin = [
+          rect.left + (rect.width - 1) / 2,
+          rect.top + (rect.height - 1) / 2
+        ]; // init angle.
+
+        this.prevAngle = null;
+        this.triggerChange(event);
+      };
+
+      __proto.onPanmove = function(event) {
+        this.triggerChange(event);
+      };
+
+      __proto.onPanend = function(event) {
+        this.triggerChange(event);
+        this.triggerAnimation(event);
+      };
+
+      __proto.triggerChange = function(event) {
+        var angle = this.getAngle(event.center.x, event.center.y);
+        var quadrant = this.getQuadrant(event.center.x, event.center.y);
+        var diff = this.getDifference(
+          this.prevAngle,
+          angle,
+          this.prevQuadrant,
+          quadrant
+        );
+        this.prevAngle = angle;
+        this.prevQuadrant = quadrant;
+
+        if (diff === 0) {
+          return;
+        }
+
+        this.lastDiff = diff;
+        this.observer.change(this, event, toAxis(this.axes, [-diff])); // minus for clockwise
+      };
+
+      __proto.triggerAnimation = function(event) {
+        var vx = event.velocityX;
+        var vy = event.velocityY;
+        var velocity =
+          Math.sqrt(vx * vx + vy * vy) * (this.lastDiff > 0 ? -1 : 1); // clockwise
+
+        var duration = Math.abs(velocity / -this.observer.options.deceleration);
+        var distance = (velocity / 2) * duration;
+        this.observer.release(
+          this,
+          event,
+          toAxis(this.axes, [distance * this.coefficientForDistanceToAngle])
+        );
+      };
+
+      __proto.getDifference = function(
+        prevAngle,
+        angle,
+        prevQuadrant,
+        quadrant
+      ) {
+        var diff;
+
+        if (prevAngle === null) {
+          diff = 0;
+        } else if (prevQuadrant === 1 && quadrant === 4) {
+          diff = -prevAngle - (360 - angle);
+        } else if (prevQuadrant === 4 && quadrant === 1) {
+          diff = 360 - prevAngle + angle;
+        } else {
+          diff = angle - prevAngle;
+        }
+
+        return diff;
+      };
+
+      __proto.getPosFromOrigin = function(posX, posY) {
+        return {
+          x: posX - this.rotateOrigin[0],
+          y: this.rotateOrigin[1] - posY
+        };
+      };
+
+      __proto.getAngle = function(posX, posY) {
+        var _a = this.getPosFromOrigin(posX, posY),
+          x = _a.x,
+          y = _a.y;
+
+        var angle = (Math.atan2(y, x) * 180) / Math.PI; // console.log(angle, x, y);
+
+        return angle < 0 ? 360 + angle : angle;
+      };
+      /**
+       * Quadrant
+       *       y(+)
+       *       |
+       *   2   |    1
+       * --------------->x(+)
+       *   3   |    4
+       *       |
+       */
+
+      __proto.getQuadrant = function(posX, posY) {
+        var _a = this.getPosFromOrigin(posX, posY),
+          x = _a.x,
+          y = _a.y;
+
+        var q = 0;
+
+        if (x >= 0 && y >= 0) {
+          q = 1;
+        } else if (x < 0 && y >= 0) {
+          q = 2;
+        } else if (x < 0 && y < 0) {
+          q = 3;
+        } else if (x >= 0 && y < 0) {
+          q = 4;
+        }
+
+        return q;
+      };
+
+      return RotatePanInput;
+    })(PanInput);
+  /**
+   * @typedef {Object} PinchInputOption The option object of the eg.Axes.PinchInput module
+   * @ko eg.Axes.PinchInput 모듈의 옵션 객체
+   * @property {Number} [scale=1] Coordinate scale that a user can move<ko>사용자의 동작으로 이동하는 좌표의 배율</ko>
+   * @property {Number} [threshold=0] Minimal scale before recognizing <ko>사용자의 Pinch 동작을 인식하기 위해산 최소한의 배율</ko>
+   * @property {Object} [hammerManagerOptions={cssProps: {userSelect: "none",touchSelect: "none",touchCallout: "none",userDrag: "none"}] Options of Hammer.Manager <ko>Hammer.Manager의 옵션</ko>
+   **/
+
+  /**
+   * @class eg.Axes.PinchInput
+   * @classdesc A module that passes the amount of change to eg.Axes when two pointers are moving toward (zoom-in) or away from each other (zoom-out). use one axis.
+   * @ko 2개의 pointer를 이용하여 zoom-in하거나 zoom-out 하는 동작의 변화량을 eg.Axes에 전달하는 모듈. 한 개 의 축을 사용한다.
+   * @example
+   * const pinch = new eg.Axes.PinchInput("#area", {
+   * 		scale: 1
+   * });
+   *
+   * // Connect 'something' axis when two pointers are moving toward (zoom-in) or away from each other (zoom-out).
+   * axes.connect("something", pinch);
+   *
+   * @param {HTMLElement|String|jQuery} element An element to use the eg.Axes.PinchInput module <ko>eg.Axes.PinchInput 모듈을 사용할 엘리먼트</ko>
+   * @param {PinchInputOption} [options] The option object of the eg.Axes.PinchInput module<ko>eg.Axes.PinchInput 모듈의 옵션 객체</ko>
+   */
+
+  var PinchInput =
+    /*#__PURE__*/
+    (function() {
+      function PinchInput(el, options) {
+        this.axes = [];
+        this.hammer = null;
+        this.element = null;
+        this._base = null;
+        this._prev = null;
+        this.pinchRecognizer = null;
+        /**
+         * Hammer helps you add support for touch gestures to your page
+         *
+         * @external Hammer
+         * @see {@link http://hammerjs.github.io|Hammer.JS}
+         * @see {@link http://hammerjs.github.io/jsdoc/Hammer.html|Hammer.JS API documents}
+         * @see Hammer.JS applies specific CSS properties by {@link http://hammerjs.github.io/jsdoc/Hammer.defaults.cssProps.html|default} when creating an instance. The eg.Axes module removes all default CSS properties provided by Hammer.JS
+         */
+
+        if (typeof Manager === "undefined") {
+          throw new Error(
+            "The Hammerjs must be loaded before eg.Axes.PinchInput.\nhttp://hammerjs.github.io/"
+          );
+        }
+
+        this.element = $(el);
+        this.options = __assign(
+          {
+            scale: 1,
+            threshold: 0,
+            inputType: ["touch", "pointer"],
+            hammerManagerOptions: {
+              // css properties were removed due to usablility issue
+              // http://hammerjs.github.io/jsdoc/Hammer.defaults.cssProps.html
+              cssProps: {
+                userSelect: "none",
+                touchSelect: "none",
+                touchCallout: "none",
+                userDrag: "none"
+              }
+            }
+          },
+          options
+        );
+        this.onPinchStart = this.onPinchStart.bind(this);
+        this.onPinchMove = this.onPinchMove.bind(this);
+        this.onPinchEnd = this.onPinchEnd.bind(this);
+      }
+
+      var __proto = PinchInput.prototype;
+
+      __proto.mapAxes = function(axes) {
+        this.axes = axes;
+      };
+
+      __proto.connect = function(observer) {
+        var hammerOption = {
+          threshold: this.options.threshold
+        };
+
+        if (this.hammer) {
+          // for sharing hammer instance.
+          // hammer remove previous PinchRecognizer.
+          this.removeRecognizer();
+          this.dettachEvent();
+        } else {
+          var keyValue = this.element[UNIQUEKEY];
+
+          if (!keyValue) {
+            keyValue = String(Math.round(Math.random() * new Date().getTime()));
+          }
+
+          var inputClass = convertInputType(this.options.inputType);
+
+          if (!inputClass) {
+            throw new Error("Wrong inputType parameter!");
+          }
+
+          this.hammer = createHammer(
+            this.element,
+            __assign(
+              {
+                inputClass: inputClass
+              },
+              this.options.hammerManagerOptions
+            )
+          );
+          this.element[UNIQUEKEY] = keyValue;
+        }
+
+        this.pinchRecognizer = new PinchRecognizer(hammerOption);
+        this.hammer.add(this.pinchRecognizer);
+        this.attachEvent(observer);
+        return this;
+      };
+
+      __proto.disconnect = function() {
+        this.removeRecognizer();
+
+        if (this.hammer) {
+          this.hammer.remove(this.pinchRecognizer);
+          this.pinchRecognizer = null;
+          this.dettachEvent();
+        }
+
+        return this;
+      };
+      /**
+       * Destroys elements, properties, and events used in a module.
+       * @ko 모듈에 사용한 엘리먼트와 속성, 이벤트를 해제한다.
+       * @method eg.Axes.PinchInput#destroy
+       */
+
+      __proto.destroy = function() {
+        this.disconnect();
+
+        if (this.hammer && this.hammer.recognizers.length === 0) {
+          this.hammer.destroy();
+        }
+
+        delete this.element[UNIQUEKEY];
+        this.element = null;
+        this.hammer = null;
+      };
+
+      __proto.removeRecognizer = function() {
+        if (this.hammer && this.pinchRecognizer) {
+          this.hammer.remove(this.pinchRecognizer);
+          this.pinchRecognizer = null;
+        }
+      };
+
+      __proto.onPinchStart = function(event) {
+        this._base = this.observer.get(this)[this.axes[0]];
+        var offset = this.getOffset(event.scale);
+        this.observer.hold(this, event);
+        this.observer.change(this, event, toAxis(this.axes, [offset]));
+        this._prev = event.scale;
+      };
+
+      __proto.onPinchMove = function(event) {
+        var offset = this.getOffset(event.scale, this._prev);
+        this.observer.change(this, event, toAxis(this.axes, [offset]));
+        this._prev = event.scale;
+      };
+
+      __proto.onPinchEnd = function(event) {
+        var offset = this.getOffset(event.scale, this._prev);
+        this.observer.change(this, event, toAxis(this.axes, [offset]));
+        this.observer.release(this, event, toAxis(this.axes, [0]), 0);
+        this._base = null;
+        this._prev = null;
+      };
+
+      __proto.getOffset = function(pinchScale, prev) {
+        if (prev === void 0) {
+          prev = 1;
+        }
+
+        return this._base * (pinchScale - prev) * this.options.scale;
+      };
+
+      __proto.attachEvent = function(observer) {
+        this.observer = observer;
+        this.hammer
+          .on("pinchstart", this.onPinchStart)
+          .on("pinchmove", this.onPinchMove)
+          .on("pinchend", this.onPinchEnd);
+      };
+
+      __proto.dettachEvent = function() {
+        this.hammer
+          .off("pinchstart", this.onPinchStart)
+          .off("pinchmove", this.onPinchMove)
+          .off("pinchend", this.onPinchEnd);
+        this.observer = null;
+        this._prev = null;
+      };
+      /**
+       * Enables input devices
+       * @ko 입력 장치를 사용할 수 있게 한다
+       * @method eg.Axes.PinchInput#enable
+       * @return {eg.Axes.PinchInput} An instance of a module itself <ko>모듈 자신의 인스턴스</ko>
+       */
+
+      __proto.enable = function() {
+        this.hammer && (this.hammer.get("pinch").options.enable = true);
+        return this;
+      };
+      /**
+       * Disables input devices
+       * @ko 입력 장치를 사용할 수 없게 한다.
+       * @method eg.Axes.PinchInput#disable
+       * @return {eg.Axes.PinchInput} An instance of a module itself <ko>모듈 자신의 인스턴스</ko>
+       */
+
+      __proto.disable = function() {
+        this.hammer && (this.hammer.get("pinch").options.enable = false);
+        return this;
+      };
+      /**
+       * Returns whether to use an input device
+       * @ko 입력 장치를 사용 여부를 반환한다.
+       * @method eg.Axes.PinchInput#isEnable
+       * @return {Boolean} Whether to use an input device <ko>입력장치 사용여부</ko>
+       */
+
+      __proto.isEnable = function() {
+        return !!(this.hammer && this.hammer.get("pinch").options.enable);
+      };
+
+      return PinchInput;
+    })();
+  /**
+   * @typedef {Object} WheelInputOption The option object of the eg.Axes.WheelInput module
+   * @ko eg.Axes.WheelInput 모듈의 옵션 객체
+   * @property {Number} [scale=1] Coordinate scale that a user can move<ko>사용자의 동작으로 이동하는 좌표의 배율</ko>
+   **/
+
+  /**
+   * @class eg.Axes.WheelInput
+   * @classdesc A module that passes the amount of change to eg.Axes when the mouse wheel is moved. use one axis.
+   * @ko 마우스 휠이 움직일때의 변화량을 eg.Axes에 전달하는 모듈. 한 개 의 축을 사용한다.
+   *
+   * @example
+   * const wheel = new eg.Axes.WheelInput("#area", {
+   * 		scale: 1
+   * });
+   *
+   * // Connect 'something' axis when the mousewheel is moved.
+   * axes.connect("something", wheel);
+   *
+   * @param {HTMLElement|String|jQuery} element An element to use the eg.Axes.WheelInput module <ko>eg.Axes.WheelInput 모듈을 사용할 엘리먼트</ko>
+   * @param {WheelInputOption} [options] The option object of the eg.Axes.WheelInput module<ko>eg.Axes.WheelInput 모듈의 옵션 객체</ko>
+   */
+
+  var WheelInput =
+    /*#__PURE__*/
+    (function() {
+      function WheelInput(el, options) {
+        this.axes = [];
+        this.element = null;
+        this._isEnabled = false;
+        this._isHolded = false;
+        this._timer = null;
+        this.element = $(el);
+        this.options = __assign(
+          {
+            scale: 1,
+            useNormalized: true
+          },
+          options
+        );
+        this.onWheel = this.onWheel.bind(this);
+      }
+
+      var __proto = WheelInput.prototype;
+
+      __proto.mapAxes = function(axes) {
+        this.axes = axes;
+      };
+
+      __proto.connect = function(observer) {
+        this.dettachEvent();
+        this.attachEvent(observer);
+        return this;
+      };
+
+      __proto.disconnect = function() {
+        this.dettachEvent();
+        return this;
+      };
+      /**
+       * Destroys elements, properties, and events used in a module.
+       * @ko 모듈에 사용한 엘리먼트와 속성, 이벤트를 해제한다.
+       * @method eg.Axes.WheelInput#destroy
+       */
+
+      __proto.destroy = function() {
+        this.disconnect();
+        this.element = null;
+      };
+
+      __proto.onWheel = function(event) {
+        var _this = this;
+
+        if (!this._isEnabled) {
+          return;
+        }
+
+        event.preventDefault();
+
+        if (event.deltaY === 0) {
+          return;
+        }
+
+        if (!this._isHolded) {
+          this.observer.hold(this, event);
+          this._isHolded = true;
+        }
+
+        var offset =
+          (event.deltaY > 0 ? -1 : 1) *
+          this.options.scale *
+          (this.options.useNormalized ? 1 : Math.abs(event.deltaY));
+        this.observer.change(this, event, toAxis(this.axes, [offset]));
+        clearTimeout(this._timer);
+        this._timer = setTimeout(function() {
+          if (_this._isHolded) {
+            _this._isHolded = false;
+
+            _this.observer.release(_this, event, toAxis(_this.axes, [0]));
+          }
+        }, 50);
+      };
+
+      __proto.attachEvent = function(observer) {
+        this.observer = observer;
+        this.element.addEventListener("wheel", this.onWheel);
+        this._isEnabled = true;
+      };
+
+      __proto.dettachEvent = function() {
+        this.element.removeEventListener("wheel", this.onWheel);
+        this._isEnabled = false;
+        this.observer = null;
+
+        if (this._timer) {
+          clearTimeout(this._timer);
+          this._timer = null;
+        }
+      };
+      /**
+       * Enables input devices
+       * @ko 입력 장치를 사용할 수 있게 한다
+       * @method eg.Axes.WheelInput#enable
+       * @return {eg.Axes.WheelInput} An instance of a module itself <ko>모듈 자신의 인스턴스</ko>
+       */
+
+      __proto.enable = function() {
+        this._isEnabled = true;
+        return this;
+      };
+      /**
+       * Disables input devices
+       * @ko 입력 장치를 사용할 수 없게 한다.
+       * @method eg.Axes.WheelInput#disable
+       * @return {eg.Axes.WheelInput} An instance of a module itself <ko>모듈 자신의 인스턴스</ko>
+       */
+
+      __proto.disable = function() {
+        this._isEnabled = false;
+        return this;
+      };
+      /**
+       * Returns whether to use an input device
+       * @ko 입력 장치를 사용 여부를 반환한다.
+       * @method eg.Axes.WheelInput#isEnable
+       * @return {Boolean} Whether to use an input device <ko>입력장치 사용여부</ko>
+       */
+
+      __proto.isEnable = function() {
+        return this._isEnabled;
+      };
+
+      return WheelInput;
+    })();
+
+  var KEY_LEFT_ARROW = 37;
+  var KEY_A = 65;
+  var KEY_UP_ARROW = 38;
+  var KEY_W = 87;
+  var KEY_RIGHT_ARROW = 39;
+  var KEY_D = 68;
+  var KEY_DOWN_ARROW = 40;
+  var KEY_S = 83;
+  var DIRECTION_REVERSE = -1;
+  var DIRECTION_FORWARD = 1;
+  var DIRECTION_HORIZONTAL$1 = -1;
+  var DIRECTION_VERTICAL$1 = 1;
+  var DELAY = 80;
+  /**
+   * @typedef {Object} MoveKeyInputOption The option object of the eg.Axes.MoveKeyInput module
+   * @ko eg.Axes.MoveKeyInput 모듈의 옵션 객체
+   * @property {Array<Number>} [scale] Coordinate scale that a user can move<ko>사용자의 동작으로 이동하는 좌표의 배율</ko>
+   * @property {Number} [scale[0]=1] Coordinate scale for the first axis<ko>첫번째 축의 배율</ko>
+   * @property {Number} [scale[1]=1] Coordinate scale for the decond axis<ko>두번째 축의 배율</ko>
+   **/
+
+  /**
+   * @class eg.Axes.MoveKeyInput
+   * @classdesc A module that passes the amount of change to eg.Axes when the move key stroke is occured. use two axis.
+   * @ko 이동키 입력이 발생했을 때의 변화량을 eg.Axes에 전달하는 모듈. 두 개 의 축을 사용한다.
+   *
+   * @example
+   * const moveKey = new eg.Axes.MoveKeyInput("#area", {
+   * 		scale: [1, 1]
+   * });
+   *
+   * // Connect 'x', 'y' axes when the moveKey is pressed.
+   * axes.connect(["x", "y"], moveKey);
+   *
+   * @param {HTMLElement|String|jQuery} element An element to use the eg.Axes.MoveKeyInput module <ko>eg.Axes.MoveKeyInput 모듈을 사용할 엘리먼트</ko>
+   * @param {MoveKeyInputOption} [options] The option object of the eg.Axes.MoveKeyInput module<ko>eg.Axes.MoveKeyInput 모듈의 옵션 객체</ko>
+   */
+
+  var MoveKeyInput =
+    /*#__PURE__*/
+    (function() {
+      function MoveKeyInput(el, options) {
+        this.axes = [];
+        this.element = null;
+        this._isEnabled = false;
+        this._isHolded = false;
+        this._timer = null;
+        this.element = $(el);
+        this.options = __assign(
+          {
+            scale: [1, 1]
+          },
+          options
+        );
+        this.onKeydown = this.onKeydown.bind(this);
+        this.onKeyup = this.onKeyup.bind(this);
+      }
+
+      var __proto = MoveKeyInput.prototype;
+
+      __proto.mapAxes = function(axes) {
+        this.axes = axes;
+      };
+
+      __proto.connect = function(observer) {
+        this.dettachEvent(); // add tabindex="0" to the container for making it focusable
+
+        if (this.element.getAttribute("tabindex") !== "0") {
+          this.element.setAttribute("tabindex", "0");
+        }
+
+        this.attachEvent(observer);
+        return this;
+      };
+
+      __proto.disconnect = function() {
+        this.dettachEvent();
+        return this;
+      };
+      /**
+       * Destroys elements, properties, and events used in a module.
+       * @ko 모듈에 사용한 엘리먼트와 속성, 이벤트를 해제한다.
+       * @method eg.Axes.MoveKeyInput#destroy
+       */
+
+      __proto.destroy = function() {
+        this.disconnect();
+        this.element = null;
+      };
+
+      __proto.onKeydown = function(e) {
+        if (!this._isEnabled) {
+          return;
+        }
+
+        var isMoveKey = true;
+        var direction = DIRECTION_FORWARD;
+        var move = DIRECTION_HORIZONTAL$1;
+
+        switch (e.keyCode) {
+          case KEY_LEFT_ARROW:
+          case KEY_A:
+            direction = DIRECTION_REVERSE;
+            break;
+
+          case KEY_RIGHT_ARROW:
+          case KEY_D:
+            break;
+
+          case KEY_DOWN_ARROW:
+          case KEY_S:
+            direction = DIRECTION_REVERSE;
+            move = DIRECTION_VERTICAL$1;
+            break;
+
+          case KEY_UP_ARROW:
+          case KEY_W:
+            move = DIRECTION_VERTICAL$1;
+            break;
+
+          default:
+            isMoveKey = false;
+        }
+
+        if (
+          (move === DIRECTION_HORIZONTAL$1 && !this.axes[0]) ||
+          (move === DIRECTION_VERTICAL$1 && !this.axes[1])
+        ) {
+          isMoveKey = false;
+        }
+
+        if (!isMoveKey) {
+          return;
+        }
+
+        var offsets =
+          move === DIRECTION_HORIZONTAL$1
+            ? [+this.options.scale[0] * direction, 0]
+            : [0, +this.options.scale[1] * direction];
+
+        if (!this._isHolded) {
+          this.observer.hold(this, event);
+          this._isHolded = true;
+        }
+
+        clearTimeout(this._timer);
+        this.observer.change(this, event, toAxis(this.axes, offsets));
+      };
+
+      __proto.onKeyup = function(e) {
+        var _this = this;
+
+        if (!this._isHolded) {
+          return;
+        }
+
+        clearTimeout(this._timer);
+        this._timer = setTimeout(function() {
+          _this.observer.release(_this, e, toAxis(_this.axes, [0, 0]));
+
+          _this._isHolded = false;
+        }, DELAY);
+      };
+
+      __proto.attachEvent = function(observer) {
+        this.observer = observer;
+        this.element.addEventListener("keydown", this.onKeydown, false);
+        this.element.addEventListener("keypress", this.onKeydown, false);
+        this.element.addEventListener("keyup", this.onKeyup, false);
+        this._isEnabled = true;
+      };
+
+      __proto.dettachEvent = function() {
+        this.element.removeEventListener("keydown", this.onKeydown, false);
+        this.element.removeEventListener("keypress", this.onKeydown, false);
+        this.element.removeEventListener("keyup", this.onKeyup, false);
+        this._isEnabled = false;
+        this.observer = null;
+      };
+      /**
+       * Enables input devices
+       * @ko 입력 장치를 사용할 수 있게 한다
+       * @method eg.Axes.MoveKeyInput#enable
+       * @return {eg.Axes.MoveKeyInput} An instance of a module itself <ko>모듈 자신의 인스턴스</ko>
+       */
+
+      __proto.enable = function() {
+        this._isEnabled = true;
+        return this;
+      };
+      /**
+       * Disables input devices
+       * @ko 입력 장치를 사용할 수 없게 한다.
+       * @method eg.Axes.MoveKeyInput#disable
+       * @return {eg.Axes.MoveKeyInput} An instance of a module itself <ko>모듈 자신의 인스턴스</ko>
+       */
+
+      __proto.disable = function() {
+        this._isEnabled = false;
+        return this;
+      };
+      /**
+       * Returns whether to use an input device
+       * @ko 입력 장치를 사용 여부를 반환한다.
+       * @method eg.Axes.MoveKeyInput#isEnable
+       * @return {Boolean} Whether to use an input device <ko>입력장치 사용여부</ko>
+       */
+
+      __proto.isEnable = function() {
+        return this._isEnabled;
+      };
+
+      return MoveKeyInput;
+    })();
+
+  /**
+   * Original Code
+   * https://github.com/toji/gl-matrix/blob/v2.3.2/src/gl-matrix.js
+   * Math Util
+   * modified by egjs
+   */
+
+  function quatToVec3(quaternion) {
+    var baseV = fromValues$4(0, 0, 1);
+    transformQuat(baseV, baseV, quaternion);
+    return baseV;
+  }
+
+  function toDegree(a) {
+    return (a * 180) / Math.PI;
+  }
+
+  var util = {};
+
+  util.isPowerOfTwo = function(n) {
+    return n && (n & (n - 1)) === 0;
+  };
+
+  util.extractPitchFromQuat = function(quaternion) {
+    var baseV = quatToVec3(quaternion);
+    return (
+      -1 *
+      Math.atan2(
+        baseV[1],
+        Math.sqrt(Math.pow(baseV[0], 2) + Math.pow(baseV[2], 2))
+      )
+    );
+  };
+
+  util.hypot =
+    Math.hypot ||
+    function(x, y) {
+      return Math.sqrt(x * x + y * y);
+    }; // implement reference
+  // the general equation of a plane : http://www.gisdeveloper.co.kr/entry/평면의-공식
+  // calculating angle between two vectors : http://darkpgmr.tistory.com/121
+
+  var ROTATE_CONSTANT = {
+    PITCH_DELTA: 1,
+    YAW_DELTA_BY_ROLL: 2,
+    YAW_DELTA_BY_YAW: 3
+  };
+  ROTATE_CONSTANT[ROTATE_CONSTANT.PITCH_DELTA] = {
+    targetAxis: [0, 1, 0],
+    meshPoint: [0, 0, 1]
+  };
+  ROTATE_CONSTANT[ROTATE_CONSTANT.YAW_DELTA_BY_ROLL] = {
+    targetAxis: [0, 1, 0],
+    meshPoint: [1, 0, 0]
+  };
+  ROTATE_CONSTANT[ROTATE_CONSTANT.YAW_DELTA_BY_YAW] = {
+    targetAxis: [1, 0, 0],
+    meshPoint: [0, 0, 1]
+  };
+
+  function getRotationDelta(prevQ, curQ, rotateKind) {
+    var targetAxis = fromValues$4(
+      ROTATE_CONSTANT[rotateKind].targetAxis[0],
+      ROTATE_CONSTANT[rotateKind].targetAxis[1],
+      ROTATE_CONSTANT[rotateKind].targetAxis[2]
+    );
+    var meshPoint = ROTATE_CONSTANT[rotateKind].meshPoint;
+    var prevQuaternion = clone$6(prevQ);
+    var curQuaternion = clone$6(curQ);
+    normalize$2(prevQuaternion, prevQuaternion);
+    normalize$2(curQuaternion, curQuaternion);
+    var prevPoint = fromValues$4(0, 0, 1);
+    var curPoint = fromValues$4(0, 0, 1);
+    transformQuat(prevPoint, prevPoint, prevQuaternion);
+    transformQuat(curPoint, curPoint, curQuaternion);
+    transformQuat(targetAxis, targetAxis, curQuaternion);
+    var rotateDistance = dot(
+      targetAxis,
+      cross(create$4(), prevPoint, curPoint)
+    );
+    var rotateDirection = rotateDistance > 0 ? 1 : -1; // when counter clock wise, use vec3.fromValues(0,1,0)
+    // when clock wise, use vec3.fromValues(0,-1,0)
+    // const meshPoint1 = vec3.fromValues(0, 0, 0);
+
+    var meshPoint2 = fromValues$4(meshPoint[0], meshPoint[1], meshPoint[2]);
+    var meshPoint3;
+
+    if (rotateKind !== ROTATE_CONSTANT.YAW_DELTA_BY_YAW) {
+      meshPoint3 = fromValues$4(0, rotateDirection, 0);
+    } else {
+      meshPoint3 = fromValues$4(rotateDirection, 0, 0);
+    }
+
+    transformQuat(meshPoint2, meshPoint2, curQuaternion);
+    transformQuat(meshPoint3, meshPoint3, curQuaternion);
+    var vecU = meshPoint2;
+    var vecV = meshPoint3;
+    var vecN = create$4();
+    cross(vecN, vecU, vecV);
+    normalize(vecN, vecN);
+    var coefficientA = vecN[0];
+    var coefficientB = vecN[1];
+    var coefficientC = vecN[2]; //	const coefficientD = -1 * vec3.dot(vecN, meshPoint1);
+    // a point on the plane
+
+    curPoint = fromValues$4(meshPoint[0], meshPoint[1], meshPoint[2]);
+    transformQuat(curPoint, curPoint, curQuaternion); // a point should project on the plane
+
+    prevPoint = fromValues$4(meshPoint[0], meshPoint[1], meshPoint[2]);
+    transformQuat(prevPoint, prevPoint, prevQuaternion); // distance between prevPoint and the plane
+
+    var distance$$1 = Math.abs(
+      prevPoint[0] * coefficientA +
+        prevPoint[1] * coefficientB +
+        prevPoint[2] * coefficientC
+    );
+    var projectedPrevPoint = create$4();
+    subtract$4(
+      projectedPrevPoint,
+      prevPoint,
+      scale$4(create$4(), vecN, distance$$1)
+    );
+    var trigonometricRatio =
+      (projectedPrevPoint[0] * curPoint[0] +
+        projectedPrevPoint[1] * curPoint[1] +
+        projectedPrevPoint[2] * curPoint[2]) /
+      (length(projectedPrevPoint) * length(curPoint)); // defensive block
+
+    trigonometricRatio > 1 && (trigonometricRatio = 1);
+    var theta = Math.acos(trigonometricRatio);
+    var crossVec = cross(create$4(), curPoint, projectedPrevPoint);
+    distance$$1 =
+      coefficientA * crossVec[0] +
+      coefficientB * crossVec[1] +
+      coefficientC * crossVec[2];
+    var thetaDirection;
+
+    if (rotateKind !== ROTATE_CONSTANT.YAW_DELTA_BY_YAW) {
+      thetaDirection = distance$$1 > 0 ? 1 : -1;
+    } else {
+      thetaDirection = distance$$1 < 0 ? 1 : -1;
+    }
+
+    var deltaRadian = theta * thetaDirection * rotateDirection;
+    return toDegree(deltaRadian);
+  }
+
+  function angleBetweenVec2(v1, v2) {
+    var det = v1[0] * v2[1] - v2[0] * v1[1];
+    var theta = -Math.atan2(det, dot$4(v1, v2));
+    return theta;
+  }
+
+  util.yawOffsetBetween = function(viewDir, targetDir) {
+    var viewDirXZ = fromValues$8(viewDir[0], viewDir[2]);
+    var targetDirXZ = fromValues$8(targetDir[0], targetDir[2]);
+    normalize$4(viewDirXZ, viewDirXZ);
+    normalize$4(targetDirXZ, targetDirXZ);
+    var theta = -angleBetweenVec2(viewDirXZ, targetDirXZ);
+    return theta;
+  };
+
+  util.toDegree = toDegree;
+  util.getRotationDelta = getRotationDelta;
+  util.angleBetweenVec2 = angleBetweenVec2;
+
+  /**
+   * RotationPanInput is extension of PanInput to compensate coordinates by screen rotation angle.
+   *
+   * The reason for using this function is that in VR mode,
+   * the roll angle is adjusted in the direction opposite to the screen rotation angle.
+   *
+   * Therefore, the angle that the user touches and moves does not match the angle at which the actual object should move.
+   * @extends PanInput
+   */
+
+  var RotationPanInput =
+    /*#__PURE__*/
+    (function(_PanInput) {
+      _inheritsLoose(RotationPanInput, _PanInput);
+
+      /**
+       * Constructor
+       *
+       * @private
+       * @param {HTMLElement} el target element
+       * @param {Object} [options] The option object
+       * @param {Boolean} [options.useRotation]  Whether to use rotation(or VR)
+       */
+      function RotationPanInput(el, options, deviceSensor) {
+        var _this;
+
+        _this = _PanInput.call(this, el, options) || this;
+        _this._useRotation = false;
+        _this._deviceSensor = deviceSensor;
+
+        _this.setUseRotation(!!(options && options.useRotation));
+
+        _this._userDirection = Axes.DIRECTION_ALL;
+        return _this;
+      }
+
+      var _proto = RotationPanInput.prototype;
+
+      _proto.setUseRotation = function setUseRotation(useRotation) {
+        this._useRotation = useRotation;
+      };
+
+      _proto.connect = function connect(observer) {
+        // User intetened direction
+        this._userDirection = this._direction; // In VR Mode, Use ALL direction if direction is not none
+        // Because horizontal and vertical is changed dynamically by screen rotation.
+        // this._direction is used to initialize hammerjs
+
+        if (this._useRotation && this._direction & Axes.DIRECTION_ALL) {
+          this._direction = Axes.DIRECTION_HORIZONTAL;
+        }
+
+        _PanInput.prototype.connect.call(this, observer);
+      };
+
+      _proto.getOffset = function getOffset(properties, useDirection) {
+        if (this._useRotation === false) {
+          return _PanInput.prototype.getOffset.call(
+            this,
+            properties,
+            useDirection
+          );
+        }
+
+        var offset = _PanInput.prototype.getOffset.call(this, properties, [
+          true,
+          true
+        ]);
+
+        var newOffset = [0, 0];
+
+        var rightAxis = this._deviceSensor.getDeviceHorizontalRight();
+
+        var rightAxisVec2 = fromValues$8(rightAxis[0], rightAxis[1]);
+        var xAxis = fromValues$8(1, 0);
+        var theta = util.angleBetweenVec2(rightAxisVec2, xAxis);
+        var cosTheta = Math.cos(theta);
+        var sinTheta = Math.sin(theta); // RotateZ
+
+        newOffset[0] = offset[0] * cosTheta - offset[1] * sinTheta;
+        newOffset[1] = offset[1] * cosTheta + offset[0] * sinTheta; // Use only user allowed direction.
+
+        if (!(this._userDirection & Axes.DIRECTION_HORIZONTAL)) {
+          newOffset[0] = 0;
+        } else if (!(this._userDirection & Axes.DIRECTION_VERTICAL)) {
+          newOffset[1] = 0;
+        }
+
+        return newOffset;
+      };
+
+      _proto.destroy = function destroy() {
+        _PanInput.prototype.destroy.call(this);
+      };
+
+      return RotationPanInput;
+    })(PanInput);
+
+  // @ts-check
+  const __sensor__ = Symbol("__sensor__");
+  const slot = __sensor__;
+
+  function defineProperties(target, descriptions) {
+    for (const property in descriptions) {
+      Object.defineProperty(target, property, {
+        configurable: true,
+        value: descriptions[property]
+      });
+    }
+  }
+
+  const EventTargetMixin = (superclass, ...eventNames) =>
+    class extends superclass {
+      constructor(...args) {
+        // @ts-ignore
+        super(args);
+        const eventTarget = document.createDocumentFragment();
+
+        this.addEventListener = (type, ...args) => {
+          return eventTarget.addEventListener(type, ...args);
+        };
+
+        this.removeEventListener = (...args) => {
+          // @ts-ignore
+          return eventTarget.removeEventListener(...args);
+        };
+
+        this.dispatchEvent = event => {
+          defineProperties(event, {
+            currentTarget: this
+          });
+
+          if (!event.target) {
+            defineProperties(event, {
+              target: this
+            });
+          }
+
+          const methodName = `on${event.type}`;
+
+          if (typeof this[methodName] == "function") {
+            this[methodName](event);
+          }
+
+          const retValue = eventTarget.dispatchEvent(event);
+
+          if (retValue && this.parentNode) {
+            this.parentNode.dispatchEvent(event);
+          }
+
+          defineProperties(event, {
+            currentTarget: null,
+            target: null
+          });
+          return retValue;
+        };
+      }
+    };
+  class EventTarget extends EventTargetMixin(Object) {}
+  function defineReadonlyProperties(target, slot, descriptions) {
+    const propertyBag = target[slot];
+
+    for (const property in descriptions) {
+      propertyBag[property] = descriptions[property];
+      Object.defineProperty(target, property, {
+        get: () => propertyBag[property]
+      });
+    }
+  }
+
+  class SensorErrorEvent extends Event {
+    constructor(type, errorEventInitDict) {
+      super(type, errorEventInitDict);
+
+      if (
+        !errorEventInitDict ||
+        !(errorEventInitDict.error instanceof DOMException)
+      ) {
+        throw TypeError(
+          "Failed to construct 'SensorErrorEvent':" +
+            "2nd argument much contain 'error' property"
+        );
+      }
+
+      Object.defineProperty(this, "error", {
+        configurable: false,
+        writable: false,
+        value: errorEventInitDict.error
+      });
+    }
+  }
+
+  function defineOnEventListener(target, name) {
+    Object.defineProperty(target, `on${name}`, {
+      enumerable: true,
+      configurable: false,
+      writable: true,
+      value: null
+    });
+  }
+
+  const SensorState = {
+    IDLE: 1,
+    ACTIVATING: 2,
+    ACTIVE: 3
+  };
+  class Sensor extends EventTarget {
+    constructor(options) {
+      super();
+      this[slot] = new WeakMap();
+      defineOnEventListener(this, "reading");
+      defineOnEventListener(this, "activate");
+      defineOnEventListener(this, "error");
+      defineReadonlyProperties(this, slot, {
+        activated: false,
+        hasReading: false,
+        timestamp: null
+      });
+      this[slot].state = SensorState.IDLE;
+
+      this[slot].notifyError = (message, name) => {
+        let error = new SensorErrorEvent("error", {
+          error: new DOMException(message, name)
+        });
+        this.dispatchEvent(error);
+        this.stop();
+      };
+
+      this[slot].notifyActivatedState = () => {
+        let activate = new Event("activate");
+        this[slot].activated = true;
+        this.dispatchEvent(activate);
+        this[slot].state = SensorState.ACTIVE;
+      };
+
+      this[slot].activateCallback = () => {};
+
+      this[slot].deactivateCallback = () => {};
+
+      this[slot].frequency = null;
+
+      if (window && window.parent != window.top) {
+        throw new DOMException(
+          "Only instantiable in a top-level browsing context",
+          "SecurityError"
+        );
+      }
+
+      if (options && typeof options.frequency == "number") {
+        if (options.frequency > 60) {
+          this.frequency = options.frequency;
+        }
+      }
+    }
+
+    start() {
+      if (
+        this[slot].state === SensorState.ACTIVATING ||
+        this[slot].state === SensorState.ACTIVE
+      ) {
+        return;
+      }
+
+      this[slot].state = SensorState.ACTIVATING;
+      this[slot].activateCallback();
+    }
+
+    stop() {
+      if (this[slot].state === SensorState.IDLE) {
+        return;
+      }
+
+      this[slot].activated = false;
+      this[slot].hasReading = false;
+      this[slot].timestamp = null;
+      this[slot].deactivateCallback();
+      this[slot].state = SensorState.IDLE;
+    }
+  }
+
+  // @ts-check
+  const slot$1 = __sensor__;
+  let orientation; // @ts-ignore
+
+  if (screen.orientation) {
+    // @ts-ignore
+    orientation = screen.orientation;
+  } else if (screen.msOrientation) {
+    orientation = screen.msOrientation;
+  } else {
+    orientation = {};
+    Object.defineProperty(orientation, "angle", {
+      get: () => {
+        return window.orientation || 0;
+      }
+    });
+  }
+
+  const DeviceOrientationMixin = (superclass, ...eventNames) =>
+    class extends superclass {
+      constructor(...args) {
+        // @ts-ignore
+        super(args);
+
+        for (const eventName of eventNames) {
+          if (`on${eventName}` in window) {
+            this[slot$1].eventName = eventName;
+            break;
+          }
+        }
+
+        this[slot$1].activateCallback = () => {
+          window.addEventListener(
+            this[slot$1].eventName,
+            this[slot$1].handleEvent,
+            {
+              capture: true
+            }
+          );
+        };
+
+        this[slot$1].deactivateCallback = () => {
+          window.removeEventListener(
+            this[slot$1].eventName,
+            this[slot$1].handleEvent,
+            {
+              capture: true
+            }
+          );
+        };
+      }
+    };
+
+  function toQuaternionFromEuler(alpha, beta, gamma) {
+    const degToRad = Math.PI / 180;
+    const x = (beta || 0) * degToRad;
+    const y = (gamma || 0) * degToRad;
+    const z = (alpha || 0) * degToRad;
+    const cZ = Math.cos(z * 0.5);
+    const sZ = Math.sin(z * 0.5);
+    const cY = Math.cos(y * 0.5);
+    const sY = Math.sin(y * 0.5);
+    const cX = Math.cos(x * 0.5);
+    const sX = Math.sin(x * 0.5);
+    const qx = sX * cY * cZ - cX * sY * sZ;
+    const qy = cX * sY * cZ + sX * cY * sZ;
+    const qz = cX * cY * sZ + sX * sY * cZ;
+    const qw = cX * cY * cZ - sX * sY * sZ;
+    return [qx, qy, qz, qw];
+  }
+
+  function rotateQuaternionByAxisAngle(quat, axis, angle) {
+    const sHalfAngle = Math.sin(angle / 2);
+    const cHalfAngle = Math.cos(angle / 2);
+    const transformQuat = [
+      axis[0] * sHalfAngle,
+      axis[1] * sHalfAngle,
+      axis[2] * sHalfAngle,
+      cHalfAngle
+    ];
+
+    function multiplyQuaternion(a, b) {
+      const qx = a[0] * b[3] + a[3] * b[0] + a[1] * b[2] - a[2] * b[1];
+      const qy = a[1] * b[3] + a[3] * b[1] + a[2] * b[0] - a[0] * b[2];
+      const qz = a[2] * b[3] + a[3] * b[2] + a[0] * b[1] - a[1] * b[0];
+      const qw = a[3] * b[3] - a[0] * b[0] - a[1] * b[1] - a[2] * b[2];
+      return [qx, qy, qz, qw];
+    }
+
+    function normalizeQuaternion(quat) {
+      const length = Math.sqrt(
+        quat[0] ** 2 + quat[1] ** 2 + quat[2] ** 2 + quat[3] ** 2
+      );
+
+      if (length === 0) {
+        return [0, 0, 0, 1];
+      }
+
+      return quat.map(v => v / length);
+    }
+
+    return normalizeQuaternion(multiplyQuaternion(quat, transformQuat));
+  }
+
+  function toMat4FromQuat(mat, q) {
+    const typed = mat instanceof Float32Array || mat instanceof Float64Array;
+
+    if (typed && mat.length >= 16) {
+      mat[0] = 1 - 2 * (q[1] ** 2 + q[2] ** 2);
+      mat[1] = 2 * (q[0] * q[1] - q[2] * q[3]);
+      mat[2] = 2 * (q[0] * q[2] + q[1] * q[3]);
+      mat[3] = 0;
+      mat[4] = 2 * (q[0] * q[1] + q[2] * q[3]);
+      mat[5] = 1 - 2 * (q[0] ** 2 + q[2] ** 2);
+      mat[6] = 2 * (q[1] * q[2] - q[0] * q[3]);
+      mat[7] = 0;
+      mat[8] = 2 * (q[0] * q[2] - q[1] * q[3]);
+      mat[9] = 2 * (q[1] * q[2] + q[0] * q[3]);
+      mat[10] = 1 - 2 * (q[0] ** 2 + q[1] ** 2);
+      mat[11] = 0;
+      mat[12] = 0;
+      mat[13] = 0;
+      mat[14] = 0;
+      mat[15] = 1;
+    }
+
+    return mat;
+  }
+
+  function worldToScreen(quaternion) {
+    return !quaternion
+      ? null
+      : rotateQuaternionByAxisAngle(
+          quaternion,
+          [0, 0, 1],
+          (-orientation.angle * Math.PI) / 180
+        );
+  } // @ts-ignore
+
+  const RelativeOrientationSensor =
+    window.RelativeOrientationSensor ||
+    class RelativeOrientationSensor extends DeviceOrientationMixin(
+      Sensor,
+      "deviceorientation"
+    ) {
+      constructor(options = {}) {
+        super(options);
+
+        switch (options.coordinateSystem || "world") {
+          case "screen":
+            Object.defineProperty(this, "quaternion", {
+              get: () => worldToScreen(this[slot$1].quaternion)
+            });
+            break;
+
+          case "world":
+          default:
+            Object.defineProperty(this, "quaternion", {
+              get: () => this[slot$1].quaternion
+            });
+        }
+
+        this[slot$1].handleEvent = event => {
+          // If there is no sensor we will get values equal to null.
+          if (event.absolute || event.alpha === null) {
+            // Spec: The implementation can still decide to provide
+            // absolute orientation if relative is not available or
+            // the resulting data is more accurate. In either case,
+            // the absolute property must be set accordingly to reflect
+            // the choice.
+            this[slot$1].notifyError(
+              "Could not connect to a sensor",
+              "NotReadableError"
+            );
+            return;
+          }
+
+          if (!this[slot$1].activated) {
+            this[slot$1].notifyActivatedState();
+          }
+
+          this[slot$1].timestamp = performance.now();
+          this[slot$1].quaternion = toQuaternionFromEuler(
+            event.alpha,
+            event.beta,
+            event.gamma
+          );
+          this[slot$1].hasReading = true;
+          this.dispatchEvent(new Event("reading"));
+        };
+
+        this[slot$1].deactivateCallback = () => {
+          this[slot$1].quaternion = null;
+        };
+      }
+
+      populateMatrix(mat) {
+        toMat4FromQuat(mat, this.quaternion);
+      }
+    }; // @ts-ignore
+
+  const AbsoluteOrientationSensor =
+    window.AbsoluteOrientationSensor ||
+    class AbsoluteOrientationSensor extends DeviceOrientationMixin(
+      Sensor,
+      "deviceorientationabsolute",
+      "deviceorientation"
+    ) {
+      constructor(options = {}) {
+        super(options);
+
+        switch (options.coordinateSystem || "world") {
+          case "screen":
+            Object.defineProperty(this, "quaternion", {
+              get: () => worldToScreen(this[slot$1].quaternion)
+            });
+            break;
+
+          case "world":
+          default:
+            Object.defineProperty(this, "quaternion", {
+              get: () => this[slot$1].quaternion
+            });
+        }
+
+        this[slot$1].handleEvent = event => {
+          // If absolute is set, or webkitCompassHeading exists,
+          // absolute values should be available.
+          const isAbsolute =
+            event.absolute === true || "webkitCompassHeading" in event;
+          const hasValue =
+            event.alpha !== null || event.webkitCompassHeading !== undefined;
+
+          if (!isAbsolute || !hasValue) {
+            // Spec: If an implementation can never provide absolute
+            // orientation information, the event should be fired with
+            // the alpha, beta and gamma attributes set to null.
+            this[slot$1].notifyError(
+              "Could not connect to a sensor",
+              "NotReadableError"
+            );
+            return;
+          }
+
+          if (!this[slot$1].activated) {
+            this[slot$1].notifyActivatedState();
+          }
+
+          this[slot$1].hasReading = true;
+          this[slot$1].timestamp = performance.now();
+          const heading =
+            event.webkitCompassHeading != null
+              ? 360 - event.webkitCompassHeading
+              : event.alpha;
+          this[slot$1].quaternion = toQuaternionFromEuler(
+            heading,
+            event.beta,
+            event.gamma
+          );
+          this.dispatchEvent(new Event("reading"));
+        };
+
+        this[slot$1].deactivateCallback = () => {
+          this[slot$1].quaternion = null;
+        };
+      }
+
+      populateMatrix(mat) {
+        toMat4FromQuat(mat, this.quaternion);
+      }
+    }; // @ts-ignore
+
+  const Gyroscope =
+    window.Gyroscope ||
+    class Gyroscope extends DeviceOrientationMixin(Sensor, "devicemotion") {
+      constructor(options) {
+        super(options);
+
+        this[slot$1].handleEvent = event => {
+          // If there is no sensor we will get values equal to null.
+          if (event.rotationRate.alpha === null) {
+            this[slot$1].notifyError(
+              "Could not connect to a sensor",
+              "NotReadableError"
+            );
+            return;
+          }
+
+          if (!this[slot$1].activated) {
+            this[slot$1].notifyActivatedState();
+          }
+
+          this[slot$1].timestamp = performance.now();
+          this[slot$1].x = event.rotationRate.alpha;
+          this[slot$1].y = event.rotationRate.beta;
+          this[slot$1].z = event.rotationRate.gamma;
+          this[slot$1].hasReading = true;
+          this.dispatchEvent(new Event("reading"));
+        };
+
+        defineReadonlyProperties(this, slot$1, {
+          x: null,
+          y: null,
+          z: null
+        });
+
+        this[slot$1].deactivateCallback = () => {
+          this[slot$1].x = null;
+          this[slot$1].y = null;
+          this[slot$1].z = null;
+        };
+      }
+    }; // @ts-ignore
+
+  const Accelerometer =
+    window.Accelerometer ||
+    class Accelerometer extends DeviceOrientationMixin(Sensor, "devicemotion") {
+      constructor(options) {
+        super(options);
+
+        this[slot$1].handleEvent = event => {
+          // If there is no sensor we will get values equal to null.
+          if (event.accelerationIncludingGravity.x === null) {
+            this[slot$1].notifyError(
+              "Could not connect to a sensor",
+              "NotReadableError"
+            );
+            return;
+          }
+
+          if (!this[slot$1].activated) {
+            this[slot$1].notifyActivatedState();
+          }
+
+          this[slot$1].timestamp = performance.now();
+          this[slot$1].x = event.accelerationIncludingGravity.x;
+          this[slot$1].y = event.accelerationIncludingGravity.y;
+          this[slot$1].z = event.accelerationIncludingGravity.z;
+          this[slot$1].hasReading = true;
+          this.dispatchEvent(new Event("reading"));
+        };
+
+        defineReadonlyProperties(this, slot$1, {
+          x: null,
+          y: null,
+          z: null
+        });
+
+        this[slot$1].deactivateCallback = () => {
+          this[slot$1].x = null;
+          this[slot$1].y = null;
+          this[slot$1].z = null;
+        };
+      }
+    }; // @ts-ignore
+
+  const LinearAccelerationSensor =
+    window.LinearAccelerationSensor ||
+    class LinearAccelerationSensor extends DeviceOrientationMixin(
+      Sensor,
+      "devicemotion"
+    ) {
+      constructor(options) {
+        super(options);
+
+        this[slot$1].handleEvent = event => {
+          // If there is no sensor we will get values equal to null.
+          if (event.acceleration.x === null) {
+            this[slot$1].notifyError(
+              "Could not connect to a sensor",
+              "NotReadableError"
+            );
+            return;
+          }
+
+          if (!this[slot$1].activated) {
+            this[slot$1].notifyActivatedState();
+          }
+
+          this[slot$1].timestamp = performance.now();
+          this[slot$1].x = event.acceleration.x;
+          this[slot$1].y = event.acceleration.y;
+          this[slot$1].z = event.acceleration.z;
+          this[slot$1].hasReading = true;
+          this.dispatchEvent(new Event("reading"));
+        };
+
+        defineReadonlyProperties(this, slot$1, {
+          x: null,
+          y: null,
+          z: null
+        });
+
+        this[slot$1].deactivateCallback = () => {
+          this[slot$1].x = null;
+          this[slot$1].y = null;
+          this[slot$1].z = null;
+        };
+      }
+    }; // @ts-ignore
+
+  const GravitySensor =
+    window.GravitySensor ||
+    class GravitySensor extends DeviceOrientationMixin(Sensor, "devicemotion") {
+      constructor(options) {
+        super(options);
+
+        this[slot$1].handleEvent = event => {
+          // If there is no sensor we will get values equal to null.
+          if (
+            event.acceleration.x === null ||
+            event.accelerationIncludingGravity.x === null
+          ) {
+            this[slot$1].notifyError(
+              "Could not connect to a sensor",
+              "NotReadableError"
+            );
+            return;
+          }
+
+          if (!this[slot$1].activated) {
+            this[slot$1].notifyActivatedState();
+          }
+
+          this[slot$1].timestamp = performance.now();
+          this[slot$1].x =
+            event.accelerationIncludingGravity.x - event.acceleration.x;
+          this[slot$1].y =
+            event.accelerationIncludingGravity.y - event.acceleration.y;
+          this[slot$1].z =
+            event.accelerationIncludingGravity.z - event.acceleration.z;
+          this[slot$1].hasReading = true;
+          this.dispatchEvent(new Event("reading"));
+        };
+
+        defineReadonlyProperties(this, slot$1, {
+          x: null,
+          y: null,
+          z: null
+        });
+
+        this[slot$1].deactivateCallback = () => {
+          this[slot$1].x = null;
+          this[slot$1].y = null;
+          this[slot$1].z = null;
+        };
+      }
+    };
+
+  function getDeltaYaw(prvQ, curQ) {
+    var yawDeltaByYaw = util.getRotationDelta(
+      prvQ,
+      curQ,
+      ROTATE_CONSTANT.YAW_DELTA_BY_YAW
+    );
+    var yawDeltaByRoll =
+      util.getRotationDelta(prvQ, curQ, ROTATE_CONSTANT.YAW_DELTA_BY_ROLL) *
+      Math.sin(util.extractPitchFromQuat(curQ));
+    return yawDeltaByRoll + yawDeltaByYaw;
+  }
+  function getDeltaPitch(prvQ, curQ) {
+    var pitchDelta = util.getRotationDelta(
+      prvQ,
+      curQ,
+      ROTATE_CONSTANT.PITCH_DELTA
+    );
+    return pitchDelta;
+  }
+
+  /**
+   * Returns a number value indiciating the version of Chrome being used,
+   * or otherwise `null` if not on Chrome.
+   *
+   * Ref: https://github.com/immersive-web/cardboard-vr-display/pull/19
+   */
+
+  /**
+   * In Chrome m65, `devicemotion` events are broken but subsequently fixed
+   * in 65.0.3325.148. Since many browsers use Chromium, ensure that
+   * we scope this detection by branch and build numbers to provide
+   * a proper fallback.
+   * https://github.com/immersive-web/webvr-polyfill/issues/307
+   */
+
+  var version = -1; // It should not be null because it will be compared with number
+
+  var branch = null;
+  var build = null;
+  var match = /Chrome\/([0-9]+)\.(?:[0-9]*)\.([0-9]*)\.([0-9]*)/i.exec(
+    userAgent$1
+  );
+
+  if (match) {
+    version = parseInt(match[1], 10);
+    branch = match[2];
+    build = match[3];
+  }
+  var IS_ANDROID = /Android/i.test(userAgent$1);
+  var CONTROL_MODE_VR = 1;
+  var CONTROL_MODE_YAWPITCH = 2;
+  var TOUCH_DIRECTION_NONE = 1;
+  var TOUCH_DIRECTION_YAW = 2;
+  var TOUCH_DIRECTION_PITCH = 4;
+  var TOUCH_DIRECTION_ALL = TOUCH_DIRECTION_YAW | TOUCH_DIRECTION_PITCH;
+  /* Const for MovableCoord */
+
+  var MC_DECELERATION = 0.0014;
+  var MC_MAXIMUM_DURATION = 1000;
+  var MC_BIND_SCALE = [0.2, 0.2];
+  var MAX_FIELD_OF_VIEW = 110;
+  var PAN_SCALE = 320; // const DELTA_THRESHOLD = 0.015;
+
+  var YAW_RANGE_HALF = 180;
+  var PITCH_RANGE_HALF = 90;
+  var CIRCULAR_PITCH_RANGE_HALF = 180;
+  var GYRO_MODE = {
+    NONE: "none",
+    YAWPITCH: "yawPitch",
+    VR: "VR"
+  };
+
+  var _Promise = typeof Promise === "undefined" ? es6Promise.Promise : Promise;
+  var X_AXIS_VECTOR = fromValues$4(1, 0, 0);
+  var Y_AXIS_VECTOR = fromValues$4(0, 1, 0); // Quaternion to rotate from sensor coordinates to WebVR coordinates
+
+  var SENSOR_TO_VR = setAxisAngle(create$6(), X_AXIS_VECTOR, -Math.PI / 2);
+
+  var DeviceSensorInput =
+    /*#__PURE__*/
+    (function() {
+      var DeviceSensorInput =
+        /*#__PURE__*/
+        (function(_Component) {
+          _inheritsLoose(DeviceSensorInput, _Component);
+
+          function DeviceSensorInput(gyroMode) {
+            var _this;
+
+            _this = _Component.call(this) || this;
+
+            _this._onFirstRead = function() {
+              var sensor = _this._sensor;
+
+              var quaternion = _this._getOrientation();
+
+              var minusZDir = fromValues$4(0, 0, -1);
+              var firstViewDir = transformQuat(
+                create$4(),
+                minusZDir,
+                quaternion
+              );
+              var yawOffset = util.yawOffsetBetween(firstViewDir, minusZDir);
+
+              if (yawOffset === 0) {
+                // If the yawOffset is exactly 0, then device sensor is not ready
+                // So read it again until it has any value in it
+                return;
+              }
+
+              var modifyQuat = setAxisAngle(
+                create$6(),
+                Y_AXIS_VECTOR,
+                -yawOffset
+              );
+              mul$6(SENSOR_TO_VR, modifyQuat, SENSOR_TO_VR);
+              _this._calibrated = true;
+              sensor.removeEventListener("reading", _this._onFirstRead);
+              sensor.addEventListener("reading", _this._onSensorRead);
+            };
+
+            _this._onSensorRead = function() {
+              if (_this._observer && _this._gyroMode === GYRO_MODE.YAWPITCH) {
+                var delta = _this.getYawPitchDelta();
+
+                _this._observer.change(
+                  _assertThisInitialized(_this),
+                  {},
+                  {
+                    yaw: delta.yaw,
+                    pitch: delta.pitch
+                  }
+                );
+              }
+
+              _this.trigger("change", {
+                isTrusted: true
+              });
+            };
+
+            _this._enabled = false;
+            _this._calibrated = false;
+            _this._sensor = new RelativeOrientationSensor({
+              frequency: 60,
+              coordinateSystem: "screen",
+              // for polyfill
+              referenceFrame: "screen"
+            });
+            _this._prevQuaternion = null;
+            _this._gyroMode = gyroMode; // @egjs/axes related
+
+            _this._observer = null;
+            _this.axes = null;
+            return _this;
+          }
+
+          var _proto = DeviceSensorInput.prototype;
+
+          _proto.mapAxes = function mapAxes(axes) {
+            this.axes = axes;
+          };
+
+          _proto.connect = function connect(observer) {
+            if (this._observer) {
+              return this;
+            }
+
+            this._observer = observer;
+            return this;
+          };
+
+          _proto.disconnect = function disconnect() {
+            if (!this._observer) {
+              return this;
+            }
+
+            this._observer = null;
+            return this;
+          };
+
+          _proto.setGyroMode = function setGyroMode(gyroMode) {
+            this._gyroMode = gyroMode;
+          };
+
+          _proto.enable = function enable() {
+            var _this2 = this;
+
+            if (this._enabled) {
+              return _Promise.resolve("Sensor already enabled");
+            }
+
+            if (!navigator || !navigator.permissions) {
+              // iOS
+              this._startSensor();
+
+              return _Promise.resolve();
+            }
+
+            return _Promise
+              .all([
+                navigator.permissions.query({
+                  name: "accelerometer"
+                }),
+                navigator.permissions.query({
+                  name: "gyroscope"
+                })
+              ])
+              .then(function(results) {
+                if (
+                  results.every(function(result) {
+                    return result.state === "granted";
+                  })
+                ) {
+                  _this2._startSensor();
+                }
+              })
+              ["catch"](function() {
+                // Start it anyway, workaround for Firefox
+                _this2._startSensor();
+              });
+          };
+
+          _proto.disable = function disable() {
+            if (!this._enabled) {
+              return;
+            }
+
+            this._prevQuaternion = null;
+
+            this._sensor.removeEventListener("read", this._onSensorRead);
+
+            this._sensor.stop();
+          };
+
+          _proto.isEnabled = function isEnabled() {
+            return this._enabled;
+          };
+
+          _proto.getYawPitchDelta = function getYawPitchDelta() {
+            var prevQuat = this._prevQuaternion;
+
+            var currentQuat = this._getOrientation();
+
+            if (!prevQuat) {
+              this._prevQuaternion = currentQuat;
+              return {
+                yaw: 0,
+                pitch: 0
+              };
+            }
+
+            var result = {
+              yaw: getDeltaYaw(prevQuat, currentQuat),
+              pitch: getDeltaPitch(prevQuat, currentQuat)
+            };
+            copy$6(prevQuat, currentQuat);
+            return result;
+          };
+
+          _proto.getCombinedQuaternion = function getCombinedQuaternion(yaw) {
+            var currentQuat = this._getOrientation();
+
+            if (!this._prevQuaternion) {
+              this._prevQuaternion = copy$6(create$6(), currentQuat);
+            }
+
+            var yawQ = setAxisAngle(create$6(), Y_AXIS_VECTOR, toRadian(yaw));
+            var outQ = multiply$6(create$6(), yawQ, currentQuat);
+            conjugate(outQ, outQ);
+            copy$6(this._prevQuaternion, currentQuat);
+            return outQ;
+          };
+
+          _proto.getDeviceHorizontalRight = function getDeviceHorizontalRight(
+            quaternion
+          ) {
+            var currentQuat = quaternion || this._getOrientation();
+
+            var unrotateQuat = conjugate(create$6(), currentQuat); // Assume that unrotated device center pos is at (0, 0, -1)
+
+            var origViewDir = fromValues$4(0, 0, -1);
+            var viewDir = transformQuat(create$4(), origViewDir, currentQuat); // Where is the right, in current view direction
+
+            var viewXAxis = cross(create$4(), viewDir, Y_AXIS_VECTOR);
+            var deviceHorizontalDir = add$4(create$4(), viewDir, viewXAxis);
+            var unrotatedHorizontalDir = create$4();
+            transformQuat(
+              unrotatedHorizontalDir,
+              deviceHorizontalDir,
+              unrotateQuat
+            );
+            sub$4(unrotatedHorizontalDir, unrotatedHorizontalDir, origViewDir);
+            unrotatedHorizontalDir[2] = 0; // Remove z element
+
+            normalize(unrotatedHorizontalDir, unrotatedHorizontalDir);
+            return unrotatedHorizontalDir;
+          };
+
+          _proto.destroy = function destroy() {
+            this.disable();
+          };
+
+          _proto._getOrientation = function _getOrientation() {
+            if (!this._sensor.quaternion) {
+              return create$6();
+            }
+
+            return multiply$6(
+              create$6(),
+              SENSOR_TO_VR,
+              this._sensor.quaternion
+            );
+          };
+
+          _proto._startSensor = function _startSensor() {
+            var sensor = this._sensor;
+            sensor.start();
+
+            if (!this._calibrated) {
+              sensor.addEventListener("reading", this._onFirstRead);
+            } else {
+              sensor.addEventListener("reading", this._onSensorRead);
+            }
+
+            this._enabled = true;
+          };
+
+          return DeviceSensorInput;
+        })(Component);
+
+      return DeviceSensorInput;
+    })();
+
+  var VERSION = "3.3.0-snapshot";
+
+  var _Promise$1 =
+    typeof Promise === "undefined" ? es6Promise.Promise : Promise;
+  var DEFAULT_YAW_RANGE = [-YAW_RANGE_HALF, YAW_RANGE_HALF];
+  var DEFAULT_PITCH_RANGE = [-PITCH_RANGE_HALF, PITCH_RANGE_HALF];
+  var CIRCULAR_PITCH_RANGE = [
+    -CIRCULAR_PITCH_RANGE_HALF,
+    CIRCULAR_PITCH_RANGE_HALF
+  ];
+  /**
+   * A module used to provide coordinate based on yaw/pitch orientation. This module receives user touch action, keyboard, mouse and device orientation(if it exists) as input, then combines them and converts it to yaw/pitch coordinates.
+   *
+   * @alias eg.YawPitchControl
+   * @extends eg.Component
+   *
+   * @support {"ie": "10+", "ch" : "latest", "ff" : "latest",  "sf" : "latest", "edge" : "latest", "ios" : "7+", "an" : "2.3+ (except 3.x)"}
+   */
+
+  var YawPitchControl =
+    /*#__PURE__*/
+    (function() {
+      var YawPitchControl =
+        /*#__PURE__*/
+        (function(_Component) {
+          _inheritsLoose(YawPitchControl, _Component);
+
+          // Expose DeviceOrientationControls sub module for test purpose
+
+          /**
+           * @param {Object} options The option object of the eg.YawPitch module
+           * @param {Element}[options.element=null] element A base element for the eg.YawPitch module
+           * @param {Number} [options.yaw=0] initial yaw (degree)
+           * @param {Number} [options.pitch=0] initial pitch (degree)
+           * @param {Number} [options.fov=65] initial field of view (degree)
+           * @param {Boolean} [optiosn.showPolePoint=true] Indicates whether pole is shown
+           * @param {Boolean} [options.useZoom=true] Indicates whether zoom is available
+           * @param {Boolean} [options.useKeyboard=true] Indicates whether keyboard is enabled
+           * @param {String} [config.gyroMode=yawPitch] Enables control through device motion.
+           * @param {Number} [options.touchDirection=TOUCH_DIRECTION_ALL] Direction of the touch movement (TOUCH_DIRECTION_ALL: all,  TOUCH_DIRECTION_YAW: horizontal, TOUCH_DIRECTION_PITCH: vertical, TOUCH_DIRECTION_NONE: no move)
+           * @param {Array} [options.yawRange=[-180, 180] Range of visible yaw
+           * @param {Array} [options.pitchRange=[-90, 90] Range of visible pitch
+           * @param {Array} [options.fovRange=[30, 110] Range of FOV
+           * @param {Number} [options.aspectRatio=1] Aspect Ratio
+           */
+          function YawPitchControl(options) {
+            var _this;
+
+            _this = _Component.call(this) || this;
+
+            var opt = _extends(
+              {
+                element: null,
+                yaw: 0,
+                pitch: 0,
+                fov: 65,
+                showPolePoint: false,
+                useZoom: true,
+                useKeyboard: true,
+                gyroMode: GYRO_MODE.YAWPITCH,
+                touchDirection: TOUCH_DIRECTION_ALL,
+                yawRange: DEFAULT_YAW_RANGE,
+                pitchRange: DEFAULT_PITCH_RANGE,
+                fovRange: [30, 110],
+                aspectRatio: 1
+                /* TODO: Need Mandatory? */
+              },
+              options
+            );
+
+            _this._element = opt.element;
+            _this._initialFov = opt.fov;
+            _this._enabled = false;
+            _this._isAnimating = false;
+            _this._deviceSensor = new DeviceSensorInput().on("change", function(
+              e
+            ) {
+              _this._triggerChange(e);
+            });
+
+            _this._initAxes(opt);
+
+            _this.option(opt);
+
+            return _this;
+          }
+
+          var _proto = YawPitchControl.prototype;
+
+          _proto._initAxes = function _initAxes(opt) {
+            var _this2 = this;
+
+            var yRange = this._updateYawRange(
+              opt.yawRange,
+              opt.fov,
+              opt.aspectRatio
+            );
+
+            var pRange = this._updatePitchRange(
+              opt.pitchRange,
+              opt.fov,
+              opt.showPolePoint
+            );
+
+            var useRotation = opt.gyroMode === GYRO_MODE.VR;
+            this.axesPanInput = new RotationPanInput(
+              this._element,
+              {
+                useRotation: useRotation
+              },
+              this._deviceSensor
+            );
+            this.axesWheelInput = new WheelInput(this._element, {
+              scale: -4
+            });
+            this.axesPinchInput = SUPPORT_TOUCH
+              ? new PinchInput(this._element, {
+                  scale: -1
+                })
+              : null;
+            this.axesMoveKeyInput = new MoveKeyInput(this._element, {
+              scale: [-6, 6]
+            });
+            this.axes = new Axes(
+              {
+                yaw: {
+                  range: yRange,
+                  circular: YawPitchControl.isCircular(yRange),
+                  bounce: [0, 0]
+                },
+                pitch: {
+                  range: pRange,
+                  circular: YawPitchControl.isCircular(pRange),
+                  bounce: [0, 0]
+                },
+                fov: {
+                  range: opt.fovRange,
+                  circular: [false, false],
+                  bounce: [0, 0]
+                }
+              },
+              {
+                deceleration: MC_DECELERATION,
+                maximumDuration: MC_MAXIMUM_DURATION
+              },
+              {
+                yaw: opt.yaw,
+                pitch: opt.pitch,
+                fov: opt.fov
+              }
+            ).on({
+              hold: function hold(evt) {
+                // Restore maximumDuration not to be spin too mush.
+                _this2.axes.options.maximumDuration = MC_MAXIMUM_DURATION;
+
+                _this2.trigger("hold", {
+                  isTrusted: evt.isTrusted
+                });
+              },
+              change: function change(evt) {
+                if (evt.delta.fov !== 0) {
+                  _this2._updateControlScale(evt);
+
+                  _this2.updatePanScale();
+                }
+
+                _this2._triggerChange(evt);
+              },
+              release: function release(evt) {
+                _this2._triggerChange(evt);
+              },
+              animationStart: function animationStart(evt) {},
+              animationEnd: function animationEnd(evt) {
+                _this2.trigger("animationEnd", {
+                  isTrusted: evt.isTrusted
+                });
+              }
+            });
+          };
+          /**
+           * Update Pan Scale
+           *
+           * Scale(Sensitivity) values of panning is related with fov and height.
+           * If at least one of them is changed, this function need to be called.
+           * @param {*} param
+           */
+
+          _proto.updatePanScale = function updatePanScale(param) {
+            if (param === void 0) {
+              param = {};
+            }
+
+            var fov = this.axes.get().fov;
+            var areaHeight =
+              param.height ||
+              parseInt(getComputedStyle(this._element).height, 10);
+            var scale$$1 =
+              (((MC_BIND_SCALE[0] * fov) / this._initialFov) * PAN_SCALE) /
+              areaHeight;
+            this.axesPanInput.options.scale = [scale$$1, scale$$1];
+            this.axes.options.deceleration =
+              (MC_DECELERATION * fov) / MAX_FIELD_OF_VIEW;
+            return this;
+          };
+          /*
+           * Override component's option method
+           * to call method for updating values which is affected by option change.
+           *
+           * @param {*} args
+           */
+
+          _proto.option = function option() {
+            for (
+              var _len = arguments.length, args = new Array(_len), _key = 0;
+              _key < _len;
+              _key++
+            ) {
+              args[_key] = arguments[_key];
+            }
+
+            var argLen = args.length; // Getter
+
+            if (argLen === 0) {
+              return this._getOptions();
+            } else if (argLen === 1 && typeof args[0] === "string") {
+              return this._getOptions(args[0]);
+            } // Setter
+
+            var beforeOptions = _extends({}, this.options);
+
+            var newOptions = {};
+            var changedKeyList = []; // TODO: if value is not changed, then do not push on changedKeyList.
+
+            if (argLen === 1) {
+              changedKeyList = Object.keys(args[0]);
+              newOptions = _extends({}, args[0]);
+            } else if (argLen >= 2) {
+              changedKeyList.push(args[0]);
+              newOptions[args[0]] = args[1];
+            }
+
+            this._setOptions(this._getValidatedOptions(newOptions));
+
+            this._applyOptions(changedKeyList, beforeOptions);
+
+            return this;
+          };
+
+          _proto._getValidatedOptions = function _getValidatedOptions(
+            newOptions
+          ) {
+            if (newOptions.yawRange) {
+              newOptions.yawRange = this._getValidYawRange(
+                newOptions.yawRange,
+                newOptions.fov,
+                newOptions.aspectRatio
+              );
+            }
+
+            if (newOptions.pitchRange) {
+              newOptions.pitchRange = this._getValidPitchRange(
+                newOptions.pitchRange,
+                newOptions.fov
+              );
+            }
+
+            return newOptions;
+          };
+
+          _proto._getOptions = function _getOptions(key) {
+            var value;
+
+            if (typeof key === "string") {
+              value = this.options[key];
+            } else if (arguments.length === 0) {
+              value = this.options;
+            }
+
+            return value;
+          };
+
+          _proto._setOptions = function _setOptions(options) {
+            for (var key in options) {
+              this.options[key] = options[key];
+            }
+          };
+
+          _proto._applyOptions = function _applyOptions(keys, prevOptions) {
+            var options = this.options;
+            var axes = this.axes;
+            var isVR = options.gyroMode === GYRO_MODE.VR;
+            var isYawPitch = options.gyroMode === GYRO_MODE.YAWPITCH; // If it's VR mode, restrict user interaction to yaw direction only
+
+            var touchDirection = isVR
+              ? TOUCH_DIRECTION_YAW & options.touchDirection
+              : options.touchDirection; // If one of below is changed, call updateControlScale()
+
+            if (
+              keys.some(function(key) {
+                return (
+                  key === "showPolePoint" ||
+                  key === "fov" ||
+                  key === "aspectRatio" ||
+                  key === "yawRange" ||
+                  key === "pitchRange"
+                );
+              })
+            ) {
+              // If fov is changed, update pan scale
+              if (keys.indexOf("fov") >= 0) {
+                axes.setTo({
+                  fov: options.fov
+                });
+                this.updatePanScale();
+              }
+
+              this._updateControlScale();
+            }
+
+            if (
+              keys.some(function(key) {
+                return key === "fovRange";
+              })
+            ) {
+              var fovRange = options.fovRange;
+              var prevFov = axes.get().fov;
+              var nextFov = axes.get().fov;
+              copy$8(axes.axis.fov.range, fovRange);
+
+              if (nextFov < fovRange[0]) {
+                nextFov = fovRange[0];
+              } else if (prevFov > fovRange[1]) {
+                nextFov = fovRange[1];
+              }
+
+              if (prevFov !== nextFov) {
+                axes.setTo(
+                  {
+                    fov: nextFov
+                  },
+                  0
+                );
+
+                this._updateControlScale();
+
+                this.updatePanScale();
+              }
+            }
+
+            if (
+              keys.some(function(key) {
+                return key === "gyroMode";
+              }) &&
+              SUPPORT_DEVICEMOTION
+            ) {
+              if (!isVR && !isYawPitch) {
+                axes.disconnect(this._deviceSensor);
+
+                this._deviceSensor.disable();
+              } else {
+                axes.connect(["yaw", "pitch"], this._deviceSensor);
+
+                this._deviceSensor.enable()["catch"](function() {}); // Device motion enabling can fail on iOS
+              }
+
+              this._deviceSensor.setGyroMode(options.gyroMode);
+
+              if (isVR) {
+                this.axesPanInput.setUseRotation(isVR);
+              }
+            }
+
+            if (
+              keys.some(function(key) {
+                return key === "useKeyboard";
+              })
+            ) {
+              var useKeyboard = options.useKeyboard;
+
+              if (useKeyboard) {
+                axes.connect(["yaw", "pitch"], this.axesMoveKeyInput);
+              } else {
+                axes.disconnect(this.axesMoveKeyInput);
+              }
+            }
+
+            if (
+              keys.some(function(key) {
+                return key === "useZoom";
+              })
+            ) {
+              var useZoom = options.useZoom; // Disconnect first
+
+              axes.disconnect(this.axesWheelInput);
+
+              if (useZoom) {
+                axes.connect(["fov"], this.axesWheelInput);
+              }
+            }
+
+            this._togglePinchInputByOption(
+              options.touchDirection,
+              options.useZoom
+            );
+
+            if (
+              keys.some(function(key) {
+                return key === "touchDirection";
+              })
+            ) {
+              this._enabled && this._enableTouch(touchDirection);
+            }
+          };
+
+          _proto._togglePinchInputByOption = function _togglePinchInputByOption(
+            touchDirection,
+            useZoom
+          ) {
+            if (this.axesPinchInput) {
+              // disconnect first
+              this.axes.disconnect(this.axesPinchInput); // If the touchDirection option is not ALL, pinchInput should be disconnected to make use of a native scroll.
+
+              if (
+                useZoom &&
+                touchDirection === TOUCH_DIRECTION_ALL && // TODO: Get rid of using private property of axes instance.
+                this.axes._inputs.indexOf(this.axesPinchInput) === -1
+              ) {
+                this.axes.connect(["fov"], this.axesPinchInput);
+              }
+            }
+          };
+
+          _proto._enableTouch = function _enableTouch(direction) {
+            // Disconnect first
+            this.axesPanInput && this.axes.disconnect(this.axesPanInput);
+            var yawEnabled = direction & TOUCH_DIRECTION_YAW ? "yaw" : null;
+            var pitchEnabled =
+              direction & TOUCH_DIRECTION_PITCH ? "pitch" : null;
+            this.axes.connect([yawEnabled, pitchEnabled], this.axesPanInput);
+          };
+
+          _proto._getValidYawRange = function _getValidYawRange(
+            newYawRange,
+            newFov,
+            newAspectRatio
+          ) {
+            var ratio = YawPitchControl.adjustAspectRatio(
+              newAspectRatio || this.options.aspectRatio || 1
+            );
+            var fov = newFov || this.axes.get().fov;
+            var horizontalFov = fov * ratio;
+            var isValid = newYawRange[1] - newYawRange[0] >= horizontalFov;
+
+            if (isValid) {
+              return newYawRange;
+            } else {
+              return this.options.yawRange || DEFAULT_YAW_RANGE;
+            }
+          };
+
+          _proto._getValidPitchRange = function _getValidPitchRange(
+            newPitchRange,
+            newFov
+          ) {
+            var fov = newFov || this.axes.get().fov;
+            var isValid = newPitchRange[1] - newPitchRange[0] >= fov;
+
+            if (isValid) {
+              return newPitchRange;
+            } else {
+              return this.options.pitchRange || DEFAULT_PITCH_RANGE;
+            }
+          };
+
+          YawPitchControl.isCircular = function isCircular(range) {
+            return range[1] - range[0] < 360 ? [false, false] : [true, true];
+          };
+          /**
+           * Update yaw/pitch min/max by 5 factor
+           *
+           * 1. showPolePoint
+           * 2. fov
+           * 3. yawRange
+           * 4. pitchRange
+           * 5. aspectRatio
+           *
+           * If one of above is changed, call this function
+           */
+
+          _proto._updateControlScale = function _updateControlScale(changeEvt) {
+            var opt = this.options;
+            var fov = this.axes.get().fov;
+
+            var pRange = this._updatePitchRange(
+              opt.pitchRange,
+              fov,
+              opt.showPolePoint
+            );
+
+            var yRange = this._updateYawRange(
+              opt.yawRange,
+              fov,
+              opt.aspectRatio
+            ); // TODO: If not changed!?
+
+            var pos = this.axes.get();
+            var y = pos.yaw;
+            var p = pos.pitch;
+            copy$8(this.axes.axis.yaw.range, yRange);
+            copy$8(this.axes.axis.pitch.range, pRange);
+            this.axes.axis.yaw.circular = YawPitchControl.isCircular(yRange);
+            this.axes.axis.pitch.circular = YawPitchControl.isCircular(pRange);
+            /**
+             * update yaw/pitch by it's range.
+             */
+
+            if (y < yRange[0]) {
+              y = yRange[0];
+            } else if (y > yRange[1]) {
+              y = yRange[1];
+            }
+
+            if (p < pRange[0]) {
+              p = pRange[0];
+            } else if (p > pRange[1]) {
+              p = pRange[1];
+            }
+
+            if (changeEvt) {
+              changeEvt.set({
+                yaw: y,
+                pitch: p
+              });
+            }
+
+            this.axes.setTo(
+              {
+                yaw: y,
+                pitch: p
+              },
+              0
+            );
+            return this;
+          };
+
+          _proto._updatePitchRange = function _updatePitchRange(
+            pitchRange,
+            fov,
+            showPolePoint
+          ) {
+            if (this.options.gyroMode === GYRO_MODE.VR) {
+              // Circular pitch on VR
+              return CIRCULAR_PITCH_RANGE;
+            }
+
+            var verticalAngle = pitchRange[1] - pitchRange[0];
+            var halfFov = fov / 2;
+            var isPanorama = verticalAngle < 180;
+
+            if (showPolePoint && !isPanorama) {
+              // Use full pinch range
+              return pitchRange.concat();
+            } // Round value as movableCood do.
+
+            return [pitchRange[0] + halfFov, pitchRange[1] - halfFov];
+          };
+
+          _proto._updateYawRange = function _updateYawRange(
+            yawRange,
+            fov,
+            aspectRatio
+          ) {
+            if (this.options.gyroMode === GYRO_MODE.VR) {
+              return DEFAULT_YAW_RANGE;
+            }
+
+            var horizontalAngle = yawRange[1] - yawRange[0];
+            /**
+             * Full 360 Mode
+             */
+
+            if (horizontalAngle >= 360) {
+              // Don't limit yaw range on Full 360 mode.
+              return yawRange.concat();
+            }
+            /**
+             * Panorama mode
+             */
+            // Ref : https://github.com/naver/egjs-view360/issues/290
+
+            var halfHorizontalFov = util.toDegree(
+              Math.atan2(aspectRatio, 1 / Math.tan(toRadian(fov / 2)))
+            ); // Round value as movableCood do.
+
+            return [
+              yawRange[0] + halfHorizontalFov,
+              yawRange[1] - halfHorizontalFov
+            ];
+          };
+
+          _proto._triggerChange = function _triggerChange(evt) {
+            var pos = this.axes.get();
+            var opt = this.options;
+            var event = {
+              targetElement: opt.element,
+              isTrusted: evt.isTrusted
+            };
+            event.yaw = pos.yaw;
+            event.pitch = pos.pitch;
+            event.fov = pos.fov;
+
+            if (opt.gyroMode === GYRO_MODE.VR) {
+              event.quaternion = this._deviceSensor.getCombinedQuaternion(
+                pos.yaw
+              );
+            }
+
+            this.trigger("change", event);
+          }; // TODO: makes constant to be logic
+
+          YawPitchControl.adjustAspectRatio = function adjustAspectRatio(
+            input
+          ) {
+            var inputRange = [
+              0.52,
+              0.54,
+              0.563,
+              0.57,
+              0.584,
+              0.59,
+              0.609,
+              0.67,
+              0.702,
+              0.72,
+              0.76,
+              0.78,
+              0.82,
+              0.92,
+              0.97,
+              1.0,
+              1.07,
+              1.14,
+              1.19,
+              1.25,
+              1.32,
+              1.38,
+              1.4,
+              1.43,
+              1.53,
+              1.62,
+              1.76,
+              1.77,
+              1.86,
+              1.96,
+              2.26,
+              2.3,
+              2.6,
+              3.0,
+              5.0,
+              6.0
+            ];
+            var outputRange = [
+              0.51,
+              0.54,
+              0.606,
+              0.56,
+              0.628,
+              0.63,
+              0.647,
+              0.71,
+              0.736,
+              0.757,
+              0.78,
+              0.77,
+              0.8,
+              0.89,
+              0.975,
+              1.0,
+              1.07,
+              1.1,
+              1.15,
+              1.18,
+              1.22,
+              1.27,
+              1.3,
+              1.33,
+              1.39,
+              1.45,
+              1.54,
+              1.55,
+              1.58,
+              1.62,
+              1.72,
+              1.82,
+              1.92,
+              2.0,
+              2.24,
+              2.3
+            ];
+            var rangeIdx = -1;
+
+            for (var i = 0; i < inputRange.length - 1; i++) {
+              if (inputRange[i] <= input && inputRange[i + 1] >= input) {
+                rangeIdx = i;
+                break;
+              }
+            }
+
+            if (rangeIdx === -1) {
+              if (inputRange[0] > input) {
+                return outputRange[0];
+              } else {
+                return outputRange[outputRange[0].length - 1];
+              }
+            }
+
+            var inputA = inputRange[rangeIdx];
+            var inputB = inputRange[rangeIdx + 1];
+            var outputA = outputRange[rangeIdx];
+            var outputB = outputRange[rangeIdx + 1];
+            return YawPitchControl.lerp(
+              outputA,
+              outputB,
+              (input - inputA) / (inputB - inputA)
+            );
+          };
+
+          YawPitchControl.lerp = function lerp$$1(a, b, fraction) {
+            return a + fraction * (b - a);
+          };
+          /**
+           * Enable YawPitch functionality
+           *
+           * @method eg.YawPitch#enable
+           */
+
+          _proto.enable = function enable() {
+            if (this._enabled) {
+              return this;
+            }
+
+            this._enabled = true; // touchDirection is decided by parameter is valid string (Ref. Axes.connect)
+
+            this._applyOptions(Object.keys(this.options), this.options); // TODO: Is this code is needed? Check later.
+
+            this.updatePanScale();
+            this.enableSensor()["catch"](function() {
+              // This can fail when it's not triggered by user interaction on iOS13+
+              // Just ignore the rejection
+            });
+            return this;
+          };
+          /**
+           * Disable YawPitch functionality
+           *
+           * @method eg.YawPitch#disable
+           */
+
+          _proto.disable = function disable(persistOrientation) {
+            if (!this._enabled) {
+              return this;
+            } // TODO: Check peristOrientation is needed!
+
+            if (!persistOrientation) {
+              this._resetOrientation();
+            }
+
+            this.axes.disconnect();
+            this.disableSensor();
+            this._enabled = false;
+            return this;
+          };
+
+          _proto._resetOrientation = function _resetOrientation() {
+            var opt = this.options;
+            this.axes.setTo(
+              {
+                yaw: opt.yaw,
+                pitch: opt.pitch,
+                fov: opt.fov
+              },
+              0
+            );
+            return this;
+          };
+          /**
+           * Set one or more of yaw, pitch, fov
+           *
+           * @param {Object} coordinate yaw, pitch, fov
+           * @param {Number} duration Animation duration. if it is above 0 then it's animated.
+           */
+
+          _proto.lookAt = function lookAt$$1(_ref, duration) {
+            var yaw = _ref.yaw,
+              pitch = _ref.pitch,
+              fov = _ref.fov;
+            var pos = this.axes.get();
+            var y = yaw === undefined ? 0 : yaw - pos.yaw;
+            var p = pitch === undefined ? 0 : pitch - pos.pitch;
+            var f = fov === undefined ? 0 : fov - pos.fov; // Allow duration of animation to have more than MC_MAXIMUM_DURATION.
+
+            this.axes.options.maximumDuration = Infinity;
+            this.axes.setBy(
+              {
+                yaw: y,
+                pitch: p,
+                fov: f
+              },
+              duration
+            );
+          };
+
+          _proto.enableSensor = function enableSensor() {
+            var _this3 = this;
+
+            return new _Promise$1(function(resolve, reject) {
+              var activateSensor = function activateSensor() {
+                if (_this3.options.gyroMode !== GYRO_MODE.NONE) {
+                  _this3._deviceSensor.enable();
+
+                  resolve();
+                } else {
+                  reject(new Error("gyroMode not set"));
+                }
+              };
+
+              if (
+                DeviceMotionEvent &&
+                typeof DeviceMotionEvent.requestPermission === "function"
+              ) {
+                DeviceMotionEvent.requestPermission()
+                  .then(function(permissionState) {
+                    if (permissionState === "granted") {
+                      activateSensor();
+                    } else {
+                      reject(new Error("denied"));
+                    }
+                  })
+                  ["catch"](function(e) {
+                    // This can happen when this method was't triggered by user interaction
+                    reject(e);
+                  });
+              } else {
+                activateSensor();
+              }
+            });
+          };
+
+          _proto.disableSensor = function disableSensor() {
+            this._deviceSensor.disable();
+          };
+
+          _proto.getYawPitch = function getYawPitch() {
+            var yawPitch = this.axes.get();
+            return {
+              yaw: yawPitch.yaw,
+              pitch: yawPitch.pitch
+            };
+          };
+
+          _proto.getFov = function getFov() {
+            return this.axes.get().fov;
+          };
+
+          _proto.getQuaternion = function getQuaternion() {
+            var pos = this.axes.get();
+            return this._deviceSensor.getCombinedQuaternion(pos.yaw);
+          };
+
+          _proto.shouldRenderWithQuaternion = function shouldRenderWithQuaternion() {
+            return this.options.gyroMode === GYRO_MODE.VR;
+          };
+          /**
+           * Destroys objects
+           */
+
+          _proto.destroy = function destroy() {
+            this.axes && this.axes.destroy();
+            this.axisPanInput && this.axisPanInput.destroy();
+            this.axesWheelInput && this.axesWheelInput.destroy();
+            this.axesDeviceOrientationInput &&
+              this.axesDeviceOrientationInput.destroy();
+            this.axesPinchInput && this.axesPinchInput.destroy();
+            this.axesMoveKeyInput && this.axesMoveKeyInput.destroy();
+            this._deviceSensor && this._deviceSensor.destroy();
+          };
+
+          return YawPitchControl;
+        })(Component);
+
+      YawPitchControl.VERSION = VERSION;
+      YawPitchControl.CONTROL_MODE_VR = CONTROL_MODE_VR;
+      YawPitchControl.CONTROL_MODE_YAWPITCH = CONTROL_MODE_YAWPITCH;
+      YawPitchControl.TOUCH_DIRECTION_ALL = TOUCH_DIRECTION_ALL;
+      YawPitchControl.TOUCH_DIRECTION_YAW = TOUCH_DIRECTION_YAW;
+      YawPitchControl.TOUCH_DIRECTION_PITCH = TOUCH_DIRECTION_PITCH;
+      YawPitchControl.TOUCH_DIRECTION_NONE = TOUCH_DIRECTION_NONE;
+      return YawPitchControl;
+    })();
+
+  var _Promise$2 =
+    typeof Promise === "undefined" ? es6Promise.Promise : Promise;
+  var STATUS = {
+    NONE: 0,
+    LOADING: 1,
+    LOADED: 2,
+    ERROR: 3
+  };
+  var EVENT = {
+    READYSTATECHANGE: "readystatechange"
+  };
+
+  var ImageLoader =
+    /*#__PURE__*/
+    (function() {
+      var ImageLoader =
+        /*#__PURE__*/
+        (function(_Component) {
+          _inheritsLoose(ImageLoader, _Component);
+
+          function ImageLoader(image) {
+            var _this;
+
+            // Super constructor
+            _this = _Component.call(this) || this;
+            _this._image = null;
+            _this._onceHandlers = [];
+            _this._loadStatus = STATUS.NONE;
+            image && _this.set(image);
+            return _this;
+          }
+
+          var _proto = ImageLoader.prototype;
+
+          _proto.get = function get() {
+            var _this2 = this;
+
+            return new _Promise$2(function(res, rej) {
+              if (!_this2._image) {
+                rej("ImageLoader: image is not defiend");
+              } else if (_this2._loadStatus === STATUS.LOADED) {
+                res(_this2.getElement());
+              } else if (_this2._loadStatus === STATUS.LOADING) {
+                /* Check isMaybeLoaded() first because there may have
+                  posibilities that image already loaded before get is called.
+                  for example calling get on external image onload callback.*/
+                if (ImageLoader.isMaybeLoaded(_this2._image)) {
+                  _this2._loadStatus = STATUS.LOADED;
+                  res(_this2.getElement());
+                } else {
+                  _this2.on(EVENT.READYSTATECHANGE, function(e) {
+                    if (e.type === STATUS.LOADED) {
+                      res(_this2.getElement());
+                    } else {
+                      rej("ImageLoader: failed to load images.");
+                    }
+                  });
+                }
+              } else {
+                rej("ImageLoader: failed to load images");
+              }
+            });
+          };
+          /**
+           * @param image img element or img url or array of img element or array of img url
+           */
+
+          _proto.set = function set(image) {
+            var _this3 = this;
+
+            this._loadStatus = STATUS.LOADING;
+            this._image = ImageLoader.createElement(image);
+
+            if (ImageLoader.isMaybeLoaded(this._image)) {
+              this._loadStatus = STATUS.LOADED;
+              return;
+            }
+
+            this.onceLoaded(
+              this._image,
+              function() {
+                _this3._loadStatus = STATUS.LOADED;
+
+                _this3.trigger(EVENT.READYSTATECHANGE, {
+                  type: STATUS.LOADED
+                });
+              },
+              function() {
+                _this3._loadStatus = STATUS.ERROR;
+
+                _this3.trigger(EVENT.READYSTATECHANGE, {
+                  type: STATUS.ERROR
+                });
+              }
+            );
+          };
+
+          ImageLoader.createElement = function createElement(image) {
+            var images = image instanceof Array ? image : [image];
+            return images.map(function(img) {
+              var _img = img;
+
+              if (typeof img === "string") {
+                _img = new Image();
+                _img.crossOrigin = "anonymous";
+                _img.src = img;
+              }
+
+              return _img;
+            });
+          };
+
+          _proto.getElement = function getElement() {
+            return this._image.length === 1 ? this._image[0] : this._image;
+          };
+
+          ImageLoader.isMaybeLoaded = function isMaybeLoaded(image) {
+            var result = false;
+
+            if (image instanceof Image) {
+              result = image.complete && image.naturalWidth !== 0;
+            } else if (image instanceof Array) {
+              result = !image.some(function(img) {
+                return !img.complete || img.naturalWidth === 0;
+              });
+            }
+
+            return result;
+          };
+
+          _proto.onceLoaded = function onceLoaded(target, onload, onerror) {
+            var _this4 = this;
+
+            var targets = target instanceof Array ? target : [target];
+            var targetsNotLoaded = targets.filter(function(img) {
+              return !ImageLoader.isMaybeLoaded(img);
+            });
+            var loadPromises = targetsNotLoaded.map(function(img) {
+              return new _Promise$2(function(res, rej) {
+                _this4._once(img, "load", function() {
+                  return res(img);
+                });
+
+                _this4._once(img, "error", function() {
+                  return rej(img);
+                });
+              });
+            });
+
+            _Promise$2.all(loadPromises).then(
+              function(result) {
+                return onload(targets.length === 1 ? targets[0] : targets);
+              },
+              function(reason) {
+                return onerror(reason);
+              }
+            );
+          };
+
+          _proto._once = function _once(target, type, listener) {
+            var fn = function fn(event) {
+              target.removeEventListener(type, fn);
+              listener(event);
+            };
+
+            target.addEventListener(type, fn);
+
+            this._onceHandlers.push({
+              target: target,
+              type: type,
+              fn: fn
+            });
+          };
+
+          _proto.getStatus = function getStatus() {
+            return this._loadStatus;
+          };
+
+          _proto.destroy = function destroy() {
+            this._onceHandlers.forEach(function(handler) {
+              handler.target.removeEventListener(handler.type, handler.fn);
+            });
+
+            this._onceHandlers = [];
+            this._image.src = "";
+            this._image = null;
+            this._loadStatus = STATUS.NONE;
+          };
+
+          return ImageLoader;
+        })(Component);
+
+      ImageLoader.STATUS = STATUS;
+      return ImageLoader;
+    })();
+
+  var _Promise$3 =
+    typeof Promise === "undefined" ? es6Promise.Promise : Promise;
+
+  // import Agent from "@egjs/agent";
+
+  /* Ref https://www.w3schools.com/tags/av_prop_readystate.asp */
+  var READY_STATUS = {
+    HAVE_NOTHING: 0,
+    // no information whether or not the audio/video is ready
+    HAVE_METADATA: 1,
+    // HAVE_METADATA - metadata for the audio/video is ready
+    HAVE_CURRENT_DATA: 2,
+    // data for the current playback position is available, but not enough data to play next frame/millisecond
+    HAVE_FUTURE_DATA: 3,
+    // data for the current and at least the next frame is available
+    HAVE_ENOUGH_DATA: 4,
+    // enough data available to start playing
+    // below is custom status for failed to load status
+    LOADING_FAILED: -1
+  };
+  var READYSTATECHANGE_EVENT_NAME = {};
+  READYSTATECHANGE_EVENT_NAME[READY_STATUS.HAVE_METADATA] = "loadedmetadata";
+  READYSTATECHANGE_EVENT_NAME[READY_STATUS.HAVE_CURRENT_DATA] = "loadeddata";
+  READYSTATECHANGE_EVENT_NAME[READY_STATUS.HAVE_FUTURE_DATA] = "canplay";
+  READYSTATECHANGE_EVENT_NAME[READY_STATUS.HAVE_ENOUGH_DATA] = "canplaythrough";
+
+  var VideoLoader =
+    /*#__PURE__*/
+    (function() {
+      function VideoLoader(video) {
+        this._handlers = [];
+        this._sourceCount = 0; // on iOS safari, 'loadeddata' will not triggered unless the user hits play,
+        // so used 'loadedmetadata' instead.
+
+        this._thresholdReadyState = READY_STATUS.HAVE_METADATA;
+        this._thresholdEventName =
+          READYSTATECHANGE_EVENT_NAME[this._thresholdReadyState];
+        this._loadStatus =
+          (video && video.readyState) || READY_STATUS.HAVE_NOTHING;
+        this._onerror = this._onerror.bind(this);
+        video && this.set(video);
+      }
+
+      var _proto = VideoLoader.prototype;
+
+      _proto._onerror = function _onerror() {
+        this._errorCount++;
+
+        if (this._errorCount >= this._sourceCount) {
+          this._loadStatus = READY_STATUS.LOADING_FAILED;
+
+          this._detachErrorHandler(this._onerror);
+        }
+      };
+      /**
+       *
+       * @param {Object | String} video Object or String containing Video Source URL<ko>비디오 URL 정보를 담고 있는 문자열이나 객체 {type, src}</ko>
+       */
+
+      _proto._appendSourceElement = function _appendSourceElement(videoUrl) {
+        var videoSrc;
+        var videoType;
+
+        if (typeof videoUrl === "object") {
+          videoSrc = videoUrl.src;
+          videoType = videoUrl.type;
+        } else if (typeof videoUrl === "string") {
+          videoSrc = videoUrl;
+        }
+
+        if (!videoSrc) {
+          return false;
+        }
+
+        var sourceElement = document.createElement("source");
+        sourceElement.src = videoSrc;
+        videoType && (sourceElement.type = videoType);
+
+        this._video.appendChild(sourceElement);
+
+        return true;
+      };
+
+      _proto.set = function set(video) {
+        var _this = this;
+
+        this._reset(); // reset resources.
+
+        if (!video) {
+          return;
+        }
+
+        if (video instanceof HTMLVideoElement) {
+          // video tag
+          this._video = video;
+        } else if (typeof video === "string" || typeof video === "object") {
+          // url
+          this._video = document.createElement("video");
+
+          this._video.setAttribute("crossorigin", "anonymous");
+
+          this._video.setAttribute("webkit-playsinline", "");
+
+          this._video.setAttribute("playsinline", "");
+
+          if (video instanceof Array) {
+            video.forEach(function(v) {
+              return _this._appendSourceElement(v);
+            });
+          } else {
+            this._appendSourceElement(video);
+          }
+
+          this._sourceCount = this._video.querySelectorAll("source").length;
+
+          if (this._sourceCount > 0) {
+            if (this._video.readyState < this._thresholdReadyState) {
+              this._video.load(); // attach loading error listener
+
+              this._attachErrorHandler(this._onerror);
+            }
+          } else {
+            this._video = null;
+          }
+        }
+      };
+
+      _proto._attachErrorHandler = function _attachErrorHandler(handler) {
+        this._video.addEventListener("error", handler);
+
+        this._sources = this._video.querySelectorAll("source");
+        [].forEach.call(this._sources, function(source) {
+          source.addEventListener("error", handler);
+        });
+      };
+
+      _proto._detachErrorHandler = function _detachErrorHandler(handler) {
+        this._video.removeEventListener("error", handler);
+
+        [].forEach.call(this._sources, function(source) {
+          source.removeEventListener("error", handler);
+        });
+      };
+
+      _proto.get = function get() {
+        var _this2 = this;
+
+        return new _Promise$3(function(res, rej) {
+          if (!_this2._video) {
+            rej("VideoLoader: video is undefined");
+          } else if (_this2._loadStatus === READY_STATUS.LOADING_FAILED) {
+            rej("VideoLoader: video source is invalid");
+          } else if (_this2._video.readyState >= _this2._thresholdReadyState) {
+            res(_this2._video);
+          } else {
+            // check errorCnt and reject
+            var rejector = function rejector() {
+              if (_this2._loadStatus === READY_STATUS.LOADING_FAILED) {
+                _this2._detachErrorHandler(rejector);
+
+                rej("VideoLoader: video source is invalid");
+              }
+            };
+
+            _this2._attachErrorHandler(rejector);
+
+            _this2._once(_this2._thresholdEventName, function() {
+              return res(_this2._video);
+            });
+          }
+        });
+      };
+
+      _proto.getElement = function getElement() {
+        return this._video;
+      };
+
+      _proto.destroy = function destroy() {
+        this._reset();
+      };
+
+      _proto._reset = function _reset() {
+        var _this3 = this;
+
+        this._handlers.forEach(function(handler) {
+          _this3._video.removeEventListener(handler.type, handler.fn);
+        });
+
+        this._handlers = [];
+        this._video = null;
+        this._sourceCount = 0;
+        this._errorCount = 0;
+      };
+
+      _proto._once = function _once(type, listener) {
+        var target = this._video;
+
+        var fn = function fn(event) {
+          target.removeEventListener(type, fn);
+          listener(event);
+        };
+        /* By useCapture mode enabled, you can capture the error event being fired on source(child)*/
+
+        target.addEventListener(type, fn, true);
+
+        this._handlers.push({
+          type: type,
+          fn: fn
+        });
+      };
+
+      return VideoLoader;
+    })();
+
+  /*
+    Copyright (c) 2017 NAVER Corp.
+    @egjs/agent project is licensed under the MIT license
+  
+    @egjs/agent JavaScript library
+  
+  
+    @version 2.1.5
+    */
+  var win$3 = (typeof window !== "undefined" && window) || {};
+  var RegExp$1 = win$3.RegExp;
+  var navigator$1 = win$3.navigator;
+  var parseRules = {
+    browser: [
+      {
+        criteria: "PhantomJS",
+        identity: "PhantomJS"
+      },
+      {
+        criteria: /Whale/,
+        identity: "Whale",
+        versionSearch: "Whale"
+      },
+      {
+        criteria: /Edge/,
+        identity: "Edge",
+        versionSearch: "Edge"
+      },
+      {
+        criteria: /MSIE|Trident|Windows Phone/,
+        identity: "IE",
+        versionSearch: "IEMobile|MSIE|rv"
+      },
+      {
+        criteria: /MiuiBrowser/,
+        identity: "MIUI Browser",
+        versionSearch: "MiuiBrowser"
+      },
+      {
+        criteria: /SamsungBrowser/,
+        identity: "Samsung Internet",
+        versionSearch: "SamsungBrowser"
+      },
+      {
+        criteria: /SAMSUNG /,
+        identity: "Samsung Internet",
+        versionSearch: "Version"
+      },
+      {
+        criteria: /Chrome|CriOS/,
+        identity: "Chrome"
+      },
+      {
+        criteria: /Android/,
+        identity: "Android Browser",
+        versionSearch: "Version"
+      },
+      {
+        criteria: /iPhone|iPad/,
+        identity: "Safari",
+        versionSearch: "Version"
+      },
+      {
+        criteria: "Apple",
+        identity: "Safari",
+        versionSearch: "Version"
+      },
+      {
+        criteria: "Firefox",
+        identity: "Firefox"
+      }
+    ],
+    os: [
+      {
+        criteria: /Windows Phone/,
+        identity: "Windows Phone",
+        versionSearch: "Windows Phone"
+      },
+      {
+        criteria: "Windows 2000",
+        identity: "Window",
+        versionAlias: "5.0"
+      },
+      {
+        criteria: /Windows NT/,
+        identity: "Window",
+        versionSearch: "Windows NT"
+      },
+      {
+        criteria: /iPhone|iPad/,
+        identity: "iOS",
+        versionSearch: "iPhone OS|CPU OS"
+      },
+      {
+        criteria: "Mac",
+        versionSearch: "OS X",
+        identity: "MAC"
+      },
+      {
+        criteria: /Android/,
+        identity: "Android"
+      },
+      {
+        criteria: /Tizen/,
+        identity: "Tizen"
+      },
+      {
+        criteria: /Web0S/,
+        identity: "WebOS"
+      }
+    ],
+    // Webview check condition
+    // ios: If has no version information
+    // Android 5.0 && chrome 40+: Presence of "; wv" in userAgent
+    // Under android 5.0: Presence of "NAVER" or "Daum" in userAgent
+    webview: [
+      {
+        criteria: /iPhone|iPad/,
+        browserVersionSearch: "Version",
+        webviewBrowserVersion: /-1/
+      },
+      {
+        criteria: /iPhone|iPad|Android/,
+        webviewToken: /NAVER|DAUM|; wv/
+      }
+    ],
+    defaultString: {
+      browser: {
+        version: "-1",
+        name: "unknown"
+      },
+      os: {
+        version: "-1",
+        name: "unknown"
+      }
+    }
+  };
+
+  function filter$1(arr, compare) {
+    var result = [];
+
+    for (var i = 0; i < arr.length; i++) {
+      compare(arr[i]) && result.push(arr[i]);
+    }
+
+    return result;
+  }
+
+  function some(arr, compare) {
+    for (var i = 0; i < arr.length; i++) {
+      if (compare(arr[i])) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  var UA = void 0;
+
+  function setUa(ua) {
+    UA = ua;
+  }
+
+  function isMatched(base, target) {
+    return target && target.test
+      ? !!target.test(base)
+      : base.indexOf(target) > -1;
+  }
+
+  function getIdentityStringFromArray(rules, defaultStrings) {
+    var matchedRule = filter$1(rules, function(rule) {
+      return isMatched(UA, rule.criteria);
+    })[0];
+    return (matchedRule && matchedRule.identity) || defaultStrings.name;
+  }
+
+  function getRule(rules, targetIdentity) {
+    return filter$1(rules, function(rule) {
+      var criteria = rule.criteria;
+      var identityMatched = new RegExp(rule.identity, "i").test(targetIdentity);
+
+      if (
+        criteria ? identityMatched && isMatched(UA, criteria) : identityMatched
+      ) {
+        return true;
+      } else {
+        return false;
+      }
+    })[0];
+  }
+
+  function getBrowserName() {
+    return getIdentityStringFromArray(
+      parseRules.browser,
+      parseRules.defaultString.browser
+    );
+  }
+
+  function getBrowserRule(browserName) {
+    var rule = getRule(parseRules.browser, browserName);
+
+    if (!rule) {
+      rule = {
+        criteria: browserName,
+        versionSearch: browserName,
+        identity: browserName
+      };
+    }
+
+    return rule;
+  }
+
+  function extractBrowserVersion(versionToken, ua) {
+    var browserVersion = parseRules.defaultString.browser.version;
+    var versionRegexResult = new RegExp("(" + versionToken + ")", "i").exec(ua);
+
+    if (!versionRegexResult) {
+      return browserVersion;
+    }
+
+    var versionTokenIndex = versionRegexResult.index;
+    var verTkn = versionRegexResult[0];
+
+    if (versionTokenIndex > -1) {
+      var versionIndex = versionTokenIndex + verTkn.length + 1;
+      browserVersion = ua
+        .substring(versionIndex)
+        .split(" ")[0]
+        .replace(/_/g, ".")
+        .replace(/;|\)/g, "");
+    }
+
+    return browserVersion;
+  }
+
+  function getBrowserVersion(browserName) {
+    if (!browserName) {
+      return undefined;
+    } // console.log(browserRule);
+    // const versionToken = browserRule ? browserRule.versionSearch : browserName;
+
+    var browserRule = getBrowserRule(browserName);
+    var versionToken = browserRule.versionSearch || browserName;
+    var browserVersion = extractBrowserVersion(versionToken, UA);
+    return browserVersion;
+  }
+
+  function isWebview() {
+    var webviewRules = parseRules.webview;
+    var browserVersion = void 0;
+    return some(
+      filter$1(webviewRules, function(rule) {
+        return isMatched(UA, rule.criteria);
+      }),
+      function(rule) {
+        browserVersion = extractBrowserVersion(rule.browserVersionSearch, UA);
+
+        if (
+          isMatched(UA, rule.webviewToken) ||
+          isMatched(browserVersion, rule.webviewBrowserVersion)
+        ) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    );
+  }
+
+  function getOSRule(osName) {
+    return getRule(parseRules.os, osName);
+  }
+
+  function getOsName() {
+    return getIdentityStringFromArray(
+      parseRules.os,
+      parseRules.defaultString.os
+    );
+  }
+
+  function getOsVersion(osName) {
+    var osRule = getOSRule(osName) || {};
+    var defaultOSVersion = parseRules.defaultString.os.version;
+    var osVersion = void 0;
+
+    if (!osName) {
+      return undefined;
+    }
+
+    if (osRule.versionAlias) {
+      return osRule.versionAlias;
+    }
+
+    var osVersionToken = osRule.versionSearch || osName;
+    var osVersionRegex = new RegExp(
+      "(" + osVersionToken + ")\\s([\\d_\\.]+|\\d_0)",
+      "i"
+    );
+    var osVersionRegexResult = osVersionRegex.exec(UA);
+
+    if (osVersionRegexResult) {
+      osVersion = osVersionRegex
+        .exec(UA)[2]
+        .replace(/_/g, ".")
+        .replace(/;|\)/g, "");
+    }
+
+    return osVersion || defaultOSVersion;
+  }
+
+  function getOs() {
+    var name = getOsName();
+    var version = getOsVersion(name);
+    return {
+      name: name,
+      version: version
+    };
+  }
+
+  function getBrowser() {
+    var name = getBrowserName();
+    var version = getBrowserVersion(name);
+    return {
+      name: name,
+      version: version,
+      webview: isWebview()
+    };
+  }
+
+  function getIsMobile() {
+    return UA.indexOf("Mobi") !== -1;
+  }
+  /**
+   * Copyright (c) NAVER Corp.
+   * egjs-agent projects are licensed under the MIT license
+   */
+
+  /**
+   * @namespace eg.agent
+   */
+
+  /**
+     * Extracts browser and operating system information from the user agent string.
+     * @ko 유저 에이전트 문자열에서 브라우저와 운영체제 정보를 추출한다.
+     * @function eg.agent#agent
+     * @param {String} [userAgent=navigator.userAgent] user agent string to parse <ko>파싱할 유저에이전트 문자열</ko>
+     * @return {Object} agentInfo
+     * @return {Object} agentInfo.os os Operating system information <ko>운영체제 정보</ko>
+     * @return {String} agentInfo.os.name Operating system name (android, ios, window, mac, unknown) <ko>운영체제 이름 (android, ios, window, mac, unknown)</ko>
+     * @return {String} agentInfo.os.version Operating system version <ko>운영체제 버전</ko>
+     * @return {String} agentInfo.browser Browser information <ko>브라우저 정보</ko>
+     * @return {String} agentInfo.browser.name Browser name (safari, chrome, sbrowser, ie, firefox, unknown) <ko>브라우저 이름 (safari, chrome, sbrowser, ie, firefox, unknown)</ko>
+     * @return {String} agentInfo.browser.version Browser version <ko>브라우저 버전 </ko>
+     * @return {Boolean} agentInfo.browser.webview Indicates whether the browser is inapp<ko>웹뷰 브라우저 여부</ko>
+     * @return {Boolean} agentInfo.isMobile Indicates whether the browser is for mobile<ko>모바일 브라우저 여부</ko>
+     * @example
+    import agent from "@egjs/agent";
+  
+    const {os, browser, isMobile} = agent();
+     */
+
+  function agent() {
+    var ua =
+      arguments.length > 0 && arguments[0] !== undefined
+        ? arguments[0]
+        : navigator$1.userAgent;
+    setUa(ua);
+    var agentInfo = {
+      os: getOs(),
+      browser: getBrowser(),
+      isMobile: getIsMobile()
+    };
+    agentInfo.browser.name = agentInfo.browser.name.toLowerCase();
+    agentInfo.os.name = agentInfo.os.name.toLowerCase();
+    agentInfo.os.version = agentInfo.os.version.toLowerCase();
+
+    if (agentInfo.os.name === "ios" && agentInfo.browser.webview) {
+      agentInfo.browser.version = "-1";
+    }
+
+    return agentInfo;
+  }
+  /**
+   * Version info string
+   * @ko 버전정보 문자열
+   * @name VERSION
+   * @static
+   * @type {String}
+   * @example
+   * eg.agent.VERSION;  // ex) 2.2.0
+   * @memberof eg.agent
+   */
+
+  agent.VERSION = "2.1.5";
+
+  var WEBGL_ERROR_CODE = {
+    "0": "NO_ERROR",
+    "1280": "INVALID_ENUM",
+    "1281": "INVALID_VALUE",
+    "1282": "INVALID_OPERATION",
+    "1285": "OUT_OF_MEMORY",
+    "1286": "INVALID_FRAMEBUFFER_OPERATION",
+    "37442": "CONTEXT_LOST_WEBGL"
+  };
+  var webglAvailability = null;
+  var MAX_TEXTURE_SIZE_FOR_TEST = null;
+
+  var WebGLUtils =
+    /*#__PURE__*/
+    (function() {
+      function WebGLUtils() {}
+
+      WebGLUtils.createShader = function createShader(gl, type, source) {
+        var shader = gl.createShader(type);
+        gl.shaderSource(shader, source);
+        gl.compileShader(shader);
+        var success = gl.getShaderParameter(shader, gl.COMPILE_STATUS);
+
+        if (success) {
+          return shader;
+        } else {
+          // eslint-disable-next-line
+          console.error(gl.getShaderInfoLog(shader));
+        }
+
+        return null;
+      };
+
+      WebGLUtils.createProgram = function createProgram(
+        gl,
+        vertexShader,
+        fragmentShader
+      ) {
+        var program = gl.createProgram();
+        gl.attachShader(program, vertexShader);
+        gl.attachShader(program, fragmentShader);
+        gl.linkProgram(program);
+        gl.detachShader(program, vertexShader);
+        gl.detachShader(program, fragmentShader);
+        gl.deleteShader(vertexShader);
+        gl.deleteShader(fragmentShader);
+        var success = gl.getProgramParameter(program, gl.LINK_STATUS);
+
+        if (success) {
+          return program;
+        }
+
+        gl.deleteProgram(program);
+        return null;
+      };
+
+      WebGLUtils.initBuffer = function initBuffer(
+        gl,
+        target,
+        /* bind point */
+        data,
+        itemSize,
+        attr
+      ) {
+        var buffer = gl.createBuffer();
+        gl.bindBuffer(target, buffer);
+        gl.bufferData(target, data, gl.STATIC_DRAW);
+
+        if (buffer) {
+          buffer.itemSize = itemSize;
+          buffer.numItems = data.length / itemSize;
+        }
+
+        if (attr !== undefined) {
+          gl.enableVertexAttribArray(attr);
+          gl.vertexAttribPointer(attr, buffer.itemSize, gl.FLOAT, false, 0, 0);
+        }
+
+        return buffer;
+      };
+
+      WebGLUtils.getWebglContext = function getWebglContext(
+        canvas,
+        userContextAttributes
+      ) {
+        var webglIdentifiers = [
+          "webgl",
+          "experimental-webgl",
+          "webkit-3d",
+          "moz-webgl"
+        ];
+        var context = null;
+
+        var contextAttributes = _extends(
+          {
+            preserveDrawingBuffer: false,
+            antialias: false,
+            xrCompatible: true
+          },
+          userContextAttributes
+        );
+
+        function onWebglcontextcreationerror(e) {
+          return e.statusMessage;
+        }
+
+        canvas.addEventListener(
+          "webglcontextcreationerror",
+          onWebglcontextcreationerror
+        );
+
+        for (var i = 0; i < webglIdentifiers.length; i++) {
+          try {
+            context = canvas.getContext(webglIdentifiers[i], contextAttributes);
+          } catch (t) {}
+
+          if (context) {
+            break;
+          }
+        }
+
+        canvas.removeEventListener(
+          "webglcontextcreationerror",
+          onWebglcontextcreationerror
+        );
+        return context;
+      };
+
+      WebGLUtils.createTexture = function createTexture(gl, textureTarget) {
+        var texture = gl.createTexture();
+        gl.bindTexture(textureTarget, texture);
+        gl.texParameteri(textureTarget, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+        gl.texParameteri(textureTarget, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+        gl.texParameteri(textureTarget, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+        gl.texParameteri(textureTarget, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+        gl.bindTexture(textureTarget, null);
+        return texture;
+      };
+      /**
+       * Returns the webgl availability of the current browser.
+       * @method WebGLUtils#isWebGLAvailable
+       * @retuen {Boolean} isWebGLAvailable
+       */
+
+      WebGLUtils.isWebGLAvailable = function isWebGLAvailable() {
+        if (webglAvailability === null) {
+          var canvas = document.createElement("canvas");
+          var webglContext = WebGLUtils.getWebglContext(canvas);
+          webglAvailability = !!webglContext; // webglContext Resource forced collection
+
+          if (webglContext) {
+            var loseContextExtension = webglContext.getExtension(
+              "WEBGL_lose_context"
+            );
+            loseContextExtension && loseContextExtension.loseContext();
+          }
+        }
+
+        return webglAvailability;
+      };
+      /**
+       * Returns whether webgl is stable in the current browser.
+       * @method WebGLUtils#isStableWebGL
+       * @retuen {Boolean} isStableWebGL
+       */
+
+      WebGLUtils.isStableWebGL = function isStableWebGL() {
+        var agentInfo = agent();
+        var isStableWebgl = true;
+
+        if (
+          agentInfo.os.name === "android" &&
+          parseFloat(agentInfo.os.version) <= 4.3
+        ) {
+          isStableWebgl = false;
+        } else if (
+          agentInfo.os.name === "android" &&
+          parseFloat(agentInfo.os.version) === 4.4
+        ) {
+          if (agentInfo.browser.name !== "chrome") {
+            isStableWebgl = false;
+          }
+        }
+
+        return isStableWebgl;
+      };
+
+      WebGLUtils.getErrorNameFromWebGLErrorCode = function getErrorNameFromWebGLErrorCode(
+        code
+      ) {
+        if (!(code in WEBGL_ERROR_CODE)) {
+          return "UNKNOWN_ERROR";
+        }
+
+        return WEBGL_ERROR_CODE[code];
+      };
+      /**
+       * This function is wrapper for texImage2D to handle exceptions on texImage2D.
+       * Purpose is to prevent service from being stopped by script error.
+       *
+       * @param {*} gl
+       * @param {*} target
+       * @param {*} pixels
+       */
+
+      WebGLUtils.texImage2D = function texImage2D(gl, target, pixels) {
+        try {
+          gl.texImage2D(target, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, pixels);
+        } catch (error) {
+          /* eslint-disable no-console */
+          console.error("WebGLUtils.texImage2D error:", error);
+          /* eslint-enable no-console */
+        }
+      };
+
+      WebGLUtils.getMaxTextureSize = function getMaxTextureSize(gl) {
+        // WARN: MAX_TEXTURE_SIZE_FOR_TEST is used for test
+        return (
+          MAX_TEXTURE_SIZE_FOR_TEST || gl.getParameter(gl.MAX_TEXTURE_SIZE)
+        );
+      };
+
+      return WebGLUtils;
+    })();
+
+  var agent$1 = agent();
+  var isIE11 =
+    agent$1.browser.name === "ie" && agent$1.browser.version === "11.0";
+  var EVENTS = {
+    ERROR: "error"
+  };
+  /**
+   *
+   * Extends Component for firing errors occurs internally.
+   */
+
+  var Renderer =
+    /*#__PURE__*/
+    (function() {
+      var Renderer =
+        /*#__PURE__*/
+        (function(_Component) {
+          _inheritsLoose(Renderer, _Component);
+
+          function Renderer() {
+            var _this;
+
+            _this = _Component.call(this) || this;
+            _this._forceDimension = null;
+            _this._pixelCanvas = null;
+            _this._pixelContext = null;
+            return _this;
+          }
+
+          var _proto = Renderer.prototype;
+
+          _proto.render = function render(_ref) {
+            var gl = _ref.gl,
+              shaderProgram = _ref.shaderProgram,
+              indexBuffer = _ref.indexBuffer,
+              mvMatrix = _ref.mvMatrix,
+              pMatrix = _ref.pMatrix;
+            gl.uniformMatrix4fv(shaderProgram.pMatrixUniform, false, pMatrix);
+            gl.uniformMatrix4fv(shaderProgram.mvMatrixUniform, false, mvMatrix);
+
+            if (indexBuffer) {
+              gl.drawElements(
+                gl.TRIANGLES,
+                indexBuffer.numItems,
+                gl.UNSIGNED_SHORT,
+                0
+              );
+            }
+          }; // Define interface for Renderers
+
+          /**
+           * Following MUST BE DEFINED on Child of Renderer
+           *
+           * DATA
+           *
+           *  - getVertexPositionData
+           *  - getIndexData
+           *  - getTextureCoordData
+           *
+           * SOURCE
+           *
+           *  - getVertexShaderSource
+           *  - getFragmentShaderSource
+           *
+           * TEXTURE
+           *
+           *  - bindTexture
+           */
+
+          _proto.getDimension = function getDimension(pixelSource) {
+            var width = pixelSource.naturalWidth || pixelSource.videoWidth;
+            var height = pixelSource.naturalHeight || pixelSource.videoHeight;
+            return {
+              width: width,
+              height: height
+            };
+          };
+          /**
+           * Update data used by shader
+           * 	-
+           *
+           *
+           * @param {*} param
+           */
+
+          _proto.updateShaderData = function updateShaderData(param) {};
+          /*
+           * Update following data in implementation layer.
+           * If the data is not changed, it does not need to implement this function.
+           *
+           * - _VERTEX_POSITION_DATA
+           * - _TEXTURE_COORD_DATA
+           * - _INDEX_DATA
+           */
+
+          /**
+           *
+           * @param {HTMLImageElement | HTMLVideoElement} image
+           * @param {Object = {width, height}} forceDimension Forced dimension to resize
+           */
+
+          _proto._initPixelSource = function _initPixelSource(
+            image,
+            forceDimension
+          ) {
+            var isIE11Video = isIE11 && image instanceof HTMLVideoElement;
+
+            if (isIE11Video || forceDimension) {
+              var _ref2 = forceDimension || this.getDimension(image),
+                width = _ref2.width,
+                height = _ref2.height;
+
+              this._pixelCanvas = document.createElement("canvas");
+              this._pixelCanvas.width = width;
+              this._pixelCanvas.height = height;
+              this._pixelContext = this._pixelCanvas.getContext("2d");
+            }
+
+            this._forceDimension = forceDimension;
+          };
+
+          _proto._getPixelSource = function _getPixelSource(image) {
+            if (!this._pixelCanvas) {
+              return image;
+            }
+            /**
+             * IE11 && Video
+             * or
+             * Dimension is forced (Image is larger than texture size.)
+             */
+
+            var contentDimension = this.getDimension(image);
+            var textureDimension = this._forceDimension || contentDimension;
+
+            if (this._pixelCanvas.width !== textureDimension.width) {
+              this._pixelCanvas.width = textureDimension.width;
+            }
+
+            if (this._pixelCanvas.height !== textureDimension.height) {
+              this._pixelCanvas.height = textureDimension.height;
+            }
+
+            if (this._forceDimension) {
+              this._pixelContext.drawImage(
+                image,
+                0,
+                0,
+                contentDimension.width,
+                contentDimension.height,
+                0,
+                0,
+                textureDimension.width,
+                textureDimension.height
+              );
+            } else {
+              this._pixelContext.drawImage(image, 0, 0);
+            }
+
+            return this._pixelCanvas;
+          };
+
+          _proto._extractTileConfig = function _extractTileConfig(imageConfig) {
+            var tileConfig = Array.isArray(imageConfig.tileConfig)
+              ? imageConfig.tileConfig
+              : Array.apply(void 0, Array(6)).map(function() {
+                  return imageConfig.tileConfig;
+                });
+            tileConfig = tileConfig.map(function(config) {
+              return _extends(
+                {
+                  flipHorizontal: false,
+                  rotation: 0
+                },
+                config
+              );
+            });
+            return tileConfig;
+          };
+
+          _proto._triggerError = function _triggerError(error) {
+            /* eslint-disable no-console */
+            console.error("Renderer Error:", error);
+            /* eslint-enable no-console */
+
+            this.trigger(EVENTS.ERROR, {
+              message: typeof error === "string" ? error : error.message
+            });
+          };
+
+          return Renderer;
+        })(Component);
+
+      Renderer.EVENTS = EVENTS;
+      return Renderer;
+    })();
+
+  var CubeRenderer =
+    /*#__PURE__*/
+    (function() {
+      var CubeRenderer =
+        /*#__PURE__*/
+        (function(_Renderer) {
+          _inheritsLoose(CubeRenderer, _Renderer);
+
+          function CubeRenderer() {
+            return _Renderer.apply(this, arguments) || this;
+          }
+
+          var _proto = CubeRenderer.prototype;
+
+          _proto.getVertexPositionData = function getVertexPositionData() {
+            CubeRenderer._VERTEX_POSITION_DATA =
+              CubeRenderer._VERTEX_POSITION_DATA !== null
+                ? CubeRenderer._VERTEX_POSITION_DATA
+                : [
+                    // back
+                    1,
+                    -1,
+                    1,
+                    -1,
+                    -1,
+                    1,
+                    -1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1, // front
+                    -1,
+                    -1,
+                    -1,
+                    1,
+                    -1,
+                    -1,
+                    1,
+                    1,
+                    -1,
+                    -1,
+                    1,
+                    -1, // top
+                    -1,
+                    1,
+                    -1,
+                    1,
+                    1,
+                    -1,
+                    1,
+                    1,
+                    1,
+                    -1,
+                    1,
+                    1, // bottom
+                    1,
+                    -1,
+                    -1,
+                    -1,
+                    -1,
+                    -1,
+                    -1,
+                    -1,
+                    1,
+                    1,
+                    -1,
+                    1, // right
+                    1,
+                    -1,
+                    -1,
+                    1,
+                    -1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    -1, // left
+                    -1,
+                    -1,
+                    1,
+                    -1,
+                    -1,
+                    -1,
+                    -1,
+                    1,
+                    -1,
+                    -1,
+                    1,
+                    1
+                  ];
+            return CubeRenderer._VERTEX_POSITION_DATA;
+          };
+
+          _proto.getIndexData = function getIndexData() {
+            if (CubeRenderer._INDEX_DATA) {
+              return CubeRenderer._INDEX_DATA;
+            }
+
+            var indexData = [];
+            var vertexPositionData = this.getVertexPositionData();
+
+            for (var i = 0; i < vertexPositionData.length / 3; i += 4) {
+              indexData.push(i, i + 2, i + 1, i, i + 3, i + 2);
+            }
+
+            CubeRenderer._INDEX_DATA = indexData;
+            return indexData;
+          };
+
+          CubeRenderer.extractOrder = function extractOrder(imageConfig) {
+            return imageConfig.order || "RLUDBF";
+          };
+
+          _proto.getTextureCoordData = function getTextureCoordData(
+            imageConfig
+          ) {
+            var vertexOrder = "BFUDRL";
+            var order = CubeRenderer.extractOrder(imageConfig);
+            var base = this.getVertexPositionData();
+
+            var tileConfig = this._extractTileConfig(imageConfig);
+
+            var elemSize = 3;
+            var vertexPerTile = 4;
+            var textureCoordData = vertexOrder
+              .split("")
+              .map(function(face) {
+                return tileConfig[order.indexOf(face)];
+              })
+              .map(function(config, i) {
+                var rotation = parseInt(config.rotation / 90, 10);
+                var ordermap_ = config.flipHorizontal
+                  ? [0, 1, 2, 3]
+                  : [1, 0, 3, 2];
+
+                for (var r = 0; r < Math.abs(rotation); r++) {
+                  if (
+                    (config.flipHorizontal && rotation > 0) ||
+                    (!config.flipHorizontal && rotation < 0)
+                  ) {
+                    ordermap_.push(ordermap_.shift());
+                  } else {
+                    ordermap_.unshift(ordermap_.pop());
+                  }
+                }
+
+                var elemPerTile = elemSize * vertexPerTile;
+                var tileVertex = base.slice(
+                  i * elemPerTile,
+                  i * elemPerTile + elemPerTile
+                );
+                var tileTemp = [];
+
+                for (var j = 0; j < vertexPerTile; j++) {
+                  tileTemp[ordermap_[j]] = tileVertex.splice(0, elemSize);
+                }
+
+                return tileTemp;
+              })
+              .join()
+              .split(",")
+              .map(function(v) {
+                return parseInt(v, 10);
+              });
+            return textureCoordData;
+          };
+
+          _proto.getVertexShaderSource = function getVertexShaderSource() {
+            return "\nattribute vec3 aVertexPosition;\nattribute vec3 aTextureCoord;\nuniform mat4 uMVMatrix;\nuniform mat4 uPMatrix;\nvarying highp vec3 vVertexDirectionVector;\nvoid main(void) {\n\tvVertexDirectionVector = aTextureCoord;\n\tgl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0);\n}";
+          };
+
+          _proto.getFragmentShaderSource = function getFragmentShaderSource() {
+            return "\nprecision highp float;\nuniform samplerCube uSampler;\nvarying highp vec3 vVertexDirectionVector;\nvoid main(void) {\n\tgl_FragColor = textureCube(uSampler, vVertexDirectionVector);\n}";
+          };
+
+          _proto.updateTexture = function updateTexture(
+            gl,
+            image,
+            imageConfig
+          ) {
+            var baseOrder = "RLUDBF";
+            var order = CubeRenderer.extractOrder(imageConfig);
+            var orderMap = {};
+            order.split("").forEach(function(v, i) {
+              orderMap[v] = i;
+            });
+
+            try {
+              if (image instanceof Array) {
+                for (var surfaceIdx = 0; surfaceIdx < 6; surfaceIdx++) {
+                  var tileIdx = orderMap[baseOrder[surfaceIdx]];
+                  WebGLUtils.texImage2D(
+                    gl,
+                    gl.TEXTURE_CUBE_MAP_POSITIVE_X + surfaceIdx,
+                    image[tileIdx]
+                  );
+                }
+              } else {
+                var maxCubeMapTextureSize = this.getMaxCubeMapTextureSize(
+                  gl,
+                  image
+                );
+
+                for (var _surfaceIdx = 0; _surfaceIdx < 6; _surfaceIdx++) {
+                  var _tileIdx = orderMap[baseOrder[_surfaceIdx]];
+                  var tile = this.extractTileFromImage(
+                    image,
+                    _tileIdx,
+                    maxCubeMapTextureSize
+                  );
+                  WebGLUtils.texImage2D(
+                    gl,
+                    gl.TEXTURE_CUBE_MAP_POSITIVE_X + _surfaceIdx,
+                    tile
+                  );
+                }
+              }
+            } catch (e) {
+              this._triggerError(e);
+            }
+          };
+
+          _proto.bindTexture = function bindTexture(
+            gl,
+            texture,
+            image,
+            imageConfig
+          ) {
+            gl.bindTexture(gl.TEXTURE_CUBE_MAP, texture);
+            this.updateTexture(gl, image, imageConfig);
+          };
+
+          _proto.getSourceTileSize = function getSourceTileSize(image) {
+            var _this$getDimension = this.getDimension(image),
+              width = _this$getDimension.width,
+              height = _this$getDimension.height;
+
+            var aspectRatio = width / height;
+            var inputTextureSize;
+
+            if (aspectRatio === 1 / 6) {
+              inputTextureSize = width;
+            } else if (aspectRatio === 6) {
+              inputTextureSize = height;
+            } else if (aspectRatio === 2 / 3) {
+              inputTextureSize = width / 2;
+            } else {
+              inputTextureSize = width / 3;
+            }
+
+            return inputTextureSize;
+          };
+
+          _proto.extractTileFromImage = function extractTileFromImage(
+            image,
+            tileIdx,
+            outputTextureSize
+          ) {
+            var _this$getDimension2 = this.getDimension(image),
+              width = _this$getDimension2.width;
+
+            var inputTextureSize = this.getSourceTileSize(image);
+            var canvas = document.createElement("canvas");
+            canvas.width = outputTextureSize;
+            canvas.height = outputTextureSize;
+            var context = canvas.getContext("2d");
+            var tilePerRow = width / inputTextureSize;
+            var x =
+              (inputTextureSize * tileIdx) % (inputTextureSize * tilePerRow);
+            var y = parseInt(tileIdx / tilePerRow, 10) * inputTextureSize;
+            context.drawImage(
+              image,
+              x,
+              y,
+              inputTextureSize,
+              inputTextureSize,
+              0,
+              0,
+              outputTextureSize,
+              outputTextureSize
+            );
+            return canvas;
+          };
+
+          _proto.getMaxCubeMapTextureSize = function getMaxCubeMapTextureSize(
+            gl,
+            image
+          ) {
+            var agent$$1 = agent();
+            var maxCubeMapTextureSize = gl.getParameter(
+              gl.MAX_CUBE_MAP_TEXTURE_SIZE
+            );
+
+            var _imageWidth = this.getSourceTileSize(image);
+
+            if (
+              agent$$1.browser.name === "ie" &&
+              parseInt(agent$$1.browser.version, 10) === 11
+            ) {
+              if (!util.isPowerOfTwo(_imageWidth)) {
+                for (var i = 1; i < maxCubeMapTextureSize; i *= 2) {
+                  if (i < _imageWidth) {
+                    continue;
+                  } else {
+                    _imageWidth = i;
+                    break;
+                  }
+                }
+              }
+            } // ios 9 의 경우 텍스쳐 최대사이즈는 1024 이다.
+
+            if (
+              agent$$1.os.name === "ios" &&
+              parseInt(agent$$1.os.version, 10) === 9
+            ) {
+              _imageWidth = 1024;
+            } // ios 8 의 경우 텍스쳐 최대사이즈는 512 이다.
+
+            if (
+              agent$$1.os.name === "ios" &&
+              parseInt(agent$$1.os.version, 10) === 8
+            ) {
+              _imageWidth = 512;
+            } // maxCubeMapTextureSize 보다는 작고, imageWidth 보다 큰 2의 승수 중 가장 작은 수
+
+            return Math.min(maxCubeMapTextureSize, _imageWidth);
+          };
+
+          return CubeRenderer;
+        })(Renderer);
+
+      CubeRenderer._VERTEX_POSITION_DATA = null;
+      CubeRenderer._INDEX_DATA = null;
+      return CubeRenderer;
+    })();
+
+  var CubeStripRenderer =
+    /*#__PURE__*/
+    (function(_Renderer) {
+      _inheritsLoose(CubeStripRenderer, _Renderer);
+
+      function CubeStripRenderer() {
+        return _Renderer.apply(this, arguments) || this;
+      }
+
+      var _proto = CubeStripRenderer.prototype;
+
+      _proto.getVertexShaderSource = function getVertexShaderSource() {
+        return "\nattribute vec3 aVertexPosition;\nattribute vec2 aTextureCoord;\nuniform mat4 uMVMatrix;\nuniform mat4 uPMatrix;\nvarying highp vec2 vTextureCoord;\nvoid main(void) {\n\tvTextureCoord = aTextureCoord;\n\tgl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0);\n}";
+      };
+
+      _proto.getFragmentShaderSource = function getFragmentShaderSource() {
+        return "\n#define PI 3.14159265359\nprecision highp float;\nvarying highp vec2 vTextureCoord;\nuniform sampler2D uSampler;\nuniform bool uIsEAC;\nconst vec2 OPERATE_COORDS_RANGE = vec2(-1.0, 1.0);\nconst vec2 TEXTURE_COORDS_RANGE = vec2(0.0, 1.0);\n// vector type is used for initializing values instead of array.\nconst vec4 TEXTURE_DIVISION_X = vec4(0.0, 1.0 / 3.0, 2.0 / 3.0, 1.0);\nconst vec3 TEXTURE_DIVISION_Y = vec3(0.0, 1.0 / 2.0, 1.0);\nconst float EAC_CONST = 2.0 / PI;\nfloat scale(vec2 domainRange, vec2 targetRange, float val) {\n\tfloat unit = 1.0 / (domainRange[1] - domainRange[0]);\n\treturn targetRange[0] + (targetRange[1] - targetRange[0]) * (val - domainRange[0]) * unit;\n}\nvoid main(void) {\n\tfloat transformedCoordX;\n\tfloat transformedCoordY;\n\n\tif (uIsEAC) {\n\t\tvec2 orgTextureRangeX;\n\t\tvec2 orgTextureRangeY;\n\n\t\t// Apply EAC transform\n\t\tif (vTextureCoord.s >= TEXTURE_DIVISION_X[2]) {\n\t\t\torgTextureRangeX = vec2(TEXTURE_DIVISION_X[2], TEXTURE_DIVISION_X[3]);\n\t\t} else if (vTextureCoord.s >= TEXTURE_DIVISION_X[1]) {\n\t\t\torgTextureRangeX = vec2(TEXTURE_DIVISION_X[1], TEXTURE_DIVISION_X[2]);\n\t\t} else {\n\t\t\torgTextureRangeX = vec2(TEXTURE_DIVISION_X[0], TEXTURE_DIVISION_X[1]);\n\t\t}\n\n\t\tif (vTextureCoord.t >= TEXTURE_DIVISION_Y[1]) {\n\t\t\torgTextureRangeY = vec2(TEXTURE_DIVISION_Y[1], TEXTURE_DIVISION_Y[2]);\n\t\t} else {\n\t\t\torgTextureRangeY = vec2(TEXTURE_DIVISION_Y[0], TEXTURE_DIVISION_Y[1]);\n\t\t}\n\n\t\t// scaling coors by the coordinates following the range from -1.0 to 1.0.\n\t\tfloat px = scale(orgTextureRangeX, OPERATE_COORDS_RANGE, vTextureCoord.s);\n\t\tfloat py = scale(orgTextureRangeY, OPERATE_COORDS_RANGE, vTextureCoord.t);\n\n\t\tfloat qu = EAC_CONST * atan(px) + 0.5;\n\t\tfloat qv = EAC_CONST * atan(py) + 0.5;\n\n\t\t// re-scaling coors by original coordinates ranges\n\t\ttransformedCoordX = scale(TEXTURE_COORDS_RANGE, orgTextureRangeX, qu);\n\t\ttransformedCoordY = scale(TEXTURE_COORDS_RANGE, orgTextureRangeY, qv);\n\t} else {\n\t\t// normal cubemap\n\t\ttransformedCoordX = vTextureCoord.s;\n\t\ttransformedCoordY = vTextureCoord.t;\n\t}\n\n\tgl_FragColor = texture2D(uSampler, vec2(transformedCoordX, transformedCoordY));\n}";
+      };
+
+      _proto.getVertexPositionData = function getVertexPositionData() {
+        if (!this._vertices) {
+          this._vertices = [
+            // back
+            1,
+            -1,
+            1,
+            -1,
+            -1,
+            1,
+            -1,
+            1,
+            1,
+            1,
+            1,
+            1, // front
+            -1,
+            -1,
+            -1,
+            1,
+            -1,
+            -1,
+            1,
+            1,
+            -1,
+            -1,
+            1,
+            -1, // up
+            -1,
+            1,
+            -1,
+            1,
+            1,
+            -1,
+            1,
+            1,
+            1,
+            -1,
+            1,
+            1, // down
+            -1,
+            -1,
+            1,
+            1,
+            -1,
+            1,
+            1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1, // right
+            1,
+            -1,
+            -1,
+            1,
+            -1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            -1, // left
+            -1,
+            -1,
+            1,
+            -1,
+            -1,
+            -1,
+            -1,
+            1,
+            -1,
+            -1,
+            1,
+            1
+          ];
+        }
+
+        return this._vertices;
+      };
+
+      _proto.getIndexData = function getIndexData() {
+        var _this = this;
+
+        // TODO: 한번만 계산하도록 수정하기
+        var indices = (function() {
+          var indexData = [];
+
+          for (var i = 0; i < _this._vertices.length / 3; i += 4) {
+            indexData.push(i, i + 1, i + 2, i, i + 2, i + 3);
+          }
+
+          return indexData;
+        })();
+
+        return indices;
+      };
+
+      _proto.getTextureCoordData = function getTextureCoordData(imageConfig) {
+        var _this2 = this;
+
+        // TODO: make it cols, rows as config.
+        var cols = 3;
+        var rows = 2;
+        var order = imageConfig.order || "RLUDFB";
+        var coords = []; // 텍스쳐의 좌표는 윗쪽이 큰 값을 가지므로 row 는 역순으로 넣는다.
+
+        for (var r = rows - 1; r >= 0; r--) {
+          for (var c = 0; c < cols; c++) {
+            var coord = [
+              c / cols,
+              r / rows,
+              (c + 1) / cols,
+              r / rows,
+              (c + 1) / cols,
+              (r + 1) / rows,
+              c / cols,
+              (r + 1) / rows
+            ];
+            coords.push(coord);
+          }
+        }
+
+        var tileConfigs = this._extractTileConfig(imageConfig); // Transform Coord By Flip & Rotation
+
+        coords = coords // shrink coord to avoid pixel bleeding
+          .map(function(coord) {
+            return _this2._shrinkCoord(coord);
+          })
+          .map(function(coord, i) {
+            return _this2._transformCoord(coord, tileConfigs[i]);
+          }); // vertices 에서 지정된 순서대로 그대로 그리기 위해 vertex 의 순서를 BFUDRL 로 재배치
+
+        return "BFUDRL"
+          .split("")
+          .map(function(face) {
+            return order.indexOf(face);
+          })
+          .map(function(index) {
+            return coords[index];
+          })
+          .reduce(function(acc, val) {
+            return acc.concat(val);
+          }, []);
+      };
+
+      _proto.updateTexture = function updateTexture(gl, image) {
+        WebGLUtils.texImage2D(gl, gl.TEXTURE_2D, this._getPixelSource(image));
+      };
+
+      _proto.bindTexture = function bindTexture(gl, texture, image) {
+        // Make sure image isn't too big
+        var _this$getDimension = this.getDimension(image),
+          width = _this$getDimension.width,
+          height = _this$getDimension.height;
+
+        var size = Math.max(width, height);
+        var maxSize = WebGLUtils.getMaxTextureSize(gl);
+
+        if (size > maxSize) {
+          this._triggerError(
+            "Image width(" + width + ") exceeds device limit(" + maxSize + "))"
+          );
+
+          return;
+        } // Pixel Source for IE11 & Video
+
+        this._initPixelSource(image);
+
+        gl.activeTexture(gl.TEXTURE0);
+        gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
+        gl.bindTexture(gl.TEXTURE_2D, texture);
+        this.updateTexture(gl, image);
+      };
+
+      _proto._transformCoord = function _transformCoord(coord, tileConfig) {
+        var newCoord = coord.slice();
+
+        if (tileConfig.flipHorizontal) {
+          newCoord = this._flipHorizontalCoord(newCoord);
+        }
+
+        if (tileConfig.rotation) {
+          newCoord = this._rotateCoord(newCoord, tileConfig.rotation);
+        }
+
+        return newCoord;
+      };
+
+      _proto._shrinkCoord = function _shrinkCoord(coord) {
+        var SHRINK_Y = 0.0;
+        var SHRINK_X = 0.0;
+        return [
+          coord[0] + SHRINK_X,
+          coord[1] + SHRINK_Y,
+          coord[2] - SHRINK_X,
+          coord[3] + SHRINK_Y,
+          coord[4] - SHRINK_X,
+          coord[5] - SHRINK_Y,
+          coord[6] + SHRINK_X,
+          coord[7] - SHRINK_Y
+        ];
+      };
+
+      _proto._rotateCoord = function _rotateCoord(coord, rotationAngle) {
+        var SIZE = 2; // coord means x,y coordinates. Two values(x, y) makes a one coord.
+
+        var shiftCount = parseInt(rotationAngle / 90, 10) % 4;
+
+        if (shiftCount === 0) {
+          return coord;
+        }
+
+        var moved;
+        var rotatedCoord = [];
+
+        if (shiftCount > 0) {
+          moved = coord.splice(0, shiftCount * SIZE);
+          rotatedCoord = coord.concat(moved);
+        } else {
+          moved = coord.splice((4 + shiftCount) * SIZE, -shiftCount * SIZE);
+          rotatedCoord = moved.concat(coord);
+        }
+
+        return rotatedCoord;
+      };
+
+      _proto._flipHorizontalCoord = function _flipHorizontalCoord(coord) {
+        return [
+          coord[2],
+          coord[3],
+          coord[0],
+          coord[1],
+          coord[6],
+          coord[7],
+          coord[4],
+          coord[5]
+        ];
+      };
+
+      return CubeStripRenderer;
+    })(Renderer);
+
+  /**
+   * Constant value for gyro mode. <br>(Reference {@link https://github.com/naver/egjs-view360/wiki/PanoViewer-3.0-User-Guide})
+   * @ko gyro 모드 대한 상수 값. <br>({@link https://github.com/naver/egjs-view360/wiki/PanoViewer-3.0-User-Guide} 참고)
+   * @namespace
+   * @name GYRO_MODE
+   * @memberof eg.view360.PanoViewer
+   */
+  /**
+   * Constant value for errors
+   * @ko 에러에 대한 상수 값
+   * @namespace
+   * @name ERROR_TYPE
+   * @memberof eg.view360.PanoViewer
+   */
+
+  var ERROR_TYPE = {
+    /**
+     * Unsupported device
+     * @ko 미지원 기기
+     * @name INVALID_DEVICE
+     * @memberof eg.view360.PanoViewer.ERROR_TYPE
+     * @constant
+     * @type {Number}
+     * @default 10
+     */
+    INVALID_DEVICE: 10,
+
+    /**
+     * Webgl not support
+     * @ko WEBGL 미지원
+     * @name NO_WEBGL
+     * @memberof eg.view360.PanoViewer.ERROR_TYPE
+     * @constant
+     * @type {Number}
+     * @default 11
+     */
+    NO_WEBGL: 11,
+
+    /**
+     * Failed to load image
+     * @ko 이미지 로드 실패
+     * @name FAIL_IMAGE_LOAD
+     * @memberof eg.view360.PanoViewer.ERROR_TYPE
+     * @constant
+     * @type {Number}
+     * @default 12
+     */
+    FAIL_IMAGE_LOAD: 12,
+
+    /**
+     * Failed to bind texture
+     * @ko 텍스쳐 바인딩 실패
+     * @name FAIL_BIND_TEXTURE
+     * @memberof eg.view360.PanoViewer.ERROR_TYPE
+     * @constant
+     * @type {Number}
+     * @default 13
+     */
+    FAIL_BIND_TEXTURE: 13,
+
+    /**
+     * Only one resource(image or video) should be specified
+     * @ko 리소스 지정 오류 (image 혹은 video 중 하나만 지정되어야 함)
+     * @name INVALID_RESOURCE
+     * @memberof eg.view360.PanoViewer.ERROR_TYPE
+     * @constant
+     * @type {Number}
+     * @default 14
+     */
+    INVALID_RESOURCE: 14,
+
+    /**
+     * WebGL context lost occurred
+     * @ko WebGL context lost 발생
+     * @name RENDERING_CONTEXT_LOST
+     * @memberof eg.view360.PanoViewer.ERROR_TYPE
+     * @constant
+     * @type {Number}
+     * @default 15
+     */
+    RENDERING_CONTEXT_LOST: 15
+  };
+  /**
+   * Constant value for events
+   * @ko 이벤트에 대한 상수 값
+   * @namespace
+   * @name EVENTS
+   * @memberof eg.view360.PanoViewer
+   */
+
+  var EVENTS$1 = {
+    /**
+     * Events that is fired when PanoViewer is ready to show image and handle user interaction.
+     * @ko PanoViewer 가 사용자의 인터렉션 및 렌더링이 준비되상태에 발생하는 이벤트
+     * @name READY
+     * @memberof eg.view360.PanoViewer.EVENTS
+     * @constant
+     * @type {String}
+     * @default ready
+     */
+    READY: "ready",
+
+    /**
+     * Events that is fired when direction or fov is changed.
+     * @ko PanoViewer 에서 바라보고 있는 방향이나 FOV(화각)가 변경되었을때 발생하는 이벤트
+     * @name VIEW_CHANGE
+     * @memberof eg.view360.PanoViewer.EVENTS
+     * @constant
+     * @type {String}
+     * @default viewChange
+     */
+    VIEW_CHANGE: "viewChange",
+
+    /**
+     * Events that is fired when animation which is triggered by inertia is ended.
+     * @ko 관성에 의한 애니메이션 동작이 완료되었을때 발생하는 이벤트
+     * @name ANIMATION_END
+     * @memberof eg.view360.PanoViewer.EVENTS
+     * @constant
+     * @type {String}
+     * @default animationEnd
+     */
+    ANIMATION_END: "animationEnd",
+
+    /**
+     * Events that is fired when error occurs
+     * @ko 에러 발생 시 발생하는 이벤트
+     * @name ERROR
+     * @memberof eg.view360.PanoViewer.EVENTS
+     * @constant
+     * @type {String}
+     * @default error
+     */
+    ERROR: "error"
+  };
+  /**
+   * Constant value for projection type
+   * @ko 프로젝션 타입 대한 상수 값
+   * @namespace
+   * @name PROJECTION_TYPE
+   * @memberof eg.view360.PanoViewer
+   */
+
+  var PROJECTION_TYPE = {
+    /**
+     * Constant value for equirectangular type.
+     * @ko equirectangular 에 대한 상수 값.
+     * @name EQUIRECTANGULAR
+     * @memberof eg.view360.PanoViewer.PROJECTION_TYPE
+     * @constant
+     * @type {String}
+     * @default equirectangular
+     */
+    EQUIRECTANGULAR: "equirectangular",
+
+    /**
+     * Constant value for cubemap type.
+     * @ko cubemap 에 대한 상수 값.
+     * @name CUBEMAP
+     * @memberof eg.view360.PanoViewer.PROJECTION_TYPE
+     * @constant
+     * @type {String}
+     * @default cubemap
+     */
+    CUBEMAP: "cubemap",
+
+    /**
+     * Constant value for cubestrip type.
+     * Cubestrip is a format for a single image with a combination of six cube faces. It is almost identical to cubemap, but it is implemented in a different way. It aims at better performance and efficiency. In addition, it automatically detects and supports EAC.
+     *
+     * @ko cubemap 에 대한 상수 값.Cubestrip 은 cube 면이 6개가 조합된 조합을 한장의 이미지를 위한 포맷이다. cubemap 과 사용방법이 거의 동일하지만 다른 방식으로 구현되었다. 보다 좋은 성능과 효율성을 목적으로 한다. 더불어 자동으로 EAC 를 감지하고 지원한다.
+     * @name CUBESTRIP
+     * @memberof eg.view360.PanoViewer.PROJECTION_TYPE
+     * @constant
+     * @type {String}
+     * @default cubestrip
+     */
+    CUBESTRIP: "cubestrip",
+
+    /**
+     * Constant value for PANORAMA type.
+     *
+     * PANORAMA is a format for a panorma image which is taken from smartphone.
+     *
+     * @ko PANORAMA 에 대한 상수값. 파노라마는 스마트 폰에서 가져온 파노라마 이미지의 형식입니다.
+     *
+     * @name PANORAMA
+     * @memberof eg.view360.PanoViewer.PROJECTION_TYPE
+     * @constant
+     * @type {String}
+     * @default panorama
+     */
+    PANORAMA: "panorama",
+
+    /**
+     * Constant value for EQUI_STEREOSCOPY type.
+     *
+     * Constant value for EQUI_STEREOSCOPY. Stereoscopy image format of EQUIRECTANGULAR. It is an experimental function to show a stereoscopic type equirectangular image on a plane. It does not support stereoscopic viewing function through special visual equipment at present.
+     *
+     * @ko EQUI_STEREOSCOPY 에 대한 상수값. EQUIRECTANGULAR 의 Stereoscopy 이미지 형식입니다. Stereoscopic 형태의 equirectangular 이미지를 평면에 보여주기 위한 실험적인 기능으로 현재는 특수한 시각 장비를 통한 입체적인 보기 기능은 지원하지 않습니다.
+     *
+     * @name STEREOSCOPIC_EQUI
+     * @memberof eg.view360.PanoViewer.PROJECTION_TYPE
+     * @constant
+     * @type {String}
+     * @default stereoequi
+     */
+    STEREOSCOPIC_EQUI: "stereoequi"
+  };
+  /**
+   * A constant value for the format of the stereoscopic equirectangular projection type.
+   * @ko Stereoscopic equirectangular 프로젝션 타입의 포맷에 대한 상수 값
+   * @namespace
+   * @name STEREO_FORMAT
+   * @memberof eg.view360.PanoViewer
+   */
+
+  var STEREO_FORMAT = {
+    /**
+     * A constant value for format of top bottom stereoscopic 360 equirectangular projection.
+     * @ko top bottom stereoscopic 360 equirectangular projection 콘텐츠 포맷에 대한 상수값.
+     * @name TOP_BOTTOM
+     * @memberof eg.view360.PanoViewer.STEREO_FORMAT
+     * @constant
+     * @type {String}
+     * @default "3dv"
+     */
+    TOP_BOTTOM: "3dv",
+
+    /**
+     * A constant value for format of left right stereoscopic 360 equirectangular projection.
+     * @ko Left right stereoscopic 360 equirectangular projection 콘텐츠 포맷에 대한 상수값.
+     * @name LEFT_RIGHT
+     * @memberof eg.view360.PanoViewer.STEREO_FORMAT
+     * @constant
+     * @type {String}
+     * @default "3dh"
+     */
+    LEFT_RIGHT: "3dh",
+
+    /**
+     * A constant value specifying media is not in stereoscopic format.
+     * @ko Stereoscopic 영상이 아닐 경우에 적용하는 상수값.
+     * @name NONE
+     * @memberof eg.view360.PanoViewer.STEREO_FORMAT
+     * @constant
+     * @type {String}
+     * @default ""
+     */
+    NONE: ""
+  };
+
+  var latitudeBands = 60;
+  var longitudeBands = 60;
+  var radius = 2;
+  var ANGLE_CORRECTION_FOR_CENTER_ALIGN = -0.5 * Math.PI;
+  var textureCoordData = [];
+  var vertexPositionData = [];
+  var indexData = [];
+  var latIdx;
+  var lngIdx;
+
+  for (latIdx = 0; latIdx <= latitudeBands; latIdx++) {
+    var theta = (latIdx / latitudeBands - 0.5) * Math.PI;
+    var sinTheta = Math.sin(theta);
+    var cosTheta = Math.cos(theta);
+
+    for (lngIdx = 0; lngIdx <= longitudeBands; lngIdx++) {
+      var phi =
+        (lngIdx / longitudeBands - 0.5) * 2 * Math.PI +
+        ANGLE_CORRECTION_FOR_CENTER_ALIGN;
+      var sinPhi = Math.sin(phi);
+      var cosPhi = Math.cos(phi);
+      var x = cosPhi * cosTheta;
+      var y = sinTheta;
+      var z = sinPhi * cosTheta;
+      var u = lngIdx / longitudeBands;
+      var v = latIdx / latitudeBands;
+      textureCoordData.push(u, v);
+      vertexPositionData.push(radius * x, radius * y, radius * z);
+
+      if (lngIdx !== longitudeBands && latIdx !== latitudeBands) {
+        var a = latIdx * (longitudeBands + 1) + lngIdx;
+        var b = a + longitudeBands + 1;
+        indexData.push(a, b, a + 1, b, b + 1, a + 1);
+      }
+    }
+  }
+
+  var SphereRenderer =
+    /*#__PURE__*/
+    (function() {
+      var SphereRenderer =
+        /*#__PURE__*/
+        (function(_Renderer) {
+          _inheritsLoose(SphereRenderer, _Renderer);
+
+          function SphereRenderer(format) {
+            var _this;
+
+            _this = _Renderer.call(this) || this;
+            _this._stereoFormat = format;
+            return _this;
+          }
+
+          var _proto = SphereRenderer.prototype;
+
+          _proto.render = function render(ctx) {
+            var gl = ctx.gl,
+              shaderProgram = ctx.shaderProgram;
+            var leftEyeScaleOffset;
+            var rightEyeScaleOffset;
+
+            switch (this._stereoFormat) {
+              case STEREO_FORMAT.TOP_BOTTOM:
+                leftEyeScaleOffset = [1, 0.5, 0, 0];
+                rightEyeScaleOffset = [1, 0.5, 0, 0.5];
+                break;
+
+              case STEREO_FORMAT.LEFT_RIGHT:
+                leftEyeScaleOffset = [0.5, 1, 0, 0];
+                rightEyeScaleOffset = [0.5, 1, 0.5, 0];
+                break;
+
+              default:
+                leftEyeScaleOffset = [1, 1, 0, 0];
+                rightEyeScaleOffset = [1, 1, 0, 0];
+            }
+
+            var uTexScaleOffset = gl.getUniformLocation(
+              shaderProgram,
+              "uTexScaleOffset"
+            );
+            gl.uniform4fv(
+              uTexScaleOffset,
+              [].concat(leftEyeScaleOffset, rightEyeScaleOffset)
+            );
+
+            _Renderer.prototype.render.call(this, ctx);
+          };
+
+          _proto.getVertexPositionData = function getVertexPositionData() {
+            return SphereRenderer._VERTEX_POSITION_DATA;
+          };
+
+          _proto.getIndexData = function getIndexData() {
+            return SphereRenderer._INDEX_DATA;
+          };
+
+          _proto.getTextureCoordData = function getTextureCoordData() {
+            return SphereRenderer._TEXTURE_COORD_DATA;
+          };
+
+          _proto.getVertexShaderSource = function getVertexShaderSource() {
+            return "\nattribute vec3 aVertexPosition;\nattribute vec2 aTextureCoord;\nuniform mat4 uMVMatrix;\nuniform mat4 uPMatrix;\nuniform float uEye;\nuniform vec4 uTexScaleOffset[2];\nvarying highp vec2 vTextureCoord;\nvoid main(void) {\n\tvec4 scaleOffset = uTexScaleOffset[int(uEye)];\n\tvTextureCoord = aTextureCoord.xy * scaleOffset.xy + scaleOffset.zw;\n\tgl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0);\n}";
+          };
+
+          _proto.getFragmentShaderSource = function getFragmentShaderSource() {
+            return "\nprecision highp float;\nvarying highp vec2 vTextureCoord;\nuniform sampler2D uSampler;\nvoid main(void) {\n\tgl_FragColor = texture2D(uSampler, vTextureCoord.st);\n}";
+          };
+
+          _proto.updateTexture = function updateTexture(gl, image) {
+            WebGLUtils.texImage2D(
+              gl,
+              gl.TEXTURE_2D,
+              this._getPixelSource(image)
+            );
+          };
+
+          _proto.bindTexture = function bindTexture(gl, texture, image) {
+            // Make sure image isn't too big
+            var _this$getDimension = this.getDimension(image),
+              width = _this$getDimension.width,
+              height = _this$getDimension.height;
+
+            var size = Math.max(width, height);
+            var maxSize = WebGLUtils.getMaxTextureSize(gl);
+
+            if (size > maxSize) {
+              this._triggerError(
+                "Image width(" +
+                  width +
+                  ") exceeds device limit(" +
+                  maxSize +
+                  "))"
+              );
+
+              return;
+            } // Pixel Source for IE11 & Video
+
+            this._initPixelSource(image);
+
+            gl.activeTexture(gl.TEXTURE0);
+            gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
+            gl.bindTexture(gl.TEXTURE_2D, texture);
+            this.updateTexture(gl, image);
+          };
+
+          return SphereRenderer;
+        })(Renderer);
+
+      SphereRenderer._VERTEX_POSITION_DATA = vertexPositionData;
+      SphereRenderer._TEXTURE_COORD_DATA = textureCoordData;
+      SphereRenderer._INDEX_DATA = indexData;
+      return SphereRenderer;
+    })();
+
+  var MIN_ASPECT_RATIO_FOR_FULL_PANORAMA = 6;
+  var longitudeBands$1 = 60;
+  var textureCoordData$1 = [];
+  var vertexPositionData$1 = [];
+  var indexData$1 = [];
+
+  var CylinderRenderer =
+    /*#__PURE__*/
+    (function() {
+      var CylinderRenderer =
+        /*#__PURE__*/
+        (function(_Renderer) {
+          _inheritsLoose(CylinderRenderer, _Renderer);
+
+          function CylinderRenderer() {
+            return _Renderer.apply(this, arguments) || this;
+          }
+
+          var _proto = CylinderRenderer.prototype;
+
+          _proto.getVertexPositionData = function getVertexPositionData() {
+            return CylinderRenderer._VERTEX_POSITION_DATA;
+          };
+
+          _proto.getIndexData = function getIndexData() {
+            return CylinderRenderer._INDEX_DATA;
+          };
+
+          _proto.getTextureCoordData = function getTextureCoordData() {
+            return CylinderRenderer._TEXTURE_COORD_DATA;
+          };
+
+          _proto.getVertexShaderSource = function getVertexShaderSource() {
+            return "\nattribute vec3 aVertexPosition;\nattribute vec2 aTextureCoord;\nuniform mat4 uMVMatrix;\nuniform mat4 uPMatrix;\nvarying highp vec2 vTextureCoord;\nvoid main(void) {\n\tvTextureCoord = aTextureCoord;\n\tgl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0);\n}";
+          };
+
+          _proto.getFragmentShaderSource = function getFragmentShaderSource() {
+            return "\nprecision highp float;\nvarying highp vec2 vTextureCoord;\nuniform sampler2D uSampler;\nvoid main(void) {\n\tgl_FragColor = texture2D(uSampler, vec2(vTextureCoord.s, vTextureCoord.t));\n}";
+          };
+
+          _proto.updateTexture = function updateTexture(gl, image) {
+            WebGLUtils.texImage2D(
+              gl,
+              gl.TEXTURE_2D,
+              this._getPixelSource(image)
+            );
+          };
+
+          _proto.bindTexture = function bindTexture(gl, texture, image) {
+            // Make sure image isn't too big
+            var _this$getDimension = this.getDimension(image),
+              width = _this$getDimension.width,
+              height = _this$getDimension.height;
+
+            var size = Math.max(width, height);
+            var maxSize = WebGLUtils.getMaxTextureSize(gl);
+            var resizeDimension;
+
+            if (size > maxSize) {
+              this._triggerError(
+                "Image width(" +
+                  width +
+                  ") exceeds device texture limit(" +
+                  maxSize +
+                  "))"
+              ); // Request resizing texture.
+
+              /**
+               * TODO: Is it need to apply on another projection type?
+               */
+
+              resizeDimension =
+                width > height
+                  ? {
+                      width: maxSize,
+                      height: (maxSize * height) / width
+                    }
+                  : {
+                      width: (maxSize * width) / height,
+                      height: maxSize
+                    };
+            } // Pixel Source for IE11 & Video or resizing needed
+
+            this._initPixelSource(image, resizeDimension);
+
+            gl.activeTexture(gl.TEXTURE0);
+            gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
+            gl.bindTexture(gl.TEXTURE_2D, texture);
+            this.updateTexture(gl, image);
+          };
+
+          _proto.updateShaderData = function updateShaderData(_ref) {
+            var _ref$imageAspectRatio = _ref.imageAspectRatio,
+              imageAspectRatio =
+                _ref$imageAspectRatio === void 0
+                  ? MIN_ASPECT_RATIO_FOR_FULL_PANORAMA
+                  : _ref$imageAspectRatio;
+            var lngIdx;
+            var cylinderMaxRadian;
+            var halfCylinderY;
+            var rotated;
+            var aspectRatio; // Exception case: orientation is rotated.
+
+            if (imageAspectRatio < 1) {
+              /**
+               * If rotated is true, we assume that image is rotated counter clockwise.
+               * TODO: If there's other rotation, it is need to implement by each rotation.
+               */
+              rotated = true;
+              aspectRatio = 1 / imageAspectRatio;
+            } else {
+              rotated = false;
+              aspectRatio = imageAspectRatio;
+            }
+
+            if (aspectRatio >= MIN_ASPECT_RATIO_FOR_FULL_PANORAMA) {
+              var fov = 360 / aspectRatio;
+              cylinderMaxRadian = 2 * Math.PI; // 360 deg
+
+              halfCylinderY = Math.tan(toRadian(fov / 2));
+            } else {
+              cylinderMaxRadian = aspectRatio;
+              halfCylinderY = 0.5; // Range of cylinder is [-0.5, 0.5] to make height to 1.
+            } // intialize shader data before update
+
+            textureCoordData$1.length = 0;
+            vertexPositionData$1.length = 0;
+            indexData$1.length = 0;
+            var CYLIDER_Y = [-halfCylinderY, halfCylinderY];
+            var startAngleForCenterAlign =
+              Math.PI / 2 + (2 * Math.PI - cylinderMaxRadian) / 2; // Math.PI / 2 start point when cylinderMaxRadian is 2 phi(360)
+            // console.log("cylinderMaxRadian:", glMatrix.toDegree(cylinderMaxRadian), "CYLIDER_Y", CYLIDER_Y, "start angle", glMatrix.toDegree(startAngleForCenterAlign));
+
+            for (
+              var yIdx = 0, yLength = CYLIDER_Y.length;
+              yIdx < yLength;
+              /* bottom & top */
+              yIdx++
+            ) {
+              for (lngIdx = 0; lngIdx <= longitudeBands$1; lngIdx++) {
+                var angle$$1 =
+                  startAngleForCenterAlign +
+                  (lngIdx / longitudeBands$1) * cylinderMaxRadian;
+                var x = Math.cos(angle$$1);
+                var y = CYLIDER_Y[yIdx];
+                var z = Math.sin(angle$$1);
+                var u = void 0;
+                var v = void 0;
+
+                if (rotated) {
+                  // Rotated 90 degree (counter clock wise)
+                  u = 1 - yIdx; // yLength - yIdx;
+
+                  v = lngIdx / longitudeBands$1;
+                } else {
+                  // 	// Normal case (Not rotated)
+                  u = lngIdx / longitudeBands$1;
+                  v = yIdx;
+                }
+
+                textureCoordData$1.push(u, v);
+                vertexPositionData$1.push(x, y, z);
+
+                if (yIdx === 0 && lngIdx < longitudeBands$1) {
+                  var a = lngIdx;
+                  var b = a + longitudeBands$1 + 1;
+                  indexData$1.push(a, b, a + 1, b, b + 1, a + 1);
+                }
+              }
+            }
+          };
+
+          return CylinderRenderer;
+        })(Renderer);
+
+      CylinderRenderer._VERTEX_POSITION_DATA = vertexPositionData$1;
+      CylinderRenderer._TEXTURE_COORD_DATA = textureCoordData$1;
+      CylinderRenderer._INDEX_DATA = indexData$1;
+      return CylinderRenderer;
+    })();
+
+  var _Promise$4 =
+    typeof Promise === "undefined" ? es6Promise.Promise : Promise;
+  var VR_DISPLAY_PRESENT_CHANGE = "vrdisplaypresentchange";
+  var DEFAULT_LEFT_BOUNDS = [0, 0, 0.5, 1];
+  var DEFAULT_RIGHT_BOUNDS = [0.5, 0, 0.5, 1];
+  var EYES = {
+    LEFT: "left",
+    RIGHT: "right"
+  };
+
+  var VRManager =
+    /*#__PURE__*/
+    (function() {
+      var VRManager =
+        /*#__PURE__*/
+        (function() {
+          _createClass(VRManager, [
+            {
+              key: "context",
+              get: function get() {
+                return this._vrDisplay;
+              }
+            }
+          ]);
+
+          function VRManager() {
+            var _this = this;
+
+            this.destroy = function() {
+              var vrDisplay = _this._vrDisplay;
+
+              _this.removeEndCallback(_this.destroy);
+
+              if (vrDisplay && vrDisplay.isPresenting) {
+                vrDisplay.exitPresent();
+              }
+
+              _this._clear();
+            };
+
+            this._frameData = new window.VRFrameData();
+
+            this._clear();
+          }
+
+          var _proto = VRManager.prototype;
+
+          _proto.canRender = function canRender() {
+            return Boolean(this._vrDisplay);
+          };
+
+          _proto.beforeRender = function beforeRender(gl) {
+            // Render to the default backbuffer
+            gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+          };
+
+          _proto.afterRender = function afterRender() {
+            this._vrDisplay.submitFrame();
+          };
+
+          _proto.getEyeParams = function getEyeParams(gl) {
+            var display = this._vrDisplay;
+            var halfWidth = gl.drawingBufferWidth * 0.5;
+            var height = gl.drawingBufferHeight;
+            var frameData = this._frameData;
+            display.getFrameData(frameData);
+            var leftMVMatrix = frameData.leftViewMatrix;
+            var rightMVMatrix = frameData.rightViewMatrix;
+            rotateY(leftMVMatrix, leftMVMatrix, this._yawOffset);
+            rotateY(rightMVMatrix, rightMVMatrix, this._yawOffset);
+            return [
+              {
+                viewport: [0, 0, halfWidth, height],
+                mvMatrix: leftMVMatrix,
+                pMatrix: frameData.leftProjectionMatrix
+              },
+              {
+                viewport: [halfWidth, 0, halfWidth, height],
+                mvMatrix: rightMVMatrix,
+                pMatrix: frameData.rightProjectionMatrix
+              }
+            ];
+          };
+
+          _proto.isPresenting = function isPresenting() {
+            return Boolean(this._vrDisplay && this._vrDisplay.isPresenting);
+          };
+
+          _proto.addEndCallback = function addEndCallback(callback) {
+            window.addEventListener(VR_DISPLAY_PRESENT_CHANGE, callback);
+          };
+
+          _proto.removeEndCallback = function removeEndCallback(callback) {
+            window.removeEventListener(VR_DISPLAY_PRESENT_CHANGE, callback);
+          };
+
+          _proto.requestPresent = function requestPresent(canvas) {
+            var _this2 = this;
+
+            return new _Promise$4(function(resolve, reject) {
+              navigator.getVRDisplays().then(function(displays) {
+                var vrDisplay = displays.length && displays[0];
+
+                if (!vrDisplay) {
+                  reject(new Error("No displays available."));
+                  return;
+                }
+
+                if (!vrDisplay.capabilities.canPresent) {
+                  reject(new Error("Display lacking capability to present."));
+                  return;
+                }
+
+                vrDisplay
+                  .requestPresent([
+                    {
+                      source: canvas
+                    }
+                  ])
+                  .then(function() {
+                    var leftEye = vrDisplay.getEyeParameters(EYES.LEFT);
+                    var rightEye = vrDisplay.getEyeParameters(EYES.RIGHT);
+                    canvas.width =
+                      Math.max(leftEye.renderWidth, rightEye.renderWidth) * 2;
+                    canvas.height = Math.max(
+                      leftEye.renderHeight,
+                      rightEye.renderHeight
+                    );
+
+                    _this2._setDisplay(vrDisplay);
+
+                    resolve();
+                  });
+              });
+            });
+          };
+
+          _proto.setYawOffset = function setYawOffset(offset) {
+            this._yawOffset = offset;
+          };
+
+          _proto._setDisplay = function _setDisplay(vrDisplay) {
+            this._vrDisplay = vrDisplay;
+            var layers = vrDisplay.getLayers();
+
+            if (layers.length) {
+              var layer = layers[0];
+              this._leftBounds = layer.leftBounds;
+              this._rightBounds = layer.rightBounds;
+            }
+
+            this.addEndCallback(this.destroy);
+          };
+
+          _proto._clear = function _clear() {
+            this._vrDisplay = null;
+            this._leftBounds = DEFAULT_LEFT_BOUNDS;
+            this._rightBounds = DEFAULT_RIGHT_BOUNDS;
+            this._yawOffset = 0;
+          };
+
+          return VRManager;
+        })();
+
+      return VRManager;
+    })();
+
+  var XR_REFERENCE_SPACE = "local";
+
+  var XRManager =
+    /*#__PURE__*/
+    (function() {
+      var XRManager =
+        /*#__PURE__*/
+        (function() {
+          _createClass(XRManager, [
+            {
+              key: "context",
+              get: function get() {
+                return this._xrSession;
+              }
+            }
+          ]);
+
+          function XRManager() {
+            var _this = this;
+
+            this.destroy = function() {
+              var xrSession = _this._xrSession;
+
+              _this.removeEndCallback(_this.destroy);
+
+              if (xrSession) {
+                // Capture to avoid errors
+                xrSession.end().then(
+                  function() {},
+                  function() {}
+                );
+              }
+
+              _this._clear();
+            };
+
+            this._clear();
+          }
+
+          var _proto = XRManager.prototype;
+
+          _proto.canRender = function canRender(frame) {
+            var pose = frame.getViewerPose(this._xrRefSpace);
+            return Boolean(pose);
+          };
+
+          _proto.beforeRender = function beforeRender(gl, frame) {
+            var session = frame.session;
+            var baseLayer = session.renderState.baseLayer;
+            gl.bindFramebuffer(gl.FRAMEBUFFER, baseLayer.framebuffer);
+          };
+
+          _proto.afterRender = function afterRender() {};
+
+          _proto.getEyeParams = function getEyeParams(gl, frame) {
+            var _this2 = this;
+
+            var session = frame.session;
+            var pose = frame.getViewerPose(this._xrRefSpace);
+
+            if (!pose) {
+              // Can't render
+              return null;
+            }
+
+            var glLayer = session.renderState.baseLayer;
+            return pose.views.map(function(view) {
+              var viewport = glLayer.getViewport(view);
+              var mvMatrix = view.transform.inverse.matrix;
+
+              if (IS_SAFARI_ON_DESKTOP) {
+                rotateX(mvMatrix, mvMatrix, toRadian(180));
+              }
+
+              rotateY(mvMatrix, mvMatrix, _this2._yawOffset);
+              return {
+                viewport: [
+                  viewport.x,
+                  viewport.y,
+                  viewport.width,
+                  viewport.height
+                ],
+                mvMatrix: mvMatrix,
+                pMatrix: view.projectionMatrix
+              };
+            });
+          };
+
+          _proto.isPresenting = function isPresenting() {
+            return this._presenting;
+          };
+
+          _proto.addEndCallback = function addEndCallback(callback) {
+            var session = this._xrSession;
+            if (!session) return;
+            session.addEventListener("end", callback);
+          };
+
+          _proto.removeEndCallback = function removeEndCallback(callback) {
+            var session = this._xrSession;
+            if (!session) return;
+            session.removeEventListener("end", callback);
+          };
+
+          _proto.requestPresent = function requestPresent(canvas, gl) {
+            var _this3 = this;
+
+            return navigator.xr
+              .requestSession("immersive-vr", {
+                requiredFeatures: [XR_REFERENCE_SPACE]
+              })
+              .then(function(session) {
+                var xrLayer = new window.XRWebGLLayer(session, gl);
+                session.updateRenderState({
+                  baseLayer: xrLayer
+                });
+                return session
+                  .requestReferenceSpace(XR_REFERENCE_SPACE)
+                  .then(function(refSpace) {
+                    _this3._setSession(session, xrLayer, refSpace);
+                  });
+              });
+          };
+
+          _proto.setYawOffset = function setYawOffset(offset) {
+            this._yawOffset = offset;
+          };
+
+          _proto._setSession = function _setSession(
+            session,
+            xrLayer,
+            refSpace
+          ) {
+            this._xrSession = session;
+            this._xrLayer = xrLayer;
+            this._xrRefSpace = refSpace;
+            this._presenting = true;
+            this.addEndCallback(this.destroy);
+          };
+
+          _proto._clear = function _clear() {
+            this._xrSession = null;
+            this._xrLayer = null;
+            this._xrRefSpace = null;
+            this._presenting = false;
+            this._yawOffset = 0;
+          };
+
+          return XRManager;
+        })();
+
+      return XRManager;
+    })();
+
+  var WebGLAnimator =
+    /*#__PURE__*/
+    (function() {
+      var WebGLAnimator =
+        /*#__PURE__*/
+        (function() {
+          function WebGLAnimator() {
+            var _this = this;
+
+            this._onLoop = function() {
+              _this._callback.apply(_this, arguments);
+
+              _this._rafId = _this._context.requestAnimationFrame(
+                _this._onLoop
+              );
+            };
+
+            this._onLoopNextTick = function() {
+              var before = performance.now();
+
+              _this._callback.apply(_this, arguments);
+
+              var diff = performance.now() - before;
+
+              if (_this._rafTimer >= 0) {
+                clearTimeout(_this._rafTimer);
+                _this._rafTimer = -1;
+              }
+              /** Use requestAnimationFrame only if current rendering could be possible over 60fps (1000/60) */
+
+              if (diff < 16) {
+                _this._rafId = _this._context.requestAnimationFrame(
+                  _this._onLoop
+                );
+              } else {
+                /** Otherwise, Call setTimeout instead of requestAnimationFrame to gaurantee renering should be occurred*/
+                _this._rafTimer = setTimeout(_this._onLoop, 0);
+              }
+            };
+
+            this._callback = null;
+            this._context = window;
+            this._rafId = -1;
+            this._rafTimer = -1;
+          }
+
+          var _proto = WebGLAnimator.prototype;
+
+          _proto.setCallback = function setCallback(callback) {
+            this._callback = callback;
+          };
+
+          _proto.setContext = function setContext(context) {
+            this._context = context;
+          };
+
+          _proto.start = function start() {
+            var context = this._context;
+            var callback = this._callback; // No context / callback set
+
+            if (!context || !callback) return; // Animation already started
+
+            if (this._rafId >= 0 || this._rafTimer >= 0) return;
+
+            if (IS_SAFARI_ON_DESKTOP) {
+              this._rafId = context.requestAnimationFrame(this._onLoopNextTick);
+            } else {
+              this._rafId = context.requestAnimationFrame(this._onLoop);
+            }
+          };
+
+          _proto.stop = function stop() {
+            if (this._rafId >= 0) {
+              this._context.cancelAnimationFrame(this._rafId);
+            }
+
+            if (this._rafTimer >= 0) {
+              clearTimeout(this._rafTimer);
+            }
+
+            this._rafId = -1;
+            this._rafTimer = -1;
+          };
+          /**
+           * There can be more than 1 argument when we use XRSession's raf
+           */
+
+          return WebGLAnimator;
+        })();
+
+      return WebGLAnimator;
+    })();
+
+  var _Promise$5 =
+    typeof Promise === "undefined" ? es6Promise.Promise : Promise;
+  var ImageType = PROJECTION_TYPE;
+  var DEVICE_PIXEL_RATIO = devicePixelRatio || 1; // DEVICE_PIXEL_RATIO 가 2를 초과하는 경우는 리소스 낭비이므로 2로 맞춘다.
+
+  if (DEVICE_PIXEL_RATIO > 2) {
+    DEVICE_PIXEL_RATIO = 2;
+  } // define custom events name
+
+  /**
+   * TODO: how to manage events/errortype with PanoViewer
+   *
+   * I think renderer events should be seperated from viewer events although it has same name.
+   */
+
+  var EVENTS$2 = {
+    BIND_TEXTURE: "bindTexture",
+    IMAGE_LOADED: "imageLoaded",
+    ERROR: "error",
+    RENDERING_CONTEXT_LOST: "renderingContextLost",
+    RENDERING_CONTEXT_RESTORE: "renderingContextRestore"
+  };
+  var ERROR_TYPE$1 = {
+    INVALID_DEVICE: 10,
+    NO_WEBGL: 11,
+    FAIL_IMAGE_LOAD: 12,
+    RENDERER_ERROR: 13
+  };
+
+  var PanoImageRenderer =
+    /*#__PURE__*/
+    (function() {
+      var PanoImageRenderer =
+        /*#__PURE__*/
+        (function(_Component) {
+          _inheritsLoose(PanoImageRenderer, _Component);
+
+          function PanoImageRenderer(
+            image,
+            width,
+            height,
+            isVideo,
+            sphericalConfig,
+            renderingContextAttributes
+          ) {
+            var _this;
+
+            // Super constructor
+            _this = _Component.call(this) || this;
+
+            _this._renderStereo = function(time, frame) {
+              var vr = _this._vr;
+              var gl = _this.context;
+              var eyeParams = vr.getEyeParams(gl, frame);
+              if (!eyeParams) return;
+              vr.beforeRender(gl, frame); // Render both eyes
+
+              for (var _i = 0, _arr = [0, 1]; _i < _arr.length; _i++) {
+                var eyeIndex = _arr[_i];
+                var eyeParam = eyeParams[eyeIndex];
+                _this.mvMatrix = eyeParam.mvMatrix;
+                _this.pMatrix = eyeParam.pMatrix;
+                gl.viewport.apply(gl, eyeParam.viewport);
+                gl.uniform1f(_this.shaderProgram.uEye, eyeIndex);
+
+                _this._bindBuffers();
+
+                _this._draw();
+              }
+
+              vr.afterRender();
+            };
+
+            _this.exitVR = function() {
+              var vr = _this._vr;
+              var gl = _this.context;
+              var animator = _this._animator;
+              if (!vr) return;
+              vr.removeEndCallback(_this.exitVR);
+              vr.destroy();
+              _this._vr = null; // Restore canvas & context on iOS
+
+              if (IS_IOS) {
+                _this._restoreStyle();
+              }
+
+              _this.updateViewportDimensions(_this.width, _this.height);
+
+              _this._updateViewport();
+
+              gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+
+              _this._bindBuffers();
+
+              _this._shouldForceDraw = true;
+              animator.stop();
+              animator.setContext(window);
+              animator.setCallback(
+                _this._render.bind(_assertThisInitialized(_this))
+              );
+              animator.start();
+            };
+
+            _this._onFirstVRFrame = function(time, frame) {
+              var vr = _this._vr;
+              var gl = _this.context;
+              var animator = _this._animator; // If rendering is not ready, wait for next frame
+
+              if (!vr.canRender(frame)) return;
+              var minusZDir = fromValues$4(0, 0, -1);
+              var eyeParam = vr.getEyeParams(gl, frame)[0]; // Extract only rotation
+
+              var mvMatrix = fromMat4(create$2(), eyeParam.mvMatrix);
+              var pMatrix = fromMat4(create$2(), eyeParam.pMatrix);
+              var mvInv = invert$2(create$2(), mvMatrix);
+              var pInv = invert$2(create$2(), pMatrix);
+              var viewDir = transformMat3(create$4(), minusZDir, pInv);
+              transformMat3(viewDir, viewDir, mvInv);
+              var yawOffset = util.yawOffsetBetween(
+                viewDir,
+                fromValues$4(0, 0, 1)
+              );
+
+              if (yawOffset === 0) {
+                // If the yawOffset is exactly 0, then device sensor is not ready
+                // So read it again until it has any value in it
+                return;
+              }
+
+              vr.setYawOffset(yawOffset);
+              animator.setCallback(_this._renderStereo);
+            };
+
+            _this.sphericalConfig = sphericalConfig;
+            _this.fieldOfView = sphericalConfig.fieldOfView;
+            _this.width = width;
+            _this.height = height;
+            _this._lastQuaternion = null;
+            _this._lastYaw = null;
+            _this._lastPitch = null;
+            _this._lastFieldOfView = null;
+            _this.pMatrix = create$3();
+            _this.mvMatrix = create$3(); // initialzie pMatrix
+
+            perspective(
+              _this.pMatrix,
+              toRadian(_this.fieldOfView),
+              width / height,
+              0.1,
+              100
+            );
+            _this.textureCoordBuffer = null;
+            _this.vertexBuffer = null;
+            _this.indexBuffer = null;
+            _this.canvas = _this._initCanvas(width, height);
+
+            _this._setDefaultCanvasStyle();
+
+            _this._wrapper = null; // canvas wrapper
+
+            _this._wrapperOrigStyle = null;
+            _this._renderingContextAttributes = renderingContextAttributes;
+            _this._image = null;
+            _this._imageConfig = null;
+            _this._imageIsReady = false;
+            _this._shouldForceDraw = false;
+            _this._keepUpdate = false; // Flag to specify 'continuous update' on video even when still.
+
+            _this._onContentLoad = _this._onContentLoad.bind(
+              _assertThisInitialized(_this)
+            );
+            _this._onContentError = _this._onContentError.bind(
+              _assertThisInitialized(_this)
+            );
+            _this._animator = new WebGLAnimator(); // VR/XR manager
+
+            _this._vr = null;
+
+            if (image) {
+              _this.setImage({
+                image: image,
+                imageType: sphericalConfig.imageType,
+                isVideo: isVideo,
+                cubemapConfig: sphericalConfig.cubemapConfig
+              });
+            }
+
+            return _this;
+          } // FIXME: Please refactor me to have more loose connection to yawpitchcontrol
+
+          var _proto = PanoImageRenderer.prototype;
+
+          _proto.setYawPitchControl = function setYawPitchControl(
+            yawPitchControl
+          ) {
+            this._yawPitchControl = yawPitchControl;
+          };
+
+          _proto.getContent = function getContent() {
+            return this._image;
+          };
+
+          _proto.setImage = function setImage(_ref) {
+            var image = _ref.image,
+              imageType = _ref.imageType,
+              _ref$isVideo = _ref.isVideo,
+              isVideo = _ref$isVideo === void 0 ? false : _ref$isVideo,
+              cubemapConfig = _ref.cubemapConfig;
+            this._imageIsReady = false;
+            this._isVideo = isVideo;
+            this._imageConfig = _extends(
+              {
+                /* RLUDBF is abnormal, we use it on CUBEMAP only */
+                order: imageType === ImageType.CUBEMAP ? "RLUDBF" : "RLUDFB",
+                tileConfig: {
+                  flipHorizontal: false,
+                  rotation: 0
+                }
+              },
+              cubemapConfig
+            );
+
+            this._setImageType(imageType);
+
+            if (this._contentLoader) {
+              this._contentLoader.destroy();
+            }
+
+            if (isVideo) {
+              this._contentLoader = new VideoLoader();
+              this._keepUpdate = true;
+            } else {
+              this._contentLoader = new ImageLoader();
+              this._keepUpdate = false;
+            } // img element or img url
+
+            this._contentLoader.set(image); // 이미지의 사이즈를 캐시한다.
+            // image is reference for content in contentLoader, so it may be not valid if contentLoader is destroyed.
+
+            this._image = this._contentLoader.getElement();
+            return this._contentLoader
+              .get()
+              .then(this._onContentLoad, this._onContentError)
+              ["catch"](function(e) {
+                return setTimeout(function() {
+                  throw e;
+                });
+              }); // Prevent exceptions from being isolated in promise chain.
+          };
+
+          _proto._setImageType = function _setImageType(imageType) {
+            var _this2 = this;
+
+            if (!imageType || this._imageType === imageType) {
+              return;
+            }
+
+            this._imageType = imageType;
+            this._isCubeMap = imageType === ImageType.CUBEMAP;
+
+            if (this._renderer) {
+              this._renderer.off();
+            }
+
+            switch (imageType) {
+              case ImageType.CUBEMAP:
+                this._renderer = new CubeRenderer();
+                break;
+
+              case ImageType.CUBESTRIP:
+                this._renderer = new CubeStripRenderer();
+                break;
+
+              case ImageType.PANORAMA:
+                this._renderer = new CylinderRenderer();
+                break;
+
+              case ImageType.STEREOSCOPIC_EQUI:
+                this._renderer = new SphereRenderer(
+                  this.sphericalConfig.stereoFormat
+                );
+                break;
+
+              default:
+                this._renderer = new SphereRenderer(STEREO_FORMAT.NONE);
+                break;
+            }
+
+            this._renderer.on(Renderer.EVENTS.ERROR, function(e) {
+              _this2.trigger(EVENTS$2.ERROR, {
+                type: ERROR_TYPE$1.RENDERER_ERROR,
+                message: e.message
+              });
+            });
+
+            this._initWebGL();
+          };
+
+          _proto._initCanvas = function _initCanvas(width, height) {
+            var canvas = document.createElement("canvas");
+            canvas.width = width;
+            canvas.height = height;
+            this._onWebglcontextlost = this._onWebglcontextlost.bind(this);
+            this._onWebglcontextrestored = this._onWebglcontextrestored.bind(
+              this
+            );
+            canvas.addEventListener(
+              "webglcontextlost",
+              this._onWebglcontextlost
+            );
+            canvas.addEventListener(
+              "webglcontextrestored",
+              this._onWebglcontextrestored
+            );
+            return canvas;
+          };
+
+          _proto._setDefaultCanvasStyle = function _setDefaultCanvasStyle() {
+            var canvas = this.canvas;
+            canvas.style.bottom = 0;
+            canvas.style.left = 0;
+            canvas.style.right = 0;
+            canvas.style.top = 0;
+            canvas.style.margin = "auto";
+            canvas.style.maxHeight = "100%";
+            canvas.style.maxWidth = "100%";
+            canvas.style.outline = "none";
+            canvas.style.position = "absolute";
+          };
+
+          _proto._onContentError = function _onContentError(error) {
+            this._imageIsReady = false;
+            this._image = null;
+            this.trigger(EVENTS$2.ERROR, {
+              type: ERROR_TYPE$1.FAIL_IMAGE_LOAD,
+              message: "failed to load image"
+            });
+            return false;
+          };
+
+          _proto._triggerContentLoad = function _triggerContentLoad() {
+            this.trigger(EVENTS$2.IMAGE_LOADED, {
+              content: this._image,
+              isVideo: this._isVideo,
+              projectionType: this._imageType
+            });
+          };
+
+          _proto._onContentLoad = function _onContentLoad(image) {
+            this._imageIsReady = true;
+
+            this._triggerContentLoad();
+
+            return true;
+          };
+
+          _proto.isImageLoaded = function isImageLoaded() {
+            return (
+              !!this._image &&
+              this._imageIsReady &&
+              (!this._isVideo || this._image.readyState >= 2)
+              /* HAVE_CURRENT_DATA */
+            );
+          };
+
+          _proto.bindTexture = function bindTexture() {
+            var _this3 = this;
+
+            return new _Promise$5(function(res, rej) {
+              if (!_this3._contentLoader) {
+                rej("ImageLoader is not initialized");
+                return;
+              }
+
+              _this3._contentLoader
+                .get()
+                .then(function() {
+                  _this3._bindTexture();
+                }, rej)
+                .then(res);
+            });
+          }; // 부모 엘리먼트에 canvas 를 붙임
+
+          _proto.attachTo = function attachTo(parentElement) {
+            this.detach();
+            parentElement.appendChild(this.canvas);
+            this._wrapper = parentElement;
+          };
+
+          _proto.forceContextLoss = function forceContextLoss() {
+            if (this.hasRenderingContext()) {
+              var loseContextExtension = this.context.getExtension(
+                "WEBGL_lose_context"
+              );
+
+              if (loseContextExtension) {
+                loseContextExtension.loseContext();
+              }
+            }
+          }; // 부모 엘리먼트에서 canvas 를 제거
+
+          _proto.detach = function detach() {
+            if (this.canvas.parentElement) {
+              this.canvas.parentElement.removeChild(this.canvas);
+            }
+          };
+
+          _proto.destroy = function destroy() {
+            if (this._contentLoader) {
+              this._contentLoader.destroy();
+            }
+
+            this._animator.stop();
+
+            this.detach();
+            this.forceContextLoss();
+            this.off();
+            this.canvas.removeEventListener(
+              "webglcontextlost",
+              this._onWebglcontextlost
+            );
+            this.canvas.removeEventListener(
+              "webglcontextrestored",
+              this._onWebglcontextrestored
+            );
+          };
+
+          _proto.hasRenderingContext = function hasRenderingContext() {
+            if (!(this.context && !this.context.isContextLost())) {
+              return false;
+            } else if (
+              this.context &&
+              !this.context.getProgramParameter(
+                this.shaderProgram,
+                this.context.LINK_STATUS
+              )
+            ) {
+              return false;
+            }
+
+            return true;
+          };
+
+          _proto._initShaderProgram = function _initShaderProgram() {
+            var gl = this.context;
+
+            if (this.shaderProgram) {
+              gl.deleteProgram(this.shaderProgram);
+              this.shaderProgram = null;
+            }
+
+            var renderer = this._renderer;
+            var vsSource = renderer.getVertexShaderSource();
+            var fsSource = renderer.getFragmentShaderSource();
+            var vertexShader = WebGLUtils.createShader(
+              gl,
+              gl.VERTEX_SHADER,
+              vsSource
+            );
+            var fragmentShader = WebGLUtils.createShader(
+              gl,
+              gl.FRAGMENT_SHADER,
+              fsSource
+            );
+            var shaderProgram = WebGLUtils.createProgram(
+              gl,
+              vertexShader,
+              fragmentShader
+            );
+
+            if (!shaderProgram) {
+              throw new Error(
+                "Failed to intialize shaders: " +
+                  WebGLUtils.getErrorNameFromWebGLErrorCode(gl.getError())
+              );
+            }
+
+            gl.useProgram(shaderProgram);
+            shaderProgram.vertexPositionAttribute = gl.getAttribLocation(
+              shaderProgram,
+              "aVertexPosition"
+            );
+            gl.enableVertexAttribArray(shaderProgram.vertexPositionAttribute);
+            shaderProgram.pMatrixUniform = gl.getUniformLocation(
+              shaderProgram,
+              "uPMatrix"
+            );
+            shaderProgram.mvMatrixUniform = gl.getUniformLocation(
+              shaderProgram,
+              "uMVMatrix"
+            );
+            shaderProgram.samplerUniform = gl.getUniformLocation(
+              shaderProgram,
+              "uSampler"
+            );
+            shaderProgram.textureCoordAttribute = gl.getAttribLocation(
+              shaderProgram,
+              "aTextureCoord"
+            );
+            shaderProgram.uEye = gl.getUniformLocation(shaderProgram, "uEye");
+            gl.enableVertexAttribArray(shaderProgram.textureCoordAttribute); // clear buffer
+
+            gl.clear(
+              gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT | gl.STENCIL_BUFFER_BIT
+            ); // Use TEXTURE0
+
+            gl.uniform1i(shaderProgram.samplerUniform, 0);
+            this.shaderProgram = shaderProgram;
+          };
+
+          _proto._onWebglcontextlost = function _onWebglcontextlost(e) {
+            e.preventDefault();
+            this.trigger(EVENTS$2.RENDERING_CONTEXT_LOST);
+          };
+
+          _proto._onWebglcontextrestored = function _onWebglcontextrestored(e) {
+            this._initWebGL();
+
+            this.trigger(EVENTS$2.RENDERING_CONTEXT_RESTORE);
+          };
+
+          _proto.updateFieldOfView = function updateFieldOfView(fieldOfView) {
+            this.fieldOfView = fieldOfView;
+
+            this._updateViewport();
+          };
+
+          _proto.updateViewportDimensions = function updateViewportDimensions(
+            width,
+            height
+          ) {
+            var viewPortChanged = false;
+            this.width = width;
+            this.height = height;
+            var w = width * DEVICE_PIXEL_RATIO;
+            var h = height * DEVICE_PIXEL_RATIO;
+
+            if (w !== this.canvas.width) {
+              this.canvas.width = w;
+              viewPortChanged = true;
+            }
+
+            if (h !== this.canvas.height) {
+              this.canvas.height = h;
+              viewPortChanged = true;
+            }
+
+            if (!viewPortChanged) {
+              return;
+            }
+
+            this._updateViewport();
+
+            this._shouldForceDraw = true;
+          };
+
+          _proto._updateViewport = function _updateViewport() {
+            perspective(
+              this.pMatrix,
+              toRadian(this.fieldOfView),
+              this.canvas.width / this.canvas.height,
+              0.1,
+              100
+            );
+            this.context.viewport(
+              0,
+              0,
+              this.context.drawingBufferWidth,
+              this.context.drawingBufferHeight
+            );
+          };
+
+          _proto._initWebGL = function _initWebGL() {
+            var gl; // TODO: Following code does need to be executed only if width/height, cubicStrip property is changed.
+
+            try {
+              this._initRenderingContext();
+
+              gl = this.context;
+              this.updateViewportDimensions(this.width, this.height);
+
+              this._initShaderProgram();
+            } catch (e) {
+              this.trigger(EVENTS$2.ERROR, {
+                type: ERROR_TYPE$1.NO_WEBGL,
+                message: "no webgl support"
+              });
+              this.destroy();
+              console.error(e); // eslint-disable-line no-console
+
+              return;
+            } // 캔버스를 투명으로 채운다.
+
+            gl.clearColor(0, 0, 0, 0);
+            var textureTarget = this._isCubeMap
+              ? gl.TEXTURE_CUBE_MAP
+              : gl.TEXTURE_2D;
+
+            if (this.texture) {
+              gl.deleteTexture(this.texture);
+            }
+
+            this.texture = WebGLUtils.createTexture(gl, textureTarget);
+
+            if (this._imageType === ImageType.CUBESTRIP) {
+              // TODO: Apply following options on other projection type.
+              gl.enable(gl.CULL_FACE); // gl.enable(gl.DEPTH_TEST);
+            }
+          };
+
+          _proto._initRenderingContext = function _initRenderingContext() {
+            if (this.hasRenderingContext()) {
+              return;
+            }
+
+            if (!window.WebGLRenderingContext) {
+              throw new Error("WebGLRenderingContext not available.");
+            }
+
+            this.context = WebGLUtils.getWebglContext(
+              this.canvas,
+              this._renderingContextAttributes
+            );
+
+            if (!this.context) {
+              throw new Error("Failed to acquire 3D rendering context");
+            }
+          };
+
+          _proto._initBuffers = function _initBuffers() {
+            var vertexPositionData = this._renderer.getVertexPositionData();
+
+            var indexData = this._renderer.getIndexData();
+
+            var textureCoordData = this._renderer.getTextureCoordData(
+              this._imageConfig
+            );
+
+            var gl = this.context;
+            this.vertexBuffer = WebGLUtils.initBuffer(
+              gl,
+              gl.ARRAY_BUFFER,
+              new Float32Array(vertexPositionData),
+              3,
+              this.shaderProgram.vertexPositionAttribute
+            );
+            this.indexBuffer = WebGLUtils.initBuffer(
+              gl,
+              gl.ELEMENT_ARRAY_BUFFER,
+              new Uint16Array(indexData),
+              1
+            );
+            this.textureCoordBuffer = WebGLUtils.initBuffer(
+              gl,
+              gl.ARRAY_BUFFER,
+              new Float32Array(textureCoordData),
+              this._isCubeMap ? 3 : 2,
+              this.shaderProgram.textureCoordAttribute
+            );
+
+            this._bindBuffers();
+          };
+
+          _proto._bindTexture = function _bindTexture() {
+            // Detect if it is EAC Format while CUBESTRIP mode.
+            // We assume it is EAC if image is not 3/2 ratio.
+            if (this._imageType === ImageType.CUBESTRIP) {
+              var _this$_renderer$getDi = this._renderer.getDimension(
+                  this._image
+                ),
+                width = _this$_renderer$getDi.width,
+                height = _this$_renderer$getDi.height;
+
+              var isEAC = width && height && width / height !== 1.5;
+              this.context.uniform1f(
+                this.context.getUniformLocation(this.shaderProgram, "uIsEAC"),
+                isEAC
+              );
+            } else if (this._imageType === ImageType.PANORAMA) {
+              var _this$_renderer$getDi2 = this._renderer.getDimension(
+                  this._image
+                ),
+                _width = _this$_renderer$getDi2.width,
+                _height = _this$_renderer$getDi2.height;
+
+              var imageAspectRatio = _width && _height && _width / _height;
+
+              this._renderer.updateShaderData({
+                imageAspectRatio: imageAspectRatio
+              });
+            } // intialize shader buffers after image is loaded.(by updateShaderData)
+            // because buffer may be differ by image size.(eg. CylinderRenderer)
+
+            this._initBuffers();
+
+            this._renderer.bindTexture(
+              this.context,
+              this.texture,
+              this._image,
+              this._imageConfig
+            );
+
+            this._shouldForceDraw = true;
+            this.trigger(EVENTS$2.BIND_TEXTURE);
+          };
+
+          _proto._updateTexture = function _updateTexture() {
+            this._renderer.updateTexture(
+              this.context,
+              this._image,
+              this._imageConfig
+            );
+          };
+
+          _proto.keepUpdate = function keepUpdate(doUpdate) {
+            if (doUpdate && this.isImageLoaded() === false) {
+              // Force to draw a frame after image is loaded on render()
+              this._shouldForceDraw = true;
+            }
+
+            this._keepUpdate = doUpdate;
+          };
+
+          _proto.startRender = function startRender() {
+            this._animator.setCallback(this._render.bind(this));
+
+            this._animator.start();
+          };
+
+          _proto.stopRender = function stopRender() {
+            this._animator.stop();
+          };
+
+          _proto.renderWithQuaternion = function renderWithQuaternion(
+            quaternion,
+            fieldOfView
+          ) {
+            if (!this.isImageLoaded()) {
+              return;
+            }
+
+            if (
+              this._keepUpdate === false &&
+              this._lastQuaternion &&
+              exactEquals$6(this._lastQuaternion, quaternion) &&
+              this.fieldOfView &&
+              this.fieldOfView === fieldOfView &&
+              this._shouldForceDraw === false
+            ) {
+              return;
+            } // updatefieldOfView only if fieldOfView is changed.
+
+            if (fieldOfView !== undefined && fieldOfView !== this.fieldOfView) {
+              this.updateFieldOfView(fieldOfView);
+            }
+
+            this.mvMatrix = fromQuat$1(create$3(), quaternion);
+
+            this._draw();
+
+            this._lastQuaternion = clone$6(quaternion);
+
+            if (this._shouldForceDraw) {
+              this._shouldForceDraw = false;
+            }
+          };
+
+          _proto.renderWithYawPitch = function renderWithYawPitch(
+            yaw,
+            pitch,
+            fieldOfView
+          ) {
+            if (!this.isImageLoaded()) {
+              return;
+            }
+
+            if (
+              this._keepUpdate === false &&
+              this._lastYaw !== null &&
+              this._lastYaw === yaw &&
+              this._lastPitch !== null &&
+              this._lastPitch === pitch &&
+              this.fieldOfView &&
+              this.fieldOfView === fieldOfView &&
+              this._shouldForceDraw === false
+            ) {
+              return;
+            } // fieldOfView 가 존재하면서 기존의 값과 다를 경우에만 업데이트 호출
+
+            if (fieldOfView !== undefined && fieldOfView !== this.fieldOfView) {
+              this.updateFieldOfView(fieldOfView);
+            }
+
+            identity$3(this.mvMatrix);
+            rotateX(this.mvMatrix, this.mvMatrix, -toRadian(pitch));
+            rotateY(this.mvMatrix, this.mvMatrix, -toRadian(yaw));
+
+            this._draw();
+
+            this._lastYaw = yaw;
+            this._lastPitch = pitch;
+
+            if (this._shouldForceDraw) {
+              this._shouldForceDraw = false;
+            }
+          };
+
+          _proto._render = function _render() {
+            var yawPitchControl = this._yawPitchControl;
+            var fov = yawPitchControl.getFov();
+
+            if (yawPitchControl.shouldRenderWithQuaternion()) {
+              var quaternion = yawPitchControl.getQuaternion();
+              this.renderWithQuaternion(quaternion, fov);
+            } else {
+              var yawPitch = yawPitchControl.getYawPitch();
+              this.renderWithYawPitch(yawPitch.yaw, yawPitch.pitch, fov);
+            }
+          };
+
+          _proto._bindBuffers = function _bindBuffers() {
+            var gl = this.context;
+            var program = this.shaderProgram;
+            var vertexBuffer = this.vertexBuffer;
+            var textureCoordBuffer = this.textureCoordBuffer;
+            gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer);
+            gl.enableVertexAttribArray(program.vertexPositionAttribute);
+            gl.vertexAttribPointer(
+              program.vertexPositionAttribute,
+              vertexBuffer.itemSize,
+              gl.FLOAT,
+              false,
+              0,
+              0
+            );
+            gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, this.indexBuffer);
+            gl.bindBuffer(gl.ARRAY_BUFFER, textureCoordBuffer);
+            gl.enableVertexAttribArray(program.textureCoordAttribute);
+            gl.vertexAttribPointer(
+              program.textureCoordAttribute,
+              textureCoordBuffer.itemSize,
+              gl.FLOAT,
+              false,
+              0,
+              0
+            );
+          };
+
+          _proto._draw = function _draw() {
+            if (this._isVideo && this._keepUpdate) {
+              this._updateTexture();
+            }
+
+            this._renderer.render({
+              gl: this.context,
+              shaderProgram: this.shaderProgram,
+              indexBuffer: this.indexBuffer,
+              mvMatrix: this.mvMatrix,
+              pMatrix: this.pMatrix
+            });
+          };
+          /**
+           * Returns projection renderer by each type
+           */
+
+          _proto.getProjectionRenderer = function getProjectionRenderer() {
+            return this._renderer;
+          };
+          /**
+           * @return Promise
+           */
+
+          _proto.enterVR = function enterVR() {
+            var vr = this._vr;
+
+            if (!WEBXR_SUPPORTED && !navigator.getVRDisplays) {
+              return _Promise$5.reject("VR is not available on this browser.");
+            }
+
+            if (vr && vr.isPresenting()) {
+              return _Promise$5.resolve("VR already enabled.");
+            }
+
+            return this._requestPresent();
+          };
+
+          _proto._requestPresent = function _requestPresent() {
+            var _this4 = this;
+
+            var gl = this.context;
+            var canvas = this.canvas;
+            var animator = this._animator;
+            this._vr = WEBXR_SUPPORTED ? new XRManager() : new VRManager();
+            var vr = this._vr;
+            animator.stop();
+            return new _Promise$5(function(resolve, reject) {
+              vr.requestPresent(canvas, gl)
+                .then(function() {
+                  vr.addEndCallback(_this4.exitVR);
+                  animator.setContext(vr.context);
+                  animator.setCallback(_this4._onFirstVRFrame);
+
+                  if (IS_IOS) {
+                    _this4._setWrapperFullscreen();
+                  }
+
+                  _this4._shouldForceDraw = true;
+                  animator.start();
+                  resolve("success");
+                })
+                ["catch"](function(e) {
+                  vr.destroy();
+                  _this4._vr = null;
+                  animator.start();
+                  reject(e);
+                });
+            });
+          };
+
+          _proto._setWrapperFullscreen = function _setWrapperFullscreen() {
+            var wrapper = this._wrapper;
+            if (!wrapper) return;
+            this._wrapperOrigStyle = wrapper.getAttribute("style");
+            var wrapperStyle = wrapper.style;
+            wrapperStyle.width = "100vw";
+            wrapperStyle.height = "100vh";
+            wrapperStyle.position = "fixed";
+            wrapperStyle.left = "0";
+            wrapperStyle.top = "0";
+            wrapperStyle.zIndex = "9999";
+          };
+
+          _proto._restoreStyle = function _restoreStyle() {
+            var wrapper = this._wrapper;
+            var canvas = this.canvas;
+            if (!wrapper) return;
+
+            if (this._wrapperOrigStyle) {
+              wrapper.setAttribute("style", this._wrapperOrigStyle);
+            } else {
+              wrapper.removeAttribute("style");
+            }
+
+            this._wrapperOrigStyle = null; // Restore canvas style
+
+            canvas.removeAttribute("style");
+
+            this._setDefaultCanvasStyle();
+          };
+
+          return PanoImageRenderer;
+        })(Component);
+
+      PanoImageRenderer.EVENTS = EVENTS$2;
+      PanoImageRenderer.ERROR_TYPE = ERROR_TYPE$1;
+      return PanoImageRenderer;
+    })();
+
+  var _Promise$6 =
+    typeof Promise === "undefined" ? es6Promise.Promise : Promise;
+
+  var PanoViewer =
+    /*#__PURE__*/
+    (function() {
+      var PanoViewer =
+        /*#__PURE__*/
+        (function(_Component) {
+          _inheritsLoose(PanoViewer, _Component);
+
+          /**
+           * Version info string
+           * @ko 버전정보 문자열
+           * @name VERSION
+           * @static
+           * @type {String}
+           * @example
+           * eg.view360.PanoViewer.VERSION;  // ex) 3.0.1
+           * @memberof eg.view360.PanoViewer
+           */
+          // It should be deprecated!
+
+          /**
+           * Constant value for touch directions
+           * @ko 터치 방향에 대한 상수 값.
+           * @namespace
+           * @name TOUCH_DIRECTION
+           * @memberof eg.view360.PanoViewer
+           */
+
+          /**
+           * @classdesc 360 media viewer
+           * @ko 360 미디어 뷰어
+           * @class
+           * @name eg.view360.PanoViewer
+           * @extends eg.Component
+           *
+           * @param {HTMLElement} container The container element for the renderer. <ko>렌더러의 컨테이너 엘리먼트</ko>
+           * @param {Object} config
+           *
+           * @param {String|Image} config.image Input image url or element (Use only image property or video property)<ko>입력 이미지 URL 혹은 엘리먼트(image 와 video 둘 중 하나만 설정)</ko>
+           * @param {String|HTMLVideoElement} config.video Input video url or element(Use only image property or video property)<ko>입력 비디오 URL 혹은 엘리먼트(image 와 video 둘 중 하나만 설정)</ko>
+           * @param {String} [config.projectionType=equirectangular] The type of projection: equirectangular, cubemap <br/>{@link eg.view360.PanoViewer.PROJECTION_TYPE}<ko>Projection 유형 : equirectangular, cubemap <br/>{@link eg.view360.PanoViewer.PROJECTION_TYPE}</ko>
+           * @param {Object} config.cubemapConfig config cubemap projection layout. It is applied when projectionType is {@link eg.view360.PanoViewer.PROJECTION_TYPE.CUBEMAP} or {@link eg.view360.PanoViewer.PROJECTION_TYPE.CUBESTRIP}<ko>cubemap projection type 의 레이아웃을 설정한다. 이 설정은 ProjectionType이 {@link eg.view360.PanoViewer.PROJECTION_TYPE.CUBEMAP} 혹은 {@link eg.view360.PanoViewer.PROJECTION_TYPE.CUBESTRIP} 인 경우에만 적용된다.</ko>
+           * @param {Object} [config.cubemapConfig.order = "RLUDBF"(ProjectionType === CUBEMAP) | "RLUDFB" (ProjectionType === CUBESTRIP)] Order of cubemap faces <ko>Cubemap 형태의 이미지가 배치된 순서</ko>
+           * @param {Object} [config.cubemapConfig.tileConfig = {flipHorizontal:false, rotation: 0}] Setting about rotation angle(degree) and whether to flip horizontal for each cubemap faces, if you put this object as a array, you can set each faces with different setting. For example, [{flipHorizontal:false, rotation:90}, {flipHorizontal: true, rotation: 180}, ...]<ko>각 Cubemap 면에 대한 회전 각도/좌우반전 여부 설정, 객체를 배열 형태로 지정하여 각 면에 대한 설정을 다르게 지정할 수도 있다. 예를 들어 [{flipHorizontal:false, rotation:90}, {flipHorizontal: true, rotation: 180}, ...]과 같이 지정할 수 있다.</ko>
+           * @param {String} [config.stereoFormat="3dv"] Contents format of the stereoscopic equirectangular projection.<br/>See {@link eg.view360.PanoViewer.STEREO_FORMAT}.<ko>Stereoscopic equirectangular projection type의 콘텐츠 포맷을 설정한다.<br/>{@link eg.view360.PanoViewer.STEREO_FORMAT} 참조.</ko>
+           * @param {Number} [config.width=width of container] the viewer's width. (in px) <ko>뷰어의 너비 (px 단위)</ko>
+           * @param {Number} [config.height=height of container] the viewer's height.(in px) <ko>뷰어의 높이 (px 단위)</ko>
+           *
+           * @param {Number} [config.yaw=0] Initial Yaw of camera (in degree) <ko>카메라의 초기 Yaw (degree 단위)</ko>
+           * @param {Number} [config.pitch=0] Initial Pitch of camera (in degree) <ko>카메라의 초기 Pitch (degree 단위)</ko>
+           * @param {Number} [config.fov=65] Initial vertical field of view of camera (in degree) <ko>카메라의 초기 수직 field of view (degree 단위)</ko>
+           * @param {Boolean} [config.showPolePoint=false] If false, the pole is not displayed inside the viewport <ko>false 인 경우, 극점은 뷰포트 내부에 표시되지 않습니다</ko>
+           * @param {Boolean} [config.useZoom=true] When true, enables zoom with the wheel and Pinch gesture <ko>true 일 때 휠 및 집기 제스춰로 확대 / 축소 할 수 있습니다.</ko>
+           * @param {Boolean} [config.useKeyboard=true] When true, enables the keyboard move key control: awsd, arrow keys <ko>true 이면 키보드 이동 키 컨트롤을 활성화합니다: awsd, 화살표 키</ko>
+           * @param {String} [config.gyroMode=yawPitch] Enables control through device motion. ("none", "yawPitch", "VR") <br/>{@link eg.view360.PanoViewer.GYRO_MODE} <ko>디바이스 움직임을 통한 컨트롤을 활성화 합니다. ("none", "yawPitch", "VR") <br/>{@link eg.view360.PanoViewer.GYRO_MODE} </ko>
+           * @param {Array} [config.yawRange=[-180, 180]] Range of controllable Yaw values <ko>제어 가능한 Yaw 값의 범위</ko>
+           * @param {Array} [config.pitchRange=[-90, 90]] Range of controllable Pitch values <ko>제어 가능한 Pitch 값의 범위</ko>
+           * @param {Array} [config.fovRange=[30, 110]] Range of controllable vertical field of view values <ko>제어 가능한 수직 field of view 값의 범위</ko>
+           * @param {Number} [config.touchDirection= {@link eg.view360.PanoViewer.TOUCH_DIRECTION.ALL}(6)] Direction of touch that can be controlled by user <br/>{@link eg.view360.PanoViewer.TOUCH_DIRECTION}<ko>사용자가 터치로 조작 가능한 방향 <br/>{@link eg.view360.PanoViewer.TOUCH_DIRECTION}</ko>
+           *
+           * @example
+           * // PanoViewer Creation
+           * // create PanoViewer with option
+           * var PanoViewer = eg.view360.PanoViewer;
+           * // Area where the image will be displayed(HTMLElement)
+           * var container = document.getElementById("myPanoViewer");
+           *
+           * var panoViewer = new PanoViewer(container, {
+           *     // If projectionType is not specified, the default is "equirectangular".
+           *     // Specifies an image of the "equirectangular" type.
+           *     image: "/path/to/image/image.jpg"
+           *});
+           *
+           * @example
+           * // Cubemap Config Setting Example
+           * // For support Youtube EAC projection, You should set cubemapConfig as follows.
+           * cubemapConfig: {
+           * 	order: "LFRDBU",
+           * 	tileConfig: [
+           * 		tileConfig: [{rotation: 0}, {rotation: 0}, {rotation: 0}, {rotation: 0}, {rotation: -90}, {rotation: 180}]
+           * 	]
+           * }
+           */
+          function PanoViewer(container, options) {
+            var _this;
+
+            if (options === void 0) {
+              options = {};
+            }
+
+            _this = _Component.call(this) || this; // Raises the error event if webgl is not supported.
+
+            if (!WebGLUtils.isWebGLAvailable()) {
+              setTimeout(function() {
+                _this.trigger(EVENTS$1.ERROR, {
+                  type: ERROR_TYPE.NO_WEBGL,
+                  message: "no webgl support"
+                });
+              }, 0);
+              return (
+                _assertThisInitialized(_this) || _assertThisInitialized(_this)
+              );
+            }
+
+            if (!WebGLUtils.isStableWebGL()) {
+              setTimeout(function() {
+                _this.trigger(EVENTS$1.ERROR, {
+                  type: ERROR_TYPE.INVALID_DEVICE,
+                  message: "blacklisted browser"
+                });
+              }, 0);
+              return (
+                _assertThisInitialized(_this) || _assertThisInitialized(_this)
+              );
+            }
+
+            if (!!options.image && !!options.video) {
+              setTimeout(function() {
+                _this.trigger(EVENTS$1.ERROR, {
+                  type: ERROR_TYPE.INVALID_RESOURCE,
+                  message:
+                    "Specifying multi resouces(both image and video) is not valid."
+                });
+              }, 0);
+              return (
+                _assertThisInitialized(_this) || _assertThisInitialized(_this)
+              );
+            } // Check XR support at not when imported, but when created.
+            // This is intended to make polyfills easier to use.
+
+            checkXRSupport();
+            _this._container = container;
+            _this._image = options.image || options.video;
+            _this._isVideo = !!options.video;
+            _this._projectionType =
+              options.projectionType || PROJECTION_TYPE.EQUIRECTANGULAR;
+            _this._cubemapConfig = _extends(
+              {
+                /* RLUDBF is abnormal, we use it on CUBEMAP only for backward compatibility*/
+                order:
+                  _this._projectionType === PROJECTION_TYPE.CUBEMAP
+                    ? "RLUDBF"
+                    : "RLUDFB",
+                tileConfig: {
+                  flipHorizontal: false,
+                  rotation: 0
+                }
+              },
+              options.cubemapConfig
+            );
+            _this._stereoFormat =
+              options.stereoFormat || STEREO_FORMAT.TOP_BOTTOM; // If the width and height are not provided, will use the size of the container.
+
+            _this._width =
+              options.width ||
+              parseInt(window.getComputedStyle(container).width, 10);
+            _this._height =
+              options.height ||
+              parseInt(window.getComputedStyle(container).height, 10);
+            /**
+             * Cache the direction for the performance in renderLoop
+             *
+             * This value should be updated by "change" event of YawPitchControl.
+             */
+
+            _this._yaw = options.yaw || 0;
+            _this._pitch = options.pitch || 0;
+            _this._fov = options.fov || 65;
+            _this._gyroMode = options.gyroMode || GYRO_MODE.YAWPITCH;
+            _this._quaternion = null;
+            _this._aspectRatio =
+              _this._height !== 0 ? _this._width / _this._height : 1;
+            var fovRange = options.fovRange || [30, 110];
+            var touchDirection = PanoViewer._isValidTouchDirection(
+              options.touchDirection
+            )
+              ? options.touchDirection
+              : YawPitchControl.TOUCH_DIRECTION_ALL;
+
+            var yawPitchConfig = _extends(options, {
+              element: container,
+              yaw: _this._yaw,
+              pitch: _this._pitch,
+              fov: _this._fov,
+              gyroMode: _this._gyroMode,
+              fovRange: fovRange,
+              aspectRatio: _this._aspectRatio,
+              touchDirection: touchDirection
+            });
+
+            _this._isReady = false;
+
+            _this._initYawPitchControl(yawPitchConfig);
+
+            _this._initRenderer(
+              _this._yaw,
+              _this._pitch,
+              _this._fov,
+              _this._projectionType,
+              _this._cubemapConfig
+            );
+
+            return _this;
+          }
+          /**
+           * Get the video element that the viewer is currently playing. You can use this for playback.
+           * @ko 뷰어가 현재 사용 중인 비디오 요소를 얻습니다. 이 요소를 이용해 비디오의 컨트롤을 할 수 있습니다.
+           * @method eg.view360.PanoViewer#getVideo
+           * @return {HTMLVideoElement} HTMLVideoElement<ko>HTMLVideoElement</ko>
+           * @example
+           * var videoTag = panoViewer.getVideo();
+           * videoTag.play(); // play video!
+           */
+
+          var _proto = PanoViewer.prototype;
+
+          _proto.getVideo = function getVideo() {
+            if (!this._isVideo) {
+              return null;
+            }
+
+            return this._photoSphereRenderer.getContent();
+          };
+          /**
+           * Set the video information to be used by the viewer.
+           * @ko 뷰어가 사용할 이미지 정보를 설정합니다.
+           * @method eg.view360.PanoViewer#setVideo
+           * @param {String|HTMLVideoElement|Object} video Input video url or element or config object<ko>입력 비디오 URL 혹은 엘리먼트 혹은 설정객체를 활용(image 와 video 둘 중 하나만 설정)</ko>
+           * @param {Object} param
+           * @param {String} [param.projectionType={@link eg.view360.PanoViewer.PROJECTION_TYPE.EQUIRECTANGULAR}("equirectangular")] Projection Type<ko>프로젝션 타입</ko>
+           * @param {Object} param.cubemapConfig config cubemap projection layout. <ko>cubemap projection type 의 레이아웃 설정</ko>
+           * @param {String} [param.stereoFormat="3dv"] Contents format of the stereoscopic equirectangular projection. See {@link eg.view360.PanoViewer.STEREO_FORMAT}.<ko>Stereoscopic equirectangular projection type의 콘텐츠 포맷을 설정한다. {@link eg.view360.PanoViewer.STEREO_FORMAT} 참조.</ko>
+           *
+           * @return {eg.view360.PanoViewer} PanoViewer instance<ko>PanoViewer 인스턴스</ko>
+           * @example
+           * panoViewer.setVideo("/path/to/video/video.mp4", {
+           *     projectionType: eg.view360.PanoViewer.PROJECTION_TYPE.EQUIRECTANGULAR
+           * });
+           */
+
+          _proto.setVideo = function setVideo(video, param) {
+            if (param === void 0) {
+              param = {};
+            }
+
+            if (video) {
+              this.setImage(video, {
+                projectionType: param.projectionType,
+                isVideo: true,
+                cubemapConfig: param.cubemapConfig,
+                stereoFormat: param.stereoFormat
+              });
+            }
+
+            return this;
+          };
+          /**
+           * Get the image information that the viewer is currently using.
+           * @ko 뷰어가 현재 사용하고있는 이미지 정보를 얻습니다.
+           * @method eg.view360.PanoViewer#getImage
+           * @return {Image} Image Object<ko>이미지 객체</ko>
+           * @example
+           * var imageObj = panoViewer.getImage();
+           */
+
+          _proto.getImage = function getImage() {
+            if (this._isVideo) {
+              return null;
+            }
+
+            return this._photoSphereRenderer.getContent();
+          };
+          /**
+           * Set the image information to be used by the viewer.
+           * @ko 뷰어가 사용할 이미지 정보를 설정합니다.
+           * @method eg.view360.PanoViewer#setImage
+           * @param {String|Image|Object} image Input image url or element or config object<ko>입력 이미지 URL 혹은 엘리먼트 혹은 설정객체를 활용(image 와 video 둘 중 하나만 설정한다.)</ko>
+           * @param {Object} param Additional information<ko>이미지 추가 정보</ko>
+           * @param {String} [param.projectionType="equirectangular"] Projection Type<ko>프로젝션 타입</ko>
+           * @param {Object} param.cubemapConfig config cubemap projection layout. <ko>cubemap projection type 레이아웃</ko>
+           * @param {String} [param.stereoFormat="3dv"] Contents format of the stereoscopic equirectangular projection. See {@link eg.view360.PanoViewer.STEREO_FORMAT}.<ko>Stereoscopic equirectangular projection type의 콘텐츠 포맷을 설정한다. {@link eg.view360.PanoViewer.STEREO_FORMAT} 참조.</ko>
+           *
+           * @return {eg.view360.PanoViewer} PanoViewer instance<ko>PanoViewer 인스턴스</ko>
+           * @example
+           * panoViewer.setImage("/path/to/image/image.png", {
+           *     projectionType: eg.view360.PanoViewer.PROJECTION_TYPE.CUBEMAP
+           * });
+           */
+
+          _proto.setImage = function setImage(image, param) {
+            if (param === void 0) {
+              param = {};
+            }
+
+            var cubemapConfig = _extends(
+              {
+                order: "RLUDBF",
+                tileConfig: {
+                  flipHorizontal: false,
+                  rotation: 0
+                }
+              },
+              param.cubemapConfig
+            );
+
+            var stereoFormat = param.stereoFormat || STEREO_FORMAT.TOP_BOTTOM;
+            var isVideo = !!param.isVideo;
+
+            if (this._image && this._isVideo !== isVideo) {
+              /* eslint-disable no-console */
+              console.warn(
+                "Currently not supporting to change content type(Image <--> Video)"
+              );
+              /* eslint-enable no-console */
+
+              return this;
+            }
+
+            if (image) {
+              this._image = image;
+              this._isVideo = isVideo;
+              this._projectionType =
+                param.projectionType || PROJECTION_TYPE.EQUIRECTANGULAR;
+              this._cubemapConfig = cubemapConfig;
+              this._stereoFormat = stereoFormat;
+
+              this._deactivate();
+
+              this._initRenderer(
+                this._yaw,
+                this._pitch,
+                this._fov,
+                this._projectionType,
+                this._cubemapConfig
+              );
+            }
+
+            return this;
+          };
+          /**
+           * Set whether the renderer always updates the texture and renders.
+           * @ko 렌더러가 항상 텍스쳐를 갱신하고 화면을 렌더링 할지 여부를 설정할 수 있습니다.
+           *
+           * @method eg.view360.PanoViewer#keepUpdate
+           * @param {Boolean} doUpdate When true viewer will always update texture and render, when false viewer will not update texture and render only camera config is changed.<ko>true면 항상 텍스쳐를 갱신하고 화면을 그리는 반면, false면 텍스쳐 갱신은 하지 않으며, 카메라 요소에 변화가 있을 때에만 화면을 그립니다.</ko>
+           * @return {eg.view360.PanoViewer} PanoViewer instance<ko>PanoViewer 인스턴스</ko>
+           */
+
+          _proto.keepUpdate = function keepUpdate(doUpdate) {
+            this._photoSphereRenderer.keepUpdate(doUpdate);
+
+            return this;
+          };
+          /**
+           * Get projection type (equirectangular/cube)
+           * @ko 프로젝션 타입(Equirectangular 혹은 Cube)을 반환합니다.
+           *
+           * @method eg.view360.PanoViewer#getProjectionType
+           * @return {String} {@link eg.view360.PanoViewer.PROJECTION_TYPE}
+           */
+
+          _proto.getProjectionType = function getProjectionType() {
+            return this._projectionType;
+          };
+          /**
+           * Reactivate the device's motion sensor. Motion sensor will work only if you enabled `gyroMode` option.
+           * If it's iOS13+, this method must be used in the context of user interaction, like onclick callback on the button element.
+           * @ko 디바이스의 모션 센서를 재활성화합니다. 모션 센서는 `gyroMode` 옵션을 활성화해야만 사용할 수 있습니다.
+           * iOS13+일 경우, 사용자 인터렉션에 의해서 호출되어야 합니다. 예로, 버튼의 onclick 콜백과 같은 콘텍스트에서 호출되어야 합니다.
+           * @see {@link eg.view360.PanoViewer#setGyroMode}
+           * @method eg.view360.PanoViewer#enableSensor
+           * @return {Promise<string>} Promise containing nothing when resolved, or string of the rejected reason when rejected.<ko>Promise. resolve되었을 경우 아무것도 반환하지 않고, reject되었을 경우 그 이유를 담고있는 string을 반환한다.</ko>
+           */
+
+          _proto.enableSensor = function enableSensor() {
+            return this._yawPitchControl.enableSensor();
+          };
+          /**
+           * Disable the device's motion sensor.
+           * @ko 디바이스의 모션 센서를 비활성화합니다.
+           * @see {@link eg.view360.PanoViewer#setGyroMode}
+           * @method eg.view360.PanoViewer#disableSensor
+           * @return {eg.view360.PanoViewer} PanoViewer instance<ko>PanoViewer 인스턴스</ko>
+           */
+
+          _proto.disableSensor = function disableSensor() {
+            this._yawPitchControl.disableSensor();
+
+            return this;
+          };
+          /**
+           * Switch to VR stereo rendering mode which uses WebXR / WebVR API (WebXR is preferred).
+           * This method must be used in the context of user interaction, like onclick callback on the button element.
+           * It can be rejected when an enabling device sensor fails or image/video is still loading("ready" event not triggered).
+           * @ko WebXR / WebVR API를 사용하는 VR 스테레오 렌더링 모드로 전환합니다. (WebXR을 더 선호합니다)
+           * 이 메소드는 사용자 인터렉션에 의해서 호출되어야 합니다. 예로, 버튼의 onclick 콜백과 같은 콘텍스트에서 호출되어야 합니다.
+           * 디바이스 센서 활성화에 실패시 혹은 아직 이미지/비디오가 로딩중인 경우("ready"이벤트가 아직 트리거되지 않은 경우)에는 Promise가 reject됩니다.
+           * @method eg.view360.PanoViewer#enterVR
+           * @return {Promise<string>} Promise containing either a string of resolved reason or an Error instance of rejected reason.<ko>Promise가 resolve된 이유(string) 혹은 reject된 이유(Error)</ko>
+           */
+
+          _proto.enterVR = function enterVR() {
+            var _this2 = this;
+
+            if (!this._isReady) {
+              return _Promise$6.reject(
+                new Error("PanoViewer is not ready to show image.")
+              );
+            }
+
+            return new _Promise$6(function(resolve, reject) {
+              _this2
+                .enableSensor()
+                .then(function() {
+                  return _this2._photoSphereRenderer.enterVR();
+                })
+                .then(function(res) {
+                  return resolve(res);
+                })
+                ["catch"](function(e) {
+                  return reject(e);
+                });
+            });
+          };
+          /**
+           * Exit VR stereo rendering mode.
+           * @ko VR 스테레오 렌더링 모드에서 일반 렌더링 모드로 전환합니다.
+           *
+           * @method eg.view360.PanoViewer#exitVR
+           * @return {eg.view360.PanoViewer} PanoViewer instance<ko>PanoViewer 인스턴스</ko>
+           */
+
+          _proto.exitVR = function exitVR() {
+            this._photoSphereRenderer.exitVR();
+
+            return this;
+          }; // TODO: Remove parameters as they're just using private values
+
+          _proto._initRenderer = function _initRenderer(
+            yaw,
+            pitch,
+            fov,
+            projectionType,
+            cubemapConfig
+          ) {
+            var _this3 = this;
+
+            this._photoSphereRenderer = new PanoImageRenderer(
+              this._image,
+              this._width,
+              this._height,
+              this._isVideo,
+              {
+                initialYaw: yaw,
+                initialPitch: pitch,
+                fieldOfView: fov,
+                imageType: projectionType,
+                cubemapConfig: cubemapConfig,
+                stereoFormat: this._stereoFormat
+              }
+            );
+
+            this._photoSphereRenderer.setYawPitchControl(this._yawPitchControl);
+
+            this._bindRendererHandler();
+
+            this._photoSphereRenderer
+              .bindTexture()
+              .then(function() {
+                return _this3._activate();
+              })
+              ["catch"](function() {
+                _this3._triggerEvent(EVENTS$1.ERROR, {
+                  type: ERROR_TYPE.FAIL_BIND_TEXTURE,
+                  message: "failed to bind texture"
+                });
+              });
+          };
+          /**
+           * update values of YawPitchControl if needed.
+           * For example, In Panorama mode, initial fov and pitchRange is changed by aspect ratio of image.
+           *
+           * This function should be called after isReady status is true.
+           */
+
+          _proto._updateYawPitchIfNeeded = function _updateYawPitchIfNeeded() {
+            if (this._projectionType === PanoViewer.ProjectionType.PANORAMA) {
+              // update fov by aspect ratio
+              var image = this._photoSphereRenderer.getContent();
+
+              var imageAspectRatio = image.naturalWidth / image.naturalHeight;
+              var isCircular;
+              var yawSize;
+              var maxFov; // If height is larger than width, then we assume it's rotated by 90 degree.
+
+              if (imageAspectRatio < 1) {
+                // So inverse the aspect ratio.
+                imageAspectRatio = 1 / imageAspectRatio;
+              }
+
+              if (imageAspectRatio < 6) {
+                yawSize = util.toDegree(imageAspectRatio);
+                isCircular = false; // 0.5 means ratio of half height of cylinder(0.5) and radius of cylider(1). 0.5/1 = 0.5
+
+                maxFov = util.toDegree(Math.atan(0.5)) * 2;
+              } else {
+                yawSize = 360;
+                isCircular = true;
+                maxFov = 360 / imageAspectRatio; // Make it 5 fixed as axes does.
+              } // console.log("_updateYawPitchIfNeeded", maxFov, "aspectRatio", image.naturalWidth, image.naturalHeight, "yawSize", yawSize);
+
+              var minFov = this._yawPitchControl.option("fovRange")[0]; // this option should be called after fov is set.
+
+              this._yawPitchControl.option({
+                fov: maxFov,
+
+                /* parameter for internal validation for pitchrange */
+                yawRange: [-yawSize / 2, yawSize / 2],
+                isCircular: isCircular,
+                pitchRange: [-maxFov / 2, maxFov / 2],
+                fovRange: [minFov, maxFov]
+              });
+
+              this.lookAt({
+                fov: maxFov
+              });
+            }
+          };
+
+          _proto._bindRendererHandler = function _bindRendererHandler() {
+            var _this4 = this;
+
+            this._photoSphereRenderer.on(
+              PanoImageRenderer.EVENTS.ERROR,
+              function(e) {
+                _this4.trigger(EVENTS$1.ERROR, e);
+              }
+            );
+
+            this._photoSphereRenderer.on(
+              PanoImageRenderer.EVENTS.RENDERING_CONTEXT_LOST,
+              function(e) {
+                _this4._deactivate();
+
+                _this4.trigger(EVENTS$1.ERROR, {
+                  type: ERROR_TYPE.RENDERING_CONTEXT_LOST,
+                  message: "webgl rendering context lost"
+                });
+              }
+            );
+          };
+
+          _proto._initYawPitchControl = function _initYawPitchControl(
+            yawPitchConfig
+          ) {
+            var _this5 = this;
+
+            this._yawPitchControl = new YawPitchControl(yawPitchConfig);
+
+            this._yawPitchControl.on(EVENTS$1.ANIMATION_END, function(e) {
+              _this5._triggerEvent(EVENTS$1.ANIMATION_END, e);
+            });
+
+            this._yawPitchControl.on("change", function(e) {
+              _this5._yaw = e.yaw;
+              _this5._pitch = e.pitch;
+              _this5._fov = e.fov;
+              _this5._quaternion = e.quaternion;
+
+              _this5._triggerEvent(EVENTS$1.VIEW_CHANGE, e);
+            });
+          };
+
+          _proto._triggerEvent = function _triggerEvent(name, param) {
+            var evt = param || {};
+            /**
+             * Events that is fired when error occurs
+             * @ko 에러 발생 시 발생하는 이벤트
+             * @name eg.view360.PanoViewer#error
+             * @event
+             * @param {Object} param The object of data to be sent to an event <ko>이벤트에 전달되는 데이터 객체</ko>
+             * @param {Number} param.type Error type
+             * 		10: INVALID_DEVICE: Unsupported device
+             * 		11: NO_WEBGL: Webgl not support
+             * 		12, FAIL_IMAGE_LOAD: Failed to load image
+             * 		13: FAIL_BIND_TEXTURE: Failed to bind texture
+             * 		14: INVALID_RESOURCE: Only one resource(image or video) should be specified
+             * 		15: RENDERING_CONTEXT_LOST: WebGL context lost occurred
+             * <ko>에러 종류
+             * 		10: INVALID_DEVICE: 미지원 기기
+             * 		11: NO_WEBGL: WEBGL 미지원
+             * 		12, FAIL_IMAGE_LOAD: 이미지 로드 실패
+             * 		13: FAIL_BIND_TEXTURE: 텍스쳐 바인딩 실패
+             * 		14: INVALID_RESOURCE: 리소스 지정 오류 (image 혹은 video 중 하나만 지정되어야 함)
+             * 		15: RENDERING_CONTEXT_LOST: WebGL context lost 발생
+             * </ko>
+             * @param {String} param.message Error message <ko>에러 메시지</ko>
+             * @see {@link eg.view360.PanoViewer.ERROR_TYPE}
+             * @example
+             *
+             * viwer.on({
+             *	"error" : function(evt) {
+             *		// evt.type === 13
+             *		// evt.message === "failed to bind texture"
+             * });
+             *
+             * // constant can be used
+             * viwer.on({
+             *	eg.view360.PanoViewer.EVENTS.ERROR : function(evt) {
+             *		// evt.type === eg.view360.PanoViewer.ERROR_TYPE.FAIL_BIND_TEXTURE
+             *		// evt.message === "failed to bind texture"
+             * });
+             */
+
+            /**
+             * Events that is fired when PanoViewer is ready to go.
+             * @ko PanoViewer 가 준비된 상태에 발생하는 이벤트
+             * @name eg.view360.PanoViewer#ready
+             * @event
+             *
+             * @example
+             *
+             * viwer.on({
+             *	"ready" : function(evt) {
+             *		// PanoViewer is ready to show image and handle user interaction.
+             * });
+             */
+
+            /**
+             * Events that is fired when direction or fov is changed.
+             * @ko PanoViewer 에서 바라보고 있는 방향이나 FOV(화각)가 변경되었을때 발생하는 이벤트
+             * @name eg.view360.PanoViewer#viewChange
+             * @event
+             * @param {Object} param The object of data to be sent to an event <ko>이벤트에 전달되는 데이터 객체</ko>
+             * @param {Number} param.yaw yaw<ko>yaw</ko>
+             * @param {Number} param.pitch pitch <ko>pitch</ko>
+             * @param {Number} param.fov Field of view (fov) <ko>화각</ko>
+             * @example
+             *
+             * viwer.on({
+             *	"viewChange" : function(evt) {
+             *		//evt.yaw, evt.pitch, evt.fov is available.
+             * });
+             */
+
+            /**
+             * Events that is fired when animation which is triggered by inertia is ended.
+             * @ko 관성에 의한 애니메이션 동작이 완료되었을때 발생하는 이벤트
+             * @name eg.view360.PanoViewer#animationEnd
+             * @event
+             * @example
+             *
+             * viwer.on({
+             *	"animationEnd" : function(evt) {
+             *		// animation is ended.
+             * });
+             */
+
+            return this.trigger(name, evt);
+          };
+          /**
+           * When set true, enables zoom with the wheel or pinch gesture. However, in the case of touch, pinch works only when the touchDirection setting is {@link eg.view360.PanoViewer.TOUCH_DIRECTION.ALL}.
+           * @ko true 로 설정 시 휠 혹은 집기 동작으로 확대/축소 할 수 있습니다. false 설정 시 확대/축소 기능을 비활성화 합니다. 단, 터치인 경우 touchDirection 설정이 {@link eg.view360.PanoViewer.TOUCH_DIRECTION.ALL} 인 경우에만 pinch 가 동작합니다.
+           * @method eg.view360.PanoViewer#setUseZoom
+           * @param {Boolean} useZoom
+           * @return {eg.view360.PanoViewer} PanoViewer instance<ko>PanoViewer 인스턴스</ko>
+           */
+
+          _proto.setUseZoom = function setUseZoom(useZoom) {
+            typeof useZoom === "boolean" &&
+              this._yawPitchControl.option("useZoom", useZoom);
+            return this;
+          };
+          /**
+           * When true, enables the keyboard move key control: awsd, arrow keys
+           * @ko true이면 키보드 이동 키 컨트롤을 활성화합니다. (awsd, 화살표 키)
+           * @method eg.view360.PanoViewer#setUseKeyboard
+           * @param {Boolean} useKeyboard
+           * @return {eg.view360.PanoViewer} PanoViewer instance<ko>PanoViewer 인스턴스</ko>
+           */
+
+          _proto.setUseKeyboard = function setUseKeyboard(useKeyboard) {
+            this._yawPitchControl.option("useKeyboard", useKeyboard);
+
+            return this;
+          };
+          /**
+           * Enables control through device motion. ("none", "yawPitch", "VR")
+           * @ko 디바이스 움직임을 통한 컨트롤을 활성화 합니다. ("none", "yawPitch", "VR")
+           * @method eg.view360.PanoViewer#setGyroMode
+           * @param {String} gyroMode {@link eg.view360.PanoViewer.GYRO_MODE}
+           * @return {eg.view360.PanoViewer} PanoViewer instance<ko>PanoViewer 인스턴스</ko>
+           * @example
+           * panoViewer.setGyroMode("yawPitch");
+           * //equivalent
+           * panoViewer.setGyroMode(eg.view360.PanoViewer.GYRO_MODE.YAWPITCH);
+           */
+
+          _proto.setGyroMode = function setGyroMode(gyroMode) {
+            this._yawPitchControl.option("gyroMode", gyroMode);
+
+            return this;
+          };
+          /**
+           * Set the range of controllable FOV values
+           * @ko 제어 가능한 FOV 구간을 설정합니다.
+           * @method eg.view360.PanoViewer#setFovRange
+           * @param {Array} range
+           * @return {eg.view360.PanoViewer} PanoViewer instance<ko>PanoViewer 인스턴스</ko>
+           * @example
+           * panoViewer.setFovRange([50, 90]);
+           */
+
+          _proto.setFovRange = function setFovRange(range) {
+            this._yawPitchControl.option("fovRange", range);
+
+            return this;
+          };
+          /**
+           * Getting the range of controllable FOV values
+           * @ko 제어 가능한 FOV 구간을 반환합니다.
+           * @method eg.view360.PanoViewer#getFovRange
+           * @return {Array}
+           * @example
+           * var range = panoViewer.getFovRange(); //[50, 90]
+           */
+
+          _proto.getFovRange = function getFovRange() {
+            return this._yawPitchControl.option("fovRange");
+          };
+          /**
+           * Update size of canvas element by it's container element's or specified size. If size is not specified, the size of the container area is obtained and updated to that size.
+           * @ko 캔버스 엘리먼트의 크기를 컨테이너 엘리먼트의 크기나 지정된 크기로 업데이트합니다. 만약 size 가 지정되지 않으면 컨테이너 영역의 크기를 얻어와 해당 크기로 갱신합니다.
+           * @method eg.view360.PanoViewer#updateViewportDimensions
+           * @param {Object} [size]
+           * @param {Number} [size.width=width of container]
+           * @param {Number} [size.height=height of container]
+           * @return {eg.view360.PanoViewer} PanoViewer instance<ko>PanoViewer 인스턴스</ko>
+           */
+
+          _proto.updateViewportDimensions = function updateViewportDimensions(
+            size
+          ) {
+            if (size === void 0) {
+              size = {
+                width: undefined,
+                height: undefined
+              };
+            }
+
+            if (!this._isReady) {
+              return this;
+            }
+
+            var containerSize;
+
+            if (size.width === undefined || size.height === undefined) {
+              containerSize = window.getComputedStyle(this._container);
+            }
+
+            var width = size.width || parseInt(containerSize.width, 10);
+            var height = size.height || parseInt(containerSize.height, 10); // Skip if viewport is not changed.
+
+            if (width === this._width && height === this._height) {
+              return this;
+            }
+
+            this._width = width;
+            this._height = height;
+            this._aspectRatio = width / height;
+
+            this._photoSphereRenderer.updateViewportDimensions(width, height);
+
+            this._yawPitchControl.option("aspectRatio", this._aspectRatio);
+
+            this._yawPitchControl.updatePanScale({
+              height: height
+            });
+
+            this.lookAt({}, 0);
+            return this;
+          };
+          /**
+           * Get the current field of view(FOV)
+           * @ko 현재 field of view(FOV) 값을 반환합니다.
+           * @method eg.view360.PanoViewer#getFov
+           * @return {Number}
+           */
+
+          _proto.getFov = function getFov() {
+            return this._fov;
+          };
+          /**
+           * Get the horizontal field of view in degree
+           */
+
+          _proto._getHFov = function _getHFov() {
+            return util.toDegree(
+              2 *
+                Math.atan(this._aspectRatio * Math.tan(toRadian(this._fov) / 2))
+            );
+          };
+          /**
+           * Get current yaw value
+           * @ko 현재 yaw 값을 반환합니다.
+           * @method eg.view360.PanoViewer#getYaw
+           * @return {Number}
+           */
+
+          _proto.getYaw = function getYaw() {
+            return this._yaw;
+          };
+          /**
+           * Get current pitch value
+           * @ko 현재 pitch 값을 반환합니다.
+           * @method eg.view360.PanoViewer#getPitch
+           * @return {Number}
+           */
+
+          _proto.getPitch = function getPitch() {
+            return this._pitch;
+          };
+          /**
+           * Get the range of controllable Yaw values
+           * @ko 컨트롤 가능한 Yaw 구간을 반환합니다.
+           * @method eg.view360.PanoViewer#getYawRange
+           * @return {Array}
+           */
+
+          _proto.getYawRange = function getYawRange() {
+            return this._yawPitchControl.option("yawRange");
+          };
+          /**
+           * Get the range of controllable Pitch values
+           * @ko 컨트롤 가능한 Pitch 구간을 가져옵니다.
+           * @method eg.view360.PanoViewer#getPitchRange
+           * @return {Array}
+           */
+
+          _proto.getPitchRange = function getPitchRange() {
+            return this._yawPitchControl.option("pitchRange");
+          };
+          /**
+           * Set the range of controllable yaw
+           * @ko 컨트롤 가능한 Yaw 구간을 반환합니다.
+           * @method eg.view360.PanoViewer#setYawRange
+           * @param {Array} range
+           * @return {eg.view360.PanoViewer} PanoViewer instance<ko>PanoViewer 인스턴스</ko>
+           * @example
+           * panoViewer.setYawRange([-90, 90]);
+           */
+
+          _proto.setYawRange = function setYawRange(yawRange) {
+            this._yawPitchControl.option("yawRange", yawRange);
+
+            return this;
+          };
+          /**
+           * Set the range of controllable Pitch values
+           * @ko 컨트롤 가능한 Pitch 구간을 설정합니다.
+           * @method eg.view360.PanoViewer#setPitchRange
+           * @param {Array} range
+           * @return {eg.view360.PanoViewer} PanoViewer instance<ko>PanoViewer 인스턴스</ko>
+           * @example
+           * panoViewer.setPitchRange([-40, 40]);
+           */
+
+          _proto.setPitchRange = function setPitchRange(pitchRange) {
+            this._yawPitchControl.option("pitchRange", pitchRange);
+
+            return this;
+          };
+          /**
+           * Specifies whether to display the pole by limiting the pitch range. If it is true, pole point can be displayed. If it is false, it is not displayed.
+           * @ko pitch 범위를 제한하여 극점을 표시할지를 지정합니다. true 인 경우 극점까지 표현할 수 있으며 false 인 경우 극점까지 표시하지 않습니다.
+           * @method eg.view360.PanoViewer#setShowPolePoint
+           * @param {Boolean} showPolePoint
+           * @return {eg.view360.PanoViewer} PanoViewer instance<ko>PanoViewer 인스턴스</ko>
+           */
+
+          _proto.setShowPolePoint = function setShowPolePoint(showPolePoint) {
+            this._yawPitchControl.option("showPolePoint", showPolePoint);
+
+            return this;
+          };
+          /**
+           * Set a new view by setting camera configuration. Any parameters not specified remain the same.
+           * @ko 카메라 설정을 지정하여 화면을 갱신합니다. 지정되지 않은 매개 변수는 동일하게 유지됩니다.
+           * @method eg.view360.PanoViewer#lookAt
+           * @param {Object} orientation
+           * @param {Number} orientation.yaw Target yaw in degree <ko>목표 yaw (degree 단위)</ko>
+           * @param {Number} orientation.pitch Target pitch in degree <ko>목표 pitch (degree 단위)</ko>
+           * @param {Number} orientation.fov Target vertical fov in degree <ko>목표 수직 fov (degree 단위)</ko>
+           * @param {Number} duration Animation duration in milliseconds <ko>애니메이션 시간 (밀리 초)</ko>
+           * @return {eg.view360.PanoViewer} PanoViewer instance<ko>PanoViewer 인스턴스</ko>
+           * @example
+           * // Change the yaw angle (absolute angle) to 30 degrees for one second.
+           * panoViewer.lookAt({yaw: 30}, 1000);
+           */
+
+          _proto.lookAt = function lookAt$$1(orientation, duration) {
+            if (!this._isReady) {
+              return this;
+            }
+
+            var yaw =
+              orientation.yaw !== undefined ? orientation.yaw : this._yaw;
+            var pitch =
+              orientation.pitch !== undefined ? orientation.pitch : this._pitch;
+
+            var pitchRange = this._yawPitchControl.option("pitchRange");
+
+            var verticalAngleOfImage = pitchRange[1] - pitchRange[0];
+            var fov =
+              orientation.fov !== undefined ? orientation.fov : this._fov;
+
+            if (verticalAngleOfImage < fov) {
+              fov = verticalAngleOfImage;
+            }
+
+            this._yawPitchControl.lookAt(
+              {
+                yaw: yaw,
+                pitch: pitch,
+                fov: fov
+              },
+              duration
+            );
+
+            if (duration === 0) {
+              this._photoSphereRenderer.renderWithYawPitch(yaw, pitch, fov);
+            }
+
+            return this;
+          };
+
+          _proto._activate = function _activate() {
+            this._photoSphereRenderer.attachTo(this._container);
+
+            this._yawPitchControl.enable();
+
+            this.updateViewportDimensions();
+            this._isReady = true; // update yawPitchControl after isReady status is true.
+
+            this._updateYawPitchIfNeeded();
+
+            this._triggerEvent(EVENTS$1.READY);
+
+            this._photoSphereRenderer.startRender();
+          };
+          /**
+           * Destroy webgl context and block user interaction and stop rendering
+           */
+
+          _proto._deactivate = function _deactivate() {
+            if (this._isReady) {
+              this._photoSphereRenderer.stopRender();
+
+              this._yawPitchControl.disable();
+
+              this._isReady = false;
+            }
+
+            if (this._photoSphereRenderer) {
+              this._photoSphereRenderer.destroy();
+
+              this._photoSphereRenderer = null;
+            }
+          };
+
+          PanoViewer._isValidTouchDirection = function _isValidTouchDirection(
+            direction
+          ) {
+            return (
+              direction === PanoViewer.TOUCH_DIRECTION.NONE ||
+              direction === PanoViewer.TOUCH_DIRECTION.YAW ||
+              direction === PanoViewer.TOUCH_DIRECTION.PITCH ||
+              direction === PanoViewer.TOUCH_DIRECTION.ALL
+            );
+          };
+          /**
+           * Set touch direction by which user can control.
+           * @ko 사용자가 조작가능한 터치 방향을 지정합니다.
+           * @method eg.view360.PanoViewer#setTouchDirection
+           * @param {Number} direction of the touch. {@link eg.view360.PanoViewer.TOUCH_DIRECTION}<ko>컨트롤 가능한 방향 {@link eg.view360.PanoViewer.TOUCH_DIRECTION}</ko>
+           * @return {eg.view360.PanoViewer} PanoViewer instance
+           * @example
+           *
+           * panoViewer = new PanoViewer(el);
+           * // Limit the touch direction to the yaw direction only.
+           * panoViewer.setTouchDirection(eg.view360.PanoViewer.TOUCH_DIRECTION.YAW);
+           */
+
+          _proto.setTouchDirection = function setTouchDirection(direction) {
+            if (PanoViewer._isValidTouchDirection(direction)) {
+              this._yawPitchControl.option("touchDirection", direction);
+            }
+
+            return this;
+          };
+          /**
+           * Returns touch direction by which user can control
+           * @ko 사용자가 조작가능한 터치 방향을 반환한다.
+           * @method eg.view360.PanoViewer#getTouchDirection
+           * @return {Number} direction of the touch. {@link eg.view360.PanoViewer.TOUCH_DIRECTION}<ko>컨트롤 가능한 방향 {@link eg.view360.PanoViewer.TOUCH_DIRECTION}</ko>
+           * @example
+           *
+           * panoViewer = new PanoViewer(el);
+           * // Returns the current touch direction.
+           * var dir = panoViewer.getTouchDirection();
+           */
+
+          _proto.getTouchDirection = function getTouchDirection() {
+            return this._yawPitchControl.option("touchDirection");
+          };
+          /**
+           * Destroy viewer. Remove all registered event listeners and remove viewer canvas.
+           * @ko 뷰어 인스턴스를 해제합니다. 모든 등록된 이벤트리스너를 제거하고 뷰어 캔버스를 삭제합니다.
+           * @method eg.view360.PanoViewer#destroy
+           * @return {eg.view360.PanoViewer} PanoViewer instance<ko>PanoViewer 인스턴스</ko>
+           */
+
+          _proto.destroy = function destroy() {
+            this._deactivate();
+
+            if (this._yawPitchControl) {
+              this._yawPitchControl.destroy();
+
+              this._yawPitchControl = null;
+            }
+
+            return this;
+          };
+          /**
+           * Check whether the current environment can execute PanoViewer
+           * @ko 현재 브라우저 환경에서 PanoViewer 실행이 가능한지 여부를 반환합니다.
+           * @function isSupported
+           * @memberof eg.view360.PanoViewer
+           * @return {Boolean} PanoViewer executable <ko>PanoViewer 실행가능 여부</ko>
+           * @static
+           */
+
+          PanoViewer.isSupported = function isSupported() {
+            return WebGLUtils.isWebGLAvailable() && WebGLUtils.isStableWebGL();
+          };
+          /**
+           * Check whether the current environment supports the WebGL
+           * @ko 현재 브라우저 환경이 WebGL 을 지원하는지 여부를 확인합니다.
+           * @function isWebGLAvailable
+           * @memberof eg.view360.PanoViewer
+           * @return {Boolean} WebGL support <ko>WebGL 지원여부</ko>
+           * @static
+           */
+
+          PanoViewer.isWebGLAvailable = function isWebGLAvailable() {
+            return WebGLUtils.isWebGLAvailable();
+          };
+          /**
+           * Check whether the current environment supports the gyro sensor.
+           * @ko 현재 브라우저 환경이 자이로 센서를 지원하는지 여부를 확인합니다.
+           * @function isGyroSensorAvailable
+           * @memberof eg.view360.PanoViewer
+           * @param {Function} callback Function to take the gyro sensor availability as argument <ko>자이로 센서를 지원하는지 여부를 인자로 받는 함수</ko>
+           * @static
+           */
+
+          PanoViewer.isGyroSensorAvailable = function isGyroSensorAvailable(
+            callback
+          ) {
+            if (!DeviceMotionEvent$1) {
+              callback && callback(false);
+              return;
+            }
+
+            var onDeviceMotionChange;
+
+            function checkGyro() {
+              return new _Promise$6(function(res, rej) {
+                onDeviceMotionChange = function onDeviceMotionChange(
+                  deviceMotion
+                ) {
+                  var isGyroSensorAvailable = !(
+                    deviceMotion.rotationRate.alpha == null
+                  );
+                  res(isGyroSensorAvailable);
+                };
+
+                window.addEventListener("devicemotion", onDeviceMotionChange);
+              });
+            }
+
+            function timeout() {
+              return new _Promise$6(function(res, rej) {
+                setTimeout(function() {
+                  return res(false);
+                }, 1000);
+              });
+            }
+
+            _Promise$6
+              .race([checkGyro(), timeout()])
+              .then(function(isGyroSensorAvailable) {
+                window.removeEventListener(
+                  "devicemotion",
+                  onDeviceMotionChange
+                );
+                callback && callback(isGyroSensorAvailable);
+
+                PanoViewer.isGyroSensorAvailable = function(fb) {
+                  fb && fb(isGyroSensorAvailable);
+                  return isGyroSensorAvailable;
+                };
+              });
+          };
+
+          return PanoViewer;
+        })(Component);
+
+      PanoViewer.VERSION = VERSION;
+      PanoViewer.ERROR_TYPE = ERROR_TYPE;
+      PanoViewer.EVENTS = EVENTS$1;
+      PanoViewer.PROJECTION_TYPE = PROJECTION_TYPE;
+      PanoViewer.GYRO_MODE = GYRO_MODE;
+      PanoViewer.ProjectionType = PROJECTION_TYPE;
+      PanoViewer.STEREO_FORMAT = STEREO_FORMAT;
+      PanoViewer.TOUCH_DIRECTION = {
+        /**
+         * Constant value for none direction.
+         * @ko none 방향에 대한 상수 값.
+         * @name NONE
+         * @memberof eg.view360.PanoViewer.TOUCH_DIRECTION
+         * @constant
+         * @type {Number}
+         * @default 1
+         */
+        NONE: YawPitchControl.TOUCH_DIRECTION_NONE,
+
+        /**
+         * Constant value for horizontal(yaw) direction.
+         * @ko horizontal(yaw) 방향에 대한 상수 값.
+         * @name YAW
+         * @memberof eg.view360.PanoViewer.TOUCH_DIRECTION
+         * @constant
+         * @type {Number}
+         * @default 6
+         */
+        YAW: YawPitchControl.TOUCH_DIRECTION_YAW,
+
+        /**
+         * Constant value for vertical direction.
+         * @ko vertical(pitch) 방향에 대한 상수 값.
+         * @name PITCH
+         * @memberof eg.view360.PanoViewer.TOUCH_DIRECTION
+         * @constant
+         * @type {Number}
+         * @default 24
+         */
+        PITCH: YawPitchControl.TOUCH_DIRECTION_PITCH,
+
+        /**
+         * Constant value for all direction.
+         * @ko all 방향에 대한 상수 값.
+         * @name ALL
+         * @memberof eg.view360.PanoViewer.TOUCH_DIRECTION
+         * @constant
+         * @type {Number}
+         * @default 30
+         */
+        ALL: YawPitchControl.TOUCH_DIRECTION_ALL
+      };
+      return PanoViewer;
+    })();
+
+  /**
+   * @class eg.view360.SpriteImage
+   * @classdesc A module that displays a single or continuous image of any one of the "sprite images". SpinViewer internally uses SpriteImage to show each frame of the sprite image.
+   * @ko 스프라이트 이미지 중 임의의 한 프레임을 단발성 혹은 연속적으로 보여주는 컴포넌트입니다. SpinViewer 는 내부적으로 SpriteImage 를 사용하여 스프라이트 이미지의 각 프레임을 보여줍니다.
+   * @extends eg.Component
+   *
+   * @param {HTMLElement} element The element to show the image <ko>이미지를 보여줄 대상 요소</ko>
+   * @param {Object} options The option object<ko>파라미터 객체</ko>
+   * @param {String} options.imageUrl The url of the sprite image <ko>스프라이트 이미지의 url</ko>
+   * @param {Number} [options.rowCount=1] Number of horizontal frames in the sprite image <ko>스프라이트 이미지의 가로 프레임 갯수</ko>
+   * @param {Number} [options.colCount=1] Number of vertical frames in the sprite image <ko>스프라이트 이미지의 세로 프레임 갯수</ko>
+   * @param {Number|String} [options.width="auto"] The width of the target element to show the image <ko>이미지를 보여줄 대상 요소의 너비</ko>
+   * @param {Number|String} [options.height="auto"] The height of the target element to show the image <ko>이미지를 보여줄 대상 요소의 높이</ko>
+   * @param {Boolean} [options.autoHeight=true] Whether to automatically set the height of the image area to match the original image's proportion <ko>원본 이미지 비율에 맞게 이미지 영역의 높이를 자동으로 설정할지 여부</ko>
+   * @param {Number[]} [options.colRow=[0, 0]] The column, row coordinates of the first frame of the sprite image (based on 0 index) <ko> 스프라이트 이미지 중 처음 보여줄 프레임의 (column, row) 좌표 (0 index 기반)</ko>
+   * @param {Number} [options.frameIndex=0] frameIndex specifies the index of the frame to be displayed in the "Sprite image". The frameIndex order is zero-based and indexed in Z form (left-to-right, top-to-bottom, and newline again from left to right).<br>- colRow is equivalent to frameIndex. However, if colRow is specified at the same time, colRow takes precedence.<ko>스프라이트 이미지 중에서 보여질 프레임의 인덱스를 지정합니다. frameIndex 순서는 0부터 시작하며 Z 형태(왼쪽에서 오른쪽, 위에서 아래, 개행 시 다시 왼쪽 부터)로 인덱싱합니다.<br>- colRow 는 frameIndex 와 동일한 기능을 합니다. 단, colRow 가 동시에 지정된 경우 colRow 가 우선합니다.</ko>
+   * @param {Number} [options.scale=1] Spin scale (The larger the spin, the more).<ko>Spin 배율 (클 수록 더 많이 움직임)</ko>
+   *
+   * @support {"ie": "9+", "ch" : "latest", "ff" : "latest",  "sf" : "latest", "edge" : "latest", "ios" : "7+", "an" : "2.3+ (except 3.x)"}
+   * @example
+   *
+   * // Initialize SpriteImage
+   *
+   * var el = document.getElementById("image-div");
+   * var sprites = new eg.view360.SpriteImage(el, {
+   * 	imageUrl: "/img/bag360.jpg", // required
+   * 	rowCount: 24
+   * });
+   */
+
+  var SpriteImage =
+    /*#__PURE__*/
+    (function() {
+      var SpriteImage =
+        /*#__PURE__*/
+        (function(_Component) {
+          _inheritsLoose(SpriteImage, _Component);
+
+          function SpriteImage(element, options) {
+            var _this;
+
+            _this = _Component.call(this) || this;
+            var opt = options || {};
+            _this._el = element;
+            _this._rowCount = opt.rowCount || 1;
+            _this._colCount = opt.colCount || 1;
+            _this._totalCount = _this._rowCount * _this._colCount; // total frames
+
+            _this._width = opt.width || "auto";
+            _this._height = opt.height || "auto";
+            _this._autoHeight =
+              opt.autoHeight != null ? opt.autoHeight : "true"; // If autoHeight is specified, _height will be overwritten.
+
+            _this._colRow = [0, 0];
+
+            if (opt.colRow) {
+              _this._colRow = opt.colRow;
+            } else if (opt.frameIndex) {
+              _this.setFrameIndex(opt.frameIndex);
+            }
+
+            _this._el.style.width = SpriteImage._getSizeString(_this._width);
+            _this._el.style.height = SpriteImage._getSizeString(_this._height);
+
+            if (!opt.imageUrl) {
+              setTimeout(function() {
+                _this.trigger("imageError", {
+                  imageUrl: opt.imageUrl
+                });
+              }, 0);
+              return _assertThisInitialized(_this);
+            }
+
+            _this._image = new Image();
+            /**
+             * Event
+             */
+
+            _this._image.onload = function() {
+              _this._bg = SpriteImage._createBgDiv(
+                _this._image,
+                _this._rowCount,
+                _this._colCount,
+                _this._autoHeight
+              );
+
+              _this._el.appendChild(_this._bg);
+
+              _this.setColRow(_this._colRow[0], _this._colRow[1]);
+              /**
+               * Events that occur when component loading is complete
+               * @ko 컴포넌트 로딩이 완료되면 발생하는 이벤트
+               * @name eg.view360.SpriteImage#load
+               * @event
+               * @param {Object} param The object of data to be sent to an event <ko>이벤트에 전달되는 데이터 객체</ko>
+               * @param {HTMLElement} param.target The target element for which to display the image <ko>이미지를 보여줄 대상 엘리먼트</ko>
+               * @param {HTMLElement} param.bgElement Generated background image element <ko>생성된 background 이미지 엘리먼트</ko>
+               *
+               * @example
+               *
+               * sprites.on({
+               *	"load" : function(evt) {
+               *		console.log("load event fired - e.target", e.target, "e.bgElement", e.bgElement);
+               *	}
+               * });
+               */
+
+              _this.trigger("load", {
+                target: _this._el,
+                bgElement: _this._bg
+              });
+
+              if (_this._autoPlayReservedInfo) {
+                _this.play(_this._autoPlayReservedInfo);
+
+                _this._autoPlayReservedInfo = null;
+              }
+            };
+
+            _this._image.onerror = function(e) {
+              /**
+               * An event that occurs when the image index is changed by the user's left / right panning
+               * @ko 사용자의 좌우 Panning 에 의해 이미지 인덱스가 변경되었을때 발생하는 이벤트
+               * @name eg.view360.SpriteImage#imageError
+               * @event
+               * @param {Object} param The object of data to be sent to an event <ko>이벤트에 전달되는 데이터 객체</ko>
+               * @param {String} param.imageUrl User-specified image URL <ko>사용자가 지정한 이미지 URL</ko>
+               *
+               * @example
+               *
+               * sprites.on({
+               *	"imageError" : function(evt) {
+               *		// Error handling
+               *		console.log(e.imageUrl);
+               *	}
+               * });
+               */
+              _this.trigger("imageError", {
+                imageUrl: opt.imageUrl
+              });
+            };
+
+            _this._image.src = opt.imageUrl;
+            return _this;
+          }
+
+          SpriteImage._createBgDiv = function _createBgDiv(
+            img,
+            rowCount,
+            colCount,
+            autoHeight
+          ) {
+            var el = document.createElement("div");
+            el.style.position = "relative";
+            el.style.overflow = "hidden";
+            img.style.position = "absolute";
+            img.style.width = colCount * 100 + "%";
+            img.style.height = rowCount * 100 + "%";
+            /** Prevent image from being dragged on IE10, IE11, Safari especially */
+
+            img.ondragstart = function() {
+              return false;
+            }; // img.style.pointerEvents = "none";
+            // Use hardware accelerator if available
+
+            SUPPORT_WILLCHANGE && (img.style.willChange = "transform");
+            el.appendChild(img);
+            var unitWidth = img.width / colCount;
+            var unitHeight = img.height / rowCount;
+
+            if (autoHeight) {
+              var r = unitHeight / unitWidth;
+              el.style.paddingBottom = r * 100 + "%";
+            } else {
+              el.style.height = "100%";
+            }
+
+            return el;
+          };
+          /**
+           * Specifies the frameIndex of the frame to be shown in the sprite image.
+           * @ko 스프라이트 이미지 중 보여질 프레임의 frameIndex 값을 지정
+           * @method eg.view360.SpriteImage#setFrameIndex
+           * @param {Number} frameIndex frame index of a frame<ko>프레임의 인덱스</ko>
+           *
+           * @example
+           *
+           * sprites.setFrameIndex(0, 1);// col = 0, row = 1
+           */
+
+          var _proto = SpriteImage.prototype;
+
+          _proto.setFrameIndex = function setFrameIndex(index) {
+            var colRow = this.toColRow(index);
+            this.setColRow(colRow[0], colRow[1]);
+          };
+          /**
+           * Returns the frameIndex of the frame to be shown in the sprite image.
+           * @ko 스프라이트 이미지 중 보여지는 프레임의 index 값을 반환
+           * @method eg.view360.SpriteImage#getFrameIndex
+           * @return {Number} frame index <ko>frame 인덱스</ko>
+           *
+           * @example
+           *
+           * var frameIndex = sprites.getFrameIndex(); // eg. frameIndex = 1
+           *
+           */
+
+          _proto.getFrameIndex = function getFrameIndex() {
+            return this._colRow[1] * this._colCount + this._colRow[0];
+          };
+          /**
+           * Specifies the col and row values of the frame to be shown in the sprite image.
+           * @ko 스프라이트 이미지 중 보여질 프레임의 col, row 값을 지정
+           * @method eg.view360.SpriteImage#setColRow
+           * @param {Number} col Column number of a frame<ko>프레임의 행값</ko>
+           * @param {Number} row Row number of a frame<ko>프레임의 열값</ko>
+           *
+           * @example
+           *
+           * sprites.setlColRow(1, 2); // col = 1, row = 2
+           */
+
+          _proto.setColRow = function setColRow(col, row) {
+            if (row > this._rowCount - 1 || col > this._colCount - 1) {
+              return;
+            }
+
+            if (this._image && TRANSFORM) {
+              // NOTE: Currently, do not apply translate3D for using layer hack. Do we need layer hack for old browser?
+              this._image.style[TRANSFORM] =
+                "translate(" +
+                -((col / this._colCount) * 100) +
+                "%, " +
+                -((row / this._rowCount) * 100) +
+                "%)";
+            }
+
+            this._colRow = [col, row];
+          };
+          /**
+           * Returns the col and row values of the frame to be shown in the sprite image.
+           * @ko 스프라이트 이미지 중 보여지는 프레임의 col, row 값을환반환
+           * @method eg.view360.SpriteImage#gelColRow
+           * @return {Number[]} Array containing col, row<ko>col, row 정보를 담는 배열</ko>
+           *
+           * @example
+           *
+           * var colRow = sprites.getlColRow();
+           * // colRow = [1, 2] - index of col is 1, index of row is 2
+           *
+           */
+
+          _proto.getColRow = function getColRow() {
+            return this._colRow;
+          };
+
+          SpriteImage._getSizeString = function _getSizeString(size) {
+            if (typeof size === "number") {
+              return size + "px";
+            }
+
+            return size;
+          };
+          /**
+           * Stop playing
+           * @ko play 되고 있던 프레임 재생을 중지합니다.
+           * @method eg.view360.SpriteImage#stop
+           *
+           * @example
+           *
+           * viewer.stop();
+           *
+           */
+
+          _proto.stop = function stop() {
+            if (this._autoPlayTimer) {
+              clearInterval(this._autoPlayTimer);
+              this._autoPlayTimer = null;
+            }
+          };
+          /**
+           * Switches frames sequentially in the 'interval' starting from the currently displayed frame and plays all frames by 'playCount'.
+           * @ko 현재 보여지고 있는 프레임을 시작으로 'interval' 간격으로 순차적으로 프레임을 전환하며 모든 프레임을 'playCount' 만큼 재생한다.
+           * @method eg.view360.SpriteImage#play
+           * @param {Object} param The parameter object<ko>파라미터 객체</ko>
+           * @param {Number} [param.interval=1000 / totalFrameCount] Interframe Interval - in milliseconds<ko>프레임간 간격 - 밀리세컨드 단위</ko>
+           * @param {Number} [param.playCount=0] PlayCount = 1 in which all frames are reproduced once, and playCount = n in which all frames are repeated n times. playCount = 0 in which all frames are repeated infinitely<ko>모든 프레임을 1회씩 재생한 것이 playCount = 1, 모든 프레임을 n 회 재상한 것이 playCount = n 이 된다. 0 dms 무한반복</ko>
+           *
+           * @example
+           *
+           * viewer.play({angle: 16, playCount: 1});
+           *
+           */
+
+          _proto.play = function play(_temp) {
+            var _this2 = this;
+
+            var _ref =
+                _temp === void 0
+                  ? {
+                      interval: 1000 / this._totalCount,
+                      playCount: 0
+                    }
+                  : _temp,
+              interval = _ref.interval,
+              playCount = _ref.playCount;
+
+            if (!this._bg) {
+              this._autoPlayReservedInfo = {
+                interval: interval,
+                playCount: playCount
+              };
+              return;
+            }
+
+            if (this._autoPlayTimer) {
+              clearInterval(this._autoPlayTimer);
+              this._autoPlayTimer = null;
+            }
+
+            var frameIndex = this.getFrameIndex();
+            var count = 0;
+            var frameCount = 0; // for checking 1 cycle
+
+            this._autoPlayTimer = setInterval(function() {
+              frameIndex %= _this2._totalCount;
+
+              var colRow = _this2.toColRow(frameIndex);
+
+              _this2.setColRow(colRow[0], colRow[1]);
+
+              frameIndex++; // Done 1 Cycle?
+
+              if (++frameCount === _this2._totalCount) {
+                frameCount = 0;
+                count++;
+              }
+
+              if (playCount > 0 && count === playCount) {
+                clearInterval(_this2._autoPlayTimer);
+              }
+            }, interval);
+          };
+
+          _proto.toColRow = function toColRow(frameIndex) {
+            var colCount = this._colCount;
+            var rowCount = this._rowCount;
+
+            if (frameIndex < 0) {
+              return [0, 0];
+            } else if (frameIndex >= this._totalCount) {
+              return [colCount - 1, rowCount - 1];
+            }
+
+            var col = frameIndex % colCount;
+            var row = Math.floor(frameIndex / colCount); // console.log(frameIndex, col, row);
+
+            return [col, row];
+          };
+
+          return SpriteImage;
+        })(Component);
+
+      SpriteImage.VERSION = VERSION;
+      return SpriteImage;
+    })();
+
+  var DEFAULT_PAN_SCALE = 0.21;
+  /**
+   * @class eg.view360.SpinViewer
+   * @classdesc A module used to displays each image sequentially according to the direction of the user's touch movement (left / right) of the sprite image that is collected by rotating the object.
+   * @ko 물체 주위를 회전하여 촬영한 이미지들을 모은 스프라이트 이미지를 사용자의 터치 이동 방향(좌 / 우) 에 따라 각 이미지들을 순차적으로 보여주는 컴포넌트입니다.
+   * @extends eg.Component
+   *
+   * @param {HTMLElement} element The element to show the image <ko>이미지를 보여줄 대상 요소</ko>
+   * @param {Object} options The option object<ko>파라미터 객체</ko>
+   * @param {String} options.imageUrl The url of the sprite image <ko>스프라이트 이미지의 url</ko>
+   * @param {Number} [options.rowCount=1] Number of horizontal frames in the sprite image <ko>스프라이트 이미지의 가로 프레임 갯수</ko>
+   * @param {Number} [options.colCount=1] Number of vertical frames in the sprite image <ko>스프라이트 이미지의 세로 프레임 갯수</ko>
+   * @param {Number|String} [options.width="auto"] The width of the target element to show the image <ko>이미지를 보여줄 대상 요소의 너비</ko>
+   * @param {Number|String} [options.height="auto"] The height of the target element to show the image <ko>이미지를 보여줄 대상 요소의 높이</ko>
+   * @param {Boolean} [options.autoHeight=true] Whether to automatically set the height of the image area to match the original image's proportion <ko>원본 이미지 비율에 맞게 이미지 영역의 높이를 자동으로 설정할지 여부</ko>
+   * @param {Number[]} [options.colRow=[0, 0]] The column, row coordinates of the first frame of the sprite image (based on 0 index) <ko> 스프라이트 이미지 중 처음 보여줄 프레임의 (column, row) 좌표 (0 index 기반)</ko>
+   * @param {Number} [options.scale=1] Spin scale (The larger the spin, the more).<ko>Spin 배율 (클 수록 더 많이 움직임)</ko>
+   * @support {"ie": "9+", "ch" : "latest", "ff" : "latest",  "sf" : "latest", "edge" : "latest", "ios" : "7+", "an" : "2.3+ (except 3.x)"}
+   * @example
+   *
+   * // Initialize SpinViewer
+   * var el = document.getElementById("product-360");
+   * var viewer = new eg.view360.SpinViewer(el, {
+   * 	imageUrl: "/img/bag360.jpg", // required
+   * 	rowCount: 24 //required
+   * });
+   */
+
+  var SpinViewer =
+    /*#__PURE__*/
+    (function() {
+      var SpinViewer =
+        /*#__PURE__*/
+        (function(_Component) {
+          _inheritsLoose(SpinViewer, _Component);
+
+          /**
+           * Version info string
+           * @ko 버전정보 문자열
+           * @name VERSION
+           * @static
+           * @type {String}
+           * @example
+           * eg.view360.SpinViewer.VERSION;  // ex) 3.0.1
+           * @memberof eg.view360.SpinViewer
+           */
+          function SpinViewer(element, options) {
+            var _this;
+
+            _this = _Component.call(this) || this;
+            _this._el = element;
+
+            var opt = _extends({}, options);
+
+            var colCount = opt.colCount || 1;
+            var rowCount = opt.rowCount || 1;
+            _this._scale = opt.scale || 1;
+            _this._panScale = _this._scale * DEFAULT_PAN_SCALE;
+            _this._frameCount = colCount * rowCount; // Init SpriteImage
+
+            _this._sprites = new SpriteImage(element, opt).on({
+              load: function load(evt) {
+                /**
+                 * Events that occur when component loading is complete
+                 * @ko 컴포넌트 로딩이 완료되면 발생하는 이벤트
+                 * @name eg.view360.SpinViewer#load
+                 * @event
+                 * @param {Object} param The object of data to be sent to an event <ko>이벤트에 전달되는 데이터 객체</ko>
+                 * @param {HTMLElement} param.target The target element for which to display the image <ko>이미지를 보여줄 대상 엘리먼트</ko>
+                 * @param {HTMLElement} param.bgElement Generated background image element <ko>생성된 background 이미지 엘리먼트</ko>
+                 *
+                 * @example
+                 *
+                 * viwer.on({
+                 *	"load" : function(evt) {
+                 *		this.spinBy(360, {duration: 300});
+                 *	}
+                 * });
+                 */
+                _this.trigger("load", evt);
+              },
+              imageError: function imageError(evt) {
+                /**
+                 * An event that occurs when the image index is changed by the user's left / right panning
+                 * @ko 사용자의 좌우 Panning 에 의해 이미지 인덱스가 변경되었을때 발생하는 이벤트
+                 * @name eg.view360.SpinViewer#imageError
+                 * @event
+                 * @param {Object} param The object of data to be sent to an event <ko>이벤트에 전달되는 데이터 객체</ko>
+                 * @param {String} param.imageUrl User-specified image URL <ko>사용자가 지정한 이미지 URL</ko>
+                 *
+                 * @example
+                 *
+                 * viewer.on({
+                 *	"imageError" : function(evt) {
+                 *		// Error handling
+                 *		console.log(e.imageUrl);
+                 *	}
+                 * });
+                 */
+                _this.trigger("imageError", {
+                  imageUrl: evt.imageUrl
+                });
+              }
+            }); // Init Axes
+
+            _this._panInput = new PanInput(_this._el, {
+              scale: [_this._panScale, _this._panScale]
+            });
+            _this._axes = new Axes({
+              angle: {
+                range: [0, 359],
+                circular: true
+              }
+            }).on({
+              change: function change(evt) {
+                var curr = Math.floor(
+                  evt.pos.angle / (360 / _this._frameCount)
+                );
+                var frameIndex = _this._frameCount - curr - 1;
+
+                _this._sprites.setFrameIndex(frameIndex);
+                /**
+                 * An event that occurs when the image index is changed by the user's left / right panning
+                 * @ko 사용자의 좌우 Panning 에 의해 이미지 인덱스가 변경되었을때 발생하는 이벤트
+                 * @name eg.view360.SpinViewer#change
+                 * @event
+                 * @param {Object} param The object of data to be sent to an event <ko>이벤트에 전달되는 데이터 객체</ko>
+                 * @param {Number[]} param.colRow Column, row of the frame in the sprite image <ko>스프라이트 이미지 내 프레임의 column, row</ko>
+                 * @param {Number} param.frameIndex Index value that is sequentially appended in Z direction based on col and row.<ko>col, row 를 기반으로 Z 방향으로 순차적으로 붙여지는 index 값</ko>
+                 * @param {Number} param.angle The angle that is currently internally held at an angle between 0 and 359. (not a real product angle) <ko>0 ~ 359 범위의 각도로 현재 내부적으로 유지하고 있는 각도 (실제 이미지의 각도가 아님)</ko>
+                 *
+                 * @example
+                 *
+                 * viwer.on({
+                 *	"change" : function(evt) {
+                 *		console.log(event.frameIndex, event.colRow, event.angle);   // event.colRow = [0, 4] event.frameIndex = 4, event = 30
+                 *	}
+                 * });
+                 */
+
+                _this.trigger("change", {
+                  frameIndex: frameIndex,
+                  colRow: _this._sprites.getColRow(),
+                  angle: evt.pos.angle
+                });
+              },
+              animationEnd: function animationEnd(evt) {
+                /**
+                 * This event is fired when animation ends.
+                 * @ko 에니메이션이 끝났을 때 발생하는 이벤트
+                 * @name eg.view360.SpinViewer#animationEnd
+                 * @event
+                 * @param {Object} param The object of data to be sent to an event <ko>이벤트에 전달되는 데이터 객체</ko>
+                 * @param {Boolean} param.isTrusted true if an event was generated by the user action, or false if it was caused by a script or API call<ko>사용자의 액션에 의해 이벤트가 발생하였으면 true, 스크립트나 API호출에 의해 발생하였을 경우에는 false를 반환한다.</ko>
+                 *
+                 * @example
+                 *
+                 * viwer.on({
+                 *	"animationEnd" : function(evt) {
+                 *		// evt.isTrusted === true or false
+                 *	}
+                 * });
+                 */
+                _this.trigger("animationEnd", {
+                  isTrusted: evt.isTrusted
+                });
+              }
+            });
+
+            _this._axes.connect("angle", _this._panInput);
+
+            return _this;
+          }
+          /**
+           * Set spin scale
+           * @ko scale 을 조정할 수 있는 함수
+           * @method eg.view360.SpinViewer#setScale
+           * @param {Number} scale Rotation multiples at spin, the larger the rotation<ko>Spin 시 회전 배수값, 커질 수록 더 많이 회전</ko>
+           *
+           * @return {Object} Instance of SpinViewer <ko>SpinViewer 인스턴스</ko>
+           *
+           * @example
+           *
+           * viewer.setScale(2);// It moves twice as much.
+           */
+
+          var _proto = SpinViewer.prototype;
+
+          _proto.setScale = function setScale(scale) {
+            if (isNaN(scale) || scale < 0) {
+              return this;
+            }
+
+            this._scale = scale;
+            this._panScale = scale * DEFAULT_PAN_SCALE;
+            this._panInput.options.scale = [this._panScale, this._panScale];
+            return this;
+          };
+          /**
+           * Get spin scale
+           * @ko scale 값을 반환한다.
+           * @method eg.view360.SpinViewer#getScale
+           *
+           * @return {Number} Rotation multiples at spin, the larger the rotation<ko>Spin 시 회전 배수값, 커질 수록 더 많이 회전</ko>
+           *
+           * @example
+           *
+           * viewer.getScale();// It returns number
+           */
+
+          _proto.getScale = function getScale() {
+            return this._scale;
+          };
+          /**
+           * It gives the effect of rotating for a certain duration by the specified angle based on the current rotation angle.
+           * @ko 현재 회전 각도를 기준으로 지정된 각도(angle)만큼 일정 시간동안(duration) 회전하는 효과를 준다.
+           * @method eg.view360.SpinViewer#spinBy
+           *
+           * @param {Number} [angle = 0] angle<ko>상대적 회전 각도</ko>
+           * @param {Object} param The parameter object<ko>파라미터 객체</ko>
+           * @param {Number} [param.duration = 0] duration<ko>회전할 시간 - 밀리세컨드 단위</ko>
+           *
+           * @return {Object} Instance of SpinViewer <ko>SpinViewer 인스턴스</ko>
+           *
+           * @example
+           *
+           * viewer.spinBy(720, {duration: 500});
+           */
+
+          _proto.spinBy = function spinBy(angle, param) {
+            if (angle === void 0) {
+              angle = 0;
+            }
+
+            if (param === void 0) {
+              param = {
+                duration: 0
+              };
+            }
+
+            this._axes.setBy(
+              {
+                angle: angle
+              },
+              param.duration
+            );
+
+            return this;
+          };
+          /**
+           * It gives the effect of rotating for a certain duration (duration) by the specified angle (angle).
+           * @ko 지정된 각도(angle)만큼 일정 시간동안(duration) 회전하는 효과를 준다.
+           * @method eg.view360.SpinViewer#spinTo
+           *
+           * @param {Number} [angle = 0] angle<ko>회전 각도</ko>
+           * @param {Object} param The parameter object<ko>파라미터 객체</ko>
+           * @param {Number} [param.duration = 0] duration<ko>회전할 시간 - 밀리세컨드 단위</ko>
+           *
+           * @return {Object} Instance of SpinViewer <ko>SpinViewer 인스턴스</ko>
+           *
+           * @example
+           *
+           * viewer.spinTo(30, {duration:100});
+           */
+
+          _proto.spinTo = function spinTo(angle, param) {
+            if (angle === void 0) {
+              angle = 0;
+            }
+
+            if (param === void 0) {
+              param = {
+                duration: 0
+              };
+            }
+
+            this._axes.setTo(
+              {
+                angle: angle
+              },
+              param.duration
+            );
+
+            return this;
+          };
+          /**
+           * Returns current angles
+           * @ko 현재 각도를 반환한다.
+           *
+           * @return {Number} Current angle <ko>현재 각도</ko>
+           */
+
+          _proto.getAngle = function getAngle() {
+            return this._axes.get().angle || 0;
+          };
+
+          return SpinViewer;
+        })(Component);
+
+      SpinViewer.VERSION = VERSION;
+      return SpinViewer;
+    })();
+
+  exports.PanoViewer = PanoViewer;
+  exports.SpinViewer = SpinViewer;
+  exports.SpriteImage = SpriteImage;
+  exports.VERSION = VERSION;
+
+  Object.defineProperty(exports, "__esModule", { value: true });
+});
+//# sourceMappingURL=view360.pkgd.js.map
