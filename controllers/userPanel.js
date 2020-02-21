@@ -196,9 +196,12 @@ Router.get("/user/reset-password", async (req, res) => {
   if (!user) {
     errors.push({ msg: "Invalid reset code" });
     res.render("forgotPass", { errors, mailSent: false, tokenReceived: false });
+  } else {
+    res.render("forgotPass", {
+      mailSent: false,
+      tokenReceived: req.query.token
+    });
   }
-
-  res.render("forgotPass", { mailSent: false, tokenReceived: true });
 });
 
 Router.post("/user/reset-password", urlencoded, async (req, res) => {
@@ -237,12 +240,11 @@ Router.post("/user/reset-password", urlencoded, async (req, res) => {
   });
 });
 
-Router.post("/user/reset-password/reset", urlencoded, (req, res) => {
+Router.post("/user/reset-password/reset", urlencoded, async (req, res) => {
   let errors = [];
-  let { password, password2 } = req.body;
-  const resetToken = req.query.token;
+  let { password, password2, tokenReceived } = req.body;
 
-  const user = userModel.findOne({ resetToken: resetToken }).exec();
+  const user = await userModel.findOne({ resetToken: tokenReceived });
 
   //Check passwords match
   if (password !== password2) {
@@ -284,15 +286,15 @@ Router.post("/user/reset-password/reset", urlencoded, (req, res) => {
   } else {
     //Hash Password
     bcrypt.genSalt(10, (err, salt) =>
-      bcrypt.hash(user.password, salt, (err, hash) => {
-        if (err) throw err;
+      bcrypt.hash(password, salt, (err, hash) => {
         //Set password to hashed
         user.password = hash;
         //Save User
         user.save();
       })
     );
-
+    user.resetToken = null;
+    user.save();
     errors.push({ msg: "Password reset succesfull" });
     res.render("login", { errors });
   }

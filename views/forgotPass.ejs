@@ -16,6 +16,7 @@
     <% } else if(tokenReceived) { %>
 
     <form action="/user/reset-password/reset" method="POST">
+      <input type="text" name="tokenReceived" value="<%= tokenReceived %>" />
       <input type="text" name="password" />
       <input type="text" name="password2" />
       <button type="submit">Submit</button>
