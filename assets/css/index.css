@@ -1,7 +1,7 @@
 .html,
 body {
-  margin: 0;
-  padding: 0;
+  margin: 0 !important;
+  padding: 0 !important;
   display: flex;
   flex-direction: column;
   place-content: center;
@@ -193,6 +193,7 @@ body {
   font-size: 16px;
   height: 40px;
   transition: 0.2s;
+  color: black;
 }
 
 .userprofile {
@@ -206,7 +207,7 @@ body {
 }
 
 .userlogout a {
-  color: #000000;
+  color: black;
 }
 
 .user_options div:hover {
@@ -326,7 +327,7 @@ body {
   box-sizing: border-box;
   border-radius: 5px;
   width: 70%;
-  margin: 100px 0;
+  margin: 50px 0;
   box-shadow: 0 0 1px 1px #e6e6e6;
   position: relative;
 }
@@ -1336,11 +1337,6 @@ body {
 /* buy-car-section */
 
 /* Listing-Section */
-.c_p_body{
-  overflow-x: hidden;
-  margin: 0;
-  padding: 0;
-}
 
 .th_sxty_info {
   margin: 20px 0;
@@ -1359,21 +1355,48 @@ body {
   position: relative;
 }
 
+.interior-changer,.exterior-changer{
+  height: 50px;
+  width: 50px;
+  border: none;
+  border-radius: 50px;
+  position: absolute;
+  left: 10px;
+  top: 480px;
+  background-color: transparent;
+  z-index: 100;
+  cursor: pointer;
+  display: flex;
+  place-content: center;
+  place-items: center;
+  color: #ffffff;
+  transition: ease-in-out 0.2s;
+  font-size: 40px;
+}
+
+.interior-changer:hover,.exterior-changer:hover{
+  color: #f5bf2b;
+}
+
+.exterior-changer{
+  top: 540px;
+}
+
 .panoviewer-container{
   height: 100%;
   width: 100%;
   max-width: 100% !important;
   margin: 0 !important;
-  display: none;
+  
 }
 
 .exterior_slider{
   height: 100%;
   width: 100%;
-  display: flex;
+  display: flex !important;
   scroll-behavior: smooth;
-  overflow: hidden;
   transition: 0.4s;
+  overflow: hidden;
 }
 
 .exterior_slider::-webkit-scrollbar{
@@ -1392,6 +1415,8 @@ body {
   color: #e2e2e25b;
   transition: 0.2s;
   z-index: 20;
+  display: flex;
+  align-items: flex-end;
 }
 
 .exterior_slider button:hover{
@@ -1399,11 +1424,13 @@ body {
 }
 
 .right_arrow{
-  left: 850px;
+  left: 860px !important;
+  top: 0px;
 }
 
 .left_arrow{
   left: 0;
+  top: 0;
 }
 
 .slide-item{
