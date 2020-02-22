@@ -62,7 +62,7 @@
       </div>
       <div class="cd_content">
       <% for( let i = 0; i < popCarData.length; i++ ) { %>
-
+        <a href="http://localhost:8080/buy-car/<%= hatchCarData[i].id %>">
           <div class="cd_car_data">
             <div class="img_contain">
               <div class="view-details">View details</div>
@@ -70,11 +70,11 @@
             </div>
             <div class="info_contain">
               <div class="con_name"> <%= popCarData[i].Make %> </div>
-              <div class="con_price">$100000</div>
+              <div class="con_price"><%= popCarData[i].Price %></div>
               <div></div>
             </div>
           </div>
-
+        </a>
       <% } %>
     </div>
       <div class="cd_btn">
@@ -96,7 +96,7 @@
       </div>
       <div class="cd_content">
       <% for( let i = 0; i < hatchCarData.length; i++ ) { %>
-
+        <a href="http://localhost:8080/buy-car/<%= hatchCarData[i].id %>">
           <div class="cd_car_data">
             <div class="img_contain">
               <div class="view-details">View details</div>
@@ -104,11 +104,11 @@
             </div>
             <div class="info_contain">
               <div class="con_name"> <%= hatchCarData[i].Make %> </div>
-              <div class="con_price">$100000</div>
+              <div class="con_price"><%= hatchCarData[i].Price %></div>
               <div></div>
             </div>
           </div>
-
+        </a>
       <% } %>
     </div>
       <div class="cd_btn">
@@ -120,7 +120,7 @@
         </button>
       </div>
       <div class="cd_link">
-        <a href="/buy-car">View All</a>
+        <a href="/buy-car">View All Hatchbacks</a>
       </div>
     </div>
 
@@ -130,7 +130,7 @@
       </div>
       <div class="cd_content">
       <% for( let i = 0; i < sedanCarData.length; i++ ) { %>
-
+        <a href="http://localhost:8080/buy-car/<%= sedanCarData[i].id %>">
           <div class="cd_car_data">
             <div class="img_contain">
               <div class="view-details">View details</div>
@@ -138,11 +138,11 @@
             </div>
             <div class="info_contain">
               <div class="con_name"> <%= sedanCarData[i].Make %> </div>
-              <div class="con_price">$100000</div>
+              <div class="con_price"><%= sedanCarData[i].Price %></div>
               <div></div>
             </div>
           </div>
-
+        </a>
       <% } %>
     </div>
       <div class="cd_btn">
@@ -154,7 +154,7 @@
         </button>
       </div>
       <div class="cd_link">
-        <a href="/buy-car">View All</a>
+        <a href="/buy-car">View All Sedans</a>
       </div>
     </div>
 

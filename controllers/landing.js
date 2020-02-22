@@ -30,6 +30,7 @@ Router.use("/", listCars);
 /* LOGIN and SIGNUP ROUTE */
 Router.use("/", userPanel);
 
+/* NODE MAILER */
 Router.use("/", mailer);
 
 module.exports = Router;

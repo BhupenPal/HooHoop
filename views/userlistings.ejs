@@ -1,48 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="/assets/css/index.css" />
-    <link rel="stylesheet" href="/assets/css/all.min.css" />
-    <link rel="stylesheet" href="/assets/css/fonts.css" />
-    <script src="/assets/scripts/script.js"></script>
-    <title>HooHoop</title>
-    <link
-      rel="icon"
-      href="/assets/images/favicon.ico"
-      type="image/ico"
-      sizes="16*16"
-    />
-  </head>
-  <body class="bgset">
-    <%-include('./Components/Header.ejs') %>
 
-        <div class="User_listings_wrapper">
-            <div class="Userlisting_Head">My Listings</div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="/assets/css/index.css" />
+  <link rel="stylesheet" href="/assets/css/all.min.css" />
+  <link rel="stylesheet" href="/assets/css/fonts.css" />
+  <script src="/assets/scripts/script.js"></script>
+  <title>HooHoop</title>
+  <link rel="icon" href="/assets/images/favicon.ico" type="image/ico" sizes="16*16" />
+</head>
 
-            <div class="usli_card_wrap">
-              <% for(var i = 0; i < myAds.length; i++) { %>
-                <div class="listing_card">
-                    <div class="list_img"><img src="../assets/images/4.jpg" alt=""></div>
-                    <div class="list_info">
-                        <div class="list_info_make"><strong>Make :</strong> Mercedes-Benz </div>
-                        <div class="list_info_model"><strong>Model :</strong>C250</div>
-                        <div class="list_info_price"><strong>Price :</strong>$ 10999</div>
-                        <div class="list_info_status"><strong>Status :</strong>Published</div>
-                    </div>
-                    <div class="list_option_btn_wrap">
-                        <button class="list_option_btn"><i class="fad fa-edit"></i></button>
-                        <button class="list_option_btn"><i class="fad fa-trash"></i></button>
-                        <button class="list_option_btn"><i class="fad fa-check"></i></button>
-                        <button class="list_option_btn"><i class="fad fa-eye"></i></button>
-                    </div>
-                </div>
-              <% } %>
-            </div>
+<body class="bgset">
+  <%-include('./Components/Header.ejs') %>
+
+  <div class="User_listings_wrapper">
+    <div class="Userlisting_Head">My Listings</div>
+
+    <div class="usli_card_wrap">
+      <% for(var i = 0; i < myAds.length; i++) { %>
+      <div class="listing_card">
+        <div class="list_img">
+          <img src="/assets/Uploads/<%= myAds.vinNum %>/exterior/<%= myAds.thumbnail %>" alt="" />
         </div>
+        <div class="list_info">
+          <div class="list_info_make">
+            <strong>Make :</strong> <%= myAds.Make %>
+          </div>
+          <div class="list_info_model">
+            <strong>Model :</strong><%= myAds.Model %>
+          </div>
+          <div class="list_info_price">
+            <strong>Price :</strong><%= myAds.Price %>
+          </div>
+          <div class="list_info_status">
+            <strong>Status :</strong> ACTIVE/NOT ACTIVE
+          </div>
+        </div>
+        <div class="list_option_btn_wrap">
+          <button class="list_option_btn"><i class="fad fa-edit"></i></button>
+          <button class="list_option_btn">
+            <i class="fad fa-trash"></i>
+          </button>
+          <button class="list_option_btn">
+            <i class="fad fa-check"></i>
+          </button>
+          <button class="list_option_btn"><i class="fad fa-eye"></i></button>
+        </div>
+      </div>
+      <% } %>
+    </div>
+  </div>
 
-     %> <%-include('./Components/Footer.ejs') %>
-  </body>
+  <%-include('./Components/Footer.ejs') %>
+</body>
+
 </html>
