@@ -72,6 +72,7 @@ function Paginator(model) {
     try {
       results.results = await model
         .find()
+        .sort({ $natural: -1 })
         .limit(limit)
         .skip(startIndex)
         .exec();
