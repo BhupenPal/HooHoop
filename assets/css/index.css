@@ -405,6 +405,7 @@ body {
 .cd_car_data {
   height: 90%;
   min-width: 300px;
+  max-width: 300px;
   box-shadow: 0 0 2px 2px #e1e1e1;
   margin: 0 20px;
   cursor: pointer;
@@ -1335,6 +1336,12 @@ body {
 /* buy-car-section */
 
 /* Listing-Section */
+.c_p_body{
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
 .th_sxty_info {
   margin: 20px 0;
   display: flex;
@@ -1351,6 +1358,44 @@ body {
   background-color: #e2e2e2;
 }
 
+.panoviewer-container{
+  height: 100%;
+  width: 100%;
+  max-width: 100% !important;
+  margin: 0 !important;
+  display: none;
+}
+
+.exterior_slider{
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.slide-item{
+  height: 100%;
+  min-width: 100%;
+}
+
+.slide-item:nth-child(1){
+  margin-right: 20px;
+}
+
+.slide-item + .slide-item{
+  margin: 0 20px;
+}
+
+.slide-item img{
+  height: 100%;
+  max-width: 100%;
+  min-width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
 .car_name_price {
   height: 100px;
   width: 100%;
@@ -1365,6 +1410,7 @@ body {
 .c_price {
   color: orange;
 }
+
 
 .c_price span {
   font-size: 20px;
@@ -1504,12 +1550,23 @@ body {
 
 .p_body_headlines {
   font-family: Fira;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.p-body{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .p-body form {
   display: flex;
+  align-items: flex-start;
   flex-direction: column;
   font-family: Poppins;
+  width: 100%;
 }
 
 .p-body form input {
@@ -1520,6 +1577,7 @@ body {
   border-radius: 5px;
   border: 1px solid #e1e1e1;
   outline: none;
+  width: 98%;
 }
 
 .p-body form input:focus,
@@ -1674,6 +1732,46 @@ body {
 }
 
 /* User-Listing-Page */
+
+/* Email-verifiaction Page */
+
+.email-verification{
+  height: 65vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.email-verification form{
+  font-family: Raleway;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.headutext{
+  font-family: Raleway;
+}
+
+.vuinp{
+  height: 40px;
+  width: 500px;
+  font-family: Lato;
+  margin-top: 10px;
+  padding: 0 10px;
+  font-size: 20px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 1px solid #f2f2f2;
+}
+
+.email-verification form button{
+  cursor: pointer;
+}
+
+/* Email-verification {age */
 
 /* Footer */
 .foot {
