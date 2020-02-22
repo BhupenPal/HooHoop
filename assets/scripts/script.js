@@ -21,6 +21,16 @@ function scrolldiv(j,k) {
   }
 }
 
+function scrollext(j){
+  let x = document.getElementsByClassName("exterior_slider")[0]
+  if(j==1){
+    x.scrollBy(-900,0)
+  }
+  else{
+    x.scrollBy(900,0)
+  }
+}
+
 function tabselect(j) {
   let x = document.getElementsByClassName("tabs");
 

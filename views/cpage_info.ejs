@@ -24,19 +24,22 @@
     <div class="th_sxty_info">
       <div class="th60_container">
         <div class="viewthsxty">
-          
-          <div class="panoviewer-container viewer">
+            <button class="interior-changer"><i class="fad fa-steering-wheel"></i></button>
+            <button class="exterior-changer"><i class="fad fa-car"></i></button>
+          <div class="panoviewer-container viewer" style="display: none;">
             <div id="panoSet">
               <div class="panoviewer container" id="myPanoViewer"></div>
             </div>
           </div>
 
-          <div class="exterior_slider">
-            <div class="slide-item"><img src="../assets/Uploads/EDN248/exterior/Photo-0.jpg"></div>
-            <div class="slide-item"><img src="../assets/Uploads/FJL292/exterior/Photo-0.jpg"></div>
-            <div class="slide-item"><img src="../assets/Uploads/JNF109/exterior/Photo-0.jpg"></div>
-            <div class="slide-item"><img src="../assets/Uploads/JPH3/exterior/Photo-0.jpg"></div>
-            <div class="slide-item"><img src="../assets/Uploads/KCU803/exterior/Photo-0.jpg"></div>
+          <div class="exterior_slider" style="display:block">
+            <button class="left_arrow" onclick="scrollext('1')"><i class="fas fa-angle-left"></i></button>
+              <div class="slide-item"><img src="../assets/Uploads/EDN248/exterior/Photo-0.jpg"></div>
+              <div class="slide-item"><img src="../assets/Uploads/FJL292/exterior/Photo-0.jpg"></div>
+              <div class="slide-item"><img src="../assets/Uploads/JNF109/exterior/Photo-0.jpg"></div>
+              <div class="slide-item"><img src="../assets/Uploads/JPH3/exterior/Photo-0.jpg"></div>
+              <div class="slide-item"><img src="../assets/Uploads/KCU803/exterior/Photo-0.jpg"></div>
+            <button class="right_arrow" onclick="scrollext('2')"><i class="fas fa-angle-right"></i></button>
          </div>
 
         </div>
