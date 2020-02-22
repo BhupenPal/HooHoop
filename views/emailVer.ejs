@@ -23,14 +23,14 @@
         <form action="/user/verify/" method="POST">
         <h2>Veryify Your Email</h2>
         <label for="secretToken">Secret Token</label>
-            <input type="text" id="secretToken" name="secretToken" placeholder="Secret Token" required autofocus>
+            <input class="vuinp" type="text" id="secretToken" name="secretToken" placeholder="Paste Token Here" required autofocus>
             <br>
-            <button type="submit">Verify User</button>
+            <button type="submit" class="sign-up">Verify User</button>
         </form>
     </div>
 
     <% if (userVerified){ %>
-      <h2>USER verified succesfully</h2>
+      <h2 class="headutext">USER verified succesfully</h2>
     <% } %>
     <%-include('./Components/Footer.ejs') %>
   </body>

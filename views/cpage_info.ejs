@@ -24,17 +24,27 @@
       sizes="16*16"
     />
   </head>
-  <body>
+  <body class="c_p_body">
     <%-include('./Components/Header.ejs') %>
 
     <div class="th_sxty_info">
       <div class="th60_container">
         <div class="viewthsxty">
+          
           <div class="panoviewer-container viewer">
             <div id="panoSet">
               <div class="panoviewer container" id="myPanoViewer"></div>
             </div>
           </div>
+
+          <div class="exterior_slider">
+            <div class="slide-item"><img src="../assets/Uploads/EDN248/exterior/Photo-0.jpg"></div>
+            <div class="slide-item"><img src="../assets/Uploads/FJL292/exterior/Photo-0.jpg"></div>
+            <div class="slide-item"><img src="../assets/Uploads/JNF109/exterior/Photo-0.jpg"></div>
+            <div class="slide-item"><img src="../assets/Uploads/JPH3/exterior/Photo-0.jpg"></div>
+            <div class="slide-item"><img src="../assets/Uploads/KCU803/exterior/Photo-0.jpg"></div>
+         </div>
+
         </div>
         <div class="car_name_price">
           <div class="c_name"><%= record.Make %></div>
@@ -220,7 +230,7 @@
       var container = document.getElementById("myPanoViewer");
       var panoViewer = new PanoViewer(container, {
         image:
-          "https://naver.github.io/egjs-view360/examples/panoviewer/controls/equi-car-inside.jpg",
+          "../assets/images/FRONT.jpg",
         projectionType: "equirectangular"
       });
 
