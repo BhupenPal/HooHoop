@@ -26,12 +26,11 @@ Router.get('/search-car', (req, res) => {
 })
 
 Router.get("/search-car/:page", Paginator(carModel), async (req, res) => {
-  console.log(req.query)
-  console.log(req.query === [])
-  if(req.query.length === 0){
+  if(isEmpty(req.query)){
     res.render("buy_car", { record: res.Paginator.results });
   } else {
     console.log(req.query)
+    res.render('buy_car', {record: res.Paginator.results});
   }
 });
 
@@ -92,6 +91,10 @@ function Paginator(model) {
 
 function escapeRegex(text) {
   return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+};
+
+const isEmpty = inputObject => {
+  return Object.keys(inputObject).length === 0;
 };
 
 module.exports = Router;

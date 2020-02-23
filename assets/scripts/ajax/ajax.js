@@ -13,7 +13,7 @@ filter.addEventListener('submit',function filterResultHandler(event){
   // xhr.open('GET', 'https://jsonplaceholder.typicode.com/todos/', true);
 
   // USE THIS FOR POST REQUEST
-  xhr.open("GET", `http://localhost:8080/search-car/${pageParams}?Make=Audi&BMW`, true);
+  xhr.open("GET", `http://localhost:8080/search-car/${pageParams}?Make=Audi,BMW`, true);
   // xhr.getResponseHeader("Content-type", "application/json");
 
   // What to do on progress (optional)
