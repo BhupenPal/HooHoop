@@ -19,13 +19,13 @@
   <body class="reg_body">
     <%-include('./Components/Header.ejs') %>
 
-    <div class="card">
+    <div class="card reg_card">
       <h1 class="alignment-text">
         Create Account <%-include('./Flash/message.ejs') %>
       </h1>
       <form action="/sign-up" method="POST" name="form1">
         <div class="form-group">
-          <label for="firstName">First Name</label>
+          
           <input
             type="name"
             id="firstName"
@@ -36,7 +36,7 @@
           />
         </div>
         <div class="form-group">
-          <label for="lastName">Last Name</label>
+          
           <input
             type="name"
             id="lastName"
@@ -47,7 +47,7 @@
           />
         </div>
         <div class="form-group">
-          <label for="email">Email</label>
+          
           <input
             type="email"
             id="email"
@@ -58,7 +58,7 @@
           />
         </div>
         <div class="form-group">
-          <label for="phoneNum">Phone</label>
+          
           <input
             type="tel"
             id="phoneNum"
@@ -69,7 +69,7 @@
           />
         </div>
         <div class="form-group">
-          <label for="password">Password</label>
+          
           <input
             type="password"
             id="password"
@@ -80,7 +80,7 @@
           />
         </div>
         <div class="form-group">
-          <label for="password2">Confirm Password</label>
+          
           <input
             type="password"
             id="password2"
@@ -91,7 +91,7 @@
           />
         </div>
         <div class="form-group">
-          <label for="address">Address</label>
+          
           <input
             type="text"
             id="address"

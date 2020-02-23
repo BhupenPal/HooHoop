@@ -19,7 +19,8 @@
   <body class="reg_body">
     <%-include('./Components/Header.ejs') %>
 
-    <div class="email-verification">
+    <div class="emailvwrap">
+      <div class="email-verification">
         <form action="/user/verify/" method="POST">
         <h2>Veryify Your Email</h2>
         <label for="secretToken">Secret Token</label>
@@ -32,6 +33,7 @@
     <% if (userVerified){ %>
       <h2 class="headutext">USER verified succesfully</h2>
     <% } %>
+    </div>
     <%-include('./Components/Footer.ejs') %>
   </body>
 </html>

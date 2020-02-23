@@ -56,108 +56,110 @@
 
     <!--Home-content-->
 
-    <div class="cardbd_1">
-      <div class="cd_head">
-        <div class="cd_headline">Popular Cars</div>
+    <div class="infowrap80">
+      <div class="cardbd_1">
+        <div class="cd_head">
+          <div class="cd_headline">Popular Cars</div>
+        </div>
+        <div class="cd_content">
+        <% for( let i = 0; i < popCarData.length; i++ ) { %>
+          <a href="http://localhost:8080/buy-car/<%= popCarData[i]._id %>" class="cd_car_data">
+            
+              <div class="img_contain">
+                <div class="view-details">View details</div>
+                <img src="/assets/Uploads/<%= popCarData[i].vinNum %>/exterior/<%= popCarData[i].thumbnail %>" />
+              </div>
+              <div class="info_contain">
+                <div class="con_name"> <%= popCarData[i].Make %> </div>
+                <div class="con_price"><%= popCarData[i].Price %></div>
+                <div></div>
+              </div>
+            
+          </a>
+        <% } %>
       </div>
-      <div class="cd_content">
-      <% for( let i = 0; i < popCarData.length; i++ ) { %>
-        <a href="http://localhost:8080/buy-car/<%= hatchCarData[i].id %>">
-          <div class="cd_car_data">
-            <div class="img_contain">
-              <div class="view-details">View details</div>
-              <img src="/assets/Uploads/<%= popCarData[i].vinNum %>/exterior/<%= popCarData[i].thumbnail %>" />
+        <div class="cd_btn">
+          <button onclick="scrolldiv(0,0)">
+            <i class="fal fa-chevron-left"></i>
+          </button>
+          <button onclick="scrolldiv(1,0)">
+            <i class="fal fa-chevron-right"></i>
+          </button>
+        </div>
+        <div class="cd_link">
+          <a href="/buy-car">View All</a>
+        </div>
+      </div>
+  
+      <div class="cardbd_1">
+        <div class="cd_head">
+          <div class="cd_headline">Hatchbacks</div>
+        </div>
+        <div class="cd_content">
+        <% for( let i = 0; i < hatchCarData.length; i++ ) { %>
+          <a href="http://localhost:8080/buy-car/<%= hatchCarData[i]._id %>" class="cd_car_data">
+          
+              <div class="img_contain">
+                <div class="view-details">View details</div>
+                <img src="/assets/Uploads/<%= hatchCarData[i].vinNum %>/exterior/<%= hatchCarData[i].thumbnail %>" />
+              </div>
+              <div class="info_contain">
+                <div class="con_name"> <%= hatchCarData[i].Make %> </div>
+                <div class="con_price"><%= hatchCarData[i].Price %></div>
+                <div></div>
+              </div>
+  
+          </a>
+        <% } %>
+      </div>
+        <div class="cd_btn">
+          <button onclick="scrolldiv(2,1)">
+            <i class="fal fa-chevron-left"></i>
+          </button>
+          <button onclick="scrolldiv(3,1)">
+            <i class="fal fa-chevron-right"></i>
+          </button>
+        </div>
+        <div class="cd_link">
+          <a href="/buy-car">View All Hatchbacks</a>
+        </div>
+      </div>
+  
+      <div class="cardbd_1">
+        <div class="cd_head">
+          <div class="cd_headline">Sedans</div>
+        </div>
+        <div class="cd_content">
+        <% for( let i = 0; i < sedanCarData.length; i++ ) { %>
+          <a href="http://localhost:8080/buy-car/<%= sedanCarData[i]._id %>" class="cd_car_data">
+            
+              <div class="img_contain">
+                <div class="view-details">View details</div>
+                <img src="/assets/Uploads/<%= sedanCarData[i].vinNum %>/exterior/<%= sedanCarData[i].thumbnail %>" />
+              </div>
+              <div class="info_contain">
+                <div class="con_name"> <%= sedanCarData[i].Make %> </div>
+                <div class="con_price"><%= sedanCarData[i].Price %></div>
+                <div></div>
+            
             </div>
-            <div class="info_contain">
-              <div class="con_name"> <%= popCarData[i].Make %> </div>
-              <div class="con_price"><%= popCarData[i].Price %></div>
-              <div></div>
-            </div>
-          </div>
-        </a>
-      <% } %>
+          </a>
+        <% } %>
+      </div>
+        <div class="cd_btn">
+          <button onclick="scrolldiv(4,2)">
+            <i class="fal fa-chevron-left"></i>
+          </button>
+          <button onclick="scrolldiv(5,2)">
+            <i class="fal fa-chevron-right"></i>
+          </button>
+        </div>
+        <div class="cd_link">
+          <a href="/buy-car">View All Sedans</a>
+        </div>
+      </div>
+  
     </div>
-      <div class="cd_btn">
-        <button onclick="scrolldiv(0,0)">
-          <i class="fal fa-chevron-left"></i>
-        </button>
-        <button onclick="scrolldiv(1,0)">
-          <i class="fal fa-chevron-right"></i>
-        </button>
-      </div>
-      <div class="cd_link">
-        <a href="/buy-car">View All</a>
-      </div>
-    </div>
-
-    <div class="cardbd_1">
-      <div class="cd_head">
-        <div class="cd_headline">Hatchbacks</div>
-      </div>
-      <div class="cd_content">
-      <% for( let i = 0; i < hatchCarData.length; i++ ) { %>
-        <a href="http://localhost:8080/buy-car/<%= hatchCarData[i].id %>">
-          <div class="cd_car_data">
-            <div class="img_contain">
-              <div class="view-details">View details</div>
-              <img src="/assets/Uploads/<%= hatchCarData[i].vinNum %>/exterior/<%= hatchCarData[i].thumbnail %>" />
-            </div>
-            <div class="info_contain">
-              <div class="con_name"> <%= hatchCarData[i].Make %> </div>
-              <div class="con_price"><%= hatchCarData[i].Price %></div>
-              <div></div>
-            </div>
-          </div>
-        </a>
-      <% } %>
-    </div>
-      <div class="cd_btn">
-        <button onclick="scrolldiv(2,1)">
-          <i class="fal fa-chevron-left"></i>
-        </button>
-        <button onclick="scrolldiv(3,1)">
-          <i class="fal fa-chevron-right"></i>
-        </button>
-      </div>
-      <div class="cd_link">
-        <a href="/buy-car">View All Hatchbacks</a>
-      </div>
-    </div>
-
-    <div class="cardbd_1">
-      <div class="cd_head">
-        <div class="cd_headline">Sedans</div>
-      </div>
-      <div class="cd_content">
-      <% for( let i = 0; i < sedanCarData.length; i++ ) { %>
-        <a href="http://localhost:8080/buy-car/<%= sedanCarData[i].id %>">
-          <div class="cd_car_data">
-            <div class="img_contain">
-              <div class="view-details">View details</div>
-              <img src="/assets/Uploads/<%= sedanCarData[i].vinNum %>/exterior/<%= sedanCarData[i].thumbnail %>" />
-            </div>
-            <div class="info_contain">
-              <div class="con_name"> <%= sedanCarData[i].Make %> </div>
-              <div class="con_price"><%= sedanCarData[i].Price %></div>
-              <div></div>
-            </div>
-          </div>
-        </a>
-      <% } %>
-    </div>
-      <div class="cd_btn">
-        <button onclick="scrolldiv(4,2)">
-          <i class="fal fa-chevron-left"></i>
-        </button>
-        <button onclick="scrolldiv(5,2)">
-          <i class="fal fa-chevron-right"></i>
-        </button>
-      </div>
-      <div class="cd_link">
-        <a href="/buy-car">View All Sedans</a>
-      </div>
-    </div>
-
 
     <!-- Home-content-end -->
     <%-include('./Components/Footer.ejs') %>
