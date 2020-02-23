@@ -131,3 +131,7 @@ function previewImages() {
 }
 
 document.querySelector('#Exterior').addEventListener("change", previewImages);
+
+function oncall(){
+  console.log(document.getElementsByClassName("foption")[0].innerHTML.split("<")[0])
+}

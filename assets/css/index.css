@@ -1481,6 +1481,11 @@ body {
   left: 60px;
 }
 
+.tooltiptext::before{
+  content: "";
+  
+}
+
 .panoviewer-container{
   height: 100%;
   width: 100%;

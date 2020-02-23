@@ -27,6 +27,7 @@
         <div class="filters">
           <form id="former">
             <button type="submit" id="filtex">SUBMIT</button>
+            
           <div id="make" class="filter_option">
             <div class="Filter_class" onclick="foption('0')"><span>Make</span><i class="fas fa-chevron-right"></i></div>
               <div class="foption_encloser">
@@ -154,7 +155,7 @@
         </div>
       </div>
   
-      <div class="contentwrap">
+      <div class="contentwrap" id="listeer">
         <% for(var i = 0; i < record.length; i++) { %>
           <a href="http://localhost:8080/buy-car/<%= record[i].id%>" class="cardanchor">
           <div class="bc-card">

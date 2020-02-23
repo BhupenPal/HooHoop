@@ -26,11 +26,13 @@ Router.get('/search-car', (req, res) => {
 })
 
 Router.get("/search-car/:page", Paginator(carModel), async (req, res) => {
+  
+  // Content Type JSON return res.json(res.Paginator.results)
   if(isEmpty(req.query)){
     res.render("buy_car", { record: res.Paginator.results });
   } else {
     console.log(req.query)
-    res.render('buy_car', {record: res.Paginator.results});
+    res.json( {record: res.Paginator.results})
   }
 });
 
