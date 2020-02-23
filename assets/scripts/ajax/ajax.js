@@ -1,20 +1,20 @@
-let filter = document.getElementById("filter");
-filter.addEventListener("click", filterResultHandler(event));
+let filter = document.getElementById('former');
+filter.addEventListener('submit',function filterResultHandler(event){
 
-function filterResultHandler(event) {
-//   event.preventDefault();
-//   event.stopPropogation();
-  console.log("You have clicked the fetchBtn");
+  event.preventDefault();
+  const pageParams = window.location.href.split('/')[4].split('?')[0];
+
+  let urlQuery = ['Audi', 'BMW'];
 
   // Instantiate an xhr object
   const xhr = new XMLHttpRequest();
 
   // Open the object
-  // xhr.open('GET', 'https://jsonplaceholder.typicode.com/todos/1', true);
+  // xhr.open('GET', 'https://jsonplaceholder.typicode.com/todos/', true);
 
   // USE THIS FOR POST REQUEST
-  xhr.open("POST", "http://dummy.restapiexample.com/api/v1/create", true);
-  xhr.getResponseHeader("Content-type", "application/json");
+  xhr.open("GET", `http://localhost:8080/search-car/${pageParams}?Make=Audi&BMW`, true);
+  // xhr.getResponseHeader("Content-type", "application/json");
 
   // What to do on progress (optional)
   xhr.onprogress = function() {
@@ -40,4 +40,5 @@ function filterResultHandler(event) {
   xhr.send(params);
 
   console.log("We are done!");
-}
+
+})
