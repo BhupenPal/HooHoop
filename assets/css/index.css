@@ -1453,9 +1453,10 @@ body {
   display: flex;
   place-content: center;
   place-items: center;
-  color: rgb(16, 180, 202);
+  color: #000000;
+  background-color: white;
   transition: ease-in-out 0.2s;
-  font-size: 40px;
+  font-size: 35px;
 }
 
 .interior-changer:hover,.exterior-changer:hover{
@@ -1464,6 +1465,20 @@ body {
 
 .exterior-changer{
   top: 540px;
+}
+
+.tooltiptext{
+  position: absolute;
+  font-size: 12px;
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  left: 60px;
 }
 
 .panoviewer-container{
