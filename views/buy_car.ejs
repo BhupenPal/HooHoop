@@ -25,10 +25,11 @@
       <div class="filterwrap">
         <div class="fltr_head">Filters</div>
         <div class="filters">
+          <form id="former">
+            <button type="submit" id="filtex">SUBMIT</button>
           <div id="make" class="filter_option">
             <div class="Filter_class" onclick="foption('0')"><span>Make</span><i class="fas fa-chevron-right"></i></div>
               <div class="foption_encloser">
-               <form action="/server.js">
                 <div class="foption">Audi <input type="checkbox" id="foption-1"> <label for="foption-1"></label></div>
                 <div class="foption">BMW <input type="checkbox" id="foption-2"> <label for="foption-2"></label></div>
                 <div class="foption">FIAT <input type="checkbox" id="foption-3"> <label for="foption-3"></label></div>
@@ -48,13 +49,11 @@
                 <div class="foption">Toyota <input type="checkbox" id="foption-17"> <label for="foption-17"></label></div>
                 <div class="foption">Volkswagon <input type="checkbox" id="foption-18"> <label for="foption-18"></label></div>
                 <div class="foption">Volvo <input type="checkbox" id="foption-19"> <label for="foption-19"></label></div>
-               </form>
               </div>
           </div>  
           <div id="model" class="filter_option">
             <div class="Filter_class" onclick="foption('1')"><span>Model</span><i class="fas fa-chevron-right"></i></div>
             <div class="foption_encloser">
-              <form>
               <div class="foption">320I <input type="checkbox" id="foption-20"> <label for="foption-20"></label></div>
               <div class="foption">325I <input type="checkbox" id="foption-21"> <label for="foption-21"></label></div>
               <div class="foption">500 <input type="checkbox" id="foption-22"> <label for="foption-22"></label></div>
@@ -108,42 +107,35 @@
               <div class="foption">XC60 <input type="checkbox" id="foption-70"> <label for="foption-70"></label></div>
               <div class="foption">XJ <input type="checkbox" id="foption-71"> <label for="foption-71"></label></div>
               <div class="foption">Z3 <input type="checkbox" id="foption-72"> <label for="foption-72"></label></div>
-            </form>
             </div>
           </div>
           <div id="price" class="filter_option">
             <div class="Filter_class" onclick="foption('2')"><span>Price</span><i class="fas fa-chevron-right"></i></div>
             <div class="foption_encloser">
-              <form>
               <div class="foption">$ 0 To $ 3000 <input type="checkbox" id="foption-73"> <label for="foption-73"></label></div>
               <div class="foption">$ 3001 To $ 5000 <input type="checkbox" id="foption-74"> <label for="foption-74"></label></div>
               <div class="foption">$ 5001 To $ 8000 <input type="checkbox" id="foption-75"> <label for="foption-75"></label></div>
               <div class="foption">$ 8001 To $ 10000 <input type="checkbox" id="foption-76"> <label for="foption-76"></label></div>
               <div class="foption">$ 10001 + <input type="checkbox" id="foption-77"> <label for="foption-77"></label></div>
-            </form>
             </div>
           </div>
           <div id="fuel_type" class="filter_option">
             <div class="Filter_class" onclick="foption('3')"><span>Fuel Type</span><i class="fas fa-chevron-right"></i></div>
             <div class="foption_encloser">
-              <form>
                 <div class="foption">Petrol <input type="checkbox" id="foption-78"> <label for="foption-78"></label></div>
                 <div class="foption">Diesel <input type="checkbox" id="foption-79"> <label for="foption-79"></label></div>
                 <div class="foption">Electric <input type="checkbox" id="foption-80"> <label for="foption-80"></label></div>
                 <div class="foption">Hybrid <input type="checkbox" id="foption-81"> <label for="foption-81"></label></div>
-              </form>
             </div>
           </div>
           <div id="kms" class="filter_option">
             <div class="Filter_class" onclick="foption('4')"><span>KMs</span><i class="fas fa-chevron-right"></i></div>
             <div class="foption_encloser">
-              <form>
                 <div class="foption">Upto 5000 Kms <input type="checkbox" id="foption-82"> <label for="foption-82"></label></div>
                 <div class="foption">5000 to 15000 Kms <input type="checkbox" id="foption-83"> <label for="foption-83"></label></div>
                 <div class="foption">15000 to 30000 Kms <input type="checkbox" id="foption-84"> <label for="foption-84"></label></div>
                 <div class="foption">30000 to 50000 Kms <input type="checkbox" id="foption-85"> <label for="foption-85"></label></div>
                 <div class="foption">50000+ Kms <input type="checkbox" id="foption-86"> <label for="foption-86"></label></div>
-              </form>
             </div>
           </div>
           <div id="age" class="filter_option">
@@ -158,6 +150,7 @@
           <div id="color" class="filter_option">
             <div class="Filter_class"><span>Color</span><i class="fas fa-chevron-right"></i></div>
           </div>
+        </form>
         </div>
       </div>
   
@@ -186,5 +179,6 @@
 
     <!-- Buy-car ended -->
     <%-include('./Components/Footer.ejs') %>
+    <script src="/assets/scripts/ajax/ajax.js"></script>
   </body>
 </html>
