@@ -1,11 +1,7 @@
-.html,
+html,
 body {
   margin: 0 !important;
   padding: 0 !important;
-  display: flex;
-  flex-direction: column;
-  place-content: center;
-  place-items: center;
   overflow-x: hidden;
 }
 
@@ -317,6 +313,16 @@ body {
 
 /* Home-Content */
 
+.infowrap80{
+  min-height: 150vh;
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
 .cardbd_1 {
   height: 500px;
   display: flex;
@@ -326,7 +332,7 @@ body {
   padding: 20px 30px;
   box-sizing: border-box;
   border-radius: 5px;
-  width: 70%;
+  width: 100%;
   margin: 50px 0;
   box-shadow: 0 0 1px 1px #e6e6e6;
   position: relative;
@@ -399,11 +405,17 @@ body {
   scroll-behavior: smooth;
 }
 
+.cd_content a{
+  text-decoration: none;
+  color: black;
+}
+
 .cd_content::-webkit-scrollbar {
   display: none;
 }
 
 .cd_car_data {
+  text-decoration: none;
   height: 90%;
   min-width: 300px;
   max-width: 300px;
@@ -514,6 +526,13 @@ body {
 /* Home-Content */
 /* Sell-Car-Page */
 
+.sellcar_wrap{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .ad_enclosure {
   height: 600px;
   width: 500px;
@@ -587,6 +606,14 @@ body {
 }
 /* Sell-Car-Page */
 /* SELL-FORM */
+
+.sellform_wrap{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
 
 .VIN-input {
   min-height: 300px;
@@ -1048,6 +1075,10 @@ body {
 
 .reg_body {
   background-color: #f7f7f7;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .card {
@@ -1056,30 +1087,48 @@ body {
   margin: 100px 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   background-color: white;
   box-shadow: 0 0 3px 3px #e6e6e6;
   position: relative;
 }
 
+.reg_card{
+  width: 500px;
+  padding-bottom: 20px;
+}
+
+.reg_card form{
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
+
 .form-group {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   margin: 10px 0;
   font-family: Lato;
+  width: 100%;
 }
 
 .form-group input {
   height: 40px;
-  width: 320px;
-  margin-top: 10px;
+  width: 90%;
+  margin: 10px 0;
   box-sizing: border-box;
   padding-left: 20px;
-  font-family: Fira;
-  font-size: 24px;
-  border-radius: 10px;
+  font-family: Raleway;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 5px;
   border: 1px solid #e1e1e1;
 }
 
@@ -1091,12 +1140,23 @@ body {
   background-color: #008ec2;
   border: none;
   border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+  margin-top: 10px;
+  margin-bottom: 10px;
   margin-left: 200px;
+  margin-right: 20px;
+}
+
+.button-2:hover{
+  background-color: #f5bf2b;
 }
 
 .hlogin {
   height: 70px;
   width: 70%;
+  margin-top: 100px;
+  margin-bottom: 30px;
 }
 
 .hlogin img {
@@ -1118,9 +1178,23 @@ body {
   font-size: large;
   font-weight: bolder;
   color: #1ea1f3;
+  transition: 0.2s;
 }
 
-.reg_link a:hover {
+.f_pass{
+  padding-left: 10px;
+  margin-left: 10px;
+  font-size: 16px !important;
+  font-family: Raleway;
+  font-weight: bold !important;
+  border-left: 1px solid #cfcbcb;
+}
+
+.log_links{
+  display: flex;
+}
+
+.reg_link a:hover,.f_pass:hover {
   color: #f6b500;
 }
 /* Login/Register */
@@ -1131,8 +1205,10 @@ body {
 }
 
 .buy_car_wrap {
-  width: 90vw;
+  width: 100%;
   display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .filterwrap {
@@ -1338,6 +1414,14 @@ body {
 
 /* Listing-Section */
 
+.cardet_page{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .th_sxty_info {
   margin: 20px 0;
   display: flex;
@@ -1369,7 +1453,7 @@ body {
   display: flex;
   place-content: center;
   place-items: center;
-  color: #ffffff;
+  color: rgb(16, 180, 202);
   transition: ease-in-out 0.2s;
   font-size: 40px;
 }
@@ -1393,7 +1477,7 @@ body {
 .exterior_slider{
   height: 100%;
   width: 100%;
-  display: flex !important;
+  display: none;
   scroll-behavior: smooth;
   transition: 0.4s;
   overflow: hidden;
@@ -1669,6 +1753,13 @@ body {
 
 /* User-Listing-Page */
 
+.ulwrap{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .User_listings_wrapper {
   padding: 20px;
   display: flex;
@@ -1821,7 +1912,37 @@ body {
   cursor: pointer;
 }
 
-/* Email-verification {age */
+.emailvwrap{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Email-verification Page */
+
+/* Dashboard */
+
+.dashboard_wrapper{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Dashboard */
+
+/* Forgot-Password */
+  .forg_pass_wrap{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+/* Forgot-Password */
 
 /* Footer */
 .foot {
