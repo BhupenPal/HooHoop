@@ -76,17 +76,17 @@ var storeExterior = multer.diskStorage({
   },
   filename: function(req, file, cb) {
     if (file.fieldname === "exterior") {
-      if(file.originalname === req.body.thumbnail){
+      if (file.originalname === req.body.thumbnail) {
         let ext = file.originalname.split(".")[1];
         let filename = "Photo-0." + ext;
         thumbnail = filename;
         cb(null, filename);
-        }else {
-          let ext = file.originalname.split(".")[1];
-          let filename = "Photo-" + photoIndex + "." + ext;
-          photoIndex++;
-          cb(null, filename);
-        } 
+      } else {
+        let ext = file.originalname.split(".")[1];
+        let filename = "Photo-" + photoIndex + "." + ext;
+        photoIndex++;
+        cb(null, filename);
+      }
     } else if (file.fieldname !== "exterior") {
       let ext = file.originalname.split(".")[1];
       let filename = file.fieldname + "." + ext;
@@ -106,15 +106,15 @@ Router.post("/car-submit/submit", urlencoded, exterior, (req, res) => {
   const newCar = new carModel();
   newCar.Price = req.body.Price;
   newCar.minPrice = req.body.minPrice;
-  newCar.Make = req.body.Make;
-  newCar.Model = req.body.Model;
+  newCar.Make = req.body.Make.toUpperCase();
+  newCar.Model = req.body.Model.toUpperCase();
   newCar.ModelYear = req.body.ModelYear;
   newCar.DoorNum = req.body.DoorNum;
   newCar.SeatNum = req.body.SeatNum;
   newCar.ModelDetail = req.body.ModelDetail;
   newCar.ImportHistory = req.body.ImportHistory;
   newCar.PreviousOwners = req.body.PreviousOwners;
-  newCar.vinNum = req.body.vinNum;
+  newCar.vinNum = req.body.vinNum.toUpperCase();
   newCar.kMeters = req.body.kMeters;
   newCar.Colour = req.body.Colour;
   newCar.engineSize = req.body.engineSize;
@@ -122,55 +122,65 @@ Router.post("/car-submit/submit", urlencoded, exterior, (req, res) => {
   newCar.RoadCost = req.body.RoadCost;
   newCar.Description = req.body.Description;
   newCar.authorID = req.user._id;
-  newCar.authorName = `${req.user.firstName} ${req.user.lastName}`;
-  newCar.authorMail = req.user.email;
-  newCar.authorNumber = `${req.user.phoneNum}`;
   newCar.thumbnail = thumbnail;
   newCar.views = 0;
 
   photoIndex = 0;
 
-  if(req.body.BodyType === "CV"){
-    newCar.BodyType = "Convertible"
-  }else if(req.body.BodyType === "HA"){
-    newCar.BodyType = "Hatchback"
-  }else if(req.body.BodyType === "HV"){
-    newCar.BodyType = "Heavy Van"
-  }else if(req.body.BodyType === "LV"){
-    newCar.BodyType = "Light Van"
-  }else if(req.body.BodyType === "SW"){
-    newCar.BodyType = "Station Wagon"
-  }else if(req.body.BodyType === "UT"){
-    newCar.BodyType = "Utility"
-  }else if(req.body.BodyType === "SL"){
-    newCar.BodyType = "Sedan"
-  }else if(req.body.BodyType === "SP"){
-    newCar.BodyType = "Sports Car"
-  }else {
-    newCar.BodyType = "Other"
+  if (req.body.BodyType === "CV") {
+    newCar.BodyType = "Convertible";
+  } else if (req.body.BodyType === "HA") {
+    newCar.BodyType = "Hatchback";
+  } else if (req.body.BodyType === "HV") {
+    newCar.BodyType = "Heavy Van";
+  } else if (req.body.BodyType === "LV") {
+    newCar.BodyType = "Light Van";
+  } else if (req.body.BodyType === "SW") {
+    newCar.BodyType = "Station Wagon";
+  } else if (req.body.BodyType === "UT") {
+    newCar.BodyType = "Utility";
+  } else if (req.body.BodyType === "SL") {
+    newCar.BodyType = "Sedan";
+  } else if (req.body.BodyType === "SP") {
+    newCar.BodyType = "Sports Car";
+  } else {
+    newCar.BodyType = "Other";
   }
 
-  if(req.body.fuelType === 01){
-    newCar.fuelType = "Petrol"
-  }else if(req.body.fuelType === 02){
-    newCar.fuelType = "Diesel"
-  }else if(req.body.fuelType === 03){
-    newCar.fuelType = "CNG"
-  }else if(req.body.fuelType === 04){
-    newCar.fuelType = "LPG"
-  }else if(req.body.fuelType === 05){
-    newCar.fuelType = "Electric"
-  }else if(req.body.fuelType === 93 || 07 || 08 || 09 || 10 || 11 || 12 || 91 || 92 || 94 || 95 || 96){
-    newCar.fuelType = "Hybrid"
-  }else{
-    newCar.fuelType = "Other"
+  if (req.body.fuelType === 01) {
+    newCar.fuelType = "Petrol";
+  } else if (req.body.fuelType === 02) {
+    newCar.fuelType = "Diesel";
+  } else if (req.body.fuelType === 03) {
+    newCar.fuelType = "CNG";
+  } else if (req.body.fuelType === 04) {
+    newCar.fuelType = "LPG";
+  } else if (req.body.fuelType === 05) {
+    newCar.fuelType = "Electric";
+  } else if (
+    req.body.fuelType === 93 ||
+    07 ||
+    08 ||
+    09 ||
+    10 ||
+    11 ||
+    12 ||
+    91 ||
+    92 ||
+    94 ||
+    95 ||
+    96
+  ) {
+    newCar.fuelType = "Hybrid";
+  } else {
+    newCar.fuelType = "Other";
   }
 
-  if(req.body.Transmission.includes("automatic")){
-    newCar.Transmission = "Automatic"
-  } else if(req.body.Transmission.includes("manual")){
-    newCar.Transmission = "Manual"
-  } else if(req.body.Transmission.includes("triptonic")){
+  if (req.body.Transmission.includes("automatic")) {
+    newCar.Transmission = "Automatic";
+  } else if (req.body.Transmission.includes("manual")) {
+    newCar.Transmission = "Manual";
+  } else if (req.body.Transmission.includes("triptonic")) {
     newCar.Transmission = "Triptonic";
   }
 
@@ -203,8 +213,9 @@ Router.post("/car-submit/submit", urlencoded, exterior, (req, res) => {
   res.render("dashboard");
 });
 
-const theDate = (timeStamp) => {
-  return new Date(timeStamp * 1000).toGMTString;
-}
+const theDate = timeStamp => {
+  var DateParam = new Date(timeStamp * 1000);
+  return (DateParam.toGMTString());
+};
 
 module.exports = Router;

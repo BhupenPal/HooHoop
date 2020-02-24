@@ -86,7 +86,6 @@ function foption(j){
     y[j].classList.remove("opened_filter");
     filOptions[j] = 0
   }
-  console.log(n)
 }
 
 

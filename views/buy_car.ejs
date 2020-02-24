@@ -31,25 +31,25 @@
           <div id="make" class="filter_option">
             <div class="Filter_class" onclick="foption('0')"><span>Make</span><i class="fas fa-chevron-right"></i></div>
               <div class="foption_encloser">
-                <div class="foption">Audi <input type="checkbox" id="foption-1"> <label for="foption-1"></label></div>
-                <div class="foption">BMW <input type="checkbox" id="foption-2"> <label for="foption-2"></label></div>
-                <div class="foption">FIAT <input type="checkbox" id="foption-3"> <label for="foption-3"></label></div>
-                <div class="foption">FORD <input type="checkbox" id="foption-4"> <label for="foption-4"></label></div>
-                <div class="foption">Holden <input type="checkbox" id="foption-5"> <label for="foption-5"></label></div>
-                <div class="foption">Honda <input type="checkbox" id="foption-6"> <label for="foption-6"></label></div>
-                <div class="foption">Hyundai <input type="checkbox" id="foption-7"> <label for="foption-7"></label></div>
-                <div class="foption">Jaguar <input type="checkbox" id="foption-8"> <label for="foption-8"></label></div>
-                <div class="foption">Land Rover <input type="checkbox" id="foption-9"> <label for="foption-9"></label></div>
-                <div class="foption">Mazda <input type="checkbox" id="foption-10"> <label for="foption-10"></label></div>
-                <div class="foption">Mercedes Benz <input type="checkbox" id="foption-11"> <label for="foption-11"></label></div>
-                <div class="foption">Mitsubishi <input type="checkbox" id="foption-12"> <label for="foption-12"></label></div>
-                <div class="foption">Nissan <input type="checkbox" id="foption-13"> <label for="foption-13"></label></div>
-                <div class="foption">Porsche <input type="checkbox" id="foption-14"> <label for="foption-14"></label></div>
-                <div class="foption">Subaru <input type="checkbox" id="foption-15"> <label for="foption-15"></label></div>
-                <div class="foption">Suzuki <input type="checkbox" id="foption-16"> <label for="foption-16"></label></div>
-                <div class="foption">Toyota <input type="checkbox" id="foption-17"> <label for="foption-17"></label></div>
-                <div class="foption">Volkswagon <input type="checkbox" id="foption-18"> <label for="foption-18"></label></div>
-                <div class="foption">Volvo <input type="checkbox" id="foption-19"> <label for="foption-19"></label></div>
+                <div class="foption">Audi <input onclick="MakeSelector()" type="checkbox" id="foption-1" value="AUDI"> <label for="foption-1"></label></div>
+                <div class="foption">BMW <input onclick="MakeSelector()" type="checkbox" id="foption-2" value="BMW"> <label for="foption-2"></label></div>
+                <div class="foption">FIAT <input onclick="MakeSelector()" type="checkbox" id="foption-3" value="FIAT"> <label for="foption-3"></label></div>
+                <div class="foption">FORD <input onclick="MakeSelector()" type="checkbox" id="foption-4" value="FORD"> <label for="foption-4"></label></div>
+                <div class="foption">Holden <input onclick="MakeSelector()" type="checkbox" id="foption-5"> <label for="foption-5"></label></div>
+                <div class="foption">Honda <input onclick="MakeSelector()" type="checkbox" id="foption-6"> <label for="foption-6"></label></div>
+                <div class="foption">Hyundai <input onclick="MakeSelector()" type="checkbox" id="foption-7"> <label for="foption-7"></label></div>
+                <div class="foption">Jaguar <input onclick="MakeSelector()" type="checkbox" id="foption-8"> <label for="foption-8"></label></div>
+                <div class="foption">Land Rover <input onclick="MakeSelector()" type="checkbox" id="foption-9"> <label for="foption-9"></label></div>
+                <div class="foption">Mazda <input onclick="MakeSelector()" type="checkbox" id="foption-10"> <label for="foption-10"></label></div>
+                <div class="foption">Mercedes Benz <input onclick="MakeSelector()" type="checkbox" id="foption-11"> <label for="foption-11"></label></div>
+                <div class="foption">Mitsubishi <input onclick="MakeSelector()" type="checkbox" id="foption-12"> <label for="foption-12"></label></div>
+                <div class="foption">Nissan <input onclick="MakeSelector()" type="checkbox" id="foption-13"> <label for="foption-13"></label></div>
+                <div class="foption">Porsche <input onclick="MakeSelector()" type="checkbox" id="foption-14"> <label for="foption-14"></label></div>
+                <div class="foption">Subaru <input onclick="MakeSelector()" type="checkbox" id="foption-15"> <label for="foption-15"></label></div>
+                <div class="foption">Suzuki <input onclick="MakeSelector()" type="checkbox" id="foption-16"> <label for="foption-16"></label></div>
+                <div class="foption">Toyota <input onclick="MakeSelector()" type="checkbox" id="foption-17"> <label for="foption-17"></label></div>
+                <div class="foption">Volkswagon <input onclick="MakeSelector()" type="checkbox" id="foption-18"> <label for="foption-18"></label></div>
+                <div class="foption">Volvo <input onclick="MakeSelector()" type="checkbox" id="foption-19"> <label for="foption-19"></label></div>
               </div>
           </div>  
           <div id="model" class="filter_option">
@@ -181,5 +181,6 @@
     <!-- Buy-car ended -->
     <%-include('./Components/Footer.ejs') %>
     <script src="/assets/scripts/ajax/ajax.js"></script>
+    <script src="/assets/scripts/ajax/filter.js"></script>
   </body>
 </html>

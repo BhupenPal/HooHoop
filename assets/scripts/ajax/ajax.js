@@ -11,7 +11,7 @@ filter.addEventListener('submit',function filterResultHandler(event){
 
   // Pass header with content-type: application/json
 
-  xhr.open("GET", `http://localhost:8080/search-car/${pageParams}?Make=Audi`, true);
+  xhr.open("GET", `http://localhost:8080/search-car/${pageParams}?Make=TOYOTA`, true);
   xhr.getResponseHeader("content-type", "application/json")
 
   xhr.onprogress = function() {
