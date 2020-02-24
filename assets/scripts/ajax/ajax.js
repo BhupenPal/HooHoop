@@ -1,17 +1,27 @@
-let filter = document.getElementById('former');
-filter.addEventListener('submit',function filterResultHandler(event){
+let MakeQuery = null;
 
-  event.preventDefault();
+MakeSelector = () => {
+  let MakeAll = document.getElementById('make').getElementsByTagName('input');
+
+  MakeQuery = '';
+  
+  for(let makeCount = 0; makeCount < MakeAll.length; makeCount++){
+      if(MakeAll[makeCount].checked === true){
+          MakeQuery += `Make=${MakeAll[makeCount].value}&`;
+      }
+  }
+
+  MakeQuery = MakeQuery.slice(0, -1)
+  filterResultHandler()
+}
+
+function filterResultHandler(){
 
   const pageParams = window.location.href.split('/')[4].split('?')[0];
-
-  let urlQuery = ['Audi', 'BMW'];
-
+  
   const xhr = new XMLHttpRequest();
 
-  // Pass header with content-type: application/json
-
-  xhr.open("GET", `http://localhost:8080/search-car/${pageParams}?Make=TOYOTA`, true);
+  xhr.open("GET", `http://localhost:8080/filter-content/${pageParams}?${MakeQuery}`, true);
   xhr.getResponseHeader("content-type", "application/json")
 
   xhr.onprogress = function() {
@@ -27,8 +37,7 @@ filter.addEventListener('submit',function filterResultHandler(event){
   };
 
   xhr.send();
-
-})
+}
 
 filterContent = record => {
   json = JSON.parse(record);

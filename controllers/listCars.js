@@ -23,12 +23,12 @@ Router.get('/search-car', (req, res) => {
 })
 
 Router.get("/search-car/:page", Paginator(carModel), async (req, res) => {
-  if(isEmpty(req.query)){
     res.render("buy_car", { record: res.Paginator.results });
-  } else {
-    res.json( {record: res.Paginator.results})
-  }
 });
+
+Router.get('/filter-content/:page', Paginator(carModel), async (req, res) => {
+  res.json({record: res.Paginator.results})
+})
 
 Router.get("/buy-car/:id", async (req, res) => {
   const id = req.params.id;
@@ -52,7 +52,6 @@ function Paginator(model) {
     const page = parseInt(req.params.page);
     const filterParam = req.query;
     const limit = 15;
-
     const startIndex = (page - 1) * limit;
     const endIndex = page * limit;
 
@@ -88,10 +87,6 @@ function Paginator(model) {
 
 function escapeRegex(text) {
   return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
-};
-
-const isEmpty = inputObject => {
-  return Object.keys(inputObject).length === 0;
 };
 
 module.exports = Router;
