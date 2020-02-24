@@ -1245,12 +1245,12 @@ body {
 .cardanchor {
   text-decoration: none;
   color: black;
+  margin: 20px;
 }
 
 .bc-card {
   height: 500px;
   width: 380px;
-  margin: 20px 20px;
   box-shadow: 0 0 3px 3px #f3f3f3;
   display: flex;
   flex-direction: column;

@@ -70,9 +70,6 @@ const Schema = mongoose.Schema,
     CarFolder: String,
     photo360: Boolean,
     authorID: String,
-    authorName: String,
-    authorNumber: String,
-    authorMail: String,
     views: Number
   });
 

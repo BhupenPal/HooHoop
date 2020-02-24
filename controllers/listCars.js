@@ -5,29 +5,24 @@ const carModel = require("../models/carModel");
 const {ensureAuthenticated} = require('./log/auth');
 
 Router.get('/search-car', (req, res) => {
-
   if(!req.query.item){
     res.redirect('/search-car/1')
   } else if(req.query.item){
-
     const regex = new RegExp(escapeRegex(req.query.item), 'gi');
     carModel.find( {$or: [ { Make: regex }, { Model: regex } ] }, function(err, allCars){
       if(err){
           console.log(err);
       } else {
          if(allCars.length < 1) {
-             noMatch = "No campgrounds match that query, please try again.";
+             noMatch = "No matching query";
          }
          res.render("buy_car",{record: allCars});
       }
    });
   }
-
 })
 
 Router.get("/search-car/:page", Paginator(carModel), async (req, res) => {
-  
-  // Content Type JSON return res.json(res.Paginator.results)
   if(isEmpty(req.query)){
     res.render("buy_car", { record: res.Paginator.results });
   } else {
@@ -55,7 +50,8 @@ function Paginator(model) {
   return async (req, res, next) => {
     
     const page = parseInt(req.params.page);
-    const limit = 9;
+    const filterParam = req.query;
+    const limit = 15;
 
     const startIndex = (page - 1) * limit;
     const endIndex = page * limit;
@@ -77,7 +73,7 @@ function Paginator(model) {
 
     try {
       results.results = await model
-        .find(req.query)
+        .find(filterParam)
         .sort({ $natural: -1 })
         .limit(limit)
         .skip(startIndex)
