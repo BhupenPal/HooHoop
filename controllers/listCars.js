@@ -48,7 +48,7 @@ Router.get("/my-listings", ensureAuthenticated, async (req, res) => {
 
 function Paginator(model) {
   return async (req, res, next) => {
-
+    
     const page = parseInt(req.params.page);
     const filterParam = req.query;
     const limit = 15;
