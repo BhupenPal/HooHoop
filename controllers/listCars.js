@@ -31,7 +31,6 @@ Router.get("/search-car/:page", Paginator(carModel), async (req, res) => {
   if(isEmpty(req.query)){
     res.render("buy_car", { record: res.Paginator.results });
   } else {
-    console.log(req.query)
     res.json( {record: res.Paginator.results})
   }
 });
@@ -54,7 +53,7 @@ Router.get("/my-listings", ensureAuthenticated, async (req, res) => {
 
 function Paginator(model) {
   return async (req, res, next) => {
-
+    
     const page = parseInt(req.params.page);
     const limit = 9;
 
@@ -78,7 +77,7 @@ function Paginator(model) {
 
     try {
       results.results = await model
-        .find()
+        .find(req.query)
         .sort({ $natural: -1 })
         .limit(limit)
         .skip(startIndex)

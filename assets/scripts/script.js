@@ -21,16 +21,6 @@ function scrolldiv(j,k) {
   }
 }
 
-function scrollext(j){
-  let x = document.getElementsByClassName("exterior_slider")[0]
-  if(j==1){
-    x.scrollBy(-900,0)
-  }
-  else{
-    x.scrollBy(900,0)
-  }
-}
-
 function tabselect(j) {
   let x = document.getElementsByClassName("tabs");
 
@@ -86,7 +76,6 @@ function foption(j){
     y[j].classList.remove("opened_filter");
     filOptions[j] = 0
   }
-  console.log(n)
 }
 
 
@@ -132,6 +121,14 @@ function previewImages() {
 
 document.querySelector('#Exterior').addEventListener("change", previewImages);
 
-function oncall(){
-  console.log(document.getElementsByClassName("foption")[0].innerHTML.split("<")[0])
+function intext(j){
+  if(j==1){
+    document.getElementsByClassName("panoviewer-container")[0].style.zIndex = "20"
+    document.getElementsByClassName("exterior_slider")[0].style.zIndex = "10"
+  }
+  if(j==2){
+    document.getElementsByClassName("exterior_slider")[0].style.zIndex = "20"
+    document.getElementsByClassName("panoviewer-container")[0].style.display = "10"
+  }
+ 
 }

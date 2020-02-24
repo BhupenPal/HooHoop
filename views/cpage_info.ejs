@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="/assets/css/index.css" />
     <link rel="stylesheet" href="/assets/css/all.min.css" />
     <link rel="stylesheet" href="/assets/css/fonts.css" />
-    <link rel="stylesheet" href="/assets/css/view360/demo.css">
-    <link rel="stylesheet" href="/assets/css/view360/pano.css">
+    <link rel="stylesheet" href="/assets/css/view360/demo.css" />
+    <link rel="stylesheet" href="/assets/css/view360/pano.css" />
     <script src="/assets/scripts/script.js"></script>
     <title>HooHoop</title>
     <link
@@ -25,24 +25,29 @@
       <div class="th_sxty_info">
         <div class="th60_container">
           <div class="viewthsxty">
-              <button class="interior-changer"><i class="fad fa-steering-wheel"></i><span class="tooltiptext">Tooltip text</span></button>
-              <button class="exterior-changer"><i class="fad fa-car"></i><span class="tooltiptext">Tooltip text</span></button>
+            <button class="interior-changer" onclick="intext('1')">
+              <i class="fad fa-steering-wheel"></i
+              ><span class="tooltiptext">Tooltip text</span>
+            </button>
+            <button class="exterior-changer" onclick="intext('2')">
+              <i class="fad fa-car"></i
+              ><span class="tooltiptext">Tooltip text</span>
+            </button>
+
             <div class="panoviewer-container viewer">
               <div id="panoSet">
                 <div class="panoviewer container" id="myPanoViewer"></div>
               </div>
             </div>
-  
+
             <div class="exterior_slider">
-              <button class="left_arrow" onclick="scrollext('1')"><i class="fas fa-angle-left"></i></button>
-                <div class="slide-item"><img src="../assets/Uploads/EDN248/exterior/Photo-0.jpg"></div>
-                <div class="slide-item"><img src="../assets/Uploads/FJL292/exterior/Photo-0.jpg"></div>
-                <div class="slide-item"><img src="../assets/Uploads/JNF109/exterior/Photo-0.jpg"></div>
-                <div class="slide-item"><img src="../assets/Uploads/JPH3/exterior/Photo-0.jpg"></div>
-                <div class="slide-item"><img src="../assets/Uploads/KCU803/exterior/Photo-0.jpg"></div>
-              <button class="right_arrow" onclick="scrollext('2')"><i class="fas fa-angle-right"></i></button>
-           </div>
-  
+              <div
+                class="cloudimage-360"
+                data-folder="/assets/carimg/"
+                data-filename="photo ({index}).jpg"
+                data-amount="150"
+              ></div>
+            </div>
           </div>
           <div class="car_name_price">
             <div class="c_name"><%= record.Make %></div>
@@ -58,7 +63,7 @@
             </div>
             <div class="prop_hold"><%= record.Transmission %></div>
           </div>
-  
+
           <div class="det_connect">
             <div class="ico_hold">
               <i class="fal fa-tachometer"></i>
@@ -66,7 +71,7 @@
             </div>
             <div class="prop_hold"><%= record.kMeters %></div>
           </div>
-  
+
           <div class="det_connect">
             <div class="ico_hold">
               <i class="fad fa-gas-pump"></i>
@@ -74,7 +79,7 @@
             </div>
             <div class="prop_hold"><%= record.fuelType %></div>
           </div>
-  
+
           <div class="det_connect">
             <div class="ico_hold">
               <i class="fas fa-loveseat"></i>
@@ -82,7 +87,7 @@
             </div>
             <div class="prop_hold"><%= record.SeatNum %></div>
           </div>
-  
+
           <div class="det_connect">
             <div class="ico_hold">
               <i class="fad fa-cogs"></i>
@@ -90,7 +95,7 @@
             </div>
             <div class="prop_hold"><%= record.engineSize %> cc</div>
           </div>
-  
+
           <div class="det_connect">
             <div class="ico_hold">
               <i class="fad fa-car-alt"></i>
@@ -98,7 +103,7 @@
             </div>
             <div class="prop_hold"><%= record.BodyType %></div>
           </div>
-  
+
           <div class="det_connect">
             <div class="ico_hold">
               <i class="fad fa-paint-brush-alt"></i>
@@ -123,16 +128,16 @@
               <form>
                 <label for="ft_name">First Name</label>
                 <input type="text" id="ft_name" required />
-  
+
                 <label for="lt_name">Last Name</label>
                 <input type="text" id="lt_name" required />
-  
+
                 <label for="bt_email">Email Address</label>
                 <input type="email" id="bt_email" required />
-  
+
                 <label for="pt_phone">Phone Number</label>
                 <input type="number" id="pt_phone" required />
-  
+
                 <button
                   class="submit-button"
                   type="submit"
@@ -150,13 +155,13 @@
               <form>
                 <label for="ck_name">Name</label>
                 <input type="text" id="ck_name" required />
-  
+
                 <label for="ck_email">Email Address</label>
                 <input type="email" id="ck_email" required />
-  
+
                 <label for="ck_phone">Phone Number</label>
                 <input type="number" id="ck_phone" required />
-  
+
                 <button
                   class="submit-button"
                   type="submit"
@@ -172,25 +177,29 @@
                 <span>Contact Details</span>
                 <label for="sq_name">Name</label>
                 <input type="text" id="sq_name" required />
-  
+
                 <label for="sq_email">Email Address</label>
                 <input type="email" id="sq_email" required />
-  
+
                 <label for="sq_phone">Phone Number</label>
                 <input type="number" id="sq_phone" required />
-  
+
                 <span>Transport Details</span>
                 <label for="wh_move_from"
                   >Where will the vehicle be move from</label
                 >
                 <input type="text" id="wh_move_from" required />
-  
-                <label for="wh_move_to">Where will the vehicle be move to</label>
+
+                <label for="wh_move_to"
+                  >Where will the vehicle be move to</label
+                >
                 <input type="text" id="wh_move_to" required />
-  
-                <label for="wh_date">What is your prefered transport date</label>
+
+                <label for="wh_date"
+                  >What is your prefered transport date</label
+                >
                 <input type="date" id="wh_date" required />
-  
+
                 <label for="wh_question"
                   >Do you have any other notes OR question (optional)</label
                 >
@@ -200,7 +209,7 @@
                   cols="30"
                   rows="5"
                 ></textarea>
-  
+
                 <button
                   class="submit-button"
                   type="submit"
@@ -212,25 +221,25 @@
             </div>
           </div>
         </div>
-  
+
         <div class="seller-details"></div>
       </div>
     </div>
-    
+
     <%-include('./Components/Footer.ejs') %>
 
-    <script src="/assets/scripts/view360/jquery.js"></script>
-    <script src="/assets/scripts/view360/gyro.js"></script>
-    <script src="/assets/scripts/view360/pano.js"></script>
-    <script src="/assets/scripts/view360/pieview.js"></script>
-    <script src="/assets/scripts/view360/screenfull.js"></script>
-    <script src="/assets/scripts/view360/view360.js"></script>
+    <script src="/assets/scripts/view360-interior/jquery.js"></script>
+    <script src="/assets/scripts/view360-interior/gyro.js"></script>
+    <script src="/assets/scripts/view360-interior/pano.js"></script>
+    <script src="/assets/scripts/view360-interior/pieview.js"></script>
+    <script src="/assets/scripts/view360-interior/screenfull.js"></script>
+    <script src="/assets/scripts/view360-interior/view360.js"></script>
+    <script src="/assets//scripts/view360-exterior/min.js"></script>
     <script>
       var PanoViewer = eg.view360.PanoViewer;
       var container = document.getElementById("myPanoViewer");
       var panoViewer = new PanoViewer(container, {
-        image:
-          "../assets/images/img.jpg",
+        image: "../assets/images/img.jpg",
         projectionType: "equirectangular"
       });
 
