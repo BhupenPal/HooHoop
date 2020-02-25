@@ -18,7 +18,16 @@
   </head>
   <body>
     <%-include('./Components/Header.ejs') %> <% if(user){%> <%=user.firstName %>
-      <div class="dashboard_wrapper">Hello</div>
+      <div class="dashboard_wrapper">
+        <div class="dashboard_enclose">
+          <div class="user_dash_infoop">
+            <div class="userimg-en">
+              <div class="userpic"><img src="../assets/images/Login.png" alt=""></div>
+            </div>
+          </div>
+          <div class="user_ops_info"></div>
+        </div>
+      </div>
     <% } %> <%-include('./Components/Footer.ejs') %>
   </body>
 </html>

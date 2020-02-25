@@ -3,32 +3,45 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Forgot Password</title>
     <link rel="stylesheet" href="/assets/css/index.css" />
     <link rel="stylesheet" href="/assets/css/all.min.css" />
     <link rel="stylesheet" href="/assets/css/fonts.css" />
+    <link
+    rel="icon"
+    href="/assets/images/favicon.ico"
+    type="image/ico"
+    sizes="16*16"
+  />
   </head>
   <body>
     <%-include('./Components/Header.ejs') %> <%-include('./Flash/message.ejs')%> 
     <div class="forg_pass_wrap">
       <% if (mailSent) { %>
-        <h1>Mail sent to your email</h1>
+        <h1 class="headutext">Mail sent to your email</h1>
     
         <% } else if(tokenReceived) { %>
-    
-        <form action="/user/reset-password/reset" method="POST">
-          <input type="text" name="tokenReceived" value="<%= tokenReceived %>" />
-          <input type="text" name="password" />
-          <input type="text" name="password2" />
-          <button type="submit">Submit</button>
-        </form>
+          
+          <div class="f_pass_card">
+            <img src="../assets/images/Logo.png">
+            <form action="/user/reset-password/reset" method="POST">
+              <input type="text" name="tokenReceived" value="<%= tokenReceived %>" />
+              <input type="text" name="password" />
+              <input type="text" name="password2" />
+              <button type="submit">Submit</button>
+            </form>
+          </div>
     
         <% } else { %>
-    
-        <form action="/user/reset-password" method="POST">
-          <input type="text" name="email" />
-          <button type="submit">Forgot Password</button>
-        </form>
+          
+          <div class="f_pass_card">
+            <img src="../assets/images/Logo.png">
+            <form action="/user/reset-password" method="POST">
+              <label for="f_pass_input">Enter Email</label>
+              <input id="f_pass_input" class="input-tag" type="text" name="email" />
+              <button class="sign-up" type="submit">Next</button>
+            </form>
+          </div>
     
     </div>
     <% } %> <%-include('./Components/Footer.ejs') %>
