@@ -125,23 +125,23 @@
           <div class="panel_body">
             <div class="p-body">
               <h2 class="p_body_headlines">Book a Test Drive</h2>
-              <form>
+              <form method="POST">
                 <label for="ft_name">First Name</label>
-                <input type="text" id="ft_name" required />
+                <input type="text" id="ft_name" name="ft_name" required />
 
                 <label for="lt_name">Last Name</label>
-                <input type="text" id="lt_name" required />
+                <input type="text" id="lt_name" name="lt_name" required />
 
                 <label for="bt_email">Email Address</label>
-                <input type="email" id="bt_email" required />
+                <input type="email" id="bt_email" name="bt_email" required />
 
                 <label for="pt_phone">Phone Number</label>
-                <input type="number" id="pt_phone" required />
+                <input type="number" id="pt_phone" name="pt_phone" required />
 
                 <button
                   class="submit-button"
                   type="submit"
-                  formaction="book_test-drive/submit"
+                  formaction="http://localhost:8080/buy-car/<%= record._id %>/book-test-drive"
                 >
                   Submit
                 </button>
@@ -152,20 +152,20 @@
               <h3 class="p_body_headlines">
                 Hi, I am interested. Can you tell me more?
               </h3>
-              <form>
+              <form method="POST">
                 <label for="ck_name">Name</label>
-                <input type="text" id="ck_name" required />
+                <input type="text" id="ck_name" name="ck_name" required />
 
                 <label for="ck_email">Email Address</label>
-                <input type="email" id="ck_email" required />
+                <input type="email" id="ck_email" name="ck_email" required />
 
                 <label for="ck_phone">Phone Number</label>
-                <input type="number" id="ck_phone" required />
+                <input type="number" id="ck_phone" name="ck_phone" required />
 
                 <button
                   class="submit-button"
                   type="submit"
-                  formaction="check_availbility/submit"
+                  formaction="http://localhost:8080/buy-car/<%= record._id %>/check-availbility"
                 >
                   Submit
                 </button>
@@ -173,38 +173,38 @@
             </div>
             <div class="p-body vanish">
               <h2 class="p_body_headlines">Request a transport Quote</h2>
-              <form>
+              <form method="POST">
                 <span>Contact Details</span>
                 <label for="sq_name">Name</label>
-                <input type="text" id="sq_name" required />
+                <input type="text" id="sq_name" name="sq_name" required />
 
                 <label for="sq_email">Email Address</label>
-                <input type="email" id="sq_email" required />
+                <input type="email" id="sq_email" name="sq_email" required />
 
                 <label for="sq_phone">Phone Number</label>
-                <input type="number" id="sq_phone" required />
+                <input type="number" id="sq_phone" name="sq_phone" required />
 
                 <span>Transport Details</span>
                 <label for="wh_move_from"
                   >Where will the vehicle be move from</label
                 >
-                <input type="text" id="wh_move_from" required />
+                <input type="text" id="wh_move_from" name="wh_move_from" required />
 
                 <label for="wh_move_to"
                   >Where will the vehicle be move to</label
                 >
-                <input type="text" id="wh_move_to" required />
+                <input type="text" id="wh_move_to" name="wh_move_to" required />
 
                 <label for="wh_date"
                   >What is your prefered transport date</label
                 >
-                <input type="date" id="wh_date" required />
+                <input type="date" id="wh_date" name="wh_date" required />
 
                 <label for="wh_question"
                   >Do you have any other notes OR question (optional)</label
                 >
                 <textarea
-                  name="question_transport"
+                  name="wh_question"
                   id="wh_question"
                   cols="30"
                   rows="5"
@@ -213,7 +213,7 @@
                 <button
                   class="submit-button"
                   type="submit"
-                  formaction="shipping-quote/submit"
+                  formaction="http://localhost:8080/buy-car/<%= record._id %>/shipping-quote"
                 >
                   Submit
                 </button>
