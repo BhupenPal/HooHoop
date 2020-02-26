@@ -129,17 +129,10 @@ Router.get("/my-listings", ensureAuthenticated, async (req, res) => {
 
 function Paginator(model) {
   return async (req, res, next) => {
-    console.log(req.query)
-    console.log(req.query.Make)
-    console.log(req.query.Model)
+    
     const page = parseInt(req.params.page);
-    let filterParam = null;
-    if(req.query.Model == null){
-      filterParam = req.query.Make;
-    }
-    if(req.query.Make == null){
-      filterParam = req.query.Model
-    }
+    const filterParam = req.query;
+
     const limit = 15;
     const startIndex = (page - 1) * limit;
     const endIndex = page * limit;

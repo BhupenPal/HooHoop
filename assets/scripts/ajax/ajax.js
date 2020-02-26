@@ -1,5 +1,5 @@
-let MakeQuery = null;
-let ModelQuery = null;
+let MakeQuery = '';
+let ModelQuery = '';
 
 MakeSelector = () => {
   let MakeAll = document.getElementById('make').getElementsByTagName('input');
