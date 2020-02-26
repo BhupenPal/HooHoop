@@ -1404,7 +1404,7 @@ body {
 }
 
 .opened_filter {
-  min-height: 175px !important;
+  min-height: 50px !important;
   transition: 0.2s;
 }
 

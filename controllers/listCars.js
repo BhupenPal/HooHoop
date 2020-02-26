@@ -2,7 +2,14 @@ const express = require("express");
 const Router = express.Router();
 const carModel = require("../models/carModel");
 
+const bodyParser = require("body-parser");
+const urlencoded = bodyParser.urlencoded({ extended: !1 });
+
 const {ensureAuthenticated} = require('./log/auth');
+
+const testDrive = require("../models/testDrive");
+const availabilityModel = require("../models/availabilityModel");
+const shippingModel = require("../models/shippingModel");
 
 Router.get('/search-car', (req, res) => {
   if(!req.query.item){
@@ -40,6 +47,80 @@ Router.get("/buy-car/:id", async (req, res) => {
   } catch (e) {}
 });
 
+Router.post("/buy-car/:vID/book-test-drive", urlencoded, async (req, res) => {
+  let vID = req.params.vID;
+
+  const bookTestDrive = new testDrive();
+
+  let result = await carModel.find({ _id: vID }).exec();
+
+  bookTestDrive.firstName = req.body.ft_name;
+  bookTestDrive.lastName = req.body.lt_name;
+  bookTestDrive.email = req.body.bt_email;
+  bookTestDrive.phoneNum = req.body.pt_phone;
+
+  if(req.user){
+    bookTestDrive.customerID  = req.user._id;
+  } else if(!req.user){
+    bookTestDrive.customerID  = "Not Logged In";
+  }
+
+  bookTestDrive.vehicleID = vID;
+
+  bookTestDrive.save();
+
+  res.render("cpage_info", {record: result[0]});
+});
+
+Router.post("/buy-car/:vID/check-availbility", urlencoded, async (req, res) => {
+  let vID = req.params.vID;
+
+  const checkAvailabilityModel = new availabilityModel();
+
+  let result = await carModel.find({ _id: vID }).exec();
+
+  checkAvailabilityModel.fullName = req.body.ck_name;
+  checkAvailabilityModel.email = req.body.ck_email;
+  checkAvailabilityModel.phoneNum = req.body.ck_phone;
+  if(req.user){
+    checkAvailabilityModel.customerID  = req.user._id;
+  } else if(!req.user){
+    checkAvailabilityModel.customerID  = "Not Logged In";
+  }
+  checkAvailabilityModel.vehicleID = vID;
+
+  checkAvailabilityModel.save();
+
+  res.render("cpage_info", {record: result[0]});
+});
+
+Router.post("/buy-car/:vID/shipping-quote", urlencoded, async (req, res) => {
+  let vID = req.params.vID;
+
+  const shippingQuote = new shippingModel();
+
+  let result = await carModel.find({ _id: vID }).exec();
+
+  shippingQuote.fullName = req.body.sq_name;
+  shippingQuote.email = req.body.sq_email;
+  shippingQuote.phoneNum = req.body.sq_phone;
+  shippingQuote.fromLocation = req.body.wh_move_from;
+  shippingQuote.toLocation = req.body.wh_move_to;
+  shippingQuote.transportDate = req.body.wh_date;
+  shippingQuote.note = req.body.wh_question;
+  if(req.user){
+    shippingQuote.customerID  = req.user._id;
+  } else if(!req.user){
+    shippingQuote.customerID  = "Not Logged In";
+  }
+  shippingQuote.vehicleID = vID;
+
+  shippingQuote.save();
+
+  res.render("cpage_info", {record: result[0]});
+});
+
+
 Router.get("/my-listings", ensureAuthenticated, async (req, res) => {
   const myAds = {};
   myAds.listing = await carModel.find({ authorID: req.user.id}).exec();
@@ -48,14 +129,10 @@ Router.get("/my-listings", ensureAuthenticated, async (req, res) => {
 
 function Paginator(model) {
   return async (req, res, next) => {
+    
     const page = parseInt(req.params.page);
-    let filterParam = null;
-    if(req.query.Model == null){
-      filterParam = req.query.Make;
-    }
-    if(req.query.Make == null){
-      filterParam = req.query.Model
-    }
+    const filterParam = req.query;
+
     const limit = 15;
     const startIndex = (page - 1) * limit;
     const endIndex = page * limit;
