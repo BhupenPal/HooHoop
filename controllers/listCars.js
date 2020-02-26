@@ -131,15 +131,15 @@ function Paginator(model) {
   return async (req, res, next) => {
     
     const page = parseInt(req.params.page);
-    const filterParam = req.query;
-
+    const filterParam = req.query
+    console.log(req.query)
     const limit = 15;
     const startIndex = (page - 1) * limit;
     const endIndex = page * limit;
 
     const results = {};
 
-    if (endIndex < (await model.countDocuments().exec())) {
+    if (endIndex < (await model.countDocuments().exec())) { 
       results.next = {
         page: page + 1,
         limit: limit

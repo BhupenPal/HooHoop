@@ -1,5 +1,12 @@
-let MakeQuery = '';
-let ModelQuery = '';
+let MakeQuery = ''; //DONE
+let ModelQuery = ''; //DONE
+let PriceQuery = '';
+let FuelQuery = ''; //Done
+let MetersQuery = ''; 
+let AgeQuery = '';
+let TransmissionQuery = '';  //DONE
+let BodyQuery = ''; //DONE
+let ColourQuery = ''; //DONE
 
 MakeSelector = () => {
   let MakeAll = document.getElementById('make').getElementsByTagName('input');
@@ -26,11 +33,85 @@ ModelSelector = () => {
           ModelQuery += `Model=${ModelAll[modelCount].value}&`;
       }
   }
-
+  Petrol
   ModelQuery = ModelQuery.slice(0, -1)
   filterResultHandler()
 }
 
+FuelSelector = () => {
+  let FuelAll = document.getElementById('fuel_type').getElementsByTagName('input');
+
+  FuelQuery = '';
+  
+  for(let fuelCount = 0; fuelCount < FuelAll.length; fuelCount++){
+      if(FuelAll[fuelCount].checked === true){
+          FuelQuery += `fuelType=${FuelAll[fuelCount].value}&`;
+      }
+  }
+
+  FuelQuery = FuelQuery.slice(0, -1)
+  filterResultHandler()
+}
+
+MeterSelector = () => {
+  let MeterAll = document.getElementById('kms').getElementsByTagName('input');
+
+  MetersQuery = '';
+  
+  for(let meterCount = 0; meterCount < MeterAll.length; meterCount++){
+      if(MeterAll[meterCount].checked === true){
+          MakeQuery += `kMeters=${MeterAll[meterCount].value}&`;
+      }
+  }
+
+  MetersQuery = MetersQuery.slice(0, -1)
+  filterResultHandler()
+}
+
+TransmissionSelector = () => {
+  let TransmissionAll = document.getElementById('transmission').getElementsByTagName('input');
+
+  TransmissionQuery = '';
+  
+  for(let TransimissionCount = 0; TransimissionCount < TransmissionAll.length; TransimissionCount++){
+      if(TransmissionAll[TransimissionCount].checked === true){
+          TransmissionQuery += `Transmission=${TransmissionAll[TransimissionCount].value}&`;
+      }
+  }
+
+  TransmissionQuery = TransmissionQuery.slice(0, -1)
+  filterResultHandler()
+}
+
+BodySelector = () => {
+  let BodyAll = document.getElementById('body_type').getElementsByTagName('input');
+
+  BodyQuery = '';
+  
+  for(let BodyCount = 0; BodyCount < BodyAll.length; BodyCount++){
+      if(BodyAll[BodyCount].checked === true){
+          BodyQuery += `BodyType=${BodyAll[BodyCount].value}&`;
+      }
+  }
+
+  BodyQuery = BodyQuery.slice(0, -1)
+  filterResultHandler()
+}
+
+ColourSelector = () => {
+  let ColourAll = document.getElementById('color').getElementsByTagName('input');
+
+  ColourQuery = '';
+  
+  for(let ColourCount = 0; ColourCount < ColourAll.length; ColourCount++){
+      if(ColourAll[ColourCount].checked === true){
+          ColourQuery += `Colour=${ColourAll[ColourCount].value}&`;
+      }
+  }
+
+  ColourQuery = ColourQuery.slice(0, -1)
+  filterResultHandler()
+}
 
 function filterResultHandler(){
 
@@ -38,7 +119,7 @@ function filterResultHandler(){
   
   const xhr = new XMLHttpRequest();
 
-  xhr.open("GET", `http://localhost:8080/filter-content/${pageParams}?${MakeQuery}&${ModelQuery}`, true);
+  xhr.open("GET", `http://localhost:8080/filter-content/${pageParams}?${MakeQuery}&${ModelQuery}&${FuelQuery}&${TransmissionQuery}&${BodyQuery}&${ColourQuery}`, true);
   xhr.getResponseHeader("content-type", "application/json")
 
   xhr.onprogress = function() {

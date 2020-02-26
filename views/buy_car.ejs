@@ -122,10 +122,10 @@
           <div id="fuel_type" class="filter_option">
             <div class="Filter_class" onclick="foption('3')"><span>Fuel Type</span><i class="fas fa-chevron-right"></i></div>
             <div class="foption_encloser">
-                <div class="foption">Petrol <input type="checkbox" id="foption-78"> <label for="foption-78"></label></div>
-                <div class="foption">Diesel <input type="checkbox" id="foption-79"> <label for="foption-79"></label></div>
-                <div class="foption">Electric <input type="checkbox" id="foption-80"> <label for="foption-80"></label></div>
-                <div class="foption">Hybrid <input type="checkbox" id="foption-81"> <label for="foption-81"></label></div>
+                <div class="foption">Petrol <input type="checkbox" value="Petrol" onclick="FuelSelector()" id="foption-78"> <label for="foption-78"></label></div>
+                <div class="foption">Diesel <input type="checkbox" value="Diesel" onclick="FuelSelector()" id="foption-79"> <label for="foption-79"></label></div>
+                <div class="foption">Electric <input type="checkbox" value="Electric" onclick="FuelSelector()" id="foption-80"> <label for="foption-80"></label></div>
+                <div class="foption">Hybrid <input type="checkbox" value="Hybrid" onclick="FuelSelector()" id="foption-81"> <label for="foption-81"></label></div>
             </div>
           </div>
           <div id="kms" class="filter_option">
@@ -150,36 +150,36 @@
           <div id="transmission" class="filter_option">
             <div class="Filter_class" onclick="foption('6')"><span>Transmission</span><i class="fas fa-chevron-right"></i></div>
             <div class="foption_encloser">
-              <div class="foption">Automatic<input type="checkbox" id="foption-91"> <label for="foption-91"></label></div>
-              <div class="foption">Manual<input type="checkbox" id="foption-92"> <label for="foption-92"></label></div>
+              <div class="foption">Automatic<input type="checkbox" onclick="TransmissionSelector()" value="Automatic" id="foption-91"> <label for="foption-91"></label></div>
+              <div class="foption">Manual<input type="checkbox" onclick="TransmissionSelector()" value="Manual" id="foption-92"> <label for="foption-92"></label></div>
             </div>
           </div>
           <div id="body_type" class="filter_option">
             <div class="Filter_class" onclick="foption('7')"><span>Body Type</span><i class="fas fa-chevron-right"></i></div>
             <div class="foption_encloser">
-              <div class="foption">Convertible<input type="checkbox" id="foption-93"> <label for="foption-93"></label></div>
-              <div class="foption">Coupe<input type="checkbox" id="foption-94"> <label for="foption-94"></label></div>
-              <div class="foption">Hatchback<input type="checkbox" id="foption-95"> <label for="foption-95"></label></div>
-              <div class="foption">Sedan<input type="checkbox" id="foption-96"> <label for="foption-96"></label></div>
-              <div class="foption">Station Wagon<input type="checkbox" id="foption-97"> <label for="foption-97"></label></div>
-              <div class="foption">RV/SUV<input type="checkbox" id="foption-98"> <label for="foption-98"></label></div>
-              <div class="foption">Ute<input type="checkbox" id="foption-99"> <label for="foption-99"></label></div>
-              <div class="foption">Van<input type="checkbox" id="foption-100"> <label for="foption-100"></label></div>
-              <div class="foption">Other<input type="checkbox" id="foption-101"> <label for="foption-101"></label></div>
+              <div class="foption">Convertible<input type="checkbox" onclick="BodySelector()" value="Convertible" id="foption-93"> <label for="foption-93"></label></div>
+              <div class="foption">Coupe<input type="checkbox" onclick="BodySelector()" value="Coupe" id="foption-94"> <label for="foption-94"></label></div>
+              <div class="foption">Hatchback<input type="checkbox" onclick="BodySelector()" value="Hatchback" id="foption-95"> <label for="foption-95"></label></div>
+              <div class="foption">Sedan<input type="checkbox" onclick="BodySelector()" value="Sedan" id="foption-96"> <label for="foption-96"></label></div>
+              <div class="foption">Station Wagon<input type="checkbox" onclick="BodySelector()" value="Station Wagon" id="foption-97"> <label for="foption-97"></label></div>
+              <div class="foption">RV/SUV<input type="checkbox" onclick="BodySelector()" value="RV/SV" id="foption-98"> <label for="foption-98"></label></div>
+              <div class="foption">Utility<input type="checkbox" onclick="BodySelector()" value="Utility" id="foption-99"> <label for="foption-99"></label></div>
+              <div class="foption">Van<input type="checkbox" onclick="BodySelector()" value="Van" id="foption-100"> <label for="foption-100"></label></div>
+              <div class="foption">Other<input type="checkbox" onclick="BodySelector()" value="" id="foption-101"> <label for="foption-101"></label></div>
             </div>
           </div>
           <div id="color" class="filter_option">
             <div class="Filter_class" onclick="foption('8')"><span>Color</span><i class="fas fa-chevron-right"></i></div>
             <div class="foption_encloser">
-              <div class="foption">Black<input type="checkbox" id="foption-102"> <label for="foption-102"></label></div>
-              <div class="foption">Blue<input type="checkbox" id="foption-103"> <label for="foption-103"></label></div>
-              <div class="foption">Gold<input type="checkbox" id="foption-104"> <label for="foption-104"></label></div>
-              <div class="foption">Green<input type="checkbox" id="foption-105"> <label for="foption-105"></label></div>
-              <div class="foption">Grey<input type="checkbox" id="foption-106"> <label for="foption-106"></label></div>
-              <div class="foption">Orange<input type="checkbox" id="foption-107"> <label for="foption-107"></label></div>
-              <div class="foption">Red<input type="checkbox" id="foption-108"> <label for="foption-108"></label></div>
-              <div class="foption">White<input type="checkbox" id="foption-109"> <label for="foption-109"></label></div>
-              <div class="foption">Other<input type="checkbox" id="foption-110"> <label for="foption-110"></label></div>
+              <div class="foption">Black<input type="checkbox" onclick="ColourSelector()" id="foption-102" value="Black"> <label for="foption-102"></label></div>
+              <div class="foption">Blue<input type="checkbox" onclick="ColourSelector()" id="foption-103" value="Blue"> <label for="foption-103"></label></div>
+              <div class="foption">Gold<input type="checkbox" onclick="ColourSelector()" id="foption-104" value="Gold"> <label for="foption-104"></label></div>
+              <div class="foption">Green<input type="checkbox" onclick="ColourSelector()" id="foption-105" value="Green"> <label for="foption-105"></label></div>
+              <div class="foption">Grey<input type="checkbox" onclick="ColourSelector()" id="foption-106" value="Grey"> <label for="foption-106"></label></div>
+              <div class="foption">Orange<input type="checkbox" onclick="ColourSelector()" id="foption-107" value="Orange"> <label for="foption-107"></label></div>
+              <div class="foption">Red<input type="checkbox" onclick="ColourSelector()" id="foption-108" value="Red"> <label for="foption-108"></label></div>
+              <div class="foption">White<input type="checkbox" onclick="ColourSelector()" id="foption-109" value="White"> <label for="foption-109"></label></div>
+              <div class="foption">Other<input type="checkbox" onclick="ColourSelector()" id="foption-110" value=""> <label for="foption-110"></label></div>
             </div>
           </div>
         </form>
