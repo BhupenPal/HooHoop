@@ -48,9 +48,6 @@ Router.get("/my-listings", ensureAuthenticated, async (req, res) => {
 
 function Paginator(model) {
   return async (req, res, next) => {
-    console.log(req.query)
-    console.log(req.query.Make)
-    console.log(req.query.Model)
     const page = parseInt(req.params.page);
     let filterParam = null;
     if(req.query.Model == null){
