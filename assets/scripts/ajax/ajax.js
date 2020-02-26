@@ -1,4 +1,5 @@
 let MakeQuery = null;
+let ModelQuery = null;
 
 MakeSelector = () => {
   let MakeAll = document.getElementById('make').getElementsByTagName('input');
@@ -15,13 +16,29 @@ MakeSelector = () => {
   filterResultHandler()
 }
 
+ModelSelector = () => {
+  let ModelAll = document.getElementById('model').getElementsByTagName('input');
+
+  ModelQuery = '';
+  
+  for(let modelCount = 0; modelCount < ModelAll.length; modelCount++){
+      if(ModelAll[modelCount].checked === true){
+          ModelQuery += `Model=${ModelAll[modelCount].value}&`;
+      }
+  }
+
+  ModelQuery = ModelQuery.slice(0, -1)
+  filterResultHandler()
+}
+
+
 function filterResultHandler(){
 
   const pageParams = window.location.href.split('/')[4].split('?')[0];
   
   const xhr = new XMLHttpRequest();
 
-  xhr.open("GET", `http://localhost:8080/filter-content/${pageParams}?${MakeQuery}`, true);
+  xhr.open("GET", `http://localhost:8080/filter-content/${pageParams}?${MakeQuery}&${ModelQuery}`, true);
   xhr.getResponseHeader("content-type", "application/json")
 
   xhr.onprogress = function() {

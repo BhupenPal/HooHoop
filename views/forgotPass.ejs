@@ -18,7 +18,7 @@
     <%-include('./Components/Header.ejs') %> <%-include('./Flash/message.ejs')%> 
     <div class="forg_pass_wrap">
       <% if (mailSent) { %>
-        <h1 class="headutext">Mail sent to your email</h1>
+        <h1 class="head-textmail">Mail sent to your email</h1>
     
         <% } else if(tokenReceived) { %>
           
@@ -28,7 +28,7 @@
               <input type="text" name="tokenReceived" value="<%= tokenReceived %>" />
               <input type="text" name="password" />
               <input type="text" name="password2" />
-              <button type="submit">Submit</button>
+              <button class="sign-up" type="submit">Submit</button>
             </form>
           </div>
     
@@ -44,6 +44,7 @@
           </div>
     
     </div>
-    <% } %> <%-include('./Components/Footer.ejs') %>
+    <% } %> 
+    <%-include('./Components/Footer.ejs') %>
   </body>
 </html>

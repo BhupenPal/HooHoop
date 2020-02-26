@@ -3,6 +3,7 @@ body {
   margin: 0 !important;
   padding: 0 !important;
   overflow-x: hidden;
+  position: relative;
 }
 
 *::-webkit-scrollbar {
@@ -1978,7 +1979,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 80vh;
+    min-height: 80vh;
     background-color: #f2f2f2;
   }
 
@@ -1986,6 +1987,7 @@ body {
     height: 400px;
     width: 400px;
     display: flex;
+    margin: 30px;
     flex-direction: column;
     align-items: center;
     border-radius: 10px;
@@ -2020,6 +2022,11 @@ body {
     box-sizing: border-box;
     padding: 0 10px;
     font-size: 20px;
+  }
+
+  .head-textmail{
+    margin: 400px 0;
+    font-family: Raleway;
   }
 /* Forgot-Password */
 
