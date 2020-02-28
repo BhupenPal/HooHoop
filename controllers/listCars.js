@@ -1,6 +1,7 @@
 const express = require("express");
 const Router = express.Router();
 const carModel = require("../models/carModel");
+const userModel = require("../models/userModel");
 
 const bodyParser = require("body-parser");
 const urlencoded = bodyParser.urlencoded({ extended: !1 });
@@ -43,7 +44,8 @@ Router.get("/buy-car/:id", async (req, res) => {
     let result = await carModel.find({ _id: id }).exec();
     let views = result[0].views + 1;
     carModel.updateOne({ _id: id }, { $set: { views: views } }, () => {});
-    res.render("cpage_info", { record: result[0] });
+    let seller = await userModel.find({_id : result[0].authorID})
+    res.render("cpage_info", { record: result[0], seller: seller[0] });
   } catch (e) {}
 });
 
