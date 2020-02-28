@@ -132,3 +132,12 @@ function intext(j){
   }
  
 }
+
+function del_lstng(j){
+  if(j==1){
+    document.getElementsByClassName("del_lstng")[0].style.display = "flex"
+  }
+  else{
+    document.getElementsByClassName("del_lstng")[0].style.display = "none"
+  }
+}

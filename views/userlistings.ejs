@@ -42,7 +42,7 @@
           </div>
           <div class="list_option_btn_wrap">
             <button class="list_option_btn"><i class="fad fa-edit"></i></button>
-            <button class="list_option_btn">
+            <button class="list_option_btn" onclick="del_lstng('1')">
               <i class="fad fa-trash"></i>
             </button>
             <button class="list_option_btn">
@@ -59,9 +59,9 @@
 
     <!-- Prompt for delete -->
       <div class="del_lstng">
-        <div class="cnf_symbl"></div>
-        <div>Are you sure you want to delete this listing</div>
-        <button class="del_lstng_btn">Delete</button>
+        <div class="cnf_symbl"><i class="fad fa-trash"></i></div>
+        <div class="del_text">Are you sure you want to delete this listing</div>
+        <button class="del_lstng_btn" onclick="del_lstng('2')">Delete</button>
       </div>
     <!-- Prompt for delete -->
   </div>
