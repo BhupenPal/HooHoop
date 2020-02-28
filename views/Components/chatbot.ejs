@@ -1,0 +1,37 @@
+<div class="chatBot">
+    <div class="opened">
+
+        <div class="user">
+            <div id="bot-image"></div>
+            <div id="bot-status">
+                <h2>Hoohoop Chatbot</h2>    
+            </div>
+           <button class="cross" onclick="chatbotcloser()">
+               <div class="line-1"></div>
+               <div class="line-2"></div>
+           </button>
+        </div>
+
+        <!-- chatbox -->
+        <div class="chatbox" id="toAppend">
+
+        </div>
+
+        <!-- chatbox -->
+        <button id="confirm">YES</button> <button id="reject">NO</button>
+        <!-- input-box -->
+        <form class="input-field" onload="botLoader()">
+            <input type="text" class="input-container" onclick ="inputtrack()"
+             id="inputContainer" placeholder="Type your message here" 
+             onfocus="this.placeholder = ''" 
+             onblur="this.placeholder = 'Type your message here'"> 
+            <button class="send-button" id="sendButton" type="button" onclick="createmessage()"><i class="fa fa-paper-plane"></i></button>
+        </form>
+
+        <!-- input-box -->
+
+        <div class="copyright">&#169 copyright hoohoop.co.nz</div>
+
+    </div>
+    <div onclick="chatbotopener()" class="unOpened" >~</div>
+</div>

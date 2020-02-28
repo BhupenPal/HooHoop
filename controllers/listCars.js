@@ -35,7 +35,12 @@ Router.get("/search-car/:page", Paginator(carModel), async (req, res) => {
 });
 
 Router.get('/filter-content/:page', Paginator(carModel), async (req, res) => {
-  res.json({record: res.Paginator.results})
+
+  if(req.xhr){
+    res.json({record: res.Paginator.results})
+  }
+  res.send('Link not accessible');
+  
 })
 
 Router.get("/buy-car/:id", async (req, res) => {

@@ -4,6 +4,9 @@ const app = express();
 app.set("view engine", "ejs");
 app.use("/assets", express.static("assets"));
 
+//Environment Variables
+require('dotenv').config();
+
 // Passport Config
 const passport = require("passport");
 require("./controllers/log/passport")(passport);
