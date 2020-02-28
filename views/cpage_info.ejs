@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/assets/css/fonts.css" />
     <link rel="stylesheet" href="/assets/css/view360/demo.css" />
     <link rel="stylesheet" href="/assets/css/view360/pano.css" />
+    <link rel="stylesheet" href="/assets/css/chatbot.css">
     <script src="/assets/scripts/script.js"></script>
     <title>HooHoop</title>
     <link
@@ -224,10 +225,14 @@
           </div>
         </div>
 
-        <div class="seller-details"></div>
+        <div class="seller-details">
+          <p>Seller:<%= seller.firstName %> <%= seller.lastName %></p>
+          <p>Contact Number: <%= seller.phoneNum %> </p>
+          <p>Contact Email: <%= seller.email %></p>
+        </div>
       </div>
     </div>
-
+    <%-include('./Components/chatbot.ejs') %>
     <%-include('./Components/Footer.ejs') %>
 
     <script src="/assets/scripts/view360-interior/jquery.js"></script>
@@ -237,6 +242,7 @@
     <script src="/assets/scripts/view360-interior/screenfull.js"></script>
     <script src="/assets/scripts/view360-interior/view360.js"></script>
     <script src="/assets//scripts/view360-exterior/min.js"></script>
+    <script src="/assets/scripts/chatbot.js"></script>
     <script>
       var PanoViewer = eg.view360.PanoViewer;
       var container = document.getElementById("myPanoViewer");
