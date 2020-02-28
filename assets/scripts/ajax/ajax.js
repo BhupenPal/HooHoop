@@ -33,6 +33,7 @@ ModelSelector = () => {
           ModelQuery += `Model=${ModelAll[modelCount].value}&`;
       }
   }
+  
   ModelQuery = ModelQuery.slice(0, -1)
   filterResultHandler()
 }
@@ -143,7 +144,7 @@ let output='';
   for(inc = 0; inc<json.record.length; inc++){
     output += `  <a href="http://localhost:8080/buy-car/${json.record[inc]._id}" class="cardanchor">
     <div class="bc-card">
-      <div class="cb_img"><img src="/assets/Uploads/${json.record[inc].vinNum}/exterior/${json.record[inc].thumbnail}"></div>
+      <div class="cb_img"><img src="/assets/Uploads/${json.record[inc].vinNum}/exterior/Photo-1.jpg"></div>
       <div class="cb_info">
         <div class="cb_main">
           <span class="cb_name"> ${json.record[inc].Make } </span>

@@ -2,13 +2,13 @@ const express = require("express");
 const Router = express.Router();
 const fs = require("fs");
 const multer = require("multer");
+const extractFrames = require('ffmpeg-extract-frames');
 const carModel = require("../models/carModel");
 const bodyParser = require("body-parser");
 const urlencoded = bodyParser.urlencoded({
   extended: !1
 });
 
-let photoIndex = 1;
 let thumbnail = null;
 
 var storeExterior = multer.diskStorage({
@@ -76,17 +76,10 @@ var storeExterior = multer.diskStorage({
   },
   filename: function(req, file, cb) {
     if (file.fieldname === "exterior") {
-      if (file.originalname === req.body.thumbnail) {
-        let ext = file.originalname.split(".")[1];
-        let filename = "Photo-0." + ext;
+      let ext = file.originalname.split(".")[1];
+        let filename = "video." + ext;
         thumbnail = filename;
         cb(null, filename);
-      } else {
-        let ext = file.originalname.split(".")[1];
-        let filename = "Photo-" + photoIndex + "." + ext;
-        photoIndex++;
-        cb(null, filename);
-      }
     } else if (file.fieldname !== "exterior") {
       let ext = file.originalname.split(".")[1];
       let filename = file.fieldname + "." + ext;
@@ -122,10 +115,7 @@ Router.post("/car-submit/submit", urlencoded, exterior, (req, res) => {
   newCar.RoadCost = req.body.RoadCost;
   newCar.Description = req.body.Description;
   newCar.authorID = req.user._id;
-  newCar.thumbnail = thumbnail;
   newCar.views = 0;
-
-  photoIndex = 0;
 
   if (req.body.BodyType === "CV") {
     newCar.BodyType = "Convertible";
@@ -209,6 +199,13 @@ Router.post("/car-submit/submit", urlencoded, exterior, (req, res) => {
   } else {
     newCar.authorPhone = 0;
   }
+
+    extractFrames({
+      input: `assets/Uploads/${req.body.vinNum}/exterior/${thumbnail}`,
+      output: `assets/Uploads/${req.body.vinNum}/exterior/Photo-%d.jpg`,
+      numFrames: 80
+    })
+
   newCar.save();
   res.render("dashboard");
 });

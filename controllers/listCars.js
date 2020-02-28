@@ -132,7 +132,7 @@ function Paginator(model) {
     
     const page = parseInt(req.params.page);
     const filterParam = req.query
-    console.log(req.query)
+
     const limit = 15;
     const startIndex = (page - 1) * limit;
     const endIndex = page * limit;

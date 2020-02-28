@@ -40,14 +40,16 @@
               </div>
             </div>
 
+
             <div class="exterior_slider">
               <div
                 class="cloudimage-360"
-                data-folder="/assets/carimg/"
-                data-filename="photo ({index}).jpg"
-                data-amount="150"
+                data-folder="/assets/Uploads/<%= record.vinNum %>/exterior/"
+                data-filename="Photo-{index}.jpg"
+                data-amount="82"
               ></div>
             </div>
+
           </div>
           <div class="car_name_price">
             <div class="c_name"><%= record.Make %></div>
@@ -238,7 +240,7 @@
     <script>
       var PanoViewer = eg.view360.PanoViewer;
       var container = document.getElementById("myPanoViewer");
-      var panoViewer = new PanoViewer(container, {
+      let panoViewer = new PanoViewer(container, {
         image: "../assets/images/img.jpg",
         projectionType: "equirectangular"
       });
