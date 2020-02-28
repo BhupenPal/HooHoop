@@ -33,7 +33,6 @@ ModelSelector = () => {
           ModelQuery += `Model=${ModelAll[modelCount].value}&`;
       }
   }
-  Petrol
   ModelQuery = ModelQuery.slice(0, -1)
   filterResultHandler()
 }
