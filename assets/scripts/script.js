@@ -90,9 +90,9 @@ function previewImages() {
   function readAndPreview(file) {
 
     // Make sure `file.name` matches our extensions criteria
-    if (!/\.(jpe?g|png|gif)$/i.test(file.name)) {
-      return alert(file.name + " is not an image");
-    } // else...
+    // if (!/\.(jpe?g|png|gif)$/i.test(file.name)) {
+    //   return alert(file.name + " is not an image");
+    // } // else...
     
     var reader = new FileReader();
     

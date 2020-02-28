@@ -24,11 +24,11 @@ Router.post("/car-submit/data", urlencoded, async (req, res) => {
 
 });
 
-function fetchData() {
+async function fetchData() {
   const secret = "B2C45C806CBC78480310F6B0401CEE2A4FCCCFD4";
   let urlReq = `https://carjam.co.nz/a/vehicle:abcd?key=${secret}&plate=${vinFigure}`;
 
-  return fetch(urlReq).then(res => res.json());
+  return await fetch(urlReq).then(res => res.json());
 }
 
 
