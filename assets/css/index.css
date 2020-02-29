@@ -1417,7 +1417,9 @@ body {
 }
 
 .Pagination{
-  margin: 40px auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 150px;
   height: 100px;
   display: flex;
   justify-content: center;
