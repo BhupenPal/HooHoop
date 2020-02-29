@@ -37,15 +37,17 @@
               <strong>Price :</strong><%= myAds[i].Price %>
             </div>
             <div class="list_info_status">
-              <strong>Status :</strong> ACTIVE/NOT ACTIVE
+              <strong>Status :</strong> <%= myAds[i].adActive %>
             </div>
           </div>
           <div class="list_option_btn_wrap">
-            <button class="list_option_btn"><i class="fad fa-edit"></i></button>
-            <button class="list_option_btn" onclick="del_lstng('1')">
+            <button class="list_option_btn">
+              <i class="fad fa-edit"></i>
+            </button>
+            <button class="list_option_btn" value="<%= myAds[i]._id %>" onclick="del_lstng(this)">
               <i class="fad fa-trash"></i>
             </button>
-            <button class="list_option_btn">
+            <button class="list_option_btn"  value="<%= myAds[i]._id %>" onclick="sell_listed(this)">
               <i class="fad fa-check"></i>
             </button>
             <a href="http://localhost:8080/buy-car/<%= myAds[i]._id %>">
@@ -59,11 +61,27 @@
 
     <!-- Prompt for delete -->
       <div class="del_lstng">
+        <button onclick="del_lstng(false)">X</button>
         <div class="cnf_symbl"><i class="fad fa-trash"></i></div>
         <div class="del_text">Are you sure you want to delete this listing</div>
-        <button class="del_lstng_btn" onclick="del_lstng('2')">Delete</button>
+        <form method="POST">
+          <input type="text" id="adDelete" value="" name="deleteAd">
+          <button class="del_lstng_btn" type="submit" formaction="/my-ads/delete">Delete</button>
+        </form>
       </div>
     <!-- Prompt for delete -->
+
+        <!-- Prompt for delete -->
+        <div class="del_lstng">
+          <button onclick="sell_listed(false)">X</button>
+          <div class="cnf_symbl"><i class="fad fa-trash"></i></div>
+          <div class="del_text">Are you sure you want to mark this vehicle as sold?</div>
+          <form method="POST">
+            <input type="text" id="adSOLD" value="" name="adSOLD">
+            <button class="del_lstng_btn" type="submit" formaction="/my-ads/update">Mark as sold</button>
+          </form>
+        </div>
+      <!-- Prompt for delete -->
   </div>
 
   <%-include('./Components/Footer.ejs') %>

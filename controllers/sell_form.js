@@ -115,6 +115,7 @@ Router.post("/car-submit/submit", urlencoded, exterior, (req, res) => {
   newCar.RoadCost = req.body.RoadCost;
   newCar.Description = req.body.Description;
   newCar.authorID = req.user._id;
+  newCar.adActive = true;
   newCar.views = 0;
 
   if (req.body.BodyType === "CV") {

@@ -66,7 +66,8 @@ const Schema = mongoose.Schema,
     CarFolder: String,
     photo360: Boolean,
     authorID: String,
-    views: Number
+    views: Number,
+    adActive: Boolean
   });
 
 module.exports = mongoose.model("CarList", CarSchema);

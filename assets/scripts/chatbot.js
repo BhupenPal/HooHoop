@@ -36,20 +36,32 @@ let status = "GREETING";
 let message = 0;
 let userName = null;
 let deal = null;
+let current = 0;
+let minor = document.getElementById('major').value - document.getElementById('minor').value
+let disc = (minor / document.getElementById('major').value)*100;
 
 let Botgreetings = ["Hi, I am Bargain Bot of this Product. May I Know Your Name.",
 "Hello, I am here to sell this Vehicle, Whats your name?",
-"Hey there, my superior told me to sell this vehicle, may I know your name"
+"Hey there, my superior told me to sell this vehicle, may I know your name",
+"Hey there!! Can I know your name",
+"Hello.. Can I know your name",
+"Hi!! Can I know your name"
 ];
 
+let BotOffers = [];
+
+let BotDiscount = [];
+
 let BotHaggle = [`Hi ${name}`,"Do you think 10% work for you ?","what about 15% discount ?",
-"Let's see whats in your mind",`Lets seal the deal on ${deal}`,"no can do,thats too less to be called an offer",
+"Let's see whats in your mind",`Lets seal the deal on ${deal}`,"no can't do it, thats too less to be called an offer",
 "I am not going to giveaway this vehicle","My boss will go bankrupt if you gives offers like that"
 ];
 
 function createmessage(){
+
     if(status === "GREETING"){
         botReply(Botgreetings[Math.floor(Math.random()*Botgreetings.length)])
+        document.getElementById('opt-buttons').style.display = 'none'
         status = "NAME_ASKED"
         return
     }
@@ -57,54 +69,69 @@ function createmessage(){
     if(status === "NAME_ASKED"){
         userName = document.getElementById('inputContainer').value;
         userReply(userName)
+
+        if(userName.includes("is")){
+            console.log('smart')
+            userName = userName.split("is ")[1];
+        }
+
+        if(userName.includes("am")){
+            console.log('smart')
+            userName = userName.split("am ")[1];
+        }
+
+        if(userName.includes("'m")){
+            console.log('smart')
+            userName = userName.split("'m ")[1];
+        }
+
+        BotOffers = [`So, ${userName} are you intersted in a special offer?`, 
+                     `${userName}, Would you be intersted in an exclusive offer?`, 
+                     `${userName}, Would you be intersted in an exclusive deal?`,
+                     `We have an extraordinary discount for you. Would you be intersted?`,
+                     `We have a discount exclusively for you. Wanna have a look?`,
+                     `Intersted in an offer?`
+                    ];
+
         status = "ASK_CONFIRMATION";            
-        botReply(`Hey ${userName}, would you like me to give you an offer`)
+        botReply(BotOffers[Math.floor(Math.random()*BotOffers.length)])
+
+        document.getElementById('opt-buttons').style.display = 'block';
+        document.getElementsByClassName('input-field')[0].style.display = 'none';
     }
 
     if(status === "ASK_CONFIRMATION"){
         document.getElementById('confirm').onclick = () => {
             userReply('YES')
-            botReply(BotHaggle[Math.floor(Math.random()*Botgreetings.length)])
+            status = "BARGAIN"
+            createmessage();
         }
 
         document.getElementById('reject').onclick = () => {
-            console.log('No')
+            userReply('NO')
+            botReply('Just let me know if you change your mind')
+            status = "MINDCHANGE_CHECK"
+            document.getElementById('confirm').innerHTML = "I changed my mind, give me an offer"
+            document.getElementById('reject').style.display = 'none';
+            createmessage();
         }
     }
-    
-    // else if(message == 1){
-    //     name = usermessage.innerHTML;
-    //     botmessage.innerHTML = Bothaggle[0];
-    //     usermessage.innerHTML = document.getElementById("inputContainer").value 
-    //     console.log(name)
-    //     message++
-    // }
 
-    // else if(message == 2){
-    //     botmessage.innerHTML = Bothaggle[1]
-    //     message++
-    // }
+    if(status === "MINDCHANGE_CHECK"){
+        document.getElementById('confirm').onclick = () => {
+            userReply('I just changed my mind');
+            botReply('good to know that, ' + userName)
+            status = "BARGAIN"
+            createmessage();
+        }
+    }
 
-    // else if(message == 3){
-    //     botmessage.innerHTML = Bothaggle[2]
-    //     message++
-    // }
-
-
-    // let ucontain = document.createElement("div") // User-message inserted in container
-    // ucontain.classList.add("form-user-box")
-    
-    // if(usermessage != ""){
-    //     ucontain.append(usermessage)
-    //     document.getElementById("toAppend").append(ucontain); //Both message inserted in chat body
-    // }
-
-    
-    // if(botmessage != ""){
-    //     bcontain.append(botimg);
-    //     bcontain.append(botmessage);
-    //     document.getElementById("toAppend").append(bcontain);
-    // }
+    if(status === "BARGAIN"){
+        if(message <= 5){
+            botReply(message)
+            message++
+        }
+    }
 
 }
 
@@ -141,6 +168,29 @@ function userReply(msgToAdd){
     document.getElementById('toAppend').append(userMsgContain)
     document.getElementById("inputContainer").value = "";
 }
+
+function sendChatDetails(){
+    
+    const xhr = new XMLHttpRequest();
+  
+    xhr.open("POST", `http://localhost:8080/chatbot/submit`, true);
+    xhr.getResponseHeader("content-type", "application/json")
+  
+    xhr.onprogress = function() {
+      console.log("On progress");
+    };
+  
+    xhr.onload = function() {
+      if (this.status === 200) {
+        console.log('Successfull');
+      } else {
+        console.log("Some error occured");
+      }
+    };
+    
+    const couponDetails = `{"Name": ${userName}, "email": ${userEmail}, "userPhone": ${userPhone}, "CouponCode":  ${couponCode}, "carID": ${carID}}`
+    xhr.send();
+  }
 
 createmessage();
 
