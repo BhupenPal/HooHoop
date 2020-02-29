@@ -233,7 +233,8 @@
       <%-include('./Components/chatbot.ejs') %>
     </div>
     <%-include('./Components/Footer.ejs') %>
-
+    <input type="text" id="minor" style="display: block;" value="<%= record.minPrice %>">
+    <input type="text" id="major" style="display: block;" value="<%= record.Price %>">
     <script src="/assets/scripts/view360-interior/jquery.js"></script>
     <script src="/assets/scripts/view360-interior/gyro.js"></script>
     <script src="/assets/scripts/view360-interior/pano.js"></script>

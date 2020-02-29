@@ -128,10 +128,20 @@ Router.post("/buy-car/:vID/shipping-quote", urlencoded, async (req, res) => {
 });
 
 
-Router.get("/my-listings", ensureAuthenticated, async (req, res) => {
+Router.get("/my-ads", ensureAuthenticated, async (req, res) => {
   const myAds = {};
   myAds.listing = await carModel.find({ authorID: req.user.id}).exec();
   res.render("userlistings", {myAds: myAds.listing});
+})
+
+Router.post("/my-ads/delete", urlencoded, async (req, res) => {
+  await carModel.deleteOne({ _id: req.body.deleteAd})
+  res.redirect("/my-ads")
+})
+
+Router.post("/my-ads/update", urlencoded, async (req, res) => {
+  await carModel.updateOne({ _id: req.body.adSOLD }, { $set: { adActive: false } }, () => {})
+  res.redirect("/my-ads")
 })
 
 function Paginator(model) {
