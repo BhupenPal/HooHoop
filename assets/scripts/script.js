@@ -141,3 +141,13 @@ function del_lstng(j){
     document.getElementsByClassName("del_lstng")[0].style.display = "none"
   }
 }
+
+function showpop(j){
+  if(j==1){
+    document.getElementsByClassName("edit_pic")[0].classList.remove("vanish")
+  }
+
+  else{
+    document.getElementsByClassName("edit_pic")[0].classList.add("vanish")
+  }
+}

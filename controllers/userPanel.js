@@ -179,6 +179,11 @@ Router.get("/logout", (req, res) => {
   res.redirect("/");
 });
 
+/* EDIT PAGE ROUTE*/ 
+Router.get("/edit-listing", (req,res) => {
+  res.render("edit_cpage")
+})
+
 //Dashboard Route
 Router.get("/dashboard", ensureAuthenticated, (req, res) => {
   res.render("dashboard");

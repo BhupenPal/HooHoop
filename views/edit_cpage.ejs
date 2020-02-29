@@ -3,11 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Edit Page</title>
+    <link rel="stylesheet" href="/assets/css/index.css" />
+    <link rel="stylesheet" href="/assets/css/all.min.css" />
+    <link rel="stylesheet" href="/assets/css/fonts.css" />
+    <script src="../assets/scripts/script.js"></script>
+    <link
+      rel="icon"
+      href="/assets/images/favicon.ico"
+      type="image/ico"
+      sizes="16*16"
+    />
 </head>
 <body>
     <%-include('./Components/Header.ejs') %> <% if(user){%>
-        Edit Page
+        <div class="cardet_page">
+      <div class="th_sxty_info">
+        <div class="th60_container">
+          <div class="viewthsxty">
+            <button class="interior-changer">
+              <i class="fad fa-steering-wheel"></i
+              ><span class="tooltiptext">Interior</span>
+            </button>
+            <button class="exterior-changer">
+              <i class="fad fa-car"></i
+              ><span class="tooltiptext">Exterior</span>
+            </button>
+
+
+          </div>
+          <div class="car_name_price">
+            <div class="c_name"><input class="edit_inp" type="text" placeholder="Car Name"></div>
+            <div class="c_price"><input class="edit_inp" type="text" placeholder="Car Price"><span> NZ</span></div>
+          </div>
+        </div>
+        <div class="cardetails_tab">
+          <h1>Specifications</h1>
+          <div class="det_connect">
+            <div class="ico_hold">
+              <i class="fad fa-joystick"></i>
+              <p>Transmission</p>
+            </div>
+            <div class="prop_hold"><input class="edit_inp" type="text" placeholder="Enter Details Here"></div>
+          </div>
+
+          <div class="det_connect">
+            <div class="ico_hold">
+              <i class="fal fa-tachometer"></i>
+              <span>KM</span>
+            </div>
+            <div class="prop_hold"><input class="edit_inp" type="text" placeholder="Enter Details Here"></div>
+          </div>
+
+          <div class="det_connect">
+            <div class="ico_hold">
+              <i class="fad fa-gas-pump"></i>
+              <span>Fuel Type</span>
+            </div>
+            <div class="prop_hold"><input class="edit_inp" type="text" placeholder="Enter Details Here"></div>
+          </div>
+
+          <div class="det_connect">
+            <div class="ico_hold">
+              <i class="fas fa-loveseat"></i>
+              <span>Seats</span>
+            </div>
+            <div class="prop_hold"><input class="edit_inp" type="text" placeholder="Enter Details Here"></div>
+          </div>
+
+          <div class="det_connect">
+            <div class="ico_hold">
+              <i class="fad fa-cogs"></i>
+              <span>Engine</span>
+            </div>
+            <div class="prop_hold"><input class="edit_inp" type="text" placeholder="Enter Details Here"></div>
+          </div>
+
+          <div class="det_connect">
+            <div class="ico_hold">
+              <i class="fad fa-car-alt"></i>
+              <span>Body style</span>
+            </div>
+            <div class="prop_hold"><input class="edit_inp" type="text" placeholder="Enter Details Here"></div>
+          </div>
+
+          <div class="det_connect">
+            <div class="ico_hold">
+              <i class="fad fa-paint-brush-alt"></i>
+              <span>Color</span>
+            </div>
+            <div class="prop_hold"><input class="edit_inp" type="text" placeholder="Enter Details Here"></div>
+          </div>
+        </div>
+      </div>
+
+      <button class="lst_edit" onclick="showpop('1')">Edit Listing Pics</button>
+
+      <div class="edit_pic vanish">
+          <h1>Upload New Photos and Thumbs</h1>
+        <button class="l_p_update">Thumbnail</button>
+        <button class="l_p_update">Interior</button>
+        <button class="l_p_update">Exterior</button>
+
+        <button class="lp_updated" onclick="showpop('2')">Upload</button>
+      </div>
+    </div>
     <% } %> <%-include('./Components/Footer.ejs') %>
 </body>
 </html>
