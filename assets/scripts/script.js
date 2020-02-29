@@ -77,50 +77,7 @@ function foption(j){
     filOptions[j] = 0
   }
 }
-
-
-function previewImages() {
-
-  var preview = document.querySelector('#preview');
-  
-  if (this.files) {
-    [].forEach.call(this.files, readAndPreview);
-  }
-
-  function readAndPreview(file) {
-
-    // Make sure `file.name` matches our extensions criteria
-    // if (!/\.(jpe?g|png|gif)$/i.test(file.name)) {
-    //   return alert(file.name + " is not an image");
-    // } // else...
-    
-    var reader = new FileReader();
-    
-    reader.addEventListener("load", function(){
-      var image = new Image();
-      image.height = 100;
-      image.title  = file.name;
-      image.src    = this.result;
-      image.classList.add('thumbnail-options')
-      image.onclick = (() => {
-        document.getElementById('up_clickfk').value = image.title;
-        var thumbs = document.getElementsByClassName('thumbnail-options');
-        var l = 0;
-        while(thumbs[l]){
-          thumbs[l].classList.remove('thumb-selected')
-          l++;
-        }
-        image.classList.add('thumb-selected');
-    })
-      preview.appendChild(image);
-    });
-    reader.readAsDataURL(file);
-  }
-
-}
-
-document.querySelector('#Exterior').addEventListener("change", previewImages);
-
+// Preview IMages removed
 function intext(j){
   if(j==1){
     document.getElementsByClassName("panoviewer-container")[0].style.zIndex = "20"
@@ -161,4 +118,44 @@ function showpop(j){
   else{
     document.getElementsByClassName("del_lstng")[1].style.display = "none"
   }
+}
+
+let p=0
+function Pagination(j){
+  let x = document.getElementsByClassName("Page_no")
+
+  if(j==1){
+    for(var k=0;k<x.length;k++){
+      x[k].classList.remove("page_sel")
+    }
+    
+    if(p<5) p++
+    if(p==5) p=0
+
+    x[p].classList.add("page_sel")
+    console.log(p)
+  }
+
+  if(j==2){
+    for(var k=0;k<x.length;k++){
+      x[k].classList.remove("page_sel")
+    }
+
+    if(p==0||p>0) p--
+    if(p<0) p=4
+
+    x[p].classList.add("page_sel")
+    console.log(p)
+  }
+}
+
+function Page_select(j){
+  let x = document.getElementsByClassName("Page_no")
+
+  for(var k=0;k<x.length;k++){
+    x[k].classList.remove("page_sel")
+  }
+
+  j.classList.add("page_sel")
+  p = j.innerHTML -1;
 }

@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="/assets/css/index.css" />
     <link rel="stylesheet" href="/assets/css/all.min.css" />
     <link rel="stylesheet" href="/assets/css/fonts.css" />
-    <script src="/assets/scripts/script.js"></script>
     <link
       rel="icon"
       href="/assets/images/favicon.ico"
@@ -206,11 +205,22 @@
         </a>
         <% } %>
       </div>
-
+    
     </div>
 
+    <!-- Pagination -->
+    <div class="Pagination">
+      <button id="previous" onclick="Pagination('2')">Previous</button>
+      <span class="Page_no page_sel" onclick="Page_select(this)">1</span>
+      <span class="Page_no" onclick="Page_select(this)">2</span>
+      <span class="Page_no" onclick="Page_select(this)">3</span>
+      <span class="Page_no" onclick="Page_select(this)">4</span>
+      <span class="Page_no" onclick="Page_select(this)">5</span>
+      <button id="next" onclick="Pagination('1')">Next</button>
+    </div>
     <!-- Buy-car ended -->
     <%-include('./Components/Footer.ejs') %>
     <script src="/assets/scripts/ajax/ajax.js"></script>
+    <script src="/assets/scripts/script.js"></script>
   </body>
 </html>
