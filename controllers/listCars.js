@@ -38,9 +38,10 @@ Router.get('/filter-content/:page', Paginator(carModel), async (req, res) => {
 
   if(req.xhr){
     res.json({record: res.Paginator.results})
+  } else {
+    res.send('Link not accessible');
   }
-  res.send('Link not accessible');
-  
+
 })
 
 Router.get("/buy-car/:id", async (req, res) => {

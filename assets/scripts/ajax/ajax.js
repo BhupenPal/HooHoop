@@ -120,7 +120,8 @@ function filterResultHandler(){
   const xhr = new XMLHttpRequest();
 
   xhr.open("GET", `http://localhost:8080/filter-content/${pageParams}?${MakeQuery}&${ModelQuery}&${FuelQuery}&${TransmissionQuery}&${BodyQuery}&${ColourQuery}`, true);
-  xhr.getResponseHeader("content-type", "application/json")
+  xhr.getResponseHeader("content-type", "application/json");
+  xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
 
   xhr.onprogress = function() {
     console.log("On progress");
