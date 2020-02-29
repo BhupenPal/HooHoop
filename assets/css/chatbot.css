@@ -1,14 +1,14 @@
 .chatBot {
     height: 70vh;
     width: 25vw;
-    position: fixed;
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-end;
-    margin-top: 28vh;
-    margin-left: 73vw;
-    z-index: 100000;
+    position: fixed;
+    top: 28%;
+    left: 74%;
   }
   
   /*Unopened-chatbot-divsion*/
@@ -18,7 +18,7 @@
     width: 60px;
     font-size: 40px;
     border-radius: 60px;
-    position: fixed;
+    position: absolute;
     background-color: orange;
     display: flex;
     align-items: center;
@@ -35,10 +35,10 @@
   .opened {
     height: 650px;
     width: 400px;
-    position: fixed;
     background: white;
     border-radius: 10px;
     display: flex;
+    position: absolute;
     flex-direction: column;
     border: solid rgb(210, 210, 210) 1px;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -46,7 +46,6 @@
     opacity: 0;
     z-index: 10000;
     transition: 0.5s;
-    box-shadow: 0px 0px 5px 5px rgb(230, 230, 230);
   }
   
   .user {
@@ -64,7 +63,7 @@
     background: white;
     margin-left: 5%;
     margin-top: -5%;
-    background-image: url("./images/cropped-hoohoop.jpg");
+    background-image: url("../images/chatbotlogo.png");
     background-size: contain;
   }
   

@@ -1869,6 +1869,52 @@ body {
   opacity: 1;
 }
 
+.del_lstng{
+  position: absolute;
+  box-shadow: 0 0 3px 3px #f1f1f1;
+  height: 400px;
+  width: 600px;
+  border-radius: 10px;
+  flex-direction: column;
+  align-items: center;
+  display: none;
+  background-color: white;
+}
+
+.cnf_symbl{
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+  background-color: grey;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+  background-color: rgb(236, 99, 99);
+}
+
+.del_text{
+  font-size: 25px;
+  font-family: Roboto;
+}
+
+.del_lstng_btn{
+  height: 50px;
+  width: 200px;
+  font-size: 30px;
+  font-family: Raleway;
+  font-weight: bold;
+  color: white;
+  background-color: rgb(211, 42, 59);
+  border: none;
+  border-radius: 10px;
+  margin-top: 40px;
+  cursor: pointer;
+}
+
+
 /* User-Listing-Page */
 
 /* Email-verifiaction Page */

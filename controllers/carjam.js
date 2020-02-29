@@ -16,7 +16,6 @@ Router.post("/car-submit/data", urlencoded, async (req, res) => {
 
   vinFigure = req.body.vinFigure;
   const carDetails = await fetchData();
-
   res.render("sell_form", {
     detailedCarObject: await carDetails || {},
     vinFigured: true
