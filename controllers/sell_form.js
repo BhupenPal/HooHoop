@@ -202,15 +202,18 @@ Router.post("/car-submit/submit", urlencoded, exterior, (req, res) => {
   }
 
   try{
-    extractFrames({
+  extractFrames({
       input: `assets/Uploads/${req.body.vinNum}/exterior/${thumbnail}`,
       output: `assets/Uploads/${req.body.vinNum}/exterior/Photo-%d.jpg`,
       numFrames: 80
     })
-
   }catch(err){
     console.log(err)
   }
+
+  setTimeout(()=>{
+    fs.unlinkSync(`assets/Uploads/${req.body.vinNum}/exterior/${thumbnail}`)
+  }, 1000)
 
   newCar.save();
   res.render("dashboard");

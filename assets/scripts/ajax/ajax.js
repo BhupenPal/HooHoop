@@ -113,6 +113,21 @@ ColourSelector = () => {
   filterResultHandler()
 }
 
+PriceSelector = () => {
+  let PriceAll = document.getElementById('price').getElementsByTagName('input');
+
+  PriceQuery = '';
+  
+  for(let PriceCount = 0; PriceCount < PriceAll.length; ColouPriceCountrCount++){
+      if(PriceAll[PriceCount].checked === true){
+          PriceQuery += `Price=${PriceAll[PriceCount].value}&`;
+      }
+  }
+  console.log(PriceQuery)
+  ColouPriceQueryrQuery = PriceQuery.slice(0, -1)
+  filterResultHandler()
+}
+
 function filterResultHandler(){
 
   const pageParams = window.location.href.split('/')[4].split('?')[0];

@@ -7,6 +7,11 @@ body {
   min-height: 100vh;
 }
 
+input[type="date"]::-webkit-inner-spin-button{
+    display: none;
+    -webkit-appearance: none;
+}
+
 *::-webkit-scrollbar {
   width: 10px;
 }
@@ -618,6 +623,7 @@ body {
   justify-content: center;
   align-items: center;
   width: 100%;
+  padding-bottom: 100px;
 }
 
 .VIN-input {
@@ -966,6 +972,7 @@ body {
 }
 
 .sub-btn button {
+  cursor: pointer;
   height: 100%;
   width: 200px;
   border: none;
@@ -1472,6 +1479,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-bottom: 200px;
 }
 
 .th_sxty_info {
@@ -2295,3 +2303,7 @@ body {
   color: #aa664c;
 }
 /* Footer */
+
+#adSOLD, #adDelete{
+  display: none;
+}

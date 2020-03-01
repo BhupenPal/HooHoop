@@ -15,6 +15,7 @@ const bcrypt = require("bcryptjs");
 
 //Models Config
 const userModel = require("../models/userModel");
+const carModel = require("../models/carModel");
 
 //Passport Config
 const passport = require("passport");
@@ -180,8 +181,32 @@ Router.get("/logout", (req, res) => {
 });
 
 /* EDIT PAGE ROUTE*/ 
-Router.get("/edit-listing", (req,res) => {
-  res.render("edit_cpage")
+Router.get("/edit-car/:id", ensureAuthenticated, async (req,res) => {
+  let car = {}
+  car.details = await carModel.find({ _id: req.params.id}).exec();
+  res.render("edit_cpage", {car: car.details[0]})
+})
+
+Router.post("/edit-car/:id", ensureAuthenticated, urlencoded, async (req,res) => {
+  let car = {}
+  try {
+    let {upMake, 
+      upModel, 
+      upPrice, 
+      upMinPrice, 
+      upTransmission, 
+      upkMeters, 
+      upFuelType, 
+      upSeatNum, 
+      upEngineSize, 
+      upBodyType, 
+      upColour
+    } = req.body;
+    
+    carModel.updateOne({ _id: req.params.id }, { $set: { Make: upMake.toUpperCase(), Model: upModel, Price: upPrice, minPrice: upMinPrice, Transmission: upTransmission, kMeters: upkMeters, fuelType: upFuelType, SeatNum: upSeatNum, engineSize: upEngineSize, BodyType: upBodyType, Colour: upColour} }, () => {});
+    car.details = await carModel.find({_id : req.params.id}).exec();
+    res.render("edit_cpage", { car: car.details[0] });
+  } catch (e) {}
 })
 
 //Dashboard Route

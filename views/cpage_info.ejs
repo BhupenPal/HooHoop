@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="/assets/css/view360/demo.css" />
     <link rel="stylesheet" href="/assets/css/view360/pano.css" />
     <link rel="stylesheet" href="/assets/css/chatbot.css">
-    <script src="/assets/scripts/script.js"></script>
     <title>HooHoop</title>
     <link
       rel="icon"
@@ -41,14 +40,14 @@
               </div>
             </div>
 
-            <!-- <div class="exterior_slider">
+            <div class="exterior_slider">
               <div
                 class="cloudimage-360"
                 data-folder="/assets/Uploads/<%= record.vinNum %>/exterior/"
                 data-filename="Photo-{index}.jpg"
-                data-amount="82"
+                data-amount="80"
               ></div>
-            </div> -->
+            </div>
 
           </div>
           <div class="car_name_price">
@@ -223,7 +222,6 @@
             </div>
           </div>
         </div>
-
         <div class="seller-details">
           <p>Seller:<%= seller.firstName %> <%= seller.lastName %></p>
           <p>Contact Number: <%= seller.phoneNum %> </p>
@@ -243,11 +241,12 @@
     <script src="/assets/scripts/view360-interior/view360.js"></script>
     <script src="/assets//scripts/view360-exterior/min.js"></script>
     <script src="/assets/scripts/chatbot.js"></script>
+    <script src="/assets/scripts/script.js"></script>
     <script>
       var PanoViewer = eg.view360.PanoViewer;
       var container = document.getElementById("myPanoViewer");
       let panoViewer = new PanoViewer(container, {
-        image: "/assets/images/img.jpg",
+        image: `/assets/Uploads/<%= record.vinNum %>/interior/interiorFront.jpg`,
         projectionType: "equirectangular"
       });
 

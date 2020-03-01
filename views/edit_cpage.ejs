@@ -16,8 +16,9 @@
     />
 </head>
 <body>
-    <%-include('./Components/Header.ejs') %> <% if(user){%>
+    <%-include('./Components/Header.ejs') %>
         <div class="cardet_page">
+          <form action="/edit-car/<%= car._id %>" method="POST">
       <div class="th_sxty_info">
         <div class="th60_container">
           <div class="viewthsxty">
@@ -33,8 +34,24 @@
 
           </div>
           <div class="car_name_price">
-            <div class="c_name"><input class="edit_inp" type="text" placeholder="Car Name"></div>
-            <div class="c_price"><input class="edit_inp" type="text" placeholder="Car Price"><span> NZ</span></div>
+            <div class="c_name">
+              MAKE
+              <input class="edit_inp" type="text" placeholder="Car Name" name="upMake" value="<%= car.Make %>">
+            </div>
+            <div class="c_model">
+              Model
+              <input class="edit_inp" type="text" placeholder="Car Model" name="upModel" value="<%= car.Model %>">
+            </div>
+            <div class="c_price">
+              PRICE
+              <input class="edit_inp" type="text" placeholder="Car Price" name="upPrice" value="<%= car.Price %>">
+            <span> NZ</span>
+          </div>
+            <div class="c_price">
+              MIN PRICE
+              <input class="edit_inp" type="text" placeholder="Min Car Price" name="upMinPrice" value="<%= car.minPrice %>">
+              <span> NZ</span>
+            </div>
           </div>
         </div>
         <div class="cardetails_tab">
@@ -44,7 +61,7 @@
               <i class="fad fa-joystick"></i>
               <p>Transmission</p>
             </div>
-            <div class="prop_hold"><input class="edit_inp" type="text" placeholder="Enter Details Here"></div>
+            <div class="prop_hold"><input class="edit_inp" type="text" placeholder="Enter Details Here" name="upTransmission" value="<%= car.Transmission %>"></div>
           </div>
 
           <div class="det_connect">
@@ -52,7 +69,7 @@
               <i class="fal fa-tachometer"></i>
               <span>KM</span>
             </div>
-            <div class="prop_hold"><input class="edit_inp" type="text" placeholder="Enter Details Here"></div>
+            <div class="prop_hold"><input class="edit_inp" type="text" placeholder="Enter Details Here" name="upkMeters" value="<%= car.kMeters %>"></div>
           </div>
 
           <div class="det_connect">
@@ -60,7 +77,7 @@
               <i class="fad fa-gas-pump"></i>
               <span>Fuel Type</span>
             </div>
-            <div class="prop_hold"><input class="edit_inp" type="text" placeholder="Enter Details Here"></div>
+            <div class="prop_hold"><input class="edit_inp" type="text" placeholder="Enter Details Here" name="upFuelType" value="<%= car.fuelType %>"></div>
           </div>
 
           <div class="det_connect">
@@ -68,7 +85,7 @@
               <i class="fas fa-loveseat"></i>
               <span>Seats</span>
             </div>
-            <div class="prop_hold"><input class="edit_inp" type="text" placeholder="Enter Details Here"></div>
+            <div class="prop_hold"><input class="edit_inp" type="text" placeholder="Enter Details Here" name="upSeatNum" value="<%= car.SeatNum %>"></div>
           </div>
 
           <div class="det_connect">
@@ -76,7 +93,7 @@
               <i class="fad fa-cogs"></i>
               <span>Engine</span>
             </div>
-            <div class="prop_hold"><input class="edit_inp" type="text" placeholder="Enter Details Here"></div>
+            <div class="prop_hold"><input class="edit_inp" type="text" placeholder="Enter Details Here" name="upEngineSize" value="<%= car.engineSize %>"></div>
           </div>
 
           <div class="det_connect">
@@ -84,7 +101,7 @@
               <i class="fad fa-car-alt"></i>
               <span>Body style</span>
             </div>
-            <div class="prop_hold"><input class="edit_inp" type="text" placeholder="Enter Details Here"></div>
+            <div class="prop_hold"><input class="edit_inp" type="text" placeholder="Enter Details Here" name="upBodyType" value="<%= car.BodyType %>"></div>
           </div>
 
           <div class="det_connect">
@@ -92,9 +109,10 @@
               <i class="fad fa-paint-brush-alt"></i>
               <span>Color</span>
             </div>
-            <div class="prop_hold"><input class="edit_inp" type="text" placeholder="Enter Details Here"></div>
+            <div class="prop_hold"><input class="edit_inp" type="text" placeholder="Enter Details Here" name="upColour" value="<%= car.Colour %>"></div>
           </div>
         </div>
+      </form>
       </div>
 
       <button class="lst_edit" onclick="showpop('1')">Edit Listing Pics</button>
@@ -108,6 +126,6 @@
         <button class="lp_updated" onclick="showpop('2')">Upload</button>
       </div>
     </div>
-    <% } %> <%-include('./Components/Footer.ejs') %>
+<%-include('./Components/Footer.ejs') %>
 </body>
 </html>

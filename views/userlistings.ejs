@@ -24,7 +24,7 @@
         <% for(var i = 0; i < myAds.length; i++) { %>
         <div class="listing_card">
           <div class="list_img">
-            <img src="/assets/Uploads/<%= myAds[i].vinNum %>/exterior/<%= myAds[i].thumbnail %>" alt="" />
+            <img src="/assets/Uploads/<%= myAds[i].vinNum %>/exterior/Photo-1.jpg" alt="" />
           </div>
           <div class="list_info">
             <div class="list_info_make">
@@ -41,9 +41,11 @@
             </div>
           </div>
           <div class="list_option_btn_wrap">
+            <a href="/edit-car/<%= myAds[i].id %>">
             <button class="list_option_btn">
               <i class="fad fa-edit"></i>
             </button>
+          </a>
             <button class="list_option_btn" value="<%= myAds[i]._id %>" onclick="del_lstng(this)">
               <i class="fad fa-trash"></i>
             </button>

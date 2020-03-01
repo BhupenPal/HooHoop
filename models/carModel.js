@@ -67,7 +67,10 @@ const Schema = mongoose.Schema,
     photo360: Boolean,
     authorID: String,
     views: Number,
-    adActive: Boolean
+    adActive: String,
+    DealerName: String,
+    DealerNum: String,
+    DealerEmail: String
   });
 
 module.exports = mongoose.model("CarList", CarSchema);

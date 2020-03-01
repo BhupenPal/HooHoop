@@ -98,6 +98,8 @@ var PanoControls = (function() {
     document.querySelector(".enterfs").addEventListener("click", function() {
       if (screenfull.enabled) {
         screenfull.request();
+        document.getElementsByClassName('interior-changer')[0].style.display = 'none';
+        document.getElementsByClassName('exterior-changer')[0].style.display = 'none';
       } else {
         changeMode("full");
       }
@@ -106,22 +108,12 @@ var PanoControls = (function() {
     document.querySelector(".exitfs").addEventListener("click", function() {
       if (screenfull.enabled) {
         screenfull.exit();
+        document.getElementsByClassName('interior-changer')[0].style.display = 'block';
+        document.getElementsByClassName('exterior-changer')[0].style.display = 'block';
       } else {
         changeMode("orignal");
       }
     });
-
-    var vrButton = document.querySelector(".entervr");
-    vrButton &&
-      vrButton.addEventListener("click", function() {
-        panoViewer.enterVR().catch(e => {
-          Swal.fire({
-            title: "Can't enter VR mode!",
-            text: e.message || e,
-            icon: "error"
-          });
-        });
-      });
 
     // For iOS 13+
     panoViewer.enableSensor().catch(() => {
@@ -239,9 +231,6 @@ var PanoControls = (function() {
       ? '\
 			<div class="image360_loading"><div class="image360_loadingBar"></div></div>\
 			<div class="panoviewer-control">\
-				<button class="entervr">' +
-        vrSvg +
-        '</button>\
 				<button class="enterfs">' +
         fullscreenSvg +
         '</button>\
