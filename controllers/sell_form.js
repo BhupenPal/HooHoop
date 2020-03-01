@@ -117,6 +117,9 @@ Router.post("/car-submit/submit", urlencoded, exterior, (req, res) => {
   newCar.authorID = req.user._id;
   newCar.adActive = true;
   newCar.views = 0;
+  newCar.DealerName = req.body.DealerName;
+  newCar.DealerNum = req.body.DealerName;
+  newCar.DealerEmail = req.body.DealerEmail;
 
   if (req.body.BodyType === "CV") {
     newCar.BodyType = "Convertible";

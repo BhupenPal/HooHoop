@@ -223,9 +223,9 @@
           </div>
         </div>
         <div class="seller-details">
-          <p>Seller:<%= seller.firstName %> <%= seller.lastName %></p>
-          <p>Contact Number: <%= seller.phoneNum %> </p>
-          <p>Contact Email: <%= seller.email %></p>
+          <p>Seller:<%= record.DealerName %></p>
+          <p>Contact Number: <%= record.DealerNum %> </p>
+          <p>Contact Email: <%= record.DealerEmail %></p>
         </div>
       </div>
       <%-include('./Components/chatbot.ejs') %>

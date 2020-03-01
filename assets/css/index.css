@@ -623,11 +623,7 @@ input[type="date"]::-webkit-inner-spin-button{
   justify-content: center;
   align-items: center;
   width: 100%;
-<<<<<<< HEAD
   padding-bottom: 150px;
-=======
-  padding-bottom: 100px;
->>>>>>> 39e14922700b905f444cd20f6c3065141908e2b1
 }
 
 .VIN-input {

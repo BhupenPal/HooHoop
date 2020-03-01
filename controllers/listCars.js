@@ -149,7 +149,35 @@ function Paginator(model) {
   return async (req, res, next) => {
     
     const page = parseInt(req.params.page);
-    const filterParam = req.query
+    let filterParam = req.query
+
+    if(filterParam.Price){
+      if(Array.isArray(filterParam.Price)){
+        lower = parseInt(filterParam.Price[0].split('-')[0]);
+        upper = parseInt(filterParam.Price[filterParam.Price.length-1].split('-')[1]);
+        filterParam.Price = {$gt: lower, $lt: upper}
+      } else {
+        lower = parseInt(filterParam.Price.split('-')[0]);
+        upper = parseInt(filterParam.Price.split('-')[1]);
+        filterParam.Price = {$gt: lower, $lt: upper}
+      }
+    }
+
+    if(filterParam.kMeters){
+      if(Array.isArray(filterParam.kMeters)){
+        console.log(filterParam.kMeters)
+        lower = parseInt(filterParam.kMeters[0].split('-')[0]);
+        upper = parseInt(filterParam.kMeters[filterParam.kMeters.length-1].split('-')[1]);
+        filterParam.kMeters = {$gt: lower, $lt: upper}
+        console.log(filterParam.kMeters)
+      } else {
+        console.log(filterParam.kMeters)
+        lower = parseInt(filterParam.kMeters.split('-')[0]);
+        upper = parseInt(filterParam.kMeters.split('-')[1]);
+        filterParam.kMeters = {$gt: lower, $lt: upper}
+        console.log(filterParam.kMeters)
+      }
+    }
 
     const limit = 15;
     const startIndex = (page - 1) * limit;
@@ -172,7 +200,7 @@ function Paginator(model) {
 
     try {
       results.results = await model
-        .find(filterParam)
+      .find(filterParam)
         .sort({ $natural: -1 })
         .limit(limit)
         .skip(startIndex)
