@@ -623,7 +623,11 @@ input[type="date"]::-webkit-inner-spin-button{
   justify-content: center;
   align-items: center;
   width: 100%;
+<<<<<<< HEAD
+  padding-bottom: 150px;
+=======
   padding-bottom: 100px;
+>>>>>>> 39e14922700b905f444cd20f6c3065141908e2b1
 }
 
 .VIN-input {
@@ -882,21 +886,6 @@ input[type="date"]::-webkit-inner-spin-button{
   flex-direction: column;
 }
 
-.thumb-selected{
-  border: 2px solid #1EA1F3;
-}
-
-.thumbnail-options{
-  margin: 10px;
-}
-
-#preview img{
-  box-sizing: border-box;
-  height: 100px;
-  width: 100px;
-  object-fit: cover;
-}
-
 .file_upload h2 {
   display: flex;
   justify-content: center;
@@ -910,8 +899,8 @@ input[type="date"]::-webkit-inner-spin-button{
   justify-content: center;
 }
 
-.int_images label,
-.ext_images label {
+.int_images span label,
+.ext_images span label {
   height: 50px;
   min-width: 150px;
   display: flex;
@@ -925,8 +914,8 @@ input[type="date"]::-webkit-inner-spin-button{
   border-radius: 5px;
 }
 
-.int_images input,
-.ext_images input {
+.int_images span input,
+.ext_images span input {
   display: none;
 }
 
@@ -1091,6 +1080,7 @@ input[type="date"]::-webkit-inner-spin-button{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-bottom: 150px;
 }
 
 .card {
