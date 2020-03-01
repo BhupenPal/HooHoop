@@ -16,9 +16,9 @@
       sizes="16*16"
     />
   </head>
-  <body class="reg_body">
+  <body>
     <%-include('./Components/Header.ejs') %>
-
+    <div class="reg_body">
     <div class="card reg_card">
       <h1 class="alignment-text">
         Create Account <%-include('./Flash/message.ejs') %>
@@ -109,6 +109,7 @@
         Have An Account? <a href="/login">Login</a>
       </p>
     </div>
+  </div>
     <%-include('./Components/Footer.ejs') %>
   </body>
 </html>

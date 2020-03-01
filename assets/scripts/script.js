@@ -159,3 +159,12 @@ function Page_select(j){
   j.classList.add("page_sel")
   p = j.innerHTML -1;
 }
+
+function previewname(x){
+
+  x.addEventListener("change",function(evt){
+    var file = evt.target.files[0];
+    console.log(x.name)
+    document.getElementById(x.name).innerHTML = file.name
+  })
+}
