@@ -118,7 +118,7 @@ PriceSelector = () => {
 
   PriceQuery = '';
   
-  for(let PriceCount = 0; PriceCount < PriceAll.length; ColouPriceCountrCount++){
+  for(let PriceCount = 0; PriceCount < PriceAll.length; PriceCount++){
       if(PriceAll[PriceCount].checked === true){
           PriceQuery += `Price=${PriceAll[PriceCount].value}&`;
       }
@@ -134,13 +134,9 @@ function filterResultHandler(){
   
   const xhr = new XMLHttpRequest();
 
-  xhr.open("GET", `http://localhost:8080/filter-content/${pageParams}?${MakeQuery}&${ModelQuery}&${FuelQuery}&${TransmissionQuery}&${BodyQuery}&${ColourQuery}`, true);
+  xhr.open("GET", `http://localhost:8080/filter-content/${pageParams}?${MakeQuery}&${ModelQuery}&${FuelQuery}&${TransmissionQuery}&${BodyQuery}&${ColourQuery}&${PriceQuery}`, true);
   xhr.getResponseHeader("content-type", "application/json");
   xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-
-  xhr.onprogress = function() {
-    console.log("On progress");
-  };
 
   xhr.onload = function() {
     if (this.status === 200) {
