@@ -422,19 +422,19 @@
                         <div class="file_upload">
                             <h2>Upload Interior</h2>
                                 <div class="int_images">
-                                    <span>
+                                    <span class="containspan">
                                         <label for="Front">Front</label>
                                         <input class="input_preview" type="file" onclick="previewname(this)" name="interiorFront" id="Front" accept="image/*"/>
                                         <span id="interiorFront"></span>
                                     </span>
 
-                                    <span>
+                                    <span class="containspan">
                                         <label for="Middle">Middle</label>
                                         <input class="input_preview" type="file" onclick="previewname(this)" name="interiorMiddle" id="Middle" accept="image/*"/>
                                         <span id="interiorMiddle"></span>
                                     </span>
 
-                                    <span>
+                                    <span class="containspan">
                                         <label for="Rear">Rear</label>
                                         <input class="input_preview" type="file" onclick="previewname(this)" name="interiorRear" id="Rear" accept="image/*"/>
                                         <span id="interiorRear"></span>
@@ -444,7 +444,7 @@
                                 
                                 <h2>Upload Exterior</h2>
                                 <div class="ext_images">
-                                    <span>
+                                    <span class="containspan">
                                         <label for="ExteriorInp">Exterior</label>
                                         <input type="file" name="exterior" onclick="previewname(this)" class="input_preview" id="ExteriorInp" accept="video/*" required/>  
                                         <span id="exterior"></span>
@@ -455,6 +455,13 @@
                         <div class="rq360">
                             <input type="checkbox" name="photo360">
                             <h2>Request for 360 photography</h2>
+                        </div>
+
+                        <div class="dealer_details">
+                            <div>Car Dealer Details</div>
+                            <input class="inp_form_tag" type="text" placeholder="Name" name="DealerName">
+                            <input class="inp_form_tag" type="text" placeholder="Email" name="DealerEmail">
+                            <input class="inp_form_tag" type="text" placeholder="Phone" name="DealerNum">
                         </div>
                     
                         <div class="contact_details">

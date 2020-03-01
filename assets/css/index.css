@@ -623,11 +623,7 @@ input[type="date"]::-webkit-inner-spin-button{
   justify-content: center;
   align-items: center;
   width: 100%;
-<<<<<<< HEAD
   padding-bottom: 150px;
-=======
-  padding-bottom: 100px;
->>>>>>> 39e14922700b905f444cd20f6c3065141908e2b1
 }
 
 .VIN-input {
@@ -919,6 +915,19 @@ input[type="date"]::-webkit-inner-spin-button{
   display: none;
 }
 
+.containspan{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.containspan span{
+  width: 100% !important;
+  display: flex;
+  justify-content: center;
+}
+
 .rq360 {
   display: flex;
   justify-content: flex-start;
@@ -941,6 +950,23 @@ input[type="date"]::-webkit-inner-spin-button{
   font-family: Raleway;
   font-size: 20px;
   font-weight: lighter;
+}
+
+.dealer_details{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 10px;
+  box-sizing: border-box;
+  font-family: Fira;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.dealer_details div:first-child{
+  padding-left: 10px;
+  margin-bottom: 20px;
 }
 
 .contact_details div:nth-child(2) {
@@ -1485,8 +1511,14 @@ input[type="date"]::-webkit-inner-spin-button{
 .viewthsxty {
   height: 600px;
   width: 100%;
-  background-color: #e2e2e2;
   position: relative;
+}
+
+#INTSELECT{
+  position: absolute;
+  margin: 0 auto;
+  top: 100px;
+  left: 48%;
 }
 
 .interior-changer,.exterior-changer{
@@ -1560,13 +1592,23 @@ input[type="date"]::-webkit-inner-spin-button{
   position: absolute !important;
 }
 
+.iwdivide{
+  height: 100%;
+  width: 100%;
+  max-width: 100% !important;
+  margin: 0 !important;
+  z-index: 20;
+  position: absolute !important;
+  background-color: gray;
+}
+
 .exterior_slider{
   height: 100%;
   width: 100%;
   scroll-behavior: smooth;
   transition: 0.4s;
   overflow: hidden;
-  z-index: 20;
+  z-index: 30;
   position: absolute !important;
 }
 

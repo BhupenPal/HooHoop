@@ -1,4 +1,3 @@
-let i = 0;
 let z = 0;
 
 function activate(j) {
@@ -80,11 +79,11 @@ function foption(j){
 // Preview IMages removed
 function intext(j){
   if(j==1){
-    document.getElementsByClassName("panoviewer-container")[0].style.zIndex = "20"
+    document.getElementsByClassName("panoviewer-container")[0].style.zIndex = "30"
     document.getElementsByClassName("exterior_slider")[0].style.zIndex = "10"
   }
   if(j==2){
-    document.getElementsByClassName("exterior_slider")[0].style.zIndex = "20"
+    document.getElementsByClassName("exterior_slider")[0].style.zIndex = "30"
     document.getElementsByClassName("panoviewer-container")[0].style.display = "10"
   }
  
@@ -168,3 +167,15 @@ function previewname(x){
     document.getElementById(x.name).innerHTML = file.name
   })
 }
+
+function showsl(j){
+  if(j==1){
+    document.getElementById("INTSELECT").style.display = "block"
+    document.getElementById("INTSELECT").style.zIndex = '40'
+  }
+  else{
+    document.getElementById("INTSELECT").style.display = "none"
+    document.getElementById("INTSELECT").style.zIndex = '0'
+  }
+}
+
