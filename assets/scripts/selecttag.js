@@ -3,8 +3,9 @@ function sld_unsld(j) {
     let y = document.getElementsByClassName("opt_enclose");
     let z = document.getElementsByClassName("select_opener")[j];
     let arr_change = z.getElementsByClassName("arr");
-    let i=0; 
 
+    console.log(i)
+     
     window.addEventListener("click",function(eve){
       let isclicked = x[j].contains(eve.target)
       

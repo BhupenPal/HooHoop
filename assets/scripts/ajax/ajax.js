@@ -118,13 +118,29 @@ PriceSelector = () => {
 
   PriceQuery = '';
   
-  for(let PriceCount = 0; PriceCount < PriceAll.length; ColouPriceCountrCount++){
+  for(let PriceCount = 0; PriceCount < PriceAll.length; PriceCount++){
       if(PriceAll[PriceCount].checked === true){
           PriceQuery += `Price=${PriceAll[PriceCount].value}&`;
       }
   }
-  console.log(PriceQuery)
-  ColouPriceQueryrQuery = PriceQuery.slice(0, -1)
+
+  PriceQuery = PriceQuery.slice(0, -1)
+  filterResultHandler()
+}
+
+kMeterSelector = () => {
+  let kMetersAll = document.getElementById('kms').getElementsByTagName('input');
+
+  MetersQuery = '';
+  
+  for(let MeterCount = 0; MeterCount < kMetersAll.length; MeterCount++){
+      if(kMetersAll[MeterCount].checked === true){
+          MetersQuery += `kMeters=${kMetersAll[MeterCount].value}&`;
+      }
+  }
+
+  MetersQuery = MetersQuery.slice(0, -1)
+  console.log(MetersQuery)
   filterResultHandler()
 }
 
@@ -134,13 +150,9 @@ function filterResultHandler(){
   
   const xhr = new XMLHttpRequest();
 
-  xhr.open("GET", `http://localhost:8080/filter-content/${pageParams}?${MakeQuery}&${ModelQuery}&${FuelQuery}&${TransmissionQuery}&${BodyQuery}&${ColourQuery}`, true);
+  xhr.open("GET", `http://localhost:8080/filter-content/${pageParams}?${MakeQuery}&${ModelQuery}&${FuelQuery}&${TransmissionQuery}&${BodyQuery}&${ColourQuery}&${PriceQuery}&${MetersQuery}`, true);
   xhr.getResponseHeader("content-type", "application/json");
   xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-
-  xhr.onprogress = function() {
-    console.log("On progress");
-  };
 
   xhr.onload = function() {
     if (this.status === 200) {
