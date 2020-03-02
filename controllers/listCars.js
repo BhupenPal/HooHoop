@@ -31,7 +31,7 @@ Router.get('/search-car', (req, res) => {
 })
 
 Router.get("/search-car/:page", Paginator(carModel), async (req, res) => {
-    res.render("buy_car", { record: res.Paginator.results });
+    res.render("buy_car", { record: res.Paginator.results, endPage: res.Paginator.endPage });
 });
 
 Router.get('/filter-content/:page', Paginator(carModel), async (req, res) => {
@@ -193,7 +193,9 @@ function Paginator(model) {
 
     const results = {};
 
-    if (endIndex < (await model.countDocuments().exec())) { 
+    results.endPage = await model.countDocuments(filterParam).exec();
+
+    if (endIndex < results.endPage) { 
       results.next = {
         page: page + 1,
         limit: limit
@@ -205,6 +207,8 @@ function Paginator(model) {
         limit: limit
       };
     }
+
+    results.endPage = Math.ceil(results.endPage / limit);
 
     try {
       results.results = await model

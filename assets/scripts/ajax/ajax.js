@@ -164,7 +164,7 @@ function filterResultHandler(){
   
   const xhr = new XMLHttpRequest();
 
-  xhr.open("GET", `http://localhost:8080/filter-content/${pageParams}?${MakeQuery}&${ModelQuery}&${FuelQuery}&${TransmissionQuery}&${BodyQuery}&${ColourQuery}&${PriceQuery}&${MetersQuery}`, true);
+  xhr.open("GET", `/filter-content/${pageParams}?${MakeQuery}&${ModelQuery}&${FuelQuery}&${TransmissionQuery}&${BodyQuery}&${ColourQuery}&${PriceQuery}&${MetersQuery}`, true);
   xhr.getResponseHeader("content-type", "application/json");
   xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
 
