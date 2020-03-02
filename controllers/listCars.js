@@ -2,6 +2,7 @@ const express = require("express");
 const Router = express.Router();
 const carModel = require("../models/carModel");
 const userModel = require("../models/userModel");
+const fs = require('fs')
 
 const bodyParser = require("body-parser");
 const urlencoded = bodyParser.urlencoded({ extended: !1 });
@@ -136,6 +137,8 @@ Router.get("/my-ads", ensureAuthenticated, async (req, res) => {
 })
 
 Router.post("/my-ads/delete", urlencoded, async (req, res) => {
+  let car = await carModel.find({ _id: req.body.deleteAd})
+  removeDir(`assets/Uploads/${car[0].vinNum}`);
   await carModel.deleteOne({ _id: req.body.deleteAd})
   res.redirect("/my-ads")
 })
@@ -228,5 +231,27 @@ function Paginator(model) {
 function escapeRegex(text) {
   return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
 };
+
+const removeDir = function(path) {
+  if (fs.existsSync(path)) {
+    const files = fs.readdirSync(path)
+ 
+    if (files.length > 0) {
+      files.forEach(function(filename) {
+        if (fs.statSync(path + "/" + filename).isDirectory()) {
+          removeDir(path + "/" + filename)
+        } else {
+          fs.unlinkSync(path + "/" + filename)
+        }
+      })
+      fs.rmdirSync(path)
+    } else {
+      fs.rmdirSync(path)
+    }
+  } else {
+    console.log(path)
+    console.log("Directory path not found.")
+  }
+}
 
 module.exports = Router;

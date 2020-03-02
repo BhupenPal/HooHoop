@@ -216,7 +216,7 @@ Router.post("/car-submit/submit", urlencoded, exterior, (req, res) => {
 
   setTimeout(()=>{
     fs.unlinkSync(`assets/Uploads/${req.body.vinNum}/exterior/${thumbnail}`)
-  }, 1000)
+  }, 10000)
 
   newCar.save();
   res.render("dashboard");
