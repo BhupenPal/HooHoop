@@ -140,7 +140,21 @@ kMeterSelector = () => {
   }
 
   MetersQuery = MetersQuery.slice(0, -1)
-  console.log(MetersQuery)
+  filterResultHandler()
+}
+
+AgeSelector = () => {
+  let AgeAll = document.getElementById('age').getElementsByTagName('input');
+
+  AgeQuery = '';
+  
+  for(let AgeCount = 0; AgeCount < AgeAll.length; AgeCount++){
+      if(AgeAll[AgeCount].checked === true){
+          AgeQuery += `Age=${AgeAll[AgeCount].value}&`;
+      }
+  }
+
+  MetersQuery = AgeQuery.slice(0, -1)
   filterResultHandler()
 }
 

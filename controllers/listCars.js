@@ -165,17 +165,25 @@ function Paginator(model) {
 
     if(filterParam.kMeters){
       if(Array.isArray(filterParam.kMeters)){
-        console.log(filterParam.kMeters)
         lower = parseInt(filterParam.kMeters[0].split('-')[0]);
         upper = parseInt(filterParam.kMeters[filterParam.kMeters.length-1].split('-')[1]);
         filterParam.kMeters = {$gt: lower, $lt: upper}
-        console.log(filterParam.kMeters)
       } else {
-        console.log(filterParam.kMeters)
         lower = parseInt(filterParam.kMeters.split('-')[0]);
         upper = parseInt(filterParam.kMeters.split('-')[1]);
         filterParam.kMeters = {$gt: lower, $lt: upper}
-        console.log(filterParam.kMeters)
+      }
+    }
+
+    if(filterParam.Age){
+      if(Array.isArray(filterParam.Age)){
+        lower = parseInt(filterParam.Age[0].split('-')[0]);
+        upper = parseInt(filterParam.Age[filterParam.Age.length-1].split('-')[1]);
+        filterParam.Age = {$gt: lower, $lt: upper}
+      } else {
+        lower = parseInt(filterParam.Age.split('-')[0]);
+        upper = parseInt(filterParam.Age.split('-')[1]);
+        filterParam.Age = {$gt: lower, $lt: upper}
       }
     }
 
