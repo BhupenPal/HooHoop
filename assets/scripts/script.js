@@ -92,10 +92,10 @@ function intext(j){
 function del_lstng(j){
   if(j){
     document.getElementById('adDelete').value = j.value;
-    document.getElementsByClassName("del_lstng")[0].style.display = "flex"
+    document.getElementsByClassName("Modal")[0].style.display = "block"
   }
   else{
-    document.getElementsByClassName("del_lstng")[0].style.display = "none"
+    document.getElementsByClassName("Modal")[0].style.display = "none"
   }
 }
 
@@ -112,10 +112,10 @@ function showpop(j){
   function sell_listed(j){
   if(j){
     document.getElementById('adSOLD').value = j.value;
-    document.getElementsByClassName("del_lstng")[1].style.display = "flex"
+    document.getElementsByClassName("Modal")[1].style.display = "block"
   }
   else{
-    document.getElementsByClassName("del_lstng")[1].style.display = "none"
+    document.getElementsByClassName("Modal")[1].style.display = "none"
   }
 }
 
