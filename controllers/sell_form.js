@@ -82,7 +82,7 @@ var storeExterior = multer.diskStorage({
         cb(null, filename);
     } else if (file.fieldname !== "exterior") {
       let ext = file.originalname.split(".")[1];
-      ext = ext.toLowerCase();
+      ext = ext.toUpperCase();
       let filename = file.fieldname + "." + ext;
       cb(null, filename);
     }
