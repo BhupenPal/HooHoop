@@ -32,19 +32,19 @@ function inputtrack(){
 
 //Chatbot Functionality
 let status = "GREETING";
+let userEmail = null;
+let userOffer = null;
+let message = 2;
+let minValue = parseInt(document.getElementById('minor').value);
+let maxValue = parseInt(document.getElementById('major').value);
+let margin = maxValue - minValue;
+let deal = margin/10;
 
-let message = 0;
-let userName = null;
-let deal = null;
-let current = 0;
-let minor = document.getElementById('major').value - document.getElementById('minor').value
-let disc = (minor / document.getElementById('major').value)*100;
-
-let Botgreetings = ["Hi, I'am bargainator! Would you like a 10% discount", "Hello, I'am bargainator would you like a 10% discount"];
+let Botgreetings = [`Hi, I'am bargainator! Would you like a $${deal} discount?`, `Hello, I'am bargainator! Would you like a $${deal} discount?`];
 
 let BotRejected = [];
 
-let BotDiscount = [];
+let RejectedOffers = [];
 
 let BotHaggle = [`Hi ${name}`,"Do you think 10% work for you ?","what about 15% discount ?",
 "Let's see whats in your mind",`Lets seal the deal on ${deal}`,"no can't do it, thats too less to be called an offer",
@@ -55,36 +55,81 @@ function createmessage(){
 
     if(status === "GREETING"){
         botReply(Botgreetings[Math.floor(Math.random()*Botgreetings.length)])
-        document.getElementById('opt-buttons').style.display = 'none'
-        status = "BARGAIN"
 
-        document.getElementById('opt-buttons').style.display = 'block';
-        document.getElementsByClassName('input-field')[0].style.display = 'none';
+        document.getElementById('confirm').onclick = () => {
+            userReply('YES')
+            status = "DEAL_DONE"
+            document.getElementById('reject').style.display = 'none';
+            document.getElementById('confirm').style.display = 'none';
+            document.getElementsByClassName('input-field')[0].style.display = 'flex'
+            createmessage();
+        }
+
+        document.getElementById('reject').onclick = () => {
+            userReply('NO')
+            status = "PITCH_TO_GET_OFFER"
+            document.getElementById('reject').style.display = 'none';
+            document.getElementById('confirm').style.display = 'none';
+            document.getElementsByClassName('input-field')[0].style.display = 'flex'
+            createmessage();
+        }
         return
     }
 
-    // if(status === "ASK_CONFIRMATION"){
-    //     document.getElementById('confirm').onclick = () => {
-    //         userReply('YES')
-    //         status = "BARGAIN"
-    //         createmessage();
-    //     }
+    if(status === "PITCH_TO_GET_OFFER"){
+        botReply("Make me an offer, I can't refuse ")
+        status = "GET_OFFER";
+        return
+    }
 
-    //     document.getElementById('reject').onclick = () => {
-    //         userReply('NO')
-    //         botReply('Just let me know if you change your mind')
-    //         status = "MINDCHANGE_CHECK"
-    //         document.getElementById('confirm').innerHTML = "I changed my mind, give me an offer"
-    //         document.getElementById('reject').style.display = 'none';
-    //         createmessage();
-    //     }
-    // }
+    if(status === "GET_OFFER"){
+        userOffer = parseInt(document.getElementById('inputContainer').value);
+        userReply(userOffer)
+        status = "BARGAIN"
+    }
 
     if(status === "BARGAIN"){
-        if(message <= 5){
-            botReply(message)
-            message++
+        // && userOffer < maxValue
+        if(userOffer >= minValue){
+            botReply("Great we have a deal, I'll send you a coupon code on your mail")
+            status = "GET_EMAIL"
+        }else{
+            if(RejectedOffers.includes(userOffer)){
+                botReply('I already rejected this offer')
+            } else {
+                if(deal <= margin){
+                    if(message*deal <= margin){
+                        deal = message*deal;
+                        message++;
+                    }
+                }
+                RejectedOffers.push(userOffer)
+            }
+            botReply("This is too low" + ` How about an $${deal} coupon`)
+            document.getElementById('reject').style.display = 'block';
+            document.getElementById('confirm').style.display = 'block';
+            document.getElementsByClassName('input-field')[0].style.display = 'none'
         }
+        return
+    }
+
+    if(status === "DEAL_DONE"){
+        botReply("Great, I’ll create a discount code valid for you only and send it via mail, what's your eamil address?")
+        status = "GET_EMAIL"
+        return
+    }
+
+    if(status = "GET_EMAIL"){
+        userEmail = document.getElementById('inputContainer').value;
+        userReply(userEmail)
+        status = "DONE"
+    }
+
+    if(status == "DONE"){
+        botReply("Your coupon code has been send to your Email")
+        document.getElementById('reject').style.display = 'none';
+        document.getElementById('confirm').style.display = 'none';
+        document.getElementsByClassName('input-field')[0].style.display = 'none'
     }
 
 }
@@ -142,10 +187,8 @@ function sendChatDetails(){
       }
     };
     
-    const couponDetails = `{"Name": ${userName}, "email": ${userEmail}, "userPhone": ${userPhone}, "CouponCode":  ${couponCode}, "carID": ${carID}}`
+    const couponDetails = `{"email": ${userEmail}, "CouponCode":  ${couponCode}, "carID": ${carID}}`
     xhr.send();
   }
 
 createmessage();
-
-document.getElementsByClassName("input-field")[0].addEventListener("submit", createmessage)

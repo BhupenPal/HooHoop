@@ -188,7 +188,7 @@
   .input-field {
     height: 7%;
     width: 100%;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     overflow: none;

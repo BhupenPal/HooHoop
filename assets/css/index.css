@@ -2133,11 +2133,11 @@ input[type="date"]::-webkit-inner-spin-button{
 /* Forgot-Password */
   .forg_pass_wrap{
     width: 100%;
+    min-height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    min-height: 80vh;
     background-color: #f2f2f2;
   }
 
