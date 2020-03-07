@@ -22,12 +22,12 @@
             <button id="confirm">YES</button> <button id="reject">NO</button>
         </div>
         <!-- input-box -->
-        <form class="input-field" onload="botLoader()">
+        <form class="input-field" onload="botLoader()" onsubmit="return false">
             <input type="text" class="input-container" onclick ="inputtrack()"
              id="inputContainer" placeholder="Type your message here" 
              onfocus="this.placeholder = ''" 
              onblur="this.placeholder = 'Type your message here'"> 
-            <button class="send-button" id="sendButton" type="button" onclick="createmessage()"><i class="fa fa-paper-plane"></i></button>
+            <button class="send-button" type="button" id="sendButton" onclick="createmessage()"><i class="fa fa-paper-plane"></i></button>
         </form>
 
         <!-- input-box -->
