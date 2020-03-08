@@ -226,9 +226,16 @@ input[type="date"]::-webkit-inner-spin-button{
   display: flex;
   place-content: flex-start;
   place-items: center;
-  background-image: url("../images/Slider.jpg");
-  background-size: cover;
-  background-position: 20% 50%;
+  position: relative;
+}
+
+.slider img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  z-index: -1;
+  position: absolute;
 }
 
 .buy-car {
@@ -1163,6 +1170,14 @@ input[type="date"]::-webkit-inner-spin-button{
   border: 1px solid #e1e1e1;
 }
 
+.lbtnen{
+  height: 50px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+}
+
 .button-2 {
   height: 30px;
   width: 100px;
@@ -1210,6 +1225,16 @@ input[type="date"]::-webkit-inner-spin-button{
   font-weight: bolder;
   color: #1ea1f3;
   transition: 0.2s;
+}
+
+
+.reg_link:nth-child(1) a{
+  margin-left: 5px;
+}
+
+.reg_encen{
+  margin-top: 30px;
+  margin-bottom: 10px;
 }
 
 .f_pass{
@@ -2139,6 +2164,7 @@ input[type="date"]::-webkit-inner-spin-button{
     align-items: center;
     flex-direction: column;
     background-color: #f2f2f2;
+    padding-bottom: 150px;
   }
 
   .f_pass_card{
@@ -2427,10 +2453,195 @@ input[type="date"]::-webkit-inner-spin-button{
     min-width: 50vw;
   }
 
-  .infowrap80,.sellcar_wrap,.buy_car_wrap{
+  .infowrap80,.sellcar_wrap,.ulwrap,.dashboard_wrapper,.reg_body{
     padding-bottom: 500px;
   }
 
+  /* sell-car response */
+  .ad_enclosure{
+    width: 80vw;
+    height: 100vw;
+  }
+
+  .pakages{
+    font-size: 6vw;
+  }
+
+  .h-logo{
+    height: 16vw;
+    width: 65vw;
+  }
+
+  .pakage_info button{
+    width: 52vw;
+    height: 13vw;
+  }
+
+  /* Login response */
+  .card{
+    width: 90vw;
+    min-height: 500px;
+  }
+
+  .hlogin{
+    width: 72vw;
+    height: 18vw;
+    margin-top: 50px;
+  }
+
+  .form-group{
+    width: 80vw;
+  }
+
+  .form-group input{
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .reg_link{
+    width: 90vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0;
+  }
+
+  .log_links{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 50px;
+  }
+
+  .reg_link:nth-child(1) a{
+    margin-left: 5px;
+  }
+
+  .f_pass{
+    border: none;
+  }
+
+  .button-2{
+    margin: 0;
+  }
+
+  /* forgot password response */
+
+  .forg_pass_wrap{
+    padding-bottom: 500px;
+  }
+
+  .f_pass_card{
+    width: 90vw;
+    min-height: 110vw;
+  }
+
+  .f_pass_card img{
+    width: 80vw;
+    height: 20vw;
+  }
+
+  .f_pass_card form{
+    margin-top: 10vw;
+  }
+
+  .head-textmail{
+    font-size: 1.2em;
+  }
+
+  /* buy car response */
+  .buy_car_wrap{
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 0vw;
+  }
+
+  .fltr_head{
+    font-size: 6vw;
+    height: 10vw;
+  }
+
+  .filters{
+    margin-top: 8vw;
+  }
+
+  .filterwrap{
+    width: 90vw;
+  }
+
+  .contentwrap{
+    width: 90vw;
+    min-height: 110vw;
+  }
+
+  .bc-card{
+    height: 100vw;
+    width: 80vw;
+  }
+
+  .cb_img,
+  .cb_img img{
+  height: 70vw;
+  }
+
+  .cb_main{
+    font-size: 5vw;
+  }
+
+  .cb_add_info span{
+    font-size: 4vw;
+  }
+
+  .filter_option {
+    min-height: 20vw;
+    font-size: 4vw;
+  }
+
+  .Filter_class{
+    height: 15vw;
+    font-size: 5vw;
+  }
+
+  .Filter_class i{
+    font-size: 4vw;
+  }
+
+  .foption{
+    font-size: 4vw;
+    height: 5vw;
+  }
+
+  .foption label::before{
+    height: 3vw;
+    width: 3vw;
+    top: -2.11875vw;
+  }
+
+  .foption label::after{
+    height: 1vw;
+    width: 1.5vw;
+    top: -1.2125vw;
+  }
+
+  .Pagination{
+    margin-bottom: 500px;
+    width: 90vw;
+  }
+
+  .Pagination button{
+    height: 10vw;
+    width: 20vw;
+    font-size: 4vw;
+  }
+
+  .Page_no{
+    height: 7vw;
+    width: 7vw;
+    border-radius: 8vw;
+    font-size: 5vw;
+    margin: 0 1vw;
+  }
   /* footer response */
 
   .foot{
