@@ -2642,6 +2642,96 @@ input[type="date"]::-webkit-inner-spin-button{
     font-size: 5vw;
     margin: 0 1vw;
   }
+
+  /* c_page response */
+  .cardet_page{
+    flex-wrap: nowrap;
+    padding-bottom: 500px;
+  }
+
+  .th60_container{
+    width: 90vw;
+    height: 60vw;
+  }
+
+  .viewthsxty{
+    height: 60vw;
+  }
+
+  .interior-changer,.exterior-changer{
+    height: 10vw;
+    width: 10vw;
+    border-radius: 10vw;
+    top: 35vw;
+    font-size: 8vw;
+  }
+
+  #INTSELECT{
+    left: 5vw;
+    top: 5vw;
+  }
+
+  .exterior-changer{
+    top: 47vw;
+  }
+
+  .car_name_price{
+    font-size: 6vw;
+    height: 20vw;
+    align-items: center;
+  }
+
+  .cardetails_tab{
+    width: 90vw;
+    margin-top: 20vw;
+    justify-content: flex-start;
+  }
+
+  .cardetails_tab h1{
+    font-size: 8vw;
+  }
+
+  .det_connect{
+    height: 15vw;
+  }
+
+  .ico_hold p{
+    font-size: 4vw;
+  }
+
+  .ico_hold i{
+    font-size: 4vw;
+  }
+
+  .panel-contain{
+    height: 200vw;
+    width: 90vw;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .nav_with_panel_tabs{
+    min-height: 120vw;
+    width: 90vw;
+  }
+
+  .tabs {
+    width: 30vw;
+    margin: 1vw;
+    font-size: 3vw;
+  }
+
+  .panel_body{
+    height: 100%;
+  }
+
+  .seller-details{
+    height: 40vw;
+    width: 90vw;
+    margin-top: 10vw;
+  }
+
   /* footer response */
 
   .foot{
