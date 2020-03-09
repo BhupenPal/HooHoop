@@ -5,9 +5,9 @@ mongoose.connect("mongodb://localhost:27017/HooHoop", {
   useCreateIndex: 1
 });
 
-mongoose.connection.on("connected", () =>
-  console.log("Mongoose Shipping Model Intitialized!!!!")
-);
+// mongoose.connection.on("connected", () =>
+//   console.log("Mongoose Shipping Model Intitialized!!!!")
+// );
 
 const Schema = mongoose.Schema;
 const ShippingModel = new Schema({
