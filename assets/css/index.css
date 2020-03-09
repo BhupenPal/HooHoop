@@ -1913,6 +1913,10 @@ input[type="date"]::-webkit-inner-spin-button{
   box-shadow: 0 0 5px 5px #e1e1e1;
 }
 
+.listing_card img{
+  object-fit: cover;
+}
+
 .list_img {
   height: 50%;
   width: 100%;

@@ -64,7 +64,7 @@
         </div>
         <div class="cd_content">
         <% for( let i = 0; i < popCarData.length; i++ ) { %>
-          <a href="http://localhost:8080/buy-car/<%= popCarData[i]._id %>" class="cd_car_data">
+          <a href="/buy-car/<%= popCarData[i]._id %>" class="cd_car_data">
             
               <div class="img_contain">
                 <div class="view-details">View details</div>
@@ -88,7 +88,7 @@
           </button>
         </div>
         <div class="cd_link">
-          <a href="http://localhost:8080/search-car/1">View All</a>
+          <a href="/search-car/1">View All</a>
         </div>
       </div>
   
@@ -98,11 +98,11 @@
         </div>
         <div class="cd_content">
         <% for( let i = 0; i < hatchCarData.length; i++ ) { %>
-          <a href="http://localhost:8080/buy-car/<%= hatchCarData[i]._id %>" class="cd_car_data">
+          <a href="/buy-car/<%= hatchCarData[i]._id %>" class="cd_car_data">
           
               <div class="img_contain">
                 <div class="view-details">View details</div>
-                <img src="/assets/Uploads/<%= hatchCarData[i].vinNum %>/exterior/Photo-1.jpg" />
+                <img src="/assets/Uploads/<%= hatchCarData[i].vinNum %>/exterior/Photo_1.jpg" />
               </div>
               <div class="info_contain">
                 <div class="con_name"> <%= hatchCarData[i].Make %> </div>
@@ -122,7 +122,7 @@
           </button>
         </div>
         <div class="cd_link">
-          <a href="http://localhost:8080/search-car/1?BodyType=Hatchback">View All Hatchbacks</a>
+          <a href="/search-car/1?BodyType=Hatchback">View All Hatchbacks</a>
         </div>
       </div>
   
@@ -132,11 +132,11 @@
         </div>
         <div class="cd_content">
         <% for( let i = 0; i < sedanCarData.length; i++ ) { %>
-          <a href="http://localhost:8080/buy-car/<%= sedanCarData[i]._id %>" class="cd_car_data">
+          <a href="/buy-car/<%= sedanCarData[i]._id %>" class="cd_car_data">
             
               <div class="img_contain">
                 <div class="view-details">View details</div>
-                <img src="/assets/Uploads/<%= sedanCarData[i].vinNum %>/exterior/Photo-1.jpg" />
+                <img src="/assets/Uploads/<%= sedanCarData[i].vinNum %>/exterior/Photo_1.jpg" />
               </div>
               <div class="info_contain">
                 <div class="con_name"> <%= sedanCarData[i].Make %> </div>
@@ -156,10 +156,78 @@
           </button>
         </div>
         <div class="cd_link">
-          <a href="http://localhost:8080/search-car/1?BodyType=Sedan">View All Sedans</a>
+          <a href="/search-car/1?BodyType=Sedan">View All Sedans</a>
         </div>
       </div>
   
+      <div class="cardbd_1">
+        <div class="cd_head">
+          <div class="cd_headline">Price Upto: Five Thousand</div>
+        </div>
+        <div class="cd_content">
+        <% for( let i = 0; i < sedanCarData.length; i++ ) { %>
+          <a href="/buy-car/<%= sedanCarData[i]._id %>" class="cd_car_data">
+            
+              <div class="img_contain">
+                <div class="view-details">View details</div>
+                <img src="/assets/Uploads/<%= sedanCarData[i].vinNum %>/exterior/Photo_1.jpg" />
+              </div>
+              <div class="info_contain">
+                <div class="con_name"> <%= sedanCarData[i].Make %> </div>
+                <div class="con_price"> $ <%= sedanCarData[i].Price %></div>
+                <div></div>
+            
+            </div>
+          </a>
+        <% } %>
+      </div>
+        <div class="cd_btn">
+          <button onclick="scrolldiv(4,2)">
+            <i class="fal fa-chevron-left"></i>
+          </button>
+          <button onclick="scrolldiv(5,2)">
+            <i class="fal fa-chevron-right"></i>
+          </button>
+        </div>
+        <div class="cd_link">
+          <a href="/search-car/1?Price=0-5000">View All Sedans</a>
+        </div>
+      </div>
+
+      <div class="cardbd_1">
+        <div class="cd_head">
+          <div class="cd_headline">Price Upto: $10000</div>
+        </div>
+        <div class="cd_content">
+        <% for( let i = 0; i < sedanCarData.length; i++ ) { %>
+          <a href="/buy-car/<%= sedanCarData[i]._id %>" class="cd_car_data">
+            
+              <div class="img_contain">
+                <div class="view-details">View details</div>
+                <img src="/assets/Uploads/<%= sedanCarData[i].vinNum %>/exterior/Photo_1.jpg" />
+              </div>
+              <div class="info_contain">
+                <div class="con_name"> <%= sedanCarData[i].Make %> </div>
+                <div class="con_price"> $ <%= sedanCarData[i].Price %></div>
+                <div></div>
+            
+            </div>
+          </a>
+        <% } %>
+      </div>
+        <div class="cd_btn">
+          <button onclick="scrolldiv(4,2)">
+            <i class="fal fa-chevron-left"></i>
+          </button>
+          <button onclick="scrolldiv(5,2)">
+            <i class="fal fa-chevron-right"></i>
+          </button>
+        </div>
+        <div class="cd_link">
+          <a href="/search-car/1?Price=0-5000">View All Sedans</a>
+        </div>
+      </div>
+
     </div>
 
     <!-- Home-content-end -->
