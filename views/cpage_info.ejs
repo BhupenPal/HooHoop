@@ -53,11 +53,10 @@
               <div
                 class="cloudimage-360"
                 data-folder="/assets/Uploads/<%= record.vinNum %>/exterior/"
-                data-filename="Photo-{index}.jpg"
-                data-amount="80"
+                data-filename="Photo_{index}.jpg"
+                data-amount="<%= photoArrayLength %>"
               ></div>
             </div>
-
           </div>
           <div class="car_name_price">
             <div class="c_name"><%= record.Make %></div>

@@ -52,7 +52,9 @@ Router.get("/buy-car/:id", async (req, res) => {
     let views = result[0].views + 1;
     carModel.updateOne({ _id: id }, { $set: { views: views } }, () => {});
     let seller = await userModel.find({_id : result[0].authorID})
-    res.render("cpage_info", { record: result[0], seller: seller[0] });
+    fs.readdir(`./assets/Uploads/${result[0].vinNum}/exterior`, (err, files) => {
+      res.render("cpage_info", { record: result[0], seller: seller[0], photoArrayLength: files.length });
+    });
   } catch (e) {}
 });
 

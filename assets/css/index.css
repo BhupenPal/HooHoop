@@ -7,6 +7,10 @@ body {
   min-height: 100vh;
 }
 
+a{
+  text-decoration: none;
+}
+
 input[type="date"]::-webkit-inner-spin-button{
     display: none;
     -webkit-appearance: none;
@@ -104,7 +108,6 @@ input[type="date"]::-webkit-inner-spin-button{
 
 .user-panel a {
   color: rgb(180, 180, 180);
-  text-decoration: none;
 }
 
 .login-btn:hover {
@@ -160,7 +163,6 @@ input[type="date"]::-webkit-inner-spin-button{
 
 .menu-wrapper a {
   color: black;
-  text-decoration: none;
 }
 
 .userico {
@@ -425,7 +427,6 @@ input[type="date"]::-webkit-inner-spin-button{
 }
 
 .cd_content a{
-  text-decoration: none;
   color: black;
 }
 
@@ -434,7 +435,6 @@ input[type="date"]::-webkit-inner-spin-button{
 }
 
 .cd_car_data {
-  text-decoration: none;
   height: 90%;
   min-width: 300px;
   max-width: 300px;
@@ -532,7 +532,6 @@ input[type="date"]::-webkit-inner-spin-button{
 
 .cd_link a {
   text-transform: capitalize;
-  text-decoration: none;
   font-family: Fira;
   color: black;
   transition: 0.2s;
@@ -1220,7 +1219,6 @@ input[type="date"]::-webkit-inner-spin-button{
 }
 
 .reg_link a {
-  text-decoration: none;
   font-size: large;
   font-weight: bolder;
   color: #1ea1f3;
@@ -1300,7 +1298,6 @@ input[type="date"]::-webkit-inner-spin-button{
 }
 
 .cardanchor {
-  text-decoration: none;
   color: black;
   margin: 20px;
 }
@@ -2313,7 +2310,7 @@ input[type="date"]::-webkit-inner-spin-button{
   color: white;
 }
 
-.quick_links_wrap ul li {
+.quick_links_wrap ul li{
   list-style: none;
   margin: 10px;
   padding: 0px 10px;
@@ -2321,10 +2318,12 @@ input[type="date"]::-webkit-inner-spin-button{
   font-weight: 800;
   font-size: 16px;
   cursor: pointer;
-  transition: 0.1s;
 }
-
-.quick_links_wrap ul li:hover {
+.quick_links_wrap ul li a{
+  transition: 0.1s;
+  color: white;
+}
+.quick_links_wrap ul li a:hover {
   color: #f6b500;
 }
 
@@ -2345,10 +2344,6 @@ input[type="date"]::-webkit-inner-spin-button{
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.connect_with_us a {
-  text-decoration: none;
 }
 
 .social {
@@ -2385,6 +2380,44 @@ input[type="date"]::-webkit-inner-spin-button{
 
 #adSOLD, #adDelete{
   display: none;
+}
+
+/* About Us */
+.about-us{
+  width: 80%;
+  padding: 50px 0 200px 0;
+  margin: 0 auto;
+}
+
+.quest h1{
+  font-family: lato;
+  font-size: 50px;
+}
+
+.quest p{
+  font-family: lato;
+  font-size: 30px;
+  font-weight: bold;
+  color: #f5bf2b;
+}
+
+.moto{
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.team{
+  margin: 80px 0 0 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.team-mem{
+  width: 32%;
+  border: 2px solid black;
 }
 
 @media only screen and (max-width:480px){

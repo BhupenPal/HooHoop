@@ -33,4 +33,28 @@ Router.use("/", userPanel);
 /* NODE MAILER */
 Router.use("/", mailer);
 
+Router.get("/about-us", (req, res) => {
+  res.render('about_us');
+})
+
+Router.get("/faq", (req, res) => {
+  res.render('FAQ');
+})
+
+Router.get("/privacy-policy", (req, res) => {
+  res.render('privacy_policy');
+})
+
+Router.get("/terms-of-use", (req, res) => {
+  res.render('terms_of_use');
+})
+
+Router.get("/cancellation-policy", (req, res) => {
+  res.render('cancellation_policy');
+})
+
+Router.get("/contact-us", (req, res) => {
+  res.render('contact_us');
+})
+
 module.exports = Router;

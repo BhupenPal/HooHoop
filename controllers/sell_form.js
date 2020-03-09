@@ -2,7 +2,7 @@ const express = require("express");
 const Router = express.Router();
 const fs = require("fs");
 const multer = require("multer");
-const extractFrames = require('ffmpeg-extract-frames');
+var ffmpeg = require('ffmpeg');
 const carModel = require("../models/carModel");
 const bodyParser = require("body-parser");
 const urlencoded = bodyParser.urlencoded({
@@ -205,14 +205,25 @@ Router.post("/car-submit/submit", urlencoded, exterior, (req, res) => {
     newCar.authorPhone = 0;
   }
 
-  try{
-  extractFrames({
-      input: `assets/Uploads/${req.body.vinNum}/exterior/${thumbnail}`,
-      output: `assets/Uploads/${req.body.vinNum}/exterior/Photo-%d.jpg`,
-      numFrames: 80
-    })
-  }catch(err){
-    console.log(err)
+  try {
+    var process = new ffmpeg(`assets/Uploads/${req.body.vinNum}/exterior/${thumbnail}`);
+    process.then(function (video) {
+      video.fnExtractFrameToJPG(`assets/Uploads/${req.body.vinNum}/exterior`, {
+        frame_rate: 2,
+        file_name : 'Photo%i',
+        keep_pixel_aspect_ratio: true,
+        keep_aspect_ratio: false,
+        size: '1920x1080'
+      }, function (error) {
+        if (!error)
+          console.log("Frame Break Done");
+      });
+    }, function (err) {
+      console.log('Error: ' + err);
+    });
+  } catch (e) {
+    console.log(e.code);
+    console.log(e.msg);
   }
 
   setTimeout(()=>{
