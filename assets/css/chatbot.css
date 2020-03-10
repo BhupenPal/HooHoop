@@ -1,14 +1,12 @@
 .chatBot {
-    height: 70vh;
-    width: 25vw;
+    bottom: 15px;
+    right: 10px;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-end;
     position: fixed;
-    top: 28%;
-    left: 74%;
     z-index: 10000;
   }
   
@@ -48,6 +46,7 @@
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     transform: translateY(10vh);
     opacity: 0;
+    visibility: hidden;
     transition: 0.5s;
   }
   
