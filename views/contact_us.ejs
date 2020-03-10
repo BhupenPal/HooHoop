@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Contact-us</title>
     <link rel="stylesheet" href="/assets/css/index.css" />
     <link rel="stylesheet" href="/assets/css/all.min.css" />
     <link rel="stylesheet" href="/assets/css/fonts.css" />
@@ -13,63 +13,11 @@
       type="image/ico"
       sizes="16*16"
     />
-    <style>
-      .contact input[type="text"] {
-        width: 100%;
-        padding: 12px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-        margin-top: 6px;
-        margin-bottom: 16px;
-        resize: vertical;
-      }
-      .contact input[type="email"] {
-        width: 100%;
-        padding: 12px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-        margin-top: 6px;
-        margin-bottom: 16px;
-        resize: vertical;
-      }
-
-      .contact textarea {
-        width: 100%;
-        padding: 12px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-        margin-top: 6px;
-        margin-bottom: 16px;
-        resize: vertical;
-      }
-
-      input[type="submit"] {
-        background-color: orange;
-        color: white;
-        padding: 12px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-      }
-
-      input[type="submit"]:hover {
-        background-color: orange;
-      }
-
-      .container {
-        border-radius: 5px;
-        background-color: #f2f2f2;
-        padding: 20px;
-      }
-    </style>
   </head>
   <body>
     <%-include('./Components/Header.ejs') %>
 
-    <div class="about-us contact">
+    <div class="contact-us-wrapper">
       <div class="container">
         <form action="action_page.php">
           <label for="name">First Name</label>
