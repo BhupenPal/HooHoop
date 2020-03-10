@@ -13,11 +13,14 @@ Router.get("/", async (req, res) => {
   const popularCars = await carModel.find().limit(10).sort({views: -1}).exec();
   const hatchCars = await carModel.find({BodyType: "Hatchback"}).limit(10).exec();
   const sedanCars = await carModel.find({BodyType: "Sedan"}).limit(10).exec();
+  const PriceFive = await carModel.find({Price: {$lt: 5000}}).limit(10).exec();
+  const PriceTen = await carModel.find({Price: {$gt:5000 ,$lt: 10000}}).limit(10).exec();
+  const PriceGtTen = await carModel.find({Price: {$gt: 10000}}).limit(10).exec();
 
   if (req.isAuthenticated()) {
-    res.render("index", { user: req.user, popCarData: popularCars, hatchCarData: hatchCars, sedanCarData: sedanCars });
+    res.render("index", { user: req.user, popCarData: popularCars, hatchCarData: hatchCars, sedanCarData: sedanCars, PriceFive: PriceFive, PriceTen: PriceTen, PriceGtTen: PriceGtTen });
   } else {
-    res.render("index", { user: false, popCarData: popularCars, hatchCarData: hatchCars, sedanCarData: sedanCars });
+    res.render("index", { user: false, popCarData: popularCars, hatchCarData: hatchCars, sedanCarData: sedanCars, PriceFive: PriceFive, PriceTen: PriceTen, PriceGtTen: PriceGtTen });
   }
 });
 

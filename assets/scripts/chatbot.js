@@ -5,6 +5,7 @@ function chatbotopener(){
     x.style.opacity = "0"
     y.style.transform = "translateY(0vh)"
     y.style.opacity = "1"
+    y.style.visibility = "visible"
 }
 
 function chatbotcloser(){
@@ -14,6 +15,7 @@ function chatbotcloser(){
     x.style.opacity = "1"
     y.style.transform = "translateY(10vh)"
     y.style.opacity = "0"
+    y.style.visibility = "hidden"
 }
 
 function inputtrack(){

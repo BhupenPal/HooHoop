@@ -27,27 +27,44 @@
       <div class="swrapfm">
         <div class="buy-car">
           <div class="card_headline">Need a Car ?</div>
-          <form method="POST" class="data_fetch">
+          <form method="GET" class="data_fetch">
             <div class="card_input_info">
-              <div class="vehicle_state input_div">
-                <select name="State" id="v-state">
-                  <option value="">New</option>
-                  <option value="1">Used</option>
-                </select>
-              </div>
+
+              <input type="text" name="car" value="true">
+              
               <div class="vehicle_budget input_div">
-                <select name="Budget" id="v-budget">
-                  <option value="">Select Budget</option>
+                <select name="Price" id="v-budget">
+                  <option value="" selected>Select Budget</option>
+                  <option value="0-5000">0 - $5000</option>
+                  <option value="0-10000">$5000 - 10000</option>
+                  <option value="10000-9999999">$10000+</option>
                 </select>
               </div>
+
               <div class="vehicle_info_wrap input_div">
-                <select name="Type" id="v-type">
-                  <option value="">Select Vehicle Type</option>
+                <select name="BodyType" id="v-type">
+                  <option value="" selected>Select Vehicle Type</option>
+                  <option value="Convertible">Convertible</option>
+                  <option value="Hatchback">Hatchback</option>
+                  <option value="Sedan">Sedan</option>
+                  <option value="Station Wagon">Station Wagon</option>
+                  <option value="Utility">Utility</option>
                 </select>
               </div>
+
+              <div class="vehicle_state input_div">
+                <select name="fuelType" id="v-state">
+                  <option value="" selected>Select Fuel Type</option>
+                  <option value="Petrol">Petrol</option>
+                  <option value="Diesel">Diesel</option>
+                  <option value="Electric">Electric</option>
+                  <option value="Hybrid">Hybrid</option>
+                </select>
+              </div>
+
             </div>
             <div class="submit_input_info">
-              <button class="submit_data">submit</button>
+              <button class="submit_data" type="submit" formaction="/search-car/1">submit</button>
             </div>
           </form>
         </div>
@@ -64,7 +81,7 @@
         </div>
         <div class="cd_content">
         <% for( let i = 0; i < popCarData.length; i++ ) { %>
-          <a href="http://localhost:8080/buy-car/<%= popCarData[i]._id %>" class="cd_car_data">
+          <a href="/buy-car/<%= popCarData[i]._id %>" class="cd_car_data">
             
               <div class="img_contain">
                 <div class="view-details">View details</div>
@@ -88,7 +105,7 @@
           </button>
         </div>
         <div class="cd_link">
-          <a href="http://localhost:8080/search-car/1">View All</a>
+          <a href="/search-car/1">View All</a>
         </div>
       </div>
   
@@ -98,11 +115,11 @@
         </div>
         <div class="cd_content">
         <% for( let i = 0; i < hatchCarData.length; i++ ) { %>
-          <a href="http://localhost:8080/buy-car/<%= hatchCarData[i]._id %>" class="cd_car_data">
+          <a href="/buy-car/<%= hatchCarData[i]._id %>" class="cd_car_data">
           
               <div class="img_contain">
                 <div class="view-details">View details</div>
-                <img src="/assets/Uploads/<%= hatchCarData[i].vinNum %>/exterior/Photo-1.jpg" />
+                <img src="/assets/Uploads/<%= hatchCarData[i].vinNum %>/exterior/Photo_1.jpg" />
               </div>
               <div class="info_contain">
                 <div class="con_name"> <%= hatchCarData[i].Make %> </div>
@@ -122,7 +139,7 @@
           </button>
         </div>
         <div class="cd_link">
-          <a href="http://localhost:8080/search-car/1?BodyType=Hatchback">View All Hatchbacks</a>
+          <a href="/search-car/1?BodyType=Hatchback">View All Hatchbacks</a>
         </div>
       </div>
   
@@ -132,11 +149,11 @@
         </div>
         <div class="cd_content">
         <% for( let i = 0; i < sedanCarData.length; i++ ) { %>
-          <a href="http://localhost:8080/buy-car/<%= sedanCarData[i]._id %>" class="cd_car_data">
+          <a href="/buy-car/<%= sedanCarData[i]._id %>" class="cd_car_data">
             
               <div class="img_contain">
                 <div class="view-details">View details</div>
-                <img src="/assets/Uploads/<%= sedanCarData[i].vinNum %>/exterior/Photo-1.jpg" />
+                <img src="/assets/Uploads/<%= sedanCarData[i].vinNum %>/exterior/Photo_1.jpg" />
               </div>
               <div class="info_contain">
                 <div class="con_name"> <%= sedanCarData[i].Make %> </div>
@@ -156,10 +173,112 @@
           </button>
         </div>
         <div class="cd_link">
-          <a href="http://localhost:8080/search-car/1?BodyType=Sedan">View All Sedans</a>
+          <a href="/search-car/1?BodyType=Sedan">View All Sedans</a>
         </div>
       </div>
-  
+ 
+      <div class="cardbd_1">
+        <div class="cd_head">
+          <div class="cd_headline">Price Upto: Five Thousand</div>
+        </div>
+        <div class="cd_content">
+        <% for( let i = 0; i < PriceFive.length; i++ ) { %>
+          <a href="/buy-car/<%= PriceFive[i]._id %>" class="cd_car_data">
+            
+              <div class="img_contain">
+                <div class="view-details">View details</div>
+                <img src="/assets/Uploads/<%= PriceFive[i].vinNum %>/exterior/Photo_1.jpg" />
+              </div>
+              <div class="info_contain">
+                <div class="con_name"> <%= PriceFive[i].Make %> </div>
+                <div class="con_price"> $ <%= PriceFive[i].Price %></div>
+                <div></div>
+            
+            </div>
+          </a>
+        <% } %>
+      </div>
+        <div class="cd_btn">
+          <button onclick="scrolldiv(4,2)">
+            <i class="fal fa-chevron-left"></i>
+          </button>
+          <button onclick="scrolldiv(5,2)">
+            <i class="fal fa-chevron-right"></i>
+          </button>
+        </div>
+        <div class="cd_link">
+          <a href="/search-car/1?Price=0-5000">View All Cars with Price Upto 5000</a>
+        </div>
+      </div>
+
+      <div class="cardbd_1">
+        <div class="cd_head">
+          <div class="cd_headline">Price Upto: Ten Thousand</div>
+        </div>
+        <div class="cd_content">
+        <% for( let i = 0; i < PriceTen.length; i++ ) { %>
+          <a href="/buy-car/<%= PriceTen[i]._id %>" class="cd_car_data">
+            
+              <div class="img_contain">
+                <div class="view-details">View details</div>
+                <img src="/assets/Uploads/<%= PriceTen[i].vinNum %>/exterior/Photo_1.jpg" />
+              </div>
+              <div class="info_contain">
+                <div class="con_name"> <%= PriceTen[i].Make %> </div>
+                <div class="con_price"> $ <%= PriceTen[i].Price %></div>
+                <div></div>
+            
+            </div>
+          </a>
+        <% } %>
+      </div>
+        <div class="cd_btn">
+          <button onclick="scrolldiv(4,2)">
+            <i class="fal fa-chevron-left"></i>
+          </button>
+          <button onclick="scrolldiv(5,2)">
+            <i class="fal fa-chevron-right"></i>
+          </button>
+        </div>
+        <div class="cd_link">
+          <a href="/search-car/1?Price=0-10000">View All Cars with Price Upto 10000</a>
+        </div>
+      </div>
+
+      <div class="cardbd_1">
+        <div class="cd_head">
+          <div class="cd_headline">Price Greater Than: Ten Thousand</div>
+        </div>
+        <div class="cd_content">
+        <% for( let i = 0; i < PriceGtTen.length; i++ ) { %>
+          <a href="/buy-car/<%= PriceGtTen[i]._id %>" class="cd_car_data">
+            
+              <div class="img_contain">
+                <div class="view-details">View details</div>
+                <img src="/assets/Uploads/<%= PriceGtTen[i].vinNum %>/exterior/Photo_1.jpg" />
+              </div>
+              <div class="info_contain">
+                <div class="con_name"> <%= PriceGtTen[i].Make %> </div>
+                <div class="con_price"> $ <%= PriceGtTen[i].Price %></div>
+                <div></div>
+            
+            </div>
+          </a>
+        <% } %>
+      </div>
+        <div class="cd_btn">
+          <button onclick="scrolldiv(4,2)">
+            <i class="fal fa-chevron-left"></i>
+          </button>
+          <button onclick="scrolldiv(5,2)">
+            <i class="fal fa-chevron-right"></i>
+          </button>
+        </div>
+        <div class="cd_link">
+          <a href="/search-car/1?Price=10000-9999999">View All Cars with Price Greater Than 10000</a>
+        </div>
+      </div>
+
     </div>
 
     <!-- Home-content-end -->
