@@ -2737,7 +2737,7 @@ input[type="date"]::-webkit-inner-spin-button{
   }
 
   .panel-contain{
-    height: 200vw;
+    min-height: 150vw;
     width: 90vw;
     flex-wrap: nowrap;
     flex-direction: column;
@@ -2745,7 +2745,7 @@ input[type="date"]::-webkit-inner-spin-button{
   }
 
   .nav_with_panel_tabs{
-    min-height: 120vw;
+    min-height: 100vw;
     width: 90vw;
   }
 
@@ -2753,10 +2753,6 @@ input[type="date"]::-webkit-inner-spin-button{
     width: 30vw;
     margin: 1vw;
     font-size: 3vw;
-  }
-
-  .panel_body{
-    height: 100%;
   }
 
   .seller-details{
