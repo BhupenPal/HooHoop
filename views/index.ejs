@@ -177,7 +177,39 @@
         </div>
       </div>
   
-
+      <div class="cardbd_1">
+        <div class="cd_head">
+          <div class="cd_headline">Price Upto: Five Thousand</div>
+        </div>
+        <div class="cd_content">
+        <% for( let i = 0; i < Price5k.length; i++ ) { %>
+          <a href="/buy-car/<%= Price5k[i]._id %>" class="cd_car_data">
+            
+              <div class="img_contain">
+                <div class="view-details">View details</div>
+                <img src="/assets/Uploads/<%= Price5k[i].vinNum %>/exterior/Photo_1.jpg" />
+              </div>
+              <div class="info_contain">
+                <div class="con_name"> <%= Price5k[i].Make %> </div>
+                <div class="con_price"> $ <%= Price5k[i].Price %></div>
+                <div></div>
+            
+            </div>
+          </a>
+        <% } %>
+      </div>
+        <div class="cd_btn">
+          <button onclick="scrolldiv(4,2)">
+            <i class="fal fa-chevron-left"></i>
+          </button>
+          <button onclick="scrolldiv(5,2)">
+            <i class="fal fa-chevron-right"></i>
+          </button>
+        </div>
+        <div class="cd_link">
+          <a href="/search-car/1?Price=0-5000">View All Cars with Price Upto 5000</a>
+        </div>
+      </div>
 
       <div class="cardbd_1">
         <div class="cd_head">
