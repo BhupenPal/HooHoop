@@ -74,6 +74,14 @@ input[type="date"]::-webkit-inner-spin-button{
   color: #707070;
 }
 
+.search-engine input::placeholder{
+  text-transform: none;
+}
+
+.search-engine input:valid{
+  text-transform: uppercase;
+}
+
 .search-engine form {
   display: flex;
 }
@@ -285,6 +293,10 @@ input[type="date"]::-webkit-inner-spin-button{
   place-items: center;
   place-content: center;
   flex-direction: column;
+}
+
+.card_input_info input[type="text"]{
+display: none;
 }
 
 .card_input_info div select {

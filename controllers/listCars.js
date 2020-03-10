@@ -14,21 +14,7 @@ const availabilityModel = require("../models/availabilityModel");
 const shippingModel = require("../models/shippingModel");
 
 Router.get('/search-car', (req, res) => {
-  if(!req.query.item){
     res.redirect('/search-car/1')
-  } else if(req.query.item){
-    const regex = new RegExp(escapeRegex(req.query.item), 'gi');
-    carModel.find( {$or: [ { Make: regex }, { Model: regex } ] }, function(err, allCars){
-      if(err){
-          console.log(err);
-      } else {
-         if(allCars.length < 1) {
-             noMatch = "No matching query";
-         }
-         res.render("buy_car",{record: allCars});
-      }
-   });
-  }
 })
 
 Router.get("/search-car/:page", Paginator(carModel), async (req, res) => {
@@ -152,10 +138,34 @@ Router.post("/my-ads/update", urlencoded, async (req, res) => {
 
 function Paginator(model) {
   return async (req, res, next) => {
-    
-    const page = parseInt(req.params.page);
-    let filterParam = req.query
 
+    if(req.params.page <= 0){
+      res.redirect('/search-car/1');
+      return
+    }
+
+    const page = parseInt(req.params.page);
+    let filterParam = req.query;
+
+    if(req.query.car){
+      delete filterParam.car
+
+      if(filterParam.Price == ""){
+        delete filterParam.Price
+      }
+      if(filterParam.BodyType == ""){
+        delete filterParam.BodyType
+      }
+      if(filterParam.fuelType == ""){
+        delete filterParam.fuelType
+      }
+    }
+
+    if(req.query.enquiry){
+      const regex = new RegExp(escapeRegex(req.query.enquiry), 'gi');
+      filterParam = {$or: [ { Make: regex }, { Model: regex } ] };
+    }
+    
     if(filterParam.Price){
       if(Array.isArray(filterParam.Price)){
         lower = parseInt(filterParam.Price[0].split('-')[0]);
@@ -191,13 +201,11 @@ function Paginator(model) {
         filterParam.Age = {$gt: lower, $lt: upper}
       }
     }
-
     const limit = 15;
     const startIndex = (page - 1) * limit;
     const endIndex = page * limit;
 
     const results = {};
-
     results.endPage = await model.countDocuments(filterParam).exec();
 
     if (endIndex < results.endPage) { 
