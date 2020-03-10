@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="/assets/css/index.css" />
     <link rel="stylesheet" href="/assets/css/all.min.css" />
@@ -13,14 +13,98 @@
       type="image/ico"
       sizes="16*16"
     />
-</head>
-<body>
+    <style>
+      .contact input[type="text"] {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 6px;
+        margin-bottom: 16px;
+        resize: vertical;
+      }
+      .contact input[type="email"] {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 6px;
+        margin-bottom: 16px;
+        resize: vertical;
+      }
+
+      .contact textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 6px;
+        margin-bottom: 16px;
+        resize: vertical;
+      }
+
+      input[type="submit"] {
+        background-color: orange;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: orange;
+      }
+
+      .container {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
     <%-include('./Components/Header.ejs') %>
 
-    <div class="about-us">
+    <div class="about-us contact">
+      <div class="container">
+        <form action="action_page.php">
+          <label for="name">First Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name.." />
 
+          <label for="email">E-mail</label>
+
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Your E-mail.."
+          />
+
+          <label for="subject">Subject</label>
+          <input
+            type="text"
+            id="subject"
+            name="subject"
+            placeholder="Subject"
+          />
+
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Write something.."
+            style="height:200px"
+          ></textarea>
+
+          <input type="submit" value="Submit" />
+        </form>
+      </div>
     </div>
 
     <%-include('./Components/Footer.ejs') %>
-</body>
+  </body>
 </html>
