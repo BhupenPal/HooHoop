@@ -38,15 +38,6 @@ function tabselect(j) {
   y[j].classList.remove("vanish");
 }
 
-function userinfo() {
-  if (z % 2 == 0) {
-    document.getElementsByClassName("user_options")[0].style.display = "block";
-    z++;
-  } else {
-    document.getElementsByClassName("user_options")[0].style.display = "none";
-    z--;
-  }
-}
 
 let filOptions = [0,0,0,0,0,0,0,0,0];
 function foption(j){
@@ -178,4 +169,3 @@ function showsl(j){
     document.getElementById("INTSELECT").style.zIndex = '0'
   }
 }
-

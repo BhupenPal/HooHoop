@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="/assets/css/index.css" />
     <link rel="stylesheet" href="/assets/css/all.min.css" />
     <link rel="stylesheet" href="/assets/css/fonts.css" />
-    <script src="/assets/scripts/script.js"></script>
     <title>HooHoop</title>
     <link
       rel="icon"
@@ -18,16 +17,27 @@
   </head>
   <body>
     <%-include('./Components/Header.ejs') %> <% if(user){%>
-      <div class="dashboard_wrapper">
-        <div class="dashboard_enclose">
-          <div class="user_dash_infoop">
-            <div class="userimg-en">
-              <div class="userpic"><img src="../assets/images/Login.png" alt=""></div>
-            </div>
+      <div class="dash_wrapper">
+        <div class="sidebar">
+
+          <div class="hamburger">
+            <div class="hambar"></div>
+            <div class="hambar"></div>
+            <div class="hambar"></div>
           </div>
-          <div class="user_ops_info"></div>
+
+
+          <div class="sbar_options">
+            <div class="sopt"></div>
+            <div class="sopt"></div>
+            <div class="sopt"></div>
+            <div class="sopt"></div>
+          </div>
+
         </div>
       </div>
     <% } %> <%-include('./Components/Footer.ejs') %>
+    <script src="/assets/scripts/script.js"></script>
+    <script src="/assets/scripts/dashboard.js"></script>
   </body>
 </html>

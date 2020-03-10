@@ -198,6 +198,7 @@ input[type="date"]::-webkit-inner-spin-button {
   background-color: #f2f2f2;
   border-radius: 5px;
   display: none;
+  z-index: 100;
 }
 
 .user_options div {
@@ -1173,7 +1174,7 @@ input[type="date"]::-webkit-inner-spin-button {
   width: 90%;
   margin: 10px 0;
   box-sizing: border-box;
-  padding-left: 20px;
+  padding:0 10px;
   font-family: Raleway;
   font-weight: bold;
   font-size: 20px;
@@ -2018,6 +2019,41 @@ canvas {
   display: none;
 }
 
+.btndesk{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+  box-sizing: border-box;
+  padding-right: 10px;
+  position: relative;
+}
+
+.crosssec{
+  height: 30px;
+  width: 5px;
+  border-radius: 5px;
+  background-color: black;
+  position: absolute;
+  right: 20px;
+}
+
+.crosssec:nth-child(1){
+  transform: rotate(45deg);
+}
+
+.crosssec:nth-child(2){
+  transform: rotate(-45deg);
+}
+
+.cslstng{
+  border: none;
+  background-color: white;
+  font-size: 20px;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
 .del_lstng {
   display: flex;
   position: absolute;
@@ -2045,11 +2081,19 @@ canvas {
   justify-content: center;
   align-items: center;
   font-size: 60px;
-  background-color: rgb(236, 99, 99);
+}
+
+#modal_1{
+  background-color: #ec6363;
+}
+
+#modal_2{
+  background-color: #099126;
+  color: white;
 }
 
 .del_text {
-  font-size: 25px;
+  font-size: 22px;
   font-family: Roboto;
 }
 
@@ -2060,11 +2104,18 @@ canvas {
   font-family: Raleway;
   font-weight: bold;
   color: white;
-  background-color: rgb(211, 42, 59);
   border: none;
   border-radius: 10px;
   margin-top: 40px;
   cursor: pointer;
+}
+
+#modalchange_1{
+  background-color: #d32a3b;
+}
+
+#modalchange_2{
+  background-color: #099126;
 }
 
 /* User-Listing-Page */
@@ -2118,58 +2169,48 @@ canvas {
 /* Email-verification Page */
 
 /* Dashboard */
+.dash_wrapper{
+  display: flex;
+}
 
-.dashboard_wrapper {
-  width: 100%;
+.sidebar{
+  height: 100vh;
+  width: 50px;
+  background-color: #222222;
   display: flex;
   flex-direction: column;
-  min-height: 80vh;
-  padding-bottom: 100px;
-}
-
-.dashboard_enclose {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-}
-
-.user_dash_infoop {
-  height: 800px;
-  width: 20%;
-  background-color: #f1f1f1;
-  padding: 20px;
+  align-items: flex-end;
+  padding: 5px;
   box-sizing: border-box;
-  margin: 20px;
-  border-radius: 10px;
+  transition: 0.4s;
 }
 
-.userimg-en {
-  height: 40%;
-  width: 100%;
-  border-bottom: 2px solid white;
+.hamburger{
+  height: 40px;
+  width: 40px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  padding-bottom: 20px;
+  justify-content: center;
+  cursor: pointer;
 }
 
-.userpic,
-.userpic img {
-  height: 300px;
-  width: 300px;
-  border-radius: 300px;
+.hambar{
+  width: 90%;
+  height: 15%;
   background-color: white;
+  transition: 0.4s;
 }
 
-.user_ops_info {
-  background-color: #f1f1f1;
-  width: 80%;
-  height: 800px;
-  margin: 20px 0;
-  margin-right: 20px;
-  border-radius: 10px;
+.hambar + .hambar{
+  margin-top: 5px;
 }
+
+.sopt{
+  height: 50px;
+  width: 100%;
+}
+
 /* Dashboard */
 
 /* Forgot-Password */
@@ -2511,7 +2552,6 @@ canvas {
   .infowrap80,
   .sellcar_wrap,
   .ulwrap,
-  .dashboard_wrapper,
   .reg_body {
     padding-bottom: 500px;
   }

@@ -16,7 +16,7 @@
         <div class="user-panel">
             <% if (user){ %>
                 <div>Hi, <%=user.firstName %></div>
-                <div class="userico" onclick="userinfo()">
+                <div class="userico">
                     <i class="fad fa-user-circle"></i>
                     <div class="user_options">
                         <a href="/dashboard"><div class="userprofile">My Profile</div></a>
@@ -44,4 +44,6 @@
       <a href="/search-car/1"><li>BUY CAR</li></a>
     </ul>
   </div>
+
+  <script src="/assets/scripts/userlog.js"></script>
 </header>
