@@ -45,12 +45,10 @@
             <div class="c_price">
               PRICE
               <input class="edit_inp" type="text" placeholder="Car Price" name="upPrice" value="<%= car.Price %>">
-            <span> NZ</span>
           </div>
             <div class="c_price">
               MIN PRICE
               <input class="edit_inp" type="text" placeholder="Min Car Price" name="upMinPrice" value="<%= car.minPrice %>">
-              <span> NZ</span>
             </div>
           </div>
         </div>
@@ -115,16 +113,6 @@
       </form>
       </div>
 
-      <button class="lst_edit" onclick="showpop('1')">Edit Listing Pics</button>
-
-      <div class="edit_pic vanish">
-          <h1>Upload New Photos and Thumbs</h1>
-        <button class="l_p_update">Thumbnail</button>
-        <button class="l_p_update">Interior</button>
-        <button class="l_p_update">Exterior</button>
-
-        <button class="lp_updated" onclick="showpop('2')">Upload</button>
-      </div>
     </div>
 <%-include('./Components/Footer.ejs') %>
 </body>
