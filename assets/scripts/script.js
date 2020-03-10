@@ -90,16 +90,6 @@ function del_lstng(j){
   }
 }
 
-function showpop(j){
-  if(j==1){
-    document.getElementsByClassName("edit_pic")[0].classList.remove("vanish")
-  }
-
-  else{
-    document.getElementsByClassName("edit_pic")[0].classList.add("vanish")
-  }
-}
-
   function sell_listed(j){
   if(j){
     document.getElementById('adSOLD').value = j.value;
@@ -123,7 +113,7 @@ function Pagination(j){
     if(p==5) p=0
 
     x[p].classList.add("page_sel")
-    console.log(p)
+
   }
 
   if(j==2){
@@ -135,7 +125,7 @@ function Pagination(j){
     if(p<0) p=4
 
     x[p].classList.add("page_sel")
-    console.log(p)
+    
   }
 }
 
@@ -169,3 +159,4 @@ function showsl(j){
     document.getElementById("INTSELECT").style.zIndex = '0'
   }
 }
+

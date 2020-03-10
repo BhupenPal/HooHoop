@@ -1225,6 +1225,13 @@ input[type="date"]::-webkit-inner-spin-button {
 
 .alignment-text {
   font-family: Lato;
+  width: 90%;
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+.alignment-text div{
+  margin-top: 10px;
 }
 
 .reg_link {
@@ -2641,6 +2648,46 @@ canvas {
     padding: 20px;
   }
 /* Contact-us */
+
+/* Flashers */
+  .flash_msg{
+    width: 100%;
+    border-radius: 5px;
+    font-family: Roboto;
+    padding: 10px;
+    font-size: 16px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    color: white;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    transition: 0.3s;
+  }
+
+  .flash_msg_warning{
+    background-color: #f6b500;
+  }
+
+  .flash_msg_success{
+    background-color: green;
+  }
+
+  .flash_msg_danger{
+    background-color: red;
+  }
+
+  .close{
+    border: none;
+    background-color: transparent;
+    color: white;
+    position: absolute;
+    left: 90%;
+    top: 10%;
+    font-size: 30px;
+    cursor: pointer;
+  }  
+/* Flashers */
 
 @media only screen and (max-width: 480px) {
   *::-webkit-scrollbar {
