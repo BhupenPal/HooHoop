@@ -640,6 +640,13 @@ input[type="date"]::-webkit-inner-spin-button {
 /* Sell-Car-Page */
 /* SELL-FORM */
 
+button:disabled,
+button[disabled]{
+  color: white;
+  cursor: not-allowed;
+}
+
+
 .sellform_wrap {
   display: flex;
   flex-direction: column;

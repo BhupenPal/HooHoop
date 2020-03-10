@@ -499,7 +499,7 @@
                     </div>
 
                     <div  class="sub-btn">
-                        <button type="submit">Submit</button>
+                        <button type="submit" id="uploadFormSubmit">Submit</button>
                     </div>
             </form>
         </div>
@@ -519,10 +519,10 @@
 
         function uploadData(e){
             e.preventDefault();
+            document.getElementById('uploadFormSubmit').disabled = true;
             const xhr = new XMLHttpRequest();
-
             xhr.open('POST', '/car-submit/submit');
-            xhr.addEventListener('progress', e => {
+            xhr.upload.addEventListener('progress', e => {
                 const percent = e.lengthComputable ? (e.loaded / e.total) * 100 : 0;
                 progressBarFill.style.width = percent.toFixed(2) + "%";
                 progressBarText.textContent = percent.toFixed(2) + "%";
