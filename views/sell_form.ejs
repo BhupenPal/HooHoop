@@ -9,6 +9,27 @@
     <link rel="stylesheet" href="/assets/css/fonts.css">
     <link rel="icon" href="/assets/images/favicon.ico" type="image/ico" sizes="16*16">
     <title>HooHoop</title>
+    <style>
+        .progress-bar{
+            height: 35px;
+            width: 250px;
+            border: 2px solid darkblue;
+        }
+
+        #progress-bar-fill{
+            height: 100%;
+            width: 0;
+            background-color: lightblue;
+            display: flex;
+            align-items: center;
+            transition: width 0.2s;
+        }
+
+        #progress-bar-text{
+            margin-left: 10px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>  
     <%-include('./Components/Header.ejs') %>
@@ -56,7 +77,7 @@
 
             <div class="form_inp">
                 
-                <form method="post" enctype="multipart/form-data" action="submit">
+                <form id="uploadForm">
                     <div class="form_head">
                         <h1>selling price</h1>
                         <input type="text" placeholder="Preferred Selling Price" name="Price" required>
@@ -470,9 +491,15 @@
                             <div><input type="checkbox" name="authorPhone"><span>Phone Number</span></div>           
                         </div>
                     </div>
-            
+                    
+                    <div class="progress-bar" id="ProgressBar">
+                        <div id="progress-bar-fill">
+                            <span id="progress-bar-text">0%</span>
+                        </div>
+                    </div>
+
                     <div  class="sub-btn">
-                        <button>Submit</button>
+                        <button type="submit">Submit</button>
                     </div>
             </form>
         </div>
@@ -482,5 +509,27 @@
     <%-include('./Components/Footer.ejs') %>
     <script src="../assets/scripts/script.js"></script>
     <script src="../assets/scripts/selecttag.js"></script>
+    <script>
+        const uploadForm = document.getElementById('uploadForm');
+        const videoFile = document.getElementById('ExteriorInp');
+        const progressBarFill = document.getElementById('progress-bar-fill');
+        const progressBarText = document.getElementById('progress-bar-text');
+
+        uploadForm.addEventListener("submit", uploadData)
+
+        function uploadData(e){
+            e.preventDefault();
+            const xhr = new XMLHttpRequest();
+
+            xhr.open('POST', '/car-submit/submit');
+            xhr.addEventListener('progress', e => {
+                const percent = e.lengthComputable ? (e.loaded / e.total) * 100 : 0;
+                progressBarFill.style.width = percent.toFixed(2) + "%";
+                progressBarText.textContent = percent.toFixed(2) + "%";
+            })
+
+            xhr.send(new FormData(uploadForm))
+        }
+    </script>
 </body>
 </html>

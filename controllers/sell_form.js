@@ -231,7 +231,6 @@ Router.post("/car-submit/submit", urlencoded, exterior, (req, res) => {
   }, 10000)
 
   newCar.save();
-  res.render("dashboard");
 });
 
 const theDate = timeStamp => {

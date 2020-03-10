@@ -197,8 +197,10 @@ input[type="date"]::-webkit-inner-spin-button {
   top: 60px;
   background-color: #f2f2f2;
   border-radius: 5px;
-  display: none;
+  visibility: hidden;
   z-index: 100;
+  opacity: 0;
+  transition: 0.15s;
 }
 
 .user_options div {
@@ -208,7 +210,6 @@ input[type="date"]::-webkit-inner-spin-button {
   align-items: center;
   font-size: 16px;
   height: 40px;
-  transition: 0.2s;
   color: black;
 }
 
@@ -2017,6 +2018,7 @@ canvas {
   height: 100vh;
   width: 100vw;
   display: none;
+  background-image: linear-gradient(rgba(40, 40, 40, 0.6), rgba(40, 40, 40, 0.6));
 }
 
 .btndesk{
@@ -2061,7 +2063,6 @@ canvas {
   left: 50%;
   margin-left: -300px;
   margin-top: -200px;
-  box-shadow: 0 0 3px 3px #f1f1f1;
   height: 400px;
   width: 600px;
   border-radius: 10px;
