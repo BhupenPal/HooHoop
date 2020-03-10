@@ -640,10 +640,30 @@ input[type="date"]::-webkit-inner-spin-button {
 /* Sell-Car-Page */
 /* SELL-FORM */
 
+.progress-bar{
+  height: 35px;
+  width: 250px;
+  border: 2px solid darkblue;
+}
+
+#progress-bar-fill{
+  height: 100%;
+  width: 0;
+  background-color: lightblue;
+  display: flex;
+  align-items: center;
+  transition: width 0.2s;
+}
+
+#progress-bar-text{
+  margin-left: 10px;
+  font-weight: bold;
+}
+
 button:disabled,
 button[disabled]{
   color: white;
-  cursor: not-allowed;
+  cursor: not-allowed !important;
 }
 
 
@@ -2582,6 +2602,21 @@ canvas {
     padding-bottom: 200px;
   }
 
+  .contact-us-wrapper h1{
+    font-family: Lato;
+    font-size: 50px;
+  }
+
+  .contact-us-wrapper h2{
+    font-family: Raleway;
+    font-size: 20px;
+  }
+
+  .contact-us-wrapper h2 a{
+    font-family: Roboto;
+    color: green;
+  }
+
   .contact-us-wrapper form label{
     font-family: Roboto;
   }
@@ -2916,7 +2951,7 @@ canvas {
   }
 
   .viewthsxty {
-    height: 60vw;
+    height: 60vw; 
   }
 
   .interior-changer,

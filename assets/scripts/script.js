@@ -169,3 +169,21 @@ function showsl(j){
     document.getElementById("INTSELECT").style.zIndex = '0'
   }
 }
+
+const pageParams = parseInt(window.location.href.split('/')[4].split('?')[0]);
+
+if(pageParams == 1){
+  document.getElementById("previous").disabled = true;
+}
+
+if(pageParams == 10){
+  document.getElementById("previous").disabled = true;
+} 
+
+function onPrev(){
+    window.location.href = `http://localhost:8080/search-car/${pageParams - 1}`
+}
+
+function onNext(){
+    window.location.href = `http://localhost:8080/search-car/${pageParams + 1}`
+}

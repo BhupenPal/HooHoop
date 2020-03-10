@@ -210,13 +210,13 @@
 
     <!-- Pagination -->
     <div class="Pagination">
-      <button id="previous" onclick="Pagination('2')">Previous</button>
+      <button id="previous" onclick="onPrev()">Previous</button>
       <span class="Page_no page_sel" onclick="Page_select(this)">1</span>
       <span class="Page_no" onclick="Page_select(this)">2</span>
       <span class="Page_no" onclick="Page_select(this)">3</span>
       <span class="Page_no" onclick="Page_select(this)">4</span>
-      <span class="Page_no" onclick="Page_select(this)">5</span>
-      <button id="next" onclick="Pagination('1')">Next</button>
+      <span class="Page_no" onclick="Page_select(this)"><%= endPage %></span>
+      <button id="next" onclick="onNext()">Next</button>
     </div>
     <!-- Buy-car ended -->
     <%-include('./Components/Footer.ejs') %>
