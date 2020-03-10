@@ -2376,42 +2376,265 @@ canvas {
 }
 
 /* About Us */
-.about-us {
-  width: 80%;
-  padding: 50px 0 200px 0;
-  margin: 0 auto;
+.about-us-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 200px;
+  background-color: #ffffff;
+}
+
+.uspques{
+  width: 60%;
+  margin-top: 100px;
 }
 
 .quest h1 {
-  font-family: lato;
-  font-size: 50px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 40px;
 }
 
 .quest p {
-  font-family: lato;
-  font-size: 30px;
-  font-weight: bold;
-  color: #f5bf2b;
+  font-family: Raleway;
+  font-size: 22px;
+  font-weight: lighter;
 }
 
 .moto {
   display: block;
   width: 100%;
   text-align: center;
-  margin: 0 auto;
+  margin-top: 50px;
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.teamtag{
+  color: #000000;
+  font-family: Luna;
+  margin-top: 100px;
 }
 
 .team {
   margin: 80px 0 0 0;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .team-mem {
-  width: 32%;
-  border: 2px solid black;
+  height: 600px;
+  width: 200px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  box-shadow: 0 0 10px 8px #999999;
+  border-radius: 5px;
+  margin: 20px;
+  font-family: Raleway;
 }
+
+.intro, .bio{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-align: start;
+}
+
+.intro img{
+  height: 200px;
+  width: 200px;
+  border-radius: 200px;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* About-us */
+
+/* FAQ */
+  .FAQ-wrapper{
+    width: 60% !important;
+    margin: 100px auto 0 auto;
+    padding-bottom: 200px;
+  }
+
+  .FAQ-wrapper h1{
+    font-family: Roboto;
+  }
+
+  .quest h2{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+  }
+
+  .quest ul li,.quest span{
+    font-family: Roboto;
+  }
+
+  .FAQ-wrapper .quest p{
+    font-family: Raleway;
+    font-weight: lighter;
+    font-size: 22px;
+    color: rgb(41, 58, 7);
+  }
+/* FAQ */
+
+/* Privacy-Policy */
+  .Privpol-wrapper{
+    width: 60%;
+    margin: 100px auto 0 auto;
+    padding-bottom: 200px;
+  }
+
+  .Privpol-wrapper h3{
+    font-family: Roboto;
+    font-size: 30px;
+  }
+
+  #webref{
+    font-family: Roboto;
+  }
+
+  .single-policy{
+    font-family: Raleway;
+  }
+
+  .single-policy h3{
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+  .calleditor{
+    font-family: Poppins;
+    font-weight: bold;
+  }
+
+  .calleditor a{
+    color: green;
+  }
+/* Privacy-Policy */
+
+/* Terms of use */
+.terms_of_use{
+  width: 60%;
+  margin: 100px auto 0 auto;
+  padding-bottom: 200px;
+}
+
+.terms_of_use h3{
+  font-size: 30px;
+  font-family: Roboto;
+}
+
+.terms_of_use h4{
+  font-size: 24px;
+  font-family: Poppins;
+}
+
+.terms_of_use p{
+  font-family: Raleway;
+}
+
+.terms_of_use ol li{
+  font-family: Raleway;
+  margin-top: 10px;
+}
+
+.Disclaimer{
+  font-family: Lato !important;
+}
+/* Terms of use */
+
+/* Cancel-Policy */
+  .cancel_policy{
+    width: 60%;
+    margin: 100px auto 0 auto;
+    padding-bottom: 200px;
+  }
+
+  .cancel_policy h1{
+    font-family: Roboto;
+  }
+
+  .cancel_policy p{
+    font-family: Raleway;
+  }
+/* Cancel-Policy */
+
+/* Contact-us */
+  .contact-us-wrapper{
+    width: 60%;
+    margin: 100px auto 0 auto;
+    padding-bottom: 200px;
+  }
+
+  .contact-us-wrapper form label{
+    font-family: Roboto;
+  }
+
+  .contact-us-wrapper input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+    font-family: Raleway;
+    font-size: 20px;
+  }
+  .contact-us-wrapper input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+    font-family: Raleway;
+    font-size: 20px;
+  }
+
+  .contact-us-wrapper textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+    font-family: Raleway;
+    font-size: 20px;
+  }
+
+  input[type="submit"] {
+    background-color: orange;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  input[type="submit"]:hover {
+    background-color: orange;
+  }
+
+  .container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+/* Contact-us */
 
 @media only screen and (max-width: 480px) {
   *::-webkit-scrollbar {
