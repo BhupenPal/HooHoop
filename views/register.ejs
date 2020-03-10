@@ -21,7 +21,7 @@
     <div class="reg_body">
     <div class="card reg_card">
       <h1 class="alignment-text">
-        Create Account <%-include('./Flash/message.ejs') %>
+        Create Account <div><%-include('./Flash/message.ejs') %></div>
       </h1>
       <form action="/sign-up" method="POST" name="form1">
         <div class="form-group">
@@ -114,5 +114,6 @@
     </div>
   </div>
     <%-include('./Components/Footer.ejs') %>
+    <script src="/assets/scripts/flasher.js"></script>
   </body>
 </html>

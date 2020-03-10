@@ -1252,6 +1252,13 @@ button[disabled]{
 
 .alignment-text {
   font-family: Lato;
+  width: 90%;
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+.alignment-text div{
+  margin-top: 10px;
 }
 
 .reg_link {
@@ -2254,7 +2261,7 @@ canvas {
 }
 
 .f_pass_card {
-  height: 400px;
+  min-height: 400px;
   width: 400px;
   display: flex;
   margin: 30px;
@@ -2262,6 +2269,7 @@ canvas {
   align-items: center;
   border-radius: 10px;
   background-color: white;
+  padding-bottom: 50px;
 }
 
 .f_pass_card img {
@@ -2277,6 +2285,10 @@ canvas {
   justify-content: center;
   align-items: center;
   width: 100%;
+}
+
+#subsu{
+  margin-top: 50px;
 }
 
 .f_pass_card form label {
@@ -2679,6 +2691,46 @@ canvas {
   }
 /* Contact-us */
 
+/* Flashers */
+  .flash_msg{
+    width: 100%;
+    border-radius: 5px;
+    font-family: Roboto;
+    padding: 10px;
+    font-size: 16px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    color: white;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    transition: 0.3s;
+  }
+
+  .flash_msg_warning{
+    background-color: #f6b500;
+  }
+
+  .flash_msg_success{
+    background-color: green;
+  }
+
+  .flash_msg_danger{
+    background-color: red;
+  }
+
+  .close{
+    border: none;
+    background-color: transparent;
+    color: white;
+    position: absolute;
+    left: 90%;
+    top: 10%;
+    font-size: 30px;
+    cursor: pointer;
+  }  
+/* Flashers */
+
 @media only screen and (max-width: 480px) {
   *::-webkit-scrollbar {
     display: none !important;
@@ -2826,11 +2878,12 @@ canvas {
 
   .forg_pass_wrap {
     padding-bottom: 500px;
+    min-height: 100vh;
   }
 
   .f_pass_card {
     width: 90vw;
-    min-height: 110vw;
+    min-height: 80vh !important;
   }
 
   .f_pass_card img {
