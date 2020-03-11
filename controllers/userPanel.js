@@ -16,6 +16,7 @@ const bcrypt = require("bcryptjs");
 //Models Config
 const userModel = require("../models/userModel");
 const carModel = require("../models/carModel");
+const contactModel = require("../models/contactModel");
 
 //Passport Config
 const passport = require("passport");
@@ -329,6 +330,24 @@ Router.post("/user/reset-password/reset", urlencoded, async (req, res) => {
     res.render("login", { errors });
   }
 });
+
+Router.get("/contact-us", (req, res) => {
+  res.render('contact_us');
+})
+
+Router.post("/contact-us", urlencoded, (req, res) => {
+  const { name, email, subject, message } = req.body;
+
+    let cModel = new contactModel();
+    cModel.fullName = name;
+    cModel.email = email;
+    cModel.subject = subject;
+    cModel.message = message;
+  
+    cModel.save();
+    res.render('contact_us');
+
+})
 
 function mailHTML(NameTo, TokenCode) {
   return `<!DOCTYPE html>

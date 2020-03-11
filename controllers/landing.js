@@ -56,8 +56,4 @@ Router.get("/cancellation-policy", (req, res) => {
   res.render('cancellation_policy');
 })
 
-Router.get("/contact-us", (req, res) => {
-  res.render('contact_us');
-})
-
 module.exports = Router;
