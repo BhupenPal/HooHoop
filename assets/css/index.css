@@ -3078,6 +3078,129 @@ canvas {
     margin-top: 10vw;
   }
 
+  /* Sell-form response */
+  .sellform_wrap{
+    padding-bottom: 500px;
+  }
+
+  .VIN-input{
+    min-width: 0;
+    width: 90vw;
+    margin-top: 50px;
+  }
+
+  .VIN-input form{
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .sell_head{
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .ip_box{
+    flex-direction: column;
+  }
+
+  .ip_box input{
+    font-size: 20px;
+    padding: 0px 5px;
+  }
+
+  .ip_box button{
+    position: relative;
+    left: 0;
+    margin: 10px;
+    height: 40px;
+    width: 100px;
+    border-radius: 5px;
+  }
+
+  .form_see{
+    display: none;
+  }
+
+  .sell_form_submission{
+    width: 90vw;
+  }
+
+  .form_head{
+    flex-direction: column;
+    padding: 0;
+    min-height: 180px;
+    padding-bottom: 10px;
+    box-sizing: border-box;
+  }
+
+  .form_head input{
+    width: 90%;
+    margin-left: 0;
+    margin-top: 5px;
+  }
+
+  .select{
+    width: 80vw;
+  }
+
+  .select_opener{
+    width: 24%;
+  }
+
+  .inp_form_tag{
+    width: 80vw;
+  }
+
+  .input-wrapper{
+    width: 90vw;
+  }
+
+  .drive-type,.orcincluded,.orcincluded h2,.describecar{
+    padding:0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .orcincluded div{
+    margin-top: 10px;
+  }
+  
+  .file_upload{
+    width: 90vw;
+    flex-wrap: wrap;
+    padding: 0;
+  }
+
+  .int_images{
+    flex-direction: column;
+  }
+
+  .int_images span{
+    margin-top: 5px;
+  }
+
+  .rq360{
+    justify-content: center !important;
+    align-content: center;
+    padding: 0%;
+    width: 80vw;
+    margin: 20px auto;
+    align-items: center;
+  }
+
+  .rq360 h2{
+    text-align: center;
+  }
+
+  .dealer_details{
+    padding: 0;
+    width: 90vw;
+  }
+  /* Sell-form response */
+
   /* footer response */
 
   .foot {
