@@ -53,6 +53,7 @@ app.use(function(req, res, next) {
   }
   next();
 });
+
 const landing = require("./controllers/landing");
 app.use("/", landing);
 
