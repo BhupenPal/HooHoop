@@ -20,13 +20,13 @@
     <div class="contact-us-wrapper">
       <h1>Contact Us</h1>
       <h2>Let's get in touch</h2>
-      <h2>Email: <a href="mailto:info@hoohoop.co.nz">info@hoohoop.co.nz</a></h2>
+      <h2>Email: <a href="mailto:info@hoohoop.co.nz" target="__blank">info@hoohoop.co.nz</a></h2>
       <h2>Or leave us a message below</h2>
       
       <div class="container">
-        <form action="action_page.php">
-          <label for="name">First Name</label>
-          <input type="text" id="name" name="name" placeholder="Your name.." />
+        <form method="POST">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name.." required />
 
           <label for="email">E-mail</label>
 
@@ -35,6 +35,7 @@
             id="email"
             name="email"
             placeholder="Your E-mail.."
+            required
           />
 
           <label for="subject">Subject</label>
@@ -43,6 +44,7 @@
             id="subject"
             name="subject"
             placeholder="Subject"
+            required
           />
 
           <label for="message">Message</label>
@@ -51,6 +53,7 @@
             name="message"
             placeholder="Write something.."
             style="height:200px"
+            required
           ></textarea>
 
           <input type="submit" value="Submit" />
