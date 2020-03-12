@@ -181,34 +181,59 @@ Router.get("/logout", (req, res) => {
   res.redirect("/");
 });
 
-/* EDIT PAGE ROUTE*/ 
-Router.get("/edit-car/:id", ensureAuthenticated, async (req,res) => {
-  let car = {}
-  car.details = await carModel.find({ _id: req.params.id}).exec();
-  res.render("edit_cpage", {car: car.details[0]})
-})
+/* EDIT PAGE ROUTE*/
 
-Router.post("/edit-car/:id", ensureAuthenticated, urlencoded, async (req,res) => {
-  let car = {}
-  try {
-    let {upMake, 
-      upModel, 
-      upPrice, 
-      upMinPrice, 
-      upTransmission, 
-      upkMeters, 
-      upFuelType, 
-      upSeatNum, 
-      upEngineSize, 
-      upBodyType, 
-      upColour
-    } = req.body;
-    
-    carModel.updateOne({ _id: req.params.id }, { $set: { Make: upMake.toUpperCase(), Model: upModel, Price: upPrice, minPrice: upMinPrice, Transmission: upTransmission, kMeters: upkMeters, fuelType: upFuelType, SeatNum: upSeatNum, engineSize: upEngineSize, BodyType: upBodyType, Colour: upColour} }, () => {});
-    car.details = await carModel.find({_id : req.params.id}).exec();
-    res.render("edit_cpage", { car: car.details[0] });
-  } catch (e) {}
-})
+Router.get("/edit-car/:id", ensureAuthenticated, async (req, res) => {
+  let car = {};
+  car.details = await carModel.find({ _id: req.params.id }).exec();
+  res.render("edit_cpage", { car: car.details[0] });
+});
+
+Router.post(
+  "/edit-car/:id",
+  ensureAuthenticated,
+  urlencoded,
+  async (req, res) => {
+    let car = {};
+    try {
+      let {
+        upMake,
+        upModel,
+        upPrice,
+        upMinPrice,
+        upTransmission,
+        upkMeters,
+        upFuelType,
+        upSeatNum,
+        upEngineSize,
+        upBodyType,
+        upColour
+      } = req.body;
+
+      carModel.updateOne(
+        { _id: req.params.id },
+        {
+          $set: {
+            Make: upMake.toUpperCase(),
+            Model: upModel,
+            Price: upPrice,
+            minPrice: upMinPrice,
+            Transmission: upTransmission,
+            kMeters: upkMeters,
+            fuelType: upFuelType,
+            SeatNum: upSeatNum,
+            engineSize: upEngineSize,
+            BodyType: upBodyType,
+            Colour: upColour
+          }
+        },
+        () => {}
+      );
+      car.details = await carModel.find({ _id: req.params.id }).exec();
+      res.render("edit_cpage", { car: car.details[0] });
+    } catch (e) {}
+  }
+);
 
 //Dashboard Route
 Router.get("/dashboard", ensureAuthenticated, (req, res) => {
@@ -332,22 +357,23 @@ Router.post("/user/reset-password/reset", urlencoded, async (req, res) => {
 });
 
 Router.get("/contact-us", (req, res) => {
-  res.render('contact_us');
-})
+  res.render("contact_us");
+});
 
 Router.post("/contact-us", urlencoded, (req, res) => {
   const { name, email, subject, message } = req.body;
 
-    let cModel = new contactModel();
-    cModel.fullName = name;
-    cModel.email = email;
-    cModel.subject = subject;
-    cModel.message = message;
-  
-    cModel.save();
-    res.render('contact_us', {success_msg: "The contact form has been submitted"});
+  let cModel = new contactModel();
+  cModel.fullName = name;
+  cModel.email = email;
+  cModel.subject = subject;
+  cModel.message = message;
 
-})
+  cModel.save();
+  res.render("contact_us", {
+    success_msg: "The contact form has been submitted"
+  });
+});
 
 function mailHTML(NameTo, TokenCode) {
   return `<!DOCTYPE html>
