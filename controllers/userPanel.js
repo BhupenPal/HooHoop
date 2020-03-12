@@ -240,6 +240,108 @@ Router.get("/dashboard", ensureAuthenticated, (req, res) => {
   res.render("dashboard");
 });
 
+Router.post("/dashboard/profile", urlencoded, async (req, res) => {
+  let { firstName, lastName, phoneNum, address } = req.body;
+
+  let currentUser = await userModel.find({ _id: req.user.id });
+
+  if (!firstName) {
+    firstName = currentUser[0].firstName;
+  }
+  console.log(firstName);
+  if (!lastName) {
+    lastName = currentUser[0].lastName;
+  }
+
+  if (!phoneNum) {
+    phoneNum = currentUser[0].phoneNum;
+  }
+
+  if (!address) {
+    address = currentUser[0].address;
+  }
+
+  userModel.updateOne(
+    { _id: currentUser[0].id },
+    {
+      $set: {
+        firstName: firstName,
+        lastName: lastName,
+        phoneNum: phoneNum,
+        address: address
+      }
+    },
+    () => {}
+  );
+
+  res.redirect("/dashboard");
+});
+
+Router.post("/dashboard/password-reset", urlencoded, async (req, res) => {
+  let errors = [];
+  const { originalPass, password, password2 } = req.body;
+
+  let currentUser = await userModel.find({ _id: req.user.id });
+
+  //Check passwords match
+  if (password !== password2) {
+    errors.push({ msg: "Passwords do not match" });
+  }
+
+  //Check password length
+  if (password.length < 6) {
+    errors.push({ msg: "Password should be atleast 6 characters" });
+  }
+
+  if (password.length > 14) {
+    errors.push({ msg: "Password length should not exceed 14 characters" });
+  }
+
+  //Check password strength
+  if (!password.match(/[a-z]/)) {
+    errors.push({ msg: "Password must contain a Lowercase Letter." });
+  }
+
+  if (!password.match(/[A-Z]/)) {
+    errors.push({ msg: "Password must contain a Uppercase Letter." });
+  }
+
+  if (!password.match(/[0-9]/)) {
+    errors.push({ msg: "Password must contain a Numeric Digit." });
+  }
+
+  if (!password.match(/[\W]/)) {
+    errors.push({ msg: "Password must contain a Special Character." });
+  }
+
+  if (errors.length > 0) {
+    res.render("dashboard", { errors });
+  } else {
+    bcrypt.compare(originalPass, currentUser[0].password, (err, isMatch) => {
+      if (err) throw err;
+      if (isMatch) {
+        bcrypt.genSalt(10, (err, salt) =>
+          bcrypt.hash(password, salt, (err, hash) => {
+            if (err) throw err;
+            userModel.updateOne(
+              { _id: currentUser[0].id },
+              {
+                $set: {
+                  password: hash
+                }
+              },
+              () => {}
+            );
+          })
+        );
+        res.redirect('/dashboard', {success_msg: "Password Updated"})
+      } else {
+        res.redirect('/dashboard', {errors})
+      }
+    });
+  }
+});
+
 Router.get("/user/reset-password", async (req, res) => {
   let errors = [];
 

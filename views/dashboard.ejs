@@ -34,24 +34,25 @@
           </div>
           <!-- Profile Section -->
           <div class="fet_det">
+            <%-include('./Flash/message.ejs') %>
             <h1 class="feature_head">Profile</h1>
 
           <div class="Usercred">
-            <form>
+            <form method="POST">
+
+                <div class="credcontainer">
+                  <label for="d_cred_mail">Email</label>
+                  <span><%= user.email %> <i class="far fa-exclamation-triangle"></i></span>
+              </div>
               
               <div class="credcontainer">
                 <label for="d_cred_fnme">First Name</label>
-                <input type="text" id="d_cred_fnme">
+                <input type="text" id="d_cred_fnme" placeholder="<%= user.firstName %>" value="<%= user.firstName %>" name="firstName">
               </div>
 
               <div class="credcontainer">
                 <label for="d_cred_lnme">Last Name</label>
-                <input type="text" id="d_cred_lnme">
-              </div>
-
-              <div class="credcontainer">
-                <label for="d_cred_mail">Email</label>
-                <input type="text" id="d_cred_mail">
+                <input type="text" id="d_cred_lnme" placeholder="<%= user.lastName %>" value="<%= user.lastName %>" name="lastName">
               </div>
 
               <div class="credcontainer flex_change">
@@ -60,16 +61,16 @@
 
               <div class="credcontainer">
                 <label for="d_cred_num">Phone</label>
-                <input type="text" id="d_cred_num">
+                <input type="text" id="d_cred_num" placeholder="<%= user.phoneNum %>" value="<%= user.phoneNum %>" name="phoneNum">
               </div>
-
+              
               <div class="credcontainer">
                 <label for="d_cred_address">Address</label>
-                <input type="text" id="d_cred_address">
+                <input type="text" id="d_cred_address" placeholder="<%= user.address %>" value="<%= user.address %>" name="address">
               </div>
 
               <div class="subcred">
-                <button>Update</button>
+                <button type="submit" formaction="/dashboard/profile">Update</button>
               </div>
 
             </form>
@@ -83,24 +84,24 @@
 
             <div class="Usercred Acc_man">
             
-            <form>
+            <form method="POST">
               <div class="credcontainer">
                 <label for="d_cred_oldpass">Old Password</label>
-                <input type="password" id="d_cred_oldpass">
+                <input type="password" id="d_cred_oldpass" name="originalPass">
               </div>
   
               <div class="credcontainer">
                 <label for="d_cred_newpass">New Password</label>
-                <input type="password" id="d_cred_newpass">
+                <input type="password" id="d_cred_newpass" name="password">
               </div>
   
               <div class="credcontainer">
                 <label for="d_cred_cnewpass">Confirm New Password</label>
-                <input type="password" id="d_cred_cnewpass">
+                <input type="password" id="d_cred_cnewpass" name="password2">
               </div>
 
               <div class="subcred">
-                <button>Change Password</button>
+                <button type="submit" formaction="/dashboard/password-reset">Change Password</button>
               </div>
             </form>
 
@@ -117,7 +118,7 @@
 
               <table class="table_S">
                 <tr>
-                  <th>S.no</th>
+                  <th>S.No</th>
                   <th>Thumbnail</th>
                   <th>Make</th>
                   <th>Model</th>
@@ -321,6 +322,44 @@
     <% } %> <%-include('./Components/Footer.ejs') %>
     <script src="/assets/scripts/script.js"></script>
     <script src="/assets/scripts/dashboard.js"></script>
+    <script>
+        //Check passwords match
+
+        let password = document.getElementById('d_cred_newpass').value;
+        let password2 = document.getElementById('d_cred_cnewpass').value;
+
+        let error = [];
+  if (password !== password2) {
+    errors.push({ msg: "Passwords do not match" });
+  }
+
+  //Check password length
+  if (password.length < 6) {
+    errors.push({ msg: "Password should be atleast 6 characters" });
+  }
+
+  if (password.length > 14) {
+    errors.push({ msg: "Password length should not exceed 14 characters" });
+  }
+
+  //Check password strength
+  if (!password.match(/[a-z]/)) {
+    errors.push({ msg: "Password must contain a Lowercase Letter." });
+  }
+
+  if (!password.match(/[A-Z]/)) {
+    errors.push({ msg: "Password must contain a Uppercase Letter." });
+  }
+
+  if (!password.match(/[0-9]/)) {
+    errors.push({ msg: "Password must contain a Numeric Digit." });
+  }
+
+  if (!password.match(/[\W]/)) {
+    errors.push({ msg: "Password must contain a Special Character." });
+  }
+
+  console.log(errors)
+    </script>
   </body>
 </html>
-a ''
