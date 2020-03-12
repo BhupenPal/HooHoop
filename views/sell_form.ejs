@@ -321,8 +321,9 @@
                     <div class="input-wrapper">
                         <span> WOF Expiry (Optional) </span>
                         <select name="WOFExpirey" id="swofexp" class="select-tag">
-                            <% if(detailedCarObject.expiry_date_of_last_successful_wof) %>
+                            <% if(detailedCarObject.expiry_date_of_last_successful_wof){ %>
                                 <option id="sfWof-exp" value="<%= detailedCarObject.expiry_date_of_last_successful_wof %>"><%= detailedCarObject.expiry_date_of_last_successful_wof %></option>
+                                <option value="" disabled>----------------------</option>
                             <% } %>
                             
                         </select>
@@ -331,8 +332,9 @@
                     <div class="input-wrapper">
                         <span> Reg. Expiry (Optional) </span>
                         <select name="RegExpirey" id="sexpirey" class="select-tag">
-                            <% if(detailedCarObject.plates[0].effective_date) %>
+                            <% if(detailedCarObject.expiry_date_of_last_successful_wof){ %>
                                 <option id="sfReg-exp" value="<%= detailedCarObject.plates[0].effective_date %>"><%= detailedCarObject.plates[0].effective_date %></option>
+                                <option value="" disabled>----------------------</option>
                             <% } %>
                         </select>
                     </div>
