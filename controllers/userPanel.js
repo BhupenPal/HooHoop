@@ -469,6 +469,28 @@ Router.get('/dashboard/mylistings', async (req, res) => {
   }
 })
 
+Router.get('/dashboard/complete-list', async (req, res) => {
+
+  let myList = await carModel.find({})
+
+  if(req.xhr){
+    res.json({list: myList})
+  } else {
+    res.send('Link not accessible');
+  }
+})
+
+Router.get('/dashboard/complete-users', async (req, res) => {
+
+  let allUsers = await userModel.find({})
+
+  if(req.xhr){
+    res.json({list: allUsers})
+  } else {
+    res.send('Link not accessible');
+  }
+})
+
 Router.get("/contact-us", (req, res) => {
   res.render("contact_us");
 });
