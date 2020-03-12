@@ -1,23 +1,12 @@
- 
-let hamburger = document.querySelector(".hamburger")
-let hamstatus = "before"
+let dashoption = document.getElementsByClassName("fet_det")
+let sopt = document.getElementsByClassName("sopt")
 
-hamburger.addEventListener("click",function ham(){
-  
-  let sidebar = document.querySelector(".sidebar")
-
-  if(hamstatus == "before"){
-    sidebar.style.width = "300px";
-    hamburger.children.item(0).style.transform = "rotate(-45deg) translateX(-10px) translateY(5px)"
-    hamburger.children.item(1).style.transform = "scale(0)"
-    hamburger.children.item(2).style.transform = "rotate(45deg) translateX(-10px) translateY(-5px)"
-    hamstatus = "after"
-  }
-  else{
-    sidebar.style.width = "50px"
-    hamburger.children.item(0).style.transform = "rotate(0) translateX(0) translateY(0)"
-    hamburger.children.item(1).style.transform = "scale(1)"
-    hamburger.children.item(2).style.transform = "rotate(0) translateX(0) translateY(0)"
-    hamstatus = "before"
-  }
-})
+for(var m=0;m<sopt.length-1;m++){
+  sopt[m].addEventListener("click",function(){
+    for(var n=0;n<sopt.length-1;n++){
+      sopt[n].classList.remove("selected_sopt")
+    }
+    this.classList.add("selected_sopt")
+    console.log(this.classList.item(0))
+  })
+}

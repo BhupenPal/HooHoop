@@ -2126,7 +2126,7 @@ canvas {
   position: relative;
   padding-bottom: 0px;
   min-height: 80vh;
-  padding-bottom: 100px;
+  padding-bottom: 80px;
 }
 
 .sidebar{
@@ -2200,6 +2200,9 @@ canvas {
 .fet_det{
   padding-left: 300px;
   box-sizing: border-box;
+  width: 100%;
+  overflow-y: scroll;
+  padding-bottom: 50px;
 }
 
 .feature_head{
@@ -2212,6 +2215,10 @@ canvas {
   padding-left: 50px;
 }
 
+.Acc_man form .credcontainer input{
+  font-size: 30px;
+}
+
 .credcontainer{
   display: flex;
   justify-content: space-between;
@@ -2222,6 +2229,9 @@ canvas {
 .credcontainer label{
   font-size: 24px;
   font-family: Roboto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .credcontainer input{
@@ -2274,6 +2284,59 @@ canvas {
 
 .subcred button:hover{
   background-color: #f5bf2b;
+}
+
+.table_container{
+  padding-left: 50px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.table_S {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
+
+td:first-child,th:first-child{
+  width: 40px;
+  text-align: center;
+}
+
+td:nth-child(2),th:nth-child(2){
+  width: 30px;
+}
+
+tr:nth-child(2n) {
+  background-color: #f1f1f1;
+}
+
+td:last-child{
+  width: 150px;
+}
+
+td button{
+  height: 30px;
+  width: 100px;
+  cursor: pointer;
+  border: none;
+  color: white;
+  font-family: Roboto;
+  font-size: 18px;
+  background-color: red;
+  border-radius: 5px;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+
+td button:hover{
+  opacity: 1;
 }
 
 /* Dashboard */
