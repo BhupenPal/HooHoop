@@ -1061,6 +1061,8 @@ button[disabled]{
   box-sizing: border-box;
   color: gray;
   text-transform: capitalize;
+  background-color: white;
+  cursor: pointer;
 }
 
 /* SELL-FORM */
