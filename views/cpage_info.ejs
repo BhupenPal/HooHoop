@@ -35,7 +35,8 @@
               ><span class="tooltiptext">Exterior</span>
             </button>
 
-            <select name="interiorSelect" id="INTSELECT" onchange="if (typeof(this.selectedIndex) != 'undefined') interiorImg(this.selectedIndex)">
+            <select name="interiorSelect" id="INTSELECT" onchange="ImgChange(this.value)">
+              <option value="hello">hello</option>
             </select>
 
             <div class="panoviewer-container viewer">
@@ -236,8 +237,8 @@
       <%-include('./Components/chatbot.ejs') %>
     </div>
     <%-include('./Components/Footer.ejs') %>
-    <input type="text" id="minor" style="display: block;" value="<%= record.minPrice %>">
-    <input type="text" id="major" style="display: block;" value="<%= record.Price %>">
+    <input type="text" id="minor" style="display: none;" value="<%= record.minPrice %>">
+    <input type="text" id="major" style="display: none;" value="<%= record.Price %>">
     <script src="/assets/scripts/view360-interior/jquery.js"></script>
     <script src="/assets/scripts/view360-interior/gyro.js"></script>
     <script src="/assets/scripts/view360-interior/pano.js"></script>
@@ -249,9 +250,8 @@
     <script src="/assets/scripts/ajax/interiorCheck.js"></script>
     <script>
       const front = `/assets/Uploads/<%= record.vinNum %>/interior/interiorFront.JPG`;
-const middle = `/assets/Uploads/<%= record.vinNum %>/interior/interiorMiddle.JPG`;
-const rear = `/assets/Uploads/<%= record.vinNum %>/interior/interiorRear.JPG`;
-const select = document.getElementById("INTSELECT");
+      const rear = `/assets/Uploads/<%= record.vinNum %>/interior/interiorRear.JPG`;
+      const select = document.getElementById("INTSELECT");
 
 function FileExist(urlToFile) {
     var xhr = new XMLHttpRequest();
@@ -267,48 +267,24 @@ function FileExist(urlToFile) {
 
 if (FileExist(front)){
     var opt = document.createElement('option');
-    opt.value = "FRONT";
+    opt.value = "interiorFront.JPG";
     opt.innerHTML = "Front";
-    select.appendChild(opt);
-}
-
-if(FileExist(middle)){
-    var opt = document.createElement('option');
-    opt.value = "MIDDLE";
-    opt.innerHTML = "Middle";
     select.appendChild(opt);
 }
 
 if(FileExist(rear)){
     var opt = document.createElement('option');
-    opt.value = "REAR";
+    opt.value = "interiorMiddle.JPG";
     opt.innerHTML = "Rear";
     opt.onchange
     select.appendChild(opt);
 }
     </script>
     <script>
-      function interiorImg(){
-            let x = document.getElementById("INTSELECT").value
-            console.log(x)
-            if(x=="FRONT"){
-              imgchange = "interiorFront.JPG"
-            }
-            if(x=="MIDDLE"){
-              imgchange = "interiorMiddle.JPG"
-            }
-            if(x=="REAR"){
-              imgchange = "interiorRear.JPG"
-            }
-            ImgChange(imgchange)
-            console.log(imgchange)
-          }
-
       function ImgChange(imgname){
         let myPan = document.getElementsByClassName("panoviewer-container")[0];
         
         document.getElementsByClassName("viewthsxty")[0].removeChild(myPan)
-        console.log(imgname)
 
         let panoviewerHTML = '\
               <div class="panoviewer-container viewer" style="z-index:30">\
