@@ -90,13 +90,11 @@
   width: 32px;
   height: 8px;
   margin: auto;
-  background-image: url(../img/common_loading_mo_white.gif);
   background-repeat: no-repeat;
   background-size: 32px 8px
 }
 
 .image360_loading:before {
-  background-image: url(../img/sp_component.png);
   background-repeat: no-repeat;
   -webkit-background-size: 391px 349px;
   background-size: 391px 349px;
