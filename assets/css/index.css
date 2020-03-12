@@ -2206,10 +2206,13 @@ canvas {
 /* Dashboard */
 .dash_wrapper{
   display: flex;
+  position: relative;
+  padding-bottom: 0px;
+  min-height: 80vh;
+  padding-bottom: 100px;
 }
 
 .sidebar{
-  height: 100vh;
   width: 50px;
   background-color: #222222;
   display: flex;
@@ -2241,9 +2244,47 @@ canvas {
   margin-top: 5px;
 }
 
+.sbar_options{
+  margin-top: 15vw;
+}
+
+.sopt,.sopt img{
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+}
+
 .sopt{
-  height: 50px;
-  width: 100%;
+  background-image: url("/assets/images/Login.png");
+  background-size: cover;
+  transition: 0.2s;
+  margin: 10px 0;
+}
+
+.sopt:hover{
+  background-image: url("/assets/images/LoginCircle.png");
+  background-size: cover;
+}
+
+.dashfeature{
+  width: 95vw;
+  display: flex;
+  position: relative;
+}
+
+.sidebar{
+  position: absolute;
+  height: 100%;
+}
+
+.fet_det{
+  padding-left: 50px;
+  box-sizing: border-box;
+}
+
+.feature_head{
+  font-size: 50px;
+  font-family: Roboto;
 }
 
 /* Dashboard */
@@ -2749,6 +2790,10 @@ canvas {
     font-size: 1em;
   }
 
+  header{
+    padding: 0 !important;
+  }
+
   /* Home response */
   .slider {
     height: 120vw;
@@ -3139,14 +3184,6 @@ canvas {
     margin-top: 5px;
   }
 
-  .select{
-    width: 80vw;
-  }
-
-  .select_opener{
-    width: 24%;
-  }
-
   .inp_form_tag{
     width: 80vw;
   }
@@ -3200,6 +3237,20 @@ canvas {
     width: 90vw;
   }
   /* Sell-form response */
+
+  /* footpage response */
+  .about-us-wrapper,.FAQ-wrapper,.Privpol-wrapper,.terms_of_use
+  ,.cancel_policy,.contact-us-wrapper{
+    padding-bottom: 600px;
+    width: 90vw !important;
+    margin: 0 auto;
+  }
+
+  .uspques{
+    width: 100%;
+  }
+
+  /* footpage response */
 
   /* footer response */
 
