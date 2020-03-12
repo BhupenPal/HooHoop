@@ -63,23 +63,71 @@
                     
                     <div class="input-wrapper">
                         <span> Select Make </span>
-                        <select name="Make" id="smake" class="select-tag">
-                            <option value="">Make</option>
-                            <option value="">Make</option>
-                            <option value="">Make</option>
-                            <option value="">Make</option>
-                            <option value="">Make</option>
+                        <select name="Make" id="smake" class="select-tag" onchange="ModelAccumlator()">
+                            <option value="ALFA ROMEO">ALFA ROMEO</option>
+                            <option value="ASTON MARTIN">ASTON MARTIN</option>
+                            <option value="AUDI">AUDI</option>
+                            <option value="AUSTIN">AUSTIN</option>
+                            <option value="BMW">BMW</option>
+                            <option value="CADILLAC">CADILLAC</option>
+                            <option value="CHEVROLET">CHEVROLET</option>
+                            <option value="CHRYSLER">CHRYSLER</option>
+                            <option value="DAEWOO">DAEWOO</option>
+                            <option value="DODGE">DODGE</option>
+                            <option value="FERRARI">FERRARI</option>
+                            <option value="FIAT">FIAT</option>
+                            <option value="FORD">FORD</option>
+                            <option value="FOTON">FOTON</option>
+                            <option value="GMC">GMC</option>
+                            <option value="HAVAL">HAVAL</option>
+                            <option value="HOLDEN">HOLDEN</option>
+                            <option value="HONDA">HONDA</option>
+                            <option value="HUMMER">HUMMER</option>
+                            <option value="HYUNDAI">HYUNDAI</option>
+                            <option value="INFINITI">INFINITI</option>
+                            <option value="ISUZU">ISUZU</option>
+                            <option value="IVECO">IVECO</option>
+                            <option value="JAGUAR">JAGUAR</option>
+                            <option value="JEEP">JEEP</option>
+                            <option value="KIA">KIA</option>
+                            <option value="LAND ROVER">LAND ROVER</option>
+                            <option value="LEMBO">LEMBO</option>
+                            <option value="LEXUS">LEXUS</option>
+                            <option value="LOTUS">LOTUS</option>
+                            <option value="MAHINDRA">MAHINDRA</option>
+                            <option value="MASERATI">MASERATI</option>
+                            <option value="MCLAREN">MCLAREN</option>
+                            <option value="MERCEDES BENZ">MERCEDES BENZ</option>
+                            <option value="MG">MG</option>
+                            <option value="MINI">MINI</option>
+                            <option value="MITSUBISHI">MITSUBISHI</option>
+                            <option value="NISSAN">NISSAN</option>
+                            <option value="OPEL">OPEL</option>
+                            <option value="PEUGEOT">PEUGEOT</option>
+                            <option value="PORSCHE">PORSCHE</option>
+                            <option value="RAM">RAM</option>
+                            <option value="RENAULT">RENAULT</option>
+                            <option value="RENAULT">RENAULT</option>
+                            <option value="ROLLS ROYCE">ROLLS ROYCE</option>
+                            <option value="ROVER">ROVER</option>
+                            <option value="SAAB">SAAB</option>
+                            <option value="SKODA">SKODA</option>
+                            <option value="SMART">SMART</option>
+                            <option value="SSANGYONG">SSANGYONG</option>
+                            <option value="SUBARU">SUBARU</option>
+                            <option value="SUZUKI">SUZUKI</option>
+                            <option value="TESLA">TESLA</option>
+                            <option value="TOYOTA">TOYOTA</option>
+                            <option value="TRIUMPH">TRIUMPH</option>
+                            <option value="TVR">TVR</option>
+                            <option value="VOLKSWAGEN">VOLKSWAGEN</option>
+                            <option value="VOLVO">VOLVO</option>
                         </select>
-                        </div>
+                    </div>
 
                     <div class="input-wrapper">
                         <span> Select Model </span>
                         <select name="Model" id="smodel" class="select-tag">
-                            <option value="">Model</option>
-                            <option value="">Model</option>
-                            <option value="">Model</option>
-                            <option value="">Model</option>
-                            <option value="">Model</option>
                         </select>
                     </div>
 
@@ -309,5 +357,37 @@
     <%-include('./Components/Footer.ejs') %>
     <script src="/assets/scripts/script.js"></script>
     <script src="/assets/scripts/ajax/sellFormAjax.js"></script>
+    <script>
+        function ModelAccumlator(){
+            let MakeValue = document.getElementById('smake').value;
+            let ModelBox = document.getElementById('smodel');
+
+            let MakeModel = [
+                {
+                    Make: "ALFA ROMEO", 
+                    Models: ['ALFA CAR1', 'ALFA CAR2']
+                },
+                {
+                    Make: "KIA",
+                    Models: ['KIA CAR1', 'KIA CAR2']
+                }
+            ]
+
+            for (var i = 0; i < length; i++) {
+                ModelBox.removeChild(ModelBox.children[i]);
+            }
+            
+            console.log(ModelBox)
+
+                for (var i=0; i < MakeModel.length; i++) {
+                    if (MakeModel[i].Make === MakeValue) {
+                        for(var j=0; j<MakeModel[i].Models.length; j++){
+                            ModelBox.options.add(new Option(MakeModel[i].Models[j], MakeModel[i].Models[j]))
+                        }
+                    }
+                }
+            
+        }
+    </script>
 </body>
 </html>

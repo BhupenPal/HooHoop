@@ -24,7 +24,7 @@
         <% } else if(tokenReceived) { %>
           
           <div class="f_pass_card">
-            <img src="../assets/images/Logo.png">
+            <img src="/assets/images/Logo.png">
             <form action="/user/reset-password/reset" method="POST">
               <input class="vanish" type="text" name="tokenReceived" value="<%= tokenReceived %>" />
               <input type="text" placeholder="New Password" name="password" />
@@ -32,11 +32,11 @@
               <button id="subsu" class="sign-up" type="submit">Submit</button>
             </form>
           </div>
-    
+        
         <% } else { %>
           
           <div class="f_pass_card">
-            <img src="../assets/images/Logo.png">
+            <img src="/assets/images/Logo.png">
             <form action="/user/reset-password" method="POST">
               <label for="f_pass_input">Enter Email</label>
               <input id="f_pass_input" class="input-tag" type="text" name="email" />
