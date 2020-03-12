@@ -28,7 +28,7 @@
               <div class="sopt">My Listing</div>
               <div class="sopt">All Listings</div>
               <div class="sopt">User Management</div>
-              <div class="sopt">Logout</div>
+            <a href="/logout"><div class="sopt">Logout</div></a>  
             </div>
   
           </div>
@@ -117,7 +117,7 @@
             <div class="table_container">
 
               <table class="table_S">
-                <tr>
+                <tr id="listeer">
                   <th>S.No</th>
                   <th>Thumbnail</th>
                   <th>Make</th>
@@ -125,54 +125,7 @@
                   <th>Status</th>
                   <th>Delete</th>
                 </tr>
-                <tr>
-                  <td>1</td>
-                  <td><img src="/assets/images/robot.png" style="height:30px;width:30px"></td>
-                  <td>Audi</td>
-                  <td>Audi-Model</td>
-                  <td>Active</td>
-                  <td><button>Delete</button></td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td><img src="/assets/images/robot.png" style="height:30px;width:30px"></td>
-                  <td>Audi</td>
-                  <td>Audi-Model</td>
-                  <td>Active</td>
-                  <td><button>Delete</button></td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td><img src="/assets/images/robot.png" style="height:30px;width:30px"></td>
-                  <td>Audi</td>
-                  <td>Audi-Model</td>
-                  <td>Active</td>
-                  <td><button>Delete</button></td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td><img src="/assets/images/robot.png" style="height:30px;width:30px"></td>
-                  <td>Audi</td>
-                  <td>Audi-Model</td>
-                  <td>Active</td>
-                  <td><button>Delete</button></td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td><img src="/assets/images/robot.png" style="height:30px;width:30px"></td>
-                  <td>Audi</td>
-                  <td>Audi-Model</td>
-                  <td>Active</td>
-                  <td><button>Delete</button></td>
-                </tr>
-                <tr>
-                  <td>6</td>
-                  <td><img src="/assets/images/robot.png" style="height:30px;width:30px"></td>
-                  <td>Audi</td>
-                  <td>Audi-Model</td>
-                  <td>Active</td>
-                  <td><button>Delete</button></td>
-                </tr>
+
               </table>
 
             </div>
@@ -322,7 +275,9 @@
     <% } %> <%-include('./Components/Footer.ejs') %>
     <script src="/assets/scripts/script.js"></script>
     <script src="/assets/scripts/dashboard.js"></script>
+    <script src="/assets/scripts/ajax/dashboardAjax.js"></script>
     <script>
+
         //Check passwords match
 
         let password = document.getElementById('d_cred_newpass').value;

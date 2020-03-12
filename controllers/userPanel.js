@@ -458,6 +458,17 @@ Router.post("/user/reset-password/reset", urlencoded, async (req, res) => {
   }
 });
 
+Router.get('/dashboard/mylistings', async (req, res) => {
+
+  let myList = await carModel.find({ authorID: req.user.id})
+
+  if(req.xhr){
+    res.json({list: myList})
+  } else {
+    res.send('Link not accessible');
+  }
+})
+
 Router.get("/contact-us", (req, res) => {
   res.render("contact_us");
 });
