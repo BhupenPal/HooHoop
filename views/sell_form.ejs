@@ -66,10 +66,10 @@
                         <select name="Make" id="smake" class="select-tag" onchange="ModelAccumlator()">
                             <% if(detailedCarObject.make ){ %>
                                 <option value="<%= detailedCarObject.make %>"> <%= detailedCarObject.make %> </option>
-                                <option value="" disabled>----------------------</option>
                             <% } else { %>
                                 <option value="NaN">Select Make</option>
                             <% } %>
+                            <option value="" disabled>----------------------</option>
                             <option value="ALFA ROMEO">ALFA ROMEO</option>
                             <option value="ASTON MARTIN">ASTON MARTIN</option>
                             <option value="AUDI">AUDI</option>
@@ -134,7 +134,7 @@
                     <div class="input-wrapper">
                         <span> Select Model </span>
                         <select name="Model" id="smodel" class="select-tag">
-                            <% if(detailedCarObject.make ){ %>
+                            <% if(detailedCarObject.make){ %>
                                 <option value="<%= detailedCarObject.model %>"> <%= detailedCarObject.model %> </option>
                             <% } else { %>
                                 <option value="NaN">Select Make First</option>
@@ -146,12 +146,12 @@
                     <div class="input-wrapper">
                         <span> Select Model Year </span>
                         <select name="ModelYear" id="smodelyear" class="select-tag">
-                            <% if(detailedCarObject.make ){ %>
+                            <% if(detailedCarObject.year_of_manufacture ){ %>
                                 <option value="<%= detailedCarObject.year_of_manufacture %>"> <%= detailedCarObject.year_of_manufacture %> </option>
                             <% } else { %>
                                 <option value="NaN">Select Make First</option>
-                                <option value="" disabled>----------------------</option>
                             <% } %>
+                            <option value="" disabled>----------------------</option>
                             <option value="2020">2020</option>
                             <option value="2019">2019</option>
                             <option value="2018">2018</option>
@@ -189,12 +189,12 @@
                     <div class="input-wrapper">
                         <span>Body Type</span>
                         <select name="BodyType" id="sbodytype" class="select-tag">
-                            <% if(detailedCarObject.make ){ %>
+                            <% if(detailedCarObject.body_style ){ %>
                                 <option value="<%= detailedCarObject.body_style %>"> <%= detailedCarObject.body_style %> </option>
                             <% } else { %>
                                 <option value="NaN">Select Make First</option>
-                                <option value="" disabled>----------------------</option>
                             <% } %>
+                            <option value="" disabled>----------------------</option>
                             <option value="Convertible">Convertible</option>
                             <option value="Hatchback">Hatchback</option>
                             <option value="Heavy Van">Heavy Van</option>
@@ -240,14 +240,17 @@
                     <div class="input-wrapper">
                         <span> Previous Owners (optional) </span>
                         <select name="PreviousOweners" id="spoweners" class="select-tag">
+                            <% if(detailedCarObject.number_of_owners ){ %>
+                                <option value="<%= detailedCarObject.number_of_owners %> Owners"> <%= detailedCarObject.number_of_owners %> Owners</option>
+                                <option value="" disabled>----------------------</option>
+                            <% } %>
                             <option value="">Don't Know</option>
-                            <option value="" disabled>----------------------</option>
-                            <option value="">New</option>
-                            <option value="">1 Owner</option>
-                            <option value="">2 Owner</option>
-                            <option value="">3 Owner</option>
-                            <option value="">4 Owner</option>
-                            <option value="">5+ Owner</option>
+                            <option value="New">New</option>
+                            <option value="1 Owner">1 Owner</option>
+                            <option value="2 Owners">2 Owner</option>
+                            <option value="3 Owners">3 Owner</option>
+                            <option value="4 Owners">4 Owner</option>
+                            <option value="5+ Owners">5+ Owner</option>
                         </select>
                     </div>
 
@@ -274,8 +277,11 @@
                     <div class="input-wrapper">
                         <span> Transmission (Optional) </span>
                         <select name="Transmission" id="stransmission" class="select-tag">
+                            <% if(detailedCarObject.transmission){ %>
+                                <option value="<%= detailedCarObject.transmission%>"> <%= detailedCarObject.transmission %> </option>
+                                <option value="" disabled>----------------------</option>
+                            <% } %>
                             <option value="">Don't Know</option>
-                            <option value="" disabled>----------------------</option>
                             <option value="">Automatic</option>
                             <option value="">Manual</option>
                             <option value="">Triptonic</option>
@@ -285,8 +291,11 @@
                     <div class="input-wrapper">
                         <span> Fuel Type </span>
                         <select name="FuelType" id="sfueltype" class="select-tag">
+                            <% if(detailedCarObject.fuel_type){ %>
+                                <option value="<%= detailedCarObject.fuel_type %>"> <%= detailedCarObject.fuel_type %> </option>
+                                <option value="" disabled>----------------------</option>
+                            <% } %>
                             <option value="">Don't Know</option>
-                            <option value="" disabled>----------------------</option>
                             <option value="">Petrol</option>
                             <option value="">Diesel</option>
                             <option value="">Electric</option>
