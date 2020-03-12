@@ -345,7 +345,7 @@ Router.post("/contact-us", urlencoded, (req, res) => {
     cModel.message = message;
   
     cModel.save();
-    res.render('contact_us');
+    res.render('contact_us', {success_msg: "The contact form has been submitted"});
 
 })
 

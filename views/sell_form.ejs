@@ -63,173 +63,57 @@
                     
                     <div class="input-wrapper">
                         <span> Select Make </span>
-                        <div class="select">
-                            <div class="placeholder">
-                                <div class="placeholder_text"><%= detailedCarObject.make %></div>
-                                <div class="select_opener">
-                                    <hr class="arr"><hr class="arr">
-                                </div>
-                            </div>
-                            <div class="opt_enclose">
-                                <div class="option" onclick="opt_select(0,0)">ALFA ROMEO</div>
-                                <div class="option" onclick="opt_select(1,0)"> ASTON MARTIN</div>
-                                <div class="option" onclick="opt_select(2,0)"> AUDI</div>
-                                <div class="option" onclick="opt_select(3,0)"> AUSTIN</div>
-                                <div class="option" onclick="opt_select(4,0)"> BMW</div>
-                                <div class="option" onclick="opt_select(5,0)"> CADILLAC</div>
-                                <div class="option" onclick="opt_select(6,0)"> CHEVROLET</div>
-                                <div class="option" onclick="opt_select(7,0)"> CHRYSLER</div>
-                                <div class="option" onclick="opt_select(8,0)"> DAEWOO</div>
-                                <div class="option" onclick="opt_select(9,0)"> DODGE</div>
-                                <div class="option" onclick="opt_select(10,0)"> FERRARI</div>
-                                <div class="option" onclick="opt_select(11,0)"> FIAT</div>
-                                <div class="option" onclick="opt_select(12,0)"> FORD</div>
-                                <div class="option" onclick="opt_select(13,0)"> FOTON</div>
-                                <div class="option" onclick="opt_select(14,0)"> GMC</div>
-                                <div class="option" onclick="opt_select(15,0)"> HAVAL</div>
-                                <div class="option" onclick="opt_select(16,0)"> HOLDEN</div>
-                                <div class="option" onclick="opt_select(17,0)"> HONDA</div>
-                                <div class="option" onclick="opt_select(18,0)"> HUMMER</div>
-                                <div class="option" onclick="opt_select(19,0)"> HYUNDAI</div>
-                                <div class="option" onclick="opt_select(20,0)"> INFINITI</div>
-                                <div class="option" onclick="opt_select(21,0)"> ISUZU</div>
-                                <div class="option" onclick="opt_select(22,0)"> IVECO</div>
-                                <div class="option" onclick="opt_select(23,0)"> JAGUAR</div>
-                                <div class="option" onclick="opt_select(24,0)"> JEEP</div>
-                                <div class="option" onclick="opt_select(25,0)"> KIA</div>
-                                <div class="option" onclick="opt_select(26,0)"> LEMBO</div>
-                                <div class="option" onclick="opt_select(27,0)"> LAND ROVER</div>
-                                <div class="option" onclick="opt_select(28,0)"> LEXUS</div>
-                                <div class="option" onclick="opt_select(29,0)"> LOTUS</div>
-                                <div class="option" onclick="opt_select(30,0)"> MAHINDRA</div>
-                                <div class="option" onclick="opt_select(31,0)"> MASERATI</div>
-                                <div class="option" onclick="opt_select(32,0)"> MAZDA</div>
-                                <div class="option" onclick="opt_select(33,0)"> McLAREN</div>
-                                <div class="option" onclick="opt_select(34,0)"> MERCEDES-BENZ</div>
-                                <div class="option" onclick="opt_select(35,0)"> MG</div>
-                                <div class="option" onclick="opt_select(36,0)"> MINI</div>
-                                <div class="option" onclick="opt_select(37,0)"> MITSUBISHI</div>
-                                <div class="option" onclick="opt_select(38,0)"> NISSAN</div>
-                                <div class="option" onclick="opt_select(39,0)"> OPEL</div>
-                                <div class="option" onclick="opt_select(40,0)"> PEUGEOT</div>
-                                <div class="option" onclick="opt_select(41,0)"> PORSCHE</div>
-                                <div class="option" onclick="opt_select(42,0)"> RAM</div>
-                                <div class="option" onclick="opt_select(43,0)"> RENAULT</div>
-                                <div class="option" onclick="opt_select(44,0)"> RILEY</div>
-                                <div class="option" onclick="opt_select(45,0)"> ROLLS-ROYCE</div>
-                                <div class="option" onclick="opt_select(46,0)"> ROVER</div>
-                                <div class="option" onclick="opt_select(47,0)"> SAAB</div>
-                                <div class="option" onclick="opt_select(48,0)"> SKODA</div>
-                                <div class="option" onclick="opt_select(49,0)"> SMART</div>
-                                <div class="option" onclick="opt_select(50,0)"> SSANGYONG</div>
-                                <div class="option" onclick="opt_select(51,0)"> SUBARU</div>
-                                <div class="option" onclick="opt_select(52,0)"> SUZUKI</div>
-                                <div class="option" onclick="opt_select(53,0)"> TESLA</div>
-                                <div class="option" onclick="opt_select(54,0)"> TOYOTA</div>
-                                <div class="option" onclick="opt_select(55,0)"> TRIUMPH</div>
-                                <div class="option" onclick="opt_select(56,0)"> TVR</div>
-                                <div class="option" onclick="opt_select(57,0)"> VOLKSWAGEN</div>
-                                <div class="option" onclick="opt_select(58,0)"> VOLVO</div>
-                                <div class="option" onclick="opt_select(59,0)"> VARUN</div>
-                                <div class="option" onclick="opt_select(60,0)"> OTHER</div>
-                            </div>
-                            <input type="text" class="select-input" value="<%= detailedCarObject.make %>" name="Make" required>
+                        <select name="Make" id="smake" class="select-tag">
+                            <option value="">Make</option>
+                            <option value="">Make</option>
+                            <option value="">Make</option>
+                            <option value="">Make</option>
+                            <option value="">Make</option>
+                        </select>
                         </div>
-                    </div>
 
                     <div class="input-wrapper">
                         <span> Select Model </span>
-                            <input type="text" class="inp_form_tag" value="<%= detailedCarObject.model %>" name="Model" required>
+                        <select name="Model" id="smodel" class="select-tag">
+                            <option value="">Model</option>
+                            <option value="">Model</option>
+                            <option value="">Model</option>
+                            <option value="">Model</option>
+                            <option value="">Model</option>
+                        </select>
                     </div>
 
                     <div class="input-wrapper">
                         <span> Select Model Year </span>
-                        <div class="select">
-                            <div class="placeholder">
-                                <div class="placeholder_text"><%= detailedCarObject.year_of_manufacture %></div>
-                                <div class="select_opener">
-                                    <hr class="arr"><hr class="arr">
-                                </div>
-                            </div>
-                            <div class="opt_enclose">
-                            <div class="option" onclick="opt_select(0,1)">2020</div>
-                            <div class="option" onclick="opt_select(1,1)">2019</div>
-                            <div class="option" onclick="opt_select(2,1)">2018</div>
-                            <div class="option" onclick="opt_select(3,1)">2017</div>
-                            <div class="option" onclick="opt_select(4,1)">2016</div>
-                            <div class="option" onclick="opt_select(5,1)">2015</div>
-                            <div class="option" onclick="opt_select(6,1)">2014</div>
-                            <div class="option" onclick="opt_select(7,1)">2013</div>
-                            <div class="option" onclick="opt_select(8,1)">2012</div>
-                            <div class="option" onclick="opt_select(9,1)">2011</div>
-                            <div class="option" onclick="opt_select(10,1)">2010</div>
-                            <div class="option" onclick="opt_select(11,1)">2009</div>
-                            <div class="option" onclick="opt_select(12,1)">2008</div>
-                            <div class="option" onclick="opt_select(13,1)">2007</div>
-                            <div class="option" onclick="opt_select(14,1)">2006</div>
-                            <div class="option" onclick="opt_select(15,1)">2005</div>
-                            <div class="option" onclick="opt_select(16,1)">2004</div>
-                            <div class="option" onclick="opt_select(17,1)">2003</div>
-                            <div class="option" onclick="opt_select(18,1)">2002</div>
-                            <div class="option" onclick="opt_select(19,1)">2001</div>
-                            <div class="option" onclick="opt_select(20,1)">2000</div>
-                            <div class="option" onclick="opt_select(21,1)">1999</div>
-                            <div class="option" onclick="opt_select(22,1)">1998</div>
-                            <div class="option" onclick="opt_select(23,1)">1997</div>
-                            <div class="option" onclick="opt_select(24,1)">1996</div>
-                            <div class="option" onclick="opt_select(25,1)">1995</div>
-                            <div class="option" onclick="opt_select(26,1)">1994</div>
-                            <div class="option" onclick="opt_select(27,1)">1993</div>
-                            <div class="option" onclick="opt_select(28,1)">1992</div>
-                            <div class="option" onclick="opt_select(29,1)">1991</div>
-                            <div class="option" onclick="opt_select(30,1)">1990</div>
-                            </div>
-                            <input type="text" class="select-input" value="<%= detailedCarObject.year_of_manufacture %>" name="ModelYear" required>
-                        </div>
+                        <select name="ModelYear" id="smodelyear" class="select-tag">
+                            <option value="">Model Year</option>
+                            <option value="">Model Year</option>
+                            <option value="">Model Year</option>
+                            <option value="">Model Year</option>
+                            <option value="">Model Year</option>
+                        </select>
                     </div>
 
                     <div class="input-wrapper">
                         <span>Body Type</span>
-                        <div class="select">
-                            <div class="placeholder">
-                                <div class="placeholder_text"><%= detailedCarObject.body_style %></div>
-                                <div class="select_opener">
-                                    <hr class="arr"><hr class="arr">
-                                </div>
-                            </div>
-                            <div class="opt_enclose">
-                            <div class="option" onclick="opt_select(0,2)">Convertible</div>
-                            <div class="option" onclick="opt_select(1,2)">Hatchback</div>
-                            <div class="option" onclick="opt_select(2,2)">Heavy Van</div>
-                            <div class="option" onclick="opt_select(3,2)">Light Van</div>
-                            <div class="option" onclick="opt_select(4,2)">Station Wagon</div>
-                            <div class="option" onclick="opt_select(5,2)">Utility</div>
-                            <div class="option" onclick="opt_select(6,2)">Sedan</div>
-                            <div class="option" onclick="opt_select(7,2)">Sports Car</div>
-                            <div class="option" onclick="opt_select(8,2)">Other</div>
-                            </div>
-                            <input type="text" class="select-input" value="<%= detailedCarObject.body_style %>" name="BodyType" required>
-                        </div>
+                        <select name="BodyType" id="sbodytype" class="select-tag">
+                            <option value="">Body Type</option>
+                            <option value="">Body Type</option>
+                            <option value="">Body Type</option>
+                            <option value="">Body Type</option>
+                            <option value="">Body Type</option>
+                        </select>
                     </div>
 
                     <div class="input-wrapper">
                         <span> Doors (optional) </span>
-                        <div class="select">
-                            <div class="placeholder">
-                                <div class="placeholder_text"></div>
-                                <div class="select_opener">
-                                    <hr class="arr"><hr class="arr">
-                                </div>
-                            </div>
-                            <div class="opt_enclose">
-                            <div class="option" onclick="opt_select(0,3)">1</div>
-                            <div class="option" onclick="opt_select(1,3)">2</div>
-                            <div class="option" onclick="opt_select(2,3)">3</div>
-                            <div class="option" onclick="opt_select(3,3)">4</div>
-                            <div class="option" onclick="opt_select(4,3)">5</div>
-                            </div>
-                            <input type="text" class="select-input" value="" name="DoorNum">
-                        </div>
+                        <select name="Doors" id="sdoors" class="select-tag">
+                            <option value="">Doors</option>
+                            <option value="">Doors</option>
+                            <option value="">Doors</option>
+                            <option value="">Doors</option>
+                            <option value="">Doors</option>
+                        </select>
                     </div>
 
                     <div class="input-wrapper">
@@ -244,40 +128,24 @@
 
                     <div class="input-wrapper">
                         <span> Import History (optional) </span>
-                        <div class="select">
-                            <div class="placeholder">
-                                <div class="placeholder_text"></div>
-                                <div class="select_opener">
-                                    <hr class="arr"><hr class="arr">
-                                </div>
-                            </div>
-                            <div class="opt_enclose">
-                            <div class="option" onclick="opt_select(0,4)">Don't Know</div>
-                            <div class="option" onclick="opt_select(1,4)">Imported</div>
-                            <div class="option" onclick="opt_select(2,4)">NZ New</div>
-                            </div>
-                            <input type="text" class="select-input" value="" name="Import History">
-                        </div>
+                        <select name="ImportHistory" id="sihistory" class="select-tag">
+                            <option value="">Import History</option>
+                            <option value="">Import History</option>
+                            <option value="">Import History</option>
+                            <option value="">Import History</option>
+                            <option value="">Import History</option>
+                        </select>
                     </div>
 
                     <div class="input-wrapper">
                         <span> Previous Owners (optional) </span>
-                        <div class="select">
-                            <div class="placeholder">
-                                <div class="placeholder_text"><%= detailedCarObject.number_of_owners %></div>
-                                <div class="select_opener">
-                                    <hr class="arr"><hr class="arr">
-                                </div>
-                            </div>
-                            <div class="opt_enclose">
-                            <div class="option" onclick="opt_select(0,5)">1</div>
-                            <div class="option" onclick="opt_select(1,5)">2</div>
-                            <div class="option" onclick="opt_select(2,5)">3</div>
-                            <div class="option" onclick="opt_select(3,5)">4</div>
-                            <div class="option" onclick="opt_select(4,5)">5</div>
-                            </div>
-                            <input type="text" class="select-input" value="<%= detailedCarObject.number_of_owners %>" name="PreviousOwners">
-                        </div>
+                        <select name="PreviousOweners" id="spoweners" class="select-tag">
+                            <option value="">Previous Oweners</option>
+                            <option value="">Previous Oweners</option>
+                            <option value="">Previous Oweners</option>
+                            <option value="">Previous Oweners</option>
+                            <option value="">Previous Oweners</option>
+                        </select>
                     </div>
 
                     <div class="input-wrapper">
@@ -302,103 +170,57 @@
 
                     <div class="input-wrapper">
                         <span> Transmission (Optional) </span>
-                    <div class="select">
-                        <div class="placeholder">
-                            <div class="placeholder_text"> <%= detailedCarObject.transmission %> </div>
-                            <div class="select_opener">
-                                <hr class="arr"><hr class="arr">
-                            </div>
-                        </div>
-                        <div class="opt_enclose">
-                        <div class="option" onclick="opt_select(0,6)">Don't Know</div>
-                        <div class="option" onclick="opt_select(1,6)">Manual</div>
-                        <div class="option" onclick="opt_select(2,6)">Automatic</div>
-                        <div class="option" onclick="opt_select(3,6)">Triptonic</div>
-                        </div>
-                        <input type="text" class="select-input" value="<%= detailedCarObject.transmission %>" name="Transmission">
-                    </div>
+                        <select name="Transmission" id="stransmission" class="select-tag">
+                            <option value="">Transmission</option>
+                            <option value="">Transmission</option>
+                            <option value="">Transmission</option>
+                            <option value="">Transmission</option>
+                            <option value="">Transmission</option>
+                        </select>
                     </div>
 
                     <div class="input-wrapper">
                         <span> Fuel Type </span>
-                        <div class="select">
-                            <div class="placeholder">
-                                <div class="placeholder_text"><%= detailedCarObject.fuel_type %></div>
-                                <div class="select_opener">
-                                    <hr class="arr"><hr class="arr">
-                                </div>
-                            </div>
-                            <div class="opt_enclose">
-                            <div class="option" onclick="opt_select(0,7)">Don't Know</div>
-                            <div class="option" onclick="opt_select(1,7)">Petrol</div>
-                            <div class="option" onclick="opt_select(2,7)">Diesel</div>
-                            <div class="option" onclick="opt_select(3,7)">Electric</div>
-                            <div class="option" onclick="opt_select(4,7)">Hybrid</div>
-                            </div>
-                            <input type="text" class="select-input" value="<%= detailedCarObject.fuel_type %>" name="fuelType" required>
-                        </div>
+                        <select name="FuelType" id="sfueltype" class="select-tag">
+                            <option value="">Fuel Type</option>
+                            <option value="">Fuel Type</option>
+                            <option value="">Fuel Type</option>
+                            <option value="">Fuel Type</option>
+                            <option value="">Fuel Type</option>
+                        </select>
                     </div>
 
                     <div class="input-wrapper">
                         <span> Cylinders </span>
-                        <div class="select">
-                            <div class="placeholder">
-                                <div class="placeholder_text"></div>
-                                <div class="select_opener">
-                                    <hr class="arr"><hr class="arr">
-                                </div>
-                            </div>
-                            <div class="opt_enclose">
-                            <div class="option" onclick="opt_select(0,8)">Rotary</div>
-                            <div class="option" onclick="opt_select(1,8)">4-Cylinder</div>
-                            <div class="option" onclick="opt_select(2,8)">5-Cylinder</div>
-                            <div class="option" onclick="opt_select(3,8)">6-Cylinder</div>
-                            <div class="option" onclick="opt_select(4,8)">8-Cylinder</div>
-                            <div class="option" onclick="opt_select(5,8)">10-Cylinder</div>
-                            <div class="option" onclick="opt_select(6,8)">12-Cylinder</div>
-                            </div>
-                            <input type="text" class="select-input" value="" name="cylinderNum">
-                        </div>
+                        <select name="Cylinders" id="scylinders" class="select-tag">
+                            <option value="">Cylinders</option>
+                            <option value="">Cylinders</option>
+                            <option value="">Cylinders</option>
+                            <option value="">Cylinders</option>
+                            <option value="">Cylinders</option>
+                        </select>
                     </div>
 
                     <div class="input-wrapper">
                         <span> WOF Expiry (Optional) </span>
-                        <div class="select">
-                            <div class="placeholder">
-                                <div class="placeholder_text"></div>
-                                <div class="select_opener">
-                                    <hr class="arr"><hr class="arr">
-                                </div>
-                            </div>
-                            <div class="opt_enclose">
-                            <div class="option" onclick="opt_select(0,9)">1</div>
-                            <div class="option" onclick="opt_select(1,9)">2</div>
-                            <div class="option" onclick="opt_select(2,9)">3</div>
-                            <div class="option" onclick="opt_select(3,9)">4</div>
-                            <div class="option" onclick="opt_select(4,9)">5</div>
-                            </div>
-                            <input type="text" class="select-input" value="" name="WoFexpiry">
-                        </div>
+                        <select name="WOFExpirey" id="swofexp" class="select-tag">
+                            <option value="">WOF Expirey</option>
+                            <option value="">WOF Expirey</option>
+                            <option value="">WOF Expirey</option>
+                            <option value="">WOF Expirey</option>
+                            <option value="">WOF Expirey</option>
+                        </select>
                     </div>
 
                     <div class="input-wrapper">
                         <span> Reg. Expiry (Optional) </span>
-                        <div class="select">
-                            <div class="placeholder">
-                                <div class="placeholder_text"></div>
-                                <div class="select_opener">
-                                    <hr class="arr"><hr class="arr">
-                                </div>
-                            </div>
-                            <div class="opt_enclose">
-                            <div class="option" onclick="opt_select(0,10)">1</div>
-                            <div class="option" onclick="opt_select(1,10)">2</div>
-                            <div class="option" onclick="opt_select(2,10)">3</div>
-                            <div class="option" onclick="opt_select(3,10)">4</div>
-                            <div class="option" onclick="opt_select(4,10)">5</div>
-                            </div>
-                            <input type="text" class="select-input" value="" name="regExpiry">
-                        </div>
+                        <select name="RegExpirey" id="sexpirey" class="select-tag">
+                            <option value="">Reg. Expirey</option>
+                            <option value="">Reg. Expirey</option>
+                            <option value="">Reg. Expirey</option>
+                            <option value="">Reg. Expirey</option>
+                            <option value="">Reg. Expirey</option>
+                        </select>
                     </div>
 
                     <div class="form_inp form2">
@@ -486,7 +308,6 @@
 
     <%-include('./Components/Footer.ejs') %>
     <script src="/assets/scripts/script.js"></script>
-    <script src="/assets/scripts/selecttag.js"></script>
     <script src="/assets/scripts/ajax/sellFormAjax.js"></script>
 </body>
 </html>

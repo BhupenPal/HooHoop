@@ -117,7 +117,6 @@ Router.post("/buy-car/:vID/shipping-quote", urlencoded, async (req, res) => {
   res.render("cpage_info", {record: result[0]});
 });
 
-
 Router.get("/my-ads", ensureAuthenticated, async (req, res) => {
   const myAds = {};
   myAds.listing = await carModel.find({ authorID: req.user.id}).exec();

@@ -22,16 +22,14 @@
         <div class="dashfeature">
           <div class="sidebar">
 
-            <div class="hamburger">
+            <!-- <div class="hamburger">
               <div class="hambar"></div>
               <div class="hambar"></div>
               <div class="hambar"></div>
-            </div>
+            </div> -->
   
   
             <div class="sbar_options">
-              <div class="sopt"></div>
-              <div class="sopt"></div>
               <div class="sopt"></div>
               <div class="sopt"></div>
             </div>
@@ -59,26 +57,16 @@
                 <input type="text" id="d_cred_mail">
               </div>
 
+              <div class="credcontainer flex_change">
+                <h1>Contact Details</h1>
+              </div>
+
               <div class="credcontainer">
-                <h2>Account Management</h2>
-                <input type="text">
-                <input type="text">
+                <label for="d_cred_num">Phone</label>
                 <input type="text">
               </div>
 
               <div class="credcontainer">
-                <h2>Contact Details</h2>
-
-                <select name="district" id="u_district">
-                  <option value="default" disabled>Select district</option>
-                  <option value="CHCITY">Christchurch City</option>
-                </select>
-              </div>
-
-              <div class="credcontainer">
-                <label for="d_cred_num">Mobile Number</label>
-                <input type="text">
-
                 <label for="d_cred_address">Address</label>
                 <input type="text">
               </div>
@@ -91,6 +79,5 @@
       </div>
     <% } %> <%-include('./Components/Footer.ejs') %>
     <script src="/assets/scripts/script.js"></script>
-    <script src="/assets/scripts/dashboard.js"></script>
   </body>
 </html>

@@ -1049,104 +1049,21 @@ button[disabled]{
   background-color: #f5bf2b;
 }
 
-/* SELL-FORM */
-
-/* select-tag-css */
-
-.select {
+.select-tag{
   height: 42px;
   width: 300px;
   border: 2px solid gray;
   border-radius: 5px;
-  position: relative;
-  cursor: pointer;
   margin: 10px;
-  box-sizing: border-box;
-}
-
-.select input {
-  display: none;
-}
-
-.placeholder {
-  display: flex;
-  align-items: center;
   padding: 0 10px;
   font-family: Fira;
-  text-transform: capitalize;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  box-sizing: border-box;
-  justify-content: space-between;
-}
-
-.placeholder_text {
-  width: 200px;
-  height: 100%;
-  display: flex;
-  align-items: center;
   font-size: 16px;
-}
-
-.select_opener {
-  width: 50px;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.select_opener hr {
-  height: 2px;
-  width: 15px;
-  border: none;
-  background-color: black;
-  transition: 0.2s;
-}
-
-.select_opener hr:nth-child(1) {
-  transform: rotate(45deg) translate3d(12px, -12px, 0);
-}
-
-.select_opener hr:nth-child(2) {
-  transform: rotate(-45deg) translate3d(1.5px, 1px, 0);
-}
-
-.opt_enclose {
-  width: 105%;
-  margin-left: -10px;
-  border-radius: 5px;
-  font-size: 25px;
-  position: absolute;
-  margin-top: 50px;
-  display: none;
-  z-index: 10;
-  max-height: 500px;
-  overflow-y: scroll;
-  overflow-x: hidden;
-}
-
-.option {
-  cursor: pointer;
-  width: 100%;
-  height: 30px;
-  font-family: Fira;
-  padding-left: 10px;
   box-sizing: border-box;
-  background-color: #ffffff;
+  color: gray;
+  text-transform: capitalize;
 }
 
-.option:nth-last-child(1) {
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
-
-.option:hover {
-  background-color: #43b4ff;
-}
-
-/* select-tag-css */
+/* SELL-FORM */
 
 /* Login/Register */
 
@@ -2213,17 +2130,19 @@ canvas {
 }
 
 .sidebar{
-  width: 50px;
+  width: 300px;
   background-color: #222222;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: flex-end;
   padding: 5px;
   box-sizing: border-box;
   transition: 0.4s;
 }
 
-.hamburger{
+/* Hamburger Menu */
+/* .hamburger{
   height: 40px;
   width: 40px;
   display: flex;
@@ -2242,11 +2161,8 @@ canvas {
 
 .hambar + .hambar{
   margin-top: 5px;
-}
-
-.sbar_options{
-  margin-top: 15vw;
-}
+} */
+/* Hamburger Menu */
 
 .sopt,.sopt img{
   height: 40px;
@@ -2278,13 +2194,61 @@ canvas {
 }
 
 .fet_det{
-  padding-left: 50px;
+  padding-left: 300px;
   box-sizing: border-box;
 }
 
 .feature_head{
   font-size: 50px;
+  font-family: Raleway;
+  padding-left: 50px;
+}
+
+.Usercred{
+  padding-left: 50px;
+}
+
+.credcontainer{
+  display: flex;
+  justify-content: space-between;
+  width: 450px;
+  margin: 20px 0;
+}
+
+.credcontainer label{
+  font-size: 24px;
   font-family: Roboto;
+}
+
+.credcontainer input{
+  height: 30px;
+  width: 220px;
+  border-radius: 5px;
+  border: 2px solid gray;
+  padding: 0 10px;
+  font-size: 18px;
+  font-family: Raleway;
+  transition-duration: 0.3s;
+  box-sizing: border-box;
+}
+
+.credcontainer input:focus{
+  border: 2px solid #f5bf2b;
+}
+
+.flex_change{
+  margin-bottom: 20px;
+  font-family: Lato;
+  align-items: center;
+}
+
+
+.flex_change select{
+  width: 220px;
+  height: 40px;
+  border: 2px solid gray;
+  font-size: 20px;
+  border-radius: 5px;
 }
 
 /* Dashboard */
@@ -3182,6 +3146,10 @@ canvas {
     width: 90%;
     margin-left: 0;
     margin-top: 5px;
+  }
+
+  .select-tag{
+    width: 80vw;
   }
 
   .inp_form_tag{
