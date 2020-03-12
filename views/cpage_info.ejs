@@ -19,7 +19,7 @@
       sizes="16*16"
     />
   </head>
-  <body class="c_p_body" onload="ImgChange('interiorFront.JPG')">
+  <body class="c_p_body" onload="ImgChange('interiorMiddle.JPG')">
     <%-include('./Components/Header.ejs') %>
 
     <div class="cardet_page">
@@ -36,9 +36,6 @@
             </button>
 
             <select name="interiorSelect" id="INTSELECT" onchange="if (typeof(this.selectedIndex) != 'undefined') interiorImg(this.selectedIndex)">
-              <option value="FRONT">Front</option>
-              <option value="MIDDLE">Middle</option>
-              <option value="REAR">Rear</option>
             </select>
 
             <div class="panoviewer-container viewer">
@@ -250,6 +247,46 @@
     <script src="/assets//scripts/view360-exterior/min.js"></script>
     <script src="/assets/scripts/chatbot.js"></script>
     <script src="/assets/scripts/ajax/interiorCheck.js"></script>
+    <script>
+      const front = `/assets/Uploads/<%= record.vinNum %>/interior/interiorFront.JPG`;
+const middle = `/assets/Uploads/<%= record.vinNum %>/interior/interiorMiddle.JPG`;
+const rear = `/assets/Uploads/<%= record.vinNum %>/interior/interiorRear.JPG`;
+const select = document.getElementById("INTSELECT");
+
+function FileExist(urlToFile) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('HEAD', urlToFile, false);
+    xhr.send();
+    
+    if (xhr.status == "404") {
+            return false;
+    } else {
+        return true;
+    }
+}
+
+if (FileExist(front)){
+    var opt = document.createElement('option');
+    opt.value = "FRONT";
+    opt.innerHTML = "Front";
+    select.appendChild(opt);
+}
+
+if(FileExist(middle)){
+    var opt = document.createElement('option');
+    opt.value = "MIDDLE";
+    opt.innerHTML = "Middle";
+    select.appendChild(opt);
+}
+
+if(FileExist(rear)){
+    var opt = document.createElement('option');
+    opt.value = "REAR";
+    opt.innerHTML = "Rear";
+    opt.onchange
+    select.appendChild(opt);
+}
+    </script>
     <script>
       function interiorImg(){
             let x = document.getElementById("INTSELECT").value
