@@ -18,7 +18,7 @@
         <form method="POST">
             <h1 class="sell_head">Tell Us About the Vehicle you are selling</h1>
             <div class="ip_box">
-                <input type="text" class="v_enter" placeholder="Enter your number plate or VIN" name="vinFigure">
+                <input type="text" class="v_enter" placeholder="Enter your number plate or VIN" name="vinFigure" value="<%= typeof vinFigure != 'undefined' ? vinFigure : '' %>">
                 <button formaction="/car-submit/data">FIND</button>
                 <h6 class="form_see">Or Enter details Manually</h6>
             </div>
@@ -64,6 +64,12 @@
                     <div class="input-wrapper">
                         <span> Select Make </span>
                         <select name="Make" id="smake" class="select-tag" onchange="ModelAccumlator()">
+                            <% if(detailedCarObject.make ){ %>
+                                <option value="<%= detailedCarObject.make %>"> <%= detailedCarObject.make %> </option>
+                                <option value="" disabled>----------------------</option>
+                            <% } else { %>
+                                <option value="NaN">Select Make</option>
+                            <% } %>
                             <option value="ALFA ROMEO">ALFA ROMEO</option>
                             <option value="ASTON MARTIN">ASTON MARTIN</option>
                             <option value="AUDI">AUDI</option>
@@ -128,39 +134,76 @@
                     <div class="input-wrapper">
                         <span> Select Model </span>
                         <select name="Model" id="smodel" class="select-tag">
+                            <% if(detailedCarObject.make ){ %>
+                                <option value="<%= detailedCarObject.model %>"> <%= detailedCarObject.model %> </option>
+                                <option value="" disabled>----------------------</option>
+                            <% } else { %>
+                                <option value="NaN">Select Make First</option>
+                            <% } %>
                         </select>
                     </div>
 
                     <div class="input-wrapper">
                         <span> Select Model Year </span>
                         <select name="ModelYear" id="smodelyear" class="select-tag">
-                            <option value="">Model Year</option>
-                            <option value="">Model Year</option>
-                            <option value="">Model Year</option>
-                            <option value="">Model Year</option>
-                            <option value="">Model Year</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>
+                            <option value="2017">2017</option>
+                            <option value="2016">2016</option>
+                            <option value="2015">2015</option>
+                            <option value="2014">2014</option>
+                            <option value="2013">2013</option>
+                            <option value="2012">2012</option>
+                            <option value="2011">2011</option>
+                            <option value="2010">2010</option>
+                            <option value="2009">2009</option>
+                            <option value="2008">2008</option>
+                            <option value="2007">2007</option>
+                            <option value="2006">2006</option>
+                            <option value="2005">2005</option>
+                            <option value="2004">2004</option>
+                            <option value="2003">2003</option>
+                            <option value="2002">2002</option>
+                            <option value="2001">2001</option>
+                            <option value="2000">2000</option>
+                            <option value="1999">1999</option>
+                            <option value="1998">1998</option>
+                            <option value="1997">1997</option>
+                            <option value="1996">1996</option>
+                            <option value="1995">1995</option>
+                            <option value="1994">1994</option>
+                            <option value="1993">1993</option>
+                            <option value="1992">1992</option>
+                            <option value="1991">1991</option>
+                            <option value="1990">1990</option>
                         </select>
                     </div>
 
                     <div class="input-wrapper">
                         <span>Body Type</span>
                         <select name="BodyType" id="sbodytype" class="select-tag">
-                            <option value="">Body Type</option>
-                            <option value="">Body Type</option>
-                            <option value="">Body Type</option>
-                            <option value="">Body Type</option>
-                            <option value="">Body Type</option>
+                            <option value="Convertible">Convertible</option>
+                            <option value="Hatchback">Hatchback</option>
+                            <option value="Heavy Van">Heavy Van</option>
+                            <option value="Light Van">Light Van</option>
+                            <option value="Station Wagon">Station Wagon</option>
+                            <option value="Utility">Utility</option>
+                            <option value="Other">Other</option>
                         </select>
                     </div>
 
                     <div class="input-wrapper">
                         <span> Doors (optional) </span>
                         <select name="Doors" id="sdoors" class="select-tag">
-                            <option value="">Doors</option>
-                            <option value="">Doors</option>
-                            <option value="">Doors</option>
-                            <option value="">Doors</option>
-                            <option value="">Doors</option>
+                            <option value="">Don't Know</option>
+                            <option value="" disabled>----------------------</option>
+                            <option value="1">1 Door</option>
+                            <option value="2">2 Door</option>
+                            <option value="3">3 Door</option>
+                            <option value="4">4 Door</option>
+                            <option value="5">5 Door</option>
+                            <option value="6">6 Door</option>
                         </select>
                     </div>
 
@@ -177,22 +220,21 @@
                     <div class="input-wrapper">
                         <span> Import History (optional) </span>
                         <select name="ImportHistory" id="sihistory" class="select-tag">
-                            <option value="">Import History</option>
-                            <option value="">Import History</option>
-                            <option value="">Import History</option>
-                            <option value="">Import History</option>
-                            <option value="">Import History</option>
+                            <option value="">Don't Know</option>
+                            <option value="">Imported</option>
                         </select>
                     </div>
 
                     <div class="input-wrapper">
                         <span> Previous Owners (optional) </span>
                         <select name="PreviousOweners" id="spoweners" class="select-tag">
-                            <option value="">Previous Oweners</option>
-                            <option value="">Previous Oweners</option>
-                            <option value="">Previous Oweners</option>
-                            <option value="">Previous Oweners</option>
-                            <option value="">Previous Oweners</option>
+                            <option value="">Don't Know</option>
+                            <option value="">New</option>
+                            <option value="">1 Owner</option>
+                            <option value="">2 Owner</option>
+                            <option value="">3 Owner</option>
+                            <option value="">4 Owner</option>
+                            <option value="">5+ Owner</option>
                         </select>
                     </div>
 
@@ -219,33 +261,35 @@
                     <div class="input-wrapper">
                         <span> Transmission (Optional) </span>
                         <select name="Transmission" id="stransmission" class="select-tag">
-                            <option value="">Transmission</option>
-                            <option value="">Transmission</option>
-                            <option value="">Transmission</option>
-                            <option value="">Transmission</option>
-                            <option value="">Transmission</option>
+                            <option value="">Don't Know</option>
+                            <option value="">Automatic</option>
+                            <option value="">Manual</option>
+                            <option value="">Triptonic</option>
                         </select>
                     </div>
 
                     <div class="input-wrapper">
                         <span> Fuel Type </span>
                         <select name="FuelType" id="sfueltype" class="select-tag">
-                            <option value="">Fuel Type</option>
-                            <option value="">Fuel Type</option>
-                            <option value="">Fuel Type</option>
-                            <option value="">Fuel Type</option>
-                            <option value="">Fuel Type</option>
+                            <option value="">Don't Know</option>
+                            <option value="">Petrol</option>
+                            <option value="">Diesel</option>
+                            <option value="">Electric</option>
+                            <option value="">Hybrid</option>
                         </select>
                     </div>
 
                     <div class="input-wrapper">
                         <span> Cylinders </span>
                         <select name="Cylinders" id="scylinders" class="select-tag">
-                            <option value="">Cylinders</option>
-                            <option value="">Cylinders</option>
-                            <option value="">Cylinders</option>
-                            <option value="">Cylinders</option>
-                            <option value="">Cylinders</option>
+                            <option value="NaN">Don't Know</option>
+                            <option value="Rotary">Rotary</option>
+                            <option value="4 - Cylinder">4 - Cylinder</option>
+                            <option value="5 - Cylinder">5 - Cylinder</option>
+                            <option value="6 - Cylinder">6 - Cylinder</option>
+                            <option value="8 - Cylinder">8 - Cylinder</option>
+                            <option value="10 - Cylinder">10 - Cylinder</option>
+                            <option value="12 - Cylinder">12 - Cylinder</option>
                         </select>
                     </div>
 
@@ -357,37 +401,6 @@
     <%-include('./Components/Footer.ejs') %>
     <script src="/assets/scripts/script.js"></script>
     <script src="/assets/scripts/ajax/sellFormAjax.js"></script>
-    <script>
-        function ModelAccumlator(){
-            let MakeValue = document.getElementById('smake').value;
-            let ModelBox = document.getElementById('smodel');
-
-            let MakeModel = [
-                {
-                    Make: "ALFA ROMEO", 
-                    Models: ['ALFA CAR1', 'ALFA CAR2']
-                },
-                {
-                    Make: "KIA",
-                    Models: ['KIA CAR1', 'KIA CAR2']
-                }
-            ]
-
-            for (var i = 0; i < ModelBox.length; i++) {
-                ModelBox.removeChild(ModelBox.children[i]);
-            }
-            
-            console.log(ModelBox)
-
-                for (var i=0; i < MakeModel.length; i++) {
-                    if (MakeModel[i].Make === MakeValue) {
-                        for(var j=0; j<MakeModel[i].Models.length; j++){
-                            ModelBox.options.add(new Option(MakeModel[i].Models[j], MakeModel[i].Models[j]))
-                        }
-                    }
-                }
-            
-        }
-    </script>
+    <script src="/assets/scripts/MakeModel.js"></script>
 </body>
 </html>
