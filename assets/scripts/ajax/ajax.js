@@ -184,7 +184,7 @@ filterContent = record => {
 
 let output='';
   for(inc = 0; inc<json.record.length; inc++){
-    output += `  <a href="http://localhost:8080/buy-car/${json.record[inc]._id}" class="cardanchor">
+    output += `  <a href="/buy-car/${json.record[inc]._id}" class="cardanchor">
     <div class="bc-card">
       <div class="cb_img"><img src="/assets/Uploads/${json.record[inc].vinNum}/exterior/Photo_1.jpg"></div>
       <div class="cb_info">
