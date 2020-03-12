@@ -177,3 +177,18 @@ function onPrev(){
 function onNext(){
     window.location.href = `http://localhost:8080/search-car/${pageParams + 1}`
 }
+
+const monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
+
+const theDate = timeStamp => {
+  var DateParam = new Date(timeStamp.innerHTML * 1000);
+  var Dmonth = monthNames[DateParam.getMonth()];
+  var Dyear = DateParam.getFullYear();
+
+  timeStamp.innerHTML = `${Dmonth} , ${Dyear}`
+};
+
+theDate(document.getElementById("sfWof-exp"))
+theDate(document.getElementById("sfReg-exp"))

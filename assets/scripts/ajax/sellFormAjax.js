@@ -14,6 +14,7 @@ function uploadData(e){
         const percent = e.lengthComputable ? (e.loaded / e.total) * 100 : 0;
         progressBarFill.style.width = percent.toFixed(2) + "%";
         progressBarText.textContent = percent.toFixed(2) + "%";
+        progressBarText.style.left = "60%"
     })
 
     xhr.addEventListener("load", function () {

@@ -234,9 +234,5 @@ Router.post("/car-submit/submit", urlencoded, exterior, (req, res) => {
   res.send("Done")
 });
 
-const theDate = timeStamp => {
-  var DateParam = new Date(timeStamp * 1000);
-  return (DateParam.toGMTString());
-};
 
 module.exports = Router;
