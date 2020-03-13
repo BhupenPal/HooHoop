@@ -9,6 +9,8 @@ const urlencoded = bodyParser.urlencoded({
   extended: !1
 });
 
+const { ensureAuthenticated } = require("./log/auth");
+
 let thumbnail = null;
 
 var storeExterior = multer.diskStorage({
@@ -96,7 +98,7 @@ var exterior = multer({ storage: storeExterior }).fields([
   { name: "interiorRear" }
 ]);
 
-Router.post("/car-submit/submit", urlencoded, exterior, (req, res) => {
+Router.post("/car-submit/submit", ensureAuthenticated, urlencoded, exterior, (req, res) => {
   const newCar = new carModel();
   newCar.Price = req.body.Price;
   newCar.minPrice = req.body.minPrice;
