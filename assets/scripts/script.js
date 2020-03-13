@@ -168,6 +168,11 @@ function showsl(j) {
   }
 }
 
+function showform(){
+  console.log("hello")
+  document.getElementById("SELL-FORM-SUB").classList.remove("vanish")
+}
+
 // const pageParams = parseInt(window.location.href.split('/')[4].split('?')[0]);
 
 // if(pageParams == 1){
@@ -202,7 +207,6 @@ monthNames = [
 ];
 
 const fillDates = () => {
-  console.log('dates')
   var currentDate = new Date();
   var currentMonth = currentDate.getMonth();
   var currentYear = currentDate.getFullYear();
@@ -221,6 +225,5 @@ const fillDates = () => {
   document.getElementById("wofsib").insertAdjacentHTML("afterend", dateToAdd);
   document.getElementById("regsib").insertAdjacentHTML("afterend", dateToAdd);
 };
-console.log('Hello')
 fillDates();
 
