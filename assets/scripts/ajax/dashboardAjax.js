@@ -96,7 +96,6 @@ completeUsers = list => {
         <td><button>Delete</button></td>\
       </tr>`
     }
-
     document.getElementById("completeUsers").insertAdjacentHTML("afterend", output);
 }
 

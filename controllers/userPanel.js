@@ -189,11 +189,7 @@ Router.get("/edit-car/:id", ensureAuthenticated, async (req, res) => {
   res.render("edit_cpage", { car: car.details[0] });
 });
 
-Router.post(
-  "/edit-car/:id",
-  ensureAuthenticated,
-  urlencoded,
-  async (req, res) => {
+Router.post("/edit-car/:id", ensureAuthenticated, urlencoded, async (req, res) => {
     let car = {};
     try {
       let {
@@ -248,7 +244,7 @@ Router.post("/dashboard/profile", urlencoded, async (req, res) => {
   if (!firstName) {
     firstName = currentUser[0].firstName;
   }
-  console.log(firstName);
+
   if (!lastName) {
     lastName = currentUser[0].lastName;
   }
