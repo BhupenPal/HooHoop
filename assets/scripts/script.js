@@ -84,9 +84,11 @@ function del_lstng(j){
   if(j){
     document.getElementById('adDelete').value = j.value;
     document.getElementsByClassName("Modal")[0].style.display = "block"
+    document.getElementsByTagName("html")[0].style.overflow = "hidden"
   }
   else{
     document.getElementsByClassName("Modal")[0].style.display = "none"
+    document.getElementsByTagName("html")[0].removeAttribute("style")
   }
 }
 
@@ -94,9 +96,23 @@ function del_lstng(j){
   if(j){
     document.getElementById('adSOLD').value = j.value;
     document.getElementsByClassName("Modal")[1].style.display = "block"
+    document.getElementsByTagName("html")[0].style.overflow = "hidden"
   }
   else{
     document.getElementsByClassName("Modal")[1].style.display = "none"
+    document.getElementsByTagName("html")[0].removeAttribute("style")
+  }
+}
+
+function pending_done(j){
+  if(j){
+    document.getElementById('Pending_done').value = j.value;
+    document.getElementsByClassName("Modal")[2].style.display = "block"
+    document.getElementsByTagName("html")[0].style.overflow = "hidden"
+  }
+  else{
+    document.getElementsByClassName("Modal")[2].style.display = "none"
+    document.getElementsByTagName("html")[0].removeAttribute("style")
   }
 }
 

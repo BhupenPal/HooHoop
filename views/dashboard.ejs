@@ -23,19 +23,19 @@
           <div class="sidebar">
 
             <div class="sbar_options">
-              <div class="sopt">Profile</div>
+              <div class="sopt selected_sopt">Profile</div>
               <div class="sopt">Account Management</div>
               <div class="sopt">My Listing</div>
               <div class="sopt">All Listings</div>
               <div class="sopt">User Management</div>
               <div class="sopt">Client Management</div>
-              <div class="sopt selected_sopt">360 Requests</div>
+              <div class="sopt">360 Requests</div>
             <a href="/logout"><div class="sopt">Logout</div></a>  
             </div>
   
           </div>
           <!-- Profile Section -->
-          <div class="fet_det vanish">
+          <div class="fet_det">
             <%-include('./Flash/message.ejs') %>
             <h1 class="feature_head">Profile</h1>
 
@@ -125,6 +125,7 @@
                   <th>Make</th>
                   <th>Model</th>
                   <th>Status</th>
+                  <th>Sold</th>
                   <th>Delete</th>
                 </tr>
 
@@ -147,6 +148,7 @@
                     <th>Make</th>
                     <th>Model</th>
                     <th>Status</th>
+                    <th>Sold</th>
                     <th>Delete</th>
                   </tr>
 
@@ -196,6 +198,7 @@
                     <th>Last Name</th>
                     <th>Email</th>
                     <th>Phone Number</th>
+                    <th>Status</th>
                     <th>Delete</th>
                   </tr>
                   <tr>
@@ -204,7 +207,8 @@
                     <td>Dev</td>
                     <td>dudevarun7777@gmail.com</td>
                     <td>8700506796</td>
-                    <td><button>Delete</button></td>
+                    <td class="pending"><button onclick="pending_done(this)">Pending</button></td>
+                    <td class="delete"><button  onclick="del_lstng(this)">Delete</button></td>
                   </tr>
                 </table>
 
@@ -214,7 +218,17 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Phone Number</th>
+                    <th>Status</th>
                     <th>Delete</th>
+                  </tr>
+
+                  <tr>
+                    <td>1</td>
+                    <td>Varun Dev</td>
+                    <td>dudevarun7777@gmail.com</td>
+                    <td>8700506796</td>
+                    <td class="pending"><button onclick="pending_done(this)">Pending</button></td>
+                    <td class="delete"><button onclick="del_lstng(this)">Delete</button></td>
                   </tr>
                 </table>
 
@@ -227,6 +241,7 @@
                     <th>Starting Point</th>
                     <th>Destination</th>
                     <th>Date</th>
+                    <th>Status</th>
                     <th>Delete</th>
                   </tr>
 
@@ -238,7 +253,8 @@
                     <td>101/224 DDA Flats New Seelampur, Delhi-53</td>
                     <td>223 Christchurch City</td>
                     <td>10/07/2020</td>
-                    <td><button>Delete</button></td>
+                    <td class="pending"><button onclick="pending_done(this)">Pending</button></td>
+                    <td class="delete"><button onclick="del_lstng(this)">Delete</button></td>
                   </tr>
                 </table>
 
@@ -248,7 +264,7 @@
           <!-- Req Panel -->
 
           <!-- 360 Req Panel -->
-            <div class="fet_det">
+            <div class="fet_det vanish">
               <h1 class="feature_head">360 Photo Requests</h1>
 
               <div class="table_container">
@@ -262,12 +278,65 @@
                     <th>Status</th>
                     <th>Delete</th>
                   </tr>
+
+                  <tr>
+                    <td>1</td>
+                    <td>Varun Dev</td>
+                    <td>dudevarun7777@gmail.com</td>
+                    <td>8700506796</td>
+                    <td class="pending"><button onclick="pending_done(this)">Pending</button></td>
+                    <td class="delete"><button onclick="del_lstng(this)">Delete</button></td>
+                  </tr>
                   </table>
   
               </div>
 
             </div>
           <!-- 360 Req Panel -->
+
+          <!-- Modals -->
+          <div class="Modal">
+            <div class="del_lstng">
+              <div class="btndesk"><button class="cslstng"  onclick="del_lstng(false)"><div class="crosssec"></div><div class="crosssec"></div></button></div>
+              <div class="cnf_symbl" id="modal_1"><i class="fad fa-trash"></i></div>
+              <div class="del_text">Are you sure you want to delete this listing</div>
+              <form method="POST">
+                <input type="text" id="adDelete" value="" name="deleteAd">
+                <button class="del_lstng_btn" id="modalchange_1" type="submit" formaction="/my-ads/delete">Delete</button>
+              </form>
+            </div>
+          </div>
+          <!-- Prompt for delete -->
+      
+              <!-- Prompt for Sold-->
+              <div class="Modal">
+              <div class="del_lstng">
+                <div class="btndesk"><button class="cslstng" onclick="sell_listed(false)"><div class="crosssec"></div><div class="crosssec"></div></button></div>
+                <div class="cnf_symbl" id="modal_2"><i class="fad fa-check"></i></div>
+                <div class="del_text">Are you sure you want to mark this vehicle as sold?</div>
+                <form method="POST">
+                  <input type="text" id="adSOLD" value="" name="adSOLD">
+                  <button class="del_lstng_btn" id="modalchange_2" type="submit" formaction="/my-ads/update">Mark as sold</button>
+                </form>
+              </div>
+            </div>
+            <!-- Prompt for Sold -->
+
+            <!-- Prompt for Pending-->
+            <div class="Modal">
+              <div class="del_lstng">
+                <div class="btndesk"><button class="cslstng" onclick="pending_done(false)"><div class="crosssec"></div><div class="crosssec"></div></button></div>
+                <div class="cnf_symbl" id="modal_3"><i class="far fa-exclamation-triangle"></i></div>
+                <div class="del_text">Are you sure you want to mark this as done?</div>
+                <form method="POST">
+                  <input type="text" id="Pending_done" value="" name="adDONE">
+                  <button class="del_lstng_btn" id="modalchange_3" type="submit" formaction="/my-ads/update">Mark as done</button>
+                </form>
+              </div>
+            </div>
+            <!-- Prompt for Pending -->
+          <!-- Modals -->
+          </div>
         </div>
 
       </div>

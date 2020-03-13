@@ -25,7 +25,8 @@ myListings = list => {
         <td>${json.list[inc].Make}</td>\
         <td>${json.list[inc].Model}</td>\
         <td>${json.list[inc].adActive}</td>\
-        <td><button>Delete</button></td>\
+        <td class="sold"><button onclick="sell_listed(this)">Sold</button></td>\
+        <td class="delete"><button onclick="del_lstng(this)">Delete</button></td>\
       </tr>`
     }
 
@@ -59,7 +60,8 @@ completeListings = list => {
         <td>${json.list[inc].Make}</td>\
         <td>${json.list[inc].Model}</td>\
         <td>${json.list[inc].adActive}</td>\
-        <td><button>Delete</button></td>\
+        <td class="sold"><button onclick="sell_listed(this)">Sold</button></td>\
+        <td class="delete"><button onclick="del_lstng(this)">Delete</button></td>\
       </tr>`
     }
 
@@ -93,7 +95,7 @@ completeUsers = list => {
         <td>${json.list[inc].firstName} ${json.list[inc].lastName} </td>\
         <td>${json.list[inc].email}</td>\
         <td>${"Hello"}</td>\
-        <td><button>Delete</button></td>\
+        <td class="delete"><button onclick="del_lstng(this)">Delete</button></td>\
       </tr>`
     }
     document.getElementById("completeUsers").insertAdjacentHTML("afterend", output);

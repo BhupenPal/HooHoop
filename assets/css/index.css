@@ -2065,6 +2065,10 @@ canvas {
   color: white;
 }
 
+#modal_3{
+  background-color: #f6b500;
+}
+
 .del_text {
   font-size: 22px;
   font-family: Roboto;
@@ -2089,6 +2093,11 @@ canvas {
 
 #modalchange_2{
   background-color: #099126;
+}
+
+#modalchange_3{
+  background-color: #f6b500;
+  width: 250px;
 }
 
 /* User-Listing-Page */
@@ -2354,11 +2363,11 @@ tr:nth-child(2n) {
   background-color: #f1f1f1;
 }
 
-td:last-child{
-  width: 150px;
+.delete,.sold{
+  width: 120px;
 }
 
-td button{
+.delete button{
   height: 30px;
   width: 100px;
   cursor: pointer;
@@ -2367,6 +2376,34 @@ td button{
   font-family: Roboto;
   font-size: 18px;
   background-color: red;
+  border-radius: 5px;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+
+.sold button{
+  height: 30px;
+  width: 100px;
+  cursor: pointer;
+  border: none;
+  color: white;
+  font-family: Roboto;
+  font-size: 18px;
+  background-color: green;
+  border-radius: 5px;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+
+.pending button{
+  height: 30px;
+  width: 100px;
+  cursor: pointer;
+  border: none;
+  color: black;
+  font-family: Roboto;
+  font-size: 18px;
+  background-color: #f5bf2b;
   border-radius: 5px;
   opacity: 0.6;
   transition: 0.3s;
@@ -2625,7 +2662,8 @@ td button:hover{
 /* Footer */
 
 #adSOLD,
-#adDelete {
+#adDelete,
+#Pending_done {
   display: none;
 }
 
