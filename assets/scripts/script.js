@@ -11,9 +11,9 @@ function activate(j) {
   document.getElementById("BodyTypeSelector").innerHTML = x[j].innerHTML;
 }
 
-function scrolldiv(j,k) {
+function scrolldiv(j, k) {
   let x = document.getElementsByClassName("cd_content")[k];
-  if (j == 0 || j==2 || j==4) {
+  if (j == 0 || j == 2 || j == 4 || j == 6 || j == 8 || j == 10) {
     x.scrollBy(-380, 0);
   } else {
     x.scrollBy(380, 0);
@@ -38,178 +38,171 @@ function tabselect(j) {
   y[j].classList.remove("vanish");
 }
 
-
-let filOptions = [0,0,0,0,0,0,0,0,0];
-function foption(j){
-
-  if(filOptions[j]==0){
-    let x = document.getElementsByClassName("Filter_class")[j].lastChild
-    let y = document.getElementsByClassName("filter_option")
-    let z = document.getElementsByClassName("foption_encloser")
+let filOptions = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+function foption(j) {
+  if (filOptions[j] == 0) {
+    let x = document.getElementsByClassName("Filter_class")[j].lastChild;
+    let y = document.getElementsByClassName("filter_option");
+    let z = document.getElementsByClassName("foption_encloser");
 
     x.style.transform = "rotate(90deg)";
     z[j].style.display = "block";
-    for(p=0;p<9;p++){
-      y[p].classList.remove("opened_filter")
+    for (p = 0; p < 9; p++) {
+      y[p].classList.remove("opened_filter");
     }
     y[j].classList.add("opened_filter");
-    filOptions[j] = 1
-  }
-
-  else{
-    let x = document.getElementsByClassName("Filter_class")[j].lastChild
+    filOptions[j] = 1;
+  } else {
+    let x = document.getElementsByClassName("Filter_class")[j].lastChild;
     let y = document.getElementsByClassName("filter_option");
     let z = document.getElementsByClassName("foption_encloser");
 
     x.style.transform = "rotate(0deg)";
     z[j].style.display = "none";
     y[j].classList.remove("opened_filter");
-    filOptions[j] = 0
+    filOptions[j] = 0;
   }
 }
 // Preview IMages removed
-function intext(j){
-  if(j==1){
-    document.getElementsByClassName("panoviewer-container")[0].style.zIndex = "30"
-    document.getElementsByClassName("exterior_slider")[0].style.zIndex = "10"
+function intext(j) {
+  if (j == 1) {
+    document.getElementsByClassName("panoviewer-container")[0].style.zIndex =
+      "30";
+    document.getElementsByClassName("exterior_slider")[0].style.zIndex = "10";
   }
-  if(j==2){
-    document.getElementsByClassName("exterior_slider")[0].style.zIndex = "30"
-    document.getElementsByClassName("panoviewer-container")[0].style.display = "10"
-  }
- 
-}
-
-function del_lstng(j){
-  if(j){
-    document.getElementById('adDelete').value = j.value;
-    document.getElementsByClassName("Modal")[0].style.display = "block"
-  }
-  else{
-    document.getElementsByClassName("Modal")[0].style.display = "none"
+  if (j == 2) {
+    document.getElementsByClassName("exterior_slider")[0].style.zIndex = "30";
+    document.getElementsByClassName("panoviewer-container")[0].style.display =
+      "10";
   }
 }
 
-  function sell_listed(j){
-  if(j){
-    document.getElementById('adSOLD').value = j.value;
-    document.getElementsByClassName("Modal")[1].style.display = "block"
-  }
-  else{
-    document.getElementsByClassName("Modal")[1].style.display = "none"
+function del_lstng(j) {
+  if (j) {
+    document.getElementById("adDelete").value = j.value;
+    document.getElementsByClassName("Modal")[0].style.display = "block";
+  } else {
+    document.getElementsByClassName("Modal")[0].style.display = "none";
   }
 }
 
-let p=0
-function Pagination(j){
-  let x = document.getElementsByClassName("Page_no")
-
-  if(j==1){
-    for(var k=0;k<x.length;k++){
-      x[k].classList.remove("page_sel")
-    }
-    
-    if(p<5) p++
-    if(p==5) p=0
-
-    x[p].classList.add("page_sel")
-
+function sell_listed(j) {
+  if (j) {
+    document.getElementById("adSOLD").value = j.value;
+    document.getElementsByClassName("Modal")[1].style.display = "block";
+  } else {
+    document.getElementsByClassName("Modal")[1].style.display = "none";
   }
+}
 
-  if(j==2){
-    for(var k=0;k<x.length;k++){
-      x[k].classList.remove("page_sel")
+let p = 0;
+function Pagination(j) {
+  let x = document.getElementsByClassName("Page_no");
+
+  if (j == 1) {
+    for (var k = 0; k < x.length; k++) {
+      x[k].classList.remove("page_sel");
     }
 
-    if(p==0||p>0) p--
-    if(p<0) p=4
+    if (p < 5) p++;
+    if (p == 5) p = 0;
 
-    x[p].classList.add("page_sel")
-    
+    x[p].classList.add("page_sel");
+  }
+
+  if (j == 2) {
+    for (var k = 0; k < x.length; k++) {
+      x[k].classList.remove("page_sel");
+    }
+
+    if (p == 0 || p > 0) p--;
+    if (p < 0) p = 4;
+
+    x[p].classList.add("page_sel");
   }
 }
 
-function Page_select(j){
-  let x = document.getElementsByClassName("Page_no")
+function Page_select(j) {
+  let x = document.getElementsByClassName("Page_no");
 
-  for(var k=0;k<x.length;k++){
-    x[k].classList.remove("page_sel")
+  for (var k = 0; k < x.length; k++) {
+    x[k].classList.remove("page_sel");
   }
 
-  j.classList.add("page_sel")
-  p = j.innerHTML -1;
+  j.classList.add("page_sel");
+  p = j.innerHTML - 1;
 }
 
-function previewname(x){
-  x.addEventListener("change", async function(evt){
+function previewname(x) {
+  x.addEventListener("change", async function(evt) {
     var file = await evt.target.files[0];
-    document.getElementById(x.name).innerHTML = file.name
-  })
+    document.getElementById(x.name).innerHTML = file.name;
+  });
 }
 
-function showsl(j){
-  if(j==1){
-    document.getElementById("INTSELECT").style.display = "block"
-    document.getElementById("INTSELECT").style.zIndex = '40'
+function showsl(j) {
+  if (j == 1) {
+    document.getElementById("INTSELECT").style.display = "block";
+    document.getElementById("INTSELECT").style.zIndex = "40";
+  } else {
+    document.getElementById("INTSELECT").style.display = "none";
+    document.getElementById("INTSELECT").style.zIndex = "0";
   }
-  else{
-    document.getElementById("INTSELECT").style.display = "none"
-    document.getElementById("INTSELECT").style.zIndex = '0'
-  }
 }
 
-const pageParams = parseInt(window.location.href.split('/')[4].split('?')[0]);
+// const pageParams = parseInt(window.location.href.split('/')[4].split('?')[0]);
 
-if(pageParams == 1){
-  document.getElementById("previous").disabled = true;
-}
+// if(pageParams == 1){
+//   document.getElementById("previous").disabled = true;
+// }
 
-if(pageParams == 10){
-  document.getElementById("previous").disabled = true;
-} 
+// if(pageParams == 10){
+//   document.getElementById("previous").disabled = true;
+// }
 
-function onPrev(){
-    window.location.href = `http://localhost:8080/search-car/${pageParams - 1}`
-}
+// function onPrev(){
+//     window.location.href = `http://localhost:8080/search-car/${pageParams - 1}`
+// }
 
-function onNext(){
-    window.location.href = `http://localhost:8080/search-car/${pageParams + 1}`
-}
+// function onNext(){
+//     window.location.href = `http://localhost:8080/search-car/${pageParams + 1}`
+// }
 
-const monthNames = ["January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December"
+monthNames = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December"
 ];
 
-const theDate = timeStamp => {
-  var DateParam = new Date(timeStamp.innerHTML * 1000);
-  var Dmonth = monthNames[DateParam.getMonth()];
-  var Dyear = DateParam.getFullYear();
-  timeStamp.value = `${Dmonth} , ${Dyear}`
-  timeStamp.innerHTML = `${Dmonth} , ${Dyear}`
-};
-
-theDate(document.getElementById("sfWof-exp"))
-theDate(document.getElementById("sfReg-exp"))
-
 const fillDates = () => {
-
-  var currentDate = new Date;
+  console.log('dates')
+  var currentDate = new Date();
   var currentMonth = currentDate.getMonth();
   var currentYear = currentDate.getFullYear();
-  
-  let dateToAdd = '';
-  
-  for(var i = 0; i < 12; i++){
+
+  let dateToAdd = "";
+
+  for (var i = 0; i < 12; i++) {
     dateToAdd += `<option value="${monthNames[currentMonth]}, ${currentYear}"> ${monthNames[currentMonth]}, ${currentYear} </option>`;
     currentMonth++;
-    if(currentMonth > 11){
+    if (currentMonth > 11) {
       currentMonth = 0;
       currentYear = currentYear + 1;
     }
   }
-  
+
   document.getElementById("wofsib").insertAdjacentHTML("afterend", dateToAdd);
   document.getElementById("regsib").insertAdjacentHTML("afterend", dateToAdd);
-  }
-  
-  fillDates();
+};
+console.log('Hello')
+fillDates();
+

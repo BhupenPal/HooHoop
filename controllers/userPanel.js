@@ -32,7 +32,8 @@ Router.get("/sell-car", (req, res) => {
 });
 
 //SELL CAR FORM ROUTE
-Router.get("/car-submit", ensureAuthenticated, (req, res) => {
+// , ensureAuthenticated
+Router.get("/car-submit", (req, res) => {
   res.render("sell_form", { vinFigured: false, detailedCarObject: false });
 });
 
@@ -487,6 +488,12 @@ Router.get('/dashboard/complete-users', async (req, res) => {
   }
 })
 
+
+Router.get('/dashboard/remove/:id', async (req, res) => {
+
+})
+
+//Contact Us Routes
 Router.get("/contact-us", (req, res) => {
   res.render("contact_us");
 });
