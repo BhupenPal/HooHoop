@@ -25,3 +25,4 @@ function uploadData(e){
     
     xhr.send(new FormData(uploadForm))
 }
+

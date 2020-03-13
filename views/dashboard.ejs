@@ -282,7 +282,7 @@
         let password = document.getElementById('d_cred_newpass').value;
         let password2 = document.getElementById('d_cred_cnewpass').value;
 
-        let error = [];
+        let errors = [];
   if (password !== password2) {
     errors.push({ msg: "Passwords do not match" });
   }

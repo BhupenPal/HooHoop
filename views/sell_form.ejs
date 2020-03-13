@@ -15,11 +15,11 @@
     <!-- navbar end -->
     <div class="sellform_wrap">
     <div class="VIN-input">
-        <form method="POST">
+        <form  id="jamFORM">
             <h1 class="sell_head">Tell Us About the Vehicle you are selling</h1>
             <div class="ip_box">
-                <input type="text" class="v_enter" placeholder="Enter your number plate or VIN" name="vinFigure" value="<%= typeof vinFigure != 'undefined' ? vinFigure : '' %>">
-                <button formaction="/car-submit/data">FIND</button>
+                <input type="text" class="v_enter" placeholder="Enter your number plate or VIN" name="vinFigure" id="vinFigureID">
+                <button type="submit">FIND</button>
                 <h6 class="form_see">Or Enter details Manually</h6>
             </div>
         </form>
@@ -149,7 +149,7 @@
                             <% if(detailedCarObject.year_of_manufacture ){ %>
                                 <option value="<%= detailedCarObject.year_of_manufacture %>"> <%= detailedCarObject.year_of_manufacture %> </option>
                             <% } else { %>
-                                <option value="NaN">Select Make First</option>
+                                <option value="NaN">Select Model Year</option>
                             <% } %>
                             <option value="" disabled>----------------------</option>
                             <option value="2020">2020</option>
@@ -192,7 +192,7 @@
                             <% if(detailedCarObject.body_style ){ %>
                                 <option value="<%= detailedCarObject.body_style %>"> <%= detailedCarObject.body_style %> </option>
                             <% } else { %>
-                                <option value="NaN">Select Make First</option>
+                                <option value="NaN">Select Body Type</option>
                             <% } %>
                             <option value="" disabled>----------------------</option>
                             <option value="Convertible">Convertible</option>
@@ -320,21 +320,24 @@
 
                     <div class="input-wrapper">
                         <span> WOF Expiry (Optional) </span>
-                        <select name="WOFExpirey" id="swofexp" class="select-tag">
+                        <select name="WoFexpiry" id="swofexp" class="select-tag">
                             <% if(detailedCarObject.expiry_date_of_last_successful_wof){ %>
                                 <option id="sfWof-exp" value="<%= detailedCarObject.expiry_date_of_last_successful_wof %>"><%= detailedCarObject.expiry_date_of_last_successful_wof %></option>
-                                <option value="" disabled>----------------------</option>
+                                <option value="" disabled id="wofsib">----------------------</option>
+                            <% } else { %>
+                                <option value="" id="wofsib">Select WOF Expiry Date</option>
                             <% } %>
-                            
                         </select>
                     </div>
 
                     <div class="input-wrapper">
                         <span> Reg. Expiry (Optional) </span>
-                        <select name="RegExpirey" id="sexpirey" class="select-tag">
+                        <select name="regExpiry" id="sexpirey" class="select-tag">
                             <% if(detailedCarObject.expiry_date_of_last_successful_wof){ %>
                                 <option id="sfReg-exp" value="<%= detailedCarObject.plates[0].effective_date %>"><%= detailedCarObject.plates[0].effective_date %></option>
-                                <option value="" disabled>----------------------</option>
+                                <option value="" id="regsib" disabled>----------------------</option>
+                            <% } else { %>
+                                <option value="" id="regsib">Select Reg Expiry Date</option>
                             <% } %>
                         </select>
                     </div>
@@ -426,5 +429,6 @@
     <script src="/assets/scripts/script.js"></script>
     <script src="/assets/scripts/ajax/sellFormAjax.js"></script>
     <script src="/assets/scripts/MakeModel.js"></script>
+    <script src="/assets/scripts/ajax/carJamAjax.js"></script>
 </body>
 </html>

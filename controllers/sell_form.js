@@ -179,8 +179,8 @@ Router.post("/car-submit/submit", urlencoded, exterior, (req, res) => {
     newCar.Transmission = "Triptonic";
   }
 
-  newCar.WoFexpiry = req.body.WOFExpirey
-  newCar.regExpiry = req.body.RegExpirey
+  newCar.WoFexpiry = req.body.WoFexpiry;
+  newCar.regExpiry = req.body.regExpiry;
 
   if (req.body.DriveWheel4 === "on") {
     newCar.DriveWheel4 = 1;
