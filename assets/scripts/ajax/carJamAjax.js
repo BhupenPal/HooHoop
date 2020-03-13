@@ -28,6 +28,8 @@ jamForm.addEventListener("submit", function carJamHandler() {
       let data = dataSetter(this.response);
       dataGIST(data);
       dataAdder(data);
+      document.getElementById("car_jam").classList.remove("vanish")
+      document.getElementById("SELL-FORM-SUB").classList.remove("vanish")
     } else {
       console.log("Some error occured");
     }

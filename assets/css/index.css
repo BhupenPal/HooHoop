@@ -10,6 +10,12 @@ body {
 
 a {
   text-decoration: none;
+  color: #1ea1f3;
+  transition: 0.2s;
+}
+
+a:hover{
+  color: #f5bf2b;
 }
 
 input[type="date"]::-webkit-inner-spin-button {
