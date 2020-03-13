@@ -24,31 +24,9 @@
             </div>
         </form>
 
-        <% if (vinFigured) { %>
-            <div class="car_info" id="car_jam">
-                <h1>Check your car details</h1>
-                <div class="car_api_data">
-                    <div class="colspan_1">
-                       <span class="a_dta">Make: <%= detailedCarObject.make %> </span> <br>
-                       <span class="a_dta">Model: <%= detailedCarObject.model %> </span> <br>
-                       <span class="a_dta">Fuel Type: <%= detailedCarObject.fuel_type %> </span> <br>
-                       <span class="a_dta">Plate No: <%= detailedCarObject.plate %> </span> <br>
-                    </div>
-                    <div class="colspan_1">
-                        <span class="a_dta">Year: <%= detailedCarObject.year_of_manufacture %> </span> <br>
-                        <span class="a_dta">No Of Owners: <%= detailedCarObject.number_of_owners %> </span> <br>
-                        <span class="a_dta">VIN: <%= detailedCarObject.vin %> </span> <br>
-                        <span class="a_dta">Chassis: <%= detailedCarObject.chassis %> </span> <br>
-                    </div>
-                    <div class="colspan_1">
-                        <span class="a_dta">Body style: <%= detailedCarObject.body_style %> </span> <br>
-                        <span class="a_dta">Color: <%= detailedCarObject.main_colour %> </span> <br>
-                        <span class="a_dta">Engine No: <%= detailedCarObject.engine_no %> </span> <br>
-                        <span class="a_dta">Seats: <%= detailedCarObject.no_of_seats %> </span> <br>
-                    </div>
-            </div>
+        <div class="car_info" id="car_jam">
+            <h1 id="checkDet">Check your car details</h1>
         </div>
-        <% } %>
     </div>
 
     <div class="sell_form_submission">
@@ -64,11 +42,7 @@
                     <div class="input-wrapper">
                         <span> Select Make </span>
                         <select name="Make" id="smake" class="select-tag" onchange="ModelAccumlator()">
-                            <% if(detailedCarObject.make ){ %>
-                                <option value="<%= detailedCarObject.make %>"> <%= detailedCarObject.make %> </option>
-                            <% } else { %>
-                                <option value="NaN">Select Make</option>
-                            <% } %>
+                            <option value="NaN" id="makeExchange">Select Make</option>
                             <option value="" disabled>----------------------</option>
                             <option value="ALFA ROMEO">ALFA ROMEO</option>
                             <option value="ASTON MARTIN">ASTON MARTIN</option>
@@ -134,23 +108,15 @@
                     <div class="input-wrapper">
                         <span> Select Model </span>
                         <select name="Model" id="smodel" class="select-tag">
-                            <% if(detailedCarObject.make){ %>
-                                <option value="<%= detailedCarObject.model %>"> <%= detailedCarObject.model %> </option>
-                            <% } else { %>
-                                <option value="NaN">Select Make First</option>
+                                <option value="NaN" id="modelExchange">Select Make First</option>
                                 <option value="" disabled>----------------------</option>
-                            <% } %>
                         </select>
                     </div>
 
                     <div class="input-wrapper">
                         <span> Select Model Year </span>
                         <select name="ModelYear" id="smodelyear" class="select-tag">
-                            <% if(detailedCarObject.year_of_manufacture ){ %>
-                                <option value="<%= detailedCarObject.year_of_manufacture %>"> <%= detailedCarObject.year_of_manufacture %> </option>
-                            <% } else { %>
-                                <option value="NaN">Select Model Year</option>
-                            <% } %>
+                            <option value="NaN" id="mYearExchange">Select Model Year</option>
                             <option value="" disabled>----------------------</option>
                             <option value="2020">2020</option>
                             <option value="2019">2019</option>
@@ -189,11 +155,7 @@
                     <div class="input-wrapper">
                         <span>Body Type</span>
                         <select name="BodyType" id="sbodytype" class="select-tag">
-                            <% if(detailedCarObject.body_style ){ %>
-                                <option value="<%= detailedCarObject.body_style %>"> <%= detailedCarObject.body_style %> </option>
-                            <% } else { %>
-                                <option value="NaN">Select Body Type</option>
-                            <% } %>
+                            <option value="NaN" id="bodyExchange">Select Body Type</option>
                             <option value="" disabled>----------------------</option>
                             <option value="Convertible">Convertible</option>
                             <option value="Hatchback">Hatchback</option>
@@ -221,7 +183,7 @@
 
                     <div class="input-wrapper">
                         <span> Seats (optional) </span>
-                        <input type="text" class="inp_form_tag" value="<%= detailedCarObject.no_of_seats %>" name="SeatNum">
+                        <input type="text" class="inp_form_tag" id="seatExchange" name="SeatNum">
                     </div>
 
                     <div class="input-wrapper">
@@ -233,6 +195,7 @@
                         <span> Import History (optional) </span>
                         <select name="ImportHistory" id="sihistory" class="select-tag">
                             <option value="">Don't Know</option>
+                            <option value="" disabled>----------------------</option>
                             <option value="">Imported</option>
                         </select>
                     </div>
@@ -240,11 +203,8 @@
                     <div class="input-wrapper">
                         <span> Previous Owners (optional) </span>
                         <select name="PreviousOweners" id="spoweners" class="select-tag">
-                            <% if(detailedCarObject.number_of_owners ){ %>
-                                <option value="<%= detailedCarObject.number_of_owners %> Owners"> <%= detailedCarObject.number_of_owners %> Owners</option>
-                                <option value="" disabled>----------------------</option>
-                            <% } %>
-                            <option value="">Don't Know</option>
+                            <option value="" id="ownerExchange">Don't Know</option>
+                            <option value="" disabled>----------------------</option>
                             <option value="New">New</option>
                             <option value="1 Owner">1 Owner</option>
                             <option value="2 Owners">2 Owner</option>
@@ -256,32 +216,29 @@
 
                     <div class="input-wrapper">
                         <span> Number plate or VIN (optional) </span>
-                        <input type="text" class="inp_form_tag" value="<%= detailedCarObject.plate %>" name="vinNum" required>
+                        <input type="text" class="inp_form_tag" id="vinExchange" name="vinNum" required>
                     </div>
 
                     <div class="input-wrapper">
                         <span> Kilometres </span>
-                        <input type="text" class="inp_form_tag" value="<%= detailedCarObject.latest_odometer_reading %>" name="kMeters" required>
+                        <input type="text" class="inp_form_tag" id="kMeterExchange" name="kMeters" required>
                     </div>
 
                     <div class="input-wrapper">
                         <span> Colour (Optional) </span>
-                        <input type="text" class="inp_form_tag" value="<%= detailedCarObject.main_colour %>" name="Colour">
+                        <input type="text" class="inp_form_tag" id="colorExchange" name="Colour">
                     </div>
 
                     <div class="input-wrapper">
                         <span> Engine Size (CC) (Optional) </span>
-                        <input type="text" class="inp_form_tag" value="<%= detailedCarObject.cc_rating %>" name="engineSize">
+                        <input type="text" class="inp_form_tag" id="engineExchange" name="engineSize">
                     </div>
 
                     <div class="input-wrapper">
                         <span> Transmission (Optional) </span>
                         <select name="Transmission" id="stransmission" class="select-tag">
-                            <% if(detailedCarObject.transmission){ %>
-                                <option value="<%= detailedCarObject.transmission%>"> <%= detailedCarObject.transmission %> </option>
-                                <option value="" disabled>----------------------</option>
-                            <% } %>
-                            <option value="">Don't Know</option>
+                            <option value="" id="transmissionExchange">Don't Know</option>
+                            <option value="" disabled>----------------------</option>
                             <option value="">Automatic</option>
                             <option value="">Manual</option>
                             <option value="">Triptonic</option>
@@ -291,11 +248,8 @@
                     <div class="input-wrapper">
                         <span> Fuel Type </span>
                         <select name="FuelType" id="sfueltype" class="select-tag">
-                            <% if(detailedCarObject.fuel_type){ %>
-                                <option value="<%= detailedCarObject.fuel_type %>"> <%= detailedCarObject.fuel_type %> </option>
-                                <option value="" disabled>----------------------</option>
-                            <% } %>
-                            <option value="">Don't Know</option>
+                            <option value="" id="fuelExchange">Don't Know</option>
+                            <option value="" disabled>----------------------</option>
                             <option value="">Petrol</option>
                             <option value="">Diesel</option>
                             <option value="">Electric</option>
@@ -321,24 +275,16 @@
                     <div class="input-wrapper">
                         <span> WOF Expiry (Optional) </span>
                         <select name="WoFexpiry" id="swofexp" class="select-tag">
-                            <% if(detailedCarObject.expiry_date_of_last_successful_wof){ %>
-                                <option id="sfWof-exp" value="<%= detailedCarObject.expiry_date_of_last_successful_wof %>"><%= detailedCarObject.expiry_date_of_last_successful_wof %></option>
-                                <option value="" disabled id="wofsib">----------------------</option>
-                            <% } else { %>
-                                <option value="" id="wofsib">Select WOF Expiry Date</option>
-                            <% } %>
+                                <option value="" id="wofexchange">Select WOF Expiry Date</option>
+                                <option value="" id="wofsib" disabled>----------------------</option>
                         </select>
                     </div>
 
                     <div class="input-wrapper">
                         <span> Reg. Expiry (Optional) </span>
                         <select name="regExpiry" id="sexpirey" class="select-tag">
-                            <% if(detailedCarObject.expiry_date_of_last_successful_wof){ %>
-                                <option id="sfReg-exp" value="<%= detailedCarObject.plates[0].effective_date %>"><%= detailedCarObject.plates[0].effective_date %></option>
+                                <option value="" id="regexchange">Select Reg Expiry Date</option>
                                 <option value="" id="regsib" disabled>----------------------</option>
-                            <% } else { %>
-                                <option value="" id="regsib">Select Reg Expiry Date</option>
-                            <% } %>
                         </select>
                     </div>
 
@@ -426,9 +372,9 @@
     </div>
 
     <%-include('./Components/Footer.ejs') %>
-    <script src="/assets/scripts/script.js"></script>
     <script src="/assets/scripts/ajax/sellFormAjax.js"></script>
     <script src="/assets/scripts/MakeModel.js"></script>
     <script src="/assets/scripts/ajax/carJamAjax.js"></script>
+    <script src="/assets/scripts/script.js"></script>
 </body>
 </html>
