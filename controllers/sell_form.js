@@ -102,7 +102,9 @@ Router.post("/car-submit/submit", urlencoded, exterior, (req, res) => {
   newCar.minPrice = req.body.minPrice;
   newCar.Make = req.body.Make.toUpperCase();
   newCar.Model = req.body.Model.toUpperCase();
+  newCar.mYear = req.body.ModelYear;
   newCar.Age = (new Date().getFullYear() - req.body.ModelYear);
+  newCar.Transmission = req.body.Transmission;
   newCar.DoorNum = req.body.DoorNum;
   newCar.SeatNum = req.body.SeatNum;
   newCar.ModelDetail = req.body.ModelDetail;
@@ -116,67 +118,20 @@ Router.post("/car-submit/submit", urlencoded, exterior, (req, res) => {
   newCar.RoadCost = req.body.RoadCost;
   newCar.Description = req.body.Description;
   newCar.authorID = req.user._id;
-  newCar.adActive = true;
+  newCar.adActive = "Active";
   newCar.views = 0;
+
   newCar.DealerName = req.body.DealerName;
-  newCar.DealerNum = req.body.DealerName;
+  if(!req.body.DealerName){
+    newCar.DealerName = `${req.user.firstName} ${req.user.lastName}`
+  }
+  newCar.DealerNum = req.body.DealerNum;
+  if(!req.body.DealerNum){
+    newCar.DealerNum = req.user.phoneNum;
+  }
   newCar.DealerEmail = req.body.DealerEmail;
-
-  if (req.body.BodyType === "CV") {
-    newCar.BodyType = "Convertible";
-  } else if (req.body.BodyType === "HA") {
-    newCar.BodyType = "Hatchback";
-  } else if (req.body.BodyType === "HV") {
-    newCar.BodyType = "Heavy Van";
-  } else if (req.body.BodyType === "LV") {
-    newCar.BodyType = "Light Van";
-  } else if (req.body.BodyType === "SW") {
-    newCar.BodyType = "Station Wagon";
-  } else if (req.body.BodyType === "UT") {
-    newCar.BodyType = "Utility";
-  } else if (req.body.BodyType === "SL") {
-    newCar.BodyType = "Sedan";
-  } else if (req.body.BodyType === "SP") {
-    newCar.BodyType = "Sports Car";
-  } else {
-    newCar.BodyType = "Other";
-  }
-
-  if (req.body.fuelType === 01) {
-    newCar.fuelType = "Petrol";
-  } else if (req.body.fuelType === 02) {
-    newCar.fuelType = "Diesel";
-  } else if (req.body.fuelType === 03) {
-    newCar.fuelType = "CNG";
-  } else if (req.body.fuelType === 04) {
-    newCar.fuelType = "LPG";
-  } else if (req.body.fuelType === 05) {
-    newCar.fuelType = "Electric";
-  } else if (
-    req.body.fuelType === 93 ||
-    07 ||
-    08 ||
-    09 ||
-    10 ||
-    11 ||
-    12 ||
-    91 ||
-    92 ||
-    94 ||
-    95 ||
-    96
-  ) {
-    newCar.fuelType = "Hybrid";
-  } else {
-    newCar.fuelType = "Other";
-  }
-
-  if (req.body.Transmission.includes("automatic")) {
-    newCar.Transmission = "Automatic";
-  } else if (req.body.Transmission.includes("manual")) {
-    newCar.Transmission = "Manual";
-  } else if (req.body.Transmission.includes("triptonic")) {
-    newCar.Transmission = "Triptonic";
+  if(!req.body.DealerEmail){
+    newCar.DealerEmail = req.user.email;
   }
 
   newCar.WoFexpiry = req.body.WoFexpiry;
@@ -191,18 +146,6 @@ Router.post("/car-submit/submit", urlencoded, exterior, (req, res) => {
     newCar.photo360 = 1;
   } else {
     newCar.photo360 = 0;
-  }
-
-  if (req.body.authorEmail === "on") {
-    newCar.authorEmail = 1;
-  } else {
-    newCar.authorEmail = 0;
-  }
-
-  if (req.body.authorPhone === "on") {
-    newCar.authorPhone = 1;
-  } else {
-    newCar.authorPhone = 0;
   }
 
   try {
