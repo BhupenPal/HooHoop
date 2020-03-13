@@ -23,6 +23,7 @@
     <%-include('./Components/Header.ejs') %>
 
     <div class="cardet_page">
+      <%-include('./Flash/message.ejs') %>
       <div class="th_sxty_info">
         <div class="th60_container">
           <div class="viewthsxty">
@@ -120,6 +121,7 @@
           </div>
         </div>
       </div>
+
       <div class="panel-contain">
         <div class="nav_with_panel_tabs">
           <div class="panel_tabs">
@@ -248,6 +250,7 @@
     <script src="/assets//scripts/view360-exterior/min.js"></script>
     <script src="/assets/scripts/chatbot.js"></script>
     <script src="/assets/scripts/ajax/interiorCheck.js"></script>
+    <script src="/assets/scripts/flasher.js"></script>
     <script>
       const front = `/assets/Uploads/<%= record.vinNum %>/interior/interiorFront.JPG`;
       const rear = `/assets/Uploads/<%= record.vinNum %>/interior/interiorRear.JPG`;

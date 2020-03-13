@@ -45,76 +45,95 @@ Router.get("/buy-car/:id", async (req, res) => {
 });
 
 Router.post("/buy-car/:vID/book-test-drive", urlencoded, async (req, res) => {
+  try {
+
   let vID = req.params.vID;
-
   const bookTestDrive = new testDrive();
-
   let result = await carModel.find({ _id: vID }).exec();
-
   bookTestDrive.firstName = req.body.ft_name;
   bookTestDrive.lastName = req.body.lt_name;
   bookTestDrive.email = req.body.bt_email;
   bookTestDrive.phoneNum = req.body.pt_phone;
-
   if(req.user){
     bookTestDrive.customerID  = req.user._id;
   } else if(!req.user){
     bookTestDrive.customerID  = "Not Logged In";
   }
-
   bookTestDrive.vehicleID = vID;
-
   bookTestDrive.save();
 
-  res.render("cpage_info", {record: result[0]});
+    fs.readdir(`./assets/Uploads/${result[0].vinNum}/exterior`, (err, files) => {
+      res.render("cpage_info", { record: result[0], photoArrayLength: files.length, success_msg: "Your Test Drive Has Been Booked" });
+    });
+  } catch (error) {
+  }
+
 });
 
 Router.post("/buy-car/:vID/check-availbility", urlencoded, async (req, res) => {
-  let vID = req.params.vID;
 
-  const checkAvailabilityModel = new availabilityModel();
+  try {
+    let vID = req.params.vID;
 
-  let result = await carModel.find({ _id: vID }).exec();
-
-  checkAvailabilityModel.fullName = req.body.ck_name;
-  checkAvailabilityModel.email = req.body.ck_email;
-  checkAvailabilityModel.phoneNum = req.body.ck_phone;
-  if(req.user){
-    checkAvailabilityModel.customerID  = req.user._id;
-  } else if(!req.user){
-    checkAvailabilityModel.customerID  = "Not Logged In";
+    const checkAvailabilityModel = new availabilityModel();
+  
+    let result = await carModel.find({ _id: vID }).exec();
+  
+    checkAvailabilityModel.fullName = req.body.ck_name;
+    checkAvailabilityModel.email = req.body.ck_email;
+    checkAvailabilityModel.phoneNum = req.body.ck_phone;
+    if(req.user){
+      checkAvailabilityModel.customerID  = req.user._id;
+    } else if(!req.user){
+      checkAvailabilityModel.customerID  = "Not Logged In";
+    }
+    checkAvailabilityModel.vehicleID = vID;
+  
+    checkAvailabilityModel.save();
+  
+    fs.readdir(`./assets/Uploads/${result[0].vinNum}/exterior`, (err, files) => {
+      res.render("cpage_info", { record: result[0], photoArrayLength: files.length, success_msg: "Your query has been registered" });
+    });
+  } catch (error) {
+    
   }
-  checkAvailabilityModel.vehicleID = vID;
 
-  checkAvailabilityModel.save();
-
-  res.render("cpage_info", {record: result[0]});
 });
 
 Router.post("/buy-car/:vID/shipping-quote", urlencoded, async (req, res) => {
-  let vID = req.params.vID;
 
-  const shippingQuote = new shippingModel();
+  try {
 
-  let result = await carModel.find({ _id: vID }).exec();
+    let vID = req.params.vID;
 
-  shippingQuote.fullName = req.body.sq_name;
-  shippingQuote.email = req.body.sq_email;
-  shippingQuote.phoneNum = req.body.sq_phone;
-  shippingQuote.fromLocation = req.body.wh_move_from;
-  shippingQuote.toLocation = req.body.wh_move_to;
-  shippingQuote.transportDate = req.body.wh_date;
-  shippingQuote.note = req.body.wh_question;
-  if(req.user){
-    shippingQuote.customerID  = req.user._id;
-  } else if(!req.user){
-    shippingQuote.customerID  = "Not Logged In";
+    const shippingQuote = new shippingModel();
+  
+    let result = await carModel.find({ _id: vID }).exec();
+  
+    shippingQuote.fullName = req.body.sq_name;
+    shippingQuote.email = req.body.sq_email;
+    shippingQuote.phoneNum = req.body.sq_phone;
+    shippingQuote.fromLocation = req.body.wh_move_from;
+    shippingQuote.toLocation = req.body.wh_move_to;
+    shippingQuote.transportDate = req.body.wh_date;
+    shippingQuote.note = req.body.wh_question;
+    if(req.user){
+      shippingQuote.customerID  = req.user._id;
+    } else if(!req.user){
+      shippingQuote.customerID  = "Not Logged In";
+    }
+    shippingQuote.vehicleID = vID;
+  
+    shippingQuote.save();
+  
+    fs.readdir(`./assets/Uploads/${result[0].vinNum}/exterior`, (err, files) => {
+      res.render(`cpage_info`, { record: result[0], photoArrayLength: files.length, success_msg: "Your query for shipping has been registered" });
+    });
+    
+  } catch (error) {
+    
   }
-  shippingQuote.vehicleID = vID;
 
-  shippingQuote.save();
-
-  res.render("cpage_info", {record: result[0]});
 });
 
 Router.get("/my-ads", ensureAuthenticated, async (req, res) => {
