@@ -23,17 +23,19 @@
           <div class="sidebar">
 
             <div class="sbar_options">
-              <div class="sopt selected_sopt">Profile</div>
+              <div class="sopt">Profile</div>
               <div class="sopt">Account Management</div>
               <div class="sopt">My Listing</div>
               <div class="sopt">All Listings</div>
               <div class="sopt">User Management</div>
+              <div class="sopt">Client Management</div>
+              <div class="sopt selected_sopt">360 Requests</div>
             <a href="/logout"><div class="sopt">Logout</div></a>  
             </div>
   
           </div>
           <!-- Profile Section -->
-          <div class="fet_det">
+          <div class="fet_det vanish">
             <%-include('./Flash/message.ejs') %>
             <h1 class="feature_head">Profile</h1>
 
@@ -42,7 +44,7 @@
 
                 <div class="credcontainer">
                   <label for="d_cred_mail">Email</label>
-                  <span><%= user.email %> <i class="far fa-exclamation-triangle"></i></span>
+                  <span title="Email Cannot be changed" class="d_c_em_us"><%= user.email %> <i class="far fa-exclamation-triangle"></i></span>
               </div>
               
               <div class="credcontainer">
@@ -140,7 +142,7 @@
 
                 <table class="table_S">
                   <tr id="completeList">
-                    <th>S. No</th>
+                    <th>S.No</th>
                     <th>Thumbnail</th>
                     <th>Make</th>
                     <th>Model</th>
@@ -162,7 +164,7 @@
 
                 <table class="table_S">
                   <tr id="completeUsers">
-                    <th>S. No</th>
+                    <th>S.No</th>
                     <th>Thumbnail</th>
                     <th>Name</th>
                     <th>Email</th>
@@ -174,6 +176,98 @@
               </div>
             </div>
           <!-- User-Management -->
+
+          <!-- Req Panel -->
+            <div class="fet_det vanish">
+              <h1 class="feature_head">Client Management</h1>
+
+              <div class="reqpanel">
+                
+                <div class="Panesel">
+                  <div class="Paneopt selected_paneopt">Test Drive</div>
+                  <div class="Paneopt">Availability Enquiry</div>
+                  <div class="Paneopt">Shipping Enquiry</div>
+                </div>
+
+                <table class="table_S client_table">
+                  <tr id="testdriveEnq">
+                    <th>S.No</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Delete</th>
+                  </tr>
+                  <tr>
+                    <td>1</td>
+                    <td>Varun</td>
+                    <td>Dev</td>
+                    <td>dudevarun7777@gmail.com</td>
+                    <td>8700506796</td>
+                    <td><button>Delete</button></td>
+                  </tr>
+                </table>
+
+                <table class="table_S vanish client_table">
+                  <tr id="availabilityEnq">
+                    <th>S.No</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Delete</th>
+                  </tr>
+                </table>
+
+                <table class="table_S vanish client_table">
+                  <tr id="ShippingEnq">
+                    <th>S.No</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Starting Point</th>
+                    <th>Destination</th>
+                    <th>Date</th>
+                    <th>Delete</th>
+                  </tr>
+
+                  <tr>
+                    <td>1</td>
+                    <td>Varun</td>
+                    <td>dudevarun7777@gmail.com</td>
+                    <td>8700506796</td>
+                    <td>101/224 DDA Flats New Seelampur, Delhi-53</td>
+                    <td>223 Christchurch City</td>
+                    <td>10/07/2020</td>
+                    <td><button>Delete</button></td>
+                  </tr>
+                </table>
+
+              </div>
+
+            </div>
+          <!-- Req Panel -->
+
+          <!-- 360 Req Panel -->
+            <div class="fet_det">
+              <h1 class="feature_head">360 Photo Requests</h1>
+
+              <div class="table_container">
+
+                <table class="table_S">
+                  <tr id="Reqthreesixty_panel">
+                    <th>S.No</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Number</th>
+                    <th>Status</th>
+                    <th>Delete</th>
+                  </tr>
+                  </table>
+  
+              </div>
+
+            </div>
+          <!-- 360 Req Panel -->
         </div>
 
       </div>

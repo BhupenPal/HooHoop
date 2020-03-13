@@ -2212,7 +2212,7 @@ canvas {
 }
 
 .dashfeature{
-  width: 95vw;
+  width: 100vw;
   display: flex;
   position: relative;
 }
@@ -2221,8 +2221,9 @@ canvas {
   padding-left: 300px;
   box-sizing: border-box;
   width: 100%;
-  overflow-y: scroll;
   padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
 }
 
 .feature_head{
@@ -2269,6 +2270,21 @@ canvas {
   border: 2px solid #f5bf2b;
 }
 
+.d_c_em_us{
+  font-size: 19px;
+  font-family: Raleway;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.d_c_em_us:hover > i{
+  transition: 0.2s;
+}
+
+.d_c_em_us:hover > i{
+  color: #f5bf2b;
+}
+
 .flex_change{
   margin-bottom: 20px;
   font-family: Lato;
@@ -2307,7 +2323,7 @@ canvas {
 }
 
 .table_container{
-  padding-left: 50px;
+  padding: 0 30px;
   box-sizing: border-box;
   width: 100%;
 }
@@ -2325,12 +2341,12 @@ td, th {
 }
 
 td:first-child,th:first-child{
-  width: 40px;
+  width: 60px !important;
   text-align: center;
 }
 
 td:nth-child(2),th:nth-child(2){
-  width: 30px;
+  width: 30px !important;
 }
 
 tr:nth-child(2n) {
@@ -2359,6 +2375,90 @@ td button:hover{
   opacity: 1;
 }
 
+.reqpanel{
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.reqpanel table{
+  width: 90%;
+  margin-top: 20px;
+}
+
+.reqpanel table tr th:nth-child(2){
+  width: 150px !important;
+}
+
+.reqpanel table tr th:nth-child(3){
+  width: 150px;
+}
+
+.reqpanel table tr th:nth-child(5){
+  width: 250px !important;
+}
+
+.reqpanel table tr th:nth-child(6){
+  width: 120px;
+}
+
+#availabilityEnq th:nth-child(3){
+  width: 35%;
+}
+
+#availabilityEnq th:last-child{
+  width: 120px !important;
+}
+
+.Panesel{
+  height: 80px;
+  width: 80%;
+  padding: 5px;
+  background-color: #f2f2f2;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-family: Roboto;
+  border-radius: 10px;
+  margin: 0 !important;
+}
+
+.Paneopt{
+  width: 250px;
+  height: 90%;
+  margin: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.Paneopt:hover{
+  background-color: #f5bf2b;
+}
+
+.selected_paneopt{
+  background-color: #f5bf2b;
+}
+
+#Reqthreesixty_panel th:last-child{
+  width: 120px !important;
+}
+
+#Reqthreesixty_panel th:nth-last-child(2){
+  width: 200px;
+}
+
+#Reqthreesixty_panel th:nth-child(2){
+  width: 300px !important;
+}
 /* Dashboard */
 
 /* Forgot-Password */
@@ -3327,6 +3427,37 @@ td button:hover{
   }
 
   /* footpage response */
+
+  /* dashboard-response */
+    .dash_wrapper{
+      padding-bottom: 500px;
+    }
+    
+    .sidebar{
+      width: 0;
+      visibility: hidden;
+    }
+
+    .fet_det{
+      padding-left: 0;
+      width: 100%;
+    }
+
+    .credcontainer{
+      flex-direction: column;
+      align-items: flex-start;
+      width: 90vw;
+    }
+
+    .credcontainer input{
+      width: 90vw;
+      height: 10vw;
+    }
+
+    .Usercred{
+      padding-left: 5%;
+    }
+  /* dashboard-response */
 
   /* footer response */
 
