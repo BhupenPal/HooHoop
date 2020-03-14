@@ -25,10 +25,10 @@
             <div class="sbar_options">
               <div class="sopt selected_sopt">Profile</div>
               <div class="sopt">Account Management</div>
-              <div class="sopt" onclick="myListHandle()">My Listing</div>
-              <div class="sopt" onclick="completeListHandle()">All Listings</div>
-              <div class="sopt" onclick="completeUserHandle()">User Management</div>
-              <div class="sopt" onclick="testDriveHandle()">Client Management</div>
+              <div class="sopt" id="myListID" onclick="myListHandle()">My Listing</div>
+              <div class="sopt" id="clistID" onclick="completeListHandle()">All Listings</div>
+              <div class="sopt" id="cuserID" onclick="completeUserHandle()">User Management</div>
+              <div class="sopt" id="testDID" onclick="testDriveHandle()">Client Management</div>
               <div class="sopt">360 Requests</div>
             <a href="/logout"><div class="sopt">Logout</div></a>  
             </div>
@@ -187,8 +187,8 @@
                 
                 <div class="Panesel">
                   <div class="Paneopt selected_paneopt">Test Drive</div>
-                  <div class="Paneopt" onclick="availabilityHandle()">Availability Enquiry</div>
-                  <div class="Paneopt" onclick="shipHandle()">Shipping Enquiry</div>
+                  <div class="Paneopt" id="availID" onclick="availabilityHandle()">Availability Enquiry</div>
+                  <div class="Paneopt" id="shipID" onclick="shipHandle()">Shipping Enquiry</div>
                 </div>
 
                 <table class="table_S client_table">

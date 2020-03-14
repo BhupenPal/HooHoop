@@ -1,4 +1,5 @@
 function myListHandle(){
+  document.getElementById('myListID').onclick = null;
     const xhr = new XMLHttpRequest();
     xhr.open("GET", `dashboard/mylistings`, true);
     xhr.getResponseHeader("content-type", "application/json");
@@ -17,11 +18,6 @@ myListings = list => {
     json = JSON.parse(list);
     let output = '';
 
-    var toBeRemoved = document.getElementsByClassName('user-mylist');
-    while(toBeRemoved[0]) {
-      toBeRemoved[0].parentNode.removeChild(toBeRemoved[0])
-    }
-
     for(inc = 0; inc < json.list.length; inc++){
         output += `\               
         <tr class="user-mylist">\
@@ -34,11 +30,11 @@ myListings = list => {
         <td class="delete"><button value="${json.list[inc]._id}" onclick="del_lstng(this)">Delete</button></td>\
       </tr>`
     }
-
     document.getElementById("mylist").insertAdjacentHTML("afterend", output);
 }
 
 function completeListHandle(){
+  document.getElementById('clistID').onclick = null;
     const xhr = new XMLHttpRequest();
     xhr.open("GET", `/dashboard/complete-list`, true);
     xhr.getResponseHeader("content-type", "application/json");
@@ -55,11 +51,6 @@ function completeListHandle(){
 
 completeListings = list => {
     json = JSON.parse(list);
-
-    var toBeRemoved = document.getElementsByClassName('user-completelist');
-    while(toBeRemoved[0]) {
-      toBeRemoved[0].parentNode.removeChild(toBeRemoved[0])
-    }
 
     let output = '';
 
@@ -80,6 +71,7 @@ completeListings = list => {
 }
 
 function completeUserHandle(){
+  document.getElementById('cuserID').onclick = null;
     const xhr = new XMLHttpRequest();
     xhr.open("GET", `/dashboard/complete-users`, true);
     xhr.getResponseHeader("content-type", "application/json");
@@ -98,11 +90,6 @@ completeUsers = list => {
     json = JSON.parse(list);
     let output = '';
 
-    var toBeRemoved = document.getElementsByClassName('complete-userlist');
-    while(toBeRemoved[0]) {
-      toBeRemoved[0].parentNode.removeChild(toBeRemoved[0])
-    }
-
     for(inc = 0; inc < json.list.length; inc++){
         output += `\               
         <tr class="complete-userlist">\
@@ -118,6 +105,7 @@ completeUsers = list => {
 }
 
 function testDriveHandle(){
+  document.getElementById('testDID').onclick = null;
   const xhr = new XMLHttpRequest();
   xhr.open("GET", `/dashboard/testdrives`, true);
   xhr.getResponseHeader("content-type", "application/json");
@@ -136,11 +124,6 @@ testDrive = list => {
   json = JSON.parse(list);
   let output = '';
 
-  var toBeRemoved = document.getElementsByClassName('check-testdrive');
-  while(toBeRemoved[0]) {
-    toBeRemoved[0].parentNode.removeChild(toBeRemoved[0])
-  }
-
   for(inc = 0; inc < json.list.length; inc++){
       output += `\               
       <tr class="check-testdrive">\
@@ -157,6 +140,7 @@ testDrive = list => {
 }
 
 function availabilityHandle(){
+  document.getElementById('availID').onclick = null;
   const xhr = new XMLHttpRequest();
   xhr.open("GET", `/dashboard/availcheck`, true);
   xhr.getResponseHeader("content-type", "application/json");
@@ -175,11 +159,6 @@ checkAvailability = list => {
   json = JSON.parse(list);
   let output = '';
 
-  var toBeRemoved = document.getElementsByClassName('check-availability');
-  while(toBeRemoved[0]) {
-    toBeRemoved[0].parentNode.removeChild(toBeRemoved[0])
-  }
-
   for(inc = 0; inc < json.list.length; inc++){
       output += `\
       <tr class="check-availability">\
@@ -196,6 +175,7 @@ checkAvailability = list => {
 }
 
 function shipHandle(){
+  document.getElementById('shipID').onclick = null;
   const xhr = new XMLHttpRequest();
   xhr.open("GET", `/dashboard/shipenq`, true);
   xhr.getResponseHeader("content-type", "application/json");
@@ -213,11 +193,6 @@ function shipHandle(){
 shipmentEnquiry = list => {
   json = JSON.parse(list);
   let output = '';
-
-  var toBeRemoved = document.getElementsByClassName('check-ship');
-  while(toBeRemoved[0]) {
-    toBeRemoved[0].parentNode.removeChild(toBeRemoved[0])
-  }
 
   for(inc = 0; inc < json.list.length; inc++){
       output += `\
