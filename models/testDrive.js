@@ -5,10 +5,6 @@ mongoose.connect("mongodb://localhost:27017/HooHoop", {
   useCreateIndex: 1
 });
 
-// mongoose.connection.on("connected", () =>
-//   console.log("Mongoose Test Drive Model Intitialized!!!!")
-// );
-
 const Schema = mongoose.Schema;
 const TestDrive = new Schema({
   firstName: {
@@ -25,7 +21,8 @@ const TestDrive = new Schema({
     required: true
   },
   customerID: String,
-  vehicleID: String
+  vehicleID: String,
+  car: String
 });
 
 module.exports = mongoose.model("Test Drive", TestDrive);

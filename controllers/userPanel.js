@@ -2,6 +2,7 @@ const express = require("express");
 const Router = express.Router();
 const randomstring = require("randomstring");
 const transporter = require("./mail/config/trasnport");
+const fs = require('fs')
 
 //Authenticator Config
 const { ensureAuthenticated, forwardAuthenticated } = require("./log/auth");
@@ -17,6 +18,9 @@ const bcrypt = require("bcryptjs");
 const userModel = require("../models/userModel");
 const carModel = require("../models/carModel");
 const contactModel = require("../models/contactModel");
+const testDrive = require("../models/testDrive");
+const checkAvail = require("../models/availabilityModel");
+const shipModel = require("../models/shippingModel");
 
 //Passport Config
 const passport = require("passport");
@@ -463,6 +467,7 @@ Router.get('/dashboard/mylistings', async (req, res) => {
   } else {
     res.send('Link not accessible');
   }
+
 })
 
 Router.get('/dashboard/complete-list', async (req, res) => {
@@ -474,6 +479,7 @@ Router.get('/dashboard/complete-list', async (req, res) => {
   } else {
     res.send('Link not accessible');
   }
+  
 })
 
 Router.get('/dashboard/complete-users', async (req, res) => {
@@ -487,9 +493,41 @@ Router.get('/dashboard/complete-users', async (req, res) => {
   }
 })
 
+Router.get('/dashboard/testdrives', async (req, res) => {
+  let TestDrive = await testDrive.find({})
 
-Router.get('/dashboard/remove/:id', async (req, res) => {
+  if(req.xhr){
+    res.json({list: TestDrive})
+  } else {
+    res.send('Link not accessible')
+  }
+})
 
+Router.get('/dashboard/availcheck', async (req, res) => {
+  let CheckAvail = await checkAvail.find({});
+  
+  if(req.xhr){
+    res.json({list: CheckAvail})
+  } else {
+    res.send("Link not accessible");
+  }
+})
+
+Router.get('/dashboard/shipenq', async (req, res) => {
+  let ShipList = await shipModel.find({});
+  
+  if(req.xhr){
+    res.json({list: ShipList})
+  } else {
+    res.send("Link not accessible");
+  }
+})
+
+Router.get('/dashboard/my-list/remove', async (req, res) => {
+  let car = await carModel.find({_id: req.body.deleteAd})
+  removeDir(`assets/Uploads/${car[0].vinNum}`);
+  await carModel.deleteOne({ _id: req.body.deleteAd})
+  res.redirect("/dashboard"); 
 })
 
 //Contact Us Routes

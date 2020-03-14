@@ -2,7 +2,7 @@ const express = require("express");
 const Router = express.Router();
 const carModel = require("../models/carModel");
 const userModel = require("../models/userModel");
-const fs = require('fs')
+const fs = require('fs');
 
 const bodyParser = require("body-parser");
 const urlencoded = bodyParser.urlencoded({ extended: !1 });
@@ -54,6 +54,7 @@ Router.post("/buy-car/:vID/book-test-drive", urlencoded, async (req, res) => {
   bookTestDrive.lastName = req.body.lt_name;
   bookTestDrive.email = req.body.bt_email;
   bookTestDrive.phoneNum = req.body.pt_phone;
+  bookTestDrive.car = `${result[0].make} - ${result[0].model}`;
   if(req.user){
     bookTestDrive.customerID  = req.user._id;
   } else if(!req.user){
@@ -82,6 +83,7 @@ Router.post("/buy-car/:vID/check-availbility", urlencoded, async (req, res) => {
     checkAvailabilityModel.fullName = req.body.ck_name;
     checkAvailabilityModel.email = req.body.ck_email;
     checkAvailabilityModel.phoneNum = req.body.ck_phone;
+    checkAvailabilityModel.car = `${result[0].make} - ${result[0].model}`;
     if(req.user){
       checkAvailabilityModel.customerID  = req.user._id;
     } else if(!req.user){
@@ -131,7 +133,6 @@ Router.post("/buy-car/:vID/shipping-quote", urlencoded, async (req, res) => {
     });
     
   } catch (error) {
-    
   }
 
 });

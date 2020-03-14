@@ -5,10 +5,6 @@ mongoose.connect("mongodb://localhost:27017/HooHoop", {
   useCreateIndex: 1
 });
 
-// mongoose.connection.on("connected", () =>
-//   console.log("Mongoose User Model Intitialized!!!!")
-// );
-
 const Schema = mongoose.Schema;
 const UserSchema = new Schema({
   firstName: {
@@ -36,7 +32,11 @@ const UserSchema = new Schema({
     type: Boolean,
     required: true
   },
-  resetToken: String
+  resetToken: String,
+  adminStatus: {
+    type: String,
+    required: true
+  }
 });
 
 module.exports = mongoose.model("Users", UserSchema);

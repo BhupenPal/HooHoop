@@ -6,10 +6,6 @@ mongoose.connect("mongodb://localhost:27017/HooHoop", {
   useCreateIndex: 1
 });
 
-// mongoose.connection.on("connected", () =>
-//   console.log("Mongoose Car Model Intitialized!!!!")
-// );
-
 const Schema = mongoose.Schema,
   CarSchema = new Schema({
     Price: {

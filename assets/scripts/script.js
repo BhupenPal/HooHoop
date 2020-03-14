@@ -214,7 +214,7 @@ const fillDates = () => {
   let dateToAdd = "";
 
   for (var i = 0; i < 12; i++) {
-    dateToAdd += `<option value="${monthNames[currentMonth]}, ${currentYear}"> ${monthNames[currentMonth]}, ${currentYear} </option>`;
+    dateToAdd += `<option value="${monthNames[currentMonth]} ${currentYear}"> ${monthNames[currentMonth]} ${currentYear} </option>`;
     currentMonth++;
     if (currentMonth > 11) {
       currentMonth = 0;

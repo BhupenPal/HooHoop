@@ -5,10 +5,6 @@ mongoose.connect("mongodb://localhost:27017/HooHoop", {
   useCreateIndex: 1
 });
 
-// mongoose.connection.on("connected", () =>
-//   console.log("Mongoose Availability Model Intitialized!!!!")
-// );
-
 const Schema = mongoose.Schema;
 const ContactModel = new Schema({
   fullName: {
