@@ -1,96 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="/assets/css/index.css" />
+    <link rel="stylesheet" href="/assets/css/all.min.css" />
+    <link rel="stylesheet" href="/assets/css/fonts.css" />
+    <script src="/assets/scripts/script.js"></script>
+    <title>HooHoop</title>
+    <link
+      rel="icon"
+      href="/assets/images/favicon.ico"
+      type="image/ico"
+      sizes="16*16"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <link rel="stylesheet" href="/assets/css/index.css" />
-  <link rel="stylesheet" href="/assets/css/all.min.css" />
-  <link rel="stylesheet" href="/assets/css/fonts.css" />
-  <script src="/assets/scripts/script.js"></script>
-  <title>HooHoop</title>
-  <link rel="icon" href="/assets/images/favicon.ico" type="image/ico" sizes="16*16" />
-</head>
+  <body class="bgset">
+    <%-include('./Components/Header.ejs') %>
 
-<body class="bgset">
-  <%-include('./Components/Header.ejs') %>
+    <div class="ulwrap">
+      <div class="User_listings_wrapper">
+        <div class="Userlisting_Head">My Listings</div>
 
-  <div class="ulwrap">
-    <div class="User_listings_wrapper">
-      <div class="Userlisting_Head">My Listings</div>
-  
-      <div class="usli_card_wrap">
-        <% for(var i = 0; i < myAds.length; i++) { %>
-        <div class="listing_card">
-          <div class="list_img">
-            <img src="/assets/Uploads/<%= myAds[i].vinNum %>/exterior/Photo_1.jpg" alt="" />
+        <div class="usli_card_wrap">
+          <% for(var i = 0; i < myAds.length; i++) { %>
+          <div class="listing_card">
+            <div class="list_img">
+              <img
+                src="/assets/Uploads/<%= myAds[i].vinNum %>/exterior/Photo_1.jpg"
+                alt=""
+              />
+            </div>
+            <div class="list_info">
+              <div class="list_info_make">
+                <strong>Make :</strong> <%= myAds[i].Make %>
+              </div>
+              <div class="list_info_model">
+                <strong>Model :</strong><%= myAds[i].Model %>
+              </div>
+              <div class="list_info_price">
+                <strong>Price :</strong><%= myAds[i].Price %>
+              </div>
+              <div class="list_info_status">
+                <strong>Status :</strong> <%= myAds[i].adActive %>
+              </div>
+            </div>
+            <div class="list_option_btn_wrap">
+              <a href="/edit-car/<%= myAds[i].id %>">
+                <button class="list_option_btn">
+                  <i class="fal fa-edit"></i>
+                </button>
+              </a>
+              <button
+                class="list_option_btn"
+                value="<%= myAds[i]._id %>"
+                data-host="/my-ads"
+                onclick="del_lstng(this)"
+              >
+                <i class="fal fa-trash"></i>
+              </button>
+              <% if(myAds[i].adActive == "Active"){ %>
+              <button
+                class="list_option_btn"
+                value="<%= myAds[i]._id %>"
+                data-host="/my-ads"
+                onclick="sell_listed(this)"
+              >
+                <i class="fal fa-check"></i>
+              </button>
+              <% } else{ %>
+              <button
+                class="list_option_btn"
+                id="exec"
+                value="<%= myAds[i]._id %>"
+                data-host="/my-ads"
+                onclick="pending_done(this)"
+              >
+                <i class="fas fa-exclamation-triangle"></i>
+              </button>
+              <% } %>
+              <a href="http://localhost:8080/buy-car/<%= myAds[i]._id %>">
+                <button class="list_option_btn">
+                  <i class="fad fa-eye"></i>
+                </button>
+              </a>
+            </div>
           </div>
-          <div class="list_info">
-            <div class="list_info_make">
-              <strong>Make :</strong> <%= myAds[i].Make %>
-            </div>
-            <div class="list_info_model">
-              <strong>Model :</strong><%= myAds[i].Model %>
-            </div>
-            <div class="list_info_price">
-              <strong>Price :</strong><%= myAds[i].Price %>
-            </div>
-            <div class="list_info_status">
-              <strong>Status :</strong> <%= myAds[i].adActive %>
-            </div>
-          </div>
-          <div class="list_option_btn_wrap">
-            <a href="/edit-car/<%= myAds[i].id %>">
-            <button class="list_option_btn">
-              <i class="fad fa-edit"></i>
-            </button>
-          </a>
-            <button class="list_option_btn" value="<%= myAds[i]._id %>" onclick="del_lstng(this)">
-              <i class="fad fa-trash"></i>
-            </button>
-            <button class="list_option_btn"  value="<%= myAds[i]._id %>" onclick="sell_listed(this)">
-              <i class="fad fa-check"></i>
-            </button>
-            <a href="http://localhost:8080/buy-car/<%= myAds[i]._id %>">
-            <button class="list_option_btn"><i class="fad fa-eye"></i></button>
-          </a>
-          </div>
+          <% } %>
         </div>
-        <% } %>
       </div>
-    </div>
 
-    <!-- Prompt for delete -->
-    <div class="Modal">
-      <div class="del_lstng">
-        <div class="btndesk"><button class="cslstng"  onclick="del_lstng(false)"><div class="crosssec"></div><div class="crosssec"></div></button></div>
-        <div class="cnf_symbl" id="modal_1"><i class="fad fa-trash"></i></div>
-        <div class="del_text">Are you sure you want to delete this listing</div>
-        <form method="POST">
-          <input type="text" id="adDelete" value="" name="deleteAd">
-          <button class="del_lstng_btn" id="modalchange_1" type="submit" formaction="/my-ads/delete">Delete</button>
-        </form>
-      </div>
-    </div>
-    <!-- Prompt for delete -->
-
-        <!-- Prompt for delete -->
-        <div class="Modal">
+      <!-- Prompt for delete -->
+      <div class="Modal">
         <div class="del_lstng">
-          <div class="btndesk"><button class="cslstng" onclick="sell_listed(false)"><div class="crosssec"></div><div class="crosssec"></div></button></div>
-          <div class="cnf_symbl" id="modal_2"><i class="fad fa-check"></i></div>
-          <div class="del_text">Are you sure you want to mark this vehicle as sold?</div>
+          <div class="btndesk">
+            <button class="cslstng" onclick="del_lstng(false)">
+              <div class="crosssec"></div>
+              <div class="crosssec"></div>
+            </button>
+          </div>
+          <div class="cnf_symbl" id="modal_1"><i class="fal fa-trash"></i></div>
+          <div class="del_text">
+            Are you sure you want to delete this listing
+          </div>
           <form method="POST">
-            <input type="text" id="adSOLD" value="" name="adSOLD">
-            <button class="del_lstng_btn" id="modalchange_2" type="submit" formaction="/my-ads/update">Mark as sold</button>
+            <input type="text" id="adDelete" value="" name="deleteAd" />
+            <button
+              class="del_lstng_btn"
+              id="modalchange_1"
+              type="submit"
+              formaction="/my-ads/delete"
+            >
+              Delete
+            </button>
           </form>
         </div>
       </div>
       <!-- Prompt for delete -->
-  </div>
 
-  <%-include('./Components/Footer.ejs') %>
-</body>
+      <!-- Prompt for mark as sold -->
+      <div class="Modal">
+        <div class="del_lstng">
+          <div class="btndesk">
+            <button class="cslstng" onclick="sell_listed(false)">
+              <div class="crosssec"></div>
+              <div class="crosssec"></div>
+            </button>
+          </div>
+          <div class="cnf_symbl" id="modal_2"><i class="fad fa-check"></i></div>
+          <div class="del_text">
+            Are you sure you want to mark this vehicle as sold?
+          </div>
+          <form method="POST">
+            <input type="text" id="adSOLD" value="" name="adSOLD" />
+            <button
+              class="del_lstng_btn"
+              id="modalchange_2"
+              type="submit"
+              formaction="/my-ads/update"
+            >
+              Mark as sold
+            </button>
+          </form>
+        </div>
+      </div>
+      <!-- Prompt for mark as sold -->
 
+      <!-- Prompt for Pending-->
+      <div class="Modal">
+        <div class="del_lstng">
+          <div class="btndesk">
+            <button class="cslstng" onclick="pending_done(false)">
+              <div class="crosssec"></div>
+              <div class="crosssec"></div>
+            </button>
+          </div>
+          <div class="cnf_symbl" id="modal_3">
+            <i class="far fa-exclamation-triangle"></i>
+          </div>
+          <div class="del_text">
+            Are you sure you want to mark this as done?
+          </div>
+          <form method="POST">
+            <input type="text" id="Pending_done" value="" name="adSOLD" />
+            <button
+              class="del_lstng_btn"
+              id="modalchange_3"
+              type="submit"
+              formaction="/my-ads/update"
+            >
+              Mark as done
+            </button>
+          </form>
+        </div>
+      </div>
+      <!-- Prompt for Pending -->
+    </div>
+
+    <%-include('./Components/Footer.ejs') %>
+  </body>
 </html>

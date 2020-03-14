@@ -1863,6 +1863,10 @@ canvas {
 /* Listing-Section */
 
 /* User-Listing-Page */
+#exec{
+  background-color: orange;
+  color: white;
+}
 
 .ulwrap {
   width: 100%;
@@ -2064,6 +2068,7 @@ canvas {
 
 #modal_1{
   background-color: #ec6363;
+  color: white;
 }
 
 #modal_2{

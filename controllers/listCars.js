@@ -147,12 +147,17 @@ Router.post("/my-ads/delete", urlencoded, async (req, res) => {
   let car = await carModel.find({ _id: req.body.deleteAd})
   removeDir(`assets/Uploads/${car[0].vinNum}`);
   await carModel.deleteOne({ _id: req.body.deleteAd})
-  res.redirect("/my-ads")
+  res.redirect(req.header('Referer'))
 })
 
 Router.post("/my-ads/update", urlencoded, async (req, res) => {
-  await carModel.updateOne({ _id: req.body.adSOLD }, { $set: { adActive: false } }, () => {})
-  res.redirect("/my-ads")
+  const car = await carModel.find({_id: req.body.adSOLD});
+  if(car[0].adActive == "Active"){
+    await carModel.updateOne({ _id: req.body.adSOLD }, { $set: { adActive: "Sold" } }, () => {})
+  } else {
+    await carModel.updateOne({ _id: req.body.adSOLD }, { $set: { adActive: "Active" } }, () => {})
+  }
+  res.redirect(req.header('Referer'))
 })
 
 function Paginator(model) {
@@ -278,7 +283,6 @@ const removeDir = function(path) {
       fs.rmdirSync(path)
     }
   } else {
-    console.log(path)
     console.log("Directory path not found.")
   }
 }
