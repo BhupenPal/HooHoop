@@ -161,6 +161,7 @@ AgeSelector = () => {
 function filterResultHandler(){
 
   const pageParams = window.location.href.split('/')[4].split('?')[0];
+  document.getElementById('loader').style.display = 'block';
   document.getElementById('bc-card-wrap').classList.add('vanish')
 
   const xhr = new XMLHttpRequest();
