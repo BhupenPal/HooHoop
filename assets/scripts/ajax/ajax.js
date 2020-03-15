@@ -161,12 +161,12 @@ AgeSelector = () => {
 function filterResultHandler(){
 
   const pageParams = window.location.href.split('/')[4].split('?')[0];
-  document.getElementById("loader").style.display = "block";
   let cardWrap = document.getElementById('bc-card-wrap');
-
-  if(document.body.contains(cardWrap)){
+  if(cardWrap.style.display === "block"){
     cardWrap.style.display = 'none'
   }
+  document.getElementById("loader").style.display = "block";
+  
   const xhr = new XMLHttpRequest();
 
   xhr.open("GET", `/filter-content/${pageParams}?${MakeQuery}&${ModelQuery}&${FuelQuery}&${TransmissionQuery}&${BodyQuery}&${ColourQuery}&${PriceQuery}&${MetersQuery}`, true);
