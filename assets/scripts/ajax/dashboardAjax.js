@@ -19,6 +19,12 @@ myListings = list => {
     let output = '';
 
     for(inc = 0; inc < json.list.length; inc++){
+      if(json.list[inc].adActive == "Active"){
+        status = '<td class="sold"><button value="${json.list[inc]._id}" onclick="sell_listed(this)">Sold</button></td>';
+      } else {
+        status = '<td class="pending"><button value="${json.list[inc]._id}" onclick="sell_listed(this)">UnSold</button></td>';
+      }
+
         output += `\               
         <tr class="user-mylist">\
         <td>${inc + 1}</td>\
@@ -26,7 +32,7 @@ myListings = list => {
         <td>${json.list[inc].Make}</td>\
         <td>${json.list[inc].Model}</td>\
         <td>${json.list[inc].adActive}</td>\
-        <td class="sold"><button value="${json.list[inc]._id}" onclick="sell_listed(this)">Sold</button></td>\
+        ${status}\
         <td class="delete"><button value="${json.list[inc]._id}" onclick="del_lstng(this)">Delete</button></td>\
       </tr>`
     }

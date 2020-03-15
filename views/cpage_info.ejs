@@ -19,7 +19,7 @@
       sizes="16*16"
     />
   </head>
-  <body class="c_p_body" onload="ImgChange('interiorMiddle.JPG')">
+  <body class="c_p_body" onload="ImgChange('INTERIORMIDDLE.JPG')">
     <%-include('./Components/Header.ejs') %>
 
     <div class="cardet_page">
@@ -37,7 +37,7 @@
             </button>
 
             <select name="interiorSelect" id="INTSELECT" onchange="ImgChange(this.value)">
-              <option value="hello">hello</option>
+              <option value="INTERIORMIDDLE.JPG">Middle</option>
             </select>
 
             <div class="panoviewer-container viewer">
@@ -257,11 +257,10 @@
     <script src="/assets/scripts/view360-interior/view360.js"></script>
     <script src="/assets//scripts/view360-exterior/min.js"></script>
     <script src="/assets/scripts/chatbot.js"></script>
-    <script src="/assets/scripts/ajax/interiorCheck.js"></script>
     <script src="/assets/scripts/flasher.js"></script>
     <script>
-      const front = `/assets/Uploads/<%= record.vinNum %>/interior/interiorFront.JPG`;
-      const rear = `/assets/Uploads/<%= record.vinNum %>/interior/interiorRear.JPG`;
+      const front = `/assets/Uploads/<%= record.vinNum %>/interior/INTERIORFRONT.JPG`;
+      const rear = `/assets/Uploads/<%= record.vinNum %>/interior/INTERIORREAR.JPG`;
       const select = document.getElementById("INTSELECT");
 
 function FileExist(urlToFile) {
@@ -278,14 +277,14 @@ function FileExist(urlToFile) {
 
 if (FileExist(front)){
     var opt = document.createElement('option');
-    opt.value = "interiorFront.JPG";
+    opt.value = "INTERIORFRONT.JPG";
     opt.innerHTML = "Front";
     select.appendChild(opt);
 }
 
 if(FileExist(rear)){
     var opt = document.createElement('option');
-    opt.value = "interiorMiddle.JPG";
+    opt.value = "INTERIORREAR.JPG";
     opt.innerHTML = "Rear";
     opt.onchange
     select.appendChild(opt);

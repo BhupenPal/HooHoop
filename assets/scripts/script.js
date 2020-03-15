@@ -169,7 +169,6 @@ function showsl(j) {
 }
 
 function showform(){
-  console.log("hello")
   document.getElementById("SELL-FORM-SUB").classList.remove("vanish")
 }
 

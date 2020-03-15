@@ -4,13 +4,14 @@ const fs = require("fs");
 const multer = require("multer");
 var ffmpeg = require('ffmpeg');
 const carModel = require("../models/carModel");
+const sharp = require('sharp');
+sharp.cache(false);
 const bodyParser = require("body-parser");
 const urlencoded = bodyParser.urlencoded({
   extended: !1
 });
 
 const { ensureAuthenticated } = require("./log/auth");
-
 let thumbnail = null;
 
 var storeExterior = multer.diskStorage({
@@ -77,6 +78,7 @@ var storeExterior = multer.diskStorage({
     }
   },
   filename: function(req, file, cb) {
+    let dirInt = `assets/Uploads/${req.body.vinNum}/interior`;
     if (file.fieldname === "exterior") {
       let ext = file.originalname.split(".")[1];
         let filename = "video." + ext;
@@ -84,9 +86,8 @@ var storeExterior = multer.diskStorage({
         cb(null, filename);
     } else if (file.fieldname !== "exterior") {
       let ext = file.originalname.split(".")[1];
-      ext = ext.toUpperCase();
       let filename = file.fieldname + "." + ext;
-      cb(null, filename);
+      cb(null, filename.toLowerCase());
     }
   }
 });
@@ -98,7 +99,7 @@ var exterior = multer({ storage: storeExterior }).fields([
   { name: "interiorRear" }
 ]);
 
-Router.post("/car-submit/submit", ensureAuthenticated, urlencoded, exterior, (req, res) => {
+Router.post("/car-submit/submit", ensureAuthenticated, urlencoded, exterior, async (req, res) => {
   const newCar = new carModel();
   newCar.Price = req.body.Price;
   newCar.minPrice = req.body.minPrice;
@@ -168,14 +169,25 @@ Router.post("/car-submit/submit", ensureAuthenticated, urlencoded, exterior, (re
     }, function (err) {
       console.log('Error: ' + err);
     });
+    setTimeout(()=>{
+      fs.unlinkSync(`assets/Uploads/${req.body.vinNum}/exterior/${thumbnail}`)
+    }, 10000)
   } catch (e) {
     console.log(e.code);
     console.log(e.msg);
   }
 
-  setTimeout(()=>{
-    fs.unlinkSync(`assets/Uploads/${req.body.vinNum}/exterior/${thumbnail}`)
-  }, 10000)
+  fs.readdir(`./assets/Uploads/${req.body.vinNum}/interior`, (err, files) => {
+    files.forEach( async currFile => {
+      await sharp(`assets/Uploads/${req.body.vinNum}/interior/${currFile}`)
+      .resize(3200, 1600)
+      .jpeg({quality: 100})
+      .toFile(`assets/Uploads/${req.body.vinNum}/interior/${currFile.toUpperCase()}`)
+      setTimeout(()=>{
+        fs.unlinkSync(`assets/Uploads/${req.body.vinNum}/interior/${currFile}`)
+      }, 10000)
+    })
+  });
 
   newCar.save();
   res.send("Done")
