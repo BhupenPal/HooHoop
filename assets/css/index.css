@@ -1314,7 +1314,8 @@ button[disabled]{
 }
 
 #bc-card-wrap{
-  display: inline-flex !important;
+  display: inline-flex;
+  visibility: visible;
   margin: 0 auto;
   align-content: flex-start;
   flex-wrap: wrap;
