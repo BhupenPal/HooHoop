@@ -186,6 +186,7 @@
       </div>
   
       <div class="contentwrap" id="listeer">
+        <%-include('./Components/Loader.ejs') %>
         <% for(var i = 0; i < record.length; i++) { %>
           <a href="/buy-car/<%= record[i].id%>" class="cardanchor">
           <div class="bc-card">

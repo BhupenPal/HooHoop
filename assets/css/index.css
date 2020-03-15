@@ -18,6 +18,26 @@ a:hover{
   color: #f5bf2b;
 }
 
+#loader {
+  margin: 50px auto;
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  display: none;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 input[type="date"]::-webkit-inner-spin-button {
   display: none;
   -webkit-appearance: none;
@@ -1794,17 +1814,24 @@ canvas {
   border-radius: 5px;
 }
 
-.indi-details{
+.indi-details {
   display: flex;
   width: 100%;
   height: 50px;
+  font-weight: 800;
 }
 
-.detail-cat{
+.detail-cat {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-left: 2%;
   align-items: center;
-  width: 200px;
+  width: 40%;
+  border-right: 1px solid white;
+}
+.indi1,
+.indi3 {
+  background-color: #e6e6e6;
 }
 
 .detail-val{
@@ -2996,6 +3023,8 @@ td button:hover{
 
   .flash_msg_success{
     background-color: green;
+    display: flex;
+    justify-content: center;
   }
 
   .flash_msg_danger{

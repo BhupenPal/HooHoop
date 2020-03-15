@@ -161,7 +161,7 @@ AgeSelector = () => {
 function filterResultHandler(){
 
   const pageParams = window.location.href.split('/')[4].split('?')[0];
-  
+  document.getElementById("loader").style.display = "block";
   const xhr = new XMLHttpRequest();
 
   xhr.open("GET", `/filter-content/${pageParams}?${MakeQuery}&${ModelQuery}&${FuelQuery}&${TransmissionQuery}&${BodyQuery}&${ColourQuery}&${PriceQuery}&${MetersQuery}`, true);
@@ -170,9 +170,11 @@ function filterResultHandler(){
 
   xhr.onload = function() {
     if (this.status === 200) {
+      document.getElementById("loader").style.display = "none";
       filterContent(this.response)
     } else {
       console.log("Some error occured");
+      document.getElementById("loader").style.display = "none";
     }
   };
 
@@ -182,7 +184,7 @@ function filterResultHandler(){
 filterContent = record => {
   json = JSON.parse(record);
 
-let output='';
+let output='<div id="loader"></div>';
   for(inc = 0; inc<json.record.length; inc++){
     output += `  <a href="/buy-car/${json.record[inc]._id}" class="cardanchor">
     <div class="bc-card">

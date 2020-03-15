@@ -16,9 +16,10 @@ let monthNames = [
 
 jamForm.addEventListener("submit", function carJamHandler() {
   event.preventDefault();
-
+  document.getElementById("car_jam").classList.add("vanish")
+  document.getElementById("SELL-FORM-SUB").classList.add("vanish")
+  document.getElementById("loader").style.display = "block";
   let PlateNo = document.getElementById("vinFigureID").value;
-  console.log(PlateNo);
   const xhr = new XMLHttpRequest();
   xhr.open("GET", `/car-submit/data?Plate=${PlateNo}`, true);
   xhr.getResponseHeader("content-type", "application/json");
@@ -28,10 +29,12 @@ jamForm.addEventListener("submit", function carJamHandler() {
       let data = dataSetter(this.response);
       dataGIST(data);
       dataAdder(data);
+      document.getElementById("loader").style.display = "none";
       document.getElementById("car_jam").classList.remove("vanish")
       document.getElementById("SELL-FORM-SUB").classList.remove("vanish")
     } else {
       console.log("Some error occured");
+      document.getElementById("loader").style.display = "none";
     }
   };
   xhr.send();
