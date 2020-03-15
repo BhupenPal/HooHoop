@@ -162,6 +162,10 @@ function filterResultHandler(){
 
   const pageParams = window.location.href.split('/')[4].split('?')[0];
   document.getElementById("loader").style.display = "block";
+  let cardArray = document.getElementsByClassName('cardanchor');
+  cardArray.forEach(current => {
+    cardArray[current].style.display ='none'
+  })
   const xhr = new XMLHttpRequest();
 
   xhr.open("GET", `/filter-content/${pageParams}?${MakeQuery}&${ModelQuery}&${FuelQuery}&${TransmissionQuery}&${BodyQuery}&${ColourQuery}&${PriceQuery}&${MetersQuery}`, true);
