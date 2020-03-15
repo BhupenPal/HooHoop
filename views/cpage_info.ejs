@@ -226,7 +226,6 @@
                   cols="30"
                   rows="5"
                 ></textarea>
-
                 <button
                   class="submit-button"
                   type="submit"
@@ -239,9 +238,18 @@
           </div>
         </div>
         <div class="seller-details">
-          <p>Seller:<%= record.DealerName %></p>
-          <p>Contact Number: <%= record.DealerNum %> </p>
-          <p>Contact Email: <%= record.DealerEmail %></p>
+          <div class="indi-details">
+            <div class="detail-cat"> Seller Name </div>
+            <div class="detail-val"><%= record.DealerName %></div>
+          </div>
+          <div class="indi-details">
+            <div class="detail-cat"> Phone Number </div>
+            <div class="detail-val"><%= record.DealerNum %></div>
+          </div>
+          <div class="indi-details">
+            <div class="detail-cat"> Email </div>
+            <div class="detail-val"><%= record.DealerEmail %></div>
+          </div>
         </div>
       </div>
       <%-include('./Components/chatbot.ejs') %>

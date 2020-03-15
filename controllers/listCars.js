@@ -170,6 +170,7 @@ function Paginator(model) {
 
     const page = parseInt(req.params.page);
     let filterParam = req.query;
+    filterParam.adActive = "Active";
 
     if(req.query.car){
       delete filterParam.car
