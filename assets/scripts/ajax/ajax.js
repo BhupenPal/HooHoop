@@ -164,7 +164,7 @@ function filterResultHandler(){
   document.getElementById("loader").style.display = "block";
   let cardWrap = document.getElementById('bc-card-wrap');
 
-  if(document.contains(cardWrap)){
+  if(document.body.contains(cardWrap)){
     cardWrap.style.display = 'none'
   }
   const xhr = new XMLHttpRequest();
