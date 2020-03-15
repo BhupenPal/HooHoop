@@ -1305,14 +1305,19 @@ button[disabled]{
   margin: 20px 10px;
   border-radius: 5px;
   display: flex;
-  align-content: flex-start;
   justify-content: center;
-  flex-wrap: wrap;
 }
 
 .cardanchor {
   color: black;
   margin: 20px;
+}
+
+#bc-card-wrap{
+  display: inline-flex !important;
+  margin: 0 auto;
+  align-content: flex-start;
+  flex-wrap: wrap;
 }
 
 .bc-card {

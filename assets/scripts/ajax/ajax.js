@@ -162,10 +162,11 @@ function filterResultHandler(){
 
   const pageParams = window.location.href.split('/')[4].split('?')[0];
   document.getElementById("loader").style.display = "block";
-  let cardArray = document.getElementsByClassName('cardanchor');
-  cardArray.forEach(current => {
-    cardArray[current].style.display ='none'
-  })
+  let cardWrap = document.getElementById('bc-card-wrap');
+
+  if(document.contains(cardWrap)){
+    cardWrap.style.display = 'none'
+  }
   const xhr = new XMLHttpRequest();
 
   xhr.open("GET", `/filter-content/${pageParams}?${MakeQuery}&${ModelQuery}&${FuelQuery}&${TransmissionQuery}&${BodyQuery}&${ColourQuery}&${PriceQuery}&${MetersQuery}`, true);
@@ -188,9 +189,10 @@ function filterResultHandler(){
 filterContent = record => {
   json = JSON.parse(record);
 
-let output='<div id="loader"></div>';
+let output='<div id="loader"></div>    <div id="bc-card-wrap">';
   for(inc = 0; inc<json.record.length; inc++){
-    output += `  <a href="/buy-car/${json.record[inc]._id}" class="cardanchor">
+    output += `  
+    <a href="/buy-car/${json.record[inc]._id}" class="cardanchor">
     <div class="bc-card">
       <div class="cb_img"><img src="/assets/Uploads/${json.record[inc].vinNum}/exterior/Photo_1.jpg"></div>
       <div class="cb_info">
@@ -207,6 +209,6 @@ let output='<div id="loader"></div>';
     </div>
   </a>`
   }
-
+  output = output + '</div>';
   document.getElementById("listeer").innerHTML = output;
 }
