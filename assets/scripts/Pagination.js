@@ -15,18 +15,21 @@ let PaginatorButtons = document.getElementsByClassName("Page_no");
 
 if (pageParams >= 1 && pageParams <= 4) {
   for (var i = 0; i < lastPage; i++) {
+    PaginatorButtons[i].classList.remove("vanish");
     PaginatorButtons[i].innerHTML = i + 1;
     if (PaginatorButtons[i].innerHTML == pageParams) {
       PaginatorButtons[i].classList.add("page_sel");
-    }
+    } 
     PaginatorButtons[i].parentElement.setAttribute("href", `/search-car/${i+1}`)
   }
 } else {
-  for (var i = 0, inc = -1; i < lastPage; i++, inc++) {
+  for (var i = 0, inc = -1; Pivot + inc <= lastPage; i++, inc++) {
+    PaginatorButtons[i].classList.remove("vanish");
     PaginatorButtons[i].innerHTML = Pivot + inc;
     if (PaginatorButtons[i].innerHTML == pageParams) {
       PaginatorButtons[i].classList.add("page_sel");
     }
+    PaginatorButtons[i].parentElement.setAttribute("href", `/search-car/${Pivot + inc}`)
   }
 }
 

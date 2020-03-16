@@ -100,6 +100,7 @@ var exterior = multer({ storage: storeExterior }).fields([
 ]);
 
 Router.post("/car-submit/submit", ensureAuthenticated, urlencoded, exterior, async (req, res) => {
+  console.log(req.body)
   const newCar = new carModel();
   newCar.Price = req.body.Price;
   newCar.minPrice = req.body.minPrice;
@@ -120,7 +121,6 @@ Router.post("/car-submit/submit", ensureAuthenticated, urlencoded, exterior, asy
   newCar.Colour = req.body.Colour;
   newCar.engineSize = req.body.engineSize;
   newCar.cylinderNum = req.body.cylinderNum;
-  newCar.RoadCost = req.body.RoadCost;
   newCar.Description = req.body.Description;
   newCar.authorID = req.user._id;
   newCar.adActive = "Active";
@@ -143,9 +143,15 @@ Router.post("/car-submit/submit", ensureAuthenticated, urlencoded, exterior, asy
   newCar.regExpiry = req.body.regExpiry;
 
   if (req.body.DriveWheel4 === "on") {
-    newCar.DriveWheel4 = 1;
+    newCar.DriveWheel4 = 4;
   } else {
-    newCar.DriveWheel4 = 0;
+    newCar.DriveWheel4 = 2;
+  }
+
+  if(req.body.RoadCost == true){
+    newCar.RoadCost = ""
+  } else {
+    newCar.RoadCost = "Not"
   }
 
   try {

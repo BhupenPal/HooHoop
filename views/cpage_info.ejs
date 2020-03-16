@@ -129,7 +129,28 @@
           </div>
         </div>
       </div>
-
+      <div class="Descriptive-Data">
+        <div class="Description-Box">
+          <h1>DESCRIPTION</h1>
+          <%= record.Description %>
+        </div>
+        <div class="Radio-Description">
+          <div class="seller-details">
+            <div class="indi-details indi1">
+              <div class="detail-cat"> Registry Expiry </div>
+              <div class="detail-val"><%= record.regExpiry %></div>
+            </div>
+            <div class="indi-details indi2">
+              <div class="detail-cat"> On Road Prices </div>
+              <div class="detail-val"> <%= record.RoadCost %> Included</div>
+            </div>
+            <div class="indi-details indi3">
+              <div class="detail-cat"> Drive Type </div>
+              <div class="detail-val"> <%= record.DriveWheel4 %> Wheel Drive</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="panel-contain">
         <div class="nav_with_panel_tabs">
           <div class="panel_tabs">

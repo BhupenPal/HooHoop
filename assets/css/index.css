@@ -1758,6 +1758,23 @@ canvas {
   padding-top: 10px;
 }
 
+.Descriptive-Data {
+  width: 1300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Description-Box {
+  text-align: left;
+  white-space: pre-line;
+  padding-right: 25px;
+}
+
+.Description-Box h1{
+  font-family: Fira;
+}
+
 .panel-contain {
   margin: 20px 0;
   padding: 20px;
