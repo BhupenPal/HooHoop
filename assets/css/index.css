@@ -23,9 +23,9 @@ a:hover{
   border: 16px solid #f3f3f3; /* Light grey */
   border-top: 16px solid #3498db; /* Blue */
   border-radius: 50%;
-  width: 120px;
+  width: 100px;
   display: none;
-  height: 120px;
+  height: 100px;
   animation: spin 2s linear infinite;
 }
 
@@ -722,6 +722,15 @@ button[disabled]{
   padding-bottom: 150px;
 }
 
+#error-flash{
+  position: absolute;
+  margin-top: -80px;
+  color: rgba(255, 47, 47, 0.884);
+  font-size: 22px;
+  font-weight: 600;
+  transition: 0.3s ease-in-out;
+}
+
 .VIN-input {
   min-height: 300px;
   min-width: 1000px;
@@ -757,6 +766,7 @@ button[disabled]{
   font-size: 24px;
   color: gray;
   font-family: Raleway;
+  
 }
 
 .v_enter:focus {
@@ -918,6 +928,10 @@ button[disabled]{
 
 .inp_form_tag:focus {
   border: 2px solid #43b4ff;
+}
+
+#dealer-em {
+  text-transform: none;
 }
 
 .drive-type {

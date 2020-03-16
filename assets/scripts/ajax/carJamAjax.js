@@ -16,6 +16,7 @@ let monthNames = [
 
 jamForm.addEventListener("submit", function carJamHandler() {
   event.preventDefault();
+  document.getElementById('error-flash').innerHTML = ""
   document.getElementById("car_jam").classList.add("vanish")
   document.getElementById("SELL-FORM-SUB").classList.add("vanish")
   document.getElementById("loader").style.display = "block";
@@ -28,18 +29,29 @@ jamForm.addEventListener("submit", function carJamHandler() {
   xhr.onload = function() {
     if (this.status === 200) {
       let data = dataSetter(this.response);
-      dataGIST(data);
-      dataAdder(data);
+      if(data != null){
+        dataGIST(data);
+        dataAdder(data);
+        document.getElementById("car_jam").classList.remove("vanish")
+        document.getElementById("SELL-FORM-SUB").classList.remove("vanish")
+      } else {
+        ErrorHide();
+      }
       document.getElementById("loader").style.display = "none";
-      document.getElementById("car_jam").classList.remove("vanish")
-      document.getElementById("SELL-FORM-SUB").classList.remove("vanish")
     } else {
-      console.log("Some error occured");
+      ErrorHide();
       document.getElementById("loader").style.display = "none";
     }
   };
   xhr.send();
 });
+
+function ErrorHide(){
+  document.getElementById('error-flash').innerHTML = "Please the check the plate you entered and try again"
+  setTimeout(()=>{
+    document.getElementById('error-flash').innerHTML = "";
+  }, 3000)
+}
 
 function dataGIST(data) {
   let toBeRemoved = document.getElementsByClassName("car_api_data")[0];
@@ -82,8 +94,10 @@ function dataAdder(data) {
     };
   
     theDate(data.expiry_date_of_last_successful_wof, document.getElementById('wofexchange'));
+    if(data.plates != null){
     theDate(data.plates[0].effective_date, document.getElementById('regexchange'));
-
+    }
+    
     let makeExchange = document.getElementById('makeExchange');
     makeExchange.value = data.make;
     makeExchange.innerHTML = data.make;
@@ -136,61 +150,77 @@ function dataAdder(data) {
 function dataSetter(data) {
   data = JSON.parse(data);
 
-  if (data.body_style == "CV") {
-    data.body_style = "Convertible";
-  } else if (data.body_style == "HA") {
-    data.body_style = "Hatchback";
-  } else if (data.body_style == "HV") {
-    data.body_style = "Heavy Van";
-  } else if (data.body_style == "LV") {
-    data.body_style = "Light Van";
-  } else if (data.body_style == "SW") {
-    data.body_style = "Station Wagon";
-  } else if (data.body_style == "UT") {
-    data.body_style = "Utility";
-  } else if (data.body_style == "SL") {
-    data.body_style = "Sedan";
-  } else if (data.body_style == "SP") {
-    data.body_style = "Sports Car";
-  } else {
-    data.body_style = "Other";
-  }
+  if(data != null){
+    if(data.message != null){
+      return null
+    } else {
+      if (data.body_style == "CV") {
+        data.body_style = "Convertible";
+      } else if (data.body_style == "HA") {
+        data.body_style = "Hatchback";
+      } else if (data.body_style == "HV") {
+        data.body_style = "Heavy Van";
+      } else if (data.body_style == "LV") {
+        data.body_style = "Light Van";
+      } else if (data.body_style == "SW") {
+        data.body_style = "Station Wagon";
+      } else if (data.body_style == "UT") {
+        data.body_style = "Utility";
+      } else if (data.body_style == "SL") {
+        data.body_style = "Sedan";
+      } else if (data.body_style == "SP") {
+        data.body_style = "Sports Car";
+      }else {
+        data.body_style = "Other";
+      }
+    
+      if (data.fuel_type == 01) {
+        data.fuel_type = "Petrol";
+      } else if (data.fuel_type == 02) {
+        data.fuel_type = "Diesel";
+      } else if (data.fuel_type == 03) {
+        data.fuel_type = "CNG";
+      } else if (data.fuel_type == 04) {
+        data.fuel_type = "LPG";
+      } else if (data.fuel_type == 05) {
+        data.fuel_type = "Electric";
+      } else if (
+        data.fuel_type == 93 ||
+        07 ||
+        08 ||
+        09 ||
+        10 ||
+        11 ||
+        12 ||
+        91 ||
+        92 ||
+        94 ||
+        95 ||
+        96
+      ) {
+        data.fuel_type = "Hybrid";
+      } else {
+        data.fuel_type = "Other";
+      }
 
-  if (data.fuel_type == 01) {
-    data.fuel_type = "Petrol";
-  } else if (data.fuel_type == 02) {
-    data.fuel_type = "Diesel";
-  } else if (data.fuel_type == 03) {
-    data.fuel_type = "CNG";
-  } else if (data.fuel_type == 04) {
-    data.fuel_type = "LPG";
-  } else if (data.fuel_type == 05) {
-    data.fuel_type = "Electric";
-  } else if (
-    data.fuel_type == 93 ||
-    07 ||
-    08 ||
-    09 ||
-    10 ||
-    11 ||
-    12 ||
-    91 ||
-    92 ||
-    94 ||
-    95 ||
-    96
-  ) {
-    data.fuel_type = "Hybrid";
-  } else {
-    data.fuel_type = "Other";
-  }
+      if(data.make == "MERCEDES-BENZ"){
+        data.make = "MERCEDES BENZ"
+      } else if(data.make == "ROLLS-ROYCE"){
+        data.make = "ROLLS ROYCE"
+      }
 
-  if (data.transmission.includes("automatic")) {
-    data.transmission = "Automatic";
-  } else if (data.transmission.includes("manual")) {
-    data.transmission = "Manual";
-  } else if (data.transmission.includes("triptonic")) {
-    data.transmission = "Triptonic";
+      if(data.transmission != null){
+        if (data.transmission.includes("automatic")) {
+          data.transmission = "Automatic";
+        } else if (data.transmission.includes("manual")) {
+          data.transmission = "Manual";
+        } else if (data.transmission.includes("triptonic")) {
+          data.transmission = "Triptonic";
+        }
+      }
+    }
+  } else {
+    return null
   }
 
   return data;

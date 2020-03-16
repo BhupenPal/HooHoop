@@ -15,13 +15,15 @@
     <!-- navbar end -->
     <div class="sellform_wrap">
     <div class="VIN-input">
-        <form  id="jamFORM">
+        <form  id="jamFORM" autocomplete="off">
+            <div id="error-flash"></div>
             <h1 class="sell_head">Tell Us About the Vehicle you are selling</h1>
             <div class="ip_box">
-                <input type="text" class="v_enter" placeholder="Enter your number plate or VIN" name="vinFigure" id="vinFigureID">
+                <input type="text" class="v_enter" placeholder="Enter your number plate or VIN" name="vinFigure" id="vinFigureID" oninput="this.value = this.value.toUpperCase();" autofocus>
                 <button type="submit">FIND</button>
                 <h6 class="form_see" onclick="showform()"><a id="styledanchor" href="#SELL-FORM-SUB">Or Enter details Manually</a></h6>
             </div>
+            
         </form>
         <%-include('./Components/Loader.ejs') %>
         <div class="car_info vanish" id="car_jam">
@@ -41,8 +43,8 @@
                     
                     <div class="input-wrapper">
                         <span> Select Make </span>
-                        <select name="Make" id="smake" class="select-tag" onchange="ModelAccumlator()">
-                            <option value="NaN" id="makeExchange">Select Make</option>
+                        <select name="Make" id="smake" class="select-tag" onchange="ModelAccumlator()" required>
+                            <option value="" id="makeExchange">Select Make</option>
                             <option value="" disabled>----------------------</option>
                             <option value="ALFA ROMEO">ALFA ROMEO</option>
                             <option value="ASTON MARTIN">ASTON MARTIN</option>
@@ -107,16 +109,16 @@
 
                     <div class="input-wrapper">
                         <span> Select Model </span>
-                        <select name="Model" id="smodel" class="select-tag">
-                                <option value="NaN" id="modelExchange">Select Make First</option>
+                        <select name="Model" id="smodel" class="select-tag" required>
+                                <option value="" id="modelExchange">Select Make First</option>
                                 <option value="" disabled>----------------------</option>
                         </select>
                     </div>
 
                     <div class="input-wrapper">
                         <span> Select Model Year </span>
-                        <select name="ModelYear" id="smodelyear" class="select-tag">
-                            <option value="NaN" id="mYearExchange">Select Model Year</option>
+                        <select name="ModelYear" id="smodelyear" class="select-tag" required>
+                            <option value="" id="mYearExchange">Select Model Year</option>
                             <option value="" disabled>----------------------</option>
                             <option value="2020">2020</option>
                             <option value="2019">2019</option>
@@ -154,7 +156,7 @@
 
                     <div class="input-wrapper">
                         <span>Body Type</span>
-                        <select name="BodyType" id="sbodytype" class="select-tag">
+                        <select name="BodyType" id="sbodytype" class="select-tag" required>
                             <option value="NaN" id="bodyExchange">Select Body Type</option>
                             <option value="" disabled>----------------------</option>
                             <option value="Convertible">Convertible</option>
@@ -182,8 +184,8 @@
                     </div>
 
                     <div class="input-wrapper">
-                        <span> Seats (optional) </span>
-                        <input type="text" class="inp_form_tag" id="seatExchange" name="SeatNum">
+                        <span> Seats</span>
+                        <input type="text" class="inp_form_tag" id="seatExchange" name="SeatNum" required>
                     </div>
 
                     <div class="input-wrapper">
@@ -225,18 +227,18 @@
                     </div>
 
                     <div class="input-wrapper">
-                        <span> Colour (Optional) </span>
-                        <input type="text" class="inp_form_tag" id="colorExchange" name="Colour">
+                        <span> Colour</span>
+                        <input type="text" class="inp_form_tag" id="colorExchange" name="Colour" required>
                     </div>
 
                     <div class="input-wrapper">
-                        <span> Engine Size (CC) (Optional) </span>
-                        <input type="text" class="inp_form_tag" id="engineExchange" name="engineSize">
+                        <span> Engine Size (CC)</span>
+                        <input type="text" class="inp_form_tag" id="engineExchange" name="engineSize" required>
                     </div>
 
                     <div class="input-wrapper">
-                        <span> Transmission (Optional) </span>
-                        <select name="Transmission" id="stransmission" class="select-tag">
+                        <span> Transmission</span>
+                        <select name="Transmission" id="stransmission" class="select-tag" required>
                             <option value="" id="transmissionExchange">Don't Know</option>
                             <option value="" disabled>----------------------</option>
                             <option value="">Automatic</option>
@@ -247,7 +249,7 @@
 
                     <div class="input-wrapper">
                         <span> Fuel Type </span>
-                        <select name="FuelType" id="sfueltype" class="select-tag">
+                        <select name="FuelType" id="sfueltype" class="select-tag" required>
                             <option value="" id="fuelExchange">Don't Know</option>
                             <option value="" disabled>----------------------</option>
                             <option value="">Petrol</option>
@@ -258,9 +260,9 @@
                     </div>
 
                     <div class="input-wrapper">
-                        <span> Cylinders </span>
+                        <span> Cylinders (Optional)</span>
                         <select name="Cylinders" id="scylinders" class="select-tag">
-                            <option value="NaN">Don't Know</option>
+                            <option value="">Don't Know</option>
                             <option value="" disabled>----------------------</option>
                             <option value="Rotary">Rotary</option>
                             <option value="4 - Cylinder">4 - Cylinder</option>
@@ -282,7 +284,7 @@
 
                     <div class="input-wrapper">
                         <span> Reg. Expiry (Optional) </span>
-                        <select name="regExpiry" id="sexpirey" class="select-tag">
+                        <select name="regExpiry" id="sexpirey" class="select-tag" required>
                                 <option value="" id="regexchange">Select Reg Expiry Date</option>
                                 <option value="" id="regsib" disabled>----------------------</option>
                         </select>
@@ -302,8 +304,8 @@
                         </div>
                     
                         <div class="describecar">
-                            <h2>Describe the car (optional)</h2>
-                            <textarea id="t_area" rows="6" placeholder="E.g. condition and other information" name="Description"></textarea>
+                            <h2>Describe the car</h2>
+                            <textarea id="t_area" rows="6" placeholder="E.g. condition and other information" name="Description" required></textarea>
                         </div>
                         <div class="file_upload">
                             <h2>Upload Interior</h2>
@@ -341,7 +343,7 @@
                         <div class="dealer_details">
                             <div>Car Dealer Details</div>
                             <input class="inp_form_tag" type="text" placeholder="Name" name="DealerName">
-                            <input class="inp_form_tag" type="text" placeholder="Email" name="DealerEmail">
+                            <input class="inp_form_tag" id="dealer-em" type="text" placeholder="Email" name="DealerEmail">
                             <input class="inp_form_tag" type="text" placeholder="Phone" name="DealerNum">
                         </div>
                     
