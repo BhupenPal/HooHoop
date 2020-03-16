@@ -207,22 +207,27 @@
         </a>
         <% } %>
       </div>
+
+
+    <!-- Pagination -->
+    <div id="Pagination" data-last="<%= endPage %>">
+      <button id="previous" onclick="onPrev()">Previous</button>
+      <a href="/search-car/"><span class="Page_no"></span></a>
+      <a href="/search-car/"><span class="Page_no"></span></a>
+      <a href="/search-car/"><span class="Page_no"></span></a>
+      <a href="/search-car/"><span class="Page_no"></span></a>
+      <a href="/search-car/"><span class="Page_no"></span></a>
+      <a href="/search-car/"><span class="Page_no"></span></a>
+      <a href="/search-car/"><span class="Page_no"></span></a>
+      <button id="next" onclick="onNext()">Next</button>
+    </div>
+    <!-- Buy-car ended -->
       </div>
     
     </div>
 
-    <!-- Pagination -->
-    <div class="Pagination">
-      <button id="previous" onclick="onPrev()">Previous</button>
-      <span class="Page_no page_sel" onclick="Page_select(this)">1</span>
-      <span class="Page_no" onclick="Page_select(this)">2</span>
-      <span class="Page_no" onclick="Page_select(this)">3</span>
-      <span class="Page_no" onclick="Page_select(this)">4</span>
-      <span class="Page_no" onclick="Page_select(this)"><%= endPage %></span>
-      <button id="next" onclick="onNext()">Next</button>
-    </div>
-    <!-- Buy-car ended -->
     <%-include('./Components/Footer.ejs') %>
+    <script src="/assets/scripts/Pagination.js"></script>
     <script src="/assets/scripts/ajax/ajax.js"></script>
     <script src="/assets/scripts/script.js"></script>
   </body>

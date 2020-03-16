@@ -113,44 +113,6 @@ function pending_done(j){
   }
 }
 
-let p = 0;
-function Pagination(j) {
-  let x = document.getElementsByClassName("Page_no");
-
-  if (j == 1) {
-    for (var k = 0; k < x.length; k++) {
-      x[k].classList.remove("page_sel");
-    }
-
-    if (p < 5) p++;
-    if (p == 5) p = 0;
-
-    x[p].classList.add("page_sel");
-  }
-
-  if (j == 2) {
-    for (var k = 0; k < x.length; k++) {
-      x[k].classList.remove("page_sel");
-    }
-
-    if (p == 0 || p > 0) p--;
-    if (p < 0) p = 4;
-
-    x[p].classList.add("page_sel");
-  }
-}
-
-function Page_select(j) {
-  let x = document.getElementsByClassName("Page_no");
-
-  for (var k = 0; k < x.length; k++) {
-    x[k].classList.remove("page_sel");
-  }
-
-  j.classList.add("page_sel");
-  p = j.innerHTML - 1;
-}
-
 function previewname(x) {
   x.addEventListener("change", async function(evt) {
     var file = await evt.target.files[0];
@@ -171,24 +133,6 @@ function showsl(j) {
 function showform(){
   document.getElementById("SELL-FORM-SUB").classList.remove("vanish")
 }
-
-// const pageParams = parseInt(window.location.href.split('/')[4].split('?')[0]);
-
-// if(pageParams == 1){
-//   document.getElementById("previous").disabled = true;
-// }
-
-// if(pageParams == 10){
-//   document.getElementById("previous").disabled = true;
-// }
-
-// function onPrev(){
-//     window.location.href = `http://localhost:8080/search-car/${pageParams - 1}`
-// }
-
-// function onNext(){
-//     window.location.href = `http://localhost:8080/search-car/${pageParams + 1}`
-// }
 
 monthNames = [
   "January",

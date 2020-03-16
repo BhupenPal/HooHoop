@@ -226,7 +226,7 @@ function Paginator(model) {
         filterParam.Age = {$gt: lower, $lt: upper}
       }
     }
-    const limit = 15;
+    const limit = 2;
     const startIndex = (page - 1) * limit;
     const endIndex = page * limit;
 

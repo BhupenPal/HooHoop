@@ -147,11 +147,6 @@ Router.post("/car-submit/submit", ensureAuthenticated, urlencoded, exterior, asy
   } else {
     newCar.DriveWheel4 = 0;
   }
-  if (req.body.photo360 === "on") {
-    newCar.photo360 = 1;
-  } else {
-    newCar.photo360 = 0;
-  }
 
   try {
     var process = new ffmpeg(`assets/Uploads/${req.body.vinNum}/exterior/${thumbnail}`);

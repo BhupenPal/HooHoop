@@ -20,6 +20,7 @@ jamForm.addEventListener("submit", function carJamHandler() {
   document.getElementById("SELL-FORM-SUB").classList.add("vanish")
   document.getElementById("loader").style.display = "block";
   let PlateNo = document.getElementById("vinFigureID").value;
+  PlateNo = PlateNo.toUpperCase();
   const xhr = new XMLHttpRequest();
   xhr.open("GET", `/car-submit/data?Plate=${PlateNo}`, true);
   xhr.getResponseHeader("content-type", "application/json");
@@ -76,8 +77,8 @@ function dataAdder(data) {
       var DateParam = new Date(timeStamp * 1000);
       var Dmonth = monthNames[DateParam.getMonth()];
       var Dyear = DateParam.getFullYear();
-      target.value = `${Dmonth} , ${Dyear}`;
-      target.innerHTML = `${Dmonth} , ${Dyear}`;
+      target.value = `${Dmonth} ${Dyear}`;
+      target.innerHTML = `${Dmonth} ${Dyear}`;
     };
   
     theDate(data.expiry_date_of_last_successful_wof, document.getElementById('wofexchange'));

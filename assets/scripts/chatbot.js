@@ -174,7 +174,7 @@ function sendChatDetails(){
     
     const xhr = new XMLHttpRequest();
   
-    xhr.open("POST", `http://localhost:8080/chatbot/submit`, true);
+    xhr.open("POST", `/chatbot/submit`, true);
     xhr.getResponseHeader("content-type", "application/json")
   
     xhr.onprogress = function() {

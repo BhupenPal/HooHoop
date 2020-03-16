@@ -19,7 +19,7 @@ function uploadData(e){
 
     xhr.addEventListener("load", function () {
         if (xhr.status == 200) {
-            window.location.href = 'http://localhost:8080/my-ads'
+            window.location.href = '/my-ads'
         }
     });
     

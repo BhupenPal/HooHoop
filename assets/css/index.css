@@ -1299,13 +1299,13 @@ button[disabled]{
 }
 
 .contentwrap {
-  min-height: 100vh;
   width: 70vw;
   background-color: white;
   margin: 20px 10px;
   border-radius: 5px;
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 
 .cardanchor {
@@ -1318,7 +1318,9 @@ button[disabled]{
   visibility: visible;
   margin: 0 auto;
   align-content: flex-start;
+  justify-content: center;
   flex-wrap: wrap;
+  /* min-height: 100vh; */
 }
 
 .bc-card {
@@ -1482,17 +1484,16 @@ button[disabled]{
   display: none;
 }
 
-.Pagination {
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 150px;
+#Pagination {
+  
+  margin: 60px auto 20px auto;
   height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.Pagination button {
+#Pagination button {
   height: 50px;
   width: 100px;
   border: none;
@@ -1506,8 +1507,12 @@ button[disabled]{
   color: white;
 }
 
-.Pagination button:hover {
+#Pagination button:hover {
   background-color: #000000;
+}
+
+#Pagination a{
+  color: black;
 }
 
 .Page_no {
@@ -1817,7 +1822,6 @@ canvas {
   width: 360px;
   height: 150px;
   border: 1px solid #e2e2e2;
-  border-radius: 5px;
 }
 
 .indi-details {
@@ -1833,12 +1837,12 @@ canvas {
   padding-left: 2%;
   align-items: center;
   width: 40%;
-  border-right: 1px solid white;
 }
 .indi1,
 .indi3 {
   background-color: #e6e6e6;
 }
+
 
 .detail-val{
   display: flex;
@@ -3295,12 +3299,12 @@ td button:hover{
     top: -1.2125vw;
   }
 
-  .Pagination {
+  #Pagination {
     margin-bottom: 500px;
     width: 90vw;
   }
 
-  .Pagination button {
+  #Pagination button {
     height: 10vw;
     width: 20vw;
     font-size: 4vw;
