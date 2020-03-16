@@ -226,7 +226,7 @@ function Paginator(model) {
         filterParam.Age = {$gt: lower, $lt: upper}
       }
     }
-    const limit = 2;
+    const limit = 15;
     const startIndex = (page - 1) * limit;
     const endIndex = page * limit;
 
@@ -247,6 +247,11 @@ function Paginator(model) {
     }
 
     results.endPage = Math.ceil(results.endPage / limit);
+
+    if(req.params.page > results.endPage){
+      res.redirect(`/search-car/${results.endPage}`);
+      return
+    }
 
     try {
       results.results = await model
