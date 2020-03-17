@@ -1951,8 +1951,8 @@ canvas {
 /* Listing-Section */
 
 /* User-Listing-Page */
-#exec{
-  background-color: orange;
+.exclame {
+  background-color: orange !important;
   color: white;
 }
 
@@ -1991,7 +1991,7 @@ canvas {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  padding: 20px;
+  justify-content: space-evenly;
 }
 
 .listing_card {

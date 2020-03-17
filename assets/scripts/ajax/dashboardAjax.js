@@ -20,9 +20,9 @@ myListings = list => {
 
     for(inc = 0; inc < json.list.length; inc++){
       if(json.list[inc].adActive == "Active"){
-        status = '<td class="sold"><button value="${json.list[inc]._id}" onclick="sell_listed(this)">Sold</button></td>';
+        status = `<td class="sold"><button data-host="/my-ads/update" value="${json.list[inc]._id}" onclick="sell_listed(this)">Active</button></td>`;
       } else {
-        status = '<td class="pending"><button value="${json.list[inc]._id}" onclick="sell_listed(this)">UnSold</button></td>';
+        status = `<td class="pending"><button data-host="/my-ads/update" value="${json.list[inc]._id}" onclick="sell_listed(this)">Sold</button></td>`;
       }
 
         output += `\               
@@ -33,7 +33,7 @@ myListings = list => {
         <td>${json.list[inc].Model}</td>\
         <td>${json.list[inc].adActive}</td>\
         ${status}\
-        <td class="delete"><button value="${json.list[inc]._id}" onclick="del_lstng(this)">Delete</button></td>\
+        <td class="delete"><button data-host="/my-ads/delete" value="${json.list[inc]._id}" onclick="del_lstng(this)">Delete</button></td>\
       </tr>`
     }
     document.getElementById("mylist").insertAdjacentHTML("afterend", output);
@@ -57,10 +57,14 @@ function completeListHandle(){
 
 completeListings = list => {
     json = JSON.parse(list);
-
     let output = '';
 
     for(inc = 0; inc < json.list.length; inc++){
+      if(json.list[inc].adActive == "Active"){
+        status = `<td class="sold"><button data-host="/my-ads/update" value="${json.list[inc]._id}" onclick="sell_listed(this)">Active</button></td>`;
+      } else {
+        status = `<td class="pending"><button data-host="/my-ads/update" value="${json.list[inc]._id}" onclick="sell_listed(this)">Sold</button></td>`;
+      }
         output += `\               
         <tr class="user-completelist">\
         <td>${inc + 1}</td>\
@@ -68,8 +72,8 @@ completeListings = list => {
         <td>${json.list[inc].Make}</td>\
         <td>${json.list[inc].Model}</td>\
         <td>${json.list[inc].adActive}</td>\
-        <td class="sold"><button value="${json.list[inc]._id}" onclick="sell_listed(this)">Sold</button></td>\
-        <td class="delete"><button value="${json.list[inc]._id}" onclick="del_lstng(this)">Delete</button></td>\
+        ${status}\
+        <td class="delete"><button data-host="/my-ads/delete" value="${json.list[inc]._id}" onclick="del_lstng(this)">Delete</button></td>\
       </tr>`
     }
 

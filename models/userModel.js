@@ -33,8 +33,8 @@ const UserSchema = new Schema({
     required: true
   },
   resetToken: String,
-  adminStatus: {
-    type: String,
+  isAdmin: {
+    type: Boolean,
     required: true
   }
 });

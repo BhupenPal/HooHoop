@@ -26,10 +26,14 @@
               <div class="sopt selected_sopt">Profile</div>
               <div class="sopt">Account Management</div>
               <div class="sopt" id="myListID" onclick="myListHandle()">My Listing</div>
+              <% if(user.isAdmin){ %>
               <div class="sopt" id="clistID" onclick="completeListHandle()">All Listings</div>
               <div class="sopt" id="cuserID" onclick="completeUserHandle()">User Management</div>
-              <div class="sopt" id="testDID" onclick="testDriveHandle()">Client Management</div>
-              <div class="sopt">360 Requests</div>
+              <% } %>
+              <div class="sopt" id="testDID" onclick="testDriveHandle()">My Client Management</div>
+              <% if(user.isAdmin){ %>
+              <div class="sopt" id="allClientID" onclick="allClientHandle()">All Client Management</div>
+              <% } %>
             <a href="/logout"><div class="sopt">Logout</div></a>  
             </div>
   
@@ -125,7 +129,7 @@
                   <th>Make</th>
                   <th>Model</th>
                   <th>Status</th>
-                  <th>Sold</th>
+                  <th>Status</th>
                   <th>Delete</th>
                 </tr>
 
@@ -135,6 +139,7 @@
           </div>
           <!-- My-Listing -->
 
+          <% if(user.isAdmin){ %>
           <!-- All-Listings -->
             <div class="fet_det vanish">
               <h1 class="feature_head">All Listings</h1>
@@ -178,10 +183,11 @@
               </div>
             </div>
           <!-- User-Management -->
+          <% } %>
 
           <!-- Req Panel -->
             <div class="fet_det vanish">
-              <h1 class="feature_head">Client Management</h1>
+              <h1 class="feature_head">My Client Management</h1>
 
               <div class="reqpanel">
                 
@@ -235,78 +241,146 @@
             </div>
           <!-- Req Panel -->
 
-          <!-- 360 Req Panel -->
-            <div class="fet_det vanish">
-              <h1 class="feature_head">360 Photo Requests</h1>
+          <!-- All Req Panel -->
+          <% if(user.isAdmin){ %>
+          <div class="fet_det vanish">
+            <h1 class="feature_head">All Client Management</h1>
 
-              <div class="table_container">
-
-                <table class="table_S">
-                  <tr id="Reqthreesixty_panel">
-                    <th>S.No</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Number</th>
-                    <th>Status</th>
-                    <th>Delete</th>
-                  </tr>
-
-                  <tr>
-                    <td>1</td>
-                    <td>Varun Dev</td>
-                    <td>dudevarun7777@gmail.com</td>
-                    <td>8700506796</td>
-                    <td class="pending"><button onclick="pending_done(this)">Pending</button></td>
-                    <td class="delete"><button onclick="del_lstng(this)">Delete</button></td>
-                  </tr>
-                  </table>
-  
+            <div class="reqpanel">
+              
+              <div class="Panesel">
+                <div class="Paneopt selected_paneopt">Test Drive</div>
+                <div class="Paneopt" id="aaAvailID" onclick="availabilityHandle()">Availability Enquiry</div>
+                <div class="Paneopt" id="allShipID" onclick="shipHandle()">Shipping Enquiry</div>
               </div>
 
-            </div>
-          <!-- 360 Req Panel -->
+              <table class="table_S client_table">
+                <tr id="alltestdriveEnq">
+                  <th>S.No</th>
+                  <th>First Name</th>
+                  <th>Car</th>
+                  <th>Email</th>
+                  <th>Phone Number</th>
+                  <th>Status</th>
+                  <th>Delete</th>
+                </tr>
+              </table>
 
-          <!-- Modals -->
-          <div class="Modal">
-            <div class="del_lstng">
-              <div class="btndesk"><button class="cslstng"  onclick="del_lstng(false)"><div class="crosssec"></div><div class="crosssec"></div></button></div>
-              <div class="cnf_symbl" id="modal_1"><i class="fad fa-trash"></i></div>
-              <div class="del_text">Are you sure you want to delete this listing</div>
-              <form method="POST">
-                <input type="text" id="adDelete" value="" name="deleteAd">
-                <button class="del_lstng_btn" id="modalchange_1" type="submit" formaction="/my-ads/delete">Delete</button>
-              </form>
+              <table class="table_S vanish client_table">
+                <tr id="allavailabilityEnq">
+                  <th>S.No</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Phone Number</th>
+                  <th>Car</th>
+                  <th>Status</th>
+                  <th>Delete</th>
+                </tr>
+              </table>
+
+              <table class="table_S vanish client_table">
+                <tr id="allShippingEnq">
+                  <th>S.No</th>
+                  <th>Name</th>
+                  <th>Car</th>
+                  <th>Email</th>
+                  <th>Phone Number</th>
+                  <th>Starting Point</th>
+                  <th>Destination</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                  <th>Delete</th>
+                </tr>
+              </table>
+
             </div>
+
           </div>
-          <!-- Prompt for delete -->
-      
-              <!-- Prompt for Sold-->
-              <div class="Modal">
-              <div class="del_lstng">
-                <div class="btndesk"><button class="cslstng" onclick="sell_listed(false)"><div class="crosssec"></div><div class="crosssec"></div></button></div>
-                <div class="cnf_symbl" id="modal_2"><i class="fad fa-check"></i></div>
-                <div class="del_text">Are you sure you want to mark this vehicle as sold?</div>
-                <form method="POST">
-                  <input type="text" id="adSOLD" value="" name="adSOLD">
-                  <button class="del_lstng_btn" id="modalchange_2" type="submit" formaction="/my-ads/update">Mark as sold</button>
-                </form>
-              </div>
-            </div>
-            <!-- Prompt for Sold -->
+          <!-- All Req Panel -->
+          <% } %>
 
-            <!-- Prompt for Pending-->
-            <div class="Modal">
-              <div class="del_lstng">
-                <div class="btndesk"><button class="cslstng" onclick="pending_done(false)"><div class="crosssec"></div><div class="crosssec"></div></button></div>
-                <div class="cnf_symbl" id="modal_3"><i class="far fa-exclamation-triangle"></i></div>
-                <div class="del_text">Are you sure you want to mark this as done?</div>
-                <form method="POST">
-                  <input type="text" id="Pending_done" value="" name="adDONE">
-                  <button class="del_lstng_btn" id="modalchange_3" type="submit" formaction="/my-ads/update">Mark as done</button>
-                </form>
-              </div>
-            </div>
-            <!-- Prompt for Pending -->
+      <!-- Prompt for delete -->
+      <div class="Modal">
+        <div class="del_lstng">
+          <div class="btndesk">
+            <button class="cslstng" onclick="del_lstng(false)">
+              <div class="crosssec"></div>
+              <div class="crosssec"></div>
+            </button>
+          </div>
+          <div class="cnf_symbl" id="modal_1"><i class="fal fa-trash"></i></div>
+          <div class="del_text">
+            Are you sure you want to delete this listing
+          </div>
+          <form method="POST">
+            <input type="text" id="adDelete" value="" name="deleteAd" />
+            <button
+              class="del_lstng_btn"
+              id="modalchange_1"
+              type="submit"
+            >
+              Delete
+            </button>
+          </form>
+        </div>
+      </div>
+      <!-- Prompt for delete -->
+            
+      <!-- Prompt for mark as sold -->
+      <div class="Modal">
+        <div class="del_lstng">
+          <div class="btndesk">
+            <button class="cslstng" onclick="sell_listed(false)">
+              <div class="crosssec"></div>
+              <div class="crosssec"></div>
+            </button>
+          </div>
+          <div class="cnf_symbl" id="modal_2"><i class="fad fa-check"></i></div>
+          <div class="del_text">
+            Are you sure you want to mark this vehicle as sold?
+          </div>
+          <form method="POST">
+            <input type="text" id="adSOLD" value="" name="adSOLD" />
+            <button
+              class="del_lstng_btn"
+              id="modalchange_2"
+              type="submit"
+            >
+              Mark as sold
+            </button>
+          </form>
+        </div>
+      </div>
+      <!-- Prompt for mark as sold -->
+
+      <!-- Prompt for Pending-->
+      <div class="Modal">
+        <div class="del_lstng">
+          <div class="btndesk">
+            <button class="cslstng" onclick="pending_done(false)">
+              <div class="crosssec"></div>
+              <div class="crosssec"></div>
+            </button>
+          </div>
+          <div class="cnf_symbl" id="modal_3">
+            <i class="far fa-exclamation-triangle"></i>
+          </div>
+          <div class="del_text">
+            Are you sure you want to mark this as done?
+          </div>
+          <form method="POST">
+            <input type="text" id="Pending_done" value="" name="adSOLD" />
+            <button
+              class="del_lstng_btn"
+              id="modalchange_3"
+              type="submit"
+            >
+              Mark as unsold
+            </button>
+          </form>
+        </div>
+      </div>
+      <!-- Prompt for Pending -->
           <!-- Modals -->
           </div>
         </div>

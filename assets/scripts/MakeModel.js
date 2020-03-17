@@ -1454,3 +1454,13 @@ function ModelAccumlator() {
     }
   }
 }
+
+function YearAccumlator(){
+  let YearBox = document.getElementById("smodelyear");
+  var currentYear = new Date().getFullYear();
+  for(var i = 0; i <= 30; i++){
+    YearBox.options.add(new Option(currentYear - i, currentYear - i));
+  }
+}
+
+YearAccumlator();

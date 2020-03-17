@@ -80,6 +80,7 @@ function intext(j) {
 function del_lstng(j){
   if(j){
     document.getElementById('adDelete').value = j.value;
+    document.getElementById('modalchange_1').setAttribute('formaction' , j.dataset.host)
     document.getElementsByClassName("Modal")[0].style.display = "block"
     document.getElementsByTagName("html")[0].style.overflow = "hidden"
   }
@@ -92,6 +93,7 @@ function del_lstng(j){
   function sell_listed(j){
   if(j){
     document.getElementById('adSOLD').value = j.value;
+    document.getElementById('modalchange_2').setAttribute('formaction' , j.dataset.host)
     document.getElementsByClassName("Modal")[1].style.display = "block"
     document.getElementsByTagName("html")[0].style.overflow = "hidden"
   }
@@ -104,6 +106,7 @@ function del_lstng(j){
 function pending_done(j){
   if(j){
     document.getElementById('Pending_done').value = j.value;
+    document.getElementById('modalchange_3').setAttribute('formaction' , j.dataset.host)
     document.getElementsByClassName("Modal")[2].style.display = "block"
     document.getElementsByTagName("html")[0].style.overflow = "hidden"
   }

@@ -70,7 +70,7 @@ Router.post("/sign-up", urlencoded, (req, res) => {
   } = req.body;
 
   let errors = [];
-
+  const isAdmin = true;
   //Check required fields
   if (!firstName || !lastName || !email || !password || !password2) {
     errors.push({ msg: "Please fill in all fields" });
@@ -144,7 +144,8 @@ Router.post("/sign-up", urlencoded, (req, res) => {
           address,
           secretToken,
           active,
-          resetToken
+          resetToken,
+          isAdmin
         });
 
         //Hash Password
@@ -186,7 +187,6 @@ Router.get("/logout", (req, res) => {
 });
 
 /* EDIT PAGE ROUTE*/
-
 Router.get("/edit-car/:id", ensureAuthenticated, async (req, res) => {
   let car = {};
   car.details = await carModel.find({ _id: req.params.id }).exec();
@@ -521,13 +521,6 @@ Router.get('/dashboard/shipenq', async (req, res) => {
   } else {
     res.send("Link not accessible");
   }
-})
-
-Router.get('/dashboard/my-list/remove', async (req, res) => {
-  let car = await carModel.find({_id: req.body.deleteAd})
-  removeDir(`assets/Uploads/${car[0].vinNum}`);
-  await carModel.deleteOne({ _id: req.body.deleteAd})
-  res.redirect("/dashboard"); 
 })
 
 //Contact Us Routes
