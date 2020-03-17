@@ -21,7 +21,15 @@ const AvailabilityModel = new Schema({
   },
   customerID: String,
   vehicleID: String,
-  car: String
+  car: String,
+  status: {
+    type: Boolean,
+    required: true
+  },
+  carAuthor: {
+    type: String,
+    required: true
+  }
 });
 
 module.exports = mongoose.model("Availability", AvailabilityModel);

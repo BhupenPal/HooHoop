@@ -77,6 +77,17 @@ function intext(j) {
   }
 }
 
+function onESC(){
+  document.onkeydown = function(evt) {
+    evt = evt || window.event;
+    if (evt.keyCode == 27) {
+        del_lstng(false)
+        sell_listed(false)
+        pending_done(false)
+    }
+};
+}
+
 function del_lstng(j){
   if(j){
     document.getElementById('adDelete').value = j.value;
@@ -88,6 +99,7 @@ function del_lstng(j){
     document.getElementsByClassName("Modal")[0].style.display = "none"
     document.getElementsByTagName("html")[0].removeAttribute("style")
   }
+  onESC()
 }
 
   function sell_listed(j){
@@ -101,6 +113,7 @@ function del_lstng(j){
     document.getElementsByClassName("Modal")[1].style.display = "none"
     document.getElementsByTagName("html")[0].removeAttribute("style")
   }
+  onESC()
 }
 
 function pending_done(j){
@@ -114,6 +127,7 @@ function pending_done(j){
     document.getElementsByClassName("Modal")[2].style.display = "none"
     document.getElementsByTagName("html")[0].removeAttribute("style")
   }
+  onESC()
 }
 
 function previewname(x) {

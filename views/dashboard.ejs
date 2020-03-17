@@ -32,7 +32,7 @@
               <% } %>
               <div class="sopt" id="testDID" onclick="testDriveHandle()">My Client Management</div>
               <% if(user.isAdmin){ %>
-              <div class="sopt" id="allClientID" onclick="allClientHandle()">All Client Management</div>
+              <div class="sopt" id="allClientID" onclick="completeTestDriveHandle()">All Client Management</div>
               <% } %>
             <a href="/logout"><div class="sopt">Logout</div></a>  
             </div>
@@ -153,7 +153,7 @@
                     <th>Make</th>
                     <th>Model</th>
                     <th>Status</th>
-                    <th>Sold</th>
+                    <th>Status</th>
                     <th>Delete</th>
                   </tr>
 
@@ -250,15 +250,16 @@
               
               <div class="Panesel">
                 <div class="Paneopt selected_paneopt">Test Drive</div>
-                <div class="Paneopt" id="aaAvailID" onclick="availabilityHandle()">Availability Enquiry</div>
-                <div class="Paneopt" id="allShipID" onclick="shipHandle()">Shipping Enquiry</div>
+                <div class="Paneopt" id="allAvailID" onclick="completeAvailabilityHandle()">Availability Enquiry</div>
+                <div class="Paneopt" id="allShipID" onclick="completeShipHandle()">Shipping Enquiry</div>
               </div>
 
               <table class="table_S client_table">
-                <tr id="alltestdriveEnq">
+                <tr id="allTestdriveEnq">
                   <th>S.No</th>
                   <th>First Name</th>
                   <th>Car</th>
+                  <th>Car Author</th>
                   <th>Email</th>
                   <th>Phone Number</th>
                   <th>Status</th>
@@ -267,12 +268,13 @@
               </table>
 
               <table class="table_S vanish client_table">
-                <tr id="allavailabilityEnq">
+                <tr id="allAvailabilityEnq">
                   <th>S.No</th>
                   <th>Name</th>
                   <th>Email</th>
                   <th>Phone Number</th>
                   <th>Car</th>
+                  <th>Car Author</th>
                   <th>Status</th>
                   <th>Delete</th>
                 </tr>
@@ -283,6 +285,7 @@
                   <th>S.No</th>
                   <th>Name</th>
                   <th>Car</th>
+                  <th>Car Author</th>
                   <th>Email</th>
                   <th>Phone Number</th>
                   <th>Starting Point</th>
@@ -310,7 +313,7 @@
           </div>
           <div class="cnf_symbl" id="modal_1"><i class="fal fa-trash"></i></div>
           <div class="del_text">
-            Are you sure you want to delete this listing
+            Are you sure you want to delete this listing?
           </div>
           <form method="POST">
             <input type="text" id="adDelete" value="" name="deleteAd" />
@@ -357,7 +360,7 @@
       <div class="Modal">
         <div class="del_lstng">
           <div class="btndesk">
-            <button class="cslstng" onclick="pending_done(false)">
+            <button class="cslstng" onclick="pending_done(false);">
               <div class="crosssec"></div>
               <div class="crosssec"></div>
             </button>
@@ -427,8 +430,6 @@
   if (!password.match(/[\W]/)) {
     errors.push({ msg: "Password must contain a Special Character." });
   }
-
-  console.log(errors)
     </script>
   </body>
 </html>

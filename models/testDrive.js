@@ -22,7 +22,15 @@ const TestDrive = new Schema({
   },
   customerID: String,
   vehicleID: String,
-  car: String
+  status: {
+    type: Boolean,
+    required: true
+  },
+  car: String,
+  carAuthor: {
+    type: String,
+    required: true
+  }
 });
 
 module.exports = mongoose.model("Test Drive", TestDrive);

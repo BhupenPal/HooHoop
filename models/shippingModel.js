@@ -32,8 +32,16 @@ const ShippingModel = new Schema({
     required: true
   },
   note: String,
+  status: {
+    type: Boolean,
+    required: true
+  },
   customerID: String,
-  vehicleID: String
+  vehicleID: String,
+  carAuthor: {
+    type: String,
+    required: true
+  }
 });
 
 module.exports = mongoose.model("Shipment Model", ShippingModel);

@@ -135,45 +135,61 @@ Router.post("/sign-up", urlencoded, (req, res) => {
           address
         });
       } else {
-        const newUser = new userModel({
-          firstName,
-          lastName,
-          phoneNum,
-          email,
-          password,
-          address,
-          secretToken,
-          active,
-          resetToken,
-          isAdmin
-        });
-
-        //Hash Password
-        bcrypt.genSalt(10, (err, salt) =>
-          bcrypt.hash(newUser.password, salt, (err, hash) => {
-            if (err) throw err;
-            //Set password to hashed
-            newUser.password = hash;
-            //Save User
-            newUser.save();
-          })
-        );
-
-        let mailOptions = {
-          from: '"HooHoop" <contactus@edudictive.in>', // sender address
-          to: req.body.email, // list of receivers
-          subject: "HooHoop Account Verification Email", // Subject line
-          html: mailHTML(req.body.firstName, secretToken) // html body
-        };
-
-        // send mail with defined transport object
-        transporter.sendMail(mailOptions, (error, info) => {
-          if (error) {
-            return console.log(error);
+        userModel.findOne({phoneNum: phoneNum}).then( userFinal => {
+          if(userFinal){
+            errors.push({msg: "Phone number already exists"});
+            res.render("register", {
+              errors,
+              firstName,
+              lastName,
+              email,
+              phoneNum,
+              password,
+              password2,
+              address
+            });
+          } else {
+            const newUser = new userModel({
+              firstName,
+              lastName,
+              phoneNum,
+              email,
+              password,
+              address,
+              secretToken,
+              active,
+              resetToken,
+              isAdmin
+            });
+    
+            //Hash Password
+            bcrypt.genSalt(10, (err, salt) =>
+              bcrypt.hash(newUser.password, salt, (err, hash) => {
+                if (err) throw err;
+                //Set password to hashed
+                newUser.password = hash;
+                //Save User
+                newUser.save();
+              })
+            );
+    
+            let mailOptions = {
+              from: '"HooHoop" <contactus@edudictive.in>', // sender address
+              to: req.body.email, // list of receivers
+              subject: "HooHoop Account Verification Email", // Subject line
+              html: mailHTML(req.body.firstName, secretToken) // html body
+            };
+    
+            // send mail with defined transport object
+            transporter.sendMail(mailOptions, (error, info) => {
+              if (error) {
+                return console.log(error);
+              }
+              errors.push({ msg: "Email has been sent" });
+              res.render("login", { errors });
+            });
           }
-          errors.push({ msg: "Email has been sent" });
-          res.render("login", { errors });
-        });
+        })
       }
     });
   }
@@ -232,8 +248,7 @@ Router.post("/edit-car/:id", ensureAuthenticated, urlencoded, async (req, res) =
       car.details = await carModel.find({ _id: req.params.id }).exec();
       res.render("edit_cpage", { car: car.details[0] });
     } catch (e) {}
-  }
-);
+});
 
 //Dashboard Route
 Router.get("/dashboard", ensureAuthenticated, (req, res) => {
@@ -342,6 +357,121 @@ Router.post("/dashboard/password-reset", urlencoded, async (req, res) => {
   }
 });
 
+Router.get('/dashboard/mylistings', async (req, res) => {
+
+  let myList = await carModel.find({ authorID: req.user.id})
+
+  if(req.xhr){
+    res.json({list: myList})
+  } else {
+    res.send('Link not accessible');
+  }
+
+})
+
+Router.get('/dashboard/complete-list', async (req, res) => {
+
+  let myList = await carModel.find({})
+
+  if(req.xhr){
+    res.json({list: myList})
+  } else {
+    res.send('Link not accessible');
+  }
+  
+})
+
+Router.get('/dashboard/complete-users', async (req, res) => {
+  let allUsers = await userModel.find({isAdmin: {$ne: true}})
+  if(req.xhr){
+    res.json({list: allUsers})
+  } else {
+    res.send('Link not accessible');
+  }
+})
+
+Router.post('/dashboard/user/delete', urlencoded, async (req, res) => {
+  await userModel.deleteOne({ _id: req.body.deleteAd})
+  res.redirect(req.header('Referer'))
+})
+
+Router.get('/dashboard/testdrives', async (req, res) => {
+  let TestDrive = await testDrive.find({carAuthor: req.user.id})
+
+  if(req.xhr){
+    res.json({list: TestDrive})
+  } else {
+    res.send('Link not accessible')
+  }
+})
+
+Router.get('/dashboard/testdrives-all', async (req, res) => {
+  let TestDrive = await testDrive.find({})
+
+  if(req.xhr){
+    res.json({list: TestDrive})
+  } else {
+    res.send('Link not accessible')
+  }
+})
+
+Router.get('/dashboard/availcheck', async (req, res) => {
+  let CheckAvail = await checkAvail.find({carAuthor: req.user.id});
+  
+  if(req.xhr){
+    res.json({list: CheckAvail})
+  } else {
+    res.send("Link not accessible");
+  }
+})
+
+Router.get('/dashboard/availcheck-all', async (req, res) => {
+  let CheckAvail = await checkAvail.find({});
+  
+  if(req.xhr){
+    res.json({list: CheckAvail})
+  } else {
+    res.send("Link not accessible");
+  }
+})
+
+Router.get('/dashboard/shipenq', async (req, res) => {
+  let ShipList = await shipModel.find({carAuthor: req.user.id});
+  
+  if(req.xhr){
+    res.json({list: ShipList})
+  } else {
+    res.send("Link not accessible");
+  }
+})
+
+Router.get('/dashboard/shipenq-all', async (req, res) => {
+  let ShipList = await shipModel.find({});
+  
+  if(req.xhr){
+    res.json({list: ShipList})
+  } else {
+    res.send("Link not accessible");
+  }
+})
+
+Router.post('/dashboard/testdrive/delete', urlencoded, async (req, res) => {
+  await testDrive.deleteOne({ _id: req.body.deleteAd})
+  res.redirect(req.header('Referer'));
+})
+
+Router.post('/dashboard/testdrive/update', urlencoded, async (req, res) => {
+  const Test = await testDrive.find({ _id: req.body.adSOLD})
+  if(Test[0].status){
+    await testDrive.updateOne({ _id: req.body.adSOLD}, {$set: { status: false}}, () => {})
+  } else {
+    await testDrive.updateOne({ _id: req.body.adSOLD}, {$set: { status: true }}, () => {})
+  }
+
+  res.redirect(req.header('Referer'));
+})
+
+/* FORGOT PASSWORD */
 Router.get("/user/reset-password", async (req, res) => {
   let errors = [];
 
@@ -457,71 +587,6 @@ Router.post("/user/reset-password/reset", urlencoded, async (req, res) => {
     res.render("login", { errors });
   }
 });
-
-Router.get('/dashboard/mylistings', async (req, res) => {
-
-  let myList = await carModel.find({ authorID: req.user.id})
-
-  if(req.xhr){
-    res.json({list: myList})
-  } else {
-    res.send('Link not accessible');
-  }
-
-})
-
-Router.get('/dashboard/complete-list', async (req, res) => {
-
-  let myList = await carModel.find({})
-
-  if(req.xhr){
-    res.json({list: myList})
-  } else {
-    res.send('Link not accessible');
-  }
-  
-})
-
-Router.get('/dashboard/complete-users', async (req, res) => {
-
-  let allUsers = await userModel.find({})
-
-  if(req.xhr){
-    res.json({list: allUsers})
-  } else {
-    res.send('Link not accessible');
-  }
-})
-
-Router.get('/dashboard/testdrives', async (req, res) => {
-  let TestDrive = await testDrive.find({})
-
-  if(req.xhr){
-    res.json({list: TestDrive})
-  } else {
-    res.send('Link not accessible')
-  }
-})
-
-Router.get('/dashboard/availcheck', async (req, res) => {
-  let CheckAvail = await checkAvail.find({});
-  
-  if(req.xhr){
-    res.json({list: CheckAvail})
-  } else {
-    res.send("Link not accessible");
-  }
-})
-
-Router.get('/dashboard/shipenq', async (req, res) => {
-  let ShipList = await shipModel.find({});
-  
-  if(req.xhr){
-    res.json({list: ShipList})
-  } else {
-    res.send("Link not accessible");
-  }
-})
 
 //Contact Us Routes
 Router.get("/contact-us", (req, res) => {
