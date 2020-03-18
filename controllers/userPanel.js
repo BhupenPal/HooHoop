@@ -615,8 +615,7 @@ Router.post("/user/reset-password/reset", urlencoded, async (req, res) => {
     );
     user.resetToken = null;
     user.save();
-    errors.push({ msg: "Password reset succesfull" });
-    res.render("login", { errors });
+    res.render("login", { success_msg: "Password reset succesfull"});
   }
 });
 
