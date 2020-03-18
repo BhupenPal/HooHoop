@@ -70,7 +70,7 @@ Router.post("/sign-up", urlencoded, (req, res) => {
   } = req.body;
 
   let errors = [];
-  const isAdmin = true;
+  const isAdmin = false;
   //Check required fields
   if (!firstName || !lastName || !email || !password || !password2) {
     errors.push({ msg: "Please fill in all fields" });
@@ -185,8 +185,8 @@ Router.post("/sign-up", urlencoded, (req, res) => {
               if (error) {
                 return console.log(error);
               }
-              errors.push({ msg: "Email has been sent" });
-              res.render("login", { errors });
+              success_msg = "Email has been sent"
+              res.render("login", { success_msg });
             });
           }
         })
@@ -396,7 +396,7 @@ Router.post('/dashboard/user/delete', urlencoded, async (req, res) => {
 })
 
 Router.get('/dashboard/testdrives', async (req, res) => {
-  let TestDrive = await testDrive.find({carAuthor: req.user.id})
+  let TestDrive = await testDrive.find({carAuthor: `${req.user.firstName} ${req.user.lastName}`})
 
   if(req.xhr){
     res.json({list: TestDrive})
@@ -406,8 +406,8 @@ Router.get('/dashboard/testdrives', async (req, res) => {
 })
 
 Router.get('/dashboard/testdrives-all', async (req, res) => {
-  let TestDrive = await testDrive.find({})
-
+  let TestDrive = await testDrive.find({carAuthor: {$ne: `${req.user.firstName} ${req.user.lastName}`}})
+  
   if(req.xhr){
     res.json({list: TestDrive})
   } else {
@@ -416,7 +416,7 @@ Router.get('/dashboard/testdrives-all', async (req, res) => {
 })
 
 Router.get('/dashboard/availcheck', async (req, res) => {
-  let CheckAvail = await checkAvail.find({carAuthor: req.user.id});
+  let CheckAvail = await checkAvail.find({carAuthor: `${req.user.firstName} ${req.user.lastName}`});
   
   if(req.xhr){
     res.json({list: CheckAvail})
@@ -426,7 +426,7 @@ Router.get('/dashboard/availcheck', async (req, res) => {
 })
 
 Router.get('/dashboard/availcheck-all', async (req, res) => {
-  let CheckAvail = await checkAvail.find({});
+  let CheckAvail = await checkAvail.find({carAuthor: {$ne: `${req.user.firstName} ${req.user.lastName}`}});
   
   if(req.xhr){
     res.json({list: CheckAvail})
@@ -436,7 +436,7 @@ Router.get('/dashboard/availcheck-all', async (req, res) => {
 })
 
 Router.get('/dashboard/shipenq', async (req, res) => {
-  let ShipList = await shipModel.find({carAuthor: req.user.id});
+  let ShipList = await shipModel.find({carAuthor: `${req.user.firstName} ${req.user.lastName}`});
   
   if(req.xhr){
     res.json({list: ShipList})
@@ -446,7 +446,7 @@ Router.get('/dashboard/shipenq', async (req, res) => {
 })
 
 Router.get('/dashboard/shipenq-all', async (req, res) => {
-  let ShipList = await shipModel.find({});
+  let ShipList = await shipModel.find({carAuthor: {$ne: `${req.user.firstName} ${req.user.lastName}`}});
   
   if(req.xhr){
     res.json({list: ShipList})
@@ -466,6 +466,38 @@ Router.post('/dashboard/testdrive/update', urlencoded, async (req, res) => {
     await testDrive.updateOne({ _id: req.body.adSOLD}, {$set: { status: false}}, () => {})
   } else {
     await testDrive.updateOne({ _id: req.body.adSOLD}, {$set: { status: true }}, () => {})
+  }
+
+  res.redirect(req.header('Referer'));
+})
+
+Router.post('/dashboard/availability/delete', urlencoded, async (req, res) => {
+  await checkAvail.deleteOne({ _id: req.body.deleteAd})
+  res.redirect(req.header('Referer'));
+})
+
+Router.post('/dashboard/availability/update', urlencoded, async (req, res) => {
+  const Test = await checkAvail.find({ _id: req.body.adSOLD})
+  if(Test[0].status){
+    await checkAvail.updateOne({ _id: req.body.adSOLD}, {$set: { status: false}}, () => {})
+  } else {
+    await checkAvail.updateOne({ _id: req.body.adSOLD}, {$set: { status: true }}, () => {})
+  }
+
+  res.redirect(req.header('Referer'));
+})
+
+Router.post('/dashboard/shipment/delete', urlencoded, async (req, res) => {
+  await shipModel.deleteOne({ _id: req.body.deleteAd})
+  res.redirect(req.header('Referer'));
+})
+
+Router.post('/dashboard/shipment/update', urlencoded, async (req, res) => {
+  const Test = await shipModel.find({ _id: req.body.adSOLD})
+  if(Test[0].status){
+    await checkAvail.updateOne({ _id: req.body.adSOLD}, {$set: { status: false}}, () => {})
+  } else {
+    await checkAvail.updateOne({ _id: req.body.adSOLD}, {$set: { status: true }}, () => {})
   }
 
   res.redirect(req.header('Referer'));

@@ -3410,6 +3410,16 @@ td button:hover{
     font-size: 4vw;
   }
 
+  .Descriptive-Data {
+    width: 90vw;
+    flex-direction: column;
+  }
+
+  .Description-Box h1{
+    text-align: center;
+    margin: 0;
+  }
+
   .panel-contain{
     min-height: 150vw;
     width: 90vw;

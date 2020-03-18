@@ -180,6 +180,11 @@ checkAvailability = list => {
   let output = '';
 
   for(inc = 0; inc < json.list.length; inc++){
+    if(json.list[inc].status){
+      status = `<td class="sold"><button data-host="/dashboard/availability/update" value="${json.list[inc]._id}" onclick="pending_done(this)">Done</button></td>`;
+    } else {
+      status = `<td class="pending"><button data-host="/dashboard/availability/update" value="${json.list[inc]._id}" onclick="sell_listed(this)">Pending</button></td>`;
+    }
       output += `\
       <tr class="check-availability">\
       <td>${inc + 1}</td>\
@@ -187,8 +192,8 @@ checkAvailability = list => {
       <td>${json.list[inc].email}</td>\
       <td>${json.list[inc].phoneNum}</td>\
       <td><a href="/buy-car/${json.list[inc].vehicleID}" target="__blank"> ${json.list[inc].car}</a></td>\
-      <td class="pending"><button value="${json.list[inc]._id}" onclick="pending_done(this)">Pending</button></td>\
-      <td class="delete"><button value="${json.list[inc]._id}" onclick="del_lstng(this)">Delete</button></td>\
+      ${status}\
+      <td class="delete"><button data-host="/dashboard/availability/delete" value="${json.list[inc]._id}" onclick="del_lstng(this)">Delete</button></td>\
     </tr>`
   }
   document.getElementById("availabilityEnq").insertAdjacentHTML("afterend", output);
@@ -215,6 +220,11 @@ shipmentEnquiry = list => {
   let output = '';
 
   for(inc = 0; inc < json.list.length; inc++){
+    if(json.list[inc].status){
+      status = `<td class="sold"><button data-host="/dashboard/shipment/update" value="${json.list[inc]._id}" onclick="pending_done(this)">Done</button></td>`;
+    } else {
+      status = `<td class="pending"><button data-host="/dashboard/shipment/update" value="${json.list[inc]._id}" onclick="sell_listed(this)">Pending</button></td>`;
+    }
       output += `\
       <tr class="check-ship">\
       <td>${inc + 1}</td>\
@@ -225,8 +235,8 @@ shipmentEnquiry = list => {
       <td>${json.list[inc].fromLocation}</td>\
       <td>${json.list[inc].toLocation}</td>\
       <td>${json.list[inc].transportDate}</td>\
-      <td class="pending"><button value="${json.list[inc]._id}" onclick="pending_done(this)">Pending</button></td>\
-      <td class="delete"><button value="${json.list[inc]._id}" onclick="del_lstng(this)">Delete</button></td>\
+      ${status}\
+      <td class="delete"><button data-host="/dashboard/shipment/delete" value="${json.list[inc]._id}" onclick="del_lstng(this)">Delete</button></td>\
     </tr>`
   }
   document.getElementById("ShippingEnq").insertAdjacentHTML("afterend", output);
@@ -253,6 +263,11 @@ completeTestDrive = list => {
   let output = '';
 
   for(inc = 0; inc < json.list.length; inc++){
+    if(json.list[inc].status){
+      status = `<td class="sold"><button data-host="/dashboard/testdrive/update" value="${json.list[inc]._id}" onclick="pending_done(this)">Done</button></td>`;
+    } else {
+      status = `<td class="pending"><button data-host="/dashboard/testdrive/update" value="${json.list[inc]._id}" onclick="sell_listed(this)">Pending</button></td>`;
+    }
       output += `\               
       <tr class="check-testdrive">\
       <td>${inc + 1}</td>\
@@ -261,8 +276,8 @@ completeTestDrive = list => {
       <td>${json.list[inc].carAuthor}</td>\
       <td>${json.list[inc].email}</td>\
       <td>${json.list[inc].phoneNum}</td>\
-      <td class="pending"><button value="${json.list[inc]._id}" onclick="pending_done(this)">Pending</button></td>\
-      <td class="delete"><button value="${json.list[inc]._id}" onclick="del_lstng(this)">Delete</button></td>\
+      ${status}\
+      <td class="delete"><button data-host="/dashboard/testdrive/delete" value="${json.list[inc]._id}" onclick="del_lstng(this)">Delete</button></td>\
     </tr>`
   }
   document.getElementById("allTestdriveEnq").insertAdjacentHTML("afterend", output);
@@ -289,6 +304,11 @@ completeCheckAvailability = list => {
   let output = '';
 
   for(inc = 0; inc < json.list.length; inc++){
+    if(json.list[inc].status){
+      status = `<td class="sold"><button data-host="/dashboard/availability/update" value="${json.list[inc]._id}" onclick="pending_done(this)">Done</button></td>`;
+    } else {
+      status = `<td class="pending"><button data-host="/dashboard/availability/update" value="${json.list[inc]._id}" onclick="sell_listed(this)">Pending</button></td>`;
+    }
       output += `\
       <tr class="check-availability">\
       <td>${inc + 1}</td>\
@@ -297,8 +317,8 @@ completeCheckAvailability = list => {
       <td>${json.list[inc].phoneNum}</td>\
       <td><a href="/buy-car/${json.list[inc].vehicleID}" target="__blank"> ${json.list[inc].car}</a></td>\
       <td>${json.list[inc].carAuthor}</td>\
-      <td class="pending"><button value="${json.list[inc]._id}" onclick="pending_done(this)">Pending</button></td>\
-      <td class="delete"><button value="${json.list[inc]._id}" onclick="del_lstng(this)">Delete</button></td>\
+      ${status}\
+      <td class="delete"><button data-host="/dashboard/availability/delete" value="${json.list[inc]._id}" onclick="del_lstng(this)">Delete</button></td>\
     </tr>`
   }
   document.getElementById("allAvailabilityEnq").insertAdjacentHTML("afterend", output);
@@ -325,6 +345,11 @@ completeShipmentEnquiry = list => {
   let output = '';
 
   for(inc = 0; inc < json.list.length; inc++){
+    if(json.list[inc].status){
+      status = `<td class="sold"><button data-host="/dashboard/shipment/update" value="${json.list[inc]._id}" onclick="pending_done(this)">Done</button></td>`;
+    } else {
+      status = `<td class="pending"><button data-host="/dashboard/shipment/update" value="${json.list[inc]._id}" onclick="sell_listed(this)">Pending</button></td>`;
+    }
       output += `\
       <tr class="check-ship">\
       <td>${inc + 1}</td>\
@@ -336,8 +361,8 @@ completeShipmentEnquiry = list => {
       <td>${json.list[inc].fromLocation}</td>\
       <td>${json.list[inc].toLocation}</td>\
       <td>${json.list[inc].transportDate}</td>\
-      <td class="pending"><button value="${json.list[inc]._id}" onclick="pending_done(this)">Pending</button></td>\
-      <td class="delete"><button value="${json.list[inc]._id}" onclick="del_lstng(this)">Delete</button></td>\
+      ${status}\
+      <td class="delete"><button data-host="/dashboard/shipment/delete" value="${json.list[inc]._id}" onclick="del_lstng(this)">Delete</button></td>\
     </tr>`
   }
   document.getElementById("allShippingEnq").insertAdjacentHTML("afterend", output);

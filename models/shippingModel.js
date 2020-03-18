@@ -31,7 +31,6 @@ const ShippingModel = new Schema({
     type: Date,
     required: true
   },
-  note: String,
   status: {
     type: Boolean,
     required: true

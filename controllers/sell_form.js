@@ -100,7 +100,6 @@ var exterior = multer({ storage: storeExterior }).fields([
 ]);
 
 Router.post("/car-submit/submit", ensureAuthenticated, urlencoded, exterior, async (req, res) => {
-  console.log(req.body)
   const newCar = new carModel();
   newCar.Price = req.body.Price;
   newCar.minPrice = req.body.minPrice;
@@ -142,7 +141,7 @@ Router.post("/car-submit/submit", ensureAuthenticated, urlencoded, exterior, asy
   newCar.WoFexpiry = req.body.WoFexpiry;
   newCar.regExpiry = req.body.regExpiry;
 
-  if (req.body.DriveWheel4 === "on") {
+  if (req.body.DriveWheel4 == "on") {
     newCar.DriveWheel4 = 4;
   } else {
     newCar.DriveWheel4 = 2;
@@ -172,7 +171,7 @@ Router.post("/car-submit/submit", ensureAuthenticated, urlencoded, exterior, asy
     });
     setTimeout(()=>{
       fs.unlinkSync(`assets/Uploads/${req.body.vinNum}/exterior/${thumbnail}`)
-    }, 10000)
+    }, 90000)
   } catch (e) {
     console.log(e.code);
     console.log(e.msg);
@@ -186,7 +185,7 @@ Router.post("/car-submit/submit", ensureAuthenticated, urlencoded, exterior, asy
       .toFile(`assets/Uploads/${req.body.vinNum}/interior/${currFile.toUpperCase()}`)
       setTimeout(()=>{
         fs.unlinkSync(`assets/Uploads/${req.body.vinNum}/interior/${currFile}`)
-      }, 10000)
+      }, 90000)
     })
   });
 
