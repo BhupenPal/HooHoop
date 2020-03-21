@@ -1,6 +1,6 @@
 function myListHandle(){
   document.getElementById('myListID').onclick = null;
-  document.getElementById("loader").style.display = "block";
+  document.getElementById("loader").style.display = "flex";
     const xhr = new XMLHttpRequest();
     xhr.open("GET", `dashboard/mylistings`, true);
     xhr.getResponseHeader("content-type", "application/json");
@@ -44,7 +44,7 @@ myListings = list => {
 
 function completeListHandle(){
   document.getElementById('clistID').onclick = null;
-  document.getElementById("loader").style.display = "block";
+  document.getElementById("loader").style.display = "flex";
     const xhr = new XMLHttpRequest();
     xhr.open("GET", `/dashboard/complete-list`, true);
     xhr.getResponseHeader("content-type", "application/json");
@@ -88,7 +88,7 @@ completeListings = list => {
 
 function completeUserHandle(){
   document.getElementById('cuserID').onclick = null;
-  document.getElementById("loader").style.display = "block";
+  document.getElementById("loader").style.display = "flex";
     const xhr = new XMLHttpRequest();
     xhr.open("GET", `/dashboard/complete-users`, true);
     xhr.getResponseHeader("content-type", "application/json");
@@ -173,7 +173,7 @@ testDrive = list => {
 
 function availabilityHandle(){
   document.getElementById('availID').onclick = null;
-  document.getElementById("loader").style.display = "block";
+  document.getElementById("loader").style.display = "flex";
   const xhr = new XMLHttpRequest();
   xhr.open("GET", `/dashboard/availcheck`, true);
   xhr.getResponseHeader("content-type", "application/json");
@@ -216,7 +216,7 @@ checkAvailability = list => {
 
 function shipHandle(){
   document.getElementById('shipID').onclick = null;
-  document.getElementById("loader").style.display = "block";
+  document.getElementById("loader").style.display = "flex";
   const xhr = new XMLHttpRequest();
   xhr.open("GET", `/dashboard/shipenq`, true);
   xhr.getResponseHeader("content-type", "application/json");
@@ -262,7 +262,7 @@ shipmentEnquiry = list => {
 
 function completeTestDriveHandle(){
   document.getElementById('allClientID').onclick = null;
-  document.getElementById("loader").style.display = "block";
+  document.getElementById("loader").style.display = "flex";
   const xhr = new XMLHttpRequest();
   xhr.open("GET", `/dashboard/testdrives-all`, true);
   xhr.getResponseHeader("content-type", "application/json");
@@ -306,7 +306,7 @@ completeTestDrive = list => {
 
 function completeAvailabilityHandle(){
   document.getElementById('allAvailID').onclick = null;
-  document.getElementById("loader").style.display = "block";
+  document.getElementById("loader").style.display = "flex";
   const xhr = new XMLHttpRequest();
   xhr.open("GET", `/dashboard/availcheck-all`, true);
   xhr.getResponseHeader("content-type", "application/json");
@@ -350,7 +350,7 @@ completeCheckAvailability = list => {
 
 function completeShipHandle(){
   document.getElementById('allShipID').onclick = null;
-  document.getElementById("loader").style.display = "block";
+  document.getElementById("loader").style.display = "flex";
   const xhr = new XMLHttpRequest();
   xhr.open("GET", `/dashboard/shipenq-all`, true);
   xhr.getResponseHeader("content-type", "application/json");

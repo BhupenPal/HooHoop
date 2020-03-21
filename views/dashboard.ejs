@@ -38,6 +38,7 @@
             </div>
   
           </div>
+          <div id="loader" class="dash-load"></div>
           <!-- Profile Section -->
           <div class="fet_det">
             <%-include('./Flash/message.ejs') %>
@@ -121,7 +122,6 @@
             <h1 class="feature_head">My Listings</h1>
 
             <div class="table_container">
-              <%-include('./Components/Loader.ejs') %>
               <table class="table_S">
                 <tr id="mylist">
                   <th>S.No</th>
@@ -144,7 +144,6 @@
               <h1 class="feature_head">All Listings</h1>
 
               <div class="table_container">
-                <%-include('./Components/Loader.ejs') %>
                 <table class="table_S">
                   <tr id="completeList">
                     <th>S.No</th>
@@ -167,7 +166,6 @@
               <h1 class="feature_head">User Management</h1>
 
               <div class="table_container">
-                <%-include('./Components/Loader.ejs') %>
                 <table class="table_S">
                   <tr id="completeUsers">
                     <th>S.No</th>
@@ -195,7 +193,6 @@
                   <div class="Paneopt" id="availID" onclick="availabilityHandle()">Availability Enquiry</div>
                   <div class="Paneopt" id="shipID" onclick="shipHandle()">Shipping Enquiry</div>
                 </div>
-                <%-include('./Components/Loader.ejs') %>
                 <table class="table_S client_table">
                   <tr id="testdriveEnq">
                     <th>S.No</th>
@@ -252,7 +249,6 @@
                 <div class="Paneopt" id="allAvailID" onclick="completeAvailabilityHandle()">Availability Enquiry</div>
                 <div class="Paneopt" id="allShipID" onclick="completeShipHandle()">Shipping Enquiry</div>
               </div>
-              <%-include('./Components/Loader.ejs') %>
               <table class="table_S client_table">
                 <tr id="allTestdriveEnq">
                   <th>S.No</th>

@@ -2,10 +2,6 @@ const express = require("express");
 const Router = express();
 const sell_form = require("./sell_form");
 const fetch = require("node-fetch");
-const bodyParser = require("body-parser");
-const urlencoded = bodyParser.urlencoded({
-  extended: !1
-});
 
 let vinFigure = "";
 
