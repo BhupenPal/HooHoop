@@ -36,6 +36,8 @@ function inputtrack() {
 let status = "GREETING";
 let userEmail = null;
 let userOffer = null;
+let userPhone = null;
+let userVIN = null;
 let message = 2;
 let minValue = parseInt(document.getElementById("minor").value);
 let maxValue = parseInt(document.getElementById("major").value);
@@ -160,10 +162,12 @@ function createmessage() {
     return;
   }
 
+  if(status === "TRADE_VEHICLE"){
+    botReply("Do you want to ")
+  }
+
   if (status === "DEAL_DONE") {
-    botReply(
-      "Great, I’ll create a discount code valid for you only and send it via mail, what's your eamil address?"
-    );
+    botReply("Great, I’ll create a discount code valid for you only and send it via mail, what's your eamil address?");
     status = "GET_EMAIL";
     return;
   }

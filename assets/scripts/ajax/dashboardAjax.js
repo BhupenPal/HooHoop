@@ -1,5 +1,6 @@
 function myListHandle(){
   document.getElementById('myListID').onclick = null;
+  document.getElementById("loader").style.display = "block";
     const xhr = new XMLHttpRequest();
     xhr.open("GET", `dashboard/mylistings`, true);
     xhr.getResponseHeader("content-type", "application/json");
@@ -7,8 +8,10 @@ function myListHandle(){
     xhr.onload = function() {
       if (this.status === 200) {
         myListings(this.response)
+        document.getElementById("loader").style.display = "none";
       } else {
         console.log("Some error occured");
+        document.getElementById("loader").style.display = "none";
       }
     };
     xhr.send();
@@ -41,6 +44,7 @@ myListings = list => {
 
 function completeListHandle(){
   document.getElementById('clistID').onclick = null;
+  document.getElementById("loader").style.display = "block";
     const xhr = new XMLHttpRequest();
     xhr.open("GET", `/dashboard/complete-list`, true);
     xhr.getResponseHeader("content-type", "application/json");
@@ -48,8 +52,10 @@ function completeListHandle(){
     xhr.onload = function() {
       if (this.status === 200) {
         completeListings(this.response)
+        document.getElementById("loader").style.display = "none";
       } else {
         console.log("Some error occured");
+        document.getElementById("loader").style.display = "none";
       }
     };
     xhr.send();
@@ -82,6 +88,7 @@ completeListings = list => {
 
 function completeUserHandle(){
   document.getElementById('cuserID').onclick = null;
+  document.getElementById("loader").style.display = "block";
     const xhr = new XMLHttpRequest();
     xhr.open("GET", `/dashboard/complete-users`, true);
     xhr.getResponseHeader("content-type", "application/json");
@@ -89,8 +96,10 @@ function completeUserHandle(){
     xhr.onload = function() {
       if (this.status === 200) {
         completeUsers(this.response)
+        document.getElementById("loader").style.display = "none";
       } else {
         console.log("Some error occured");
+        document.getElementById("loader").style.display = "none";
       }
     };
     xhr.send();
@@ -121,6 +130,7 @@ completeUsers = list => {
 
 function testDriveHandle(){
   document.getElementById('testDID').onclick = null;
+  document.getElementById("loader").style.display = "none";
   const xhr = new XMLHttpRequest();
   xhr.open("GET", `/dashboard/testdrives`, true);
   xhr.getResponseHeader("content-type", "application/json");
@@ -128,8 +138,10 @@ function testDriveHandle(){
   xhr.onload = function() {
     if (this.status === 200) {
       testDrive(this.response)
+      document.getElementById("loader").style.display = "none";
     } else {
       console.log("Some error occured");
+      document.getElementById("loader").style.display = "none";
     }
   };
   xhr.send();
@@ -161,6 +173,7 @@ testDrive = list => {
 
 function availabilityHandle(){
   document.getElementById('availID').onclick = null;
+  document.getElementById("loader").style.display = "block";
   const xhr = new XMLHttpRequest();
   xhr.open("GET", `/dashboard/availcheck`, true);
   xhr.getResponseHeader("content-type", "application/json");
@@ -168,8 +181,10 @@ function availabilityHandle(){
   xhr.onload = function() {
     if (this.status === 200) {
       checkAvailability(this.response)
+      document.getElementById("loader").style.display = "none";
     } else {
       console.log("Some error occured");
+      document.getElementById("loader").style.display = "none";
     }
   };
   xhr.send();
@@ -201,6 +216,7 @@ checkAvailability = list => {
 
 function shipHandle(){
   document.getElementById('shipID').onclick = null;
+  document.getElementById("loader").style.display = "block";
   const xhr = new XMLHttpRequest();
   xhr.open("GET", `/dashboard/shipenq`, true);
   xhr.getResponseHeader("content-type", "application/json");
@@ -208,8 +224,10 @@ function shipHandle(){
   xhr.onload = function() {
     if (this.status === 200) {
       shipmentEnquiry(this.response)
+      document.getElementById("loader").style.display = "none";
     } else {
       console.log("Some error occured");
+      document.getElementById("loader").style.display = "none";
     }
   };
   xhr.send();
@@ -244,6 +262,7 @@ shipmentEnquiry = list => {
 
 function completeTestDriveHandle(){
   document.getElementById('allClientID').onclick = null;
+  document.getElementById("loader").style.display = "block";
   const xhr = new XMLHttpRequest();
   xhr.open("GET", `/dashboard/testdrives-all`, true);
   xhr.getResponseHeader("content-type", "application/json");
@@ -251,8 +270,10 @@ function completeTestDriveHandle(){
   xhr.onload = function() {
     if (this.status === 200) {
       completeTestDrive(this.response)
+      document.getElementById("loader").style.display = "none";
     } else {
       console.log("Some error occured");
+      document.getElementById("loader").style.display = "none";
     }
   };
   xhr.send();
@@ -285,6 +306,7 @@ completeTestDrive = list => {
 
 function completeAvailabilityHandle(){
   document.getElementById('allAvailID').onclick = null;
+  document.getElementById("loader").style.display = "block";
   const xhr = new XMLHttpRequest();
   xhr.open("GET", `/dashboard/availcheck-all`, true);
   xhr.getResponseHeader("content-type", "application/json");
@@ -292,8 +314,10 @@ function completeAvailabilityHandle(){
   xhr.onload = function() {
     if (this.status === 200) {
       completeCheckAvailability(this.response)
+      document.getElementById("loader").style.display = "none";
     } else {
       console.log("Some error occured");
+      document.getElementById("loader").style.display = "none";
     }
   };
   xhr.send();
@@ -326,6 +350,7 @@ completeCheckAvailability = list => {
 
 function completeShipHandle(){
   document.getElementById('allShipID').onclick = null;
+  document.getElementById("loader").style.display = "block";
   const xhr = new XMLHttpRequest();
   xhr.open("GET", `/dashboard/shipenq-all`, true);
   xhr.getResponseHeader("content-type", "application/json");
@@ -333,8 +358,10 @@ function completeShipHandle(){
   xhr.onload = function() {
     if (this.status === 200) {
       completeShipmentEnquiry(this.response)
+      document.getElementById("loader").style.display = "none";
     } else {
       console.log("Some error occured");
+      document.getElementById("loader").style.display = "none";
     }
   };
   xhr.send();
