@@ -8,8 +8,10 @@ uploadForm.addEventListener("submit", uploadData)
 function uploadData(e){
     e.preventDefault();
     document.getElementById('uploadFormSubmit').disabled = true;
+    let PlateCheck = document.getElementById('vinExchange').value;
     const xhr = new XMLHttpRequest();
     xhr.open('POST', '/car-submit/submit', true);
+    xhr.setRequestHeader('platecheck' , `${PlateCheck}`)
     xhr.upload.addEventListener('progress', e => {
         const percent = e.lengthComputable ? (e.loaded / e.total) * 100 : 0;
         progressBarFill.style.width = percent.toFixed(2) + "%";
@@ -19,7 +21,11 @@ function uploadData(e){
 
     xhr.addEventListener("load", function () {
         if (xhr.status == 200) {
-            window.location.href = '/my-ads'
+            if(xhr.response == "Done"){
+                window.location.href = '/my-ads'
+            } else {
+                console.log('ERROR')
+            }
         }
     });
     
