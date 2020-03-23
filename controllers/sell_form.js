@@ -215,7 +215,7 @@ Router.post(
     setTimeout(async () => {
       await sharp(`assets/Uploads/${req.body.vinNum}/exterior/Photo_1.jpg`)
       .resize(380, 380)
-      .jpeg({ quality: 70 })
+      .jpeg({ quality: 80 })
       .toFile(
         `assets/Uploads/${req.body.vinNum}/thumbnail/Photo_1.jpg`
       );
