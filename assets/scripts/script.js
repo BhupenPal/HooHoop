@@ -24,7 +24,7 @@ function tabselect(j) {
   let x = document.getElementsByClassName("tabs");
 
   for (r = 0; r < 3; r++) {
-    x[r].classList.remove("active-tab");
+    x[r].classList.remove("active-tab");;
   }
 
   x[j].classList.add("active-tab");

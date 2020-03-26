@@ -1464,3 +1464,32 @@ function YearAccumlator(){
 }
 
 YearAccumlator();
+
+let requiredinp = document.querySelectorAll("*:required")
+
+
+document.getElementById("uploadFormSubmit").onclick = function(){
+  for(var el = 0; el<requiredinp.length ; el++){
+    if(requiredinp[el].value.length == 0){
+      requiredinp[el].style.border = "2px solid red"
+    }
+    else{
+      requiredinp[el].removeAttribute("style")
+    }
+  }
+
+  if(document.getElementById("interiorMiddle").innerHTML.length == 0){
+    document.getElementById("intlab").style.backgroundColor = "red"
+  }
+  else{
+    document.getElementById("intlab").removeAttribute("style")
+  }
+
+  if(document.getElementById("exterior").innerHTML.length == 0){
+    document.getElementById("extlab").style.backgroundColor = "red"
+  }
+  else{
+    document.getElementById("extlab").removeAttribute("style")
+  }
+
+}

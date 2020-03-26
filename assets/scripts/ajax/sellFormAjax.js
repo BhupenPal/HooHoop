@@ -7,6 +7,11 @@ uploadForm.addEventListener("submit", uploadData)
 
 function uploadData(e){
     e.preventDefault();
+
+    if(document.getElementsByName("Price")[0].value < document.getElementsByName("minPrice")[0].value){
+        return
+    }
+
     document.getElementById('uploadFormSubmit').disabled = true;
     let PlateCheck = document.getElementById('vinExchange').value;
     const xhr = new XMLHttpRequest();

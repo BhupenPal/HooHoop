@@ -1028,7 +1028,7 @@ button[disabled]{
 
 .int_images span input,
 .ext_images span input {
-  display: none;
+  opacity: 0;
 }
 
 .containspan {
