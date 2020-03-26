@@ -211,16 +211,6 @@ Router.post(
       });
     });
 
-    fs.mkdirSync(`./assets/Uploads/${req.body.vinNum}/thumbnail`);
-    setTimeout(async () => {
-      await sharp(`assets/Uploads/${req.body.vinNum}/exterior/Photo_1.jpg`)
-      .resize(380, 380)
-      .jpeg({ quality: 80 })
-      .toFile(
-        `assets/Uploads/${req.body.vinNum}/thumbnail/Photo_1.jpg`
-      );
-    }, 10000)
-
     newCar.save();
     res.send("Done");
   }

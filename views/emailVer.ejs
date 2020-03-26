@@ -20,15 +20,6 @@
     <%-include('./Components/Header.ejs') %>
 
     <div class="emailvwrap">
-      <div class="email-verification">
-        <form action="/user/verify/" method="POST">
-        <h2>Veryify Your Email</h2>
-        <label for="secretToken">Secret Token</label>
-            <input class="vuinp" type="text" id="secretToken" name="secretToken" placeholder="Paste Token Here" required autofocus>
-            <br>
-            <button type="submit" class="sign-up">Verify User</button>
-        </form>
-    </div>
 
     <% if (userVerified){ %>
       <h2 class="headutext">USER verified succesfully</h2>

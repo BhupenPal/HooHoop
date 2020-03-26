@@ -1,46 +1,26 @@
-function chatbotopener() {
-  let x = document.getElementsByClassName("unOpened")[0];
-  let y = document.getElementsByClassName("opened")[0];
-  x.style.transform = "translateY(10vh)";
-  x.style.opacity = "0";
-  y.style.transform = "translateY(0vh)";
-  y.style.opacity = "1";
-  y.style.visibility = "visible";
-}
+let chatForm = document.getElementById("chat-form");
+let userInput = document.getElementById("user-input");
 
-function chatbotcloser() {
-  let x = document.getElementsByClassName("unOpened")[0];
-  let y = document.getElementsByClassName("opened")[0];
-  x.style.transform = "translateY(0vh)";
-  x.style.opacity = "1";
-  y.style.transform = "translateY(10vh)";
-  y.style.opacity = "0";
-  y.style.visibility = "hidden";
-}
+userInput.addEventListener("input",function(){
+  let value = userInput.value
 
-function inputtrack() {
-  let x = document.getElementById("inputContainer");
-  x.addEventListener("input", function(evt) {
-    var value = evt.target.value;
+  if(value.length !== 0){
+    document.getElementById("Capa_1").setAttribute("fill","#f5bf2b")
+  }
+  else{
+    document.getElementById("Capa_1").setAttribute("fill","#999999")
+  }
+})
+chatForm.addEventListener("submit", createMessage);
 
-    if (value.length !== 0) {
-      document.getElementById("sendButton").style.color = "orange";
-      return;
-    } else {
-      document.getElementById("sendButton").style.color = "gray";
-    }
-  });
-}
-
-//Chatbot Functionality
-let status = "GREETING";
-let userEmail = null;
-let userOffer = null;
-let userPhone = null;
-let userVIN = null;
-let message = 2;
+let status = "GREETING",
+  userEmail = null,
+  userOffer = null,
+  userPhone = null,
+  userVIN = null;
 let minValue = parseInt(document.getElementById("minor").value);
 let maxValue = parseInt(document.getElementById("major").value);
+let count = 1;
 let margin = maxValue - minValue;
 let deal = parseInt(margin / 10);
 let firstDeal = deal;
@@ -60,12 +40,12 @@ let BotRejected = [
   `Hit me with your best offer!`
 ];
 
+let RejectedOffers = [];
+
 let WorseOffer = [
   `I’m sure you can do better, place an offer?`,
   `That’s a worse offer than the one you have made earlier… Please make a better one.`
 ];
-
-let RejectedOffers = [];
 
 let GreaterOffer = [`Stop playing with me, and hit me up with another offer`];
 
@@ -74,67 +54,88 @@ let AlreadyRejected = [
   `I already rejected this offer`
 ];
 
-function createmessage() {
-  document.getElementById("inputContainer").focus();
+function createMessage() {
+
+  if (event) {
+    event.preventDefault();
+  }
+
   if (status === "GREETING") {
     botReply(Botgreetings[Math.floor(Math.random() * Botgreetings.length)]);
-
-    document.getElementById("confirm").onclick = () => {
+    document.getElementById("accept").onclick = () => {
       userReply("YES");
-      status = "DEAL_DONE";
-      document.getElementById("reject").style.display = "none";
-      document.getElementById("confirm").style.display = "none";
-      document.getElementsByClassName("input-field")[0].style.display = "flex";
-      createmessage();
+      showPreferredInputDisplay(false, true, true);
+      setTimeout(() => {
+        botReply("Are you looking to trade your vehicle?");
+        showPreferredInputDisplay(false, true, false);
+      }, 700);
+      status = "TRADE_VEHICLE";
+      return;
     };
 
     document.getElementById("reject").onclick = () => {
       userReply("NO");
       status = "PITCH_TO_GET_OFFER";
-      document.getElementById("reject").style.display = "none";
-      document.getElementById("confirm").style.display = "none";
-      document.getElementsByClassName("input-field")[0].style.display = "flex";
-      createmessage();
+      createMessage();
     };
-    return;
   }
 
   if (status === "PITCH_TO_GET_OFFER") {
-    botReply(BotRejected[Math.floor(Math.random() * BotRejected.length)]);
-    status = "GET_OFFER";
+    showPreferredInputDisplay(false, true, true);
+    setTimeout(() => {
+      botReply(BotRejected[Math.floor(Math.random() * BotRejected.length)]);
+      showPreferredInputDisplay(true, false, false);
+      status = "GET_OFFER";
+    }, 700);
     return;
   }
 
-  if (status === "GET_OFFER") {
-    userOffer = parseInt(document.getElementById("inputContainer").value);
+  if (status == "GET_OFFER") {
+    userOffer = parseInt(userInput.value);
     userReply(userOffer);
     status = "BARGAIN";
   }
 
-  if (status === "BARGAIN") {
+  if (status == "BARGAIN") {
     if (userOffer >= minValue && userOffer < maxValue) {
-      botReply(
-        "Great we have a deal, I'll send you a coupon code on your mail"
-      );
-      status = "GET_EMAIL";
+      showPreferredInputDisplay(true, false, true);
+      setTimeout(() => {
+        botReply(
+          "Great, I’ll create a discount code valid for you only and send it via mail, what's your eamil address?"
+        );
+        showPreferredInputDisplay(true, false, false);
+        status = "GET_EMAIL";
+      }, 700);
+      return;
     } else if (userOffer >= maxValue) {
-      botReply(GreaterOffer[Math.floor(Math.random() * GreaterOffer.length)]);
-      status = "GET_OFFER";
+      showPreferredInputDisplay(true, false, true);
+      setTimeout(() => {
+        showPreferredInputDisplay(true, false, false);
+        botReply(GreaterOffer[Math.floor(Math.random() * GreaterOffer.length)]);
+        status = "GET_OFFER";
+      }, 700);
       return;
     } else {
-      if (RejectedOffers.includes(userOffer)) {
-        botReply(
-          AlreadyRejected[Math.floor(Math.random() * AlreadyRejected.length)]
-        );
-      } else if (userOffer < Math.max(...RejectedOffers)) {
-        botReply(WorseOffer[Math.floor(Math.random() * WorseOffer.length)]);
-        status = "GET_OFFER";
-        return;
+      if(RejectedOffers.includes(userOffer)){
+        showPreferredInputDisplay(false, true, true)
+        setTimeout(()=>{
+          showPreferredInputDisplay(false, true, false)
+          botReply(
+            AlreadyRejected[Math.floor(Math.random() * AlreadyRejected.length)]
+          );
+        }, 700)
+      } else if(userOffer < Math.max(...RejectedOffers)){
+        showPreferredInputDisplay(false, true, true)
+        setTimeout(()=>{
+          botReply(WorseOffer[Math.floor(Math.random() * WorseOffer.length)]);
+          showPreferredInputDisplay(true, false, false)
+          status = "GET_OFFER";
+        }, 700)
       } else {
         if (deal <= margin) {
           if (deal + firstDeal * 0.5 <= margin) {
+            showPreferredInputDisplay(false, true, true)
             deal = parseInt(deal + firstDeal * 0.5);
-            message++;
             RejectedOffers.push(userOffer);
             let BotHaggle = [
               `This is too low, how about a $${deal} coupon`,
@@ -143,13 +144,13 @@ function createmessage() {
               `Sorry, not possible. How about $${deal} cash discount?`,
               `Will you Take $${deal} cash discount on this vehicle right now?`
             ];
-            botReply(BotHaggle[Math.floor(Math.random() * BotHaggle.length)]);
-            document.getElementById("reject").style.display = "block";
-            document.getElementById("confirm").style.display = "block";
-            document.getElementsByClassName("input-field")[0].style.display = "none";
+            setTimeout(()=>{
+              botReply(BotHaggle[Math.floor(Math.random() * BotHaggle.length)]);
+              showPreferredInputDisplay(false, true, false)
+            },700)
           } else {
             let NoDeal = [
-                `This was my last offer, give me yours and I’ll see with my manager.`,
+                `$${deal} was my last offer, give me yours and I’ll see with my manager.`,
                 `We couldn’t reach an agreement today, but don’t worry, my Manager will get back to you ASAP.`
               ];
             botReply(NoDeal[Math.floor(Math.random() * NoDeal.length)]);
@@ -159,103 +160,176 @@ function createmessage() {
         }
       }
     }
-    return;
   }
 
-  if(status === "TRADE_VEHICLE"){
-    botReply("Do you want to ")
+  if (status == "TRADE_VEHICLE") {
+    document.getElementById("accept").onclick = () => {
+      userReply("YES");
+      showPreferredInputDisplay(false, true, true);
+      setTimeout(() => {
+        botReply("Can I get your Plate number?");
+        showPreferredInputDisplay(true, false, false);
+      }, 700);
+      status = "GET_VIN_NUM";
+      return;
+    };
+
+    document.getElementById("reject").onclick = () => {
+      userReply("NO");
+      showPreferredInputDisplay(false, true, true);
+      setTimeout(() => {
+        botReply("Sweet, What’s the valid email to reach you?");
+        showPreferredInputDisplay(true, false, false);
+        status = "GET_EMAIL";
+      }, 700);
+      return;
+    };
   }
 
-  if (status === "DEAL_DONE") {
-    botReply("Great, I’ll create a discount code valid for you only and send it via mail, what's your eamil address?");
+  if (status == "GET_VIN_NUM") {
+    if (count == 1 || 2) {
+      userVIN = userInput.value;
+      userReply(userVIN);
+      count++;
+    }
+    if (count == 3) {
+      status = "COMMITMENT";
+      count = 1;
+    }
+  }
+
+  if (status === "COMMITMENT") {
+    showPreferredInputDisplay(false, true, true);
+    setTimeout(() => {
+      botReply(
+        "We're committed to giving you the fairest price possible for your existing vehicle."
+      );
+      botReply("What’s the valid email to reach you?");
+      showPreferredInputDisplay(true, false, false);
+    }, 700);
     status = "GET_EMAIL";
     return;
   }
 
   if (status == "GET_EMAIL") {
     var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    userEmail = document.getElementById("inputContainer").value;
-    if(userEmail.match(mailformat)){
-        userReply(userEmail);
-        status = "DONE";
+    userEmail = userInput.value;
+    if (userEmail.match(mailformat)) {
+      userReply(userEmail);
+      showPreferredInputDisplay(false, true, true);
+      setTimeout(() => {
+        botReply("And your phone number please?");
+        showPreferredInputDisplay(true, false, false);
+      }, 700);
+      status = "GET_PHONE";
     } else {
-        userReply(userEmail)
-        botReply('Please enter a valid E-mail address')
-        status = 'GET_EMAIL'
+      userReply(userEmail);
+      botReply("Please enter a valid E-mail address");
+      status = "GET_EMAIL";
     }
   }
 
-  if(status == "GET_PHONE"){
-    userPhone = document.getElementById("inputContainer").value;
-    userReply(userPhone);
-    status == "DONE"
+  if (status == "GET_PHONE") {
+    if (count == 1 || 2) {
+      userPhone = userInput.value;
+      userReply(userPhone);
+      count++;
+    }
+    if (count == 3) {
+      status = "GENERATE_COUPON";
+      count = 1;
+    }
   }
 
-  if (status == "DONE") {
-    botReply("Your coupon code has been send to your Email");
-    document.getElementById("reject").style.display = "none";
-    document.getElementById("confirm").style.display = "none";
-    document.getElementsByClassName("input-field")[0].style.display = "none";
+  if (status == "GENERATE_COUPON") {
+    let coupon = coupongenerator();
+    botReply(
+      `This is your discount code: ${coupon} <br> Offer expires in 24hours.`
+    );
+    showPreferredInputDisplay(false, false, false);
+  }
+
+  return;
+}
+
+function coupongenerator() {
+  var coupon = "";
+  var possible =
+    "ASKt1yuiopW2ERTYU3IO1as4dfghj5DFG2zxc6HJklL5Zv7bXCVB8NM6qwe9rnm3QP4";
+  for (var i = 0; i < 6; i++) {
+    coupon += possible.charAt(Math.floor(Math.random() * possible.length));
+  }
+  return coupon;
+}
+
+function airChange() {
+  if (userInput.value) {
+    document.getElementById("send-air").style.backgroundColor = "yellow";
+  } else {
+    document.getElementById("send-air").style.backgroundColor = "voilet";
+  }
+}
+
+function showPreferredInputDisplay(input, buttons, wave) {
+  document.getElementById("text-input").style.display = "none";
+  document.getElementById("click-input").style.display = "none";
+  document.getElementById("wave").style.visibility = "hidden";
+
+  if (input == true) {
+    document.getElementById("text-input").style.display = "flex";
+    userInput.focus();
+  }
+
+  if (buttons == true) {
+    document.getElementById("click-input").style.display = "flex";
+  }
+
+  if (wave == true) {
+    document.getElementById("wave").style.visibility = "visible";
   }
 }
 
 function botReply(msgToAdd) {
-  let botImg = document.createElement("img"); // Bot Image
-  botImg.setAttribute("src", "/assets/images/robot.png");
-
   let botMessage = document.createElement("div"); //Bot Message
-  botMessage.classList.add("form-bot");
+  botMessage.classList.add("form-bot"); 
+  botMessage.style.textAlign = "center"
 
   botMessage.innerHTML = msgToAdd;
 
-  let botBox = document.createElement("div"); // Bot message inserted in container
-  botBox.classList.add("form-bot-box");
+  let botimage = document.createElement("img")
+  botimage.setAttribute("src","/assets/images/robot.png")
+  botimage.style.height = "25px"
+  botimage.style.width = "25px"
+  botimage.style.marginRight = "5px"
 
-  botBox.append(botImg);
-  botBox.append(botMessage);
-  document.getElementById("toAppend").append(botBox);
+  let botall = document.createElement("div");
+  botall.append(botimage)
+  botall.append(botMessage)
+  botall.style.display = "flex"
+  botall.style.margin = "10px 0"
+
+  document.getElementById("toAppend").append(botall);
+
   document.getElementById("toAppend").scrollTop = document.getElementById(
     "toAppend"
   ).scrollHeight;
 }
 
 function userReply(msgToAdd) {
-  let userMessage = document.createElement("div"); //User Mesaage
-  userMessage.classList.add("form-user");
-  userMessage.innerHTML = msgToAdd;
+  if (msgToAdd != "") {
+    let userMessage = document.createElement("div"); //Bot Message
+    userMessage.classList.add("form-user");
 
-  let userMsgContain = document.createElement("div"); // User-message inserted in container
-  userMsgContain.classList.add("form-user-box");
+    userMessage.innerHTML = msgToAdd;
 
-  userMsgContain.append(userMessage);
+    document.getElementById("toAppend").append(userMessage);
 
-  document.getElementById("toAppend").append(userMsgContain);
-  document.getElementById("inputContainer").value = "";
-  document.getElementById("toAppend").scrollTop = document.getElementById(
-    "toAppend"
-  ).scrollHeight;
+    document.getElementById("toAppend").scrollTop = document.getElementById(
+      "toAppend"
+    ).scrollHeight;
+
+    chatForm.reset();
+  }
 }
 
-function sendChatDetails() {
-  const xhr = new XMLHttpRequest();
-
-  xhr.open("POST", `/chatbot/submit`, true);
-  xhr.getResponseHeader("content-type", "application/json");
-
-  xhr.onprogress = function() {
-    console.log("On progress");
-  };
-
-  xhr.onload = function() {
-    if (this.status === 200) {
-      console.log("Successfull");
-    } else {
-      console.log("Some error occured");
-    }
-  };
-
-  const couponDetails = `{"email": ${userEmail}, "CouponCode":  ${couponCode}, "carID": ${carID}}`;
-  xhr.send();
-}
-
-createmessage();
+createMessage();

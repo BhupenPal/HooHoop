@@ -20,9 +20,11 @@ function uploadData(e){
     })
 
     xhr.addEventListener("load", function () {
+        document.body.style.cursor = "progress"
         if (xhr.status == 200) {
             if(xhr.response == "Done"){
                 window.location.href = '/my-ads'
+                document.body.style.cursor = "normal"
             } else {
                 console.log('ERROR')
             }

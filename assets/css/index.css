@@ -1080,6 +1080,12 @@ button[disabled]{
   margin-bottom: 20px;
 }
 
+.dealer_inputs{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .dealer_details div:first-child {
   padding-left: 10px;
   margin-bottom: 20px;
@@ -2250,6 +2256,7 @@ canvas {
   width: 100%;
   justify-content: center;
   align-items: center;
+  min-height: 90vh;
   flex-direction: column;
 }
 
@@ -2601,6 +2608,51 @@ td button:hover{
 
 #Reqthreesixty_panel th:nth-child(2){
   width: 300px !important;
+}
+
+.offwall{
+  overflow-y: scroll;
+  padding-left: 50px;
+  max-height: 65vh;
+}
+
+.offwall::-webkit-scrollbar{
+  display: none;
+}
+
+.offer{
+  height: 230px;
+  width: 90%;
+  background-color: #f6b40048;
+  margin: 20px 0;
+  display: flex;
+}
+
+.offslipbod{
+  border-right: dashed 5px #008ec2;
+  height: 100%;
+  width: 50px;
+}
+
+.offslipinfo{
+  width: 100%;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  font-family: Roboto;
+}
+
+.carinfotme{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-family: Raleway;
+  font-size: 20px;
+  margin: 5px 0;
+}
+
+.offslipinfo h1{
+  display: flex;
+  justify-content: space-between;
 }
 /* Dashboard */
 
