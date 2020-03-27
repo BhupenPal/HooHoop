@@ -24,6 +24,7 @@ let count = 1;
 let margin = maxValue - minValue;
 let deal = parseInt(margin / 10);
 let firstDeal = deal;
+let coupon = null;
 
 let Botgreetings = [
   `Hi, I'am bargainator! Would you like a $${deal} discount?`,
@@ -103,6 +104,7 @@ function createMessage() {
         botReply(
           "Great, I’ll create a discount code valid for you only and send it via mail, what's your eamil address?"
         );
+        deal = userOffer;
         showPreferredInputDisplay(true, false, false);
         status = "GET_EMAIL";
       }, 700);
@@ -242,7 +244,8 @@ function createMessage() {
   }
 
   if (status == "GENERATE_COUPON") {
-    let coupon = coupongenerator();
+    coupon = coupongenerator();
+    sendChatDetails();
     botReply(
       `This is your discount code: ${coupon} <br> Offer expires in 24hours.`
     );
@@ -330,6 +333,40 @@ function userReply(msgToAdd) {
 
     chatForm.reset();
   }
+}
+
+function sendChatDetails() {
+  const xhr = new XMLHttpRequest();
+  xhr.open("POST", `/chatbot/submit`, true);
+  xhr.getResponseHeader("content-type", "application/json");
+
+  xhr.onprogress = function() {
+    console.log("On progress");
+  };
+
+  xhr.onload = function() {
+    if (this.status === 200) {
+      console.log("Successfull");
+    } else {
+      console.log("Some error occured");
+    }
+  };
+
+  var tod = new Date().toUTCString();
+  tod = tod.split(' ').slice(0, 4).join(' ');
+  var tom = new Date(new Date().getTime() + 24 * 60 * 60 * 1000).toUTCString();
+  tom = tod.split(' ').slice(0, 4).join(' ');
+
+  var discountDetails = {email: `${userEmail}`, 
+                          phoneNo: `${userPhone}`, 
+                          discount: `${deal}`, 
+                          CouponCode:  `${coupon}`, 
+                          carID: `${userVIN}`, 
+                          tod: `${tod}`, 
+                          tom: `${tom}`
+                        };
+
+  xhr.send(JSON.stringify(discountDetails));
 }
 
 createMessage();

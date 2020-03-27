@@ -619,6 +619,11 @@ Router.post("/user/reset-password/reset", urlencoded, async (req, res) => {
   }
 });
 
+Router.post('/chatbot/submit', urlencoded, (req, res) => {
+  console.log(req.body);
+  res.send('Done')
+})
+
 //Contact Us Routes
 Router.get("/contact-us", (req, res) => {
   res.render("contact_us");
