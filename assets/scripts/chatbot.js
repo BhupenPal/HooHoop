@@ -377,8 +377,6 @@ createMessage();
   let closebot = document.querySelector(".chatbox_opened")
   let botcloser = document.querySelector(".botcloser")
 
-  console.log(openbot)
-
   openbot.onclick = function(){
     openbot.style.transform = "translateY(10vh)"
     openbot.style.visibility = "hidden"
