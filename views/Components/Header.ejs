@@ -80,6 +80,12 @@
     function hamoperation(x){
         x.classList.toggle("change");
         document.getElementsByClassName("ham_menu")[0].classList.toggle("ham_menu_show")
+        if(x.classList.contains("change")){
+            document.getElementsByTagName("html")[0].style.overflow = "hidden"
+        }
+        else{
+            document.getElementsByTagName("html")[0].removeAttribute("style")
+        }
     }
 
     function search(){

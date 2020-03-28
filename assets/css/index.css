@@ -179,6 +179,7 @@ input[type="date"]::-webkit-inner-spin-button {
   display: inline-block;
   cursor: pointer;
   z-index: 100;
+  display: none;
 }
 
 .bar1, .bar2, .bar3 {
@@ -3256,6 +3257,10 @@ td button:hover{
 
   header{
     padding: 0 !important;
+  }
+
+  .hamburger{
+    display: block;
   }
 
   /* Home response */
