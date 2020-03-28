@@ -9,6 +9,7 @@
   right: 20px;
   z-index: 90;
   max-height: 500px;
+  min-height: 500px;
 }
 
 .chatbox_opened{
@@ -296,11 +297,12 @@ div#wave .dot:nth-child(3) {
   }
 
   #chatter{
-    height: 86vh;
+    min-height: 86vh;
+    max-height: 87vh;
   }
 
   #toAppend{
-    min-height: 77.1vh;
-    max-height: 77.1vh;
+    min-height: 75vh;
+    max-height: 75vh;
   }
 }
