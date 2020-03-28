@@ -3729,3 +3729,365 @@ td button:hover{
     justify-content: center;
   }
 }
+
+/* Tablet response */
+
+@media only screen and (max-width:768px) and (min-width:481px){
+
+  *::-webkit-scrollbar {
+    display: none !important;
+  }
+  /* header response */
+  .logo img {
+    width: 45vw;
+  }
+
+  .search-engine,
+  .user-panel {
+    display: none;
+  }
+
+  .menu-wrapper ul li {
+    font-size: 1em;
+  }
+
+  header{
+    padding: 0 !important;
+  }
+
+  /* sell-car response */
+  .ad_enclosure {
+    width: 80vw;
+    height: 100vw;
+  }
+
+  .pakages {
+    font-size: 6vw;
+  }
+
+  .h-logo {
+    height: 16vw;
+    width: 65vw;
+  }
+
+  .pakage_info button {
+    width: 52vw;
+    height: 13vw;
+  }
+
+   /* Home response */
+   .slider {
+    height: 60vw;
+  }
+
+  .buy-car {
+    height: 50vw;
+    width: 40vw;
+    left: 12%;
+  }
+
+  .card_headline {
+    font-size: 4vw;
+  }
+
+  .submit_data {
+    font-size: 3vw !important;
+  }
+
+  .swrapfm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .card_input_info div select {
+    font-size: 2.5vw !important;
+  }
+
+  .cd_btn {
+    width: 85vw;
+  }
+
+  .cd_btn button {
+    height: 12vw;
+    width: 12vw;
+    border-radius: 12vw;
+    font-size: 3vw;
+  }
+
+  .cd_car_data {
+    min-width: 50vw;
+  }
+
+  .infowrap80,
+  .sellcar_wrap,
+  .ulwrap,
+  .reg_body {
+    padding-bottom: 500px;
+  }
+
+
+  .submit_data {
+    font-size: 8vw;
+  }
+
+  .swrapfm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .card_input_info div select {
+    font-size: 5vw;
+  }
+
+  .cardbd_1 {
+    height: 500px;
+  }
+
+  .cd_btn {
+    width: 85vw;
+  }
+
+  .cd_btn button {
+    height: 8vw;
+    width: 8vw;
+    border-radius: 8vw;
+    font-size: 5vw;
+  }
+
+  .cd_car_data {
+    min-width: 300px;
+  }
+
+  .infowrap80,
+  .sellcar_wrap,
+  .ulwrap,
+  .reg_body {
+    padding-bottom: 400px;
+  }
+
+  /* forgot pass response for tab */
+
+  .forg_pass_wrap {
+    padding-bottom: 400px;
+    min-height: 50vh;
+  }
+
+  .f_pass_card {
+    width: 90vw;
+    min-height: 40vh !important;
+  }
+
+  .f_pass_card img {
+    width: 80vw;
+    height: 20vw;
+  }
+
+  .f_pass_card form {
+    margin-top: 10vw;
+  }
+
+  .head-textmail {
+    font-size: 1.2em;
+  }
+
+    /* Login response */
+  .alignment-text{
+    margin-left: 30px;
+  }
+  
+  .card {
+    width: 400px;
+    min-height: 500px;
+  }
+
+  .reg_card {
+    width: 450px;
+    padding-bottom: 20px;
+  }
+
+  .reg_card form{
+    align-items: center;
+  }
+
+  .form-group {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .form-group input {
+    width: 90%;
+    margin: 5px 0;
+  }
+
+  .reg_link {
+    width: 90vw;
+    display: flex;
+    box-sizing: border-box;
+    padding-left: 20px;
+    align-items: center;
+    margin: 5px 0;
+  }
+
+  .log_links {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 50px;
+    margin-left: 30px;
+  }
+
+  .reg_link:nth-child(2){
+    border-left: 2px solid #e4e4e4;
+  }
+
+  .reg_link:nth-child(1) a {
+    margin-left: 5px;
+  }
+
+  .f_pass {
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .button-2 {
+    margin-right: 20px;
+  }
+
+  /* buy car response */
+  .buy_car_wrap {
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 400px;
+  }
+
+  .fltr_head {
+    font-size: 30px;
+    height: 10vw;
+  }
+
+  .filters {
+    margin-top: 8vw;
+  }
+
+  .filterwrap {
+    width: 90vw;
+  }
+
+  .contentwrap {
+    width: 90vw;
+    min-height: 60vw !important;
+  }
+
+  .cb_main {
+    font-size: 20px;
+  }
+
+  .cb_add_info span {
+    font-size: 18px;
+  }
+
+  .filter_option {
+    min-height: 15vw;
+    font-size: 20px;
+  }
+
+  .Filter_class {
+    height: 10vw;
+    font-size: 30px;
+  }
+
+  .Filter_class i {
+    font-size: 4vw;
+  }
+
+  .foption {
+    font-size: 25px;
+    height: 5vw;
+  }
+
+  .bc-card {
+    height: 80vw;
+    width: 60vw;
+  }
+
+  .cb_img,
+  .cb_img img {
+    height: 63vw;
+  }
+
+  .foption label::before {
+    height: 3vw;
+    width: 3vw;
+    top: -1.61875vw;
+  }
+
+  .foption label::after {
+    height: 1vw;
+    width: 2vw;
+    top: -1.0125vw;
+  }
+
+  #Pagination {
+    width: 80vw;
+  }
+
+  #Pagination button {
+    height: 6vw;
+    width: 12vw;
+    font-size: 2vw;
+  }
+
+  .Page_no {
+    height: 5vw;
+    width: 5vw;
+    border-radius: 5vw;
+    font-size: 3vw;
+    margin: 0 1vw;
+  }
+
+  /* footer response */
+
+  .foot {
+    min-height: 200px;
+    flex-direction: column;
+  }
+
+  .cpyrght {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .social_wrap {
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .quick_links_wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .quick_links_wrap ul {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .quick_links_wrap ul li {
+    display: flex;
+    justify-content: center;
+  }
+  
+}

@@ -53,7 +53,7 @@
 }
 
 .closediv{
-  height: 20px;
+  height: 15px;
   width: 3px;
   border-radius: 5px;
   background-color: gray;
@@ -78,9 +78,10 @@
   height: 100%;
   width: 30px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-end;
+  align-items: flex-end;
   padding: 0;
+  margin-right: 10px;
 }
 
 .logimgbot{
@@ -93,7 +94,7 @@
 }
 
 #btxt{
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: raleway;
   margin: 0 !important;
   display: flex;
   justify-content: center;
@@ -114,6 +115,10 @@
   background-color: #e5e5e5;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: gray;
 }
 
 *::-webkit-scrollbar{
@@ -215,11 +220,17 @@
 }
 
 #accept{
-  background-color: green;
+  background-color: #55ACEE;
+  transition: 0.2s;
+}
+
+#accept:hover,#reject:hover{
+  opacity: 0.8;
 }
 
 #reject{
-  background-color: red;
+  background-color: #292F33;
+  transition: 0.2s;
 }
 
 /* Jumping Buttons */
@@ -229,7 +240,7 @@ div#wave {
   text-align: center;
   width: 100px;
   margin-top: -15px;
-  margin-bottom: 15px;
+  margin-bottom: 14px;
   margin-left: auto;
   margin-right: auto;
 }
