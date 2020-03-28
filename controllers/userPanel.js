@@ -21,6 +21,7 @@ const contactModel = require("../models/contactModel");
 const testDrive = require("../models/testDrive");
 const checkAvail = require("../models/availabilityModel");
 const shipModel = require("../models/shippingModel");
+const couponModel = require("../models/couponModel");
 
 //Passport Config
 const passport = require("passport");
@@ -619,8 +620,16 @@ Router.post("/user/reset-password/reset", urlencoded, async (req, res) => {
   }
 });
 
-Router.post('/chatbot/submit', urlencoded, (req, res) => {
-  console.log(req.body);
+
+Router.post('/chatbot/submit', bodyParser.json(), (req, res) => {
+  let NewCoupon = new couponModel;
+
+  NewCoupon.custEmail = req.body.email;
+  NewCoupon.custPhone = req.body.phoneNo;
+  NewCoupon.vehicleID = req.body.carID;
+  NewCoupon.couponCode = req.body.CouponCode;
+  NewCoupon.couponAmount = req.body.discount;
+
   res.send('Done')
 })
 

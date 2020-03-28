@@ -188,6 +188,7 @@
       <div class="contentwrap" id="listeer">
         <%-include('./Components/Loader.ejs') %>
         <div id="bc-card-wrap">
+          <% if(record.length > 0){ %>
         <% for(var i = 0; i < record.length; i++) { %>
           <a href="/buy-car/<%= record[i].id%>" class="cardanchor">
           <div class="bc-card">
@@ -206,8 +207,12 @@
           </div>
         </a>
         <% } %>
+      <% } else { %>
+      <div class="no-car">
+        No cars to display right now
       </div>
-
+    <% } %>
+      </div>
 
     <!-- Pagination -->
     <div id="Pagination" data-last="<%= endPage %>">
@@ -223,7 +228,6 @@
     </div>
     <!-- Buy-car ended -->
       </div>
-    
     </div>
 
     <%-include('./Components/Footer.ejs') %>

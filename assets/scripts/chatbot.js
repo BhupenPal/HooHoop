@@ -338,7 +338,7 @@ function userReply(msgToAdd) {
 function sendChatDetails() {
   const xhr = new XMLHttpRequest();
   xhr.open("POST", `/chatbot/submit`, true);
-  xhr.getResponseHeader("content-type", "application/json");
+  xhr.setRequestHeader("Content-Type", "application/json");
 
   xhr.onprogress = function() {
     console.log("On progress");
@@ -352,18 +352,19 @@ function sendChatDetails() {
     }
   };
 
-  var tod = new Date().toUTCString();
+  var tod = new Date();
+  var tom = new Date(tod.getTime() + (24 * 60 * 60 * 1000)).toUTCString();
+  tod = tod.toUTCString();
   tod = tod.split(' ').slice(0, 4).join(' ');
-  var tom = new Date(new Date().getTime() + 24 * 60 * 60 * 1000).toUTCString();
   tom = tod.split(' ').slice(0, 4).join(' ');
 
-  var discountDetails = {email: `${userEmail}`, 
-                          phoneNo: `${userPhone}`, 
-                          discount: `${deal}`, 
-                          CouponCode:  `${coupon}`, 
-                          carID: `${userVIN}`, 
-                          tod: `${tod}`, 
-                          tom: `${tom}`
+  var discountDetails = { "email": `${userEmail}`, 
+                          "phoneNo": `${userPhone}`, 
+                          "discount": `${deal}`, 
+                          "CouponCode":  `${coupon}`, 
+                          "carID": `${userVIN}`, 
+                          "tod": `${tod}`, 
+                          "tom": `${tom}`
                         };
 
   xhr.send(JSON.stringify(discountDetails));
