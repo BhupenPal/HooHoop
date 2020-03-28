@@ -11,6 +11,7 @@
 }
 
 .chatbox_opened{
+  box-shadow: 0 0 5px 5px #dfdfdf;
   min-height: 500px;
   width: 18vw !important;
   min-width: 300px;
@@ -19,9 +20,7 @@
   transition: 0.4s;
   opacity: 0;
   visibility: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+
   position: absolute;
 }
 
@@ -281,11 +280,14 @@ div#wave .dot:nth-child(3) {
 @media only screen and (max-width:480px){
   .chatbot_encloser{
     z-index: 1000;
-    right: 10px;
+    right: 0 !important;
+    bottom: 0 !important;
   }
 
   .chatbox_opened{
-    width: 400px;
-    min-width: 320px;
+    border: 0 !important;
+    position: fixed;
+    width: 100% !important;
+    min-height: -webkit-fill-available;
   }
 }

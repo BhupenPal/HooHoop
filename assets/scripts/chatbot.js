@@ -373,6 +373,7 @@ function sendChatDetails() {
 createMessage();
 
 
+
   let openbot = document.querySelector(".chatbox_closed")
   let closebot = document.querySelector(".chatbox_opened")
   let botcloser = document.querySelector(".botcloser")
