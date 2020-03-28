@@ -377,22 +377,28 @@ createMessage();
   let openbot = document.querySelector(".chatbox_closed")
   let closebot = document.querySelector(".chatbox_opened")
   let botcloser = document.querySelector(".botcloser")
+  let botencloser = document.querySelector(".chatbot_encloser")
 
   openbot.onclick = function(){
     openbot.style.transform = "translateY(10vh)"
     openbot.style.visibility = "hidden"
     openbot.style.opacity = "0"
 
-    closebot.style.visibility = "visible"
-    closebot.style.opacity = "1"
+    botencloser.style.zIndex = "9999"
+    closebot.style.display = "flex"
+
+    document.getElementsByTagName("html")[0].style.overflow = "hidden"
   }
 
   botcloser.onclick = function(){
-    closebot.style.visibility = "hidden"
-    closebot.style.opacity = "0"
+    
+    botencloser.removeAttribute("style")
+    closebot.style.display = "none"
 
     openbot.style.transform = "translateY(0vh)"
     openbot.style.visibility = "visible"
     openbot.style.opacity = "1"
+
+    document.getElementsByTagName("html")[0].removeAttribute("style")
   }
 
