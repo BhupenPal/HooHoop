@@ -36,9 +36,14 @@
             <% } %>
 
         </div>
+
+        <div class="hamburger" onclick="hamoperation(this)">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
     </div>
    
-  </div>
   <div class="menu-wrapper">
     <ul>
       <a href="/"><li>HOME</li></a>
@@ -47,4 +52,54 @@
     </ul>
   </div>
 
+  <div class="ham_menu">
+    <% if (user){ %>
+        <div class="headtext">Hi, <%=user.firstName %></div>
+        <button class="se_btn" onclick="window.location.href = '/dashboard'">My Profile</button>
+        <button class="se_btn" onclick="window.location.href = '/my-ads'">My Listings</button>
+        <button class="se_btn" onclick="window.location.href = '/logout'">Logout</button>
+    <% } else { %>
+        <button class="ham_options" onclick="search()">Search</button>
+        <button class="ham_options" onclick="window.location.href = '/login'">Login</button>
+        <button class="ham_options" onclick="window.location.href = '/sign-up'">Sign Up</button>
+
+        <div class="search_active vanish">
+            <form action="/search-car/1" method="GET" autocomplete="off">
+            <input type="text" oninput="this.value = this.value.toUpperCase();" placeholder="Search Car or Brands" name="enquiry">
+            <div class="s_ac_btn">
+                <button class="se_btn" type="submit" role="button">Search</button>
+                <div class="se_btn" onclick="search_deactivate()">Return</div>
+            </div>
+        </form>
+        </div>
+    <% } %>
+
 </header>
+
+<script>
+    function hamoperation(x){
+        x.classList.toggle("change");
+        document.getElementsByClassName("ham_menu")[0].classList.toggle("ham_menu_show")
+    }
+
+    function search(){
+        let prevopt = document.getElementsByClassName("ham_options")
+        
+        for(let unt = 0; unt < prevopt.length ; unt++){
+            prevopt[unt].classList.add("vanish")
+        }
+
+        document.querySelector(".search_active").classList.remove("vanish")
+    }
+
+    function search_deactivate(){
+        let prevopt = document.getElementsByClassName("ham_options")
+
+        document.querySelector(".search_active").classList.add("vanish")
+
+        for(let unt = 0; unt < prevopt.length ; unt++){
+            prevopt[unt].classList.remove("vanish")
+        }
+    }
+
+</script>

@@ -166,24 +166,4 @@ monthNames = [
   "December"
 ];
 
-const fillDates = () => {
-  var currentDate = new Date();
-  var currentMonth = currentDate.getMonth();
-  var currentYear = currentDate.getFullYear();
-
-  let dateToAdd = "";
-
-  for (var i = 0; i < 12; i++) {
-    dateToAdd += `<option value="${monthNames[currentMonth]} ${currentYear}"> ${monthNames[currentMonth]} ${currentYear} </option>`;
-    currentMonth++;
-    if (currentMonth > 11) {
-      currentMonth = 0;
-      currentYear = currentYear + 1;
-    }
-  }
-
-  document.getElementById("wofsib").insertAdjacentHTML("afterend", dateToAdd);
-  document.getElementById("regsib").insertAdjacentHTML("afterend", dateToAdd);
-};
-fillDates();
 

@@ -384,14 +384,11 @@ createMessage();
     openbot.style.visibility = "hidden"
     openbot.style.opacity = "0"
 
-
-    closebot.style.transform = "translateY(5vh)"
     closebot.style.visibility = "visible"
     closebot.style.opacity = "1"
   }
 
   botcloser.onclick = function(){
-    closebot.style.transform = "translateY(10vh)"
     closebot.style.visibility = "hidden"
     closebot.style.opacity = "0"
 
