@@ -295,7 +295,7 @@ function showPreferredInputDisplay(input, buttons, wave) {
 function botReply(msgToAdd) {
   let botMessage = document.createElement("div"); //Bot Message
   botMessage.classList.add("form-bot"); 
-  botMessage.style.textAlign = "center"
+  botMessage.style.textAlign = "left"
 
   botMessage.innerHTML = msgToAdd;
 

@@ -5,6 +5,7 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
+  z-index: 90;
 }
 
 .chatbox_opened{
@@ -136,7 +137,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: left;
 }
 
 .form-user {
@@ -228,6 +228,8 @@ div#wave {
   position: relative;
   text-align: center;
   width: 100px;
+  margin-top: -15px;
+  margin-bottom: 15px;
   margin-left: auto;
   margin-right: auto;
 }
