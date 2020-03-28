@@ -371,3 +371,32 @@ function sendChatDetails() {
 }
 
 createMessage();
+
+
+  let openbot = document.querySelector(".chatbox_closed")
+  let closebot = document.querySelector(".chatbox_opened")
+  let botcloser = document.querySelector(".botcloser")
+
+  console.log(openbot)
+
+  openbot.onclick = function(){
+    openbot.style.transform = "translateY(10vh)"
+    openbot.style.visibility = "hidden"
+    openbot.style.opacity = "0"
+
+
+    closebot.style.transform = "translateY(5vh)"
+    closebot.style.visibility = "visible"
+    closebot.style.opacity = "1"
+  }
+
+  botcloser.onclick = function(){
+    closebot.style.transform = "translateY(10vh)"
+    closebot.style.visibility = "hidden"
+    closebot.style.opacity = "0"
+
+    openbot.style.transform = "translateY(0vh)"
+    openbot.style.visibility = "visible"
+    openbot.style.opacity = "1"
+  }
+

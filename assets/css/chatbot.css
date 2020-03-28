@@ -1,8 +1,37 @@
+.chatbot_encloser{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
 .chatbox_opened{
   width: 18vw !important;
-  min-width: 260px;
+  min-width: 300px;
   border: 1px solid #e2e2e2;
   border-radius: 10px;
+  transition: 0.4s;
+  transform: translateY(10vh);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.chatbox_closed{
+  height: 60px;
+  width: 60px;
+  border-radius: 60px;
+  background-color: #f5bf2b;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 30px;
+  transition: 0.4s;
+  visibility: visible;
+  opacity: 1;
 }
 
 #chatter{
@@ -19,6 +48,38 @@
   border-top-right-radius: 5px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+}
+
+.closediv{
+  height: 20px;
+  width: 3px;
+  border-radius: 5px;
+  background-color: gray;
+  position: absolute;
+}
+
+.closediv:nth-child(1){
+  transform: rotate(45deg);
+}
+
+.closediv:nth-child(2){
+  transform: rotate(-45deg);
+}
+
+.botcloser{
+  border: none;
+  background-color: white;
+  font-size: 20px;
+  font-weight: bolder;
+  cursor: pointer;
+  position: relative;
+  height: 100%;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
 }
 
 .logimgbot{
