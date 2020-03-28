@@ -59,6 +59,8 @@ function createMessage() {
 
   if (event) {
     event.preventDefault();
+  } else {
+    document.getElementById('play_aud').click();
   }
 
   if (status === "GREETING") {
@@ -372,8 +374,6 @@ function sendChatDetails() {
 
 createMessage();
 
-
-
   let openbot = document.querySelector(".chatbox_closed")
   let closebot = document.querySelector(".chatbox_opened")
   let botcloser = document.querySelector(".botcloser")
@@ -387,7 +387,6 @@ createMessage();
     botencloser.style.zIndex = "9999"
     closebot.style.display = "flex"
 
-    document.getElementsByTagName("html")[0].style.overflow = "hidden"
   }
 
   botcloser.onclick = function(){
@@ -399,6 +398,4 @@ createMessage();
     openbot.style.visibility = "visible"
     openbot.style.opacity = "1"
 
-    document.getElementsByTagName("html")[0].removeAttribute("style")
   }
-
