@@ -3511,7 +3511,7 @@ td button:hover{
   .VIN-input{
     min-width: 0;
     width: 90vw;
-    margin-top: 50px;
+    margin: 50px 0;
   }
 
   .VIN-input form{
@@ -3543,7 +3543,30 @@ td button:hover{
   }
 
   .form_see{
-    display: none;
+    margin-top: 100px;
+  }
+
+  .car_api_data{
+    flex-direction: column;
+  }
+
+  .colspan_1{
+    width: 100%;
+    justify-content: flex-start;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  #checkDet{
+    text-align: center;
+  }
+
+  .car_deadet{
+    text-align: center;
+  }
+
+  .dealer_inputs{
+    flex-direction: column;
   }
 
   .sell_form_submission{
