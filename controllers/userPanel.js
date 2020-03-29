@@ -2,6 +2,8 @@ const express = require("express");
 const Router = express.Router();
 const randomstring = require("randomstring");
 const transporter = require("./mail/config/trasnport");
+const mdq = require('mongo-date-query');
+var schedule = require('node-schedule');
 const fs = require('fs')
 
 //Authenticator Config
@@ -23,6 +25,10 @@ const checkAvail = require("../models/availabilityModel");
 const shipModel = require("../models/shippingModel");
 const couponModel = require("../models/couponModel");
 const sellqueModel = require("../models/sellqueryModel");
+
+var j = schedule.scheduleJob('0 0 * * *', async function(){
+  await couponModel.deleteMany({createdAt: mdq.previousDays(3)})
+});
 
 //Passport Config
 const passport = require("passport");
@@ -176,7 +182,7 @@ Router.post("/sign-up", urlencoded, (req, res) => {
             );
     
             let mailOptions = {
-              from: '"HooHoop" <contactus@edudictive.in>', // sender address
+              from: '"HooHoop" <contact@hoohoop.co.nz.in>', // sender address
               to: req.body.email, // list of receivers
               subject: "HooHoop Account Verification Email", // Subject line
               html: mailHTML(req.body.firstName, secretToken) // html body
@@ -546,7 +552,7 @@ Router.post("/user/reset-password", urlencoded, async (req, res) => {
   user.save();
 
   let mailOptions = {
-    from: '"HooHoop" <contactus@edudictive.in>', // sender address
+    from: '"HooHoop" <contact@hoohoop.co.nz.in>', // sender address
     to: req.body.email, // list of receivers
     subject: "HooHoop Account Password Reset", // Subject line
     html: resetMail(user.firstName, resetToken) // html body
@@ -622,13 +628,17 @@ Router.post("/user/reset-password/reset", urlencoded, async (req, res) => {
 });
 
 
-Router.post('/chatbot/submit', bodyParser.json(), (req, res) => {
+Router.post('/chatbot/submit', bodyParser.json(), async (req, res) => {
   let NewCoupon = new couponModel;
   let NewSellQue = new sellqueModel;
 
+  let result = await carModel.find({_id: req.body.discountFor});
+  
   NewCoupon.custEmail = req.body.email;
   NewCoupon.custPhone = req.body.phoneNo;
   NewCoupon.couponCode = req.body.CouponCode;
+  NewCoupon.vehicleID = result[0].vinNum;
+  NewCoupon.vehicleName = `${result[0].Make} - ${result[0].Model}`;
   NewCoupon.couponAmount = req.body.discount;
   NewCoupon.validFrom = req.body.tod;
   NewCoupon.validTo = req.body.tom;
@@ -637,16 +647,17 @@ Router.post('/chatbot/submit', bodyParser.json(), (req, res) => {
   NewSellQue.custEmail = req.body.email;
   NewSellQue.custPhone = req.body.phoneNo;
   NewSellQue.custVIN = req.body.carID;
+  NewSellQue.discountFor = `${result[0].Make} - ${result[0].Model}`;
   NewSellQue.custDiscount = req.body.discount;
   NewSellQue.custDiscDate = req.body.tod;
   NewSellQue.status = "Active";
   NewSellQue.save();
 
   let mailOptions = {
-    from: '"HooHoop" <contactus@edudictive.in>', // sender address
+    from: '"HooHoop" <contact@hoohoop.co.nz.in>', // sender address
     to: req.body.email, // list of receivers
-    subject: "HooHoop Account Password Reset", // Subject line
-    html: discountMail(req.body.CouponCode, req.body.discount, req.body.tod, req.body.tom) // html body
+    subject: "HooHoop Discount Coupon Code", // Subject line
+    html: discountMail(`${result[0].Make} - ${result[0].Model}`, req.body.discount, result[0].DealerName, result[0].DealerEmail, result[0].DealerNum, req.body.CouponCode) // html body
   };
 
   // send mail with defined transport object
@@ -654,12 +665,6 @@ Router.post('/chatbot/submit', bodyParser.json(), (req, res) => {
     if (error) {
       return console.log(error);
     }})
-
-
-
-  setTimeout(async ()=>{
-    await couponModel.deleteOne({_id : NewCoupon.id})
-  }, 86400000)
 
   res.send('Done')
 })
@@ -715,13 +720,13 @@ function mailHTML(NameTo, TokenCode) {
     </style>
   </head>
   <body>
-    <table width="60%" cellsapcing="0" cellpadding="0" style="background-color: #F0F2F5; padding: 80px; margin: 0 auto;">
+    <table width="60%" cellspacing="0" cellpadding="0" style="background-color: #F0F2F5; padding: 80px; margin: 0 auto;">
       <tr>
         <td>
-          <table width="100%" cellsapcing="0" cellpadding="0" style="background-color: #fff; font-family: Arial; padding: 20px;">
+          <table width="100%" cellspacing="0" cellpadding="0" style="background-color: #fff; font-family: Arial; padding: 20px;">
             <!-- Header -->
             <tr>
-              <td><img src="./Logo.png" alt="HooHoop Logo" style="display: block; margin: 10px auto; padding: 0; width: 300px;"></td>
+              <td><img src="http://18.217.77.229/assets/images/Logo.png" alt="HooHoop Logo" style="display: block; margin: 10px auto; padding: 0; width: 300px;"></td>
             </tr>
             <tr>
               <td>
@@ -740,14 +745,14 @@ function mailHTML(NameTo, TokenCode) {
             </tr>
             <tr>
               <td style="display: flex !important; justify-content: center !important; align-items: center !important;">
-                <a href="http://localhost:8080/user/verify?token=${TokenCode}" style="margin:0 auto"><button id="verify_btn">Verify my email</button></a>
+                <a href="http://18.217.77.229/user/verify?token=${TokenCode}" style="margin:0 auto"><button id="verify_btn">Verify my email</button></a>
               </td>
             </tr>
             <tr>
               <td><p style="margin: 0 auto; width: 100%; text-align: center;">or paste this link below into your browser: </p></td>
             </tr>
             <tr>
-              <td style="display: flex; justify-content: center; align-items: center;"><p style="margin: 0 auto; width: 100%; text-align: center;">http://localhost:8080/user/verify?token=${TokenCode}</p></td>
+              <td style="display: flex; justify-content: center; align-items: center;"><p style="margin: 0 auto; width: 100%; text-align: center;">http://18.217.77.229/user/verify?token=${TokenCode}</p></td>
             </tr>
             <tr>
               <td></td>
@@ -791,13 +796,13 @@ function resetMail(NameTo, TokenCode) {
     </style>
   </head>
   <body>
-    <table width="60%" cellsapcing="0" cellpadding="0" style="background-color: #F0F2F5; padding: 80px; margin: 0 auto;">
+    <table width="60%" cellspacing="0" cellpadding="0" style="background-color: #F0F2F5; padding: 80px; margin: 0 auto;">
       <tr>
         <td>
-          <table width="100%" cellsapcing="0" cellpadding="0" style="background-color: #fff; font-family: Arial; padding: 20px;">
+          <table width="100%" cellspacing="0" cellpadding="0" style="background-color: #fff; font-family: Arial; padding: 20px;">
             <!-- Header -->
             <tr>
-              <td><img src="./Logo.png" alt="HooHoop Logo" style="display: block; margin: 10px auto; padding: 0; width: 300px;"></td>
+              <td><img src="http://18.217.77.229/assets/images/Logo.png" alt="HooHoop Logo" style="display: block; margin: 10px auto; padding: 0; width: 300px;"></td>
             </tr>
             <tr>
               <td>
@@ -816,14 +821,14 @@ function resetMail(NameTo, TokenCode) {
             </tr>
             <tr>
               <td style="display: flex !important; justify-content: center !important; align-items: center !important;">
-                <a href="http://localhost:8080/user/reset-password?token=${TokenCode}" style="margin:0 auto"><button id="verify_btn">Reset my password</button></a>
+                <a href="http://18.217.77.229/user/reset-password?token=${TokenCode}" style="margin:0 auto"><button id="verify_btn">Reset my password</button></a>
               </td>
             </tr>
             <tr>
               <td><p style="margin: 0 auto; width: 100%; text-align: center;">or paste this link below into your browser: </p></td>
             </tr>
             <tr>
-              <td style="display: flex; justify-content: center; align-items: center;"><p style="margin: 0 auto; width: 100%; text-align: center;">http://localhost:8080/user/reset-password?token=${TokenCode}</p></td>
+              <td style="display: flex; justify-content: center; align-items: center;"><p style="margin: 0 auto; width: 100%; text-align: center;">http://18.217.77.229/user/reset-password?token=${TokenCode}</p></td>
             </tr>
             <tr>
               <td></td>
@@ -836,7 +841,7 @@ function resetMail(NameTo, TokenCode) {
   </html>`;
 }
 
-function discountMail(NameTo, TokenCode) {
+function discountMail(CouponCar, deal, sellerName, SellerMail, sellerPhone, CouponCode) {
   return `<!DOCTYPE html>
   <html lang="en">
   <head>
@@ -867,17 +872,18 @@ function discountMail(NameTo, TokenCode) {
     </style>
   </head>
   <body>
-    <table width="60%" cellsapcing="0" cellpadding="0" style="background-color: #F0F2F5; padding: 80px; margin: 0 auto;">
+    <table width="60%" cellspacing="0" cellpadding="0" style="background-color: #F0F2F5; padding: 80px; margin: 0 auto;">
       <tr>
         <td>
-          <table width="100%" cellsapcing="0" cellpadding="0" style="background-color: #fff; font-family: Arial; padding: 20px;">
+          <table width="100%" cellspacing="0" cellpadding="0" style="background-color: #fff; font-family: Arial; padding: 20px;">
             <!-- Header -->
             <tr>
-              <td><img src="./Logo.png" alt="HooHoop Logo" style="display: block; margin: 10px auto; padding: 0; width: 300px;"></td>
+              <td><img src="http://18.217.77.229/assets/images/Logo.png" alt="HooHoop Logo" style="display: block; margin: 10px auto; padding: 0; width: 300px;"></td>
             </tr>
             <tr>
               <td>
-                <h1 style="margin: 3vh auto; width: 100%; text-align: center; font-size: 30px;">Reset your password</h1>
+                <h1 style="margin: 3vh auto 1vh auto; width: 100%; text-align: center; font-size: 30px;">Your Coupon Code</h1>
+                <h3 style="margin: 1vh auto 3vh auto; width: 100%; text-align: center; font-size: 18px;">for <span style="color: #1EA1F3;">${CouponCar}</span></h3>
               </td>
             </tr>
             <tr>
@@ -887,19 +893,20 @@ function discountMail(NameTo, TokenCode) {
             </tr>
             <tr>
               <td>
-                <p style="margin: 0px auto; width: 100%;">Here's your PRICE discount coupoun code. </p>
+                <p style="margin: 0px auto; width: 100%;">Here's your $${deal} discount coupoun code. The coupon code is valid only for 72-Hours. You can 
+                contact ${sellerName}, <br> ${SellerMail}, <br> ${sellerPhone}</p>
               </td>
             </tr>
             <tr>
               <td style="display: flex !important; justify-content: center !important; align-items: center !important;">
-                <a href="#" style="margin:0 auto"><button id="verify_btn">COUPON</button></a>
+                <a href="#" style="margin:0 auto"><button id="verify_btn">${CouponCode}</button></a>
               </td>
             </tr>
             <tr>
-              <td><p style="margin: 0 auto; width: 100%; text-align: center;">or paste this link below into your browser: </p></td>
+              <td><p style="margin: 0 auto; width: 100%; text-align: center;">Visit <a href="http://18.217.77.229/" style="margin:0 auto">HooHoop.com</a> for any further details.</p></td>
             </tr>
             <tr>
-              <td style="display: flex; justify-content: center; align-items: center;"><p style="margin: 0 auto; width: 100%; text-align: center;">http://localhost:8080/user/reset-password?token=${TokenCode}</p></td>
+              <td style="display: flex; justify-content: center; align-items: center;"><p style="margin: 0 auto; width: 100%; text-align: center;">http://18.217.77.229/</p></td>
             </tr>
             <tr>
               <td></td>
