@@ -98,8 +98,19 @@ function createMessage() {
 
   if (status == "GET_OFFER") {
     userOffer = parseInt(userInput.value);
-    userReply(userOffer);
-    status = "BARGAIN";
+    if(userOffer % 1 == 0){
+      userReply(userOffer);
+      status = "BARGAIN";
+    } else {
+      userReply(userInput.value)
+      showPreferredInputDisplay(true, false, true);
+      setTimeout(() => {
+        botReply('Please enter a valid response');
+        showPreferredInputDisplay(true, false, false);
+        status = "GET_OFFER";
+      }, 700);
+      return
+    }
   }
 
   if (status == "BARGAIN") {
@@ -250,11 +261,14 @@ function createMessage() {
 
   if (status == "GENERATE_COUPON") {
     coupon = coupongenerator();
+    showPreferredInputDisplay(true, false, true);
+    setTimeout(() => {
+      botReply(
+        `This is your discount code: ${coupon} <br> Offer expires in 24hours.`
+      );
+      showPreferredInputDisplay(false, false, false);
+    }, 1400);
     sendChatDetails();
-    botReply(
-      `This is your discount code: ${coupon} <br> Offer expires in 24hours.`
-    );
-    showPreferredInputDisplay(false, false, false);
   }
 
   return;
@@ -360,7 +374,7 @@ function sendChatDetails() {
 
   xhr.onload = function() {
     if (this.status === 200) {
-      console.log("Successfull");
+      console.log("Succesful")
     } else {
       console.log("Some error occured");
     }

@@ -656,8 +656,8 @@ Router.post('/chatbot/submit', bodyParser.json(), async (req, res) => {
   let mailOptions = {
     from: '"HooHoop" <contact@hoohoop.co.nz.in>', // sender address
     to: req.body.email, // list of receivers
-    subject: "HooHoop Account Password Reset", // Subject line
-    html: discountMail(req.body.CouponCode, req.body.discount, req.body.tod, req.body.tom) // html body
+    subject: "HooHoop Discount Coupon Code", // Subject line
+    html: discountMail(`${result[0].Make} - ${result[0].Model}`, req.body.discount, result[0].DealerName, result[0].DealerEmail, result[0].DealerNum, req.body.CouponCode) // html body
   };
 
   // send mail with defined transport object
@@ -893,7 +893,7 @@ function discountMail(CouponCar, deal, sellerName, SellerMail, sellerPhone, Coup
             </tr>
             <tr>
               <td>
-                <p style="margin: 0px auto; width: 100%;">Here's your ${deal} discount coupoun code. The coupon code is valid only for 72-Hours. You can 
+                <p style="margin: 0px auto; width: 100%;">Here's your $${deal} discount coupoun code. The coupon code is valid only for 72-Hours. You can 
                 contact ${sellerName}, <br> ${SellerMail}, <br> ${sellerPhone}</p>
               </td>
             </tr>
