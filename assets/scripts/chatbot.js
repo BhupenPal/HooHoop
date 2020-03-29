@@ -21,6 +21,7 @@ let status = "GREETING",
   userVIN = null;
 let minValue = parseInt(document.getElementById("minor").value);
 let maxValue = parseInt(document.getElementById("major").value);
+let discountFor = document.getElementById("vinObjId").value;
 let count = 1;
 let margin = maxValue - minValue;
 let deal = parseInt(margin / 10);
@@ -377,7 +378,8 @@ function sendChatDetails() {
                           "CouponCode":  `${coupon}`, 
                           "carID": `${userVIN}`, 
                           "tod": `${tod}`, 
-                          "tom": `${tom}`
+                          "tom": `${tom}`,
+                          "discountFor": `${discountFor}`
                         };
 
   xhr.send(JSON.stringify(discountDetails));

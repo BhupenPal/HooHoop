@@ -4,12 +4,12 @@ const nodemailer = require('nodemailer')
 
 let transporter = nodemailer.createTransport({
 
-host: 'smtpout.secureserver.net',
+host: 'cp-wc12.lon01.ds.network',
 port: 465,
 secure: true, // true for 465, false for other ports
 auth: {
-    user: 'contactus@edudictive.in', // generated ethereal user
-    pass: '$C6f@L9rGo'  // generated ethereal password
+    user: 'contact@hoohoop.co.nz', // generated ethereal user
+    pass: process.env.EMAILPASS  // generated ethereal password
 },
 tls:{
   rejectUnauthorized:false

@@ -15,6 +15,6 @@ const Coupons = new Schema({
     couponAmount: String,
     validFrom: String,
     validTo: String
-});
+}, {timestamps: true});
 
 module.exports = mongoose.model("Coupons", Coupons);
