@@ -626,9 +626,29 @@ Router.post('/chatbot/submit', bodyParser.json(), (req, res) => {
 
   NewCoupon.custEmail = req.body.email;
   NewCoupon.custPhone = req.body.phoneNo;
-  NewCoupon.vehicleID = req.body.carID;
   NewCoupon.couponCode = req.body.CouponCode;
   NewCoupon.couponAmount = req.body.discount;
+  NewCoupon.validFrom = req.body.tod;
+  NewCoupon.validTo = req.body.tom;
+  
+  NewCoupon.save();
+
+  let mailOptions = {
+    from: '"HooHoop" <contactus@edudictive.in>', // sender address
+    to: req.body.email, // list of receivers
+    subject: "HooHoop Account Password Reset", // Subject line
+    html: discountMail(req.body.CouponCode, req.body.discount, req.body.tod, req.body.tom) // html body
+  };
+
+  // send mail with defined transport object
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      return console.log(error);
+    }})
+
+  setTimeout(async ()=>{
+    await couponModel.deleteOne({_id : NewCoupon.id})
+  }, 86400000)
 
   res.send('Done')
 })
@@ -786,6 +806,82 @@ function resetMail(NameTo, TokenCode) {
             <tr>
               <td style="display: flex !important; justify-content: center !important; align-items: center !important;">
                 <a href="http://localhost:8080/user/reset-password?token=${TokenCode}" style="margin:0 auto"><button id="verify_btn">Reset my password</button></a>
+              </td>
+            </tr>
+            <tr>
+              <td><p style="margin: 0 auto; width: 100%; text-align: center;">or paste this link below into your browser: </p></td>
+            </tr>
+            <tr>
+              <td style="display: flex; justify-content: center; align-items: center;"><p style="margin: 0 auto; width: 100%; text-align: center;">http://localhost:8080/user/reset-password?token=${TokenCode}</p></td>
+            </tr>
+            <tr>
+              <td></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+  </html>`;
+}
+
+function discountMail(NameTo, TokenCode) {
+  return `<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      #verify_btn{
+        margin: 50px auto; 
+        width: 25%;
+        min-width: 250px; 
+        height: 50px; 
+        border-radius: 50px; 
+        border: none; 
+        text-align: center; 
+        background-color: #1EA1F3; 
+        color: white;
+        font-size: large; 
+        cursor: pointer;
+        transition: 0.2s;
+        outline: 0;
+      }
+      #verify_btn:hover{
+        background-color: white;
+        border: 2px solid #1EA1F3;
+        color: #1EA1F3;
+      }
+    </style>
+  </head>
+  <body>
+    <table width="60%" cellsapcing="0" cellpadding="0" style="background-color: #F0F2F5; padding: 80px; margin: 0 auto;">
+      <tr>
+        <td>
+          <table width="100%" cellsapcing="0" cellpadding="0" style="background-color: #fff; font-family: Arial; padding: 20px;">
+            <!-- Header -->
+            <tr>
+              <td><img src="./Logo.png" alt="HooHoop Logo" style="display: block; margin: 10px auto; padding: 0; width: 300px;"></td>
+            </tr>
+            <tr>
+              <td>
+                <h1 style="margin: 3vh auto; width: 100%; text-align: center; font-size: 30px;">Reset your password</h1>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p style="margin: 0px auto; width: 100%; font-weight: bold; font-size: 20px; margin-bottom: 10px;">Hello,</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p style="margin: 0px auto; width: 100%;">Here's your PRICE discount coupoun code. </p>
+              </td>
+            </tr>
+            <tr>
+              <td style="display: flex !important; justify-content: center !important; align-items: center !important;">
+                <a href="#" style="margin:0 auto"><button id="verify_btn">COUPON</button></a>
               </td>
             </tr>
             <tr>
