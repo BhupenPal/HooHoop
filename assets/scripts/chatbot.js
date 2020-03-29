@@ -5,10 +5,10 @@ userInput.addEventListener("input",function(){
   let value = userInput.value
 
   if(value.length !== 0){
-    document.querySelector("#send-air > i").setAttribute("fill","#f5bf2b")
+    document.querySelector("#send-air > i").style.color = "#f5bf2b";
   }
   else{
-    document.querySelector("#send-air > i").setAttribute("fill","#999999")
+    document.querySelector("#send-air > i").style.color = "#999999";
   }
 })
 chatForm.addEventListener("submit", createMessage);
