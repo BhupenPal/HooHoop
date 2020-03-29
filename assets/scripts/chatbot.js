@@ -231,7 +231,7 @@ function createMessage() {
 
   if (status == "GET_EMAIL") {
     var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    userEmail = userInput.value;
+    userEmail = userInput.value.replace(/\s/g,'');
     if (userEmail.match(mailformat)) {
       userReply(userEmail);
       showPreferredInputDisplay(false, true, true);
