@@ -2674,7 +2674,7 @@ td button:hover{
   margin: 0 !important;
 }
 
-.Paneopt{
+.Paneopt,.Paneopt-2{
   width: 250px;
   height: 90%;
   margin: 0 20px;
@@ -2685,11 +2685,11 @@ td button:hover{
   transition: 0.2s;
 }
 
-.Paneopt:hover{
+.Paneopt:hover,.Paneopt-2:hover{
   background-color: #f5bf2b;
 }
 
-.selected_paneopt{
+.selected_paneopt,.selected_paneopt-2{
   background-color: #f5bf2b;
 }
 
@@ -3757,6 +3757,32 @@ td button:hover{
   }
 
   /* footpage response */
+
+  /* My-Listing response */
+
+  .ulwrap{
+    width: 100vw;
+  }
+
+  .User_listings_wrapper{
+    width: 90vw;
+  }
+
+  .Userlisting_Head{
+    font-size: 30px;
+  }
+
+  .listing_card{
+    transform: scale(0.9);
+    margin: 0px 10px;
+  }
+
+  .del_lstng{
+    transform: scale(0.5);
+  }
+
+
+  /* My-Listing response */
 
   /* dashboard-response */
     .dash_wrapper{

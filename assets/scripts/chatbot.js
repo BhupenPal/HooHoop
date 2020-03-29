@@ -60,6 +60,7 @@ function createMessage() {
 
   if (event) {
     event.preventDefault();
+    document.querySelector("#send-air > i").style.color = "#999999";
   } else {
     document.getElementById('play_aud').click();
   }
@@ -274,6 +275,9 @@ function resizer(){
 
   chatter.style.height = `${window.innerHeight - 85}px`
   toAppend.style.height = `${parseInt(chatter.style.height) - 85}px`;
+  document.getElementById("toAppend").scrollTop = document.getElementById(
+    "toAppend"
+  ).scrollHeight;
 }
 
 if(window.matchMedia("(max-width: 480px)").matches){

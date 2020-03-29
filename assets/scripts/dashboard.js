@@ -34,3 +34,20 @@ for(var s=0; s<clientmopt.length;s++){
     this.click()
   })
 }
+
+let clienttable2 = document.getElementsByClassName("client_table-2")
+let clientmopt2 = document.getElementsByClassName("Paneopt-2")
+
+for(var s=0; s<clientmopt2.length;s++){
+  clientmopt2[s].addEventListener("click", function(){
+    for(let n=0;n<clientmopt2.length;n++){
+      clienttable2[n].classList.add("vanish")
+      if(clientmopt2[n].classList.contains("selected_paneopt-2")){
+        clientmopt2[n].classList.remove("selected_paneopt-2")
+        clienttable2[n].classList.remove("vanish")
+      }
+    }
+    this.classList.add("selected_paneopt-2")
+    this.click()
+  })
+}
