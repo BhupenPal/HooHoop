@@ -22,6 +22,7 @@ const testDrive = require("../models/testDrive");
 const checkAvail = require("../models/availabilityModel");
 const shipModel = require("../models/shippingModel");
 const couponModel = require("../models/couponModel");
+const sellqueModel = require("../models/sellqueryModel");
 
 //Passport Config
 const passport = require("passport");
@@ -623,6 +624,7 @@ Router.post("/user/reset-password/reset", urlencoded, async (req, res) => {
 
 Router.post('/chatbot/submit', bodyParser.json(), (req, res) => {
   let NewCoupon = new couponModel;
+  let NewSellQue = new sellqueModel;
 
   NewCoupon.custEmail = req.body.email;
   NewCoupon.custPhone = req.body.phoneNo;
@@ -630,8 +632,15 @@ Router.post('/chatbot/submit', bodyParser.json(), (req, res) => {
   NewCoupon.couponAmount = req.body.discount;
   NewCoupon.validFrom = req.body.tod;
   NewCoupon.validTo = req.body.tom;
-  
   NewCoupon.save();
+    
+  NewSellQue.custEmail = req.body.email;
+  NewSellQue.custPhone = req.body.phoneNo;
+  NewSellQue.custVIN = req.body.carID;
+  NewSellQue.custDiscount = req.body.discount;
+  NewSellQue.custDiscDate = req.body.tod;
+  NewSellQue.status = "Active";
+  NewSellQue.save();
 
   let mailOptions = {
     from: '"HooHoop" <contactus@edudictive.in>', // sender address
@@ -645,6 +654,8 @@ Router.post('/chatbot/submit', bodyParser.json(), (req, res) => {
     if (error) {
       return console.log(error);
     }})
+
+
 
   setTimeout(async ()=>{
     await couponModel.deleteOne({_id : NewCoupon.id})

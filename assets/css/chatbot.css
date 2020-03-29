@@ -1,5 +1,4 @@
 .chatbot_encloser{
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -314,8 +313,9 @@ div#wave .dot:nth-child(3) {
   .chatbox_opened{
     border: 0 !important;
     position: fixed;
+    top: 0;
     width: 100% !important;
-    min-height: -webkit-fill-available;
+    height: -webkit-fill-available !important;
   }
 
   #chatter{

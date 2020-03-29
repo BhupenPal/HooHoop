@@ -13,8 +13,8 @@ const Coupons = new Schema({
     vehicleName: String,
     couponCode: String,
     couponAmount: String,
-    carAuthorName: String,
-    carAuthorPhone: String
+    validFrom: String,
+    validTo: String
 });
 
 module.exports = mongoose.model("Coupons", Coupons);
