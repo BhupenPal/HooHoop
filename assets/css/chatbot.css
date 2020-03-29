@@ -120,7 +120,7 @@
 }
 
 .bg_foot{
-  height: 30px;
+  height: 60px;
   background-color: #e5e5e5;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -179,12 +179,14 @@
   display: none;
   height: 100%;
   width: 100%;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 #click-input{
   display: flex;
   width: 100%;
+  margin-top: 2.5vh;
+
 }
 
 #input-manager{
@@ -286,7 +288,7 @@ div#wave .dot:nth-child(3) {
 
 @keyframes shake {
   10%, 90% {
-    transform: translate3d(-1px, 0, 0);
+    transform: translate3dtext-input(-1px, 0, 0);
   }
   
   20%, 80% {

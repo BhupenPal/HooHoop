@@ -5,10 +5,10 @@ userInput.addEventListener("input",function(){
   let value = userInput.value
 
   if(value.length !== 0){
-    document.getElementById("Capa_1").setAttribute("fill","#f5bf2b")
+    document.querySelector("#send-air > i").setAttribute("fill","#f5bf2b")
   }
   else{
-    document.getElementById("Capa_1").setAttribute("fill","#999999")
+    document.querySelector("#send-air > i").setAttribute("fill","#999999")
   }
 })
 chatForm.addEventListener("submit", createMessage);
@@ -267,14 +267,6 @@ function coupongenerator() {
   return coupon;
 }
 
-function airChange() {
-  if (userInput.value) {
-    document.getElementById("send-air").style.backgroundColor = "yellow";
-  } else {
-    document.getElementById("send-air").style.backgroundColor = "voilet";
-  }
-}
-
 function showPreferredInputDisplay(input, buttons, wave) {
   document.getElementById("text-input").style.display = "none";
   document.getElementById("click-input").style.display = "none";
@@ -283,10 +275,18 @@ function showPreferredInputDisplay(input, buttons, wave) {
   if (input == true) {
     document.getElementById("text-input").style.display = "flex";
     userInput.focus();
+    if(window.innerWidth < "480"){
+      document.getElementById("toAppend").style.minHeight = "60vh"
+      document.getElementById("toAppend").style.maxHeight = "60vh"
+    }
   }
 
   if (buttons == true) {
     document.getElementById("click-input").style.display = "flex";
+    if(window.innerWidth < "480"){
+      document.getElementById("toAppend").removeAttribute("style")
+      document.getElementById("toAppend").removeAttribute("style")
+    }
   }
 
   if (wave == true) {
