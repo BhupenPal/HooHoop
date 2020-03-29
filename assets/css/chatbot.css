@@ -11,8 +11,7 @@
 
 .chatbox_opened{
   box-shadow: 0 0 5px 5px #dfdfdf;
-  min-height: 550px;
-  max-height: 550px;
+  height: 550px;
   width: 18vw !important;
   min-width: 300px;
   border: 1px solid #e2e2e2;
@@ -45,9 +44,8 @@
   background-color: #f2f2f2;
   overflow-x: hidden;
   position: relative;
-  height: 100%;
-  min-height: 480px;
   overflow: hidden;
+  height: 465px;
 }
 
 .bg_head{
@@ -119,7 +117,7 @@
 }
 
 .bg_foot{
-  height: 60px;
+  height: 35px;
   background-color: #e5e5e5;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -135,10 +133,8 @@
 
 #toAppend {
   width: 100%;
-  height: 82.5% !important;
-  min-height: 415px;
-  max-height: 415px;
   padding: 0 10px;
+  height: 380px;
   box-sizing: border-box;
   overflow-y: scroll;
   font-family: monospace;
@@ -170,28 +166,23 @@
   align-items: center;
 }
 
-#chat-form{
-  height: 100px;
-}
-
 #text-input{
   display: none;
   height: 100%;
   width: 100%;
-  margin-top: 30px;
+  align-items: flex-end;
 }
 
 #click-input{
   display: flex;
   width: 100%;
-  margin-top: 2.5vh;
-
 }
 
 #input-manager{
-  height: 100%;
   display: flex;
+  height: 50px;
   justify-content: center;
+  align-items: flex-end;
 }
 
 #accept,#reject{
@@ -248,12 +239,11 @@
 
 /* Jumping Buttons */
 div#wave {
+  margin: 10px 0;
   visibility: hidden;
   position: relative;
   text-align: center;
   width: 100px;
-  margin-top: -15px;
-  margin-bottom: 14px;
   margin-left: auto;
   margin-right: auto;
 }

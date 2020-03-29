@@ -266,8 +266,9 @@
       <%-include('./Components/chatbot.ejs') %>
     </div>
     <%-include('./Components/Footer.ejs') %>
-    <input type="text" id="minor" style="display: none;" value="<%= record.minPrice %>">
-    <input type="text" id="major" style="display: none;" value="<%= record.Price %>">
+    <input type="text" id="minor" class="vanish" value="<%= record.minPrice %>">
+    <input type="text" id="major" class="vanish" value="<%= record.Price %>">
+    <input type="text" id="vinObjId" class="vanish" value="<%= record.id %>">
     <script src="/assets/scripts/view360-interior/jquery.js"></script>
     <script src="/assets/scripts/view360-interior/gyro.js"></script>
     <script src="/assets/scripts/view360-interior/pano.js"></script>

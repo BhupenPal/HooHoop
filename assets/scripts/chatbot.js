@@ -5,12 +5,13 @@ userInput.addEventListener("input",function(){
   let value = userInput.value
 
   if(value.length !== 0){
-    document.querySelector("#send-air > i").setAttribute("fill","#f5bf2b")
+    document.querySelector("#send-air > i").style.color = "#f5bf2b";
   }
   else{
-    document.querySelector("#send-air > i").setAttribute("fill","#999999")
+    document.querySelector("#send-air > i").style.color = "#999999";
   }
 })
+
 chatForm.addEventListener("submit", createMessage);
 
 let status = "GREETING",
@@ -267,17 +268,19 @@ function coupongenerator() {
   return coupon;
 }
 
-if(window.matchMedia("(max-width: 480px)")){
+function resizer(){
   let chatter = document.getElementById("chatter")
   let toAppend = document.getElementById("toAppend")
 
-  chatter.style.minHeight = `${window.innerHeight - 110}px`
-  toAppend.style.minHeight = `${chatter.style.minHeight - 150}px`
+  chatter.style.height = `${window.innerHeight - 85}px`
+  toAppend.style.height = `${parseInt(chatter.style.height) - 85}px`;
 }
 
-window.addEventListener('resize', function(){
-  
-})
+if(window.matchMedia("(max-width: 480px)").matches){
+  resizer();
+}
+
+window.addEventListener('resize', resizer)
 
 function showPreferredInputDisplay(input, buttons, wave) {
   document.getElementById("text-input").style.display = "none";
