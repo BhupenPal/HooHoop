@@ -272,7 +272,7 @@ if(window.matchMedia("(max-width: 480px)")){
   let toAppend = document.getElementById("toAppend")
 
   chatter.style.minHeight = `${window.innerHeight - 110}px`
-  toAppend.style.minHeight = `${chatter.style.minHeight - 150}px !important`
+  toAppend.style.minHeight = `${chatter.style.minHeight - 150}px`
 }
 
 window.addEventListener('resize', function(){
