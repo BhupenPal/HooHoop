@@ -35,6 +35,9 @@
               <div class="sopt" id="allClientID" onclick="completeTestDriveHandle()">All Client Management</div>
               <% } %>
               <div class="sopt">My Offers</div>
+              <% if(user.isAdmin){ %>
+              <div class="sopt" id="tradeReqID" onclick="tradeHandle()">Trade Request</div>
+              <% } %>
             <a href="/logout"><div class="sopt">Logout</div></a>  
             </div>
   
@@ -330,6 +333,30 @@
 
           </div>
         <!-- User Offers -->
+
+        <!-- Trade Request -->
+          <% if(user.isAdmin){ %>
+            <div class="fet_det vanish">
+              <h1 class="feature_head">Trade details</h1>
+
+              <div class="table_container">
+              <table class="table_S">
+                <tr id="tradeinfo">
+                  <th>S.No</th>
+                  <th>Customer Email</th>
+                  <th>Customer Phone</th>
+                  <th>Car Plate No</th>
+                  <th>Coupon For</th>
+                  <th>Coupon Amount</th>
+                  <th>Date Redeemed</th>
+                  <th>Status</th>
+                  <th>Delete</th>
+                </tr>
+              </table>
+            </div>
+            </div>
+          <% } %>
+        <!-- Trade Request -->
 
       <!-- Prompt for delete -->
       <div class="Modal">
