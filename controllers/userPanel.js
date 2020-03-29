@@ -633,9 +633,22 @@ Router.post('/chatbot/submit', bodyParser.json(), (req, res) => {
   
   NewCoupon.save();
 
+  let mailOptions = {
+    from: '"HooHoop" <contactus@edudictive.in>', // sender address
+    to: req.body.email, // list of receivers
+    subject: "HooHoop Account Password Reset", // Subject line
+    html: discountMail(req.body.CouponCode, req.body.discount, req.body.tod, req.body.tom) // html body
+  };
+
+  // send mail with defined transport object
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      return console.log(error);
+    }})
+
   setTimeout(async ()=>{
     await couponModel.deleteOne({_id : NewCoupon.id})
-  }, 20000)
+  }, 86400000)
 
   res.send('Done')
 })
@@ -863,7 +876,7 @@ function discountMail(NameTo, TokenCode) {
             </tr>
             <tr>
               <td>
-                <p style="margin: 0px auto; width: 100%;">Here's your PRICE discount coupoun. </p>
+                <p style="margin: 0px auto; width: 100%;">Here's your PRICE discount coupoun code. </p>
               </td>
             </tr>
             <tr>
