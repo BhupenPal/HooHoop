@@ -267,6 +267,18 @@ function coupongenerator() {
   return coupon;
 }
 
+if(window.matchMedia("(max-width: 480px)")){
+  let chatter = document.getElementById("chatter")
+  let toAppend = document.getElementById("toAppend")
+
+  chatter.style.minHeight = `${window.innerHeight - 110}px`
+  toAppend.style.minHeight = `${chatter.style.minHeight - 150}px !important`
+}
+
+window.addEventListener('resize', function(){
+  
+})
+
 function showPreferredInputDisplay(input, buttons, wave) {
   document.getElementById("text-input").style.display = "none";
   document.getElementById("click-input").style.display = "none";
@@ -275,18 +287,10 @@ function showPreferredInputDisplay(input, buttons, wave) {
   if (input == true) {
     document.getElementById("text-input").style.display = "flex";
     userInput.focus();
-    if(window.innerWidth < "480"){
-      document.getElementById("toAppend").style.minHeight = "60vh"
-      document.getElementById("toAppend").style.maxHeight = "60vh"
-    }
   }
 
   if (buttons == true) {
     document.getElementById("click-input").style.display = "flex";
-    if(window.innerWidth < "480"){
-      document.getElementById("toAppend").removeAttribute("style")
-      document.getElementById("toAppend").removeAttribute("style")
-    }
   }
 
   if (wave == true) {
