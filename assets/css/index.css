@@ -3207,8 +3207,9 @@ td button:hover{
     color: white;
     display: flex;
     position: relative;
-    justify-content: space-between;
+    justify-content: space-between !important;
     transition: 0.3s;
+    max-width: 1000px;
   }
 
   .flash_msg_warning{
@@ -3217,8 +3218,6 @@ td button:hover{
 
   .flash_msg_success{
     background-color: green;
-    display: flex;
-    justify-content: center;
   }
 
   .flash_msg_danger{
@@ -3230,7 +3229,7 @@ td button:hover{
     background-color: transparent;
     color: white;
     position: absolute;
-    left: 90%;
+    right: 20px;
     top: 10%;
     font-size: 30px;
     cursor: pointer;
