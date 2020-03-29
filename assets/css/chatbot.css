@@ -7,8 +7,6 @@
   position: fixed;
   bottom: 10px;
   right: 20px;
-  max-height: 550px;
-  min-height: 550px;
 }
 
 .chatbox_opened{
@@ -140,7 +138,7 @@
   height: 82.5% !important;
   min-height: 415px;
   max-height: 415px;
-  padding: 10px;
+  padding: 0 10px;
   box-sizing: border-box;
   overflow-y: scroll;
   font-family: monospace;
@@ -173,7 +171,7 @@
 }
 
 #chat-form{
-  height: min-content;
+  height: 100px;
 }
 
 #text-input{
@@ -309,8 +307,6 @@ div#wave .dot:nth-child(3) {
   .chatbot_encloser{
     right: 0 !important;
     bottom: 0 !important;
-    min-height: 100vh;
-    max-height: 100vh;
   }
 
   .chatbox_opened{
@@ -319,15 +315,5 @@ div#wave .dot:nth-child(3) {
     top: 0;
     width: 100% !important;
     min-height: -webkit-fill-available;
-  }
-
-  #chatter{
-    min-height: 87vh;
-    max-height: 87vh;
-  }
-
-  #toAppend{
-    min-height: 75vh;
-    max-height: 75vh;
   }
 }
