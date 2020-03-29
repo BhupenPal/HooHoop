@@ -538,7 +538,7 @@ input[type="date"]::-webkit-inner-spin-button {
 .cd_headline i{
   font-size: 18px;
   margin: 0 10px;
-  color: #ffbb00;
+  color: #f5bf2b;
 }
 
 .cd_list {
@@ -3268,6 +3268,20 @@ td button:hover{
     height: 120vw;
   }
 
+  .cd_head{
+    padding-left: 0;
+  }
+
+  .cd_btn button:hover{
+    color: inherit;
+    box-shadow: inherit;
+  }
+
+  .cd_btn button:active{
+    color: #f5bf2b;
+    box-shadow: 0 0 2px 2px #f5bf2b;
+  }
+
   .buy-car {
     height: 100vw;
     width: 80vw;
@@ -3528,6 +3542,10 @@ td button:hover{
     border-radius: 10vw;
     top: 35vw;
     font-size: 8vw;
+  }
+
+  .tooltiptext{
+    display: none;
   }
 
   #INTSELECT {

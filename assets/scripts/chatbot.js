@@ -168,8 +168,8 @@ function createMessage() {
             },700)
           } else {
             let NoDeal = [
-                `$${deal} was my last offer, give me yours and I’ll see with my manager.`,
-                `We couldn’t reach an agreement today, but don’t worry, my Manager will get back to you ASAP.`
+                `$${deal} was my last offer, give me yours and I’ll see with my manager. Can I please get your email?`,
+                `We couldn’t reach an agreement today, but don’t worry, my Manager will get back to you ASAP. Can I please know your email?`
               ];
             botReply(NoDeal[Math.floor(Math.random() * NoDeal.length)]);
             status = "GET_EMAIL"
