@@ -258,7 +258,6 @@ Router.post("/edit-car/:id", ensureAuthenticated, urlencoded, async (req, res) =
     } catch (e) {}
 });
 
-//Dashboard Route
 Router.get("/dashboard", ensureAuthenticated, (req, res) => {
   res.render("dashboard");
 });
@@ -404,7 +403,7 @@ Router.post('/dashboard/user/delete', urlencoded, async (req, res) => {
 })
 
 Router.get('/dashboard/testdrives', async (req, res) => {
-  let TestDrive = await testDrive.find({carAuthor: `${req.user.firstName} ${req.user.lastName}`})
+  let TestDrive = await testDrive.find({ carAuthor: req.user._id })
 
   if(req.xhr){
     res.json({list: TestDrive})
@@ -414,7 +413,7 @@ Router.get('/dashboard/testdrives', async (req, res) => {
 })
 
 Router.get('/dashboard/testdrives-all', async (req, res) => {
-  let TestDrive = await testDrive.find({carAuthor: {$ne: `${req.user.firstName} ${req.user.lastName}`}})
+  let TestDrive = await testDrive.find({carAuthor: {$ne: req.user._id }})
   
   if(req.xhr){
     res.json({list: TestDrive})
@@ -424,7 +423,7 @@ Router.get('/dashboard/testdrives-all', async (req, res) => {
 })
 
 Router.get('/dashboard/availcheck', async (req, res) => {
-  let CheckAvail = await checkAvail.find({carAuthor: `${req.user.firstName} ${req.user.lastName}`});
+  let CheckAvail = await checkAvail.find({carAuthor: req.user._id });
   
   if(req.xhr){
     res.json({list: CheckAvail})
@@ -434,7 +433,7 @@ Router.get('/dashboard/availcheck', async (req, res) => {
 })
 
 Router.get('/dashboard/availcheck-all', async (req, res) => {
-  let CheckAvail = await checkAvail.find({carAuthor: {$ne: `${req.user.firstName} ${req.user.lastName}`}});
+  let CheckAvail = await checkAvail.find({carAuthor: {$ne: req.user._id }});
   
   if(req.xhr){
     res.json({list: CheckAvail})
@@ -444,7 +443,7 @@ Router.get('/dashboard/availcheck-all', async (req, res) => {
 })
 
 Router.get('/dashboard/shipenq', async (req, res) => {
-  let ShipList = await shipModel.find({carAuthor: `${req.user.firstName} ${req.user.lastName}`});
+  let ShipList = await shipModel.find({carAuthor: req.user._id });
   
   if(req.xhr){
     res.json({list: ShipList})
@@ -454,13 +453,14 @@ Router.get('/dashboard/shipenq', async (req, res) => {
 })
 
 Router.get('/dashboard/shipenq-all', async (req, res) => {
-  let ShipList = await shipModel.find({carAuthor: {$ne: `${req.user.firstName} ${req.user.lastName}`}});
+  let ShipList = await shipModel.find({carAuthor: {$ne: req.user._id }});
   
   if(req.xhr){
     res.json({list: ShipList})
   } else {
     res.send("Link not accessible");
   }
+
 })
 
 Router.post('/dashboard/testdrive/delete', urlencoded, async (req, res) => {
@@ -503,12 +503,23 @@ Router.post('/dashboard/shipment/delete', urlencoded, async (req, res) => {
 Router.post('/dashboard/shipment/update', urlencoded, async (req, res) => {
   const Test = await shipModel.find({ _id: req.body.adSOLD})
   if(Test[0].status){
-    await checkAvail.updateOne({ _id: req.body.adSOLD}, {$set: { status: false}}, () => {})
+    await shipModel.updateOne({ _id: req.body.adSOLD}, {$set: { status: false}}, () => {})
   } else {
-    await checkAvail.updateOne({ _id: req.body.adSOLD}, {$set: { status: true }}, () => {})
+    await shipModel.updateOne({ _id: req.body.adSOLD}, {$set: { status: true }}, () => {})
   }
-
   res.redirect(req.header('Referer'));
+})
+
+Router.get('/dashboard/offers', async(req, res) => {
+  if(req.xhr){
+    const offers = await couponModel.find({ownerID: req.user._id});
+    offers.forEach( (index) => {
+      console.log(index)
+    })
+    res.json({list: offers})
+  } else {
+    res.send("Link not accessible");
+  }
 })
 
 /* FORGOT PASSWORD */
@@ -642,16 +653,19 @@ Router.post('/chatbot/submit', bodyParser.json(), async (req, res) => {
   NewCoupon.couponAmount = req.body.discount;
   NewCoupon.validFrom = req.body.tod;
   NewCoupon.validTo = req.body.tom;
+  NewCoupon.ownerID = result[0].authorID;
   NewCoupon.save();
-    
-  NewSellQue.custEmail = req.body.email;
-  NewSellQue.custPhone = req.body.phoneNo;
-  NewSellQue.custVIN = req.body.carID;
-  NewSellQue.discountFor = `${result[0].Make} - ${result[0].Model}`;
-  NewSellQue.custDiscount = req.body.discount;
-  NewSellQue.custDiscDate = req.body.tod;
-  NewSellQue.status = "Active";
-  NewSellQue.save();
+
+  if(req.body.carID){
+    NewSellQue.custEmail = req.body.email;
+    NewSellQue.custPhone = req.body.phoneNo;
+    NewSellQue.custVIN = req.body.carID;
+    NewSellQue.discountFor = `${result[0].Make} - ${result[0].Model}`;
+    NewSellQue.custDiscount = req.body.discount;
+    NewSellQue.custDiscDate = req.body.tod;
+    NewSellQue.status = "Active";
+    NewSellQue.save();
+  }
 
   let mailOptions = {
     from: '"HooHoop" <contact@hoohoop.co.nz.in>', // sender address

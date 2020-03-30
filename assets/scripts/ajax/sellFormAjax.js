@@ -39,6 +39,21 @@ function uploadData(e){
     xhr.send(new FormData(uploadForm))
 }
 
+monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+  ];  
+
 const fillDates = () => {
     var currentDate = new Date();
     var currentMonth = currentDate.getMonth();

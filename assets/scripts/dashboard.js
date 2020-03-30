@@ -1,8 +1,7 @@
 let dashoption = document.getElementsByClassName("fet_det")
 let sopt = document.getElementsByClassName("sopt")
 
-console.log(dashoption.length)
-console.log(sopt.length)
+const dashParam = window.location.href.split("/")[4];
 
 for(let m=0; m<sopt.length - 1; m++){
   sopt[m].addEventListener("click",function(){

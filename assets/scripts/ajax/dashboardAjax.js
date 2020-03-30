@@ -108,7 +108,6 @@ function completeUserHandle(){
 completeUsers = list => {
     json = JSON.parse(list);
     let output = '';
-  console.log(json)
     for(inc = 0; inc < json.list.length; inc++){
       if(json.list[inc].active){
         status = "Active"
@@ -393,4 +392,47 @@ completeShipmentEnquiry = list => {
     </tr>`
   }
   document.getElementById("allShippingEnq").insertAdjacentHTML("afterend", output);
+}
+
+function myCouponHandle(){
+  document.getElementById('CoupOffers').onclick = null;
+  document.getElementById("loader").style.display = "flex";
+  const xhr = new XMLHttpRequest();
+  xhr.open("GET", `/dashboard/offers`, true);
+  xhr.getResponseHeader("content-type", "application/json");
+  xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+  xhr.onload = function() {
+    if (this.status === 200) {
+      myCoupon(this.response)
+      document.getElementById("loader").style.display = "none";
+    } else {
+      console.log("Some error occured");
+      document.getElementById("loader").style.display = "none";
+    }
+  };
+  xhr.send();
+}
+
+myCoupon = list => {
+  json = JSON.parse(list);
+  let output = '';
+
+  for(inc = 0; inc < json.list.length; inc++){
+
+    output = `\
+    <div class="offwall">\
+    <div class="offer">\
+      <div class="offslipbod"></div>\
+        <div class="offslipinfo">\
+          <div class="carinfotme"><span>${json.list[inc].vehicleName}</span><span>${json.list[inc].validFrom}</span></div>\
+          <div class="carinfotme"><span>Valid Thru</span><span>${json.list[inc].validTo}</span></div>\
+          <div class="carinfotme"><span>Validation Time</span><span>72 Hrs</span></div>\
+          <div class="carinfotme"><span>Car Pricing</span><span>$20000</span></div>\
+          <div class="carinfotme"><span>Coupon Discount</span><span>${json.list[inc].couponAmount}</span></div>\
+          <h1><span>Offer Code</span><span>${json.list[inc].couponCode}</span></h1>\
+        </div>\
+    </div>
+    `
+  }
+  document.getElementById("my_offer").insertAdjacentHTML("afterend", output);
 }

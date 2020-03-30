@@ -54,7 +54,7 @@ Router.post("/buy-car/:vID/book-test-drive", urlencoded, async (req, res) => {
   bookTestDrive.lastName = req.body.lt_name;
   bookTestDrive.email = req.body.bt_email;
   bookTestDrive.phoneNum = req.body.pt_phone;
-  bookTestDrive.carAuthor = result[0].DealerName;
+  bookTestDrive.carAuthor = result[0].authorID;
   bookTestDrive.status = false;
   bookTestDrive.car = `${result[0].Make} - ${result[0].Model}`;
   if(req.user){
@@ -86,7 +86,7 @@ Router.post("/buy-car/:vID/check-availbility", urlencoded, async (req, res) => {
     checkAvailabilityModel.email = req.body.ck_email;
     checkAvailabilityModel.phoneNum = req.body.ck_phone;
     checkAvailabilityModel.car = `${result[0].Make} - ${result[0].Model}`;
-    checkAvailabilityModel.carAuthor = result[0].DealerName;
+    checkAvailabilityModel.carAuthor = result[0].authorID;
     checkAvailabilityModel.status = false;
     if(req.user){
       checkAvailabilityModel.customerID  = req.user._id;
@@ -124,7 +124,7 @@ Router.post("/buy-car/:vID/shipping-quote", urlencoded, async (req, res) => {
     shippingQuote.transportDate = req.body.wh_date;
     shippingQuote.note = req.body.wh_question;
     shippingQuote.car = `${result[0].Make} - ${result[0].Model}`
-    shippingQuote.carAuthor = result[0].DealerName;
+    shippingQuote.carAuthor = result[0].authorID;
     shippingQuote.status = false;
     if(req.user){
       shippingQuote.customerID  = req.user._id;

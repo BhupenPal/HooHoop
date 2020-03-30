@@ -23,8 +23,8 @@
           <div class="sidebar">
 
             <div class="sbar_options">
-              <div class="sopt selected_sopt">Profile</div>
-              <div class="sopt">Account Management</div>
+              <div class="sopt selected_sopt" id="profID">Profile</div>
+              <div class="sopt" id="accID">Account Management</div>
               <div class="sopt" id="myListID" onclick="myListHandle()">My Listing</div>
               <% if(user.isAdmin){ %>
               <div class="sopt" id="clistID" onclick="completeListHandle()">All Listings</div>
@@ -34,7 +34,7 @@
               <% if(user.isAdmin){ %>
               <div class="sopt" id="allClientID" onclick="completeTestDriveHandle()">All Client Management</div>
               <% } %>
-              <div class="sopt">My Offers</div>
+              <div class="sopt" id="CoupOffers" onclick="myCouponHandle()">My Offers</div>
               <% if(user.isAdmin){ %>
               <div class="sopt" id="tradeReqID" onclick="tradeHandle()">Trade Request</div>
               <% } %>
@@ -303,7 +303,7 @@
           
           <!-- User Offers -->
           <div class="fet_det vanish">
-            <h1 class="feature_head">My Offers</h1>
+            <h1 class="feature_head" id="my_offer">My Offers</h1>
 
             <div class="offwall">
               <div class="offer">

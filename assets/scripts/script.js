@@ -151,19 +151,3 @@ function showform(){
   document.getElementById("SELL-FORM-SUB").classList.remove("vanish")
 }
 
-monthNames = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December"
-];
-
-

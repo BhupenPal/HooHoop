@@ -3229,7 +3229,7 @@ td button:hover{
     background-color: transparent;
     color: white;
     position: absolute;
-    right: 20px;
+    right: 10px;
     top: 10%;
     font-size: 30px;
     cursor: pointer;
