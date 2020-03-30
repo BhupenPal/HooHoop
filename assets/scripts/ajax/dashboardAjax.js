@@ -128,7 +128,7 @@ completeUsers = list => {
 }
 
 function testDriveHandle(){
-  document.getElementById("loader").style.display = "none";
+  document.getElementById("loader").style.display = "flex";
   const xhr = new XMLHttpRequest();
   xhr.open("GET", `/dashboard/client-management/testdrives`, true);
   xhr.getResponseHeader("content-type", "application/json");
@@ -433,4 +433,53 @@ myCoupon = list => {
     `
   }
   document.getElementById("my_offer").insertAdjacentHTML("afterend", output);
+}
+
+function tradeHandle(){
+  document.getElementById("loader").style.display = "flex";
+  const xhr = new XMLHttpRequest();
+  xhr.open("GET", `/dashboard/trade-requests/list`, true);
+  xhr.getResponseHeader("content-type", "application/json");
+  xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+  xhr.onload = function() {
+    if (this.status === 200) {
+      trade(this.response)
+      document.getElementById("loader").style.display = "none";
+    } else {
+      console.log("Some error occured");
+      document.getElementById("loader").style.display = "none";
+    }
+  };
+  xhr.send();
+}
+
+trade = list => {
+  json = JSON.parse(list);
+  let output = '';
+
+  for(inc = 0; inc < json.list.length; inc++){
+
+    if(json.list[inc].status == "Done"){
+      status = `<td class="sold"><button data-host="/dashboard/shipment/update" value="${json.list[inc]._id}" onclick="pending_done(this)">Done</button></td>`;
+    } else {
+      status = `<td class="pending"><button data-host="/dashboard/shipment/update" value="${json.list[inc]._id}" onclick="sell_listed(this)">Pending</button></td>`;
+    }
+
+    output = `\
+      <tr>\
+      <td>${inc + 1}</td>\
+      <td>${json.list[inc].custEmail}</td>\
+      <td>${json.list[inc].custPhone}</td>\
+      <td>${json.list[inc].custVIN}</td>\
+      <td>${json.list[inc].discountFor}</td>\
+      <td>${json.list[inc].couponCode}</td>\
+      <td>$${json.list[inc].custDiscount}</td>\
+      <td>${json.list[inc].custDiscDate}</td>\
+      ${status}\
+      <td class="delete"><button data-host="/dashboard/shipment/delete" value="${json.list[inc]._id}" onclick="del_lstng(this)">Delete</button></td>\
+      </tr>
+      `
+  }
+
+  document.getElementById("tradeinfo").insertAdjacentHTML("afterend", output);
 }

@@ -706,6 +706,15 @@ Router.post('/chatbot/submit', bodyParser.json(), async (req, res) => {
   res.send('Done')
 })
 
+Router.get("/dashboard/trade-requests/list", async (req, res) => {
+  if(req.xhr){
+    let trades = await sellqueModel.find({})
+    res.json({list: trades})
+  } else {
+    res.send('Link not accessible');
+  }
+})
+
 //Contact Us Routes
 Router.get("/contact-us", (req, res) => {
   res.render("contact_us");
