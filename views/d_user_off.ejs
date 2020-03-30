@@ -4,11 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>HooHoop - Sell Your Car</title>
     <link rel="stylesheet" href="/assets/css/index.css" />
     <link rel="stylesheet" href="/assets/css/all.min.css" />
     <link rel="stylesheet" href="/assets/css/fonts.css" />
-    <script src="../assets/scripts/script.js"></script>
+    <title>HooHoop</title>
     <link
       rel="icon"
       href="/assets/images/favicon.ico"
@@ -16,23 +15,20 @@
       sizes="16*16"
     />
   </head>
-  <body>
+  <body onload="myCouponHandle()">
     <%-include('./Components/Header.ejs') %>
+      <div class="dash_wrapper">
 
-    <div class="sellcar_wrap">
-      <div class="ad_enclosure">
-        <div class="pakages">Choose Your Package</div>
-        <div class="h-logo"><img src="/assets/images/Logo.png" alt="" /></div>
-        <div class="pakage_info">
-          <h3>Basic</h3>
-          <div class="ad_price">
-            <h1>$59</h1>
-            <h2>.99</h2>
-          </div>
-          <a href="./car-submit"><button>Create Ad Now</button></a>
-        </div>
+        <div class="dashfeature">
+          <%-include('./Components/sidebar.ejs') %>
+    <!-- User Offers -->
+    <div class="fet_det">
+        <h1 class="feature_head" id="my_offer">My Offers</h1>
+
       </div>
-    </div>
+        </div>
+        </div>
+    <!-- User Offers -->
     <%-include('./Components/Footer.ejs') %>
-  </body>
+</body>
 </html>

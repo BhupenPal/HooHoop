@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="/assets/css/index.css" />
+    <link rel="stylesheet" href="/assets/css/all.min.css" />
+    <link rel="stylesheet" href="/assets/css/fonts.css" />
+    <title>HooHoop</title>
+    <link
+      rel="icon"
+      href="/assets/images/favicon.ico"
+      type="image/ico"
+      sizes="16*16"
+    />
+  </head>
+  <body onload="completeListHandle()">
+    <%-include('./Components/Header.ejs') %>
+      <div class="dash_wrapper">
+
+        <div class="dashfeature">
+          <%-include('./Components/sidebar.ejs') %>
+    <!-- All-Listings -->
+    <div class="fet_det">
+        <h1 class="feature_head">All Listings</h1>
+
+        <div class="table_container">
+          <table class="table_S">
+            <tr id="completeList">
+              <th>S.No</th>
+              <th>Thumbnail</th>
+              <th>Make</th>
+              <th>Model</th>
+              <th>Status</th>
+              <th>Modify</th>
+              <th>Delete</th>
+            </tr>
+
+          </table>
+
+        </div>
+      </div>
+    <!-- All-Listings -->
+        </div>
+        </div>
+        <%-include('./Components/Footer.ejs') %>
+</body>
+</html>

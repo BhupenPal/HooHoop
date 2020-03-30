@@ -1,0 +1,110 @@
+<div class="sidebar">
+
+    <div class="sbar_options">
+      <a href="/dashboard/profile"><div class="sopt">Profile</div></a>
+      <a href="/dashboard/account"><div class="sopt">Account Management</div></a>
+      <a href="/dashboard/listings"><div class="sopt" id="myListID">My Listing</div></a>
+      <% if(user.isAdmin){ %>
+      <a href="/dashboard/all-listings"><div class="sopt" id="clistID">All Listings</div></a>
+      <a href="/dashboard/user-management"><div class="sopt" id="cuserID">User Management</div></a>
+      <% } %>
+      <a href="/dashboard/client-management"><div class="sopt" id="testDID">My Client Management</div></a>
+      <% if(user.isAdmin){ %>
+      <a href="/dashboard/all-client-management"><div class="sopt" id="allClientID">All Client Management</div></a>
+      <% } %>
+      <a href="/dashboard/offers"><div class="sopt">My Offers</div></a>
+      <% if(user.isAdmin){ %>
+      <a href="/dashboard/trade-requests"><div class="sopt" id="tradeReqID">Trade Request</div></a>
+      <% } %>
+    <a href="/logout"><div class="sopt">Logout</div></a>  
+    </div>
+
+  </div>
+  <div id="loader" class="dash-load"></div>
+
+        <!-- Prompt for delete -->
+        <div class="Modal">
+          <div class="del_lstng">
+            <div class="btndesk">
+              <button class="cslstng" onclick="del_lstng(false)">
+                <div class="crosssec"></div>
+                <div class="crosssec"></div>
+              </button>
+            </div>
+            <div class="cnf_symbl" id="modal_1"><i class="fal fa-trash"></i></div>
+            <div class="del_text">
+              Are you sure you want to delete this listing?
+            </div>
+            <form method="POST">
+              <input type="text" id="adDelete" value="" name="deleteAd" />
+              <button
+                class="del_lstng_btn"
+                id="modalchange_1"
+                type="submit"
+              >
+                Delete
+              </button>
+            </form>
+          </div>
+        </div>
+        <!-- Prompt for delete -->
+              
+        <!-- Prompt for mark as sold -->
+        <div class="Modal">
+          <div class="del_lstng">
+            <div class="btndesk">
+              <button class="cslstng" onclick="sell_listed(false)">
+                <div class="crosssec"></div>
+                <div class="crosssec"></div>
+              </button>
+            </div>
+            <div class="cnf_symbl" id="modal_2"><i class="fad fa-check"></i></div>
+            <div class="del_text">
+              Are you sure you want to mark this vehicle as sold?
+            </div>
+            <form method="POST">
+              <input type="text" id="adSOLD" value="" name="adSOLD" />
+              <button
+                class="del_lstng_btn"
+                id="modalchange_2"
+                type="submit"
+              >
+                Mark as sold
+              </button>
+            </form>
+          </div>
+        </div>
+        <!-- Prompt for mark as sold -->
+  
+        <!-- Prompt for Pending-->
+        <div class="Modal">
+          <div class="del_lstng">
+            <div class="btndesk">
+              <button class="cslstng" onclick="pending_done(false);">
+                <div class="crosssec"></div>
+                <div class="crosssec"></div>
+              </button>
+            </div>
+            <div class="cnf_symbl" id="modal_3">
+              <i class="far fa-exclamation-triangle"></i>
+            </div>
+            <div class="del_text">
+              Are you sure you want to mark this as done?
+            </div>
+            <form method="POST">
+              <input type="text" id="Pending_done" value="" name="adSOLD" />
+              <button
+                class="del_lstng_btn"
+                id="modalchange_3"
+                type="submit"
+              >
+                Mark as unsold
+              </button>
+            </form>
+          </div>
+        </div>
+        <!-- Prompt for Pending -->
+            <!-- Modals -->
+  <script src="/assets/scripts/script.js"></script>
+    <script src="/assets/scripts/dashboard.js"></script>
+    <script src="/assets/scripts/ajax/dashboardAjax.js"></script>

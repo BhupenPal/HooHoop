@@ -390,9 +390,10 @@ function sendChatDetails() {
                           "phoneNo": `${userPhone}`, 
                           "discount": `${deal}`, 
                           "CouponCode":  `${coupon}`, 
-                          "carID": `${userVIN}`, 
+                          "carID": userVIN, 
                           "tod": `${tod}`, 
                           "tom": `${tom}`,
+                          "carPrice": `${maxValue}`,
                           "discountFor": `${discountFor}`
                         };
 

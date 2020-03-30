@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="/assets/css/index.css" />
+    <link rel="stylesheet" href="/assets/css/all.min.css" />
+    <link rel="stylesheet" href="/assets/css/fonts.css" />
+    <title>HooHoop</title>
+    <link
+      rel="icon"
+      href="/assets/images/favicon.ico"
+      type="image/ico"
+      sizes="16*16"
+    />
+  </head>
+  <body onload="testDriveHandle()">
+    <%-include('./Components/Header.ejs') %>
+      <div class="dash_wrapper">
+
+        <div class="dashfeature">
+          <%-include('./Components/sidebar.ejs') %>
+    <!-- Req Panel -->
+    <div class="fet_det">
+        <h1 class="feature_head">My Client Management</h1>
+
+        <div class="reqpanel">
+          
+          <div class="Panesel">
+            <div class="Paneopt selected_paneopt">Test Drive</div>
+            <div class="Paneopt" id="availID" onclick="availabilityHandle()">Availability Enquiry</div>
+            <div class="Paneopt" id="shipID" onclick="shipHandle()">Shipping Enquiry</div>
+          </div>
+          <table class="table_S client_table">
+            <tr id="testdriveEnq">
+              <th>S.No</th>
+              <th>First Name</th>
+              <th>Car</th>
+              <th>Email</th>
+              <th>Phone Number</th>
+              <th>Modify</th>
+              <th>Delete</th>
+            </tr>
+          </table>
+
+          <table class="table_S vanish client_table">
+            <tr id="availabilityEnq">
+              <th>S.No</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone Number</th>
+              <th>Car</th>
+              <th>Modify</th>
+              <th>Delete</th>
+            </tr>
+          </table>
+
+          <table class="table_S vanish client_table">
+            <tr id="ShippingEnq">
+              <th>S.No</th>
+              <th>Name</th>
+              <th>Car</th>
+              <th>Email</th>
+              <th>Phone Number</th>
+              <th>Starting Point</th>
+              <th>Destination</th>
+              <th>Date</th>
+              <th>Modify</th>
+              <th>Delete</th>
+            </tr>
+          </table>
+
+        </div>
+
+      </div>
+        </div>
+        </div>
+    <!-- Req Panel -->
+    <%-include('./Components/Footer.ejs') %>
+    <script>
+      let clienttable = document.getElementsByClassName("client_table")
+let clientmopt = document.getElementsByClassName("Paneopt")
+
+for(var s=0; s<clientmopt.length;s++){
+  clientmopt[s].addEventListener("click", function(){
+    for(let n=0;n<clientmopt.length;n++){
+      clienttable[n].classList.add("vanish")
+      if(clientmopt[n].classList.contains("selected_paneopt")){
+        clientmopt[n].classList.remove("selected_paneopt")
+        clienttable[n].classList.remove("vanish")
+      }
+    }
+    this.classList.add("selected_paneopt")
+    this.click()
+  })
+}
+    </script>
+</body>
+</html>

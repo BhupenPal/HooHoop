@@ -258,9 +258,44 @@ Router.post("/edit-car/:id", ensureAuthenticated, urlencoded, async (req, res) =
     } catch (e) {}
 });
 
-Router.get("/dashboard", ensureAuthenticated, (req, res) => {
-  res.render("dashboard");
+//Dashboard Route
+Router.get("/dashboard", ensureAuthenticated, (req,res) => {
+  res.redirect("/dashboard/profile")
+})
+
+Router.get("/dashboard/:sec", ensureAuthenticated, (req, res) => {
+  if(req.params.sec == "account"){
+    res.render("d_account")
+  }
+  else if(req.params.sec == "listings"){
+    res.render("d_u_listing")
+  }
+  else if(req.params.sec == "all-listings"){
+    res.render("d_all_listing")
+  }
+  else if(req.params.sec == "client-management"){
+    res.render("d_reqpanel")
+  }
+  else if(req.params.sec == "all-client-management"){
+    res.render("d_allreq")
+  }
+  else if(req.params.sec == "user-management"){
+    res.render("d_user_man")
+  }
+  else if(req.params.sec == "offers"){
+    res.render("d_user_off")
+  }
+  else if(req.params.sec == "trade-requests"){
+    res.render("d_tr_req")
+  }
+  else if(req.params.sec == "profile"){
+    res.render("d_profile")
+  }
+  else{
+    res.redirect("/dashboard/profile")
+  }
 });
+
 
 Router.post("/dashboard/profile", urlencoded, async (req, res) => {
   let { firstName, lastName, phoneNum, address } = req.body;
@@ -279,10 +314,6 @@ Router.post("/dashboard/profile", urlencoded, async (req, res) => {
     phoneNum = currentUser[0].phoneNum;
   }
 
-  if (!address) {
-    address = currentUser[0].address;
-  }
-
   userModel.updateOne(
     { _id: currentUser[0].id },
     {
@@ -296,7 +327,7 @@ Router.post("/dashboard/profile", urlencoded, async (req, res) => {
     () => {}
   );
 
-  res.redirect("/dashboard");
+  res.redirect("/dashboard/profile");
 });
 
 Router.post("/dashboard/password-reset", urlencoded, async (req, res) => {
@@ -337,7 +368,7 @@ Router.post("/dashboard/password-reset", urlencoded, async (req, res) => {
   }
 
   if (errors.length > 0) {
-    res.render("dashboard", { errors });
+    res.render("d_account", { errors });
   } else {
     bcrypt.compare(originalPass, currentUser[0].password, (err, isMatch) => {
       if (err) throw err;
@@ -356,31 +387,27 @@ Router.post("/dashboard/password-reset", urlencoded, async (req, res) => {
             );
           })
         );
-        res.redirect('/dashboard', {success_msg: "Password Updated"})
+        res.render('d_account', {success_msg: "Password Updated"})
       } else {
-        res.redirect('/dashboard', {errors})
+        errors.push({msg: "The password you entered does not match your current password"})
+        res.render('d_account', {errors})
       }
     });
   }
 });
 
-Router.get('/dashboard/mylistings', async (req, res) => {
-
-  let myList = await carModel.find({ authorID: req.user.id})
-
+Router.get('/dashboard/listings/my', async (req, res) => {
   if(req.xhr){
+    let myList = await carModel.find({ authorID: req.user.id})
     res.json({list: myList})
   } else {
     res.send('Link not accessible');
   }
-
 })
 
-Router.get('/dashboard/complete-list', async (req, res) => {
-
-  let myList = await carModel.find({})
-
+Router.get('/dashboard/all-listings/complete', async (req, res) => {
   if(req.xhr){
+    let myList = await carModel.find()
     res.json({list: myList})
   } else {
     res.send('Link not accessible');
@@ -388,9 +415,9 @@ Router.get('/dashboard/complete-list', async (req, res) => {
   
 })
 
-Router.get('/dashboard/complete-users', async (req, res) => {
-  let allUsers = await userModel.find({isAdmin: {$ne: true}})
+Router.get('/dashboard/user-management/list', async (req, res) => {
   if(req.xhr){
+    let allUsers = await userModel.find({isAdmin: {$ne: true}})
     res.json({list: allUsers})
   } else {
     res.send('Link not accessible');
@@ -402,9 +429,8 @@ Router.post('/dashboard/user/delete', urlencoded, async (req, res) => {
   res.redirect(req.header('Referer'))
 })
 
-Router.get('/dashboard/testdrives', async (req, res) => {
+Router.get('/dashboard/client-management/testdrives', async (req, res) => {
   let TestDrive = await testDrive.find({ carAuthor: req.user._id })
-
   if(req.xhr){
     res.json({list: TestDrive})
   } else {
@@ -412,7 +438,7 @@ Router.get('/dashboard/testdrives', async (req, res) => {
   }
 })
 
-Router.get('/dashboard/testdrives-all', async (req, res) => {
+Router.get('/dashboard/all-client-management/testdrives-all', async (req, res) => {
   let TestDrive = await testDrive.find({carAuthor: {$ne: req.user._id }})
   
   if(req.xhr){
@@ -422,7 +448,7 @@ Router.get('/dashboard/testdrives-all', async (req, res) => {
   }
 })
 
-Router.get('/dashboard/availcheck', async (req, res) => {
+Router.get('/dashboard/client-management/availcheck', async (req, res) => {
   let CheckAvail = await checkAvail.find({carAuthor: req.user._id });
   
   if(req.xhr){
@@ -432,30 +458,27 @@ Router.get('/dashboard/availcheck', async (req, res) => {
   }
 })
 
-Router.get('/dashboard/availcheck-all', async (req, res) => {
-  let CheckAvail = await checkAvail.find({carAuthor: {$ne: req.user._id }});
-  
+Router.get('/dashboard/all-client-management/availcheck-all', async (req, res) => {
   if(req.xhr){
+    let CheckAvail = await checkAvail.find({carAuthor: {$ne: req.user._id }});
     res.json({list: CheckAvail})
   } else {
     res.send("Link not accessible");
   }
 })
 
-Router.get('/dashboard/shipenq', async (req, res) => {
-  let ShipList = await shipModel.find({carAuthor: req.user._id });
-  
+Router.get('/dashboard/client-management/shipenq', async (req, res) => {
   if(req.xhr){
+    let ShipList = await shipModel.find({carAuthor: req.user._id });
     res.json({list: ShipList})
   } else {
     res.send("Link not accessible");
   }
 })
 
-Router.get('/dashboard/shipenq-all', async (req, res) => {
-  let ShipList = await shipModel.find({carAuthor: {$ne: req.user._id }});
-  
+Router.get('/dashboard/all-client-management/shipenq-all', async (req, res) => {
   if(req.xhr){
+    let ShipList = await shipModel.find({carAuthor: {$ne: req.user._id }});
     res.json({list: ShipList})
   } else {
     res.send("Link not accessible");
@@ -510,12 +533,9 @@ Router.post('/dashboard/shipment/update', urlencoded, async (req, res) => {
   res.redirect(req.header('Referer'));
 })
 
-Router.get('/dashboard/offers', async(req, res) => {
+Router.get('/dashboard/offers/coupon', async(req, res) => {
   if(req.xhr){
-    const offers = await couponModel.find({ownerID: req.user._id});
-    offers.forEach( (index) => {
-      console.log(index)
-    })
+    let offers = await couponModel.find({ownerID: req.user._id});
     res.json({list: offers})
   } else {
     res.send("Link not accessible");
@@ -654,15 +674,18 @@ Router.post('/chatbot/submit', bodyParser.json(), async (req, res) => {
   NewCoupon.validFrom = req.body.tod;
   NewCoupon.validTo = req.body.tom;
   NewCoupon.ownerID = result[0].authorID;
+  NewCoupon.carPrice = req.body.carPrice;
   NewCoupon.save();
-
+  
   if(req.body.carID){
+    console.log('This is not false')
     NewSellQue.custEmail = req.body.email;
     NewSellQue.custPhone = req.body.phoneNo;
     NewSellQue.custVIN = req.body.carID;
     NewSellQue.discountFor = `${result[0].Make} - ${result[0].Model}`;
     NewSellQue.custDiscount = req.body.discount;
     NewSellQue.custDiscDate = req.body.tod;
+    NewSellQue.couponCode = req.body.CouponCode;
     NewSellQue.status = "Active";
     NewSellQue.save();
   }

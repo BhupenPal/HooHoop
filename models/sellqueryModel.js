@@ -11,8 +11,10 @@ const Schema = mongoose.Schema,
     custEmail: String,
     custPhone: String,
     custVIN: String,
+    discountFor: String,
     custDiscount: String,
     custDiscDate: String,
+    couponCode: String,
     status: String
   });
 

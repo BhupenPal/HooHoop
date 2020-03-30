@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="/assets/css/index.css" />
+    <link rel="stylesheet" href="/assets/css/all.min.css" />
+    <link rel="stylesheet" href="/assets/css/fonts.css" />
+    <title>HooHoop</title>
+    <link
+      rel="icon"
+      href="/assets/images/favicon.ico"
+      type="image/ico"
+      sizes="16*16"
+    />
+  </head>
+  <body onload="completeUserHandle()">
+    <%-include('./Components/Header.ejs') %>
+      <div class="dash_wrapper">
+
+        <div class="dashfeature">
+          <%-include('./Components/sidebar.ejs') %>
+    <!-- User-Management -->
+    <div class="fet_det">
+        <h1 class="feature_head">User Management</h1>
+
+        <div class="table_container">
+          <table class="table_S">
+            <tr id="completeUsers">
+              <th>S.No</th>
+              <th>Thumbnail</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Status</th>
+              <th>Delete</th>
+            </tr>
+            </table>
+
+        </div>
+      </div>
+        </div>
+        </div>
+    <!-- User-Management -->
+    <%-include('./Components/Footer.ejs') %>
+</body>
+</html>

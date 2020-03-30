@@ -1,8 +1,8 @@
 function myListHandle(){
-  document.getElementById('myListID').onclick = null;
+  
   document.getElementById("loader").style.display = "flex";
     const xhr = new XMLHttpRequest();
-    xhr.open("GET", `dashboard/mylistings`, true);
+    xhr.open("GET", `/dashboard/listings/my`, true);
     xhr.getResponseHeader("content-type", "application/json");
     xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
     xhr.onload = function() {
@@ -43,10 +43,10 @@ myListings = list => {
 }
 
 function completeListHandle(){
-  document.getElementById('clistID').onclick = null;
+  
   document.getElementById("loader").style.display = "flex";
     const xhr = new XMLHttpRequest();
-    xhr.open("GET", `/dashboard/complete-list`, true);
+    xhr.open("GET", `/dashboard/all-listings/complete`, true);
     xhr.getResponseHeader("content-type", "application/json");
     xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
     xhr.onload = function() {
@@ -87,10 +87,10 @@ completeListings = list => {
 }
 
 function completeUserHandle(){
-  document.getElementById('cuserID').onclick = null;
+  
   document.getElementById("loader").style.display = "flex";
     const xhr = new XMLHttpRequest();
-    xhr.open("GET", `/dashboard/complete-users`, true);
+    xhr.open("GET", `/dashboard/user-management/list`, true);
     xhr.getResponseHeader("content-type", "application/json");
     xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
     xhr.onload = function() {
@@ -128,10 +128,9 @@ completeUsers = list => {
 }
 
 function testDriveHandle(){
-  document.getElementById('testDID').onclick = null;
   document.getElementById("loader").style.display = "none";
   const xhr = new XMLHttpRequest();
-  xhr.open("GET", `/dashboard/testdrives`, true);
+  xhr.open("GET", `/dashboard/client-management/testdrives`, true);
   xhr.getResponseHeader("content-type", "application/json");
   xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
   xhr.onload = function() {
@@ -174,7 +173,7 @@ function availabilityHandle(){
   document.getElementById('availID').onclick = null;
   document.getElementById("loader").style.display = "flex";
   const xhr = new XMLHttpRequest();
-  xhr.open("GET", `/dashboard/availcheck`, true);
+  xhr.open("GET", `/dashboard/client-management/availcheck`, true);
   xhr.getResponseHeader("content-type", "application/json");
   xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
   xhr.onload = function() {
@@ -217,7 +216,7 @@ function shipHandle(){
   document.getElementById('shipID').onclick = null;
   document.getElementById("loader").style.display = "flex";
   const xhr = new XMLHttpRequest();
-  xhr.open("GET", `/dashboard/shipenq`, true);
+  xhr.open("GET", `/dashboard/client-management/shipenq`, true);
   xhr.getResponseHeader("content-type", "application/json");
   xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
   xhr.onload = function() {
@@ -260,10 +259,10 @@ shipmentEnquiry = list => {
 }
 
 function completeTestDriveHandle(){
-  document.getElementById('allClientID').onclick = null;
+  
   document.getElementById("loader").style.display = "flex";
   const xhr = new XMLHttpRequest();
-  xhr.open("GET", `/dashboard/testdrives-all`, true);
+  xhr.open("GET", `/dashboard/all-client-management/testdrives-all`, true);
   xhr.getResponseHeader("content-type", "application/json");
   xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
   xhr.onload = function() {
@@ -304,10 +303,10 @@ completeTestDrive = list => {
 }
 
 function completeAvailabilityHandle(){
-  document.getElementById('allAvailID').onclick = null;
+  
   document.getElementById("loader").style.display = "flex";
   const xhr = new XMLHttpRequest();
-  xhr.open("GET", `/dashboard/availcheck-all`, true);
+  xhr.open("GET", `/dashboard/all-client-management/availcheck-all`, true);
   xhr.getResponseHeader("content-type", "application/json");
   xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
   xhr.onload = function() {
@@ -348,10 +347,10 @@ completeCheckAvailability = list => {
 }
 
 function completeShipHandle(){
-  document.getElementById('allShipID').onclick = null;
+  
   document.getElementById("loader").style.display = "flex";
   const xhr = new XMLHttpRequest();
-  xhr.open("GET", `/dashboard/shipenq-all`, true);
+  xhr.open("GET", `/dashboard/all-client-management/shipenq-all`, true);
   xhr.getResponseHeader("content-type", "application/json");
   xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
   xhr.onload = function() {
@@ -395,10 +394,9 @@ completeShipmentEnquiry = list => {
 }
 
 function myCouponHandle(){
-  document.getElementById('CoupOffers').onclick = null;
   document.getElementById("loader").style.display = "flex";
   const xhr = new XMLHttpRequest();
-  xhr.open("GET", `/dashboard/offers`, true);
+  xhr.open("GET", `/dashboard/offers/coupon`, true);
   xhr.getResponseHeader("content-type", "application/json");
   xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
   xhr.onload = function() {
@@ -427,8 +425,8 @@ myCoupon = list => {
           <div class="carinfotme"><span>${json.list[inc].vehicleName}</span><span>${json.list[inc].validFrom}</span></div>\
           <div class="carinfotme"><span>Valid Thru</span><span>${json.list[inc].validTo}</span></div>\
           <div class="carinfotme"><span>Validation Time</span><span>72 Hrs</span></div>\
-          <div class="carinfotme"><span>Car Pricing</span><span>$20000</span></div>\
-          <div class="carinfotme"><span>Coupon Discount</span><span>${json.list[inc].couponAmount}</span></div>\
+          <div class="carinfotme"><span>Car Pricing</span><span>$${json.list[inc].carPrice}</span></div>\
+          <div class="carinfotme"><span>Coupon Discount</span><span>$${json.list[inc].couponAmount}</span></div>\
           <h1><span>Offer Code</span><span>${json.list[inc].couponCode}</span></h1>\
         </div>\
     </div>
