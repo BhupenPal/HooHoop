@@ -259,9 +259,43 @@ Router.post("/edit-car/:id", ensureAuthenticated, urlencoded, async (req, res) =
 });
 
 //Dashboard Route
-Router.get("/dashboard", ensureAuthenticated, (req, res) => {
-  res.render("dashboard");
+Router.get("/dashboard", ensureAuthenticated, (req,res) => {
+  res.redirect("/dashboard/profile")
+})
+
+Router.get("/dashboard/:sec", ensureAuthenticated, (req, res) => {
+  if(req.params.sec == "account"){
+    res.render("d_account")
+  }
+  else if(req.params.sec == "listings"){
+    res.render("d_u_listing")
+  }
+  else if(req.params.sec == "all-listings"){
+    res.render("d_all_listing")
+  }
+  else if(req.params.sec == "client-management"){
+    res.render("d_reqpanel")
+  }
+  else if(req.params.sec == "all-client-management"){
+    res.render("d_allreq")
+  }
+  else if(req.params.sec == "user-management"){
+    res.render("d_user_man")
+  }
+  else if(req.params.sec == "offers"){
+    res.render("d_user_off")
+  }
+  else if(req.params.sec == "trade-requests"){
+    res.render("d_tr_req")
+  }
+  else if(req.params.sec == "profile"){
+    res.render("d_profile")
+  }
+  else{
+    res.redirect("/dashboard/profile")
+  }
 });
+
 
 Router.post("/dashboard/profile", urlencoded, async (req, res) => {
   let { firstName, lastName, phoneNum, address } = req.body;
@@ -297,7 +331,7 @@ Router.post("/dashboard/profile", urlencoded, async (req, res) => {
     () => {}
   );
 
-  res.redirect("/dashboard");
+  res.redirect("/dashboard/profile");
 });
 
 Router.post("/dashboard/password-reset", urlencoded, async (req, res) => {

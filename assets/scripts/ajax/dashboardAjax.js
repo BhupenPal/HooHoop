@@ -1,5 +1,5 @@
 function myListHandle(){
-  document.getElementById('myListID').onclick = null;
+  
   document.getElementById("loader").style.display = "flex";
     const xhr = new XMLHttpRequest();
     xhr.open("GET", `dashboard/mylistings`, true);
@@ -43,7 +43,7 @@ myListings = list => {
 }
 
 function completeListHandle(){
-  document.getElementById('clistID').onclick = null;
+  
   document.getElementById("loader").style.display = "flex";
     const xhr = new XMLHttpRequest();
     xhr.open("GET", `/dashboard/complete-list`, true);
@@ -87,7 +87,7 @@ completeListings = list => {
 }
 
 function completeUserHandle(){
-  document.getElementById('cuserID').onclick = null;
+  
   document.getElementById("loader").style.display = "flex";
     const xhr = new XMLHttpRequest();
     xhr.open("GET", `/dashboard/complete-users`, true);
@@ -129,7 +129,7 @@ completeUsers = list => {
 }
 
 function testDriveHandle(){
-  document.getElementById('testDID').onclick = null;
+  
   document.getElementById("loader").style.display = "none";
   const xhr = new XMLHttpRequest();
   xhr.open("GET", `/dashboard/testdrives`, true);
@@ -261,7 +261,7 @@ shipmentEnquiry = list => {
 }
 
 function completeTestDriveHandle(){
-  document.getElementById('allClientID').onclick = null;
+  
   document.getElementById("loader").style.display = "flex";
   const xhr = new XMLHttpRequest();
   xhr.open("GET", `/dashboard/testdrives-all`, true);
@@ -305,7 +305,7 @@ completeTestDrive = list => {
 }
 
 function completeAvailabilityHandle(){
-  document.getElementById('allAvailID').onclick = null;
+  
   document.getElementById("loader").style.display = "flex";
   const xhr = new XMLHttpRequest();
   xhr.open("GET", `/dashboard/availcheck-all`, true);
@@ -349,7 +349,7 @@ completeCheckAvailability = list => {
 }
 
 function completeShipHandle(){
-  document.getElementById('allShipID').onclick = null;
+  
   document.getElementById("loader").style.display = "flex";
   const xhr = new XMLHttpRequest();
   xhr.open("GET", `/dashboard/shipenq-all`, true);

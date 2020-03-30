@@ -1,21 +1,51 @@
-let dashoption = document.getElementsByClassName("fet_det")
-let sopt = document.getElementsByClassName("sopt")
+const dashParam = window.location.href.split("/")[4];
+let soptclass = document.getElementsByClassName("sopt")
 
-console.log(dashoption.length)
-console.log(sopt.length)
-
-for(let m=0; m<sopt.length - 1; m++){
-  sopt[m].addEventListener("click",function(){
-    for(let n=0; n<sopt.length - 1; n++){
-    dashoption[n].classList.add('vanish')
-      if(sopt[n].classList.contains('selected_sopt')){
-        sopt[n].classList.remove('selected_sopt')
-        dashoption[n].classList.remove('vanish')
-      }
-    }
-    this.classList.add('selected_sopt')
-    this.click()
-  })
+if(soptclass.length === 10){
+  if(dashParam == "account"){
+    soptclass[1].classList.add("selected_sopt")
+  }
+  else if(dashParam == "listings"){
+    soptclass[2].classList.add("selected_sopt")
+  }
+  else if(dashParam == "all-listings"){
+    soptclass[3].classList.add("selected_sopt")
+  }
+  else if(dashParam == "client-management"){
+    soptclass[5].classList.add("selected_sopt")
+  }
+  else if(dashParam == "all-client-management"){
+    soptclass[6].classList.add("selected_sopt")
+  }
+  else if(dashParam == "user-management"){
+    soptclass[4].classList.add("selected_sopt")
+  }
+  else if(dashParam == "offers"){
+    soptclass[7].classList.add("selected_sopt")
+  }
+  else if(dashParam == "trade-requests"){
+    soptclass[8].classList.add("selected_sopt")
+  }
+  else if(dashParam == "profile"){
+    soptclass[0].classList.add("selected_sopt")
+  }  
+}
+else{
+  if(dashParam == "account"){
+    soptclass[1].classList.add("selected_sopt")
+  }
+  else if(dashParam == "listings"){
+    soptclass[2].classList.add("selected_sopt")
+  }
+  else if(dashParam == "client-management"){
+    soptclass[3].classList.add("selected_sopt")
+  }
+  else if(dashParam == "offers"){
+    soptclass[4].classList.add("selected_sopt")
+  }
+  else if(dashParam == "profile"){
+    soptclass[0].classList.add("selected_sopt")
+  }  
 }
 
 let clienttable = document.getElementsByClassName("client_table")
