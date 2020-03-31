@@ -928,19 +928,19 @@ function discountMail(CouponCar, deal, sellerName, SellerMail, sellerPhone, Coup
             </tr>
             <tr>
               <td>
-                <h1 style="margin: 3vh auto 1vh auto; width: 100%; text-align: center; font-size: 30px;">Your Coupon Code</h1>
+                <h1 style="margin: 3vh auto 1vh auto; width: 100%; text-align: center; font-size: 30px;">Your coupon code</h1>
                 <h3 style="margin: 1vh auto 3vh auto; width: 100%; text-align: center; font-size: 18px;">for <span style="color: #1EA1F3;">${CouponCar}</span></h3>
               </td>
             </tr>
             <tr>
               <td>
-                <p style="margin: 0px auto; width: 100%; font-weight: bold; font-size: 20px; margin-bottom: 10px;">Hello,</p>
+                <p style="margin: 0px auto; width: 100%; font-weight: bold; font-size: 20px; margin-bottom: 10px;">Hi there,</p>
               </td>
             </tr>
             <tr>
               <td>
-                <p style="margin: 0px auto; width: 100%;">Here's your $${deal} discount coupoun code. The coupon code is valid only for 72-Hours. You can 
-                contact ${sellerName}, <br> ${SellerMail}, <br> ${sellerPhone}</p>
+                <p style="margin: 0px auto; width: 100%;">Here is your $${deal} discount coupoun code. This is valid for up
+                to 72 hours, or if someone else redeems it prior, so be quick! You can contact ${sellerName} on ${sellerPhone}, ${SellerMail}</p>
               </td>
             </tr>
             <tr>
