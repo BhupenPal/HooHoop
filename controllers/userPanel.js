@@ -25,6 +25,7 @@ const checkAvail = require("../models/availabilityModel");
 const shipModel = require("../models/shippingModel");
 const couponModel = require("../models/couponModel");
 const sellqueModel = require("../models/sellqueryModel");
+const NoDealModel = require("../models/nodealModel");
 
 var j = schedule.scheduleJob('0 0 * * *', async function(){
   await couponModel.deleteMany({createdAt: mdq.previousDays(3)})
@@ -665,23 +666,46 @@ Router.post("/user/reset-password/reset", urlencoded, async (req, res) => {
 Router.post('/chatbot/submit', bodyParser.json(), async (req, res) => {
   let NewCoupon = new couponModel;
   let NewSellQue = new sellqueModel;
+  let NoDeal = new NoDealModel;
 
   let result = await carModel.find({_id: req.body.discountFor});
   
-  NewCoupon.custEmail = req.body.email;
-  NewCoupon.custPhone = req.body.phoneNo;
-  NewCoupon.couponCode = req.body.CouponCode;
-  NewCoupon.vehicleID = result[0].vinNum;
-  NewCoupon.vehicleName = `${result[0].Make} - ${result[0].Model}`;
-  NewCoupon.couponAmount = req.body.discount;
-  NewCoupon.validFrom = req.body.tod;
-  NewCoupon.validTo = req.body.tom;
-  NewCoupon.ownerID = result[0].authorID;
-  NewCoupon.carPrice = req.body.carPrice;
-  NewCoupon.save();
+  if(req.body.CouponCode == "null"){
+    NoDeal.custEmail = req.body.email;
+    NoDeal.custPhone = req.body.custPhone;
+    NewCoupon.carVin = result[0].vinNum;
+    NewCoupon.custOffer = req.body.discount;
+    NewCoupon.offerDate = new Date();
+    status = "Active";
+    NoDeal.save();
+  } else {
+    NewCoupon.custEmail = req.body.email;
+    NewCoupon.custPhone = req.body.phoneNo;
+    NewCoupon.couponCode = req.body.CouponCode;
+    NewCoupon.vehicleID = result[0].vinNum;
+    NewCoupon.vehicleName = `${result[0].Make} - ${result[0].Model}`;
+    NewCoupon.couponAmount = req.body.discount;
+    NewCoupon.validFrom = req.body.tod;
+    NewCoupon.validTo = req.body.tom;
+    NewCoupon.ownerID = result[0].authorID;
+    NewCoupon.carPrice = req.body.carPrice;
+    NewCoupon.save();
+
+    let mailOptions = {
+      from: '"HooHoop" <contact@hoohoop.co.nz.in>', // sender address
+      to: req.body.email, // list of receivers
+      subject: "HooHoop Discount Coupon Code", // Subject line
+      html: discountMail(`${result[0].Make} - ${result[0].Model}`, req.body.discount, result[0].DealerName, result[0].DealerEmail, result[0].DealerNum, req.body.CouponCode) // html body
+    };
+  
+    // send mail with defined transport object
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        return console.log(error);
+      }})
+  }
   
   if(req.body.carID){
-    console.log('This is not false')
     NewSellQue.custEmail = req.body.email;
     NewSellQue.custPhone = req.body.phoneNo;
     NewSellQue.custVIN = req.body.carID;
@@ -692,19 +716,6 @@ Router.post('/chatbot/submit', bodyParser.json(), async (req, res) => {
     NewSellQue.status = "Active";
     NewSellQue.save();
   }
-
-  let mailOptions = {
-    from: '"HooHoop" <contact@hoohoop.co.nz.in>', // sender address
-    to: req.body.email, // list of receivers
-    subject: "HooHoop Discount Coupon Code", // Subject line
-    html: discountMail(`${result[0].Make} - ${result[0].Model}`, req.body.discount, result[0].DealerName, result[0].DealerEmail, result[0].DealerNum, req.body.CouponCode) // html body
-  };
-
-  // send mail with defined transport object
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      return console.log(error);
-    }})
 
   res.send('Done')
 })

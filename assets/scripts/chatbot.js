@@ -325,10 +325,9 @@ function resizer(){
 }
 
 if(window.matchMedia("(max-width: 480px)").matches){
+  window.addEventListener('resize', resizer)
   resizer();
 }
-
-window.addEventListener('resize', resizer)
 
 function showPreferredInputDisplay(input, buttons, wave) {
   document.getElementById("text-input").style.display = "none";

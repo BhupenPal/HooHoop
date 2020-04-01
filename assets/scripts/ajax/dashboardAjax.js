@@ -31,7 +31,8 @@ myListings = list => {
         output += `\               
         <tr class="user-mylist">\
         <td>${inc + 1}</td>\
-        <td><img src="/assets/Uploads/${json.list[inc].vinNum}/exterior/Photo_1.jpg" style="height:30px;width:30px"></td>\
+        <td><a href="/buy-car/${json.list[inc]._id}" target="__blank"><img src="/assets/Uploads/${json.list[inc].vinNum}/exterior/Photo_1.jpg" style="height:30px;width:30px"></a></td>\
+        <td>${json.list[inc].vinNum}</td>\
         <td>${json.list[inc].Make}</td>\
         <td>${json.list[inc].Model}</td>\
         <td>${json.list[inc].adActive}</td>\
@@ -74,7 +75,8 @@ completeListings = list => {
         output += `\               
         <tr class="user-completelist">\
         <td>${inc + 1}</td>\
-        <td><img src="/assets/Uploads/${json.list[inc].vinNum}/exterior/Photo_1.jpg" style="height:30px;width:30px"></td>\
+        <td><a href="/buy-car/${json.list[inc]._id}" target="__blank"><img src="/assets/Uploads/${json.list[inc].vinNum}/exterior/Photo_1.jpg" style="height:30px;width:30px"></a></td>\
+        <td>${json.list[inc].vinNum}</td>
         <td>${json.list[inc].Make}</td>\
         <td>${json.list[inc].Model}</td>\
         <td>${json.list[inc].adActive}</td>\
@@ -159,6 +161,7 @@ testDrive = list => {
       <tr class="check-testdrive">\
       <td>${inc + 1}</td>\
       <td>${json.list[inc].firstName} ${json.list[inc].lastName} </td>\
+      <td>${json.list[inc].vinNum}</td>\
       <td><a href="/buy-car/${json.list[inc].vehicleID}" target="__blank">${json.list[inc].car}</a></td>\
       <td>${json.list[inc].email}</td>\
       <td>${json.list[inc].phoneNum}</td>\
@@ -204,6 +207,7 @@ checkAvailability = list => {
       <td>${json.list[inc].fullName}</td>\
       <td>${json.list[inc].email}</td>\
       <td>${json.list[inc].phoneNum}</td>\
+      <td>${json.list[inc].vinNum}</td>\
       <td><a href="/buy-car/${json.list[inc].vehicleID}" target="__blank"> ${json.list[inc].car}</a></td>\
       ${status}\
       <td class="delete"><button data-host="/dashboard/availability/delete" value="${json.list[inc]._id}" onclick="del_lstng(this)">Delete</button></td>\
@@ -245,6 +249,7 @@ shipmentEnquiry = list => {
       <tr class="check-ship">\
       <td>${inc + 1}</td>\
       <td>${json.list[inc].fullName}</td>\
+      <td>${json.list[inc].vinNum}</td>\
       <td><a href="/buy-car/${json.list[inc].vehicleID}" target="__blank"> ${json.list[inc].car}</a></td>\
       <td>${json.list[inc].email}</td>\
       <td>${json.list[inc].phoneNum}</td>\
@@ -291,6 +296,7 @@ completeTestDrive = list => {
       <tr class="check-testdrive">\
       <td>${inc + 1}</td>\
       <td>${json.list[inc].firstName} ${json.list[inc].lastName} </td>\
+      <td>${json.list[inc].vinNum}</td>\
       <td><a href="/buy-car/${json.list[inc].vehicleID}" target="__blank">${json.list[inc].car}</a></td>\
       <td>${json.list[inc].carAuthor}</td>\
       <td>${json.list[inc].email}</td>\
@@ -337,6 +343,7 @@ completeCheckAvailability = list => {
       <td>${json.list[inc].fullName}</td>\
       <td>${json.list[inc].email}</td>\
       <td>${json.list[inc].phoneNum}</td>\
+      <td>${json.list[inc].vinNum}</td>\
       <td><a href="/buy-car/${json.list[inc].vehicleID}" target="__blank"> ${json.list[inc].car}</a></td>\
       <td>${json.list[inc].carAuthor}</td>\
       ${status}\
@@ -379,6 +386,7 @@ completeShipmentEnquiry = list => {
       <tr class="check-ship">\
       <td>${inc + 1}</td>\
       <td>${json.list[inc].fullName}</td>\
+      <td>${json.list[inc].vinNum}</td>\
       <td><a href="/buy-car/${json.list[inc].vehicleID}" target="__blank"> ${json.list[inc].car}</a></td>\
       <td>${json.list[inc].carAuthor}</td>\
       <td>${json.list[inc].email}</td>\

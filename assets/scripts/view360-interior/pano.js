@@ -108,8 +108,8 @@ var PanoControls = (function() {
     document.querySelector(".exitfs").addEventListener("click", function() {
       if (screenfull.enabled) {
         screenfull.exit();
-        document.getElementsByClassName('interior-changer')[0].style.display = 'block';
-        document.getElementsByClassName('exterior-changer')[0].style.display = 'block';
+        document.getElementsByClassName('interior-changer')[0].style.display = 'flex';
+        document.getElementsByClassName('exterior-changer')[0].style.display = 'flex';
       } else {
         changeMode("orignal");
       }
