@@ -293,7 +293,7 @@ function createMessage() {
     showPreferredInputDisplay(true, false, true);
     setTimeout(() => {
       botReply(
-        `This is your discount code: ${coupon} <br> Offer expires in 24hours.`
+        `This is your discount code: ${coupon} <br> Offer expires in 72hours.`
       );
       showPreferredInputDisplay(false, false, false);
     }, 1400);
@@ -409,7 +409,8 @@ function sendChatDetails() {
   };
 
   var tod = new Date();
-  var tom = new Date(tod.getTime() + (24 * 60 * 60 * 1000)).toUTCString();
+  var tom = new Date();
+  tom = tom.setDate(tod.getDate() + 3).toUTCString();
   tod = tod.toUTCString();
   tod = tod.split(' ').slice(0, 4).join(' ');
   tom = tod.split(' ').slice(0, 4).join(' ');
