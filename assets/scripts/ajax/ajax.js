@@ -209,3 +209,16 @@ let output='<div id="loader"></div>    <div id="bc-card-wrap">';
   output = output + '</div>';
   document.getElementById("listeer").innerHTML = output;
 }
+
+// window.addEventListener("scroll",function(){
+//   let filscroll = document.getElementsByClassName("filters")[0]
+//   let pageY = this.pageYOffset
+
+//   if(pageY > window.innerHeight){
+//     filscroll.style.marginTop = `${pageY-window.innerHeight}px`
+//     this.console.log(filscroll.style.marginTop)
+//   }
+//   else{
+//     filscroll.style.marginTop = `${pageY + 40}px`
+//   }
+// })

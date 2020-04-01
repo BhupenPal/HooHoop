@@ -288,6 +288,9 @@ Router.get("/dashboard/:sec", ensureAuthenticated, (req, res) => {
   else if(req.params.sec == "trade-requests"){
     res.render("d_tr_req")
   }
+  else if(req.params.sec == "No-deal-requests"){
+    res.render("d_nodeal")
+  }
   else if(req.params.sec == "profile"){
     res.render("d_profile")
   }

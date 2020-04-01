@@ -15,36 +15,33 @@
       sizes="16*16"
     />
   </head>
-  <body onload="completeListHandle()">
+  <body>
     <%-include('./Components/Header.ejs') %>
       <div class="dash_wrapper">
 
         <div class="dashfeature">
           <%-include('./Components/sidebar.ejs') %>
-    <!-- All-Listings -->
-    <div class="fet_det">
-        <h1 class="feature_head">All Listings</h1>
 
-        <div class="table_container">
-          <table class="table_S">
-            <tr id="completeList">
-              <th>S.No</th>
-              <th>Thumbnail</th>
-              <th>VIN</th>
-              <th>Make</th>
-              <th>Model</th>
-              <th>Status</th>
-              <th>Modify</th>
-              <th>Delete</th>
-            </tr>
-
-          </table>
+          <!-- NO deal -->
+          <div class="fet_det">
+            <h1 class="feature_head">NO Deal Customers</h1>
+  
+            <div class="table_container">
+              <table class="table_S">
+                <tr id="tradeinfo">
+                  <th>S.No</th>
+                  <th>Customer Email</th>
+                  <th>Customer Phone</th>
+                  <th>Car Plate No</th>
+                  <th>User last offer</th>
+                  <th>Date Redeemed</th>
+                  <th>Status</th>
+                  <th>Delete</th>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <!-- No deal -->
 
         </div>
-      </div>
-    <!-- All-Listings -->
-        </div>
-        </div>
-        <%-include('./Components/Footer.ejs') %>
-</body>
-</html>
+    </div>
