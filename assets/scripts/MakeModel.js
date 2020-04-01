@@ -1491,5 +1491,4 @@ document.getElementById("uploadFormSubmit").onclick = function(){
   else{
     document.getElementById("extlab").removeAttribute("style")
   }
-
 }
