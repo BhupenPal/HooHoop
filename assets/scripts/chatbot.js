@@ -3,7 +3,6 @@ let userInput = document.getElementById("user-input");
 
 userInput.addEventListener("input",function(){
   let value = userInput.value
-
   if(value.length !== 0){
     document.querySelector("#send-air > i").style.color = "#f5bf2b";
   }
@@ -18,7 +17,8 @@ let status = "GREETING",
   userEmail = null,
   userOffer = null,
   userPhone = null,
-  userVIN = false;
+  userVIN = false,
+  NoDealBool = false;
 let minValue = parseInt(document.getElementById("minor").value);
 let maxValue = parseInt(document.getElementById("major").value);
 let discountFor = document.getElementById("vinObjId").value;
@@ -29,21 +29,28 @@ let firstDeal = deal;
 let coupon = null;
 
 let Botgreetings = [
-  `Hi, I'am bargainator! Would you like a $${deal} discount?`,
-  `Hello, I'am bargainator! Would you like a $${deal} discount?`,
-  `Hi! Will you Take $${deal} cash discount on this vehicle right now?`
+  `Hi, I'am Albot! Would you like a $${deal} discount?`,
+  `Hi! Will you Take $${deal} cash discount on this vehicle right now?`,
+  `Hello, I'am Albot! Would you like a $${deal} discount?`,
+  `Hello there, I’m Albot! Will you take a $${deal} discount on this vehicle right now?`
 ];
 
 let BotRejected = [
-  `Place an offer, I can’t refuse.`,
+  `Okay no worries, Hit me with your best price offer for the vehicle!`,
+  `Place an offer for the vehicle, I can’t refuse.`,
   `Make me an offer, I can't refuse.`,
   `Ok, fair enough, what’s your counter offer?`,
   `I understand. What do you offer, then?`,
   `What could make it work, then?`,
-  `Hit me with your best offer!`
+  `Hit me with your best offer for the vehicle!`
 ];
 
 let RejectedOffers = [];
+
+let TradeStrings = [
+  `Are you interested in trading your vehicle in?`,
+  `Are you looking to trade your vehicle?`
+]
 
 let WorseOffer = [
   `I’m sure you can do better, place an offer?`,
@@ -72,7 +79,7 @@ function createMessage() {
       userReply("YES");
       showPreferredInputDisplay(false, true, true);
       setTimeout(() => {
-        botReply("Are you looking to trade your vehicle?");
+        botReply(TradeStrings[Math.floor(Math.random() * TradeStrings.length)]);
         showPreferredInputDisplay(false, true, false);
       }, 700);
       status = "TRADE_VEHICLE";
@@ -97,19 +104,27 @@ function createMessage() {
   }
 
   if (status == "GET_OFFER") {
-    userOffer = parseInt(userInput.value);
-    if(userOffer % 1 == 0){
-      userReply(userOffer);
+    console.log('RUN')
+    userOffer = userInput.value;
+    userReply(userOffer);
+    if(parseInt(userOffer) % 1 == 0){
+      console.log('NUM')
       status = "BARGAIN";
     } else {
-      userReply(userInput.value)
-      showPreferredInputDisplay(true, false, true);
-      setTimeout(() => {
-        botReply('Please enter a valid response');
-        showPreferredInputDisplay(true, false, false);
-        status = "GET_OFFER";
-      }, 700);
-      return
+      if(userOffer.includes('$')){
+        console.log('$')
+        userOffer = parseInt(userOffer.split('$')[1])
+        status = "BARGAIN"
+      } else {
+        console.log('NaN')
+        showPreferredInputDisplay(true, false, true);
+        setTimeout(() => {
+          botReply('Please enter a valid response');
+          showPreferredInputDisplay(true, false, false);
+          status = "GET_OFFER";
+        }, 700);
+        return
+      }
     }
   }
 
@@ -172,6 +187,7 @@ function createMessage() {
                 `We couldn’t reach an agreement today, but don’t worry, my Manager will get back to you ASAP. Can I please know your email?`
               ];
             botReply(NoDeal[Math.floor(Math.random() * NoDeal.length)]);
+            NoDealBool = true;
             status = "GET_EMAIL"
             return
           }
@@ -254,8 +270,21 @@ function createMessage() {
       count++;
     }
     if (count == 3) {
-      status = "GENERATE_COUPON";
-      count = 1;
+      console.log(NoDealBool)
+      if(NoDealBool){
+        showPreferredInputDisplay(true, false, true);
+        setTimeout(() => {
+          botReply(
+            `Sit back and relax until our executive calls you.`
+          );
+          showPreferredInputDisplay(false, false, false);
+        }, 1400);
+        sendChatDetails();
+        return
+      } else {
+        status = "GENERATE_COUPON";
+        count = 1;
+      }
     }
   }
 
