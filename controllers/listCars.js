@@ -195,7 +195,6 @@ function Paginator(model) {
 
     if(req.query.enquiry){
       const regex = new RegExp(escapeRegex(req.query.enquiry), 'gi');
-      console.log(regex)
       filterParam = {$or: [ { Make: regex }, { Model: regex }, {vinNum: regex} ] };
     }
     

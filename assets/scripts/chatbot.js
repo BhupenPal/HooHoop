@@ -29,39 +29,40 @@ let firstDeal = deal;
 let coupon = null;
 
 let Botgreetings = [
-  `Hi, I'am Albot! Would you like a $${deal} discount?`,
-  `Hi! Will you Take $${deal} cash discount on this vehicle right now?`,
-  `Hello, I'am Albot! Would you like a $${deal} discount?`,
-  `Hello there, I’m Albot! Will you take a $${deal} discount on this vehicle right now?`
+  `Hello there, I’m Albot! If you would like to purchase this vehicle right now, we will offer you a $${deal} discount. Are you happy to accept this?`,
+  `Hi I’m Albot, how’s it going? If you are looking at purchasing this vehicle right now, we will offer you a $${deal} discount. Do you accept this offer?`,
+  `Howdy, hope you are well! Can I offer you a $${deal} saving on this vehicle if you purchase this vehicle right now?`,
+  `Kia Ora, I am Albot! If you would like to purchase this vehicle right now, we will offer you a $${deal} discount. Are you happy to accept this?`
 ];
 
 let BotRejected = [
-  `Okay no worries, Hit me with your best price offer for the vehicle!`,
-  `Place an offer for the vehicle, I can’t refuse.`,
-  `Make me an offer, I can't refuse.`,
-  `Ok, fair enough, what’s your counter offer?`,
-  `I understand. What do you offer, then?`,
-  `What could make it work, then?`,
-  `Hit me with your best offer for the vehicle!`
+  `Okay no worries. Hit me with your best price offer for this vehicle!`,
+  `I hear you. How about you try placing me an offer price I cannot refuse….`,
+  `No problem! Go ahead and state me a purchase price that I can seriously consider!`,
+  `Okay fair enough, what’s your counter-offer price for the vehicle?`,
+  `I understand. What would you like to offer for the vehicle?`,
+  `Okay, you tell me an offer price for the vehicle that you believe will make it work!`,
+  `Let’s try this! Hit me with your best offer for the vehicle!`
 ];
 
 let RejectedOffers = [];
 
 let TradeStrings = [
-  `Are you interested in trading your vehicle in?`,
-  `Are you looking to trade your vehicle?`
+  `Fantastic! \u{1F44D} Are you interested in trading your vehicle in?`,
+  `Excellent! \u{1F44D} Are you looking to trade your vehicle?`,
+  `Kapai!” \u{1F44D} Are you looking to trade your vehicle?`,
 ]
 
 let WorseOffer = [
-  `I’m sure you can do better, place an offer?`,
-  `That’s a worse offer than the one you have made earlier… Please make a better one.`
+  `I’m sure you can do a little better than that? Please try another offer price for the vehicle.`,
+  `That’s a worse offer price than the one you have made earlier… Please make a better one 😊`
 ];
 
-let GreaterOffer = [`Stop playing with me, and hit me up with another offer`];
+let GreaterOffer = [`Stop playing with me 😂. Hit me up with another offer price for the vehicle`];
 
 let AlreadyRejected = [
-  `I have already refused that same offer. Please make a better one.`,
-  `I already rejected this offer`
+  `I have already refused that same price offer. Please make a better one`,
+  `I’ve already rejected this price offer” Propose another price offer.`
 ];
 
 function createMessage() {
@@ -133,7 +134,7 @@ function createMessage() {
       showPreferredInputDisplay(true, false, true);
       setTimeout(() => {
         botReply(
-          "Great, I’ll create a discount code valid for you only and send it via mail, what's your eamil address?"
+          "Great! I’ll create a personalised discount code for you and send it via email. What is your best contact email address?"
         );
         deal = userOffer;
         showPreferredInputDisplay(true, false, false);
@@ -171,11 +172,11 @@ function createMessage() {
             deal = parseInt(deal + firstDeal * 0.5);
             RejectedOffers.push(userOffer);
             let BotHaggle = [
-              `This is too low, how about a $${deal} coupon`,
-              `Sorry, I can’t make a deal. How about $${deal} cash discount right now?`,
-              `Sorry, will you Take $${deal} cash discount on this vehicle right now?`,
-              `Sorry, not possible. How about $${deal} cash discount?`,
-              `Will you Take $${deal} cash discount on this vehicle right now?`
+              `This is too low, how about a $${deal} discount coupon?`,
+              `Sorry, I can’t make a deal currently. How about a $${deal}cash discount right now?`,
+              `Sorry, will you take a $${deal}cash discount on this vehicle right now?`,
+              `Sorry, unfortunately that is not possible. How about a $${deal}cash discount?`,
+              `Will you accept a $${deal}cash discount on this vehicle right now?`
             ];
             setTimeout(()=>{
               botReply(BotHaggle[Math.floor(Math.random() * BotHaggle.length)]);
@@ -183,8 +184,8 @@ function createMessage() {
             },700)
           } else {
             let NoDeal = [
-                `$${deal} was my last offer, give me yours and I’ll see with my manager. Can I please get your email?`,
-                `We couldn’t reach an agreement today, but don’t worry, my Manager will get back to you ASAP. Can I please know your email?`
+                `$${deal} was my last offer, but don’t worry! My Manager will get back to you ASAP. Can I please have your best contact email?`,
+                `We couldn’t reach an agreement today, but don’t worry! My Manager will get back to you ASAP. Can I please have your best contact email?`
               ];
             botReply(NoDeal[Math.floor(Math.random() * NoDeal.length)]);
             NoDealBool = true;
@@ -201,7 +202,7 @@ function createMessage() {
       userReply("YES");
       showPreferredInputDisplay(false, true, true);
       setTimeout(() => {
-        botReply("Can I get your Plate number?");
+        botReply("Can I please get your vehicle plate number?");
         showPreferredInputDisplay(true, false, false);
       }, 700);
       status = "GET_VIN_NUM";
@@ -212,7 +213,7 @@ function createMessage() {
       userReply("NO");
       showPreferredInputDisplay(false, true, true);
       setTimeout(() => {
-        botReply("Sweet, What’s the valid email to reach you?");
+        botReply("Sweet! What is the best contact email to reach you?");
         showPreferredInputDisplay(true, false, false);
         status = "GET_EMAIL";
       }, 700);
@@ -238,7 +239,7 @@ function createMessage() {
       botReply(
         "We're committed to giving you the fairest price possible for your existing vehicle."
       );
-      botReply("What’s the valid email to reach you?");
+      botReply("What is the best contact email to reach you?");
       showPreferredInputDisplay(true, false, false);
     }, 700);
     status = "GET_EMAIL";
@@ -258,7 +259,7 @@ function createMessage() {
       status = "GET_PHONE";
     } else {
       userReply(userEmail);
-      botReply("Please enter a valid E-mail address");
+      botReply("Please enter a valid Email address");
       status = "GET_EMAIL";
     }
   }
@@ -275,7 +276,7 @@ function createMessage() {
         showPreferredInputDisplay(true, false, true);
         setTimeout(() => {
           botReply(
-            `Sit back and relax until our executive calls you.`
+            `Sit back and relax until our executive reaches out to you.`
           );
           showPreferredInputDisplay(false, false, false);
         }, 1400);
@@ -293,7 +294,7 @@ function createMessage() {
     showPreferredInputDisplay(true, false, true);
     setTimeout(() => {
       botReply(
-        `This is your discount code: ${coupon} <br> Offer expires in 72hours.`
+        `This is your discount code: ${coupon} Please note this offer expires in 72 hours.`
       );
       showPreferredInputDisplay(false, false, false);
     }, 1400);

@@ -307,4 +307,8 @@ div#wave .dot:nth-child(3) {
     width: 100% !important;
     min-height: -webkit-fill-available;
   }
+
+  #toAppend{
+    max-height: 100vh;
+  }
 }
