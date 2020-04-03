@@ -138,7 +138,7 @@ function createMessage() {
         );
         deal = userOffer;
         showPreferredInputDisplay(true, false, false);
-        status = "GET_EMAIL";
+        status = "TRADE_VEHICLE";
       }, 700);
       return;
     } else if (userOffer >= maxValue) {
