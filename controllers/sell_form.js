@@ -222,6 +222,7 @@ async function existence(req, res, next) {
   });
   if (exist[0]) {
     res.send("EXISTS");
+    res.end();
   } else {
     next();
   }

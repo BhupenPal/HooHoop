@@ -229,7 +229,9 @@ var PanoControls = (function() {
 		</svg>';
     var controls = isMobile()
       ? '\
-			<div class="image360_loading"><div class="image360_loadingBar"></div></div>\
+			<div class="image360_loading"><div class="image360_loadingBar">\
+      <div id="loader" style="display: block"></div>\
+      </div></div>\
 			<div class="panoviewer-control">\
 				<button class="enterfs">' +
         fullscreenSvg +
@@ -240,7 +242,9 @@ var PanoControls = (function() {
 				<div class="camera"></div>\
 			</div>'
       : '\
-			<div class="image360_loading"><div class="image360_loadingBar"></div></div>\
+      <div class="image360_loading"><div class="image360_loadingBar">\
+      <div id="loader" style="display: block"></div>\
+      </div></div>\
 			<div class="panoviewer-control">\
 				<button class="enterfs">' +
         fullscreenSvg +
@@ -271,6 +275,7 @@ var PanoControls = (function() {
     if (visible) {
       loadingClassList.add("is-loading");
     } else {
+      document.getElementById('loader').style.display = 'none';
       loadingClassList.remove("is-loading");
     }
   }

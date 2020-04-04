@@ -286,13 +286,11 @@
 function FileExist(urlToFile) {
     var xhr = new XMLHttpRequest();
     xhr.open('HEAD', urlToFile, false);
-    
-    if (xhr.status == "404") {
-            return false;
+    if (xhr.status == "200") {
+            return true;
     } else {
-        return true;
+        return false;
     }
-
     xhr.send();
 }
 
