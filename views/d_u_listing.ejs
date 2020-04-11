@@ -17,33 +17,31 @@
   </head>
   <body onload="myListHandle()">
     <%-include('./Components/Header.ejs') %>
-      <div class="dash_wrapper">
+    <div class="dash_wrapper">
+      <div class="dashfeature">
+        <%-include('./Components/sidebar.ejs') %>
+        <!-- My-Listing -->
+        <div class="fet_det">
+          <h1 class="feature_head">
+            My Listings
+          </h1>
 
-        <div class="dashfeature">
-          <%-include('./Components/sidebar.ejs') %>
-    <!-- My-Listing -->
-    <div class="fet_det">
-        <h1 class="feature_head">My Listings</h1>
-
-        <div class="table_container">
-          <table class="table_S">
-            <tr id="mylist">
-              <th>S.No</th>
-              <th>Thumbnail</th>
-              <th>VIN</th>
-              <th>Make</th>
-              <th>Model</th>
-              <th>Status</th>
-              <th>Modify</th>
-              <th>Delete</th>
-            </tr>
-          </table>
-
+          <div class="table_container">
+            <table class="table_S">
+              <tr id="mylist">
+                <th>S.No.</th>
+                <th>Date</th>
+                <th>Vehicle</th>
+                <th>Unique ID</th>
+                <th>Price</th>
+                <th>Update</th>
+              </tr>
+            </table>
+          </div>
         </div>
+        <!-- My-Listing -->
       </div>
-      <!-- My-Listing -->
-        </div>
-        </div>
-        <%-include('./Components/Footer.ejs') %>
-</body>
+    </div>
+    <%-include('./Components/Footer.ejs') %>
+  </body>
 </html>

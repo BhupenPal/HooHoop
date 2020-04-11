@@ -22,7 +22,7 @@
     <div class="card">
       <div class="hlogin"><img src="/assets/images/Logo.png" alt="" /></div>
 
-      <form action="/login" method="POST">
+      <form action="/user/login" method="POST">
         <%-include('./Flash/message.ejs') %>
         <div class="form-group">
           
@@ -47,12 +47,12 @@
         <div class="lbtnen"><button type="submit" class="button-2">Login</button></div>
       </form>
       <div class="log_links">
-        <p class="reg_link">No Account? <a href="/sign-up">Register</a></p>
+        <p class="reg_link">No Account? <a href="/user/Register">Register</a></p>
         <p class="reg_link"><a class="f_pass" href="/user/reset-password">Forgot Password</a></p>
       </div>
     </div>
   </div>
     <%-include('./Components/Footer.ejs') %>
-    <script src="/assets/scripts/flasher.js"></script>
+    <script src="/assets//scripts/flasher.js"></script>
   </body>
 </html>

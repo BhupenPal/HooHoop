@@ -30,12 +30,14 @@ const UserSchema = new Schema({
   secretToken: String,
   active: {
     type: Boolean,
-    required: true
+    required: true,
+    default: false
   },
-  resetToken: String,
+  resetToken: {type: String, default: null},
   isAdmin: {
     type: Boolean,
-    required: true
+    required: true,
+    default: false
   }
 });
 

@@ -1,39 +1,40 @@
 let jamForm = document.getElementById("jamFORM");
+let Fstar, Sstar = null;
 let monthNames = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December"
-  ];
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
 
 jamForm.addEventListener("submit", function carJamHandler() {
   event.preventDefault();
-  document.getElementById('error-flash').innerHTML = ""
-  document.getElementById("car_jam").classList.add("vanish")
-  document.getElementById("SELL-FORM-SUB").classList.add("vanish")
+  document.getElementById("error-flash").innerHTML = "";
+  document.getElementById("car_jam").classList.add("vanish");
+  document.getElementById("SELL-FORM-SUB").classList.add("vanish");
   document.getElementById("loader").style.display = "block";
   let PlateNo = document.getElementById("vinFigureID").value;
   PlateNo = PlateNo.toUpperCase();
   const xhr = new XMLHttpRequest();
-  xhr.open("GET", `/car-submit/data?Plate=${PlateNo}`, true);
+  xhr.open("GET", `/sell-car/car-jam?Plate=${PlateNo}`, true);
   xhr.getResponseHeader("content-type", "application/json");
   xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-  xhr.onload = function() {
+  xhr.onload = function () {
     if (this.status === 200) {
       let data = dataSetter(this.response);
-      if(data != null){
+      if (data != null) {
         dataGIST(data);
         dataAdder(data);
-        document.getElementById("car_jam").classList.remove("vanish")
-        document.getElementById("SELL-FORM-SUB").classList.remove("vanish")
+        document.getElementById("car_jam").classList.remove("vanish");
+        document.getElementById("SELL-FORM-SUB").classList.remove("vanish");
       } else {
         ErrorHide();
       }
@@ -46,11 +47,12 @@ jamForm.addEventListener("submit", function carJamHandler() {
   xhr.send();
 });
 
-function ErrorHide(){
-  document.getElementById('error-flash').innerHTML = "Please the check the plate you entered and try again"
-  setTimeout(()=>{
-    document.getElementById('error-flash').innerHTML = "";
-  }, 3000)
+function ErrorHide() {
+  document.getElementById("error-flash").innerHTML =
+    "Please the check the plate you entered and try again";
+  setTimeout(() => {
+    document.getElementById("error-flash").innerHTML = "";
+  }, 3000);
 }
 
 function dataGIST(data) {
@@ -84,75 +86,83 @@ function dataGIST(data) {
 }
 
 function dataAdder(data) {
- 
   const theDate = (timeStamp, target) => {
-      var DateParam = new Date(timeStamp * 1000);
-      var Dmonth = monthNames[DateParam.getMonth()];
-      var Dyear = DateParam.getFullYear();
-      target.value = `${Dmonth} ${Dyear}`;
-      target.innerHTML = `${Dmonth} ${Dyear}`;
-    };
-  
-    theDate(data.expiry_date_of_last_successful_wof, document.getElementById('wofexchange'));
-    if(data.plates != null){
-    theDate(data.plates[0].effective_date, document.getElementById('regexchange'));
-    }
-    
-    let makeExchange = document.getElementById('makeExchange');
-    makeExchange.value = data.make;
-    makeExchange.innerHTML = data.make;
+    var DateParam = new Date(timeStamp * 1000);
+    var Dmonth = monthNames[DateParam.getMonth()];
+    var Dyear = DateParam.getFullYear();
+    target.value = `${Dmonth} ${Dyear}`;
+    target.innerHTML = `${Dmonth} ${Dyear}`;
+  };
 
-    let modelExchange = document.getElementById('modelExchange');
-    modelExchange.value = data.model;
-    modelExchange.innerHTML = data.model;
+  theDate(
+    data.expiry_date_of_last_successful_wof,
+    document.getElementById("wofexchange")
+  );
+  if (data.plates != null) {
+    theDate(
+      data.plates[0].effective_date,
+      document.getElementById("regexchange")
+    );
+  }
 
-    let mYearExchange = document.getElementById('mYearExchange');
-    mYearExchange.value = data.year_of_manufacture;
-    mYearExchange.innerHTML = data.year_of_manufacture;
+  let makeExchange = document.getElementById("makeExchange");
+  makeExchange.value = data.make;
+  makeExchange.innerHTML = data.make;
 
-    let bodyExchange = document.getElementById('bodyExchange');
-    bodyExchange.value = data.body_style;
-    bodyExchange.innerHTML = data.body_style;
+  let modelExchange = document.getElementById("modelExchange");
+  modelExchange.value = data.model;
+  modelExchange.innerHTML = data.model;
 
-    let seatExchange = document.getElementById('seatExchange');
-    seatExchange.value = data.no_of_seats;
+  let mYearExchange = document.getElementById("mYearExchange");
+  mYearExchange.value = data.year_of_manufacture;
+  mYearExchange.innerHTML = data.year_of_manufacture;
 
-    let ownerExchange = document.getElementById('ownerExchange');
-    ownerExchange.value = data.number_of_owners;
-    ownerExchange.innerHTML = data.number_of_owners;
+  let bodyExchange = document.getElementById("bodyExchange");
+  bodyExchange.value = data.body_style;
+  bodyExchange.innerHTML = data.body_style;
 
-    let vinExchange = document.getElementById('vinExchange');
-    vinExchange.value = data.plate;
-    vinExchange.innerHTML = data.plate;
+  let seatExchange = document.getElementById("seatExchange");
+  seatExchange.value = data.no_of_seats;
 
-    let kMeterExchange = document.getElementById('kMeterExchange');
-    kMeterExchange.value = data.latest_odometer_reading;
-    kMeterExchange.innerHTML = data.latest_odometer_reading;
+  let ownerExchange = document.getElementById("ownerExchange");
+  ownerExchange.value = data.number_of_owners;
+  ownerExchange.innerHTML = data.number_of_owners;
 
-    let colorExchange = document.getElementById('colorExchange');
-    colorExchange.value = data.main_colour;
-    colorExchange.innerHTML = data.main_colour;
+  let vinExchange = document.getElementById("vinExchange");
+  vinExchange.value = data.plate;
+  vinExchange.innerHTML = data.plate;
 
-    let engineExchange = document.getElementById('engineExchange');
-    engineExchange.value = data.cc_rating;
-    engineExchange.innerHTML = data.cc_rating;
+  let kMeterExchange = document.getElementById("kMeterExchange");
+  kMeterExchange.value = data.latest_odometer_reading;
+  kMeterExchange.innerHTML = data.latest_odometer_reading;
 
-    let transmissionExchange = document.getElementById('transmissionExchange');
-    transmissionExchange.value = data.transmission;
-    transmissionExchange.innerHTML = data.transmission;
+  let colorExchange = document.getElementById("colorExchange");
+  colorExchange.value = data.main_colour;
+  colorExchange.innerHTML = data.main_colour;
 
-    let fuelExchange = document.getElementById('fuelExchange');
-    fuelExchange.value = data.fuel_type;
-    fuelExchange.innerHTML = data.fuel_type;
+  let engineExchange = document.getElementById("engineExchange");
+  engineExchange.value = data.cc_rating;
+  engineExchange.innerHTML = data.cc_rating;
 
+  let transmissionExchange = document.getElementById("transmissionExchange");
+  transmissionExchange.value = data.transmission;
+  transmissionExchange.innerHTML = data.transmission;
+
+  let fuelExchange = document.getElementById("fuelExchange");
+  fuelExchange.value = data.fuel_type;
+  fuelExchange.innerHTML = data.fuel_type;
+
+  Fstar = data.safety_economy.fuel_stars;
+  Sstar = data.safety_economy.driver_safety_stars;
+  getRatings();
 }
 
 function dataSetter(data) {
   data = JSON.parse(data);
 
-  if(data != null){
-    if(data.message != null){
-      return null
+  if (data != null) {
+    if (data.message != null) {
+      return null;
     } else {
       if (data.body_style == "CV") {
         data.body_style = "Convertible";
@@ -170,10 +180,10 @@ function dataSetter(data) {
         data.body_style = "Sedan";
       } else if (data.body_style == "SP") {
         data.body_style = "Sports Car";
-      }else {
+      } else {
         data.body_style = "Other";
       }
-    
+
       if (data.fuel_type == 01) {
         data.fuel_type = "Petrol";
       } else if (data.fuel_type == 02) {
@@ -203,13 +213,13 @@ function dataSetter(data) {
         data.fuel_type = "Other";
       }
 
-      if(data.make == "MERCEDES-BENZ"){
-        data.make = "MERCEDES BENZ"
-      } else if(data.make == "ROLLS-ROYCE"){
-        data.make = "ROLLS ROYCE"
+      if (data.make == "MERCEDES-BENZ") {
+        data.make = "MERCEDES BENZ";
+      } else if (data.make == "ROLLS-ROYCE") {
+        data.make = "ROLLS ROYCE";
       }
 
-      if(data.transmission != null){
+      if (data.transmission != null) {
         if (data.transmission.includes("automatic")) {
           data.transmission = "Automatic";
         } else if (data.transmission.includes("manual")) {
@@ -220,8 +230,7 @@ function dataSetter(data) {
       }
     }
   } else {
-    return null
+    return null;
   }
-
   return data;
 }

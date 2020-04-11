@@ -36,12 +36,12 @@
           
           <div class="credcontainer">
             <label for="d_cred_fnme">First Name</label>
-            <input type="text" id="d_cred_fnme" placeholder="<%= user.firstName %>" value="<%= user.firstName %>" name="firstName">
+            <input type="text" id="d_cred_fnme" placeholder="<%= user.firstName %>" value="<%= user.firstName %>" name="firstName" required>
           </div>
 
           <div class="credcontainer">
             <label for="d_cred_lnme">Last Name</label>
-            <input type="text" id="d_cred_lnme" placeholder="<%= user.lastName %>" value="<%= user.lastName %>" name="lastName">
+            <input type="text" id="d_cred_lnme" placeholder="<%= user.lastName %>" value="<%= user.lastName %>" name="lastName" required>
           </div>
 
           <div class="credcontainer flex_change">
@@ -50,7 +50,7 @@
 
           <div class="credcontainer">
             <label for="d_cred_num">Phone</label>
-            <input type="text" id="d_cred_num" placeholder="<%= user.phoneNum %>" value="<%= user.phoneNum %>" name="phoneNum">
+            <input type="text" id="d_cred_num" placeholder="<%= user.phoneNum %>" value="<%= user.phoneNum %>" name="phoneNum" required>
           </div>
           
           <div class="credcontainer">
@@ -59,7 +59,7 @@
           </div>
 
           <div class="subcred">
-            <button type="submit" formaction="/dashboard/profile">Update</button>
+            <button type="submit" formaction="/user/dashboard/profile">Update</button>
           </div>
 
         </form>

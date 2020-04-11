@@ -21,7 +21,7 @@
             <div class="ip_box">
                 <input type="text" class="v_enter" placeholder="Enter your number plate or VIN" name="vinFigure" id="vinFigureID" oninput="this.value = this.value.toUpperCase();" autofocus>
                 <button type="submit">FIND</button>
-                <h6 class="form_see" onclick="showform()"><a id="styledanchor" href="#SELL-FORM-SUB">Or Enter details Manually</a></h6>
+                <h6 class="form_see" onclick="showform()"><div id="styledanchor">Or Enter details Manually</div></h6>
             </div>
             
         </form>
@@ -259,8 +259,19 @@
                                 <option value="" id="regsib" disabled>----------------------</option>
                         </select>
                     </div>
-
                     <div class="form_inp form2">
+
+                        <div class="fuelstar">
+                            <div class="stars-outer">
+                                <div class="stars-inner"></div>
+                            </div>
+                        </div>
+                    
+                        <div class="safetystar">
+                            <div class="stars-outer">
+                                <div class="stars-inner"></div>
+                            </div>
+                        </div>
                     
                         <div class="drive-type">
                             <h3>drive type: 4WD</h3>
@@ -317,10 +328,14 @@
                                 <input class="inp_form_tag" id="dealer-em" type="text" placeholder="Email" name="DealerEmail">
                                 <input class="inp_form_tag" type="text" placeholder="Phone" name="DealerNum">
                             </div>
+                            <div class="input-wrapper">
+                                <span id="car_a"> Location </span>
+                                <input type="text" class="inp_form_tag" id="car_address" name="carAddr" required>
+                            </div>
                         </div>
                     
                     <div class="progress-bar" id="ProgressBar">
-                        <div id="progress-bar-fill" onchange="redirect()">
+                        <div id="progress-bar-fill">
                             <span id="progress-bar-text">0%</span>
                         </div>
                     </div>
@@ -338,5 +353,6 @@
     <script src="/assets/scripts/MakeModel.js"></script>
     <script src="/assets/scripts/ajax/carJamAjax.js"></script>
     <script src="/assets/scripts/script.js"></script>
+    <script src="/assets/scripts/starManager.js"></script>
 </body>
 </html>

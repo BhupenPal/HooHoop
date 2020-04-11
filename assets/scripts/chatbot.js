@@ -24,7 +24,7 @@ let maxValue = parseInt(document.getElementById("major").value);
 let discountFor = document.getElementById("vinObjId").value;
 let count = 1;
 let margin = maxValue - minValue;
-let deal = parseInt(margin / 10);
+let deal = parseInt(margin/6);
 let firstDeal = deal;
 let coupon = null;
 
@@ -105,19 +105,15 @@ function createMessage() {
   }
 
   if (status == "GET_OFFER") {
-    console.log('RUN')
     userOffer = userInput.value;
     userReply(userOffer);
     if(parseInt(userOffer) % 1 == 0){
-      console.log('NUM')
       status = "BARGAIN";
     } else {
       if(userOffer.includes('$')){
-        console.log('$')
         userOffer = parseInt(userOffer.split('$')[1])
         status = "BARGAIN"
       } else {
-        console.log('NaN')
         showPreferredInputDisplay(true, false, true);
         setTimeout(() => {
           botReply('Please enter a valid response');
@@ -137,7 +133,7 @@ function createMessage() {
           "Great! I’ll create a personalised discount code for you and send it via email. What is your best contact email address?"
         );
         deal = userOffer;
-        showPreferredInputDisplay(true, false, false);
+        showPreferredInputDisplay(false, true, false);
         status = "TRADE_VEHICLE";
       }, 700);
       return;
@@ -167,9 +163,9 @@ function createMessage() {
         }, 700)
       } else {
         if (deal <= margin) {
-          if (deal + firstDeal * 0.5 <= margin) {
+          if (deal + firstDeal * 0.8 <= margin) {
             showPreferredInputDisplay(false, true, true)
-            deal = parseInt(deal + firstDeal * 0.5);
+            deal = parseInt(deal + firstDeal * 0.8);
             RejectedOffers.push(userOffer);
             let BotHaggle = [
               `This is too low, how about a $${deal} discount coupon?`,
@@ -271,7 +267,6 @@ function createMessage() {
       count++;
     }
     if (count == 3) {
-      console.log(NoDealBool)
       if(NoDealBool){
         showPreferredInputDisplay(true, false, true);
         setTimeout(() => {
@@ -394,7 +389,7 @@ function userReply(msgToAdd) {
 
 function sendChatDetails() {
   const xhr = new XMLHttpRequest();
-  xhr.open("POST", `/chatbot/submit`, true);
+  xhr.open("POST", `/user/chatbot/submit`, true);
   xhr.setRequestHeader("Content-Type", "application/json");
 
   xhr.onprogress = function() {
@@ -411,10 +406,11 @@ function sendChatDetails() {
 
   var tod = new Date();
   var tom = new Date();
-  tom = tom.setDate(tod.getDate() + 3).toUTCString();
+  tom.setDate(tod.getDate() + 3);
   tod = tod.toUTCString();
+  tom = tom.toUTCString();
   tod = tod.split(' ').slice(0, 4).join(' ');
-  tom = tod.split(' ').slice(0, 4).join(' ');
+  tom = tom.split(' ').slice(0, 4).join(' ');
 
   var discountDetails = { "email": `${userEmail}`, 
                           "phoneNo": `${userPhone}`, 

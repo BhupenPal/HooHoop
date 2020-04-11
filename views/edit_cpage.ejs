@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="/assets/css/index.css" />
     <link rel="stylesheet" href="/assets/css/all.min.css" />
     <link rel="stylesheet" href="/assets/css/fonts.css" />
-    <script src="../assets/scripts/script.js"></script>
     <link
       rel="icon"
       href="/assets/images/favicon.ico"
@@ -18,29 +17,20 @@
 <body>
     <%-include('./Components/Header.ejs') %>
         <div class="cardet_page">
-          <form action="/edit-car/<%= car._id %>" method="POST">
+          <form action="/user/edit-car/<%= car._id %>" method="POST">
       <div class="th_sxty_info">
         <div class="th60_container">
           <div class="viewthsxty">
-            <button class="interior-changer">
-              <i class="fad fa-steering-wheel"></i
-              ><span class="tooltiptext">Interior</span>
-            </button>
-            <button class="exterior-changer">
-              <i class="fad fa-car"></i
-              ><span class="tooltiptext">Exterior</span>
-            </button>
-
-
+            <img src="/assets/Uploads/<%= car.vinNum %>/exterior/Photo_1.jpg" class="edit_pic">
           </div>
           <div class="car_name_price">
             <div class="c_name">
               MAKE
-              <input class="edit_inp" type="text" placeholder="Car Name" name="upMake" value="<%= car.Make %>">
+              <input class="edit_inp" type="text" placeholder="Car Name" name="upMake" value="<%= car.Make %>" disabled>
             </div>
             <div class="c_model">
               Model
-              <input class="edit_inp" type="text" placeholder="Car Model" name="upModel" value="<%= car.Model %>">
+              <input class="edit_inp" type="text" placeholder="Car Model" name="upModel" value="<%= car.Model %>" disabled>
             </div>
             <div class="c_price">
               PRICE
@@ -52,8 +42,7 @@
             </div>
           </div>
         </div>
-        <div class="cardetails_tab">
-          <h1>Specifications</h1>
+        <div class="cardetails_tab edit_details" style="margin-top: 0;">
           <div class="det_connect">
             <div class="ico_hold">
               <i class="fad fa-joystick"></i>
@@ -75,7 +64,7 @@
               <i class="fad fa-gas-pump"></i>
               <span>Fuel Type</span>
             </div>
-            <div class="prop_hold"><input class="edit_inp" type="text" placeholder="Enter Details Here" name="upFuelType" value="<%= car.fuelType %>"></div>
+            <div class="prop_hold"><input class="edit_inp" type="text" placeholder="Enter Details Here" name="upFuelType" value="<%= car.FuelType %>"></div>
           </div>
 
           <div class="det_connect">
@@ -109,11 +98,45 @@
             </div>
             <div class="prop_hold"><input class="edit_inp" type="text" placeholder="Enter Details Here" name="upColour" value="<%= car.Colour %>"></div>
           </div>
+
+          <div class="det_connect">
+            <div class="ico_hold">
+              <i class="fad fa-calendar-alt"></i>
+              <span>Wof Expiry</span>
+            </div>
+            <div class="prop_hold"><input class="edit_inp" type="text" placeholder="Enter Details Here" name="upColour" value="<%= car.WoFexpiry %>"></div>
+          </div>
+
+          <div class="det_connect">
+            <div class="ico_hold">
+              <i class="fad fa-calendar-alt"></i>
+              <span>Reg. Expiry</span>
+            </div>
+            <div class="prop_hold"><input class="edit_inp" type="text" placeholder="Enter Details Here" name="upColour" value="<%= car.regExpiry %>"></div>
+          </div>
         </div>
-      </form>
+
+      <div class="edit_description"> 
+          <h1>Description</h1>
+          <textarea id="t_area" rows="6" placeholder="E.g. condition and other information" name="upDescription"><%= car.Description %></textarea>
       </div>
 
+      <div class="edit_sa">
+        <h1># Listing By</h1>
+        <div class="sa_contain">
+          <input class="edit_inp" type="text" value="<%= car.DealerName %>">
+          <input class="edit_inp" type="text" value="<%= car.DealerNum %>">
+          <input class="edit_inp" type="text" value="<%= car.DealerEmail %>">
+        </div>
+      </div>
+    </div>
+
+    <div class="e-up_btn">
+      <button class="edit_update">Update</button>
+    </div>
+  </form>
     </div>
 <%-include('./Components/Footer.ejs') %>
+<script src="/assets/scripts/script.js"></script>
 </body>
 </html>

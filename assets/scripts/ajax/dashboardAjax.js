@@ -1,8 +1,7 @@
 function myListHandle(){
-  
   document.getElementById("loader").style.display = "flex";
     const xhr = new XMLHttpRequest();
-    xhr.open("GET", `/dashboard/listings/my`, true);
+    xhr.open("GET", `/user/dashboard/listings/my`, true);
     xhr.getResponseHeader("content-type", "application/json");
     xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
     xhr.onload = function() {
@@ -23,31 +22,34 @@ myListings = list => {
 
     for(inc = 0; inc < json.list.length; inc++){
       if(json.list[inc].adActive == "Active"){
-        status = `<td class="sold"><button data-host="/my-ads/update" value="${json.list[inc]._id}" onclick="sell_listed(this)">Active</button></td>`;
+        status = `<td><button class="d_done" style="margin-right:14px" data-host="/user/ads/update" value="${json.list[inc]._id}" onclick="sell_listed(this)"><i class="fal fa-check"></i></button>`;
       } else {
-        status = `<td class="pending"><button data-host="/my-ads/update" value="${json.list[inc]._id}" onclick="pending_done(this)">Sold</button></td>`;
+        status = `<td><button class="d_pending" style="margin-right:14px" data-host="/user/ads/update" value="${json.list[inc]._id}" onclick="pending_done(this)"><i class="fas fa-exclamation-triangle"></i></button>`;
       }
 
         output += `\               
         <tr class="user-mylist">\
         <td>${inc + 1}</td>\
-        <td><a href="/buy-car/${json.list[inc]._id}" target="__blank"><img src="/assets/Uploads/${json.list[inc].vinNum}/exterior/Photo_1.jpg" style="height:30px;width:30px"></a></td>\
+        <td>${json.list[inc].date}</td>\
+        <td><a href="/buy-car/${json.list[inc]._id}" target="__blank">\
+        <img src="/assets/Uploads/${json.list[inc].vinNum}/thumbnail/Photo30.jpg" style="height:30px;width:30px">\
+        <span>${json.list[inc].Make} - ${json.list[inc].Model}</span></a></td>\
         <td>${json.list[inc].vinNum}</td>\
-        <td>${json.list[inc].Make}</td>\
-        <td>${json.list[inc].Model}</td>\
-        <td>${json.list[inc].adActive}</td>\
-        ${status}\
-        <td class="delete"><button data-host="/my-ads/delete" value="${json.list[inc]._id}" onclick="del_lstng(this)">Delete</button></td>\
+        <td>$${json.list[inc].Price}</td>
+        ${status}<a href="/user/edit-car/${json.list[inc]._id}" target="__blank"><button class="d_edit"><i class="fal fa-edit"></i></button></a>\
+        <button class="d_delete" data-host="/user/ads/delete" value="${json.list[inc]._id}" onclick="del_lstng(this)"><i class="fal fa-trash"></i></button></td>\
       </tr>`
     }
     document.getElementById("mylist").insertAdjacentHTML("afterend", output);
 }
 
-function completeListHandle(){
-  
+function completeListHandle(fil){
+  if(event){
+    event.preventDefault();
+  }
   document.getElementById("loader").style.display = "flex";
     const xhr = new XMLHttpRequest();
-    xhr.open("GET", `/dashboard/all-listings/complete`, true);
+    xhr.open("GET", `/user/dashboard/all-listings/complete?filter=${fil}`, true);
     xhr.getResponseHeader("content-type", "application/json");
     xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
     xhr.onload = function() {
@@ -68,20 +70,22 @@ completeListings = list => {
 
     for(inc = 0; inc < json.list.length; inc++){
       if(json.list[inc].adActive == "Active"){
-        status = `<td class="sold"><button data-host="/my-ads/update" value="${json.list[inc]._id}" onclick="sell_listed(this)">Active</button></td>`;
+        status = `<td><button class="d_done" style="margin-right:14px" data-host="/user/ads/update" value="${json.list[inc]._id}" onclick="sell_listed(this)"><i class="fal fa-check"></i></button>`;
       } else {
-        status = `<td class="pending"><button data-host="/my-ads/update" value="${json.list[inc]._id}" onclick="pending_done(this)">Sold</button></td>`;
+        status = `<td><button class="d_pending" style="margin-right:14px" data-host="/user/ads/update" value="${json.list[inc]._id}" onclick="pending_done(this)"><i class="fas fa-exclamation-triangle"></i></button>`;
       }
         output += `\               
         <tr class="user-completelist">\
         <td>${inc + 1}</td>\
-        <td><a href="/buy-car/${json.list[inc]._id}" target="__blank"><img src="/assets/Uploads/${json.list[inc].vinNum}/exterior/Photo_1.jpg" style="height:30px;width:30px"></a></td>\
+        <td>${json.list[inc].date}</td>\
+        <td><a href="/buy-car/${json.list[inc]._id}" target="__blank">\
+        <img src="/assets/Uploads/${json.list[inc].vinNum}/thumbnail/Photo30.jpg" style="height:30px;width:30px">\
+        <span>${json.list[inc].Make} - ${json.list[inc].Model}</span></a></td>\
         <td>${json.list[inc].vinNum}</td>
-        <td>${json.list[inc].Make}</td>\
-        <td>${json.list[inc].Model}</td>\
-        <td>${json.list[inc].adActive}</td>\
-        ${status}\
-        <td class="delete"><button data-host="/my-ads/delete" value="${json.list[inc]._id}" onclick="del_lstng(this)">Delete</button></td>\
+        <td>$${json.list[inc].Price}</td>\
+        <td>${json.list[inc].carAuthor}</td>\
+        ${status}<a href="/user/edit-car/${json.list[inc]._id}" target="__blank"><button class="d_edit"><i class="fal fa-edit"></i></button></a>\
+        <button class="d_delete" data-host="/user/ads/delete" value="${json.list[inc]._id}" onclick="del_lstng(this)"><i class="fal fa-trash"></i></button>\
       </tr>`
     }
 
@@ -92,7 +96,7 @@ function completeUserHandle(){
   
   document.getElementById("loader").style.display = "flex";
     const xhr = new XMLHttpRequest();
-    xhr.open("GET", `/dashboard/user-management/list`, true);
+    xhr.open("GET", `/user/dashboard/user-management/list`, true);
     xhr.getResponseHeader("content-type", "application/json");
     xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
     xhr.onload = function() {
@@ -122,8 +126,9 @@ completeUsers = list => {
         <td><img src="/assets/images/robot.png" style="height:30px;width:30px"></td>\
         <td>${json.list[inc].firstName} ${json.list[inc].lastName} </td>\
         <td>${json.list[inc].email}</td>\
+        <td>${json.list[inc].phoneNum}</td>\
         <td>${status}</td>\
-        <td class="delete"><button data-host="/dashboard/user/delete" value="${json.list[inc]._id}" onclick="del_lstng(this)">Delete</button></td>\
+        <td><button class="d_delete" data-host="/user/dashboard/user/delete" value="${json.list[inc]._id}" onclick="del_lstng(this)"><i class="fal fa-trash"></i></button></td>\
       </tr>`
     }
     document.getElementById("completeUsers").insertAdjacentHTML("afterend", output);
@@ -132,7 +137,7 @@ completeUsers = list => {
 function testDriveHandle(){
   document.getElementById("loader").style.display = "flex";
   const xhr = new XMLHttpRequest();
-  xhr.open("GET", `/dashboard/client-management/testdrives`, true);
+  xhr.open("GET", `/user/dashboard/client-management/testdrives`, true);
   xhr.getResponseHeader("content-type", "application/json");
   xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
   xhr.onload = function() {
@@ -153,20 +158,23 @@ testDrive = list => {
 
   for(inc = 0; inc < json.list.length; inc++){
     if(json.list[inc].status){
-      status = `<td class="sold"><button data-host="/dashboard/testdrive/update" value="${json.list[inc]._id}" onclick="pending_done(this)">Done</button></td>`;
+      status = `<td><button class="d_done" data-host="/user/dashboard/testdrive/update" value="${json.list[inc]._id}" onclick="pending_done(this)"><i class="fal fa-check"></i></button>`;
     } else {
-      status = `<td class="pending"><button data-host="/dashboard/testdrive/update" value="${json.list[inc]._id}" onclick="sell_listed(this)">Pending</button></td>`;
+      status = `<td><button class="d_pending" data-host="/user/dashboard/testdrive/update" value="${json.list[inc]._id}" onclick="sell_listed(this)"><i class="fas fa-exclamation-triangle"></i></button>`;
     }
       output += `\               
       <tr class="check-testdrive">\
       <td>${inc + 1}</td>\
+      <td>${json.list[inc].date}</td>\
       <td>${json.list[inc].firstName} ${json.list[inc].lastName} </td>\
+      <td><a href="/buy-car/${json.list[inc]._id}" target="__blank">\
+      <img src="/assets/Uploads/${json.list[inc].vinNum}/thumbnail/Photo30.jpg" style="height:30px;width:30px">\
+      <span>${json.list[inc].car}</span></a></td>\
       <td>${json.list[inc].vinNum}</td>\
-      <td><a href="/buy-car/${json.list[inc].vehicleID}" target="__blank">${json.list[inc].car}</a></td>\
       <td>${json.list[inc].email}</td>\
       <td>${json.list[inc].phoneNum}</td>\
       ${status}\
-      <td class="delete"><button data-host="/dashboard/testdrive/delete" value="${json.list[inc]._id}" onclick="del_lstng(this)">Delete</button></td>\
+      <button class="d_delete" data-host="/user/dashboard/testdrive/delete" value="${json.list[inc]._id}" onclick="del_lstng(this)"><i class="fal fa-trash"></i></button></td>\
     </tr>`
   }
   document.getElementById("testdriveEnq").insertAdjacentHTML("afterend", output);
@@ -176,7 +184,7 @@ function availabilityHandle(){
   document.getElementById('availID').onclick = null;
   document.getElementById("loader").style.display = "flex";
   const xhr = new XMLHttpRequest();
-  xhr.open("GET", `/dashboard/client-management/availcheck`, true);
+  xhr.open("GET", `/user/dashboard/client-management/availcheck`, true);
   xhr.getResponseHeader("content-type", "application/json");
   xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
   xhr.onload = function() {
@@ -197,20 +205,23 @@ checkAvailability = list => {
 
   for(inc = 0; inc < json.list.length; inc++){
     if(json.list[inc].status){
-      status = `<td class="sold"><button data-host="/dashboard/availability/update" value="${json.list[inc]._id}" onclick="pending_done(this)">Done</button></td>`;
+      status = `<td><button class="d_done" data-host="/user/dashboard/availability/update" value="${json.list[inc]._id}" onclick="pending_done(this)"><i class="fal fa-check"></i></button>`;
     } else {
-      status = `<td class="pending"><button data-host="/dashboard/availability/update" value="${json.list[inc]._id}" onclick="sell_listed(this)">Pending</button></td>`;
+      status = `<td><button class="d_pending" data-host="/user/dashboard/availability/update" value="${json.list[inc]._id}" onclick="sell_listed(this)"><i class="fas fa-exclamation-triangle"></i></button>`;
     }
       output += `\
       <tr class="check-availability">\
       <td>${inc + 1}</td>\
+      <td>${json.list[inc].date}</td>\
       <td>${json.list[inc].fullName}</td>\
+      <td><a href="/buy-car/${json.list[inc]._id}" target="__blank">\
+      <img src="/assets/Uploads/${json.list[inc].vinNum}/thumbnail/Photo30.jpg" style="height:30px;width:30px">\
+      <span>${json.list[inc].car}</span></a></td>\
+      <td>${json.list[inc].vinNum}</td>\
       <td>${json.list[inc].email}</td>\
       <td>${json.list[inc].phoneNum}</td>\
-      <td>${json.list[inc].vinNum}</td>\
-      <td><a href="/buy-car/${json.list[inc].vehicleID}" target="__blank"> ${json.list[inc].car}</a></td>\
       ${status}\
-      <td class="delete"><button data-host="/dashboard/availability/delete" value="${json.list[inc]._id}" onclick="del_lstng(this)">Delete</button></td>\
+      <button class="d_delete" data-host="/user/dashboard/availability/delete" value="${json.list[inc]._id}" onclick="del_lstng(this)"><i class="fal fa-trash"></i></button></td>\
     </tr>`
   }
   document.getElementById("availabilityEnq").insertAdjacentHTML("afterend", output);
@@ -220,7 +231,7 @@ function shipHandle(){
   document.getElementById('shipID').onclick = null;
   document.getElementById("loader").style.display = "flex";
   const xhr = new XMLHttpRequest();
-  xhr.open("GET", `/dashboard/client-management/shipenq`, true);
+  xhr.open("GET", `/user/dashboard/client-management/shipenq`, true);
   xhr.getResponseHeader("content-type", "application/json");
   xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
   xhr.onload = function() {
@@ -241,23 +252,26 @@ shipmentEnquiry = list => {
 
   for(inc = 0; inc < json.list.length; inc++){
     if(json.list[inc].status){
-      status = `<td class="sold"><button data-host="/dashboard/shipment/update" value="${json.list[inc]._id}" onclick="pending_done(this)">Done</button></td>`;
+      status = `<td><button class="d_done" data-host="/user/dashboard/shipment/update" value="${json.list[inc]._id}" onclick="pending_done(this)"><i class="fal fa-check"></i></button>`;
     } else {
-      status = `<td class="pending"><button data-host="/dashboard/shipment/update" value="${json.list[inc]._id}" onclick="sell_listed(this)">Pending</button></td>`;
+      status = `<td><button class="d_pending" data-host="/user/dashboard/shipment/update" value="${json.list[inc]._id}" onclick="sell_listed(this)"><i class="fas fa-exclamation-triangle"></i></button>`;
     }
       output += `\
       <tr class="check-ship">\
       <td>${inc + 1}</td>\
+      <td>${json.list[inc].date}</td>\
       <td>${json.list[inc].fullName}</td>\
+      <td><a href="/buy-car/${json.list[inc]._id}" target="__blank">\
+      <img src="/assets/Uploads/${json.list[inc].vinNum}/thumbnail/Photo30.jpg" style="height:30px;width:30px">\
+      <span>${json.list[inc].car}</span></a></td>\
       <td>${json.list[inc].vinNum}</td>\
-      <td><a href="/buy-car/${json.list[inc].vehicleID}" target="__blank"> ${json.list[inc].car}</a></td>\
       <td>${json.list[inc].email}</td>\
       <td>${json.list[inc].phoneNum}</td>\
       <td>${json.list[inc].fromLocation}</td>\
       <td>${json.list[inc].toLocation}</td>\
       <td>${json.list[inc].transportDate}</td>\
       ${status}\
-      <td class="delete"><button data-host="/dashboard/shipment/delete" value="${json.list[inc]._id}" onclick="del_lstng(this)">Delete</button></td>\
+      <button class="d_delete" data-host="/user/dashboard/shipment/delete" value="${json.list[inc]._id}" onclick="del_lstng(this)"><i class="fal fa-trash"></i></button></td>\
     </tr>`
   }
   document.getElementById("ShippingEnq").insertAdjacentHTML("afterend", output);
@@ -267,7 +281,7 @@ function completeTestDriveHandle(){
   
   document.getElementById("loader").style.display = "flex";
   const xhr = new XMLHttpRequest();
-  xhr.open("GET", `/dashboard/all-client-management/testdrives-all`, true);
+  xhr.open("GET", `/user/dashboard/all-client-management/testdrives-all`, true);
   xhr.getResponseHeader("content-type", "application/json");
   xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
   xhr.onload = function() {
@@ -288,31 +302,32 @@ completeTestDrive = list => {
 
   for(inc = 0; inc < json.list.length; inc++){
     if(json.list[inc].status){
-      status = `<td class="sold"><button data-host="/dashboard/testdrive/update" value="${json.list[inc]._id}" onclick="pending_done(this)">Done</button></td>`;
+      status = `<td><button class="d_done" data-host="/user/dashboard/testdrive/update" value="${json.list[inc]._id}" onclick="pending_done(this)"><i class="fal fa-check"></i></button>`;
     } else {
-      status = `<td class="pending"><button data-host="/dashboard/testdrive/update" value="${json.list[inc]._id}" onclick="sell_listed(this)">Pending</button></td>`;
+      status = `<td><button class="d_pending" data-host="/user/dashboard/testdrive/update" value="${json.list[inc]._id}" onclick="sell_listed(this)"><i class="fas fa-exclamation-triangle"></i></button>`;
     }
       output += `\               
       <tr class="check-testdrive">\
       <td>${inc + 1}</td>\
+      <td>${json.list[inc].date}</td>\
       <td>${json.list[inc].firstName} ${json.list[inc].lastName} </td>\
-      <td>${json.list[inc].vinNum}</td>\
       <td><a href="/buy-car/${json.list[inc].vehicleID}" target="__blank">${json.list[inc].car}</a></td>\
-      <td>${json.list[inc].carAuthor}</td>\
+      <td>${json.list[inc].vinNum}</td>\
       <td>${json.list[inc].email}</td>\
       <td>${json.list[inc].phoneNum}</td>\
+      <td>${json.list[inc].carAuthor}</td>\
       ${status}\
-      <td class="delete"><button data-host="/dashboard/testdrive/delete" value="${json.list[inc]._id}" onclick="del_lstng(this)">Delete</button></td>\
+      <button class="d_delete" data-host="/user/dashboard/testdrive/delete" value="${json.list[inc]._id}" onclick="del_lstng(this)"><i class="fal fa-trash"></i></button></td>\
     </tr>`
   }
   document.getElementById("allTestdriveEnq").insertAdjacentHTML("afterend", output);
 }
 
 function completeAvailabilityHandle(){
-  
+  document.getElementById('allAvailID').onclick = null;
   document.getElementById("loader").style.display = "flex";
   const xhr = new XMLHttpRequest();
-  xhr.open("GET", `/dashboard/all-client-management/availcheck-all`, true);
+  xhr.open("GET", `/user/dashboard/all-client-management/availcheck-all`, true);
   xhr.getResponseHeader("content-type", "application/json");
   xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
   xhr.onload = function() {
@@ -333,13 +348,14 @@ completeCheckAvailability = list => {
 
   for(inc = 0; inc < json.list.length; inc++){
     if(json.list[inc].status){
-      status = `<td class="sold"><button data-host="/dashboard/availability/update" value="${json.list[inc]._id}" onclick="pending_done(this)">Done</button></td>`;
+      status = `<td><button class="d_done" data-host="/user/dashboard/availability/update" value="${json.list[inc]._id}" onclick="pending_done(this)"><i class="fal fa-check"></i></button>`;
     } else {
-      status = `<td class="pending"><button data-host="/dashboard/availability/update" value="${json.list[inc]._id}" onclick="sell_listed(this)">Pending</button></td>`;
+      status = `<td><button class="d_pending" data-host="/user/dashboard/availability/update" value="${json.list[inc]._id}" onclick="sell_listed(this)"><i class="fas fa-exclamation-triangle"></i></button>`;
     }
       output += `\
       <tr class="check-availability">\
       <td>${inc + 1}</td>\
+      <td>${json.list[inc].date}</td>\
       <td>${json.list[inc].fullName}</td>\
       <td>${json.list[inc].email}</td>\
       <td>${json.list[inc].phoneNum}</td>\
@@ -347,17 +363,17 @@ completeCheckAvailability = list => {
       <td><a href="/buy-car/${json.list[inc].vehicleID}" target="__blank"> ${json.list[inc].car}</a></td>\
       <td>${json.list[inc].carAuthor}</td>\
       ${status}\
-      <td class="delete"><button data-host="/dashboard/availability/delete" value="${json.list[inc]._id}" onclick="del_lstng(this)">Delete</button></td>\
+      <button class="d_delete" data-host="/user/dashboard/availability/delete" value="${json.list[inc]._id}" onclick="del_lstng(this)"><i class="fal fa-trash"></i></button></td>\
     </tr>`
   }
   document.getElementById("allAvailabilityEnq").insertAdjacentHTML("afterend", output);
 }
 
 function completeShipHandle(){
-  
+  document.getElementById('allShipID').onclick = null;
   document.getElementById("loader").style.display = "flex";
   const xhr = new XMLHttpRequest();
-  xhr.open("GET", `/dashboard/all-client-management/shipenq-all`, true);
+  xhr.open("GET", `/user/dashboard/all-client-management/shipenq-all`, true);
   xhr.getResponseHeader("content-type", "application/json");
   xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
   xhr.onload = function() {
@@ -378,13 +394,14 @@ completeShipmentEnquiry = list => {
 
   for(inc = 0; inc < json.list.length; inc++){
     if(json.list[inc].status){
-      status = `<td class="sold"><button data-host="/dashboard/shipment/update" value="${json.list[inc]._id}" onclick="pending_done(this)">Done</button></td>`;
+      status = `<td><button class="d_done" data-host="/user/dashboard/shipment/update" value="${json.list[inc]._id}" onclick="pending_done(this)"><i class="fal fa-check"></i></button>`;
     } else {
-      status = `<td class="pending"><button data-host="/dashboard/shipment/update" value="${json.list[inc]._id}" onclick="sell_listed(this)">Pending</button></td>`;
+      status = `<td><button class="d_pending" data-host="/user/dashboard/shipment/update" value="${json.list[inc]._id}" onclick="sell_listed(this)"><i class="fas fa-exclamation-triangle"></i></button>`;
     }
       output += `\
       <tr class="check-ship">\
       <td>${inc + 1}</td>\
+      <td>${json.list[inc].date}</td>\
       <td>${json.list[inc].fullName}</td>\
       <td>${json.list[inc].vinNum}</td>\
       <td><a href="/buy-car/${json.list[inc].vehicleID}" target="__blank"> ${json.list[inc].car}</a></td>\
@@ -395,7 +412,7 @@ completeShipmentEnquiry = list => {
       <td>${json.list[inc].toLocation}</td>\
       <td>${json.list[inc].transportDate}</td>\
       ${status}\
-      <td class="delete"><button data-host="/dashboard/shipment/delete" value="${json.list[inc]._id}" onclick="del_lstng(this)">Delete</button></td>\
+      <button class="d_delete" data-host="/user/dashboard/shipment/delete" value="${json.list[inc]._id}" onclick="del_lstng(this)"><i class="fal fa-trash"></i></button></td>\
     </tr>`
   }
   document.getElementById("allShippingEnq").insertAdjacentHTML("afterend", output);
@@ -404,7 +421,7 @@ completeShipmentEnquiry = list => {
 function myCouponHandle(){
   document.getElementById("loader").style.display = "flex";
   const xhr = new XMLHttpRequest();
-  xhr.open("GET", `/dashboard/offers/coupon`, true);
+  xhr.open("GET", `/user/dashboard/offers/coupon`, true);
   xhr.getResponseHeader("content-type", "application/json");
   xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
   xhr.onload = function() {
@@ -430,64 +447,17 @@ myCoupon = list => {
     <div class="offer">\
       <div class="offslipbod"></div>\
         <div class="offslipinfo">\
-          <div class="carinfotme"><span>${json.list[inc].vehicleName}</span><span>${json.list[inc].validFrom}</span></div>\
-          <div class="carinfotme"><span>Valid Thru</span><span>${json.list[inc].validTo}</span></div>\
+          <div class="carinfotme"><span>${json.list[inc].vehicleName}</span><span>${json.list[inc].tod}</span></div>\
+          <div class="carinfotme"><span>Valid Thru</span><span>${json.list[inc].tom}</span></div>\
           <div class="carinfotme"><span>Validation Time</span><span>72 Hrs</span></div>\
           <div class="carinfotme"><span>Car Pricing</span><span>$${json.list[inc].carPrice}</span></div>\
-          <div class="carinfotme"><span>Coupon Discount</span><span>$${json.list[inc].couponAmount}</span></div>\
-          <h1><span>Offer Code</span><span>${json.list[inc].couponCode}</span></h1>\
+          <div class="carinfotme"><span>Coupon Discount</span><span>$${json.list[inc].discount}</span></div>\
+          <div class="carinfotme"><span>Trade Vehicle</span><span>$${json.list[inc].trade}</span></div>\
+          <div class="carinfotme"><span>Traded Vehicle Plate</span><span>$${json.list[inc].tradeVehicle}</span></div>\
+          <h1><span>Offer Code</span><span>${json.list[inc].CouponCode}</span></h1>\
         </div>\
     </div>
     `
   }
   document.getElementById("my_offer").insertAdjacentHTML("afterend", output);
-}
-
-function tradeHandle(){
-  document.getElementById("loader").style.display = "flex";
-  const xhr = new XMLHttpRequest();
-  xhr.open("GET", `/dashboard/trade-requests/list`, true);
-  xhr.getResponseHeader("content-type", "application/json");
-  xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-  xhr.onload = function() {
-    if (this.status === 200) {
-      trade(this.response)
-      document.getElementById("loader").style.display = "none";
-    } else {
-      console.log("Some error occured");
-      document.getElementById("loader").style.display = "none";
-    }
-  };
-  xhr.send();
-}
-
-trade = list => {
-  json = JSON.parse(list);
-  let output = '';
-
-  for(inc = 0; inc < json.list.length; inc++){
-
-    if(json.list[inc].status == "Done"){
-      status = `<td class="sold"><button data-host="/dashboard/shipment/update" value="${json.list[inc]._id}" onclick="pending_done(this)">Done</button></td>`;
-    } else {
-      status = `<td class="pending"><button data-host="/dashboard/shipment/update" value="${json.list[inc]._id}" onclick="sell_listed(this)">Pending</button></td>`;
-    }
-
-    output = `\
-      <tr>\
-      <td>${inc + 1}</td>\
-      <td>${json.list[inc].custEmail}</td>\
-      <td>${json.list[inc].custPhone}</td>\
-      <td>${json.list[inc].custVIN}</td>\
-      <td>${json.list[inc].discountFor}</td>\
-      <td>${json.list[inc].couponCode}</td>\
-      <td>$${json.list[inc].custDiscount}</td>\
-      <td>${json.list[inc].custDiscDate}</td>\
-      ${status}\
-      <td class="delete"><button data-host="/dashboard/shipment/delete" value="${json.list[inc]._id}" onclick="del_lstng(this)">Delete</button></td>\
-      </tr>
-      `
-  }
-
-  document.getElementById("tradeinfo").insertAdjacentHTML("afterend", output);
 }

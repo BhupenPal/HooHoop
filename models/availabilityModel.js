@@ -19,14 +19,19 @@ const AvailabilityModel = new Schema({
     type: Number,
     required: true,
   },
-  customerID: String,
   vehicleID: String,
+  vinNum: {type: String, required: true},
   car: String,
   status: {
     type: Boolean,
-    required: true
+    required: true,
+    default: false
   },
   carAuthor: {
+    type: String,
+    required: true
+  },
+  date: {
     type: String,
     required: true
   }

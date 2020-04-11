@@ -17,31 +17,30 @@
   </head>
   <body onload="completeUserHandle()">
     <%-include('./Components/Header.ejs') %>
-      <div class="dash_wrapper">
+    <div class="dash_wrapper">
+      <div class="dashfeature">
+        <%-include('./Components/sidebar.ejs') %>
+        <!-- User-Management -->
+        <div class="fet_det">
+          <h1 class="feature_head">User Management</h1>
 
-        <div class="dashfeature">
-          <%-include('./Components/sidebar.ejs') %>
-    <!-- User-Management -->
-    <div class="fet_det">
-        <h1 class="feature_head">User Management</h1>
-
-        <div class="table_container">
-          <table class="table_S">
-            <tr id="completeUsers">
-              <th>S.No</th>
-              <th>Thumbnail</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Status</th>
-              <th>Delete</th>
-            </tr>
+          <div class="table_container">
+            <table class="table_S">
+              <tr id="completeUsers">
+                <th>S.No</th>
+                <th>Thumbnail</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Status</th>
+                <th>Delete</th>
+              </tr>
             </table>
-
+          </div>
         </div>
       </div>
-        </div>
-        </div>
+    </div>
     <!-- User-Management -->
     <%-include('./Components/Footer.ejs') %>
-</body>
+  </body>
 </html>

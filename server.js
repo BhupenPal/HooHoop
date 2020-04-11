@@ -1,11 +1,16 @@
 const express = require("express");
 const app = express();
 
+//View Engine & Static File Routing
 app.set("view engine", "ejs");
 app.use("/assets", express.static("assets"));
 
 //Environment Variables
-require('dotenv').config();
+require("dotenv").config();
+
+//Parsing Body
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Passport Config
 const passport = require("passport");
@@ -18,24 +23,17 @@ const flash = require("connect-flash");
 const session = require("express-session");
 app.use(
   session({
-    secret: "secret",
+    secret: process.env.SECRET,
     resave: true,
-    saveUninitialized: true
+    saveUninitialized: false,
   })
 );
-
-//Cache Controller
-app.use(function(req, res, next) {
-  if (!req.user)
-      res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
-  next();
-});
 
 //Connect Flash
 app.use(flash());
 
 //Global variables for connect-flash
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   res.locals.success_msg = req.flash("success_msg");
   res.locals.error_msg = req.flash("error_msg");
   res.locals.error = req.flash("error");
@@ -46,7 +44,7 @@ app.use(function(req, res, next) {
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   res.locals.isAuthenticated = req.isAuthenticated();
   if (req.isAuthenticated) {
     res.locals.user = req.user || null;
@@ -54,8 +52,32 @@ app.use(function(req, res, next) {
   next();
 });
 
-const landing = require("./controllers/landing");
-app.use("/", landing);
+//Deleting Coupons after 72HOURS
+const mdq = require("mongo-date-query");
+var schedule = require("node-schedule");
+var couponModels = require("./models/couponModel");
+schedule.scheduleJob("0 0 * * *", async function () {
+  await couponModels.deleteMany({
+    createdAt: mdq.previousDays(3),
+  });
+});
+
+app.use("/", require("./routes/Home.routes"));
+app.use("/sell-car", require("./routes/Sell.routes"));
+app.use("/user", require("./routes/User.routes"));
+app.use('/search-car', require('./routes/Search.routes'));
+
+app.use((req, res, next) => {
+  const err = new Error("Error 404! Not Found!");
+  err.status = 404;
+  next(err);
+})
+
+app.use((err, req, res, next) => {
+  const ErrorCode = err.status || 500;
+  const ErrorMsg = err.message || "Internal server error";
+  res.render('ErrorPage', {ErrorCode: ErrorCode, ErrorMsg: ErrorMsg})
+})
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, console.log(`Server has started at PORT ${PORT}`));

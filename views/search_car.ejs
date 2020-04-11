@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>HooHoop - Buy Car</title>
+    <link rel="stylesheet" href="/assets/css/index.css" />
+    <link rel="stylesheet" href="/assets/css/all.min.css" />
+    <link rel="stylesheet" href="/assets/css/fonts.css" />
+    <link
+      rel="icon"
+      href="/assets/images/favicon.ico"
+      type="image/ico"
+      sizes="16*16"
+    />
+  </head>
+
+  <body class="bgset">
+    <%-include('./Components/Header.ejs') %>
+    <!-- navbar end -->
+    
+    <div class="buy_car_wrap">
+      <div class="filterwrap">
+        <div class="fltr_head">Filters <button id="mobile_fil" class="vanish" onclick="mobilefilview()"><i class="fas fa-chevron-right"></i></button></div>
+        <div class="filter">
+          <form id="former">
+        
+          <div id="make" class="filter_option">
+            <div class="Filter_class" onclick="foption(this)"><span>Make</span><i class="fas fa-chevron-right"></i></div>
+            <div class="foption_encloser"></div>
+          </div>  
+          <div id="model" class="filter_option">
+            <div class="Filter_class" onclick="foption(this)"><span>Model</span><i class="fas fa-chevron-right"></i></div>
+            <div class="foption_encloser"><div class="foption">Select Make First</div></div>
+          </div>
+          <div id="price" class="filter_option">
+            <div class="Filter_class" onclick="foption(this)"><span>Price</span><i class="fas fa-chevron-right"></i></div>
+            <div class="foption_encloser">
+              <div class="foption">$ 0 To $ 3000 <input type="checkbox" onclick="PriceSelector()" value="0-3000" id="foption-73"> <label for="foption-73"></label></div>
+              <div class="foption">$ 3000 To $ 5000 <input type="checkbox"  onclick="PriceSelector()" value="3001-5000" id="foption-74"> <label for="foption-74"></label></div>
+              <div class="foption">$ 5000 To $ 8000 <input type="checkbox" onclick="PriceSelector()" value="5001-8000" id="foption-75"> <label for="foption-75"></label></div>
+              <div class="foption">$ 8000 To $ 10000 <input type="checkbox" onclick="PriceSelector()" value="8001-10000" id="foption-76"> <label for="foption-76"></label></div>
+              <div class="foption">$ 10000 + <input type="checkbox" onclick="PriceSelector()" value="10001-9999999" id="foption-77"> <label for="foption-77"></label></div>
+            </div>
+          </div>
+          <div id="fuel_type" class="filter_option">
+            <div class="Filter_class" onclick="foption(this)"><span>Fuel Type</span><i class="fas fa-chevron-right"></i></div>
+            <div class="foption_encloser">
+                <div class="foption">Petrol <input type="checkbox" value="Petrol" onclick="FuelSelector()" id="foption-78"> <label for="foption-78"></label></div>
+                <div class="foption">Diesel <input type="checkbox" value="Diesel" onclick="FuelSelector()" id="foption-79"> <label for="foption-79"></label></div>
+                <div class="foption">Electric <input type="checkbox" value="Electric" onclick="FuelSelector()" id="foption-80"> <label for="foption-80"></label></div>
+                <div class="foption">Hybrid <input type="checkbox" value="Hybrid" onclick="FuelSelector()" id="foption-81"> <label for="foption-81"></label></div>
+            </div>
+          </div>
+          <div id="kms" class="filter_option">
+            <div class="Filter_class" onclick="foption(this)"><span>KMs</span><i class="fas fa-chevron-right"></i></div>
+            <div class="foption_encloser">
+                <div class="foption">Up to 5000 Kms <input type="checkbox" onclick="kMeterSelector()" value="0-5000" id="foption-82"> <label for="foption-82"></label></div>
+                <div class="foption">5000 to 15000 Kms <input type="checkbox" onclick="kMeterSelector()" value="5001-15000" id="foption-83"> <label for="foption-83"></label></div>
+                <div class="foption">15000 to 30000 Kms <input type="checkbox" onclick="kMeterSelector()" value="15001-30000" id="foption-84"> <label for="foption-84"></label></div>
+                <div class="foption">30000 to 50000 Kms <input type="checkbox" onclick="kMeterSelector()" value="30001-50000" id="foption-85"> <label for="foption-85"></label></div>
+                <div class="foption">50000+ Kms <input type="checkbox" onclick="kMeterSelector()" value="50001-9999999" id="foption-86"> <label for="foption-86"></label></div>
+            </div>
+          </div>
+          <div id="age" class="filter_option">
+            <div class="Filter_class" onclick="foption(this)"><span>Age</span><i class="fas fa-chevron-right"></i></div>
+            <div class="foption_encloser">
+                <div class="foption">0 to 2 Years <input type="checkbox" onclick="AgeSelector()" value="0-2" id="foption-87"> <label for="foption-87"></label></div>
+                <div class="foption">2 Years to 4 Years <input type="checkbox" onclick="AgeSelector()" value="3-4" id="foption-88"> <label for="foption-88"></label></div>
+                <div class="foption">4 Years to 6 Years <input type="checkbox" onclick="AgeSelector()" value="5-6" id="foption-89"> <label for="foption-89"></label></div>
+                <div class="foption">6+ Years <input type="checkbox" onclick="AgeSelector()" value="6-100" id="foption-90"> <label for="foption-90"></label></div>
+              </div>
+          </div>
+          <div id="transmission" class="filter_option">
+            <div class="Filter_class" onclick="foption(this)"><span>Transmission</span><i class="fas fa-chevron-right"></i></div>
+            <div class="foption_encloser">
+              <div class="foption">Automatic<input type="checkbox" onclick="TransmissionSelector()" value="Automatic" id="foption-91"> <label for="foption-91"></label></div>
+              <div class="foption">Manual<input type="checkbox" onclick="TransmissionSelector()" value="Manual" id="foption-92"> <label for="foption-92"></label></div>
+            </div>
+          </div>
+          <div id="body_type" class="filter_option">
+            <div class="Filter_class" onclick="foption(this)"><span>Body Type</span><i class="fas fa-chevron-right"></i></div>
+            <div class="foption_encloser">
+              <div class="foption">Convertible<input type="checkbox" onclick="BodySelector()" value="Convertible" id="foption-93"> <label for="foption-93"></label></div>
+              <div class="foption">Coupe<input type="checkbox" onclick="BodySelector()" value="Coupe" id="foption-94"> <label for="foption-94"></label></div>
+              <div class="foption">Hatchback<input type="checkbox" onclick="BodySelector()" value="Hatchback" id="foption-95"> <label for="foption-95"></label></div>
+              <div class="foption">Sedan<input type="checkbox" onclick="BodySelector()" value="Sedan" id="foption-96"> <label for="foption-96"></label></div>
+              <div class="foption">Station Wagon<input type="checkbox" onclick="BodySelector()" value="Station Wagon" id="foption-97"> <label for="foption-97"></label></div>
+              <div class="foption">RV/SUV<input type="checkbox" onclick="BodySelector()" value="RV/SV" id="foption-98"> <label for="foption-98"></label></div>
+              <div class="foption">Utility<input type="checkbox" onclick="BodySelector()" value="Utility" id="foption-99"> <label for="foption-99"></label></div>
+              <div class="foption">Van<input type="checkbox" onclick="BodySelector()" value="Van" id="foption-100"> <label for="foption-100"></label></div>
+              <div class="foption">Other<input type="checkbox" onclick="BodySelector()" value="" id="foption-101"> <label for="foption-101"></label></div>
+            </div>
+          </div>
+          <div id="color" class="filter_option">
+            <div class="Filter_class" onclick="foption(this)"><span>Color</span><i class="fas fa-chevron-right"></i></div>
+            <div class="foption_encloser">
+              <div class="foption"> <div><i class="fas fa-square"></i> Black</div><input type="checkbox" onclick="ColourSelector()" id="foption-102" value="Black"> <label for="foption-102"></label></div>
+              <div class="foption"> <div><i class="fas fa-square" style="color: blue;"></i> Blue</div><input type="checkbox" onclick="ColourSelector()" id="foption-103" value="Blue"> <label for="foption-103"></label></div>
+              <div class="foption"> <div><i class="fas fa-square" style="color: gold;"></i> Gold</div><input type="checkbox" onclick="ColourSelector()" id="foption-104" value="Gold"> <label for="foption-104"></label></div>
+              <div class="foption"> <div><i class="fas fa-square" style="color: green;"></i> Green</div><input type="checkbox" onclick="ColourSelector()" id="foption-105" value="Green"> <label for="foption-105"></label></div>
+              <div class="foption"> <div><i class="fas fa-square" style="color: grey"></i> Grey</div><input type="checkbox" onclick="ColourSelector()" id="foption-106" value="Grey"> <label for="foption-106"></label></div>
+              <div class="foption"> <div><i class="fas fa-square" style="color: orange"></i> Orange</div><input type="checkbox" onclick="ColourSelector()" id="foption-107" value="Orange"> <label for="foption-107"></label></div>
+              <div class="foption"> <div><i class="fas fa-square" style="color: red"></i> Red</div><input type="checkbox" onclick="ColourSelector()" id="foption-108" value="Red"> <label for="foption-108"></label></div>
+              <div class="foption"> <div><i class="fas fa-square" style="color: wheat"></i> White</div><input type="checkbox" onclick="ColourSelector()" id="foption-109" value="White"> <label for="foption-109"></label></div>
+              <div class="foption"> <div><i class="fas fa-square" style="color: transparent"></i> Other</div><input type="checkbox" onclick="ColourSelector()" id="foption-110" value=""> <label for="foption-110"></label></div>
+            </div>
+          </div>
+        </form>
+        </div>
+      </div>
+  
+      <div class="contentwrap" id="listeer">
+        <%-include('./Components/Loader.ejs') %>
+        <div id="bc-card-wrap">
+          <% if(info.record.length > 0){ %>
+        <% for(var i = 0; i < info.record.length; i++) { %>
+          <a href="/buy-car/<%= info.record[i]._id %>" class="cardanchor">
+          <div class="bc-card">
+            <div class="cb_img">
+              <img src="/assets/Uploads/<%= info.record[i].vinNum %>/thumbnail/Photo380.jpg">
+              <div class="vir_tour"><i class="fas fa-tachometer" style="margin-right: 10px;"></i>360 Virtual Tour</div>
+            </div>
+            <div class="cb_info">
+              <div class="cb_main">
+                <span class="cb_name"><%= info.record[i].Make %></span>
+                <span class="cb_price">$ <%= info.record[i].Price %></span>
+              </div>
+              <div class="cb_add_info">
+                <span class="kms_info"><%= info.record[i].kMeters %></span>
+                <span class="trans_info"><%= info.record[i].Transmission %></span>
+                <span class="model_info"><%= info.record[i].Model %></span>
+              </div>
+            </div>
+        </div>
+        </a>
+        <% } %>
+      <% } else { %>
+      <div class="no-car">
+        No cars to display right now
+      </div>
+    <% } %>
+      </div>
+    <!-- Pagination -->
+    <div id="Pagination" data-last="<%= info.EndPage %>">
+      <button id="previous" onclick="onPrev()">Prev</button>
+      <a><span class="Page_no vanish"></span></a>
+      <a><span class="Page_no vanish"></span></a>
+      <a><span class="Page_no vanish"></span></a>
+      <a><span class="Page_no vanish"></span></a>
+      <a><span class="Page_no vanish"></span></a>
+      <a><span class="Page_no vanish"></span></a>
+      <a><span class="Page_no vanish"></span></a>
+      <button id="next" onclick="onNext()">Next</button>
+    </div>
+    <!-- Buy-car ended -->
+      </div>
+    </div>
+
+    <%-include('./Components/Footer.ejs') %>
+    <script src="/assets/scripts/Pagination.js"></script>
+    <script src="/assets/scripts/ajax/ajax.js"></script>
+    <script src="/assets/scripts/script.js"></script>
+    <script src="/assets/scripts/MakeModel.js"></script>
+  </body>
+</html>
+ 

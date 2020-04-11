@@ -23,7 +23,9 @@
           <%-include('./Components/sidebar.ejs') %>
     <!-- Account Management -->
     <div class="fet_det">
-      <%-include('./Flash/message.ejs') %>
+      <div class="show_f">
+        <%-include('./Flash/message.ejs') %>
+      </div>
         <h1 class="feature_head">Account Management</h1>  
 
         <div class="Usercred Acc_man">
@@ -31,21 +33,21 @@
         <form method="POST">
           <div class="credcontainer">
             <label for="d_cred_oldpass">Old Password</label>
-            <input type="password" id="d_cred_oldpass" name="originalPass">
+            <input type="password" id="d_cred_oldpass" name="originalPass" required>
           </div>
 
           <div class="credcontainer">
             <label for="d_cred_newpass">New Password</label>
-            <input type="password" id="d_cred_newpass" name="password">
+            <input type="password" id="d_cred_newpass" name="password" required>
           </div>
 
           <div class="credcontainer">
             <label for="d_cred_cnewpass">Confirm New Password</label>
-            <input type="password" id="d_cred_cnewpass" name="password2">
+            <input type="password" id="d_cred_cnewpass" name="password2" required>
           </div>
 
           <div class="subcred">
-            <button type="submit" formaction="/dashboard/password-reset">Change Password</button>
+            <button type="submit" formaction="/user/dashboard/password-reset">Change Password</button>
           </div>
         </form>
 

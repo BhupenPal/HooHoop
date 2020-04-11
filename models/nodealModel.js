@@ -7,12 +7,15 @@ mongoose.connect("mongodb://localhost:27017/HooHoop", {
 
 const Schema = mongoose.Schema;
 const NoDealModel = new Schema({
-  custEmail: String,
-  custPhone: String,
-  carVin: String,
-  custOffer: String,
-  offerDate: String,
-  status: String
+  email: String,
+  phoneNo: String,
+  vinNum: String,
+  discount: String,
+  date: String,
+  status: {
+    type: String,
+    default: "Active"
+  }
 });
 
 module.exports = mongoose.model("No Deal Queries", NoDealModel);

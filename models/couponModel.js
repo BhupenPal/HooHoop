@@ -11,12 +11,14 @@ const Coupons = new Schema({
     custPhone: String,
     vehicleID: String,
     vehicleName: String,
-    couponCode: String,
-    couponAmount: String,
-    validFrom: String,
-    validTo: String,
-    ownerID: String,
-    carPrice: String
+    CouponCode: String,
+    discount: String,
+    tod: String,
+    tom: String,
+    authorID: String,
+    carPrice: String,
+    trade: String,
+    tradeVehicle: String
 }, {timestamps: true});
 
 module.exports = mongoose.model("Coupons", Coupons);

@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost:27017/HooHoop", {
   useNewUrlParser: !0,
   useUnifiedTopology: !0,
-  useCreateIndex: 1
+  useCreateIndex: 1,
 });
 
 const Schema = mongoose.Schema;
@@ -20,17 +20,26 @@ const TestDrive = new Schema({
     type: Number,
     required: true
   },
-  customerID: String,
-  vehicleID: String,
+  vehicleID: {
+    type: String,
+    required: true
+  },
+  vinNum: {
+    type: String,
+    required: true
+  },
   status: {
     type: Boolean,
-    required: true
+    required: true,
+    default: false
   },
   car: String,
   carAuthor: {
     type: String,
     required: true
-  }
+  },
+  date: {type: String,
+  required: true}
 });
 
 module.exports = mongoose.model("Test Drive", TestDrive);

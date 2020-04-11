@@ -3,70 +3,78 @@ const mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost:27017/HooHoop", {
   useNewUrlParser: !0,
   useUnifiedTopology: !0,
-  useCreateIndex: 1
+  useCreateIndex: 1,
+  useFindAndModify: false
 });
 
 const Schema = mongoose.Schema,
   CarSchema = new Schema({
     Price: {
       type: Number,
-      required: true
+      required: true,
     },
     minPrice: {
       type: Number,
-      required: true
+      required: true,
     },
     Make: {
       type: String,
-      required: true
+      required: true,
     },
     Model: {
       type: String,
-      required: true
+      required: true,
     },
-    mYear: String,
+    ModelYear: {
+      type: Number,
+      required: true,
+    },
     Age: {
       type: Number,
-      required: true
+      required: true,
     },
     BodyType: {
       type: String,
-      required: true
+      required: true,
     },
     DoorNum: Number,
-    SeatNum: Number,
+    SeatNum: { type: Number, required: true },
     ModelDetail: String,
     ImportHistory: String,
     PreviousOwners: String,
     vinNum: {
       type: String,
       required: true,
-      unique: true
+      unique: true,
     },
     kMeters: {
       type: Number,
-      required: true
+      required: true,
     },
-    Colour: String,
-    engineSize: Number,
-    Transmission: String,
-    fuelType: {
+    Colour: { type: String, required: true },
+    engineSize: {type: Number, required: true},
+    Transmission: {type: String, required: true},
+    FuelType: {
       type: String,
-      required: true
+      required: true,
     },
+    FuelStar: Number,
+    SafetyStar:Number,
     cylinderNum: String,
     WoFexpiry: String,
-    regExpiry: String,
-    DriveWheel4: Number,
-    RoadCost: String,
+    regExpiry: {type: String, required: true},
+    DriveWheel4: {type: Number, required: true, default: 2},
+    RoadCost: {type: String, default: "Not"},
     Description: String,
-    CarFolder: String,
-    authorID: String,
-    views: Number,
-    adActive: String,
+    authorID: {type: String, required: true},
+    authorEmail: {type: String, required: true},
+    views: { type: Number, default: 0 },
+    adActive: { type: String, default: "Active" },
     DealerName: String,
     DealerNum: String,
-    DealerEmail: String
+    DealerEmail: String,
+    TotFrame: {type: Number, required: true},
+    date: {type: String, required: true}
   });
 
 module.exports = mongoose.model("CarList", CarSchema);

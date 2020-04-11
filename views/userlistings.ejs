@@ -29,7 +29,7 @@
           <div class="listing_card">
             <div class="list_img">
               <img
-                src="/assets/Uploads/<%= myAds[i].vinNum %>/exterior/Photo_1.jpg"
+                src="/assets/Uploads/<%= myAds[i].vinNum %>/thumbnail/Photo380.jpg"
                 alt=""
               />
             </div>
@@ -48,7 +48,7 @@
               </div>
             </div>
             <div class="list_option_btn_wrap">
-              <a href="/edit-car/<%= myAds[i].id %>">
+              <a href="/user/edit-car/<%= myAds[i].id %>">
                 <button class="list_option_btn">
                   <i class="fal fa-edit"></i>
                 </button>
@@ -56,7 +56,7 @@
               <button
                 class="list_option_btn"
                 value="<%= myAds[i]._id %>"
-                data-host="/my-ads/delete"
+                data-host="/user/ads/delete"
                 onclick="del_lstng(this)"
               >
                 <i class="fal fa-trash"></i>
@@ -65,7 +65,7 @@
               <button
                 class="list_option_btn"
                 value="<%= myAds[i]._id %>"
-                data-host="/my-ads/update"
+                data-host="/user/ads/update"
                 onclick="sell_listed(this)"
               >
                 <i class="fal fa-check"></i>
@@ -74,7 +74,7 @@
               <button
                 class="list_option_btn exclame"
                 value="<%= myAds[i]._id %>"
-                data-host="/my-ads/update"
+                data-host="/user/ads/update"
                 onclick="pending_done(this)"
               >
                 <i class="fas fa-exclamation-triangle"></i>

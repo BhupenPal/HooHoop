@@ -53,7 +53,7 @@
                 class="cloudimage-360"
                 data-folder="/assets/Uploads/<%= record.vinNum %>/exterior/"
                 data-filename="Photo_{index}.jpg"
-                data-amount="<%= photoArrayLength %>"
+                data-amount="<%= record.TotFrame %>"
               ></div>
             </div>
           </div>
@@ -69,7 +69,7 @@
               <i class="fad fa-calendar-alt"></i>
               <p>Model Year</p>
             </div>
-            <div class="prop_hold"><%= record.mYear %></div>
+            <div class="prop_hold"><%= record.ModelYear %></div>
           </div>
 
           <div class="det_connect">
@@ -93,7 +93,7 @@
               <i class="fad fa-gas-pump"></i>
               <span>Fuel Type</span>
             </div>
-            <div class="prop_hold"><%= record.fuelType %></div>
+            <div class="prop_hold"><%= record.FuelType %></div>
           </div>
 
           <div class="det_connect">
@@ -179,7 +179,7 @@
                 <button
                   class="submit-button"
                   type="submit"
-                  formaction="/buy-car/<%= record._id %>/book-test-drive"
+                  formaction="/buy-car/<%= record._id %>/book-drive"
                 >
                   Submit
                 </button>
@@ -203,7 +203,7 @@
                 <button
                   class="submit-button"
                   type="submit"
-                  formaction="/buy-car/<%= record._id %>/check-availbility"
+                  formaction="/buy-car/<%= record._id %>/check-avail"
                 >
                   Submit
                 </button>
@@ -240,7 +240,7 @@
                 <button
                   class="submit-button"
                   type="submit"
-                  formaction="/buy-car/<%= record._id %>/shipping-quote"
+                  formaction="/buy-car/<%= record._id %>/ship-quote"
                 >
                   Submit
                 </button>
@@ -269,6 +269,7 @@
     <input type="text" id="minor" class="vanish" value="<%= record.minPrice %>">
     <input type="text" id="major" class="vanish" value="<%= record.Price %>">
     <input type="text" id="vinObjId" class="vanish" value="<%= record.id %>">
+
     <script src="/assets/scripts/view360-interior/jquery.js"></script>
     <script src="/assets/scripts/view360-interior/gyro.js"></script>
     <script src="/assets/scripts/view360-interior/pano.js"></script>

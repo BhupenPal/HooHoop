@@ -1,21 +1,20 @@
 <div class="sidebar">
 
     <div class="sbar_options">
-      <a href="/dashboard/profile"><div class="sopt">Profile</div></a>
-      <a href="/dashboard/account"><div class="sopt">Account Management</div></a>
-      <a href="/dashboard/listings"><div class="sopt" id="myListID">My Listing</div></a>
+      <a href="/user/dashboard/profile"><div class="sopt">Profile</div></a>
+      <a href="/user/dashboard/account"><div class="sopt">Account Management</div></a>
+      <a href="/user/dashboard/listings"><div class="sopt" id="myListID">My Listing</div></a>
       <% if(user.isAdmin){ %>
-      <a href="/dashboard/all-listings"><div class="sopt" id="clistID">All Listings</div></a>
-      <a href="/dashboard/user-management"><div class="sopt" id="cuserID">User Management</div></a>
+      <a href="/user/dashboard/all-listings"><div class="sopt" id="clistID">All Listings</div></a>
+      <a href="/user/dashboard/user-management"><div class="sopt" id="cuserID">User Management</div></a>
       <% } %>
-      <a href="/dashboard/client-management"><div class="sopt" id="testDID">My Client Management</div></a>
+      <a href="/user/dashboard/client-management"><div class="sopt" id="testDID">My Client Management</div></a>
       <% if(user.isAdmin){ %>
-      <a href="/dashboard/all-client-management"><div class="sopt" id="allClientID">All Client Management</div></a>
+      <a href="/user/dashboard/all-client-management"><div class="sopt" id="allClientID">All Client Management</div></a>
       <% } %>
-      <a href="/dashboard/offers"><div class="sopt">My Offers</div></a>
-      <a href="/dashboard/trade-requests"><div class="sopt" id="tradeReqID">Trade Request</div></a>
-      <a href="/dashboard/No-deal-requests"><div class="sopt" id="noDealID">No Deal Customers</div></a>
-    <a href="/logout"><div class="sopt">Logout</div></a>  
+      <a href="/user/dashboard/offers"><div class="sopt">My Offers</div></a>
+      <a href="/user/dashboard/No-deal-requests"><div class="sopt" id="noDealID">No Deal Customers</div></a>
+    <a href="/user/logout"><div class="sopt">Logout</div></a>  
     </div>
 
   </div>
