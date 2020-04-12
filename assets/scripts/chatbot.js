@@ -66,7 +66,6 @@ let AlreadyRejected = [
 ];
 
 function createMessage() {
-console.log(status)
   if (event) {
     event.preventDefault();
     document.querySelector("#send-air > i").style.color = "#999999";
