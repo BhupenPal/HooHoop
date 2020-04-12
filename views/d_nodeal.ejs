@@ -15,7 +15,7 @@
       sizes="16*16"
     />
   </head>
-  <body>
+  <body onload="NoDealHandle()">
     <%-include('./Components/Header.ejs') %>
       <div class="dash_wrapper">
 
@@ -24,18 +24,19 @@
 
           <!-- NO deal -->
           <div class="fet_det">
-            <h1 class="feature_head">NO Deal Customers</h1>
+            <h1 class="feature_head">No Deal Customers</h1>
   
             <div class="table_container">
               <table class="table_S">
                 <tr id="tradeinfo">
                   <th>S.No</th>
+                  <th>Date</th>
                   <th>Customer Email</th>
                   <th>Customer Phone</th>
-                  <th>Car Plate No</th>
+                  <th>Vehicle</th>
+                  <th>Unique ID</th>
                   <th>User last offer</th>
-                  <th>Date</th>
-                  <th>Modify</th>
+                  <th>Update</th>
                 </tr>
               </table>
             </div>

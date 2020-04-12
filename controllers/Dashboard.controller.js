@@ -4,6 +4,7 @@ const shipModel = require("../models/shippingModel");
 const testDrive = require("../models/testDrive");
 const checkAvail = require("../models/availabilityModel");
 const couponModel = require("../models/couponModel");
+const noDealModel = require("../models/nodealModel");
 const bcrypt = require("bcryptjs");
 let errors = [];
 
@@ -105,7 +106,8 @@ module.exports = {
     else if (req.params.sec == "offers") res.render("d_user_off");
     else if (req.params.sec == "No-deal-requests") res.render("d_nodeal");
     else if (req.params.sec == "profile") res.render("d_profile");
-    else next(new Error("Oops! The page you are trying to access does not exist"));
+    else
+      next(new Error("Oops! The page you are trying to access does not exist"));
   },
 
   getMyAds: async (req, res, next) => {
@@ -116,7 +118,7 @@ module.exports = {
       res.json({ list: myList });
       res.end();
     } else {
-      next(new Error("Unauthorised Access"))
+      next(new Error("Unauthorised Access"));
       res.end();
     }
   },
@@ -130,10 +132,10 @@ module.exports = {
         res.json({ list: myList });
         res.end();
       } else {
-        next(new Error("Unauthorised Access"))
+        next(new Error("Unauthorised Access"));
       }
     } else {
-      next(new Error("Unauthorised Access"))
+      next(new Error("Unauthorised Access"));
     }
   },
 
@@ -145,10 +147,10 @@ module.exports = {
           .sort({ $natural: -1 });
         res.json({ list: allUsers });
       } else {
-        next(new Error("Unauthorised Access"))
+        next(new Error("Unauthorised Access"));
       }
     } else {
-      next(new Error("Unauthorised Access"))
+      next(new Error("Unauthorised Access"));
     }
   },
 
@@ -157,7 +159,7 @@ module.exports = {
       await userModel.deleteOne({ _id: req.body.deleteAd });
       res.redirect(req.header("Referer"));
     } else {
-      next(new Error("Unauthorised Access"))
+      next(new Error("Unauthorised Access"));
       res.end();
     }
   },
@@ -170,7 +172,7 @@ module.exports = {
       res.json({ list: TestDrive });
       res.end();
     } else {
-      next(new Error("Unauthorised Access"))
+      next(new Error("Unauthorised Access"));
       res.end();
     }
   },
@@ -182,7 +184,7 @@ module.exports = {
     if (req.xhr) {
       res.json({ list: CheckAvail });
     } else {
-      next(new Error("Unauthorised Access"))
+      next(new Error("Unauthorised Access"));
     }
   },
 
@@ -193,25 +195,23 @@ module.exports = {
         .sort({ $natural: -1 });
       res.json({ list: ShipList });
     } else {
-      next(new Error("Unauthorised Access"))
+      next(new Error("Unauthorised Access"));
     }
   },
 
   getAllTestDrive: async (req, res, next) => {
-    let TestDrive = await testDrive
-      .find({  })
-      .sort({ $natural: -1 });
+    let TestDrive = await testDrive.find({}).sort({ $natural: -1 });
 
     if (req.xhr) {
       if (req.user.isAdmin) {
         res.json({ list: TestDrive });
         res.end();
       } else {
-        next(new Error("Unauthorised Access"))
+        next(new Error("Unauthorised Access"));
         res.end();
       }
     } else {
-      next(new Error("Unauthorised Access"))
+      next(new Error("Unauthorised Access"));
       res.end();
     }
   },
@@ -228,7 +228,7 @@ module.exports = {
         res.end();
       }
     } else {
-      next(new Error("Unauthorised Access"))
+      next(new Error("Unauthorised Access"));
       res.end();
     }
   },
@@ -245,7 +245,7 @@ module.exports = {
         res.end();
       }
     } else {
-      next(new Error("Unauthorised Access"))
+      next(new Error("Unauthorised Access"));
     }
   },
 
@@ -322,7 +322,42 @@ module.exports = {
         .sort({ $natural: -1 });
       res.json({ list: offers });
     } else {
-      next(new Error("Unauthorised Access"))
+      next(new Error("Unauthorised Access"));
     }
+  },
+
+  getNoDeals: async (req, res, next) => {
+    let NoDeal = await noDealModel
+      .find({ carAuthor: req.user._id })
+      .sort({ $natural: -1 });
+    if (req.xhr) {
+      res.json({ list: NoDeal });
+      res.end();
+    } else {
+      next(new Error("Unauthorised Access"));
+      res.end();
+    }
+  },
+
+  updateNoDeal: async (req, res, next) => {
+    const NoDeal = await NoDeal.findOne({ _id: req.body.adSOLD });
+    if (NoDeal.status) {
+      await checkAvail.updateOne(
+        { _id: req.body.adSOLD },
+        { $set: { status: false } },
+        res.redirect(req.header("Referer"))
+      );
+    } else {
+      await checkAvail.updateOne(
+        { _id: req.body.adSOLD },
+        { $set: { status: true } },
+        res.redirect(req.header("Referer"))
+      );
+    }
+  },
+
+  deleteNoDeal: async (req, res, next) => {
+    await NoDeal.deleteOne({ _id: req.body.deleteAd });
+    res.redirect(req.header("Referer"));
   },
 };

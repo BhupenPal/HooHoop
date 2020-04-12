@@ -306,9 +306,11 @@ module.exports = {
     if (CouponCode == "null") {
       let NoDeal = new NoDealModel({
         email,
-        phoneNo,
-        discount,
+        phoneNo
       });
+      NoDeal.uLastOffer = discount;
+      NoDeal.car = `${result.Make} - ${result.Model}`;
+      NoDeal.carAuthor = result.authorID;
       NoDeal.vinNum = result.vinNum;
       let offerDate = new Date();
       offerDate = offerDate.toUTCString();

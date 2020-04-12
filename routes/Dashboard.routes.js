@@ -46,4 +46,8 @@ router.post("/shipment/update", DashboardController.updateShip);
 
 router.get("/offers/coupon", DashboardController.getCoupons);
 
+router.get("/no-deal-requests/deals", DashboardController.getNoDeals);
+router.post("/no-deal-requests/update", DashboardController.updateNoDeal);
+router.post("/no-deal-requests/delete", DashboardController.deleteNoDeal);
+
 module.exports = router;

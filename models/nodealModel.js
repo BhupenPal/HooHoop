@@ -10,8 +10,10 @@ const NoDealModel = new Schema({
   email: String,
   phoneNo: String,
   vinNum: String,
-  discount: String,
+  uLastOffer: String,
   date: String,
+  car: String,
+  carAuthor: String,
   status: {
     type: String,
     default: "Active"

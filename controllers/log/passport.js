@@ -17,7 +17,7 @@ module.exports = function (passport) {
 
         //Activated User Check
         if(!user.active){
-          return done(null, false, {message: 'Please activate your account first'})
+          return done(null, false, {message: 'Please activate your account first' })
         }
 
         // Match password
