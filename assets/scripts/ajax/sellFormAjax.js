@@ -51,5 +51,8 @@ function uploadData() {
     }
   });
 
-  xhr.send(new FormData(uploadForm));
+  let PayLoad = new FormData(uploadForm);
+  PayLoad.append(FuelStar, Fstar);
+  PayLoad.append(SafetyStar, Sstar);
+  xhr.send(PayLoad);
 }

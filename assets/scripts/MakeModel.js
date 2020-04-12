@@ -41,7 +41,26 @@ let MakeModel = [
   },
   {
     Make: "AUSTIN",
-    Models: ["A1", "A3", "A4", "A5", "OTHER"],
+    Models: [
+      "Wolseley",
+      "Ten",
+      "Special",
+      "Sheerline",
+      "Ruby",
+      "Princes HL",
+      "Mini",
+      "Healey",
+      "Gipsy",
+      "Auatin 10",
+      "Ascot",
+      "Allegro",
+      "A90",
+      "A40",
+      "1100",
+      "10",
+      "1300",
+      "850",
+    ],
   },
   {
     Make: "BMW",
@@ -1436,16 +1455,15 @@ let MakeModel = [
   },
 ];
 
-if(window.location.href.includes("sell-car/data" || "edit-car")){
-
+if (window.location.href.includes("sell-car/data" || "edit-car")) {
   function ModelAccumlator() {
     let MakeValue = document.getElementById("smake").value;
     let ModelBox = document.getElementById("smodel");
-  
+
     for (var i = ModelBox.length - 1; i >= 0; i--) {
       ModelBox.remove(i);
     }
-  
+
     for (var i = 0; i < MakeModel.length; i++) {
       if (MakeModel[i].Make === MakeValue) {
         for (var j = 0; j < MakeModel[i].Models.length; j++) {
@@ -1456,7 +1474,7 @@ if(window.location.href.includes("sell-car/data" || "edit-car")){
       }
     }
   }
-  
+
   function YearAccumlator() {
     let YearBox = document.getElementById("smodelyear");
     var currentYear = new Date().getFullYear();
@@ -1464,37 +1482,36 @@ if(window.location.href.includes("sell-car/data" || "edit-car")){
       YearBox.options.add(new Option(currentYear - i, currentYear - i));
     }
   }
-  
+
   YearAccumlator();
-  
+
   let requiredinp = document.querySelectorAll("*:required");
-  
+
   document.getElementById("uploadFormSubmit").onclick = function () {
     for (var el = 0; el < requiredinp.length; el++) {
       if (requiredinp[el].value.length == 0) {
         requiredinp[el].style.border = "2px solid red";
-        requiredinp[el].addEventListener("input",function(){
-          this.removeAttribute("style")
-        })
+        requiredinp[el].addEventListener("input", function () {
+          this.removeAttribute("style");
+        });
       } else {
         requiredinp[el].removeAttribute("style");
       }
     }
-  
+
     if (document.getElementById("interiorMiddle").innerHTML.length == 0) {
       document.getElementById("intlab").style.backgroundColor = "red";
     } else {
       document.getElementById("intlab").removeAttribute("style");
     }
-  
+
     if (document.getElementById("exterior").innerHTML.length == 0) {
       document.getElementById("extlab").style.backgroundColor = "red";
     } else {
       document.getElementById("extlab").removeAttribute("style");
     }
- 
   };
-  
+
   monthNames = [
     "January",
     "February",
@@ -1509,14 +1526,14 @@ if(window.location.href.includes("sell-car/data" || "edit-car")){
     "November",
     "December",
   ];
-  
+
   const fillDates = () => {
     var currentDate = new Date();
     var currentMonth = currentDate.getMonth();
     var currentYear = currentDate.getFullYear();
-  
+
     let dateToAdd = "";
-  
+
     for (var i = 0; i < 12; i++) {
       dateToAdd += `<option value="${monthNames[currentMonth]} ${currentYear}"> ${monthNames[currentMonth]} ${currentYear} </option>`;
       currentMonth++;
@@ -1525,25 +1542,22 @@ if(window.location.href.includes("sell-car/data" || "edit-car")){
         currentYear = currentYear + 1;
       }
     }
-  
+
     document.getElementById("wofsib").insertAdjacentHTML("afterend", dateToAdd);
     document.getElementById("regsib").insertAdjacentHTML("afterend", dateToAdd);
   };
-  
+
   fillDates();
-  
 }
 
-
-if(window.location.href.includes('search-car')){
-
+if (window.location.href.includes("search-car")) {
   for (var ent = 0; ent < MakeModel.length; ent++) {
     let creatediv = document.createElement("div");
     creatediv.classList.add("foption");
     creatediv.innerHTML = `${MakeModel[ent].Make} <input onclick="MakeSelector()" type="checkbox" id="foption-${ent}" value="${MakeModel[ent].Make}"> <label for="foption-${ent}"></label>`;
     document.getElementsByClassName("foption_encloser")[0].append(creatediv);
   }
-  
+
   function MakeModelFilterHandle() {
     for (let i = 0; i < MakeArr.length; i++) {
       for (let j = 0; j < MakeArr[i].Model[0].length; j++) {
@@ -1553,11 +1567,13 @@ if(window.location.href.includes('search-car')){
           MakeArr[i].Model[0][j]
         } <input onclick="ModelSelector()" type="checkbox" id="foption-${
           j + 59
-        }" value="${MakeArr[i].Model[0][j].toUpperCase()}"> <label for="foption-${
-          j + 59
-        }"></label>`;
+        }" value="${MakeArr[i].Model[0][
+          j
+        ].toUpperCase()}"> <label for="foption-${j + 59}"></label>`;
         creatediv.innerHTML = output;
-        document.getElementsByClassName("foption_encloser")[1].append(creatediv);
+        document
+          .getElementsByClassName("foption_encloser")[1]
+          .append(creatediv);
       }
     }
   }

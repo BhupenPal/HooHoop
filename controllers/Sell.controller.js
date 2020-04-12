@@ -82,9 +82,7 @@ module.exports = {
         cylinderNum,
         Description,
         WoFexpiry,
-        regExpiry,
-        FuelStar,
-        SafetyStar,
+        regExpiry
       });
 
       vinNum = vinNum.toUpperCase();
@@ -94,6 +92,14 @@ module.exports = {
       newCar.authorEmail = req.user.email;
       newCar.vinNum = vinNum;
       newCar.authorID = req.user._id;
+
+      if(FuelStar !== null){
+        newCar.FuelStar = FuelStar;
+      }
+
+      if(SafetyStar !== null){
+        newCar.SafetyStar = SafetyStar;
+      }
 
       newCar.DealerName = DealerName;
       if (!DealerName) {

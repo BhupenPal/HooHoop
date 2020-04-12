@@ -66,7 +66,7 @@ let AlreadyRejected = [
 ];
 
 function createMessage() {
-
+console.log(status)
   if (event) {
     event.preventDefault();
     document.querySelector("#send-air > i").style.color = "#999999";
@@ -128,15 +128,14 @@ function createMessage() {
   if (status == "BARGAIN") {
     if (userOffer >= minValue && userOffer < maxValue) {
       showPreferredInputDisplay(true, false, true);
+      status = "TRADE_VEHICLE";
       setTimeout(() => {
         botReply(
-          "Great! I’ll create a personalised discount code for you and send it via email. What is your best contact email address?"
+          "Great! I’ll create a personalised discount code for you and send it via email. Would you also like to trade your vehicle?"
         );
         deal = userOffer;
         showPreferredInputDisplay(false, true, false);
-        status = "TRADE_VEHICLE";
       }, 700);
-      return;
     } else if (userOffer >= maxValue) {
       showPreferredInputDisplay(true, false, true);
       setTimeout(() => {
