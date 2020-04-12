@@ -100,6 +100,7 @@ var PanoControls = (function() {
         screenfull.request();
         document.getElementsByClassName('interior-changer')[0].style.display = 'none';
         document.getElementsByClassName('exterior-changer')[0].style.display = 'none';
+        document.getElementsByTagName("html")[0].style.overflowY = "hidden"
       } else {
         changeMode("full");
       }
@@ -110,6 +111,7 @@ var PanoControls = (function() {
         screenfull.exit();
         document.getElementsByClassName('interior-changer')[0].style.display = 'flex';
         document.getElementsByClassName('exterior-changer')[0].style.display = 'flex';
+        document.getElementsByTagName("html")[0].removeAttribute("style")
       } else {
         changeMode("orignal");
       }

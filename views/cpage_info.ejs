@@ -61,95 +61,103 @@
             <div class="c_name"><%= record.Make %> - <%= record.Model %></div>
             <div class="c_price">$<%= record.Price%></div>
           </div>
-        </div>
-        <div class="cardetails_tab">
-          <h1>Specifications</h1>
-          <div class="det_connect">
-            <div class="ico_hold">
-              <i class="fad fa-calendar-alt"></i>
-              <p>Model Year</p>
+          <div class="listspec">
+          
+            <div class="specdet">
+              <div class="icohold"><i class="fad fa-joystick"></i><span>Transmission</span></div>
+              <div class="prophold"><%= record.Transmission %></div>
             </div>
-            <div class="prop_hold"><%= record.ModelYear %></div>
-          </div>
+  
+            <div class="specdet">
+              <div class="icohold"><i class="fal fa-tachometer"></i><span>Km</span></div>
+              <div class="prophold"><%= record.kMeters %></div>
+            </div>
+            
+            <div class="specdet">
+              <div class="icohold"><i class="fad fa-gas-pump"></i><span>Fuel Type</span></div>
+              <div class="prophold"><%= record.FuelType %></div>
+            </div>
+  
+            <div class="specdet">
+              <div class="icohold"><i class="fad fa-cogs"></i><span>Engine</span></div>
+              <div class="prophold"><%= record.engineSize %> cc</div>
+            </div>
 
-          <div class="det_connect">
-            <div class="ico_hold">
-              <i class="fad fa-joystick"></i>
-              <p>Transmission</p>
+            <div class="specdet">
+              <div class="icohold"><i class="fad fa-paint-brush-alt"></i><span>Colour</span></div>
+              <div class="prophold"><%= record.Colour %></div>
             </div>
-            <div class="prop_hold"><%= record.Transmission %></div>
-          </div>
 
-          <div class="det_connect">
-            <div class="ico_hold">
-              <i class="fal fa-tachometer"></i>
-              <span>KM</span>
+            <div class="specdet">
+              <div class="icohold"><i class="fas fa-loveseat"></i></i><span>Seats</span></div>
+              <div class="prophold"><%= record.SeatNum %></div>
             </div>
-            <div class="prop_hold"><%= record.kMeters %></div>
-          </div>
-
-          <div class="det_connect">
-            <div class="ico_hold">
-              <i class="fad fa-gas-pump"></i>
-              <span>Fuel Type</span>
-            </div>
-            <div class="prop_hold"><%= record.FuelType %></div>
-          </div>
-
-          <div class="det_connect">
-            <div class="ico_hold">
-              <i class="fas fa-loveseat"></i>
-              <span>Seats</span>
-            </div>
-            <div class="prop_hold"><%= record.SeatNum %></div>
-          </div>
-
-          <div class="det_connect">
-            <div class="ico_hold">
-              <i class="fad fa-cogs"></i>
-              <span>Engine</span>
-            </div>
-            <div class="prop_hold"><%= record.engineSize %> cc</div>
-          </div>
-
-          <div class="det_connect">
-            <div class="ico_hold">
-              <i class="fad fa-car-alt"></i>
-              <span>Body style</span>
-            </div>
-            <div class="prop_hold"><%= record.BodyType %></div>
-          </div>
-
-          <div class="det_connect">
-            <div class="ico_hold">
-              <i class="fad fa-paint-brush-alt"></i>
-              <span>Color</span>
-            </div>
-            <div class="prop_hold"><%= record.Colour %></div>
+  
           </div>
         </div>
-      </div>
+
+        <div class="addinfo">
+          <div class="infodet">
+
+            <div class="Listing_id">
+              <div class="id_head">Listing ID</div>
+              <div class="id_num">188383002</div>
+            </div>
+
+            <div class="Additional_info">
+              <div class="Addinfo_head">Additional Info.</div>
+              <div class="Addinfo_spec"><span>Reg. Expiry</span><%= record.regExpiry %></div>
+              <div class="Addinfo_spec"><span>On Road Cost</span><%= record.RoadCost %></div>
+              <div class="Addinfo_spec"><span>Drive Type</span><%= record.DriveWheel4 %> Wheel</div>
+              <div class="Addinfo_spec"><span>Fuel Economy</span>
+                <div class="fuelstar" data-fstar="<%= record.FuelStar %>">
+                  <div class="stars-outer">
+                      <div class="stars-inner"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="Addinfo_spec"><span>Safety Stars</span>
+                <div class="safetystar" data-sstar="<%= record.SafetyStar %>">
+                  <div class="stars-outer">
+                      <div class="stars-inner"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="seller_info">
+              <div class="seller_head">Seller Details</div>
+              <div class="seller_spec"><span>Name</span><%= record.DealerName %></div>
+              <div class="seller_spec"><span>Phone No.</span><a href="tel:<%= record.DealerNum %>"><%= record.DealerNum %></a></div>
+              <div class="seller_spec"><span>Email</span><a href="mailto:<%= record.DealerEmail %>" target="__blank"><%= record.DealerEmail %></a></div>
+              <div class="seller_spec"><span>Location</span><%= record.DealerName %></div>
+            </div>
+
+            <div class="share_info">
+              <div class="share_data">Share</div>
+              <div class="share">
+                <a href="https://www.instagram.com/hoohoopnz/" target="__blank">
+                  <div class="social_share"><i class="fab fa-instagram"></i></div>
+                </a>
+                <a href="https://www.facebook.com/HooHoopNZ/" target="__blank">
+                  <div class="social_share"><i class="fab fa-facebook-f"></i></div>
+                </a>
+                <a href="https://twitter.com/Hoohoop4/" target="__blank">
+                  <div class="social_share"><i class="fab fa-twitter"></i></div>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        </div>
+
       <div class="Descriptive-Data">
         <div class="Description-Box">
           <h1>DESCRIPTION</h1>
           <%= record.Description %>
         </div>
-        <div class="Radio-Description">
-          <div class="seller-details">
-            <div class="indi-details indi1">
-              <div class="detail-cat"> Registry Expiry </div>
-              <div class="detail-val"><%= record.regExpiry %></div>
-            </div>
-            <div class="indi-details indi2">
-              <div class="detail-cat"> On Road Prices </div>
-              <div class="detail-val"> <%= record.RoadCost %> Included</div>
-            </div>
-            <div class="indi-details indi3">
-              <div class="detail-cat"> Drive Type </div>
-              <div class="detail-val"> <%= record.DriveWheel4 %> Wheel Drive</a></div>
-            </div>
-          </div>
-        </div>
+        
       </div>
       <div class="panel-contain">
         <div class="nav_with_panel_tabs">
@@ -248,21 +256,9 @@
             </div>
           </div>
         </div>
-        <div class="seller-details">
-          <div class="indi-details indi1">
-            <div class="detail-cat"> Seller Name </div>
-            <div class="detail-val"><%= record.DealerName %></div>
-          </div>
-          <div class="indi-details indi2">
-            <div class="detail-cat"> Phone Number </div>
-            <div class="detail-val"> <a href="tel:<%= record.DealerNum %>"><%= record.DealerNum %></a></div>
-          </div>
-          <div class="indi-details indi3">
-            <div class="detail-cat"> Email </div>
-            <div class="detail-val"> <a href="mailto:<%= record.DealerEmail %>" target="__blank"><%= record.DealerEmail %></a></div>
-          </div>
-        </div>
       </div>
+
+      
       <%-include('./Components/chatbot.ejs') %>
     </div>
     <%-include('./Components/Footer.ejs') %>
@@ -279,6 +275,7 @@
     <script src="/assets//scripts/view360-exterior/min.js"></script>
     <script src="/assets/scripts/chatbot.js"></script>
     <script src="/assets/scripts/flasher.js"></script>
+    <script src="/assets//scripts/starManager.js"></script>
     <script>
       const front = `/assets/Uploads/<%= record.vinNum %>/interior/INTERIORFRONT.JPG`;
       const rear = `/assets/Uploads/<%= record.vinNum %>/interior/INTERIORREAR.JPG`;

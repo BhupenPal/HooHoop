@@ -83,7 +83,7 @@ completeListings = list => {
         <span>${json.list[inc].Make} - ${json.list[inc].Model}</span></a></td>\
         <td>${json.list[inc].vinNum}</td>
         <td>$${json.list[inc].Price}</td>\
-        <td>${json.list[inc].authorEmail}</td>\
+        <td>${json.list[inc].carAuthor}</td>\
         ${status}<a href="/user/edit-car/${json.list[inc]._id}" target="__blank"><button class="d_edit"><i class="fal fa-edit"></i></button></a>\
         <button class="d_delete" data-host="/user/ads/delete" value="${json.list[inc]._id}" onclick="del_lstng(this)"><i class="fal fa-trash"></i></button>\
       </tr>`
@@ -445,7 +445,6 @@ myCoupon = list => {
     output = `\
     <div class="offwall">\
     <div class="offer">\
-      <div class="offslipbod"></div>\
         <div class="offslipinfo">\
           <div class="carinfotme"><span>${json.list[inc].vehicleName}</span><span>${json.list[inc].tod}</span></div>\
           <div class="carinfotme"><span>Valid Thru</span><span>${json.list[inc].tom}</span></div>\
@@ -460,49 +459,4 @@ myCoupon = list => {
     `
   }
   document.getElementById("my_offer").insertAdjacentHTML("afterend", output);
-}
-
-function NoDealHandle(){
-  document.getElementById("loader").style.display = "flex";
-  const xhr = new XMLHttpRequest();
-  xhr.open("GET", `/user/dashboard/no-deal-requests/deals`, true);
-  xhr.getResponseHeader("content-type", "application/json");
-  xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-  xhr.onload = function() {
-    if (this.status === 200) {
-      NoDeals(this.response)
-      document.getElementById("loader").style.display = "none";
-    } else {
-      console.log("Some error occured");
-      document.getElementById("loader").style.display = "none";
-    }
-  };
-  xhr.send();
-}
-
-NoDeals = list => {
-  json = JSON.parse(list);
-  let output = '';
-
-  for(inc = 0; inc < json.list.length; inc++){
-    if(json.list[inc].status){
-      status = `<td><button class="d_done" data-host="/user/dashboard/no-deal-requests/update" value="${json.list[inc]._id}" onclick="pending_done(this)"><i class="fal fa-check"></i></button>`;
-    } else {
-      status = `<td><button class="d_pending" data-host="/user/dashboard/no-deal-requests/update" value="${json.list[inc]._id}" onclick="sell_listed(this)"><i class="fas fa-exclamation-triangle"></i></button>`;
-    }
-      output += `\
-      <tr>\
-      <td>${inc + 1}</td>\
-      <td>${json.list[inc].date}</td>\
-      <td>${json.list[inc].email}</td>\
-      <td>${json.list[inc].phoneNo}</td>\
-      <td><a href="/buy-car/${json.list[inc].vehicleID}" target="__blank"> ${json.list[inc].car}</a></td>\
-      <td>${json.list[inc].vinNum}</td>\
-      <td>${json.list[inc].uLastOffer}</td>\
-      ${status}\
-      <button class="d_delete" data-host="/user/dashboard/no-deal-requests/delete" value="${json.list[inc]._id}" onclick="del_lstng(this)"><i class="fal fa-trash"></i></button></td>\
-    </tr>`
-  }
-
-  document.getElementById("tradeinfo").insertAdjacentHTML("afterend", output);
 }

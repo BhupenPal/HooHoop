@@ -1099,7 +1099,7 @@ button[disabled] {
   border: 2px solid gray;
   border-radius: 5px;
   margin: 10px;
-  padding: 0 10px;
+  padding: 0 10px !important;
   font-family: Fira;
   font-size: 16px;
   box-sizing: border-box;
@@ -1517,7 +1517,7 @@ button[disabled] {
   display: flex;
   min-height: 78vh;
   flex-direction: column;
-  width: 70vw;
+  min-width: 68vw;
 }
 
 .cardanchor {
@@ -1786,7 +1786,6 @@ button[disabled] {
 }
 
 .th60_container {
-  height: 700px;
   width: 900px;
 }
 
@@ -1925,7 +1924,7 @@ canvas {
   font-weight: normal;
 }
 
-.cardetails_tab {
+/* .cardetails_tab {
   height: 600px;
   width: 400px;
   box-sizing: border-box;
@@ -1986,6 +1985,121 @@ canvas {
   color: grey;
   margin-bottom: 5px;
   padding-top: 10px;
+} */
+
+.listspec{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.specdet{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.icohold{
+  display: flex;
+  flex-direction: column;
+}
+
+.icohold i{
+  font-size: 50px;
+  color: gray;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.icohold span{
+  font-family: raleway;
+  color: #5a5a5a;
+  text-align: center;
+}
+
+.prophold{
+  margin-top: 10px;
+  font-size: 20px;
+  font-family: Raleway;
+  font-weight: bold;
+  color: #777777;
+  text-align: center;
+}
+
+.addinfo{
+  margin-left: 40px;
+}
+
+.Listing_id,.Additional_info,.seller_info{
+  width: 350px;
+  background-color: #f5bf2b;
+  border: 2px solid #e7e7e7;
+  margin-bottom: 50px;
+}
+
+.id_head,.Addinfo_head,.seller_head{
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+  padding: 10px;
+  box-sizing: border-box;
+  font-family: Raleway;
+  font-weight: bold;
+}
+
+.id_num,.Addinfo_spec,.seller_spec{
+  background-color: #f2f2f2;
+  padding: 10px;
+  box-sizing: border-box;
+  font-family: Roboto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Addinfo_spec,.seller_spec{
+  border-bottom: 2px solid white;
+}
+
+.share_info{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f1f1f1;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 2px solid #ccc;
+}
+
+.share_data{
+  font-size: 25px;
+  font-family: Raleway;
+  font-weight: bold;
+}
+
+.share{
+  display: flex;
+  justify-content: flex-end !important;
+}
+
+.social_share{
+  height: 40px;
+  width: 40px;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  margin: 0 5px;
+}
+
+.sh_prop{
+  font-size: 20px;
 }
 
 .Descriptive-Data {
@@ -2062,7 +2176,7 @@ canvas {
   width: 100%;
 }
 
-.seller-details {
+/* .seller-details {
   width: 360px;
   height: 150px;
   border: 1px solid #e2e2e2;
@@ -2073,9 +2187,9 @@ canvas {
   width: 100%;
   height: 50px;
   font-weight: 800;
-}
+} */
 
-.detail-cat {
+/* .detail-cat {
   display: flex;
   justify-content: flex-start;
   padding-left: 2%;
@@ -2092,7 +2206,7 @@ canvas {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
 .p_body_headlines {
   font-family: Fira;
@@ -2186,6 +2300,7 @@ canvas {
   background-color: #ffffff;
   min-height: 100vh;
   margin: 20px 0;
+  min-width: 80vw;
 }
 
 .Userlisting_Head {
@@ -2747,17 +2862,10 @@ td button:hover {
 }
 
 .offer {
-  height: 230px;
   width: 90%;
   background-color: #f6b40048;
   margin: 20px 0;
   display: flex;
-}
-
-.offslipbod {
-  border-right: dashed 5px #008ec2;
-  height: 100%;
-  width: 50px;
 }
 
 .offslipinfo {
@@ -2765,6 +2873,8 @@ td button:hover {
   padding: 10px 20px;
   box-sizing: border-box;
   font-family: Roboto;
+  border-left: dashed 5px #008ec2;
+  margin-left: 50px;
 }
 
 .carinfotme {
@@ -2779,6 +2889,7 @@ td button:hover {
 .offslipinfo h1 {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 0;
 }
 
 .show_f {
@@ -2983,17 +3094,17 @@ td button:hover {
 }
 
 .connect_with_us a:nth-child(1) div,
-.share_icon a:nth-child(1) div {
+.share a:nth-child(1) div {
   background-image: linear-gradient(to right, #e73f70, #4267b2);
 }
 
 .connect_with_us a:nth-child(2) div,
-.share_icon a:nth-child(2) div {
+.share a:nth-child(2) div {
   background-color: #4267b2;
 }
 
 .connect_with_us a:nth-child(3) div,
-.share_icon a:nth-child(3) div {
+.share a:nth-child(3) div {
   background-color: #1ea1f3;
 }
 
@@ -3546,13 +3657,16 @@ input[type="submit"]:hover {
   }
 
   .contentwrap {
-    width: 90vw;
     min-height: 110vw;
   }
 
   .bc-card {
     height: 100vw;
     width: 80vw;
+  }
+
+  #bc-card-wrap{
+    grid-template-columns: auto;
   }
 
   .cb_img,
@@ -3599,6 +3713,11 @@ input[type="submit"]:hover {
     top: -1.2125vw;
   }
 
+  #Pagination{
+    margin: 20px auto;
+    height: min-content;
+  }
+
   #Pagination button {
     height: 10vw;
     width: 20vw;
@@ -3606,9 +3725,8 @@ input[type="submit"]:hover {
   }
 
   .Page_no {
-    height: 7vw;
-    width: 7vw;
-    border-radius: 8vw;
+    height: 8vw;
+    width: 8vw;
     font-size: 5vw;
     margin: 0 1vw;
   }
@@ -3656,7 +3774,7 @@ input[type="submit"]:hover {
     align-items: center;
   }
 
-  .cardetails_tab {
+  /* .cardetails_tab {
     width: 90vw;
     margin-top: 20vw;
     justify-content: flex-start;
@@ -3676,7 +3794,7 @@ input[type="submit"]:hover {
 
   .ico_hold i {
     font-size: 4vw;
-  }
+  } */
 
   .Descriptive-Data {
     width: 90vw;
@@ -3707,11 +3825,11 @@ input[type="submit"]:hover {
     font-size: 3vw;
   }
 
-  .seller-details{
+  /* .seller-details{
     height: 40vw;
     width: 90vw;
     margin-top: 10vw;
-  }
+  } */
 
   /* Sell-form response */
   .sellform_wrap {

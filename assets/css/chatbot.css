@@ -127,10 +127,6 @@
   color: gray;
 }
 
-*::-webkit-scrollbar{
-  display: none;
-}
-
 #toAppend {
   width: 100%;
   padding: 0 10px;
@@ -139,6 +135,10 @@
   box-sizing: border-box;
   overflow-y: scroll;
   font-family: monospace;
+}
+
+#toAppend::-webkit-scrollbar{
+  display: none;
 }
 
 .form-bot{
