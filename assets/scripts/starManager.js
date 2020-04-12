@@ -5,9 +5,16 @@ if(window.location.href.includes('/buy-car')){
 }
 
 function getRatings() {
-  const Ratings = {
-    fuelstar: Fstar / 2 || document.querySelector(".fuelstar").getAttribute("data-fstar") / 2,
-    safetystar: Sstar / 2 || document.querySelector(".safetystar").getAttribute("data-fstar") / 2,
+  let Ratings = {
+    fuelstar: document.querySelector(".fuelstar").getAttribute("data-fstar") / 2,
+    safetystar: document.querySelector(".safetystar").getAttribute("data-sstar") / 2,
+  }
+
+  if(window.location.href == "http://localhost:8080/sell-car/data"){
+    let Ratings = {
+      fuelstar: Fstar / 2,
+      safetystar: Sstar / 2
+    }
   }
 
   for (let rating in Ratings) {
