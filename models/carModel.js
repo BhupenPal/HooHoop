@@ -74,7 +74,8 @@ const Schema = mongoose.Schema,
     DealerNum: String,
     DealerEmail: String,
     TotFrame: {type: Number, required: true},
-    date: {type: String, required: true}
+    date: {type: String, required: true},
+    carAddr: {type: String, default: null}
   });
 
 module.exports = mongoose.model("CarList", CarSchema);

@@ -62,6 +62,7 @@ module.exports = {
         RoadCost,
         FuelStar,
         SafetyStar,
+        carAddr
       } = req.body;
 
       let newCar = new carModel({
@@ -99,6 +100,10 @@ module.exports = {
 
       if(SafetyStar !== null){
         newCar.SafetyStar = SafetyStar;
+      }
+
+      if(carAddr !== null){
+        newCar.carAddr = carAddr;
       }
 
       newCar.DealerName = DealerName;
