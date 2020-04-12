@@ -93,9 +93,13 @@ module.exports = {
     await carModel.findOneAndUpdate(
       { _id: req.params.id },
       { $inc: {views: 1} },
-      (err, doc) => {
+      async (err, doc) => {
+        const popularCars = await carModel
+        .find({ adActive: "Active" })
+        .limit(10)
+        .sort({ views: -1 });
         res.render("cpage_info", {
-          record: doc,
+          record: doc, recommended: popularCars
         });
       }
     );

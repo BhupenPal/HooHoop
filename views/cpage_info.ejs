@@ -130,7 +130,7 @@
               <div class="seller_spec"><span>Name</span><%= record.DealerName %></div>
               <div class="seller_spec"><span>Phone No.</span><a href="tel:<%= record.DealerNum %>"><%= record.DealerNum %></a></div>
               <div class="seller_spec"><span>Email</span><a href="mailto:<%= record.DealerEmail %>" target="__blank"><%= record.DealerEmail %></a></div>
-              <div class="seller_spec"><span>Location</span><%= record.DealerName %></div>
+              <div class="seller_spec"><span>Location</span><%= record.carAddr %></div>
             </div>
 
             <div class="share_info">
@@ -255,6 +255,41 @@
               </form>
             </div>
           </div>
+        </div>
+      </div>
+
+
+      <div class="cardbd_1">
+        <div class="cd_head">
+          <div class="cd_headline">You might also like</div>
+        </div>
+        <div class="cd_content">
+        <% for( let i = 0; i < recommended.length; i++ ) { %>
+          <a href="/buy-car/<%= recommended[i]._id %>" class="cd_car_data">
+            
+              <div class="img_contain">
+                <div class="view-details">View details</div>
+                <img src="/assets/Uploads/<%= recommended[i].vinNum %>/thumbnail/Photo380.jpg" />
+              </div>
+              <div class="info_contain">
+                <div class="con_name"> <%= recommended[i].Make %> </div>
+                <div class="con_price"> $ <%= recommended[i].Price %></div>
+                <div></div>
+              </div>
+            
+          </a>
+        <% } %>
+      </div>
+        <div class="cd_btn">
+          <button onclick="scrolldiv(0,0)">
+            <i class="fal fa-chevron-left"></i>
+          </button>
+          <button onclick="scrolldiv(1,0)">
+            <i class="fal fa-chevron-right"></i>
+          </button>
+        </div>
+        <div class="cd_link">
+          <a href="/search-car/1">View All</a>
         </div>
       </div>
 
