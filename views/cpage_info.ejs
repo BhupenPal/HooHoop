@@ -137,17 +137,15 @@
               <div class="share_data">Share</div>
               <div class="share">
                 <a href="https://www.instagram.com/hoohoopnz/" target="__blank">
-                  
                 </a>
-                <a href="https://www.facebook.com/sharer/sharer.php?u=xerosanyam.github.io&quote=You_are_amazing" target="__blank">
+                <a id="face-linker" target="__blank">
                   <div class="social_share"><i class="fab fa-facebook-f"></i></div>
                 </a>
-                <a href="https://twitter.com/intent/tweet?via=xerosanyam&text=You_are_amazing" target="__blank">
+                <a id="tweet-linker" target="__blank">
                   <div class="social_share"><i class="fab fa-twitter"></i></div>
                 </a>
               </div>
             </div>
-
           </div>
         </div>
         </div>
@@ -340,6 +338,19 @@ if(FileExist(rear)){
     select.appendChild(opt);
 }
     </script>
+
+
+<script>
+
+  let PageLocation = window.location.href;
+  console.log(PageLocation)
+
+  document.getElementById("face-linker").setAttribute("href", `https://www.facebook.com/sharer/sharer.php?u=${PageLocation}&quote=Check\ out\ this\ amazing\ car\ on\ HooHoop`);
+  document.getElementById("tweet-linker").setAttribute("href", `https://twitter.com/intent/tweet?text=Check%20out%20this%20amazing%20car%20on%20HooHoop%20${PageLocation}`);
+
+</script>
+
+
     <script>
       function ImgChange(imgname){
         let myPan = document.getElementsByClassName("panoviewer-container")[0];
