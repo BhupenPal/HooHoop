@@ -52,7 +52,7 @@ function uploadData() {
   });
 
   let PayLoad = new FormData(uploadForm);
-  PayLoad.append(FuelStar, Fstar);
-  PayLoad.append(SafetyStar, Sstar);
+  PayLoad.append("FuelStar", Fstar);
+  PayLoad.append("SafetyStar", Sstar);
   xhr.send(PayLoad);
 }
