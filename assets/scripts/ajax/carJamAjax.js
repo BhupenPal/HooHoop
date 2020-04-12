@@ -1,5 +1,6 @@
 let jamForm = document.getElementById("jamFORM");
-let Fstar, Sstar = null;
+let Fstar,
+  Sstar = null;
 let monthNames = [
   "January",
   "February",
@@ -226,7 +227,11 @@ function dataSetter(data) {
           data.transmission = "Manual";
         } else if (data.transmission.includes("triptonic")) {
           data.transmission = "Triptonic";
+        } else if (data.transmission.includes("CVT")) {
+          data.transmission = "CVT";
         }
+      } else {
+        data.transmission = "";
       }
     }
   } else {
