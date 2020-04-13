@@ -1,4 +1,4 @@
-var PanoControls = (function() {
+var PanoControls = (function () {
   /**
    * 1. Direction Navigator
    * 2. Full Screen
@@ -23,7 +23,7 @@ var PanoControls = (function() {
     var pieEl = document.querySelector(".camera");
     var pieView = new PieView(pieEl);
     panoViewer.on({
-      ready: function() {
+      ready: function () {
         var yawRange = panoViewer.getYawRange();
         pieView.setState(
           panoViewer.getYaw(),
@@ -32,17 +32,17 @@ var PanoControls = (function() {
         );
         showLoading(false);
       },
-      viewChange: function(e) {
+      viewChange: function (e) {
         var hfov = panoViewer._getHFov();
         pieView.setState(e.yaw, hfov);
         // console.log("viewChange");
-      }
+      },
     });
 
     /**
      * When clicking on pie, set to default direction.
      */
-    pieEl.addEventListener("click", function() {
+    pieEl.addEventListener("click", function () {
       panoViewer.lookAt({ yaw: 0, pitch: 0 }, 400);
     });
 
@@ -51,7 +51,7 @@ var PanoControls = (function() {
      */
     window.addEventListener(
       "resize",
-      debounce(function() {
+      debounce(function () {
         panoViewer.updateViewportDimensions();
 
         var yaw = panoViewer.getYaw();
@@ -95,27 +95,51 @@ var PanoControls = (function() {
 
     screenfull.enabled && screenfull.on("change", changeMode);
 
-    document.querySelector(".enterfs").addEventListener("click", function() {
+    document.querySelector(".enterfs").addEventListener("click", function () {
       if (screenfull.enabled) {
         screenfull.request();
-        document.getElementsByClassName('interior-changer')[0].style.display = 'none';
-        document.getElementsByClassName('exterior-changer')[0].style.display = 'none';
-        document.getElementsByTagName("html")[0].style.overflowY = "hidden"
+        document.getElementsByClassName("interior-changer")[0].style.display =
+          "none";
+        document.getElementsByClassName("exterior-changer")[0].style.display =
+          "none";
+        document.getElementsByTagName("html")[0].style.overflowY = "hidden";
       } else {
         changeMode("full");
       }
     });
 
-    document.querySelector(".exitfs").addEventListener("click", function() {
+    document.querySelector(".exitfs").addEventListener("click", function () {
       if (screenfull.enabled) {
         screenfull.exit();
-        document.getElementsByClassName('interior-changer')[0].style.display = 'flex';
-        document.getElementsByClassName('exterior-changer')[0].style.display = 'flex';
-        document.getElementsByTagName("html")[0].removeAttribute("style")
+        document.getElementsByClassName("interior-changer")[0].style.display =
+          "flex";
+        document.getElementsByClassName("exterior-changer")[0].style.display =
+          "flex";
+        document.getElementsByTagName("html")[0].removeAttribute("style");
       } else {
         changeMode("orignal");
       }
     });
+
+    document.addEventListener("fullscreenchange", exitHandler);
+    document.addEventListener("webkitfullscreenchange", exitHandler);
+    document.addEventListener("mozfullscreenchange", exitHandler);
+    document.addEventListener("MSFullscreenChange", exitHandler);
+
+    function exitHandler() {
+      if (
+        !document.fullscreenElement &&
+        !document.webkitIsFullScreen &&
+        !document.mozFullScreen &&
+        !document.msFullscreenElement
+      ) {
+        document.getElementsByClassName("interior-changer")[0].style.display =
+          "flex";
+        document.getElementsByClassName("exterior-changer")[0].style.display =
+          "flex";
+        document.getElementsByTagName("html")[0].removeAttribute("style");
+      }
+    }
 
     // For iOS 13+
     panoViewer.enableSensor().catch(() => {
@@ -127,8 +151,8 @@ var PanoControls = (function() {
         showCancelButton: true,
         reverseButtons: true,
         confirmButtonText: "Allow",
-        cancelButtonText: "Deny"
-      }).then(result => {
+        cancelButtonText: "Deny",
+      }).then((result) => {
         if (result.value) {
           // Granted
           panoViewer.enableSensor().catch(() => {
@@ -151,14 +175,14 @@ var PanoControls = (function() {
         return [
           parseInt(v[1], 10),
           parseInt(v[2], 10),
-          parseInt(v[3] || 0, 10)
+          parseInt(v[3] || 0, 10),
         ];
       }
     })();
 
     // For iOS 12.2 ~ 13
     if (iOSVersion && iOSVersion[0] === 12 && iOSVersion[1] >= 2) {
-      PanoViewer.isGyroSensorAvailable(available => {
+      PanoViewer.isGyroSensorAvailable((available) => {
         if (!available) {
           Swal.fire({
             title: "Please enable the Motion Sensor! (iOS12.2~13)",
@@ -178,7 +202,7 @@ var PanoControls = (function() {
 							</div>
 							<div>4. Reload the page</div>
 						</div>
-						`
+						`,
           });
         }
       });
@@ -187,7 +211,7 @@ var PanoControls = (function() {
 
   function isMobile() {
     var check = false;
-    (function(a) {
+    (function (a) {
       if (
         /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(
           a
@@ -277,23 +301,23 @@ var PanoControls = (function() {
     if (visible) {
       loadingClassList.add("is-loading");
     } else {
-      document.getElementById('loader').style.display = 'none';
+      document.getElementById("loader").style.display = "none";
       loadingClassList.remove("is-loading");
     }
   }
 
   return {
     init: init,
-    showLoading: showLoading
+    showLoading: showLoading,
   };
 })();
 
 function debounce(func, wait, immediate) {
   var timeout;
-  return function() {
+  return function () {
     var context = this,
       args = arguments;
-    var later = function() {
+    var later = function () {
       timeout = null;
       if (!immediate) func.apply(context, args);
     };
