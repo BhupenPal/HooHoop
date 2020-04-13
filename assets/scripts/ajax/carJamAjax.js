@@ -155,6 +155,9 @@ function dataAdder(data) {
 
   Fstar = data.safety_economy.fuel_stars;
   Sstar = data.safety_economy.driver_safety_stars;
+
+  Fstar = (Fstar > 10) ? 10 : Fstar;
+  Sstar = (Sstar > 10) ? 10 : Sstar;
   getRatings();
 }
 
