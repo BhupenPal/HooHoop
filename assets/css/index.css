@@ -1865,8 +1865,8 @@ button[disabled] {
   width: 100%;
   max-width: 100% !important;
   margin: 0 !important;
-  z-index: 10;
   position: absolute !important;
+  z-index: 1000;
 }
 
 .iwdivide {
@@ -1874,9 +1874,9 @@ button[disabled] {
   width: 100%;
   max-width: 100% !important;
   margin: 0 !important;
-  z-index: 20;
   position: absolute !important;
   background-color: gray;
+  z-index: 1001;
 }
 
 .exterior_slider {
@@ -1885,7 +1885,7 @@ button[disabled] {
   scroll-behavior: smooth;
   transition: 0.4s;
   overflow: hidden;
-  z-index: 30;
+  z-index: 1002;
   position: absolute !important;
 }
 
