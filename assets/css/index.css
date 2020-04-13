@@ -1805,7 +1805,7 @@ button[disabled] {
   left: 10px;
   top: 480px;
   background-color: transparent;
-  z-index: 100;
+  z-index: 1003;
   cursor: pointer;
   display: flex;
   place-content: center;
@@ -2033,7 +2033,7 @@ canvas {
 }
 
 .Descriptive-Data {
-  width: 1300px;
+  width: 900px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -3698,8 +3698,9 @@ input[type="submit"]:hover {
 
   .specdet{
     flex-direction: row;
-    justify-content: space-around;
-    margin: 20px 0;
+    justify-content: space-between;
+    margin: 3vw auto;
+    width: 70vw;
   }
 
   .tooltiptext{
@@ -3731,6 +3732,29 @@ input[type="submit"]:hover {
     width: 90vw;
   }
 
+  .icohold i{
+    font-size: 6vw;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .icohold{
+    min-width: 80px;
+  }
+
+  .prophold{
+    margin-bottom: 0;
+    font-size: 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    min-width: 50px;;
+    margin: 0;
+  }
+
   .share_info{
     width: 90vw;
     margin: 0 auto;
@@ -3739,11 +3763,16 @@ input[type="submit"]:hover {
   .Descriptive-Data {
     width: 90vw;
     flex-direction: column;
+    margin: 40px auto;
+  }
+
+  .Description-Box{
+    margin: 0 auto;
+    padding-right: 0;
   }
 
   .Description-Box h1{
     text-align: center;
-    margin: 0;
   }
 
   .panel-contain{
