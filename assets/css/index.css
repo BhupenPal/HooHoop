@@ -1769,14 +1769,13 @@ button[disabled] {
 
 /* Listing-Section */
 .cardet_page {
+  width: min-content;
+  margin: 20px auto;
   padding-bottom: 100px;
 }
 
 .th_sxty_info {
-  margin: 20px 0;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
 }
 
 .th60_container {
@@ -2051,8 +2050,7 @@ canvas {
 }
 
 .panel-contain {
-  margin: 20px 0;
-  padding: 20px;
+  margin: 40px 0;
   display: flex;
   width: 1300px;
   flex-wrap: wrap;
@@ -2108,7 +2106,7 @@ canvas {
 }
 
 .listing-recommended{
-  width: 75%;
+  width: 1300px !important;
 }
 
 /* .seller-details {
@@ -3668,8 +3666,12 @@ input[type="submit"]:hover {
 
   /* c_page response */
   .cardet_page {
-    flex-wrap: nowrap;
+    width: auto;
     padding-bottom: 600px;
+  }
+
+  .th_sxty_info {
+    flex-direction: column;
   }
 
   .th60_container {
