@@ -3676,6 +3676,7 @@ input[type="submit"]:hover {
 
   .th60_container {
     width: 90vw;
+    margin: 0 auto;
   }
 
   .viewthsxty {
@@ -3749,6 +3750,7 @@ input[type="submit"]:hover {
     width: 90vw;
     flex-wrap: nowrap;
     flex-direction: column;
+    margin: 20px auto;
     justify-content: flex-start;
   }
 
@@ -3764,7 +3766,7 @@ input[type="submit"]:hover {
   }
 
   .listing-recommended{
-    width: 80vw;
+    width: 80vw !important;
     margin: 0 auto;
   }
 
