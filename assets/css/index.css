@@ -19,7 +19,7 @@ a:hover {
 }
 
 #loader {
-  margin: 50px auto;
+  margin: 0px auto;
   border: 16px solid #f3f3f3; /* Light grey */
   border-top: 16px solid #3498db; /* Blue */
   border-radius: 50%;
@@ -1805,7 +1805,7 @@ button[disabled] {
   left: 10px;
   top: 480px;
   background-color: transparent;
-  z-index: 100;
+  z-index: 1003;
   cursor: pointer;
   display: flex;
   place-content: center;

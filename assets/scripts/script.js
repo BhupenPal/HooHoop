@@ -69,13 +69,13 @@ function foption(j) {
 function intext(j) {
   if (j == 1) {
     document.getElementsByClassName("panoviewer-container")[0].style.zIndex =
-      "30";
-    document.getElementsByClassName("exterior_slider")[0].style.zIndex = "10";
+      "1002";
+    document.getElementsByClassName("exterior_slider")[0].style.zIndex = "1000";
   }
   if (j == 2) {
-    document.getElementsByClassName("exterior_slider")[0].style.zIndex = "30";
+    document.getElementsByClassName("exterior_slider")[0].style.zIndex = "1002";
     document.getElementsByClassName("panoviewer-container")[0].style.display =
-      "10";
+      "1000";
   }
 }
 
@@ -144,7 +144,7 @@ function previewname(x) {
 function showsl(j) {
   if (j == 1) {
     document.getElementById("INTSELECT").style.display = "block";
-    document.getElementById("INTSELECT").style.zIndex = "40";
+    document.getElementById("INTSELECT").style.zIndex = "1003";
   } else {
     document.getElementById("INTSELECT").style.display = "none";
     document.getElementById("INTSELECT").style.zIndex = "0";
