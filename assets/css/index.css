@@ -1769,7 +1769,6 @@ button[disabled] {
 
 /* Listing-Section */
 .cardet_page {
-  width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1924,69 +1923,6 @@ canvas {
   color: black;
   font-weight: normal;
 }
-
-/* .cardetails_tab {
-  height: 600px;
-  width: 400px;
-  box-sizing: border-box;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-family: Fira;
-}
-
-.cardetails_tab h1 {
-  letter-spacing: 0.02em;
-  margin: 10px 0;
-}
-
-.det_connect {
-  height: 65px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  margin: 1px 0;
-}
-
-.det_connect .prop_hold {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  width: 240px;
-  align-items: center;
-  box-sizing: border-box;
-  font-family: Lato;
-  font-weight: bold;
-  font-size: 20px;
-  background-color: #f1f1f1;
-}
-
-.ico_hold {
-  display: flex;
-  height: 100%;
-  box-sizing: border-box;
-  width: 160px;
-  align-items: flex-start;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  font-family: Poppins;
-  background-color: #e1e1e1;
-}
-
-.ico_hold * {
-  margin: 0;
-  color: rgb(41, 39, 39);
-}
-
-.ico_hold i {
-  font-size: 30px;
-  color: grey;
-  margin-bottom: 5px;
-  padding-top: 10px;
-} */
 
 .listspec{
   width: 100%;
@@ -2175,6 +2111,10 @@ canvas {
 
 .panel_body {
   width: 100%;
+}
+
+.listing-recommended{
+  width: 75%;
 }
 
 /* .seller-details {
@@ -3740,7 +3680,6 @@ input[type="submit"]:hover {
 
   .th60_container {
     width: 90vw;
-    height: 60vw;
   }
 
   .viewthsxty {
@@ -3754,6 +3693,16 @@ input[type="submit"]:hover {
     border-radius: 10vw;
     top: 35vw;
     font-size: 8vw;
+  }
+
+  .listspec{
+    flex-direction: column;
+  }
+
+  .specdet{
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 20px 0;
   }
 
   .tooltiptext{
@@ -3770,32 +3719,25 @@ input[type="submit"]:hover {
   }
 
   .car_name_price {
-    font-size: 6vw;
+    font-size: 5vw;
     height: 20vw;
     align-items: center;
   }
 
-  /* .cardetails_tab {
+  .addinfo{
+    width: 95vw;
+    margin: 0 auto;
+  }
+
+  .Listing_id, .Additional_info, .seller_info {
+    margin: 10vw auto;
     width: 90vw;
-    margin-top: 20vw;
-    justify-content: flex-start;
   }
 
-  .cardetails_tab h1 {
-    font-size: 8vw;
+  .share_info{
+    width: 90vw;
+    margin: 0 auto;
   }
-
-  .det_connect {
-    height: 15vw;
-  }
-
-  .ico_hold p {
-    font-size: 4vw;
-  }
-
-  .ico_hold i {
-    font-size: 4vw;
-  } */
 
   .Descriptive-Data {
     width: 90vw;
@@ -3825,11 +3767,9 @@ input[type="submit"]:hover {
     font-size: 3vw;
   }
 
-  /* .seller-details{
-    height: 40vw;
-    width: 90vw;
-    margin-top: 10vw;
-  } */
+  .listing-recommended{
+    width: 75vw;
+  }
 
   /* Sell-form response */
   .sellform_wrap {
