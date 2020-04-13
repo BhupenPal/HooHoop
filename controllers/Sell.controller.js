@@ -95,10 +95,12 @@ module.exports = {
       newCar.authorID = req.user._id;
 
       if(FuelStar !== null){
+        FuelStar = (FuelStar > 10) ? 10 : FuelStar;
         newCar.FuelStar = FuelStar;
       }
 
       if(SafetyStar !== null){
+        SafetyStar = (SafetyStar > 10) ? 10 : SafetyStar;
         newCar.SafetyStar = SafetyStar;
       }
 
