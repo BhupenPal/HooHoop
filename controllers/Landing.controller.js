@@ -3,6 +3,7 @@ const testDrive = require("../models/testDrive");
 const availabilityModel = require("../models/availabilityModel");
 const shippingModel = require('../models/shippingModel');
 const transporter = require("../controllers/mail/config/trasnport");
+const fs = require('fs');
 
 const { contactMail } = require("./mail/allMail");
 
@@ -90,6 +91,7 @@ module.exports = {
   },
 
   getCar: async (req, res, next) => {
+    let FrontCheck, RearCheck;
     await carModel.findOneAndUpdate(
       { _id: req.params.id },
       { $inc: {views: 1} },
@@ -98,8 +100,14 @@ module.exports = {
         .find({ adActive: "Active" })
         .limit(10)
         .sort({ views: -1 });
+        if(fs.existsSync(`./assets/Uploads/${doc.vinNum}/interior/INTERIORFRONT.JPG`)){
+          FrontCheck = true
+        }
+        if(fs.existsSync(`./assets/Uploads/${doc.vinNum}/interior/INTERIORREAR.JPG`)){
+          RearCheck = true
+        }
         res.render("cpage_info", {
-          record: doc, recommended: popularCars
+          record: doc, recommended: popularCars, FrontCheck, RearCheck
         });
       }
     );
