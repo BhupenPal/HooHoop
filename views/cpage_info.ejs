@@ -37,7 +37,13 @@
             </button>
 
             <select name="interiorSelect" id="INTSELECT" onchange="ImgChange(this.value)">
+              <% if(FrontCheck){ %>
+                <option value="INTERIORFRONT.JPG">FRONT</option>
+              <% } %>
               <option value="INTERIORMIDDLE.JPG">Middle</option>
+              <% if(RearCheck){ %>
+                <option value="INTERIORREAR.JPG">REAR</option>
+              <% } %>
             </select>
 
             <div class="panoviewer-container viewer">
@@ -307,39 +313,6 @@
     <script src="/assets/scripts/chatbot.js"></script>
     <script src="/assets/scripts/flasher.js"></script>
     <script src="/assets//scripts/starManager.js"></script>
-    <script>
-      const front = `/assets/Uploads/<%= record.vinNum %>/interior/INTERIORFRONT.JPG`;
-      const rear = `/assets/Uploads/<%= record.vinNum %>/interior/INTERIORREAR.JPG`;
-      const select = document.getElementById("INTSELECT");
-
-function FileExist(urlToFile) {
-    var xhr = new XMLHttpRequest();
-    xhr.open('HEAD', urlToFile, false);
-    if (xhr.status == "200") {
-            return true;
-    } else {
-        return false;
-    }
-    xhr.send();
-}
-
-if (FileExist(front)){
-    var opt = document.createElement('option');
-    opt.value = "INTERIORFRONT.JPG";
-    opt.innerHTML = "Front";
-    select.appendChild(opt);
-}
-
-if(FileExist(rear)){
-    var opt = document.createElement('option');
-    opt.value = "INTERIORREAR.JPG";
-    opt.innerHTML = "Rear";
-    opt.onchange
-    select.appendChild(opt);
-}
-    </script>
-
-
 <script>
 
   let PageLocation = window.location.href;
@@ -348,8 +321,6 @@ if(FileExist(rear)){
   document.getElementById("tweet-linker").setAttribute("href", `https://twitter.com/intent/tweet?text=Check%20out%20this%20amazing%20car%20on%20HooHoop%20${PageLocation}`);
 
 </script>
-
-
     <script>
       function ImgChange(imgname){
         let myPan = document.getElementsByClassName("panoviewer-container")[0];
