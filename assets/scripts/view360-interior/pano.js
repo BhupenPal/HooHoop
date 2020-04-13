@@ -231,7 +231,7 @@ var PanoControls = (function() {
 		</svg>';
     var controls = isMobile()
       ? '\
-      <div class="image360_loading"><div id="loader" style="display: block; position:absolute; top:0;left:-5vw;></div>\
+      <div class="image360_loading"><div id="loader" style="display: block; position:absolute; top:0;left:-5vw; margin: 0 auto;"></div>\
       <div class="image360_loadingBar">\
       </div></div>\
 			<div class="panoviewer-control">\
@@ -244,7 +244,7 @@ var PanoControls = (function() {
 				<div class="camera"></div>\
 			</div>'
       : '\
-      <div class="image360_loading"><div id="loader" style="display: block;></div>\
+      <div class="image360_loading"><div id="loader" style="display: block; margin:0 auto"></div>\
       <div class="image360_loadingBar">\
       </div></div>\
 			<div class="panoviewer-control">\
