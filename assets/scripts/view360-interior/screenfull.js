@@ -91,6 +91,9 @@
         this.on("error", a);
       },
       on: function(b, c) {
+        if(this.isFullscreen){
+          this.exit();
+        }
         var d = e[b];
         d && a.addEventListener(d, c, !1);
       },

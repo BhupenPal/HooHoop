@@ -313,25 +313,9 @@
     <script src="/assets/scripts/chatbot.js"></script>
     <script src="/assets/scripts/flasher.js"></script>
     <script src="/assets//scripts/starManager.js"></script>
-<script>
 
-  let PageLocation = window.location.href;
-
-  document.getElementById("face-linker").setAttribute("href", `https://www.facebook.com/sharer/sharer.php?u=${PageLocation}&quote=Check\ out\ this\ amazing\ car\ on\ HooHoop`);
-  document.getElementById("tweet-linker").setAttribute("href", `https://twitter.com/intent/tweet?text=Check%20out%20this%20amazing%20car%20on%20HooHoop%20${PageLocation}`);
-
-</script>
     <script>
       function ImgChange(imgname){
-        if (document.exitFullscreen) {
-          document.exitFullscreen();
-        } else if (document.mozCancelFullScreen) {
-          document.mozCancelFullScreen();
-        } else if (document.webkitExitFullscreen) {
-          document.webkitExitFullscreen();
-        } else if (document.msExitFullscreen) {
-          document.msExitFullscreen();
-        }
         let myPan = document.getElementsByClassName("panoviewer-container")[0];
         
         document.getElementsByClassName("viewthsxty")[0].removeChild(myPan)
