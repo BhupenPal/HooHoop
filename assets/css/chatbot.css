@@ -1,4 +1,4 @@
-.chatbot_encloser{
+.chatbot_encloser {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -7,9 +7,10 @@
   position: fixed;
   bottom: 10px;
   right: 20px;
+  z-index: 2000;
 }
 
-.chatbox_opened{
+.chatbox_opened {
   box-shadow: 0 0 5px 5px #dfdfdf;
   min-height: 550px;
   width: 18vw !important;
@@ -21,7 +22,7 @@
   display: none;
 }
 
-.chatbox_closed{
+.chatbox_closed {
   height: 60px;
   width: 60px;
   border-radius: 60px;
@@ -40,7 +41,7 @@
   animation-iteration-count: 2;
 }
 
-#chatter{
+#chatter {
   background-color: #f2f2f2;
   overflow-x: hidden;
   position: relative;
@@ -48,7 +49,7 @@
   height: 465px;
 }
 
-.bg_head{
+.bg_head {
   height: 50px;
   background-color: white;
   border-top-left-radius: 5px;
@@ -58,7 +59,7 @@
   justify-content: space-between;
 }
 
-.closediv{
+.closediv {
   height: 15px;
   width: 3px;
   border-radius: 5px;
@@ -66,15 +67,15 @@
   position: absolute;
 }
 
-.closediv:nth-child(1){
+.closediv:nth-child(1) {
   transform: rotate(45deg);
 }
 
-.closediv:nth-child(2){
+.closediv:nth-child(2) {
   transform: rotate(-45deg);
 }
 
-.botcloser{
+.botcloser {
   border: none;
   background-color: white;
   font-size: 20px;
@@ -90,7 +91,7 @@
   margin-right: 10px;
 }
 
-.logimgbot{
+.logimgbot {
   height: 100%;
   width: 50px;
   border-radius: 50px;
@@ -99,24 +100,24 @@
   align-items: center;
 }
 
-#btxt{
+#btxt {
   font-family: raleway;
   margin: 0 !important;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 25px;
+  font-size: 22px;
   height: 100%;
   width: 70%;
 }
 
-.logimgbot img{
+.logimgbot img {
   height: 60%;
   width: 60%;
   border-radius: 60%;
 }
 
-.bg_foot{
+.bg_foot {
   height: 35px;
   background-color: #e5e5e5;
   border-bottom-left-radius: 5px;
@@ -137,11 +138,11 @@
   font-family: monospace;
 }
 
-#toAppend::-webkit-scrollbar{
+#toAppend::-webkit-scrollbar {
   display: none;
 }
 
-.form-bot{
+.form-bot {
   padding: 10px;
   background-color: white;
   border-radius: 10px;
@@ -167,26 +168,27 @@
   align-items: center;
 }
 
-#text-input{
+#text-input {
   display: none;
   height: 100%;
   width: 100%;
   align-items: flex-end;
 }
 
-#click-input{
+#click-input {
   display: flex;
   width: 100%;
 }
 
-#input-manager{
+#input-manager {
   display: flex;
   height: 50px;
   justify-content: center;
   align-items: flex-end;
 }
 
-#accept,#reject{
+#accept,
+#reject {
   height: 100%;
   border: none;
   height: 50px;
@@ -196,7 +198,7 @@
   font-weight: bolder;
 }
 
-#user-input{
+#user-input {
   height: 35px;
   border: none;
   background-color: #fff;
@@ -207,7 +209,7 @@
   outline: 0;
 }
 
-#send-air{
+#send-air {
   border: none;
   height: 35px;
   padding: 0;
@@ -219,22 +221,23 @@
   background-color: white !important;
 }
 
-#send-air img{
+#send-air img {
   height: 100%;
   width: 100%;
 }
 
-#accept{
-  background-color: #55ACEE;
+#accept {
+  background-color: #55acee;
   transition: 0.2s;
 }
 
-#accept:hover,#reject:hover{
+#accept:hover,
+#reject:hover {
   opacity: 0.8;
 }
 
-#reject{
-  background-color: #292F33;
+#reject {
+  background-color: #292f33;
   transition: 0.2s;
 }
 
@@ -268,7 +271,9 @@ div#wave .dot:nth-child(3) {
 }
 
 @keyframes wave {
-  0%, 60%, 100% {
+  0%,
+  60%,
+  100% {
     transform: initial;
   }
   30% {
@@ -277,30 +282,35 @@ div#wave .dot:nth-child(3) {
 }
 
 @keyframes shake {
-  10%, 90% {
+  10%,
+  90% {
     transform: translate3dtext-input(-1px, 0, 0);
   }
-  
-  20%, 80% {
+
+  20%,
+  80% {
     transform: translate3d(2px, 0, 0);
   }
 
-  30%, 50%, 70% {
+  30%,
+  50%,
+  70% {
     transform: translate3d(-4px, 0, 0);
   }
 
-  40%, 60% {
+  40%,
+  60% {
     transform: translate3d(4px, 0, 0);
   }
 }
 
-@media only screen and (max-width:480px){
-  .chatbot_encloser{
+@media only screen and (max-width: 480px) {
+  .chatbot_encloser {
     right: 0 !important;
     bottom: 0 !important;
   }
 
-  .chatbox_opened{
+  .chatbox_opened {
     border: 0 !important;
     position: fixed;
     top: 0;
@@ -308,7 +318,7 @@ div#wave .dot:nth-child(3) {
     min-height: -webkit-fill-available;
   }
 
-  #toAppend{
+  #toAppend {
     max-height: 100vh;
   }
 }

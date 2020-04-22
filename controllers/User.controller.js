@@ -181,10 +181,10 @@ module.exports = {
 
   getEditCar: async (req, res, next) => {
     const EditCar = await carModel.findOne({ _id: req.params.id });
-    if(EditCar.authorID == req.user._id || req.user.isAdmin){
+    if (EditCar.authorID == req.user._id || req.user.isAdmin) {
       res.render("edit_cpage", { car: EditCar });
     } else {
-      next(new Error("Unauthorised Access"))
+      next(new Error("Unauthorised Access"));
     }
   },
 
@@ -226,6 +226,8 @@ module.exports = {
 
     const user = await userModel.findOne({ email: email });
 
+    let KeyToken = GenerateRandom();
+
     if (!user) {
       errors.push({ msg: "The email is not registered" });
       return res.render("forgotPass", {
@@ -239,12 +241,12 @@ module.exports = {
       from: '"HooHoop" <contact@hoohoop.co.nz>', // sender address
       to: email, // list of receivers
       subject: "HooHoop Account Password Reset", // Subject line
-      html: resetMail(user.firstName, resetToken), // html body
+      html: resetMail(user.firstName, KeyToken), // html body
     };
 
     user.updateOne(
       { email: email },
-      { $set: { resetToken: GenerateRandom() } },
+      { $set: { resetToken: KeyToken } },
       transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
           return console.log(error);
@@ -298,7 +300,7 @@ module.exports = {
       tod,
       tom,
       carPrice,
-      discountFor
+      discountFor,
     } = req.body;
 
     let result = await carModel.findOne({ _id: discountFor });
@@ -306,7 +308,7 @@ module.exports = {
     if (CouponCode == "null") {
       let NoDeal = new NoDealModel({
         email,
-        phoneNo
+        phoneNo,
       });
       NoDeal.uLastOffer = discount;
       NoDeal.car = `${result.Make} - ${result.Model}`;
@@ -314,7 +316,7 @@ module.exports = {
       NoDeal.vinNum = result.vinNum;
       let offerDate = new Date();
       offerDate = offerDate.toUTCString();
-      offerDate = offerDate.split(' ').slice(0, 4).join(' ');
+      offerDate = offerDate.split(" ").slice(0, 4).join(" ");
       NoDeal.date = offerDate;
       NoDeal.save();
     } else {
@@ -329,12 +331,12 @@ module.exports = {
         carPrice,
       });
 
-      if(carID){
-        NewCoupon.trade = 'Yes';
+      if (carID) {
+        NewCoupon.trade = "Yes";
         NewCoupon.tradeVehicle = carID;
       } else {
-        NewCoupon.trade = 'No';
-        NewCoupon.tradeVehicle = '-'
+        NewCoupon.trade = "No";
+        NewCoupon.tradeVehicle = "-";
       }
 
       NewCoupon.CouponCode = CouponCode;
