@@ -36,7 +36,7 @@ module.exports = {
             <table width="100%" cellspacing="0" cellpadding="0" style="background-color: #fff; font-family: Arial; padding: 20px;">
               <!-- Header -->
               <tr>
-                <td><img src="http://18.217.77.229/assets/images/Logo.png" alt="HooHoop Logo" style="display: block; margin: 10px auto; padding: 0; width: 300px;"></td>
+                <td><img src="https://hoohoop.co.nz/assets/images/Logo.png" alt="HooHoop Logo" style="display: block; margin: 10px auto; padding: 0; width: 300px;"></td>
               </tr>
               <tr>
                 <td>
@@ -112,7 +112,7 @@ module.exports = {
             <table width="100%" cellspacing="0" cellpadding="0" style="background-color: #fff; font-family: Arial; padding: 20px;">
               <!-- Header -->
               <tr>
-                <td><img src="http://18.217.77.229/assets/images/Logo.png" alt="HooHoop Logo" style="display: block; margin: 10px auto; padding: 0; width: 300px;"></td>
+                <td><img src="https://hoohoop.co.nz/assets/images/Logo.png" alt="HooHoop Logo" style="display: block; margin: 10px auto; padding: 0; width: 300px;"></td>
               </tr>
               <tr>
                 <td>
@@ -195,7 +195,7 @@ module.exports = {
             <table width="100%" cellspacing="0" cellpadding="0" style="background-color: #fff; font-family: Arial; padding: 20px;">
               <!-- Header -->
               <tr>
-                <td><img src="http://18.217.77.229/assets/images/Logo.png" alt="HooHoop Logo" style="display: block; margin: 10px auto; padding: 0; width: 300px;"></td>
+                <td><img src="https://hoohoop.co.nz/assets/images/Logo.png" alt="HooHoop Logo" style="display: block; margin: 10px auto; padding: 0; width: 300px;"></td>
               </tr>
               <tr>
                 <td>
@@ -223,7 +223,7 @@ module.exports = {
                 <td><p style="margin: 0 auto; width: 100%; text-align: center;">Visit <a href="https://www.hoohoop.co.nz/" style="margin:0 auto">www.hoohoop.co.nz</a> for any further details.</p></td>
               </tr>
               <tr>
-                <td style="display: flex; justify-content: center; align-items: center;"><p style="margin: 0 auto; width: 100%; text-align: center;">http://www.hoohoop.co.nz/</p></td>
+                <td style="display: flex; justify-content: center; align-items: center;"><p style="margin: 0 auto; width: 100%; text-align: center;">https://www.hoohoop.co.nz/</p></td>
               </tr>
               <tr>
                 <td></td>
@@ -273,7 +273,7 @@ module.exports = {
             <table width="100%" cellspacing="0" cellpadding="0" style="background-color: #fff; font-family: Arial; padding: 20px;">
               <!-- Header -->
               <tr>
-                <td><img src="http://18.217.77.229/assets/images/Logo.png" alt="HooHoop Logo" style="display: block; margin: 10px auto; padding: 0; width: 300px;"></td>
+                <td><img src="https://hoohoop.co.nz/assets/images/Logo.png" alt="HooHoop Logo" style="display: block; margin: 10px auto; padding: 0; width: 300px;"></td>
               </tr>
               <tr>
                 <td>
@@ -306,5 +306,5 @@ module.exports = {
       </table>
     </body>
     </html>`;
-  }
+  },
 };
