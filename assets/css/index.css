@@ -79,13 +79,13 @@ input[type="date"]::-webkit-inner-spin-button {
   outline: none;
 }
 
-.stars-outer{
+.stars-outer {
   position: relative;
   display: inline-block;
   font-size: 20px;
 }
 
-.stars-inner{
+.stars-inner {
   position: absolute;
   top: 0;
   left: 0;
@@ -95,14 +95,14 @@ input[type="date"]::-webkit-inner-spin-button {
   width: 0;
 }
 
-.stars-outer::before{
+.stars-outer::before {
   content: "\f005 \f005 \f005 \f005 \f005";
   font-family: "Font Awesome 5 Pro";
   font-weight: 900;
   color: #ccc;
 }
 
-.stars-inner::before{
+.stars-inner::before {
   content: "\f005 \f005 \f005 \f005 \f005";
   font-family: "Font Awesome 5 Pro";
   font-weight: 900;
@@ -232,7 +232,7 @@ input[type="date"]::-webkit-inner-spin-button {
   transition: 0.4s;
 }
 
-.bar2{
+.bar2 {
   width: 80%;
 }
 
@@ -902,7 +902,7 @@ button[disabled] {
   transition: 0.3s ease-in-out;
 }
 
-#PriceIndicator{
+#PriceIndicator {
   margin-top: 50px;
   color: rgba(255, 47, 47, 0.884);
   font-size: 22px;
@@ -1043,7 +1043,8 @@ button[disabled] {
   padding-left: 20px;
 }
 
-#car_address, #car_a {
+#car_address,
+#car_a {
   margin: 10px auto;
   padding: 0;
   font-family: Fira;
@@ -1761,7 +1762,7 @@ button[disabled] {
   color: white;
 }
 
-.no-car{
+.no-car {
   font-family: Raleway;
   width: 100%;
   font-size: 32px;
@@ -1774,7 +1775,7 @@ button[disabled] {
 /* Listing-Section */
 .cardet_page {
   width: min-content;
-  margin: 20px auto;
+  margin: 20px auto 0 auto;
   padding-bottom: 100px;
 }
 
@@ -1921,25 +1922,25 @@ canvas {
   font-weight: normal;
 }
 
-.listspec{
+.listspec {
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
-.specdet{
+.specdet {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.icohold{
+.icohold {
   display: flex;
   flex-direction: column;
 }
 
-.icohold i{
+.icohold i {
   font-size: 50px;
   color: gray;
   margin-bottom: 20px;
@@ -1947,13 +1948,13 @@ canvas {
   justify-content: center;
 }
 
-.icohold span{
+.icohold span {
   font-family: raleway;
   color: #5a5a5a;
   text-align: center;
 }
 
-.prophold{
+.prophold {
   margin-top: 10px;
   font-size: 20px;
   font-family: Raleway;
@@ -1962,18 +1963,22 @@ canvas {
   text-align: center;
 }
 
-.addinfo{
+.addinfo {
   margin-left: 40px;
 }
 
-.Listing_id,.Additional_info,.seller_info{
+.Listing_id,
+.Additional_info,
+.seller_info {
   width: 350px;
   background-color: #f5bf2b;
   border: 2px solid #e7e7e7;
   margin-bottom: 50px;
 }
 
-.id_head,.Addinfo_head,.seller_head{
+.id_head,
+.Addinfo_head,
+.seller_head {
   height: 50px;
   width: 100%;
   display: flex;
@@ -1985,7 +1990,9 @@ canvas {
   font-weight: bold;
 }
 
-.id_num,.Addinfo_spec,.seller_spec{
+.id_num,
+.Addinfo_spec,
+.seller_spec {
   background-color: #f2f2f2;
   padding: 10px;
   box-sizing: border-box;
@@ -1994,11 +2001,12 @@ canvas {
   justify-content: space-between;
 }
 
-.Addinfo_spec,.seller_spec{
+.Addinfo_spec,
+.seller_spec {
   border-bottom: 2px solid white;
 }
 
-.share_info{
+.share_info {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -2009,18 +2017,18 @@ canvas {
   border: 2px solid #ccc;
 }
 
-.share_data{
+.share_data {
   font-size: 25px;
   font-family: Raleway;
   font-weight: bold;
 }
 
-.share{
+.share {
   display: flex;
   justify-content: flex-end !important;
 }
 
-.social_share{
+.social_share {
   height: 40px;
   width: 40px;
   border-radius: 5px;
@@ -2032,7 +2040,7 @@ canvas {
   margin: 0 5px;
 }
 
-.sh_prop{
+.sh_prop {
   font-size: 20px;
 }
 
@@ -2049,7 +2057,7 @@ canvas {
   padding-right: 25px;
 }
 
-.Description-Box h1{
+.Description-Box h1 {
   font-family: Fira;
 }
 
@@ -2109,7 +2117,7 @@ canvas {
   width: 100%;
 }
 
-.listing-recommended{
+.listing-recommended {
   width: 1300px !important;
 }
 
@@ -3373,11 +3381,11 @@ input[type="submit"]:hover {
     transform: rotate(-45deg) translate(-10px, 0px);
     background-color: white;
   }
-  
+
   .change .bar2 {
     opacity: 0;
   }
-  
+
   .change .bar3 {
     transform: rotate(45deg) translate(-10px, 0px);
     background-color: white;
@@ -3584,7 +3592,7 @@ input[type="submit"]:hover {
     width: 80vw;
   }
 
-  #bc-card-wrap{
+  #bc-card-wrap {
     grid-template-columns: auto;
   }
 
@@ -3632,7 +3640,7 @@ input[type="submit"]:hover {
     top: -1.2125vw;
   }
 
-  #Pagination{
+  #Pagination {
     margin: 20px auto;
     height: min-content;
   }
@@ -3666,7 +3674,7 @@ input[type="submit"]:hover {
   }
 
   .viewthsxty {
-    height: 60vw; 
+    height: 60vw;
   }
 
   .interior-changer,
@@ -3678,18 +3686,18 @@ input[type="submit"]:hover {
     font-size: 8vw;
   }
 
-  .listspec{
+  .listspec {
     flex-direction: column;
   }
 
-  .specdet{
+  .specdet {
     flex-direction: row;
     justify-content: space-between;
     margin: 3vw auto;
     width: 70vw;
   }
 
-  .tooltiptext{
+  .tooltiptext {
     display: none;
   }
 
@@ -3708,17 +3716,19 @@ input[type="submit"]:hover {
     align-items: center;
   }
 
-  .addinfo{
+  .addinfo {
     width: 95vw;
     margin: 0 auto;
   }
 
-  .Listing_id, .Additional_info, .seller_info {
+  .Listing_id,
+  .Additional_info,
+  .seller_info {
     margin: 10vw auto;
     width: 90vw;
   }
 
-  .icohold i{
+  .icohold i {
     font-size: 6vw;
     margin: 5px;
     display: flex;
@@ -3726,22 +3736,22 @@ input[type="submit"]:hover {
     align-items: center;
   }
 
-  .icohold{
+  .icohold {
     min-width: 80px;
   }
 
-  .prophold{
+  .prophold {
     margin-bottom: 0;
     font-size: 5vw;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 50px;
-    min-width: 50px;;
+    min-width: 50px;
     margin: 0;
   }
 
-  .share_info{
+  .share_info {
     width: 90vw;
     margin: 0 auto;
   }
@@ -3752,16 +3762,16 @@ input[type="submit"]:hover {
     margin: 40px auto;
   }
 
-  .Description-Box{
+  .Description-Box {
     margin: 0 auto;
     padding-right: 0;
   }
 
-  .Description-Box h1{
+  .Description-Box h1 {
     text-align: center;
   }
 
-  .panel-contain{
+  .panel-contain {
     width: 90vw;
     flex-wrap: nowrap;
     flex-direction: column;
@@ -3769,7 +3779,7 @@ input[type="submit"]:hover {
     justify-content: flex-start;
   }
 
-  .nav_with_panel_tabs{
+  .nav_with_panel_tabs {
     min-height: 100vw;
     width: 90vw;
   }
@@ -3780,7 +3790,7 @@ input[type="submit"]:hover {
     font-size: 3vw;
   }
 
-  .listing-recommended{
+  .listing-recommended {
     width: 80vw !important;
     margin: 0 auto;
   }
@@ -4181,6 +4191,142 @@ input[type="submit"]:hover {
     padding-bottom: 400px;
   }
 
+  /* c_page response */
+  .cardet_page {
+    width: auto;
+    padding-bottom: 400px;
+  }
+
+  .th_sxty_info {
+    flex-direction: column;
+  }
+
+  .th60_container {
+    width: 90vw;
+    margin: 0 auto;
+  }
+
+  .viewthsxty {
+    height: 60vw;
+  }
+
+  .interior-changer,
+  .exterior-changer {
+    height: 10vw;
+    width: 10vw;
+    border-radius: 10vw;
+    top: 35vw;
+    font-size: 8vw;
+  }
+
+  .listspec {
+    flex-direction: column;
+  }
+
+  .specdet {
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 3vw auto;
+    width: 70vw;
+  }
+
+  .tooltiptext {
+    display: none;
+  }
+
+  #INTSELECT {
+    left: 5vw;
+    top: 5vw;
+  }
+
+  .exterior-changer {
+    top: 47vw;
+  }
+
+  .car_name_price {
+    font-size: 5vw;
+    height: 20vw;
+    align-items: center;
+  }
+
+  .addinfo {
+    width: 95vw;
+    margin: 0 auto;
+  }
+
+  .Listing_id,
+  .Additional_info,
+  .seller_info {
+    margin: 10vw auto;
+    width: 90vw;
+  }
+
+  .icohold i {
+    font-size: 6vw;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .icohold {
+    min-width: 80px;
+  }
+
+  .prophold {
+    margin-bottom: 0;
+    font-size: 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    min-width: 50px;
+    margin: 0;
+  }
+
+  .share_info {
+    width: 90vw;
+    margin: 0 auto;
+  }
+
+  .Descriptive-Data {
+    width: 90vw;
+    flex-direction: column;
+    margin: 40px auto;
+  }
+
+  .Description-Box {
+    margin: 0 auto;
+    padding-right: 0;
+  }
+
+  .Description-Box h1 {
+    text-align: center;
+  }
+
+  .panel-contain {
+    width: 90vw;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    margin: 20px auto;
+    justify-content: flex-start;
+  }
+
+  .nav_with_panel_tabs {
+    width: 90vw;
+  }
+
+  .tabs {
+    width: 30vw;
+    margin: 1vw;
+    font-size: 3vw;
+  }
+
+  .listing-recommended {
+    width: 90vw !important;
+    margin: 0 auto;
+  }
+
   /* forgot pass response for tab */
 
   .forg_pass_wrap {
@@ -4283,12 +4429,19 @@ input[type="submit"]:hover {
     height: 10vw;
   }
 
+  #mobile_fil {
+    display: block !important;
+    font-size: 30px;
+  }
+
   .filter {
-    margin-top: 8vw;
+    display: none;
   }
 
   .filterwrap {
     width: 90vw;
+    min-height: min-content;
+    height: min-content;
   }
 
   .contentwrap {
@@ -4323,9 +4476,14 @@ input[type="submit"]:hover {
     height: 5vw;
   }
 
+  #bc-card-wrap {
+    grid-template-columns: auto;
+  }
+
   .bc-card {
     height: 80vw;
-    width: 60vw;
+    margin: 0 auto;
+    width: 80vw;
   }
 
   .cb_img,
@@ -4358,7 +4516,6 @@ input[type="submit"]:hover {
   .Page_no {
     height: 5vw;
     width: 5vw;
-    border-radius: 5vw;
     font-size: 3vw;
     margin: 0 1vw;
   }
@@ -4403,15 +4560,14 @@ input[type="submit"]:hover {
   }
 }
 
-
-@media only screen and (max-width: 1100px) and (min-width: 769px){
+@media only screen and (max-width: 1100px) and (min-width: 769px) {
   /* Header response */
 
-    .logo img{
-      width: 30vw;
-    }
+  .logo img {
+    width: 30vw;
+  }
 
-    .search-engine,
+  .search-engine,
   .user-panel {
     display: none;
   }
@@ -4420,12 +4576,12 @@ input[type="submit"]:hover {
     font-size: 1.2em;
   }
 
-  .hamburger{
+  .hamburger {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  
+
   /* Header response */
 
   /* Buy car response */
@@ -4446,10 +4602,9 @@ input[type="submit"]:hover {
     height: 100%;
   }
 
-  #bc-card-wrap{
+  #bc-card-wrap {
     grid-template-columns: auto auto;
   }
-
 
   .cb_main {
     font-size: 2.2vw;
@@ -4482,13 +4637,13 @@ input[type="submit"]:hover {
     flex-direction: column;
   }
 
-   .th60_container {
+  .th60_container {
     width: min-content;
     margin: 0 auto;
   }
 
   .viewthsxty {
-    height: 60vw; 
+    height: 60vw;
     width: 90vw;
   }
 
@@ -4512,23 +4667,25 @@ input[type="submit"]:hover {
     align-items: center;
   }
 
-  .listspec{
+  .listspec {
     width: 90vw;
     box-sizing: border-box;
-  } 
+  }
 
-   .addinfo{
+  .addinfo {
     width: 90vw;
     margin: 0 auto;
-  } 
+  }
 
-  .Listing_id, .Additional_info, .seller_info {
+  .Listing_id,
+  .Additional_info,
+  .seller_info {
     margin: 5vw auto;
     margin-top: 0;
     width: 100%;
   }
 
-  .icohold i{
+  .icohold i {
     font-size: 5vw;
     margin: 5px;
     display: flex;
@@ -4536,21 +4693,20 @@ input[type="submit"]:hover {
     align-items: center;
   }
 
-  .icohold{
+  .icohold {
     min-width: 80px;
   }
 
-  .prophold{
+  .prophold {
     margin-bottom: 0;
     font-size: 2vw;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 50px;
-    min-width: 50px;;
+    min-width: 50px;
     margin: 0;
   }
-
 
   .Descriptive-Data {
     width: 90vw;
@@ -4558,12 +4714,12 @@ input[type="submit"]:hover {
     margin: 40px auto;
   }
 
-  .Description-Box{
+  .Description-Box {
     padding-right: 0;
     width: 100%;
   }
 
-  .panel-contain{
+  .panel-contain {
     width: 90vw;
     flex-wrap: nowrap;
     flex-direction: column;
@@ -4571,7 +4727,7 @@ input[type="submit"]:hover {
     justify-content: flex-start;
   }
 
-  .nav_with_panel_tabs{
+  .nav_with_panel_tabs {
     width: 90vw;
   }
 
@@ -4581,27 +4737,27 @@ input[type="submit"]:hover {
     font-size: 20px;
   }
 
-  .listing-recommended{
+  .listing-recommended {
     width: 90vw !important;
     margin: 0 auto;
   }
 
-  .chatbot_encloser{
+  .chatbot_encloser {
     z-index: 2000;
   }
 
   /* Cpage response */
-  
 }
 
-@media only screen and (max-width:1400px) and (min-width:1101px){
+@media only screen and (max-width: 1400px) and (min-width: 1101px) {
   /* Header response */
-  .search-engine,.search-engine input{
+  .search-engine,
+  .search-engine input {
     width: auto;
   }
 
   /* Buy car */
-  .bc-card{
+  .bc-card {
     height: 30vw;
     width: 20vw;
   }
@@ -4637,7 +4793,7 @@ input[type="submit"]:hover {
   }
 
   .viewthsxty {
-    height: 40vw; 
+    height: 40vw;
     width: 60vw;
   }
 
@@ -4646,9 +4802,13 @@ input[type="submit"]:hover {
   }
 
   .th60_container {
-    width: min-content;
     margin: 0 auto;
     height: min-content;
+  }
+
+  .listspec,
+  .car_name_price {
+    width: 60vw;
   }
 
   .interior-changer,
@@ -4666,21 +4826,20 @@ input[type="submit"]:hover {
     align-items: center;
   }
 
-  .addinfo{ 
+  .addinfo {
     margin: 0;
-  } 
-
-  .Descriptive-Data {
-    width: min-content;
-    margin: 0 3.5vw;
-    max-width: 60vw;
   }
 
-  .nav_with_panel_tabs{
+  .Descriptive-Data {
+    margin: 0 3.5vw;
     width: 60vw;
   }
 
-  .panel-contain{
+  .nav_with_panel_tabs {
+    width: 60vw;
+  }
+
+  .panel-contain {
     width: min-content;
     flex-wrap: nowrap;
     flex-direction: column;
@@ -4688,14 +4847,13 @@ input[type="submit"]:hover {
     margin: 20px 3.5vw !important;
   }
 
-  .listing-recommended{
+  .listing-recommended {
     width: 90vw !important;
     margin: 0 auto;
   }
-
 }
 
-@media only screen and (max-width:1610px) and (min-width:1401px){
+@media only screen and (max-width: 1610px) and (min-width: 1401px) {
   .bc-card {
     height: 33vw;
     width: 23vw;
@@ -4707,7 +4865,7 @@ input[type="submit"]:hover {
   }
 }
 
-@media only screen and (min-width:2000px){
+@media only screen and (min-width: 2000px) {
   .bc-card {
     height: 32vw;
     width: 22vw;
@@ -4738,9 +4896,9 @@ input[type="submit"]:hover {
     font-size: 0.8vw;
   }
 
-  .cardet_page{
+  .cardet_page {
     width: min-content;
-    margin: 20px auto;
+    margin: 20px auto 0 auto;
   }
 
   .th_sxty_info {
@@ -4753,7 +4911,7 @@ input[type="submit"]:hover {
   }
 
   .viewthsxty {
-    height: 40vw; 
+    height: 40vw;
     width: 60vw;
   }
 
@@ -4770,24 +4928,30 @@ input[type="submit"]:hover {
     top: 36.5vw;
   }
 
-  .tooltiptext{
+  .tooltiptext {
     display: none;
   }
 
-  .addinfo{
+  .addinfo {
     width: 20vw;
   }
 
-  .Listing_id, .Additional_info, .seller_info{
+  .Listing_id,
+  .Additional_info,
+  .seller_info {
     width: 20vw;
   }
 
-  .id_head, .Addinfo_head, .seller_head{
+  .id_head,
+  .Addinfo_head,
+  .seller_head {
     height: 3vw;
     font-size: 1.5vw;
   }
 
-  .id_num, .Addinfo_spec, .seller_spec{
+  .id_num,
+  .Addinfo_spec,
+  .seller_spec {
     font-size: 0.8vw !important;
   }
 
@@ -4795,9 +4959,8 @@ input[type="submit"]:hover {
     font-size: 1vw;
   }
 
-  .listing-recommended{
+  .listing-recommended {
     width: 100% !important;
     margin: 20px auto;
   }
-
 }

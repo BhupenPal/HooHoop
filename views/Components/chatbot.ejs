@@ -1,7 +1,7 @@
 <div class="chatbot_encloser">
   <div class="chatbox_opened">
     <div class="bg_head">
-      <div class="logimgbot"><img src="/assets/images/chatbotlogo.png"></div>
+      <div class="logimgbot"><img src="/assets/images/chatbotlogo.png" /></div>
       <h1 id="btxt">Hoohoop Chatbot</h1>
       <button class="botcloser">
         <div class="closediv"></div>
@@ -18,11 +18,17 @@
         </div>
         <div id="input-manager">
           <div id="text-input">
-            <input type="text" id="user-input" placeholder="Type your message here" 
-            onfocus="this.placeholder = ''" 
-            autofocus
-            onblur="this.placeholder = 'Type your message here'"/>
-            <button type="submit" id="send-air"><i class="fad fa-paper-plane"></i></button>
+            <input
+              type="text"
+              id="user-input"
+              placeholder="Type your message here"
+              onfocus="this.placeholder = ''"
+              autofocus
+              onblur="this.placeholder = 'Type your message here'"
+            />
+            <button type="submit" id="send-air">
+              <i class="fad fa-paper-plane"></i>
+            </button>
           </div>
           <div id="click-input">
             <button id="accept" type="submit">YES</button>
@@ -36,5 +42,6 @@
   <div class="chatbox_closed"><i class="fas fa-comments-alt-dollar"></i></div>
 </div>
 
-<audio id="my_audio" src="/assets/audio/insight.mp3" type="audio/mpeg"></audio>
-<button id="play_aud" class="vanish" onclick='document.getElementById("my_audio").play()'>play</button>
+<audio autoplay>
+  <source src="/assets/audio/insight.mp3" />
+</audio>

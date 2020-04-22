@@ -71,7 +71,7 @@ function createMessage() {
     event.preventDefault();
     document.querySelector("#send-air > i").style.color = "#999999";
   } else {
-    document.getElementById("play_aud").click();
+    var a = new AudioContext();
   }
 
   if (status === "GREETING") {
