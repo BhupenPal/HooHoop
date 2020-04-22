@@ -61,7 +61,7 @@
     <% } else { %>
         <button class="ham_options" onclick="search()">Search</button>
         <button class="ham_options" onclick="window.location.href = '/user/login'">Login</button>
-        <button class="ham_options" onclick="window.location.href = '/user/sign-up'">Sign Up</button>
+        <button class="ham_options" onclick="window.location.href = '/user/Register'">Sign Up</button>
 
         <div class="search_active vanish">
             <form action="/search-car/1" method="GET" autocomplete="off">
@@ -82,9 +82,13 @@
         document.getElementsByClassName("ham_menu")[0].classList.toggle("ham_menu_show")
         if(x.classList.contains("change")){
             document.getElementsByTagName("html")[0].style.overflow = "hidden"
+            document.querySelector(".ham_menu").style.zIndex = "9998"
+            document.querySelector(".hamburger").style.zIndex = "9999"
         }
         else{
             document.getElementsByTagName("html")[0].removeAttribute("style")
+            document.querySelector(".hamburger").removeAttribute("style")
+            document.querySelector(".ham_menu").removeAttribute("style")
         }
     }
 
