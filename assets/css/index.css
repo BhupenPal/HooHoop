@@ -4787,6 +4787,10 @@ input[type="submit"]:hover {
     font-size: 1.2vw;
   }
 
+  .cb_add_info span {
+    font-size: 1vw;
+  }
+
   /* Cpage response */
   .cardet_page {
     width: min-content;
