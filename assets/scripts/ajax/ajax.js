@@ -78,7 +78,7 @@ FuelSelector = () => {
 
   for (let fuelCount = 0; fuelCount < FuelAll.length; fuelCount++) {
     if (FuelAll[fuelCount].checked === true) {
-      FuelQuery += `fuelType=${FuelAll[fuelCount].value}&`;
+      FuelQuery += `FuelType=${FuelAll[fuelCount].value}&`;
     }
   }
 
@@ -208,11 +208,7 @@ function filterResultHandler() {
   CompleteEnq = `?${MakeQuery}&${ModelQuery}&${FuelQuery}&${TransmissionQuery}&${BodyQuery}&${ColourQuery}&${PriceQuery}&${MetersQuery}`;
   const xhr = new XMLHttpRequest();
 
-  xhr.open(
-    "GET",
-    `/search-car/1/${CompleteEnq}`,
-    true
-  );
+  xhr.open("GET", `/search-car/1/${CompleteEnq}`, true);
   xhr.getResponseHeader("content-type", "application/json");
   xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
 
