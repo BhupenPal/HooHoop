@@ -10,6 +10,7 @@ const Coupons = new Schema({
     custEmail: String,
     custPhone: String,
     vehicleID: String,
+    vehicleObjId: String,
     vehicleName: String,
     CouponCode: String,
     discount: String,

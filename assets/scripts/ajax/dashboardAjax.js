@@ -442,17 +442,20 @@ myCoupon = list => {
 
   for(inc = 0; inc < json.list.length; inc++){
 
-    output = `\
+    output += `\
     <div class="offwall">\
     <div class="offer">\
         <div class="offslipinfo">\
-          <div class="carinfotme"><span>${json.list[inc].vehicleName}</span><span>${json.list[inc].tod}</span></div>\
-          <div class="carinfotme"><span>Valid Thru</span><span>${json.list[inc].tom}</span></div>\
+          <div class="carinfotme"><span><a href="/buy-car/${json.list[inc].vehicleObjId}" target="__blank">${json.list[inc].vehicleName}</a></span><span>${json.list[inc].vehicleID}</span></div>\
+          <div class="carinfotme"><span>Valid From</span><span>${json.list[inc].tod}</span></div>\
+          <div class="carinfotme"><span>Valid Till</span><span>${json.list[inc].tom}</span></div>\
           <div class="carinfotme"><span>Validation Time</span><span>72 Hrs</span></div>\
+          <div class="carinfotme"><span>Customer Email</span><span>${json.list[inc].custEmail}</span></div>\
+          <div class="carinfotme"><span>Customer Phone No.</span><span>${json.list[inc].custPhone}</span></div>\
           <div class="carinfotme"><span>Car Pricing</span><span>$${json.list[inc].carPrice}</span></div>\
-          <div class="carinfotme"><span>Coupon Discount</span><span>$${json.list[inc].discount}</span></div>\
-          <div class="carinfotme"><span>Trade Vehicle</span><span>$${json.list[inc].trade}</span></div>\
-          <div class="carinfotme"><span>Traded Vehicle Plate</span><span>$${json.list[inc].tradeVehicle}</span></div>\
+          <div class="carinfotme"><span>Coupon Discount</span><span>$${json.list[inc].carPrice - json.list[inc].discount}</span></div>\
+          <div class="carinfotme"><span>Trade Vehicle</span><span>${json.list[inc].trade}</span></div>\
+          <div class="carinfotme"><span>Traded Vehicle Plate</span><span>${json.list[inc].tradeVehicle}</span></div>\
           <h1><span>Offer Code</span><span>${json.list[inc].CouponCode}</span></h1>\
         </div>\
     </div>

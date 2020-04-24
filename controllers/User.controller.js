@@ -321,8 +321,8 @@ module.exports = {
       NoDeal.save();
     } else {
       let NewCoupon = new couponModel({
-        email,
-        phoneNo,
+        custEmail: email,
+        custPhone: phoneNo,
         discount,
         CouponCode,
         discount,
@@ -338,7 +338,7 @@ module.exports = {
         NewCoupon.trade = "No";
         NewCoupon.tradeVehicle = "-";
       }
-
+      NewCoupon.vehicleObjId = result._id;
       NewCoupon.CouponCode = CouponCode;
       NewCoupon.authorID = result.authorID;
       NewCoupon.vehicleID = result.vinNum;
@@ -349,7 +349,7 @@ module.exports = {
 
       let mailOptions = {
         from: '"HooHoop" <contact@hoohoop.co.nz>', // sender address
-        to: req.body.email, // list of receivers
+        to: email, // list of receivers
         subject: "HooHoop Discount Coupon Code", // Subject line
         html: discountMail(
           `${result.Make} - ${result.Model}`,
