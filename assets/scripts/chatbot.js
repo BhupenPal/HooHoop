@@ -84,8 +84,6 @@ function createMessage() {
         DisableInputs(false);
         botReply(TradeStrings[Math.floor(Math.random() * TradeStrings.length)]);
         showPreferredInputDisplay(false, true, false);
-        document.getElementById("accept").onclick = null;
-        document.getElementById("reject").onclick = null;
         status = "TRADE_VEHICLE";
         createMessage();
       }, 700);
@@ -100,8 +98,6 @@ function createMessage() {
         DisableInputs(false);
         botReply(BotRejected[Math.floor(Math.random() * BotRejected.length)]);
         showPreferredInputDisplay(true, false, false);
-        document.getElementById("accept").onclick = null;
-        document.getElementById("reject").onclick = null;
         status = "GET_OFFER";
       }, 700);
       return;
@@ -164,7 +160,6 @@ function createMessage() {
           botReply(
             AlreadyRejected[Math.floor(Math.random() * AlreadyRejected.length)]
           );
-          status = "GET_OFFER";
         }, 700);
       } else if (userOffer < Math.max(...RejectedOffers)) {
         showPreferredInputDisplay(false, true, true);
