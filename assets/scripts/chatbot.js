@@ -164,6 +164,7 @@ function createMessage() {
           botReply(
             AlreadyRejected[Math.floor(Math.random() * AlreadyRejected.length)]
           );
+          status = "GET_OFFER";
         }, 700);
       } else if (userOffer < Math.max(...RejectedOffers)) {
         showPreferredInputDisplay(false, true, true);
