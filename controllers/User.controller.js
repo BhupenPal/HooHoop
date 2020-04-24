@@ -1,6 +1,7 @@
 const userModel = require("../models/userModel");
 const carModel = require("../models/carModel");
 const couponModel = require("../models/couponModel");
+const NoDealModel = require("../models/nodealModel");
 const transporter = require("../controllers/mail/config/trasnport");
 const passport = require("passport");
 const bcrypt = require("bcryptjs");

@@ -84,37 +84,37 @@ function createMessage() {
         DisableInputs(false);
         botReply(TradeStrings[Math.floor(Math.random() * TradeStrings.length)]);
         showPreferredInputDisplay(false, true, false);
+        document.getElementById("accept").onclick = null;
+        document.getElementById("reject").onclick = null;
+        status = "TRADE_VEHICLE";
+        createMessage();
       }, 700);
-      status = "TRADE_VEHICLE";
       return;
     };
 
     document.getElementById("reject").onclick = () => {
       userReply("NO");
-      status = "PITCH_TO_GET_OFFER";
-      createMessage();
+      showPreferredInputDisplay(false, true, true);
+      DisableInputs(true);
+      setTimeout(() => {
+        DisableInputs(false);
+        botReply(BotRejected[Math.floor(Math.random() * BotRejected.length)]);
+        showPreferredInputDisplay(true, false, false);
+        document.getElementById("accept").onclick = null;
+        document.getElementById("reject").onclick = null;
+        status = "GET_OFFER";
+      }, 700);
+      return;
     };
   }
 
-  if (status === "PITCH_TO_GET_OFFER") {
-    showPreferredInputDisplay(false, true, true);
-    DisableInputs(true);
-    setTimeout(() => {
-      DisableInputs(false);
-      botReply(BotRejected[Math.floor(Math.random() * BotRejected.length)]);
-      showPreferredInputDisplay(true, false, false);
-      status = "GET_OFFER";
-    }, 700);
-    return;
-  }
-
-  if (status == "GET_OFFER") {
+  if (status === "GET_OFFER") {
     userOffer = userInput.value;
     userReply(userOffer);
     if (parseInt(userOffer) % 1 == 0) {
       status = "BARGAIN";
     } else {
-      if (userOffer.includes("$")) {
+      if (userOffer.includes("$") && userOffer.split("$")[1] % 1 == 0) {
         userOffer = parseInt(userOffer.split("$")[1]);
         status = "BARGAIN";
       } else {
@@ -131,19 +131,19 @@ function createMessage() {
     }
   }
 
-  if (status == "BARGAIN") {
+  if (status === "BARGAIN") {
     if (userOffer >= minValue && userOffer < maxValue) {
       showPreferredInputDisplay(true, false, true);
-      status = "TRADE_VEHICLE";
       DisableInputs(true);
       setTimeout(() => {
         DisableInputs(false);
         botReply(
           "Great! I’ll create a personalised discount code for you and send it via email. Would you also like to trade your vehicle?"
         );
-        deal = userOffer;
+        deal = maxValue - userOffer;
         showPreferredInputDisplay(false, true, false);
       }, 700);
+      status = "TRADE_VEHICLE";
     } else if (userOffer >= maxValue) {
       showPreferredInputDisplay(true, false, true);
       DisableInputs(true);
@@ -208,7 +208,8 @@ function createMessage() {
     }
   }
 
-  if (status == "TRADE_VEHICLE") {
+  if (status === "TRADE_VEHICLE") {
+    console.log("Hello");
     document.getElementById("accept").onclick = () => {
       userReply("YES");
       showPreferredInputDisplay(false, true, true);

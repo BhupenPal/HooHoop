@@ -15,8 +15,9 @@ const NoDealModel = new Schema({
   car: String,
   carAuthor: String,
   status: {
-    type: String,
-    default: "Active"
+    type: Boolean,
+    default: true,
+    required: true
   }
 });
 

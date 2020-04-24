@@ -340,15 +340,15 @@ module.exports = {
   },
 
   updateNoDeal: async (req, res, next) => {
-    const NoDeal = await NoDeal.findOne({ _id: req.body.adSOLD });
+    const NoDeal = await noDealModel.findOne({ _id: req.body.adSOLD });
     if (NoDeal.status) {
-      await checkAvail.updateOne(
+      await noDealModel.updateOne(
         { _id: req.body.adSOLD },
         { $set: { status: false } },
         res.redirect(req.header("Referer"))
       );
     } else {
-      await checkAvail.updateOne(
+      await noDealModel.updateOne(
         { _id: req.body.adSOLD },
         { $set: { status: true } },
         res.redirect(req.header("Referer"))
@@ -357,7 +357,7 @@ module.exports = {
   },
 
   deleteNoDeal: async (req, res, next) => {
-    await NoDeal.deleteOne({ _id: req.body.deleteAd });
+    await noDealModel.deleteOne({ _id: req.body.deleteAd });
     res.redirect(req.header("Referer"));
   },
 };
