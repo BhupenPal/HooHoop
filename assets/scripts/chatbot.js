@@ -238,15 +238,9 @@ function createMessage() {
   }
 
   if (status == "GET_VIN_NUM") {
-    if (count == 1 || 2) {
       userVIN = userInput.value;
       userReply(userVIN);
-      count++;
-    }
-    if (count == 3) {
       status = "COMMITMENT";
-      count = 1;
-    }
   }
 
   if (status === "COMMITMENT") {
