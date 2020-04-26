@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-164499415-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-164499415-1");
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -17,18 +32,16 @@
   </head>
   <body onload="myCouponHandle()">
     <%-include('./Components/Header.ejs') %>
-      <div class="dash_wrapper">
-
-        <div class="dashfeature">
-          <%-include('./Components/sidebar.ejs') %>
-    <!-- User Offers -->
-    <div class="fet_det">
-        <h1 class="feature_head" id="my_offer">My Offers</h1>
-
+    <div class="dash_wrapper">
+      <div class="dashfeature">
+        <%-include('./Components/sidebar.ejs') %>
+        <!-- User Offers -->
+        <div class="fet_det">
+          <h1 class="feature_head" id="my_offer">My Offers</h1>
+        </div>
       </div>
-        </div>
-        </div>
+    </div>
     <!-- User Offers -->
     <%-include('./Components/Footer.ejs') %>
-</body>
+  </body>
 </html>

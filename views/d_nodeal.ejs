@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-164499415-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-164499415-1");
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -17,36 +32,33 @@
   </head>
   <body onload="NoDealHandle()">
     <%-include('./Components/Header.ejs') %>
-      <div class="dash_wrapper">
+    <div class="dash_wrapper">
+      <div class="dashfeature">
+        <%-include('./Components/sidebar.ejs') %>
 
-        <div class="dashfeature">
-          <%-include('./Components/sidebar.ejs') %>
+        <!-- NO deal -->
+        <div class="fet_det">
+          <h1 class="feature_head">No Deal Customers</h1>
 
-          <!-- NO deal -->
-          <div class="fet_det">
-            <h1 class="feature_head">No Deal Customers</h1>
-  
-            <div class="table_container">
-              <table class="table_S">
-                <tr id="tradeinfo">
-                  <th>S.No</th>
-                  <th>Date</th>
-                  <th>Customer Email</th>
-                  <th>Customer Phone</th>
-                  <th>Vehicle</th>
-                  <th>Unique ID</th>
-                  <th>User last offer</th>
-                  <th>Update</th>
-                </tr>
-              </table>
-            </div>
+          <div class="table_container">
+            <table class="table_S">
+              <tr id="tradeinfo">
+                <th>S.No</th>
+                <th>Date</th>
+                <th>Customer Email</th>
+                <th>Customer Phone</th>
+                <th>Vehicle</th>
+                <th>Unique ID</th>
+                <th>User last offer</th>
+                <th>Update</th>
+              </tr>
+            </table>
           </div>
-          <!-- No deal -->
-
         </div>
+        <!-- No deal -->
+      </div>
     </div>
 
     <%-include('./Components/Footer.ejs') %>
-
   </body>
-  </html>
+</html>

@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-164499415-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-164499415-1");
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -19,41 +34,45 @@
   <body>
     <%-include('./Components/Header.ejs') %>
     <div class="reg_body">
-    <div class="card">
-      <div class="hlogin"><img src="/assets/images/Logo.png" alt="" /></div>
+      <div class="card">
+        <div class="hlogin"><img src="/assets/images/Logo.png" alt="" /></div>
 
-      <form action="/user/login" method="POST">
-        <%-include('./Flash/message.ejs') %>
-        <div class="form-group">
-          
-          <input
-            type="email"
-            id="email"
-            name="email"
-            class="form-input"
-            placeholder="Email"
-            value="<%= typeof email != 'undefined' ? email : '' %>"
-            autofocus
-          />
+        <form action="/user/login" method="POST">
+          <%-include('./Flash/message.ejs') %>
+          <div class="form-group">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-input"
+              placeholder="Email"
+              value="<%= typeof email != 'undefined' ? email : '' %>"
+              autofocus
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="password"
+              id="password"
+              name="password"
+              class="form-input"
+              placeholder="Password"
+            />
+          </div>
+          <div class="lbtnen">
+            <button type="submit" class="button-2">Login</button>
+          </div>
+        </form>
+        <div class="log_links">
+          <p class="reg_link">
+            No Account? <a href="/user/Register">Register</a>
+          </p>
+          <p class="reg_link">
+            <a class="f_pass" href="/user/reset-password">Forgot Password</a>
+          </p>
         </div>
-        <div class="form-group">
-          
-          <input
-            type="password"
-            id="password"
-            name="password"
-            class="form-input"
-            placeholder="Password"
-          />
-        </div>
-        <div class="lbtnen"><button type="submit" class="button-2">Login</button></div>
-      </form>
-      <div class="log_links">
-        <p class="reg_link">No Account? <a href="/user/Register">Register</a></p>
-        <p class="reg_link"><a class="f_pass" href="/user/reset-password">Forgot Password</a></p>
       </div>
     </div>
-  </div>
     <%-include('./Components/Footer.ejs') %>
     <script src="/assets//scripts/flasher.js"></script>
   </body>

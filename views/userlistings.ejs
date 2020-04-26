@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-164499415-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-164499415-1");
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -106,11 +121,7 @@
           </div>
           <form method="POST">
             <input type="text" id="adDelete" value="" name="deleteAd" />
-            <button
-              class="del_lstng_btn"
-              id="modalchange_1"
-              type="submit"
-            >
+            <button class="del_lstng_btn" id="modalchange_1" type="submit">
               Delete
             </button>
           </form>
@@ -133,11 +144,7 @@
           </div>
           <form method="POST">
             <input type="text" id="adSOLD" value="" name="adSOLD" />
-            <button
-              class="del_lstng_btn"
-              id="modalchange_2"
-              type="submit"
-            >
+            <button class="del_lstng_btn" id="modalchange_2" type="submit">
               Mark as sold
             </button>
           </form>
@@ -162,11 +169,7 @@
           </div>
           <form method="POST">
             <input type="text" id="Pending_done" value="" name="adSOLD" />
-            <button
-              class="del_lstng_btn"
-              id="modalchange_3"
-              type="submit"
-            >
+            <button class="del_lstng_btn" id="modalchange_3" type="submit">
               Mark as unsold
             </button>
           </form>

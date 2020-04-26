@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-164499415-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-164499415-1");
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -17,91 +32,99 @@
   </head>
   <body onload="completeTestDriveHandle()">
     <%-include('./Components/Header.ejs') %>
-      <div class="dash_wrapper">
+    <div class="dash_wrapper">
+      <div class="dashfeature">
+        <%-include('./Components/sidebar.ejs') %>
+        <!-- All Req Panel -->
 
-        <div class="dashfeature">
-          <%-include('./Components/sidebar.ejs') %>
-    <!-- All Req Panel -->
-        
-    <div class="fet_det">
-        <h1 class="feature_head">All Client Management</h1>
+        <div class="fet_det">
+          <h1 class="feature_head">All Client Management</h1>
 
-        <div class="reqpanel">
-          
-          <div class="Panesel">
-            <div class="Paneopt selected_paneopt">Test Drive</div>
-            <div class="Paneopt" id="allAvailID" onclick="completeAvailabilityHandle()">Availability Enquiry</div>
-            <div class="Paneopt" id="allShipID" onclick="completeShipHandle()">Shipping Enquiry</div>
+          <div class="reqpanel">
+            <div class="Panesel">
+              <div class="Paneopt selected_paneopt">Test Drive</div>
+              <div
+                class="Paneopt"
+                id="allAvailID"
+                onclick="completeAvailabilityHandle()"
+              >
+                Availability Enquiry
+              </div>
+              <div
+                class="Paneopt"
+                id="allShipID"
+                onclick="completeShipHandle()"
+              >
+                Shipping Enquiry
+              </div>
+            </div>
+            <table class="table_S client_table">
+              <tr id="allTestdriveEnq">
+                <th>S.No</th>
+                <th>Date</th>
+                <th>Client Name</th>
+                <th>Vehicle</th>
+                <th>Unique ID</th>
+                <th>Client Email</th>
+                <th>Client Phone Number</th>
+                <th>Car Author</th>
+                <th>Modify</th>
+              </tr>
+            </table>
+
+            <table class="table_S vanish client_table">
+              <tr id="allAvailabilityEnq">
+                <th>S.No</th>
+                <th>date</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>VIN</th>
+                <th>Car</th>
+                <th>Car Author</th>
+                <th>Modify</th>
+              </tr>
+            </table>
+
+            <table class="table_S vanish client_table">
+              <tr id="allShippingEnq">
+                <th>S.No</th>
+                <th>date</th>
+                <th>Name</th>
+                <th>VIN</th>
+                <th>Car</th>
+                <th>Car Author</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Starting Point</th>
+                <th>Destination</th>
+                <th>Date</th>
+                <th>Modify</th>
+              </tr>
+            </table>
           </div>
-          <table class="table_S client_table">
-            <tr id="allTestdriveEnq">
-              <th>S.No</th>
-              <th>Date</th>
-              <th>Client Name</th>
-              <th>Vehicle</th>
-              <th>Unique ID</th>
-              <th>Client Email</th>
-              <th>Client Phone Number</th>
-              <th>Car Author</th>
-              <th>Modify</th>
-            </tr>
-          </table>
-
-          <table class="table_S vanish client_table">
-            <tr id="allAvailabilityEnq">
-              <th>S.No</th>
-              <th>date</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Phone Number</th>
-              <th>VIN</th>
-              <th>Car</th>
-              <th>Car Author</th>
-              <th>Modify</th>
-            </tr>
-          </table>
-
-          <table class="table_S vanish client_table">
-            <tr id="allShippingEnq">
-              <th>S.No</th>
-              <th>date</th>
-              <th>Name</th>
-              <th>VIN</th>
-              <th>Car</th>
-              <th>Car Author</th>
-              <th>Email</th>
-              <th>Phone Number</th>
-              <th>Starting Point</th>
-              <th>Destination</th>
-              <th>Date</th>
-              <th>Modify</th>
-            </tr>
-          </table>
-
         </div>
-
       </div>
-        </div>
-        </div>
-        <%-include('./Components/Footer.ejs') %>
-      <!-- All Req Panel -->
-      <script>
-        let clienttable = document.getElementsByClassName("client_table")
-  let clientmopt = document.getElementsByClassName("Paneopt")
-  
-  for(var s=0; s<clientmopt.length;s++){
-    clientmopt[s].addEventListener("click", function(){
-      for(let n=0;n<clientmopt.length;n++){
-        clienttable[n].classList.add("vanish")
-        if(clientmopt[n].classList.contains("selected_paneopt")){
-          clientmopt[n].classList.remove("selected_paneopt")
-          clienttable[n].classList.remove("vanish")
-        }
+    </div>
+    <%-include('./Components/Footer.ejs') %>
+    <!-- All Req Panel -->
+    <script>
+      let clienttable = document.getElementsByClassName("client_table");
+      let clientmopt = document.getElementsByClassName("Paneopt");
+
+      for (var s = 0; s < clientmopt.length; s++) {
+        clientmopt[s].addEventListener("click", function () {
+          for (let n = 0; n < clientmopt.length; n++) {
+            clienttable[n].classList.add("vanish");
+            if (clientmopt[n].classList.contains("selected_paneopt")) {
+              clientmopt[n].classList.remove("selected_paneopt");
+              clienttable[n].classList.remove("vanish");
+            }
+          }
+          this.classList.add("selected_paneopt");
+          this.click();
+        });
       }
-      this.classList.add("selected_paneopt")
-      this.click()
-    })
-  }
-      </script>
-</body>
+    </script>
+  </body>
 </html>

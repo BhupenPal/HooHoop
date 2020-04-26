@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-164499415-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-164499415-1");
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact Us</title>
@@ -20,13 +35,24 @@
     <div class="contact-us-wrapper">
       <h1>Contact Us</h1>
       <h2>Let's get in touch</h2>
-      <h2>Email: <a href="mailto:info@hoohoop.co.nz" target="__blank">info@hoohoop.co.nz</a></h2>
+      <h2>
+        Email:
+        <a href="mailto:info@hoohoop.co.nz" target="__blank"
+          >info@hoohoop.co.nz</a
+        >
+      </h2>
       <h2>Or leave us a message below</h2>
       <%-include('./Flash/message.ejs') %>
       <div class="container">
         <form method="POST">
           <label for="name">Full Name</label>
-          <input type="text" id="name" name="name" placeholder="Your name.." required />
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Your name.."
+            required
+          />
 
           <label for="email">E-mail</label>
 
@@ -52,7 +78,7 @@
             id="message"
             name="message"
             placeholder="Write something.."
-            style="height:200px"
+            style="height: 200px;"
             required
           ></textarea>
 

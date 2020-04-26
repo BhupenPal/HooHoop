@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-164499415-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-164499415-1");
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Forgot Password</title>
@@ -9,43 +24,50 @@
     <link rel="stylesheet" href="/assets/css/fonts.css" />
     <script src="/assets/scripts/script.js"></script>
     <link
-    rel="icon"
-    href="/assets/images/favicon.ico"
-    type="image/ico"
-    sizes="16*16"
-  />
+      rel="icon"
+      href="/assets/images/favicon.ico"
+      type="image/ico"
+      sizes="16*16"
+    />
   </head>
   <body>
-    <%-include('./Components/Header.ejs') %> 
+    <%-include('./Components/Header.ejs') %>
     <div class="forg_pass_wrap">
       <% if (mailSent) { %>
-        <h1 class="head-textmail">Mail sent to your email</h1>
-    
-        <% } else if(tokenReceived) { %>
-          
-          <div class="f_pass_card">
-            <img src="/assets/images/Logo.png">
-            <form action="/user/reset-password/reset" method="POST">
-              <input class="vanish" type="text" name="tokenReceived" value="<%= tokenReceived %>" />
-              <input type="text" placeholder="New Password" name="password" />
-              <input type="text" placeholder="Confirm New Password" name="password2" />
-              <button id="subsu" class="sign-up" type="submit">Submit</button>
-            </form>
-          </div>
-        
-        <% } else { %>
-          
-          <div class="f_pass_card">
-            <img src="/assets/images/Logo.png">
-            <form action="/user/reset-password" method="POST">
-              <label for="f_pass_input">Enter Email</label>
-              <input id="f_pass_input" class="input-tag" type="text" name="email" />
-              <button class="sign-up" type="submit">Next</button>
-            </form>
-          </div>
-          
+      <h1 class="head-textmail">Mail sent to your email</h1>
+
+      <% } else if(tokenReceived) { %>
+
+      <div class="f_pass_card">
+        <img src="/assets/images/Logo.png" />
+        <form action="/user/reset-password/reset" method="POST">
+          <input
+            class="vanish"
+            type="text"
+            name="tokenReceived"
+            value="<%= tokenReceived %>"
+          />
+          <input type="text" placeholder="New Password" name="password" />
+          <input
+            type="text"
+            placeholder="Confirm New Password"
+            name="password2"
+          />
+          <button id="subsu" class="sign-up" type="submit">Submit</button>
+        </form>
+      </div>
+
+      <% } else { %>
+
+      <div class="f_pass_card">
+        <img src="/assets/images/Logo.png" />
+        <form action="/user/reset-password" method="POST">
+          <label for="f_pass_input">Enter Email</label>
+          <input id="f_pass_input" class="input-tag" type="text" name="email" />
+          <button class="sign-up" type="submit">Next</button>
+        </form>
+      </div>
     </div>
-    <% } %> 
-    <%-include('./Components/Footer.ejs') %>
+    <% } %> <%-include('./Components/Footer.ejs') %>
   </body>
 </html>

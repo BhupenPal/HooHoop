@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-164499415-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-164499415-1");
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -17,47 +32,63 @@
   </head>
   <body>
     <%-include('./Components/Header.ejs') %>
-      <div class="dash_wrapper">
+    <div class="dash_wrapper">
+      <div class="dashfeature">
+        <%-include('./Components/sidebar.ejs') %>
+        <!-- Account Management -->
+        <div class="fet_det">
+          <div class="show_f">
+            <%-include('./Flash/message.ejs') %>
+          </div>
+          <h1 class="feature_head">Account Management</h1>
 
-        <div class="dashfeature">
-          <%-include('./Components/sidebar.ejs') %>
-    <!-- Account Management -->
-    <div class="fet_det">
-      <div class="show_f">
-        <%-include('./Flash/message.ejs') %>
+          <div class="Usercred Acc_man">
+            <form method="POST">
+              <div class="credcontainer">
+                <label for="d_cred_oldpass">Old Password</label>
+                <input
+                  type="password"
+                  id="d_cred_oldpass"
+                  name="originalPass"
+                  required
+                />
+              </div>
+
+              <div class="credcontainer">
+                <label for="d_cred_newpass">New Password</label>
+                <input
+                  type="password"
+                  id="d_cred_newpass"
+                  name="password"
+                  required
+                />
+              </div>
+
+              <div class="credcontainer">
+                <label for="d_cred_cnewpass">Confirm New Password</label>
+                <input
+                  type="password"
+                  id="d_cred_cnewpass"
+                  name="password2"
+                  required
+                />
+              </div>
+
+              <div class="subcred">
+                <button
+                  type="submit"
+                  formaction="/user/dashboard/password-reset"
+                >
+                  Change Password
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- Account Management -->
       </div>
-        <h1 class="feature_head">Account Management</h1>  
-
-        <div class="Usercred Acc_man">
-        
-        <form method="POST">
-          <div class="credcontainer">
-            <label for="d_cred_oldpass">Old Password</label>
-            <input type="password" id="d_cred_oldpass" name="originalPass" required>
-          </div>
-
-          <div class="credcontainer">
-            <label for="d_cred_newpass">New Password</label>
-            <input type="password" id="d_cred_newpass" name="password" required>
-          </div>
-
-          <div class="credcontainer">
-            <label for="d_cred_cnewpass">Confirm New Password</label>
-            <input type="password" id="d_cred_cnewpass" name="password2" required>
-          </div>
-
-          <div class="subcred">
-            <button type="submit" formaction="/user/dashboard/password-reset">Change Password</button>
-          </div>
-        </form>
-
-      </div>
-
-      </div>
-      <!-- Account Management -->
     </div>
-    </div>
-   <%-include('./Components/Footer.ejs') %>
-   <script src="/assets/scripts/flasher.js"></script>
-</body>
+    <%-include('./Components/Footer.ejs') %>
+    <script src="/assets/scripts/flasher.js"></script>
+  </body>
 </html>
