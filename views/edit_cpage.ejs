@@ -31,10 +31,10 @@
   </head>
   <body>
     <%-include('./Components/Header.ejs') %>
-    <div class="cardet_page">
-      <form action="/user/edit-car/<%= car._id %>" method="POST">
-        <div class="th_sxty_info">
+      <div class="edit_pagewrap">
+        <div class="thumbinfo_contain">
           <div class="th60_container">
+            <form>
             <div class="viewthsxty">
               <img
                 src="/assets/Uploads/<%= car.vinNum %>/exterior/Photo_1.jpg"
@@ -86,191 +86,192 @@
               </div>
             </div>
           </div>
-          <div class="cardetails_tab edit_details" style="margin-top: 0;">
-            <div class="det_connect">
-              <div class="ico_hold">
-                <i class="fad fa-joystick"></i>
-                <p>Transmission</p>
-              </div>
-              <div class="prop_hold">
-                <input
-                  class="edit_inp"
-                  type="text"
-                  placeholder="Enter Details Here"
-                  name="upTransmission"
-                  value="<%= car.Transmission %>"
-                />
-              </div>
-            </div>
 
-            <div class="det_connect">
-              <div class="ico_hold">
-                <i class="fal fa-tachometer"></i>
-                <span>KM</span>
-              </div>
-              <div class="prop_hold">
-                <input
-                  class="edit_inp"
-                  type="text"
-                  placeholder="Enter Details Here"
-                  name="upkMeters"
-                  value="<%= car.kMeters %>"
-                />
-              </div>
+          <div class="th60_inputup">
+          <div class="det_connect">
+            <div class="ico_hold">
+              <i class="fad fa-joystick"></i>
+              <span>Transmission</span>
             </div>
-
-            <div class="det_connect">
-              <div class="ico_hold">
-                <i class="fad fa-gas-pump"></i>
-                <span>Fuel Type</span>
-              </div>
-              <div class="prop_hold">
-                <input
-                  class="edit_inp"
-                  type="text"
-                  placeholder="Enter Details Here"
-                  name="upFuelType"
-                  value="<%= car.FuelType %>"
-                />
-              </div>
-            </div>
-
-            <div class="det_connect">
-              <div class="ico_hold">
-                <i class="fas fa-loveseat"></i>
-                <span>Seats</span>
-              </div>
-              <div class="prop_hold">
-                <input
-                  class="edit_inp"
-                  type="text"
-                  placeholder="Enter Details Here"
-                  name="upSeatNum"
-                  value="<%= car.SeatNum %>"
-                />
-              </div>
-            </div>
-
-            <div class="det_connect">
-              <div class="ico_hold">
-                <i class="fad fa-cogs"></i>
-                <span>Engine</span>
-              </div>
-              <div class="prop_hold">
-                <input
-                  class="edit_inp"
-                  type="text"
-                  placeholder="Enter Details Here"
-                  name="upEngineSize"
-                  value="<%= car.engineSize %>"
-                />
-              </div>
-            </div>
-
-            <div class="det_connect">
-              <div class="ico_hold">
-                <i class="fad fa-car-alt"></i>
-                <span>Body style</span>
-              </div>
-              <div class="prop_hold">
-                <input
-                  class="edit_inp"
-                  type="text"
-                  placeholder="Enter Details Here"
-                  name="upBodyType"
-                  value="<%= car.BodyType %>"
-                />
-              </div>
-            </div>
-
-            <div class="det_connect">
-              <div class="ico_hold">
-                <i class="fad fa-paint-brush-alt"></i>
-                <span>Color</span>
-              </div>
-              <div class="prop_hold">
-                <input
-                  class="edit_inp"
-                  type="text"
-                  placeholder="Enter Details Here"
-                  name="upColour"
-                  value="<%= car.Colour %>"
-                />
-              </div>
-            </div>
-
-            <div class="det_connect">
-              <div class="ico_hold">
-                <i class="fad fa-calendar-alt"></i>
-                <span>Wof Expiry</span>
-              </div>
-              <div class="prop_hold">
-                <input
-                  class="edit_inp"
-                  type="text"
-                  placeholder="Enter Details Here"
-                  name="upColour"
-                  value="<%= car.WoFexpiry %>"
-                />
-              </div>
-            </div>
-
-            <div class="det_connect">
-              <div class="ico_hold">
-                <i class="fad fa-calendar-alt"></i>
-                <span>Reg. Expiry</span>
-              </div>
-              <div class="prop_hold">
-                <input
-                  class="edit_inp"
-                  type="text"
-                  placeholder="Enter Details Here"
-                  name="upColour"
-                  value="<%= car.regExpiry %>"
-                />
-              </div>
+            <div class="prop_hold">
+              <input
+                class="edit_inp"
+                type="text"
+                placeholder="Enter Details Here"
+                name="upTransmission"
+                value="<%= car.Transmission %>"
+              />
             </div>
           </div>
 
-          <div class="edit_description">
-            <h1>Description</h1>
-            <textarea
-              id="t_area"
-              rows="6"
-              placeholder="E.g. condition and other information"
-              name="upDescription"
-            >
-<%= car.Description %></textarea
-            >
-          </div>
-
-          <div class="edit_sa">
-            <h1># Listing By</h1>
-            <div class="sa_contain">
+          <div class="det_connect">
+            <div class="ico_hold">
+              <i class="fal fa-tachometer"></i>
+              <span>KM</span>
+            </div>
+            <div class="prop_hold">
               <input
                 class="edit_inp"
                 type="text"
-                value="<%= car.DealerName %>"
-              />
-              <input
-                class="edit_inp"
-                type="text"
-                value="<%= car.DealerNum %>"
-              />
-              <input
-                class="edit_inp"
-                type="text"
-                value="<%= car.DealerEmail %>"
+                placeholder="Enter Details Here"
+                name="upkMeters"
+                value="<%= car.kMeters %>"
               />
             </div>
+          </div>
+
+          <div class="det_connect">
+            <div class="ico_hold">
+              <i class="fad fa-gas-pump"></i>
+              <span>Fuel Type</span>
+            </div>
+            <div class="prop_hold">
+              <input
+                class="edit_inp"
+                type="text"
+                placeholder="Enter Details Here"
+                name="upFuelType"
+                value="<%= car.FuelType %>"
+              />
+            </div>
+          </div>
+
+          <div class="det_connect">
+            <div class="ico_hold">
+              <i class="fas fa-loveseat"></i>
+              <span>Seats</span>
+            </div>
+            <div class="prop_hold">
+              <input
+                class="edit_inp"
+                type="text"
+                placeholder="Enter Details Here"
+                name="upSeatNum"
+                value="<%= car.SeatNum %>"
+              />
+            </div>
+          </div>
+
+          <div class="det_connect">
+            <div class="ico_hold">
+              <i class="fad fa-cogs"></i>
+              <span>Engine</span>
+            </div>
+            <div class="prop_hold">
+              <input
+                class="edit_inp"
+                type="text"
+                placeholder="Enter Details Here"
+                name="upEngineSize"
+                value="<%= car.engineSize %>"
+              />
+            </div>
+          </div>
+
+          <div class="det_connect">
+            <div class="ico_hold">
+              <i class="fad fa-car-alt"></i>
+              <span>Body style</span>
+            </div>
+            <div class="prop_hold">
+              <input
+                class="edit_inp"
+                type="text"
+                placeholder="Enter Details Here"
+                name="upBodyType"
+                value="<%= car.BodyType %>"
+              />
+            </div>
+          </div>
+
+          <div class="det_connect">
+            <div class="ico_hold">
+              <i class="fad fa-paint-brush-alt"></i>
+              <span>Color</span>
+            </div>
+            <div class="prop_hold">
+              <input
+                class="edit_inp"
+                type="text"
+                placeholder="Enter Details Here"
+                name="upColour"
+                value="<%= car.Colour %>"
+              />
+            </div>
+          </div>
+
+          <div class="det_connect">
+            <div class="ico_hold">
+              <i class="fad fa-calendar-alt"></i>
+              <span>Wof Expiry</span>
+            </div>
+            <div class="prop_hold">
+              <input
+                class="edit_inp"
+                type="text"
+                placeholder="Enter Details Here"
+                name="upColour"
+                value="<%= car.WoFexpiry %>"
+              />
+            </div>
+          </div>
+
+          <div class="det_connect">
+            <div class="ico_hold">
+              <i class="fad fa-calendar-alt"></i>
+              <span>Reg. Expiry</span>
+            </div>
+            <div class="prop_hold">
+              <input
+                class="edit_inp"
+                type="text"
+                placeholder="Enter Details Here"
+                name="upColour"
+                value="<%= car.regExpiry %>"
+              />
+            </div>
+          </div>
+
           </div>
         </div>
 
+        <div class="edit_description">
+          <h1>Description</h1>
+          <textarea
+            id="t_area"
+            rows="6"
+            placeholder="E.g. condition and other information"
+            name="upDescription"
+          >
+<%= car.Description %></textarea
+          >
+        </div>
+
+        <div class="edit_sa">
+          <h1># Listing By</h1>
+          <div class="sa_contain">
+            <input
+              class="edit_inp"
+              type="text"
+              value="<%= car.DealerName %>"
+            />
+            <input
+              class="edit_inp"
+              type="text"
+              value="<%= car.DealerNum %>"
+            />
+            <input
+              class="edit_inp"
+              type="text"
+              value="<%= car.DealerEmail %>"
+            />
+          </div>
+        </div>
         <div class="e-up_btn">
           <button class="edit_update">Update</button>
         </div>
       </form>
-    </div>
+      </div>
     <%-include('./Components/Footer.ejs') %>
     <script src="/assets/scripts/script.js"></script>
   </body>

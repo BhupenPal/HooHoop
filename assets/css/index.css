@@ -2876,6 +2876,12 @@ td button:hover {
 /* Forgot-Password */
 
 /* Edit Page */
+.edit_pagewrap{
+  padding-bottom: 200px;
+  width: min-content;
+  margin: 0 auto;
+}
+
 .edit_inp {
   height: 30px;
   width: 200px;
@@ -2883,8 +2889,60 @@ td button:hover {
   border: 1px solid #e2e2e2;
   padding: 0 10px;
   font-size: 18px;
+  margin: 0 10px;
   font-family: Raleway;
   box-sizing: border-box;
+}
+
+.thumbinfo_contain{
+  display: flex;
+  margin: 10px auto;
+  box-sizing: border-box;
+}
+
+.det_connect{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+}
+
+.det_connect + .det_connect{
+  margin: 8px 0;
+  height: min-content;
+}
+
+.th60_inputup .det_connect .ico_hold{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f1f1f1;
+  width: 40%;
+  font-family: raleway;
+  padding: 5px 10px;
+}
+
+.ico_hold i {
+  font-size: 30px;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(116, 116, 116);
+}
+
+.prop_hold{
+  background-color: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 69px;
+}
+
+.th60_inputup{
+  margin: 5px 20px;
+  height: min-content;
 }
 
 .edit_pic {
@@ -2931,9 +2989,8 @@ td button:hover {
   background-color: #ca970c;
 }
 
-.e-up_btn {
-  width: 69%;
-  margin: 0 auto;
+.e-up_btn{
+  margin: 10px;
 }
 
 /* Edit Page */
