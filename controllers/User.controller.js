@@ -191,7 +191,7 @@ module.exports = {
 
   updateEditCar: async (req, res, next) => {
     const changes = req.body;
-    carModel.updateOne(
+    await carModel.updateOne(
       { _id: req.params.id },
       { $set: changes },
       res.redirect(`/user/edit-car/${req.params.id}`)

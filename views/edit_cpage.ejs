@@ -34,7 +34,7 @@
       <div class="edit_pagewrap">
         <div class="thumbinfo_contain">
           <div class="th60_container">
-            <form>
+            <form method="POST">
             <div class="viewthsxty">
               <img
                 src="/assets/Uploads/<%= car.vinNum %>/exterior/Photo_1.jpg"
@@ -70,7 +70,7 @@
                   class="edit_inp"
                   type="text"
                   placeholder="Car Price"
-                  name="upPrice"
+                  name="Price"
                   value="<%= car.Price %>"
                 />
               </div>
@@ -80,7 +80,7 @@
                   class="edit_inp"
                   type="text"
                   placeholder="Min Car Price"
-                  name="upMinPrice"
+                  name="minPrice"
                   value="<%= car.minPrice %>"
                 />
               </div>
@@ -98,7 +98,7 @@
                 class="edit_inp"
                 type="text"
                 placeholder="Enter Details Here"
-                name="upTransmission"
+                name="Transmission"
                 value="<%= car.Transmission %>"
               />
             </div>
@@ -130,7 +130,7 @@
                 class="edit_inp"
                 type="text"
                 placeholder="Enter Details Here"
-                name="upFuelType"
+                name="FuelType"
                 value="<%= car.FuelType %>"
               />
             </div>
@@ -146,7 +146,7 @@
                 class="edit_inp"
                 type="text"
                 placeholder="Enter Details Here"
-                name="upSeatNum"
+                name="SeatNum"
                 value="<%= car.SeatNum %>"
               />
             </div>
@@ -162,7 +162,7 @@
                 class="edit_inp"
                 type="text"
                 placeholder="Enter Details Here"
-                name="upEngineSize"
+                name="engineSize"
                 value="<%= car.engineSize %>"
               />
             </div>
@@ -178,7 +178,7 @@
                 class="edit_inp"
                 type="text"
                 placeholder="Enter Details Here"
-                name="upBodyType"
+                name="BodyType"
                 value="<%= car.BodyType %>"
               />
             </div>
@@ -194,7 +194,7 @@
                 class="edit_inp"
                 type="text"
                 placeholder="Enter Details Here"
-                name="upColour"
+                name="Colour"
                 value="<%= car.Colour %>"
               />
             </div>
@@ -210,7 +210,7 @@
                 class="edit_inp"
                 type="text"
                 placeholder="Enter Details Here"
-                name="upColour"
+                name="WoFexpiry"
                 value="<%= car.WoFexpiry %>"
               />
             </div>
@@ -226,7 +226,7 @@
                 class="edit_inp"
                 type="text"
                 placeholder="Enter Details Here"
-                name="upColour"
+                name="regExpiry"
                 value="<%= car.regExpiry %>"
               />
             </div>
@@ -241,7 +241,7 @@
             id="t_area"
             rows="6"
             placeholder="E.g. condition and other information"
-            name="upDescription"
+            name="Description"
           >
 <%= car.Description %></textarea
           >
@@ -253,22 +253,25 @@
             <input
               class="edit_inp"
               type="text"
+              name="DealerName"
               value="<%= car.DealerName %>"
             />
             <input
               class="edit_inp"
               type="text"
+              name="DealerNum"
               value="<%= car.DealerNum %>"
             />
             <input
               class="edit_inp"
               type="text"
+              name="DealerEmail"
               value="<%= car.DealerEmail %>"
             />
           </div>
         </div>
         <div class="e-up_btn">
-          <button class="edit_update">Update</button>
+          <button class="edit_update" type="submit">Update</button>
         </div>
       </form>
       </div>
