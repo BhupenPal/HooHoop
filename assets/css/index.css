@@ -1522,7 +1522,7 @@ button[disabled] {
   display: flex;
   min-height: 78vh;
   flex-direction: column;
-  min-width: 68vw;
+  min-width: 65.5vw;
 }
 
 .cardanchor {
@@ -1901,7 +1901,7 @@ canvas {
   width: 100% !important;
 }
 
-.car_name_price {
+.car_name_price,.ecar_name_price {
   height: 100px;
   width: 100%;
   display: flex;
@@ -2055,6 +2055,7 @@ canvas {
   text-align: left;
   white-space: pre-line;
   padding-right: 25px;
+  font-family: Fira;
 }
 
 .Description-Box h1 {
@@ -2960,6 +2961,8 @@ td button:hover {
   width: 70%;
 }
 
+
+
 .edit_description textarea,
 .edit_sa input {
   font-family: Raleway;
@@ -3646,7 +3649,7 @@ input[type="submit"]:hover {
   }
 
   .bc-card {
-    height: 100vw;
+    height: min-content;
     width: 80vw;
   }
 
@@ -3997,6 +4000,62 @@ input[type="submit"]:hover {
     width: 90vw;
   }
   /* Sell-form response */
+
+  /* Edit Page response  */
+  .edit_pagewrap{
+    padding-bottom: 550px;
+    width: 90vw;
+  }
+
+  .thumbinfo_contain{
+    flex-direction: column;
+  }
+
+  .ecar_name_price{
+    flex-direction: column;
+    height: min-content;
+    margin: 30px 0;
+  }
+
+  .ecar_name_price div{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10px;
+  }
+
+  .th60_inputup{
+    margin: 50px auto;
+    width: 80vw;
+  }
+
+  .edit_description{
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .edit_description #t_area{
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .edit_sa{
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+  }
+
+  .e-up_btn{
+    display: flex;
+    justify-content: center;
+  }
+  /* Edit Page response */
 
   /* footpage response */
   .about-us-wrapper,
