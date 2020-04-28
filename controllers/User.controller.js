@@ -190,7 +190,21 @@ module.exports = {
   },
 
   updateEditCar: async (req, res, next) => {
-    const changes = req.body;
+    let changes = req.body;
+    let EditCar = await carModel.findOne({ _id: req.params.id });
+
+    if (!changes.DealerName) {
+      changes.DealerName = EditCar.DealerName;
+    }
+
+    if (!changes.DealerEmail) {
+      changes.DealerEmail = EditCar.DealerEmail;
+    }
+
+    if (!changes.DealerNum) {
+      changes.DealerNum = changes.DealerNum;
+    }
+    
     await carModel.updateOne(
       { _id: req.params.id },
       { $set: changes },
