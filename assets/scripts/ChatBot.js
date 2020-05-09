@@ -71,7 +71,10 @@ function createMessage() {
     event.preventDefault();
     document.querySelector("#send-air > i").style.color = "#999999";
   } else {
-    var a = new AudioContext();
+    var AudioContext = window.AudioContext || window.webkitAudioContext || false;
+    if(AudioContext){
+      var a = new AudioContext();
+    }
   }
 
   if (status === "GREETING") {
