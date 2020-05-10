@@ -53,3 +53,7 @@ else{
     soptclass[0].classList.add("selected_sopt")
   }  
 }
+
+let panesel = document.querySelector(".Panesel")
+
+console.log(panesel)

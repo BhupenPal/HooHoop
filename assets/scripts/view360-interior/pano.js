@@ -103,6 +103,7 @@ var PanoControls = (function () {
         document.getElementsByClassName("exterior-changer")[0].style.display =
           "none";
         document.getElementsByTagName("html")[0].style.overflowY = "hidden";
+        document.querySelector(".chatbot_encloser").style.zIndex = "-1"
       } else {
         changeMode("full");
       }
@@ -116,6 +117,7 @@ var PanoControls = (function () {
         document.getElementsByClassName("exterior-changer")[0].style.display =
           "flex";
         document.getElementsByTagName("html")[0].removeAttribute("style");
+        document.querySelector(".chatbot_encloser").removeAttribute("style")
       } else {
         changeMode("orignal");
       }

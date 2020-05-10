@@ -79,6 +79,7 @@ function createMessage() {
 
   if (status === "GREETING") {
     botReply(Botgreetings[Math.floor(Math.random() * Botgreetings.length)]);
+    document.querySelector(".fchatmsg").innerHTML = `${(Botgreetings[Math.floor(Math.random() * Botgreetings.length)])}`
     document.getElementById("accept").onclick = () => {
       userReply("YES");
       showPreferredInputDisplay(false, true, true);

@@ -4129,6 +4129,54 @@ input[type="submit"]:hover {
   .Usercred {
     padding-left: 5%;
   }
+
+  .feature_head{
+    font-size: 10vw;
+    text-align: left;
+  }
+
+  .table_container {
+    padding: 0;
+    width: 90vw;
+    margin: 0 auto;
+    overflow: scroll;
+  }
+
+  th,td{
+    min-width: 30vw !important;
+    padding: 5px 0;
+  }
+
+  td:last-child,td:nth-child(3){
+    min-width: 60vw !important;
+  }
+
+  .Panesel{
+    min-width: 90vw;
+    font-size: small;
+    flex-direction: column;
+    height: 150px;
+  }
+
+  .Paneopt {
+    text-align: center;
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  .table_S{
+    padding: 0;
+    margin: 20px auto;
+    width: 90vw;
+    min-width: 90vw;
+    overflow: scroll;
+  }
+
+  .reqpanel{
+    overflow: scroll;
+    width: 90vw;
+    margin: 0 auto;
+  }
   /* dashboard-response */
 
   /* footer response */

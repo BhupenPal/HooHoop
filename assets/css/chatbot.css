@@ -41,6 +41,35 @@
   animation-iteration-count: 2;
 }
 
+.ch_msg{
+  position: relative;
+}
+
+.fchatmsg{
+  position: absolute;
+  padding: 20px;
+  width: 350px;
+  top: -200px;
+  left: -380px;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  font-size: 18px;
+  font-family: Fira;
+  font-weight: bold;
+  color: black;
+}
+
+.fchatmsg::after{
+  position: absolute;
+  content: "";
+  width: 30px;
+  height: 30px;
+  background-color: #f1f1f1;
+  top: 100%;
+  right: 5%;
+  clip-path: polygon(100% 0, 0 0, 50% 100%);
+}
+
 #chatter {
   background-color: #f2f2f2;
   overflow-x: hidden;
