@@ -170,4 +170,7 @@ function mobilefilview(){
   }
 }
 
-
+document.onload = () => {
+  if(document.querySelector('.preloaded'))
+  document.querySelector('.preloaded').classList.remove('preloaded')
+}

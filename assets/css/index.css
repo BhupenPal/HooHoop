@@ -5136,3 +5136,11 @@ input[type="submit"]:hover {
     width: 80vw !important;
   }
 }
+
+.preloaded * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
+}

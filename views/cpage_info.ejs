@@ -17,7 +17,7 @@
     </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <meta charset="UTF-8" />
-    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi'>
+    <meta name='viewport' content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="/assets/css/index.css" />
     <link rel="stylesheet" href="/assets/css/all.min.css" />
@@ -35,7 +35,7 @@
       sizes="16*16"
     />
   </head>
-  <body class="c_p_body" onload="ImgChange('INTERIORMIDDLE.JPG')">
+  <body class="c_p_body preloaded" onload="ImgChange('INTERIORMIDDLE.JPG')">
     <%-include('./Components/Header.ejs') %>
 
     <div class="cardet_page">
@@ -335,13 +335,13 @@
       function ImgChange(imgname){
         if (document.exitFullscreen) {
 					document.exitFullscreen();
-				  } else if (document.mozCancelFullScreen) {
+				} else if (document.mozCancelFullScreen) {
 					document.mozCancelFullScreen();
-				  } else if (document.webkitExitFullscreen) {
+				} else if (document.webkitExitFullscreen) {
 					document.webkitExitFullscreen();
-				  } else if (document.msExitFullscreen) {
+				} else if (document.msExitFullscreen) {
 					document.msExitFullscreen();
-          }
+        }
           
         let myPan = document.getElementsByClassName("panoviewer-container")[0];
         
