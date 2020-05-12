@@ -145,11 +145,11 @@
 }
 
 .optionSet .option:hover {
-  background-color: rgb(73, 73, 201);
+  background-color: black;
 }
 
 .optionSet .option.selected {
-  background-color: rgb(175, 64, 226);
+  background-color: #f5bf2b;
 }
 
 .selectGroup {
@@ -170,7 +170,7 @@
 
 .statusButton.option {
   position: relative;
-  background-color:#7fbeff;
+  background-color:#1ea1f3;
   margin: 5px;
 }
 
@@ -195,7 +195,7 @@
 }
 
 .statusButton.option:hover{
-  background-color: #7f1e1f;
+  background-color: #f5bf2b;
 }
 
 .selectGroup.hide {
