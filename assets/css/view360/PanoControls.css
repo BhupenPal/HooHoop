@@ -7,18 +7,23 @@
 	height: 100vh;
 	z-index: 100;
 }
+
 .enterfs {
   display: block !important;
 }
+
 .fullscreen-container .enterfs {
 	display: none !important;
 }
+
 .exitfs {
 	display: none !important;
 }
+
 .fullscreen-container .exitfs {
 	display: block !important;
 }
+
 .entervr {
   display: block !important;
 }
@@ -34,10 +39,12 @@
   font-size: 0px;
   margin-bottom: 5px;
 }
+
 .panoviewer-control button.enterfs,
 .panoviewer-control button.exitfs {
   margin-bottom: 10px;
 }
+
 .panoviewer-control button svg {
   width: 30px;
   height: 30px;
@@ -51,6 +58,7 @@
   right: 5px;
   z-index: 1;
 }
+
 .panoviewer-control .camera {
     display: inline-block;
     margin: 0;
@@ -58,6 +66,7 @@
     background-color: rgba(0,0,0,.6);
     border-radius: 100px;
 }
+
 .panoviewer-control .pie,.camera {
     height: 40px;
     width: 40px;
@@ -90,11 +99,13 @@
   width: 32px;
   height: 8px;
   margin: auto;
+  background-image: url('../../images/view360/common_loader.gif');
   background-repeat: no-repeat;
   background-size: 32px 8px
 }
 
 .image360_loading:before {
+  background-image: url('../../images/view360/sp_component.png');
   background-repeat: no-repeat;
   -webkit-background-size: 391px 349px;
   background-size: 391px 349px;
@@ -117,12 +128,6 @@
   right: 0px;
   bottom: 0px;
   text-align: right;
-}
-
-.optionSet {
-  /* position: absolute;
-  bottom:0px;
-  right: 0px; */
 }
 
 .optionSet .option {
@@ -168,18 +173,21 @@
   background-color:#7fbeff;
   margin: 5px;
 }
+
 .selectGroup .option span {
   position: absolute;
   top: 5px;
   bottom: 5px;
   left: 5px;
   right: 5px;
-  background: url(../img/arrow.svg) no-repeat;
+  background: url('../../images/view360/arrow.svg') no-repeat;
   background-size: 100% 100%;
 }
+
 .selectGroup .option span.vertical {
   transform: rotate(90deg);
 }
+
 .statusButton.option svg {
   width: 40px;
   fill: #fff;

@@ -17,15 +17,16 @@
     </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi'>
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="/assets/css/index.css" />
     <link rel="stylesheet" href="/assets/css/all.min.css" />
     <link rel="stylesheet" href="/assets/css/fonts.css" />
     <link rel="stylesheet" href="/assets/css/view360/demo.css" />
-    <link rel="stylesheet" href="/assets/css/view360/pano.css" />
+    <link rel="stylesheet" href="/assets/css/view360/PanoControls.css" />
     <link rel="stylesheet" href="/assets/css/chatbot.css">
     <script src="/assets/scripts/script.js"></script>
+    <script src="/assets/scripts/view360-interior/jquery-2.2.4.js"></script>
     <title>HooHoop</title>
     <link
       rel="icon"
@@ -317,17 +318,18 @@
     <input type="text" id="minor" class="vanish" value="<%= record.minPrice %>">
     <input type="text" id="major" class="vanish" value="<%= record.Price %>">
     <input type="text" id="vinObjId" class="vanish" value="<%= record.id %>">
-    <script src="/assets/scripts/sweetalert/swal.js"></script>
-    <script src="/assets/scripts/view360-interior/jquery.js"></script>
-    <script src="/assets/scripts/view360-interior/gyro.js"></script>
-    <script src="/assets/scripts/view360-interior/pano.js"></script>
-    <script src="/assets/scripts/view360-interior/pieview.js"></script>
-    <script src="/assets/scripts/view360-interior/screenfull.js"></script>
-    <script src="/assets/scripts/view360-interior/view360.js"></script>
-    <script src="/assets//scripts/view360-exterior/min.js"></script>
+    <script src="/assets/scripts/view360-interior/screenfull.min.js"></script>
+    <script src="/assets/scripts/view360-interior/PieView.js"></script>
+    <script src="/assets/scripts/view360-interior/GyroTouchOptions.js"></script>
+    <script src="/assets/scripts/view360-interior/view360.pkgd.js"></script>
+    <script src="/assets/scripts/view360-interior/PanoControls.js"></script>
+    <script src="/assets/scripts/view360-interior/sweetalert2.all.min.js"></script>
+    <script src="/assets/scripts/view360-interior/webxr-polyfill.min.js"></script>
+    <script src="/assets/scripts/view360-interior/initXR.js"></script>
+    <script src="/assets/scripts/view360-exterior/min.js"></script>
     <script src="/assets/scripts/ChatBot.js"></script>
     <script src="/assets/scripts/flasher.js"></script>
-    <script src="/assets//scripts/starManager.js"></script>
+    <script src="/assets/scripts/starManager.js"></script>
 
     <script>
       function ImgChange(imgname){

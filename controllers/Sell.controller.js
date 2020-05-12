@@ -1,6 +1,5 @@
 const carModel = require("../models/carModel");
 const fs = require("fs");
-const multer = require("multer");
 const ffmpeg = require("ffmpeg");
 const sharp = require("sharp");
 sharp.cache(false);
