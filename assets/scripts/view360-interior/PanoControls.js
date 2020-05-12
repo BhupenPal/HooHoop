@@ -89,12 +89,10 @@ var PanoControls = (function() {
 		document.querySelector(".enterfs").addEventListener("click", function() {
 			if (screenfull.enabled) {
 				screenfull.request();
-				document.getElementsByClassName("interior-changer")[0].style.display =
-				  "none";
-				document.getElementsByClassName("exterior-changer")[0].style.display =
-				  "none";
-				document.getElementsByTagName("html")[0].style.overflowY = "hidden";
+				document.querySelector("html").style.overflow = "hidden"
 				document.querySelector(".chatbot_encloser").style.zIndex = "-1"
+				document.querySelector(".interior-changer").style.display = "none"
+				document.querySelector(".exterior-changer").style.display = "none"
 			} else {
 				changeMode("full");
 			}
@@ -103,6 +101,7 @@ var PanoControls = (function() {
 		document.querySelector(".exitfs").addEventListener("click", function() {
 			if (screenfull.enabled) {
 				screenfull.exit();
+
 			} else {
 				changeMode("orignal");
 			}

@@ -16,10 +16,9 @@ function exitHandler() {
     !document.mozFullScreen &&
     !document.msFullscreenElement
   ) {
-    document.getElementsByClassName("interior-changer")[0].style.display =
-      "flex";
-    document.getElementsByClassName("exterior-changer")[0].style.display =
-      "flex";
-    document.getElementsByTagName("html")[0].removeAttribute("style");
+    document.querySelector("html").removeAttribute("style")
+    document.querySelector(".chatbot_encloser").removeAttribute("style")
+    document.querySelector(".interior-changer").removeAttribute("style")
+    document.querySelector(".exterior-changer").removeAttribute("style")
   }
 }

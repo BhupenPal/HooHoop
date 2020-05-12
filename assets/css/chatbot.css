@@ -37,37 +37,33 @@
   visibility: visible;
   opacity: 1;
   position: absolute;
-  animation: shake 0.8s;
-  animation-iteration-count: 2;
 }
 
 .ch_msg{
   position: relative;
+  display: none;
 }
 
 .fchatmsg{
   position: absolute;
   padding: 20px;
-  width: 350px;
-  top: -200px;
-  left: -380px;
-  background-color: #f1f1f1;
+  width: 250px;
+  top: -155px;
+  left: -300px;
+  background-color: #fff;
   border-radius: 10px;
   font-size: 18px;
   font-family: Fira;
   font-weight: bold;
   color: black;
+  box-shadow:0  0 4px 4px #f1f1f1;
+  animation: shake 0.8s 2;
 }
 
-.fchatmsg::after{
-  position: absolute;
-  content: "";
-  width: 30px;
-  height: 30px;
-  background-color: #f1f1f1;
-  top: 100%;
-  right: 5%;
-  clip-path: polygon(100% 0, 0 0, 50% 100%);
+.popanc{
+  float: right;
+  margin-right: 12px;
+  cursor: pointer;
 }
 
 #chatter {

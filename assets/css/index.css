@@ -2001,6 +2001,11 @@ canvas {
   justify-content: space-between;
 }
 
+.locate{
+  text-align: right;
+  width: 60%;
+}
+
 .Addinfo_spec,
 .seller_spec {
   border-bottom: 2px solid white;
@@ -3825,7 +3830,9 @@ input[type="submit"]:hover {
 
   .Description-Box {
     margin: 0 auto;
-    padding-right: 0;
+    width: 90vw;
+    text-align: justify;
+    padding: 0;
   }
 
   .Description-Box h1 {

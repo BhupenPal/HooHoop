@@ -34,6 +34,8 @@ let Botgreetings = [
   `Kia Ora, I am Albot! If you would like to purchase this vehicle right now, we will offer you a $${deal} discount. Are you happy to accept this?`,
 ];
 
+let botpop = [`Hi, I am Albot, would you like $${deal} discount`]
+
 let BotRejected = [
   `Okay no worries. Hit me with your best price offer for this vehicle!`,
   `I hear you. How about you try placing me an offer price I cannot refuse….`,
@@ -70,16 +72,10 @@ function createMessage() {
   if (event) {
     event.preventDefault();
     document.querySelector("#send-air > i").style.color = "#999999";
-  } else {
-    var AudioContext = window.AudioContext || window.webkitAudioContext || false;
-    if(AudioContext){
-      var a = new AudioContext();
-    }
   }
 
   if (status === "GREETING") {
     botReply(Botgreetings[Math.floor(Math.random() * Botgreetings.length)]);
-    document.querySelector(".fchatmsg").innerHTML = `${(Botgreetings[Math.floor(Math.random() * Botgreetings.length)])}`
     document.getElementById("accept").onclick = () => {
       userReply("YES");
       showPreferredInputDisplay(false, true, true);
@@ -464,10 +460,11 @@ let botcloser = document.querySelector(".botcloser");
 let botencloser = document.querySelector(".chatbot_encloser");
 
 openbot.onclick = function () {
+  document.querySelector(".ch_msg").style.display = "none"
   openbot.style.transform = "translateY(10vh)";
   openbot.style.visibility = "hidden";
   openbot.style.opacity = "0";
-
+  clearTimeout(Popuptimer)
   botencloser.style.zIndex = "9999";
   closebot.style.display = "flex";
 };
@@ -480,3 +477,14 @@ botcloser.onclick = function () {
   openbot.style.visibility = "visible";
   openbot.style.opacity = "1";
 };
+
+let Popuptimer = setTimeout(function(){
+document.querySelector(".ch_msg").style.display="block"
+document.querySelector(".fchatmsg").innerHTML = `<span>${botpop}</span> <a class="popanc" onclick='popupclose()'>Close</a>`
+document.querySelector("audio").play();
+document.querySelector(".chatbox_closed").style.cssText = "  animation: shake 0.8s; animation-iteration-count: 2;"
+},100)
+
+function popupclose(){
+  document.querySelector(".ch_msg").style.display = "none"
+}
