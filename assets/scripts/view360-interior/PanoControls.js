@@ -89,6 +89,12 @@ var PanoControls = (function() {
 		document.querySelector(".enterfs").addEventListener("click", function() {
 			if (screenfull.enabled) {
 				screenfull.request();
+				document.getElementsByClassName("interior-changer")[0].style.display =
+				  "none";
+				document.getElementsByClassName("exterior-changer")[0].style.display =
+				  "none";
+				document.getElementsByTagName("html")[0].style.overflowY = "hidden";
+				document.querySelector(".chatbot_encloser").style.zIndex = "-1"
 			} else {
 				changeMode("full");
 			}
