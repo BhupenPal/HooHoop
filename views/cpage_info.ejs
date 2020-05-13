@@ -333,16 +333,6 @@
 
     <script>
       function ImgChange(imgname){
-        if (document.exitFullscreen) {
-					document.exitFullscreen();
-				} else if (document.mozCancelFullScreen) {
-					document.mozCancelFullScreen();
-				} else if (document.webkitExitFullscreen) {
-					document.webkitExitFullscreen();
-				} else if (document.msExitFullscreen) {
-					document.msExitFullscreen();
-        }
-          
         let myPan = document.getElementsByClassName("panoviewer-container")[0];
         
         document.getElementsByClassName("viewthsxty")[0].removeChild(myPan)

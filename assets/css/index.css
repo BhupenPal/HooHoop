@@ -215,7 +215,6 @@ input[type="date"]::-webkit-inner-spin-button {
 
 /* Hamburger Menu */
 .hamburger {
-  display: inline-block;
   cursor: pointer;
   z-index: 1001;
   display: none;

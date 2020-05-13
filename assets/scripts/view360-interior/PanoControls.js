@@ -101,7 +101,6 @@ var PanoControls = (function() {
 		document.querySelector(".exitfs").addEventListener("click", function() {
 			if (screenfull.enabled) {
 				screenfull.exit();
-
 			} else {
 				changeMode("orignal");
 			}

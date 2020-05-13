@@ -8,6 +8,7 @@
 }
 
 .fullscreen-container .viewer {
+  position: fixed !important;
   max-width: none;
   height: 100%;
 }

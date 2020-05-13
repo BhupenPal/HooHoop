@@ -42,13 +42,14 @@
 .ch_msg{
   position: relative;
   display: none;
+  cursor: pointer;
 }
 
 .fchatmsg{
   position: absolute;
   padding: 20px;
   width: 250px;
-  top: -155px;
+  top: -200px;
   left: -300px;
   background-color: #fff;
   border-radius: 10px;
