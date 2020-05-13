@@ -46,6 +46,12 @@
   <body class="c_p_body" onload="ImgChange('INTERIORMIDDLE.JPG')">
     <%-include('./Components/Header.ejs') %>
 
+    <div class="panoviewer-container viewer">
+      <div id="panoSet">
+        <div class="panoviewer container" id="myPanoViewer"></div>
+      </div>
+    </div>
+
     <div class="cardet_page">
       <%-include('./Flash/message.ejs') %>
       <div class="th_sxty_info">
@@ -70,11 +76,7 @@
               <% } %>
             </select>
 
-            <div class="panoviewer-container viewer">
-              <div id="panoSet">
-                <div class="panoviewer container" id="myPanoViewer"></div>
-              </div>
-            </div>
+
 
             <div class="iwdivide"></div>
 

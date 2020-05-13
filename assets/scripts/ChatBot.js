@@ -482,7 +482,7 @@ let Popuptimer = setTimeout(function(){
   document.querySelector(".fchatmsg").innerHTML = `<span onclick="chatbotOpen()">${botpop}</span> <a class="popanc" onclick='popupclose()'>Close</a>`
   document.querySelector("audio").play();
   document.querySelector(".chatbox_closed").style.cssText = "  animation: shake 0.8s; animation-iteration-count: 2;"
-}, 450)
+}, 45000)
 
 function popupclose(){
   document.querySelector(".ch_msg").style.display = "none";
