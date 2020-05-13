@@ -34,7 +34,7 @@ let Botgreetings = [
   `Kia Ora, I am Albot! If you would like to purchase this vehicle right now, we will offer you a $${deal} discount. Are you happy to accept this?`,
 ];
 
-let botpop = [`Howdy, I’m Albot, if you are looking at purchasing this vehicle right now, we will offer you a $${deal} discount?`]
+let botpop = [`Howdy, I'm Albot! Interested in this vehicle? We will offer you a $${deal} discount, or bargain more...`]
 
 let BotRejected = [
   `Okay no worries. Hit me with your best price offer for this vehicle!`,
