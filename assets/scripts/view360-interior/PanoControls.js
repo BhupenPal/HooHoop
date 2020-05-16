@@ -94,9 +94,11 @@ var PanoControls = (function() {
 				document.querySelector(".interior-changer").style.display = "none"
 				document.querySelector(".exterior-changer").style.display = "none"
 				document.querySelector(".viewthsxty").style.height = "100vh"
-				document.querySelector(".th60_container").style.cssText = "width: 100vw; position: fixed; z-index: 1000; top: 0; left: 0";
+				document.querySelector(".th60_container").style.cssText = "width: 100vw; position: fixed; z-index: 99999; top: 0; left: 0";
 			} else {
 				changeMode("full");
+				document.querySelector(".viewthsxty").style.height = "100vh"
+				document.querySelector(".th60_container").style.cssText = "width: 100vw; position: fixed; z-index: 99999; top: 0; left: 0";
 			}
 		});
 
@@ -105,6 +107,8 @@ var PanoControls = (function() {
 				screenfull.exit();
 			} else {
 				changeMode("orignal");
+				document.querySelector(".viewthsxty").removeAttribute("style")
+				document.querySelector(".th60_container").removeAttribute("style")
 			}
 		});
 
