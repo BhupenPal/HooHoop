@@ -20,5 +20,7 @@ function exitHandler() {
     document.querySelector(".chatbot_encloser").removeAttribute("style")
     document.querySelector(".interior-changer").removeAttribute("style")
     document.querySelector(".exterior-changer").removeAttribute("style")
+    document.querySelector(".viewthsxty").removeAttribute("style")
+    document.querySelector(".th60_container").removeAttribute("style")
   }
 }

@@ -93,6 +93,8 @@ var PanoControls = (function() {
 				document.querySelector(".chatbot_encloser").style.zIndex = "-1"
 				document.querySelector(".interior-changer").style.display = "none"
 				document.querySelector(".exterior-changer").style.display = "none"
+				document.querySelector(".viewthsxty").style.height = "100vh"
+				document.querySelector(".th60_container").style.cssText = "width: 100vw; position: fixed; z-index: 1000; top: 0; left: 0";
 			} else {
 				changeMode("full");
 			}
