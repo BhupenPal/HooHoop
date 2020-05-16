@@ -97,6 +97,10 @@ var PanoControls = (function() {
 				document.querySelector(".th60_container").style.cssText = "width: 100vw; position: fixed; z-index: 99999; top: 0; left: 0";
 			} else {
 				changeMode("full");
+				document.querySelector("html").style.overflow = "hidden"
+				document.querySelector(".chatbot_encloser").style.zIndex = "-1"
+				document.querySelector(".interior-changer").style.display = "none"
+				document.querySelector(".exterior-changer").style.display = "none"
 				document.querySelector(".viewthsxty").style.height = "100vh"
 				document.querySelector(".th60_container").style.cssText = "width: 100vw; position: fixed; z-index: 99999; top: 0; left: 0";
 			}
@@ -107,6 +111,10 @@ var PanoControls = (function() {
 				screenfull.exit();
 			} else {
 				changeMode("orignal");
+				document.querySelector("html").removeAttribute("style")
+				document.querySelector(".chatbot_encloser").removeAttribute("style")
+				document.querySelector(".interior-changer").removeAttribute("style")
+				document.querySelector(".exterior-changer").removeAttribute("style")
 				document.querySelector(".viewthsxty").removeAttribute("style")
 				document.querySelector(".th60_container").removeAttribute("style")
 			}
