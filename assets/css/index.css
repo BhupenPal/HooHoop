@@ -457,20 +457,17 @@ input[type="date"]::-webkit-inner-spin-button {
 .card_headline {
   height: 15%;
   width: 70%;
-  margin-top: 20px;
-  display: flex;
-  place-items: flex-end;
-  place-content: flex-start;
-  padding-left: 50px;
+  margin: 50px auto;
   font-size: 46px;
   font-family: Fira;
   font-weight: bold;
+  white-space: nowrap;
 }
 
 .data_fetch {
+  margin-top: -80px;
   display: flex;
   flex-direction: column;
-  place-content: space-evenly;
   align-items: center;
   height: 75%;
 }
@@ -5134,12 +5131,4 @@ input[type="submit"]:hover {
     margin: 20px auto 200px auto;
     width: 80vw !important;
   }
-}
-
-.preloaded * {
-  -webkit-transition: none !important;
-  -moz-transition: none !important;
-  -ms-transition: none !important;
-  -o-transition: none !important;
-  transition: none !important;
 }

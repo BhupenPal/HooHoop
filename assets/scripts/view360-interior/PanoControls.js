@@ -59,6 +59,7 @@ var PanoControls = (function() {
 		var originalContainer = target.parentElement;
 		var nextElementSibling = target.nextElementSibling;
 		var fullscreenContainer = document.getElementsByClassName("fullscreen-container")[0];
+		var iPhoneCanvasChange = false;
 
 		function changeMode(mode) {
 			var rootNode = target.parentNode.removeChild(target);
@@ -75,6 +76,7 @@ var PanoControls = (function() {
 				fullscreenContainer.appendChild(rootNode);
 				fullscreenContainer.style.display = "block";
 			} else {
+				iPhoneCanvasChange = true;
 				document.body.style.overflow = "initial";
 				originalContainer.insertBefore(rootNode, nextElementSibling);
 				fullscreenContainer.style.display = "none";
@@ -93,11 +95,8 @@ var PanoControls = (function() {
 				document.querySelector(".chatbot_encloser").style.zIndex = "-1"
 				document.querySelector(".interior-changer").style.display = "none"
 				document.querySelector(".exterior-changer").style.display = "none"
-				document.querySelector(".viewthsxty").style.height = "100vh"
-				document.querySelector(".th60_container").style.cssText = "width: 100vw; position: fixed; z-index: 99999; top: 0; left: 0";
 			} else {
 				changeMode("full");
-				document.querySelector("html").style.overflow = "hidden"
 				document.querySelector(".chatbot_encloser").style.zIndex = "-1"
 				document.querySelector(".interior-changer").style.display = "none"
 				document.querySelector(".exterior-changer").style.display = "none"
@@ -110,13 +109,12 @@ var PanoControls = (function() {
 			if (screenfull.enabled) {
 				screenfull.exit();
 			} else {
-				changeMode("orignal");
-				document.querySelector("html").removeAttribute("style")
 				document.querySelector(".chatbot_encloser").removeAttribute("style")
 				document.querySelector(".interior-changer").removeAttribute("style")
 				document.querySelector(".exterior-changer").removeAttribute("style")
 				document.querySelector(".viewthsxty").removeAttribute("style")
 				document.querySelector(".th60_container").removeAttribute("style")
+				changeMode("orignal");
 			}
 		});
 

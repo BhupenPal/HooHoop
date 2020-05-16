@@ -169,8 +169,3 @@ function mobilefilview(){
     y.children[0].style.transform = "rotate(90deg)"
   }
 }
-
-document.onload = () => {
-  if(document.querySelector('.preloaded'))
-  document.querySelector('.preloaded').classList.remove('preloaded')
-}

@@ -348,4 +348,19 @@ div#wave .dot:nth-child(3) {
   #toAppend {
     max-height: 100vh;
   }
+
+  .fchatmsg {
+    padding: 15px;
+    top: -160px;
+    left: -285px;
+  }
+
+  .fchatmsg span {
+    font-size: 15px;
+  }
+
+  .fchatmsg a {
+    margin-top: 6px;
+    font-size: 12px;
+  }
 }
