@@ -141,10 +141,12 @@ input[type="date"]::-webkit-inner-spin-button {
   width: 500px;
   height: 40px;
   border: 1px solid #707070;
+  border-radius: 50px;
   outline: none;
   padding: 0 20px;
   font-size: larger;
   color: #707070;
+
 }
 
 .search-engine input::placeholder {
@@ -156,10 +158,14 @@ input[type="date"]::-webkit-inner-spin-button {
 }
 
 .search-engine form {
+  position: relative;
   display: flex;
 }
 
 .search-engine form button {
+  position: absolute;
+  right: 0;
+  border-radius: 50px;
   height: 100%;
 }
 
@@ -167,7 +173,8 @@ input[type="date"]::-webkit-inner-spin-button {
   height: 40px;
   width: 40px;
   border-left: 0 !important;
-  border: 1px solid #707070;
+  border: none;
+  transform: scale(0.85);
   background: #f6b500;
   display: flex;
   align-items: center;
@@ -442,6 +449,7 @@ input[type="date"]::-webkit-inner-spin-button {
   width: 400px;
   background: white;
   position: absolute;
+  border-radius: 10px;
   left: 50px;
 }
 
@@ -533,7 +541,7 @@ input[type="date"]::-webkit-inner-spin-button {
 /* Home-Content */
 
 .infowrap80 {
-  width: 75%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -553,7 +561,7 @@ input[type="date"]::-webkit-inner-spin-button {
   border-radius: 5px;
   width: 100%;
   margin: 50px 0;
-  box-shadow: 0 0 1px 1px #e6e6e6;
+  /* box-shadow: 0 0 1px 1px #e6e6e6; */
   position: relative;
 }
 
@@ -566,7 +574,7 @@ input[type="date"]::-webkit-inner-spin-button {
   align-items: flex-start;
   padding-left: 20px;
   box-sizing: border-box;
-  border-bottom: 1px solid #e2e2e2;
+  /* border-bottom: 1px solid #e2e2e2; */
 }
 
 .cd_headline {
@@ -732,7 +740,7 @@ input[type="date"]::-webkit-inner-spin-button {
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  border-top: 1px solid #e1e1e1;
+  /* border-top: 1px solid #e1e1e1; */
   height: 20px;
   box-sizing: border-box;
   padding-left: 20px;
@@ -1968,8 +1976,10 @@ canvas {
 .seller_info {
   width: 350px;
   background-color: #f5bf2b;
-  border: 2px solid #e7e7e7;
+  /* border: 2px solid #e7e7e7; */
   margin-bottom: 50px;
+  border-radius: 5px;
+  box-shadow: 10px 10px 10px 1px gray ;
 }
 
 .id_head,
@@ -2012,10 +2022,11 @@ canvas {
   align-items: center;
   justify-content: space-between;
   background-color: #f1f1f1;
+  box-shadow: 10px 10px 10px 1px gray ;
   padding: 10px;
   box-sizing: border-box;
   border-radius: 5px;
-  border: 2px solid #ccc;
+  /* border: 2px solid #ccc; */
 }
 
 .share_data {

@@ -94,7 +94,7 @@ module.exports = {
     let FrontCheck, RearCheck;
     await carModel.findOneAndUpdate(
       { _id: req.params.id },
-      { $inc: {views: 1} },
+      { $inc: {views: 0.5} },
       async (err, doc) => {
         const popularCars = await carModel
         .find({ adActive: "Active" })
@@ -114,6 +114,7 @@ module.exports = {
   },
 
   bookDrive: async (req, res, next) => {
+    let FrontCheck, RearCheck;
     let { ft_name, lt_name, bt_email, pt_phone } = req.body;
     let result = await carModel.findOne({ _id: req.params.id });
     let bookTestDrive = new testDrive({
@@ -128,13 +129,24 @@ module.exports = {
     });
     bookTestDrive.date = getTodayDate();
     bookTestDrive.save();
+    const popularCars = await carModel
+    .find({ adActive: "Active" })
+    .limit(10)
+    .sort({ views: -1 });
+    if(fs.existsSync(`./assets/Uploads/${result.vinNum}/interior/INTERIORFRONT.JPG`)){
+      FrontCheck = true
+    }
+    if(fs.existsSync(`./assets/Uploads/${result.vinNum}/interior/INTERIORREAR.JPG`)){
+      RearCheck = true
+    }
     res.render("cpage_info", {
       record: result,
-      success_msg: "Your Test Drive Has Been Booked",
+      success_msg: "Your Test Drive Has Been Booked", recommended: popularCars, FrontCheck, RearCheck
     });
   },
 
   checkAvail: async (req, res, next) => {
+    let FrontCheck, RearCheck;
     let result = await carModel.findOne({ _id: req.params.id });
     const checkAvailabilityModel = new availabilityModel({
       fullName: req.body.ck_name,
@@ -147,13 +159,24 @@ module.exports = {
     });
     checkAvailabilityModel.date = getTodayDate();
     checkAvailabilityModel.save();
+    const popularCars = await carModel
+    .find({ adActive: "Active" })
+    .limit(10)
+    .sort({ views: -1 });
+    if(fs.existsSync(`./assets/Uploads/${result.vinNum}/interior/INTERIORFRONT.JPG`)){
+      FrontCheck = true
+    }
+    if(fs.existsSync(`./assets/Uploads/${result.vinNum}/interior/INTERIORREAR.JPG`)){
+      RearCheck = true
+    }
     res.render("cpage_info", {
       record: result,
-      success_msg: "Your query has been registered",
+      success_msg: "Your query has been registered", recommended: popularCars, FrontCheck, RearCheck
     });
   },
 
   shipQuote: async (req, res, next) => {
+    let FrontCheck, RearCheck;
     let result = await carModel.findOne({ _id: req.params.id });
     const shippingQuote = new shippingModel({
       fullName: req.body.sq_name,
@@ -170,9 +193,19 @@ module.exports = {
     });
     shippingQuote.date = getTodayDate();
     shippingQuote.save();
+    const popularCars = await carModel
+    .find({ adActive: "Active" })
+    .limit(10)
+    .sort({ views: -1 });
+    if(fs.existsSync(`./assets/Uploads/${result.vinNum}/interior/INTERIORFRONT.JPG`)){
+      FrontCheck = true
+    }
+    if(fs.existsSync(`./assets/Uploads/${result.vinNum}/interior/INTERIORREAR.JPG`)){
+      RearCheck = true
+    }
     res.render(`cpage_info`, {
       record: result,
-      success_msg: "Your query for shipping has been registered",
+      success_msg: "Your query for shipping has been registered", recommended: popularCars, FrontCheck, RearCheck
     });
   }
 };
