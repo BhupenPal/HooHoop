@@ -1566,9 +1566,16 @@ button[disabled] {
   bottom: 0;
   color: white;
   background-color: #e96c4c;
-  padding: 10px;
+  padding: 0 10px 10px 10px;
   font-family: Raleway;
   font-weight: bold;
+}
+
+.vir_tour img {
+  margin-bottom: -12px;
+  margin-right: 10px;
+  width: 40px; 
+  height: 40px;
 }
 
 .cb_info {
