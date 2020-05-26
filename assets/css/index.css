@@ -3689,6 +3689,13 @@ input[type="submit"]:hover {
     font-size: 4vw;
   }
 
+  .vir_tour img {
+    margin-bottom: -12px;
+    margin-right: 10px;
+    width: 40px; 
+    height: 40px;
+  }
+
   .filter_option {
     min-height: 20vw;
     font-size: 4vw;
@@ -4675,6 +4682,13 @@ input[type="submit"]:hover {
   .cb_img,
   .cb_img img {
     height: 63vw;
+  }
+
+  .vir_tour img {
+    margin-bottom: -12px;
+    margin-right: 10px;
+    width: 40px; 
+    height: 40px;
   }
 
   .foption label::before {
