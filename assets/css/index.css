@@ -683,6 +683,7 @@ input[type="date"]::-webkit-inner-spin-button {
   border-radius: 40%;
   margin-top: -100px;
   transition: 0.2s;
+  opacity: 0.85;
 }
 
 .img_contain img {
