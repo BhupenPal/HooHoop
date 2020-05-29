@@ -4,69 +4,22 @@ const fs = require("fs");
 const storageManager = multer.diskStorage({
   destination: (req, file, cb) => {
     let vinNum = req.body.vinNum.toUpperCase();
-    let dirMain = `assets/Uploads/${vinNum}/`;
-    let dirExt = `assets/Uploads/${vinNum}/exterior`;
-    let dirInt = `assets/Uploads/${vinNum}/interior`;
+
+    if (!fs.existsSync(`assets/Uploads/${vinNum}/`)) {
+      fs.mkdirSync(`assets/Uploads/${vinNum}/`);
+      fs.mkdirSync(`assets/Uploads/${vinNum}/exterior`);
+    }
+
     if (file.fieldname === "exterior") {
-      if (fs.existsSync(dirExt)) {
-        cb(null, dirExt);
-      } else if (fs.existsSync(dirMain)) {
-        fs.mkdir(dirExt, () => {
-          cb(null, dirExt);
-        });
-      } else {
-        fs.mkdir(dirMain, () => {
-          fs.mkdir(dirExt, () => {
-            cb(null, dirExt);
-          });
-        });
+      cb(null, `assets/Uploads/${vinNum}/exterior`);
+    } else {
+      if (!fs.existsSync(`assets/Uploads/${vinNum}/interior`)) {
+        fs.mkdirSync(`assets/Uploads/${vinNum}/interior`);
       }
-    } else if (file.fieldname === "interiorFront") {
-      if (fs.existsSync(dirInt)) {
-        cb(null, dirInt);
-      } else if (fs.existsSync(dirMain)) {
-        fs.mkdir(dirInt, () => {
-          cb(null, dirInt);
-        });
-      } else {
-        fs.mkdir(dirMain, () => {
-          fs.mkdir(dirInt, () => {
-            cb(null, dirInt);
-          });
-        });
-      }
-    } else if (file.fieldname === "interiorMiddle") {
-      if (fs.existsSync(dirInt)) {
-        cb(null, dirInt);
-      } else if (fs.existsSync(dirMain)) {
-        fs.mkdir(dirInt, () => {
-          cb(null, dirInt);
-        });
-      } else {
-        fs.mkdir(dirMain, () => {
-          fs.mkdir(dirInt, () => {
-            cb(null, dirInt);
-          });
-        });
-      }
-    } else if (file.fieldname === "interiorRear") {
-      if (fs.existsSync(dirInt)) {
-        cb(null, dirInt);
-      } else if (fs.existsSync(dirMain)) {
-        fs.mkdir(dirInt, () => {
-          cb(null, dirInt);
-        });
-      } else {
-        fs.mkdir(dirMain, () => {
-          fs.mkdir(dirInt, () => {
-            cb(null, dirInt);
-          });
-        });
-      }
+      cb(null, `assets/Uploads/${vinNum}/interior`);
     }
   },
   filename: function (req, file, cb) {
-    let dirInt = `assets/Uploads/${req.body.vinNum}/interior`;
     if (file.fieldname === "exterior") {
       let ext = file.originalname.split(".")[1];
       let filename = "video." + ext;
@@ -79,7 +32,15 @@ const storageManager = multer.diskStorage({
   },
 });
 
-module.exports = multer({ storage: storageManager }).fields([
+module.exports = multer({
+  fileFilter: (req, file, cb) => {
+    if (req.existence) {
+      req.stop = true;
+      return cb(null, false);
+    }
+  },
+  storage: storageManager,
+}).fields([
   { name: "exterior", maxCount: 1 },
   { name: "interiorFront", maxCount: 1 },
   { name: "interiorMiddle", maxCount: 1 },

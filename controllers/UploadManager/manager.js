@@ -5,9 +5,10 @@ module.exports = async (req, res, next) => {
     vinNum: req.headers.platecheck.toUpperCase(),
   });
   if (exist) {
-    res.send("CAR ALREADY EXISTS");
-    res.end();
+    req.existence = true;
+    next();
   } else {
+    req.existence = false;
     next();
   }
 };
