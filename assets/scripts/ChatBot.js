@@ -23,7 +23,8 @@ let maxValue = parseInt(document.getElementById("major").value);
 let discountFor = document.getElementById("vinObjId").value;
 let count = 1;
 let margin = maxValue - minValue;
-let deal = parseInt(margin / 6);
+let deal = parseInt(margin * 0.55);
+let bargainCount = 2;
 let firstDeal = deal;
 let coupon = null;
 
@@ -34,7 +35,9 @@ let Botgreetings = [
   `Kia Ora, I am Albot! If you would like to purchase this vehicle right now, we will offer you a $${deal} discount. Are you happy to accept this?`,
 ];
 
-let botpop = [`Howdy, I'm Albot! Interested in this vehicle? We will offer you a $${deal} discount, or bargain more...`]
+let botpop = [
+  `Howdy, I'm Albot! Interested in this vehicle? We will offer you a $${deal} discount, or bargain more...`,
+];
 
 let BotRejected = [
   `Okay no worries. Hit me with your best price offer for this vehicle!`,
@@ -171,41 +174,52 @@ function createMessage() {
           status = "GET_OFFER";
         }, 700);
       } else {
-        if (deal <= margin) {
-          if (deal + firstDeal * 0.8 <= margin) {
-            showPreferredInputDisplay(false, true, true);
-            deal = parseInt(deal + firstDeal * 0.8);
-            RejectedOffers.push(userOffer);
-            let BotHaggle = [
-              `This is too low, how about a $${deal} discount coupon?`,
-              `Sorry, I can’t make a deal currently. How about a $${deal}cash discount right now?`,
-              `Sorry, will you take a $${deal}cash discount on this vehicle right now?`,
-              `Sorry, unfortunately that is not possible. How about a $${deal}cash discount?`,
-              `Will you accept a $${deal}cash discount on this vehicle right now?`,
-            ];
-            DisableInputs(true);
-            setTimeout(() => {
-              DisableInputs(false);
-              botReply(BotHaggle[Math.floor(Math.random() * BotHaggle.length)]);
-              showPreferredInputDisplay(false, true, false);
-            }, 700);
-          } else {
-            let NoDeal = [
-              `$${deal} was my last offer, but don’t worry! My Manager will get back to you ASAP. Can I please have your best contact email?`,
-              `We couldn’t reach an agreement today, but don’t worry! My Manager will get back to you ASAP. Can I please have your best contact email?`,
-            ];
-            botReply(NoDeal[Math.floor(Math.random() * NoDeal.length)]);
-            NoDealBool = true;
-            status = "GET_EMAIL";
-            return;
+        if (bargainCount <= 4) {
+          if (bargainCount == 4) {
+            bargainCount++;
+            deal = parseInt(margin);
           }
+
+          if(bargainCount == 3) {
+            bargainCount++;
+            deal = parseInt(margin * 0.8);
+          }
+
+          if (bargainCount == 2) {
+            bargainCount++;
+            deal = parseInt(margin * 0.65);
+          } 
+
+          showPreferredInputDisplay(false, true, true);
+          RejectedOffers.push(userOffer);
+          let BotHaggle = [
+            `This is too low, how about a $${deal} discount coupon?`,
+            `Sorry, I can’t make a deal currently. How about a $${deal}cash discount right now?`,
+            `Sorry, will you take a $${deal}cash discount on this vehicle right now?`,
+            `Sorry, unfortunately that is not possible. How about a $${deal}cash discount?`,
+            `Will you accept a $${deal}cash discount on this vehicle right now?`,
+          ];
+          DisableInputs(true);
+          setTimeout(() => {
+            DisableInputs(false);
+            botReply(BotHaggle[Math.floor(Math.random() * BotHaggle.length)]);
+            showPreferredInputDisplay(false, true, false);
+          }, 700);
+        } else {
+          let NoDeal = [
+            `$${deal} was my last offer, but don’t worry! My Manager will get back to you ASAP. Can I please have your best contact email?`,
+            `We couldn’t reach an agreement today, but don’t worry! My Manager will get back to you ASAP. Can I please have your best contact email?`,
+          ];
+          botReply(NoDeal[Math.floor(Math.random() * NoDeal.length)]);
+          NoDealBool = true;
+          status = "GET_EMAIL";
+          return;
         }
       }
     }
   }
 
   if (status === "TRADE_VEHICLE") {
-    console.log("Hello");
     document.getElementById("accept").onclick = () => {
       userReply("YES");
       showPreferredInputDisplay(false, true, true);
@@ -234,9 +248,9 @@ function createMessage() {
   }
 
   if (status == "GET_VIN_NUM") {
-      userVIN = userInput.value;
-      userReply(userVIN);
-      status = "COMMITMENT";
+    userVIN = userInput.value;
+    userReply(userVIN);
+    status = "COMMITMENT";
   }
 
   if (status === "COMMITMENT") {
@@ -418,15 +432,6 @@ function sendChatDetails() {
   xhr.setRequestHeader("Content-Type", "application/json");
 
   xhr.onprogress = function () {
-    console.log("On progress");
-  };
-
-  xhr.onload = function () {
-    if (this.status === 200) {
-      console.log("Succesful");
-    } else {
-      console.log("Some error occured");
-    }
   };
 
   var tod = new Date();
@@ -460,14 +465,14 @@ let botcloser = document.querySelector(".botcloser");
 let botencloser = document.querySelector(".chatbot_encloser");
 
 function chatbotOpen() {
-  document.querySelector(".ch_msg").style.display = "none"
+  document.querySelector(".ch_msg").style.display = "none";
   openbot.style.transform = "translateY(10vh)";
   openbot.style.visibility = "hidden";
   openbot.style.opacity = "0";
-  clearTimeout(Popuptimer)
+  clearTimeout(Popuptimer);
   botencloser.style.zIndex = "9999";
   closebot.style.display = "flex";
-};
+}
 
 function chatbotClose() {
   botencloser.removeAttribute("style");
@@ -475,15 +480,18 @@ function chatbotClose() {
   openbot.style.transform = "translateY(0vh)";
   openbot.style.visibility = "visible";
   openbot.style.opacity = "1";
-};
+}
 
-let Popuptimer = setTimeout(function(){
-  document.querySelector(".ch_msg").style.display="block"
-  document.querySelector(".fchatmsg").innerHTML = `<span onclick="chatbotOpen()">${botpop}</span> <a class="popanc" onclick='popupclose()'>Close</a>`
+let Popuptimer = setTimeout(function () {
+  document.querySelector(".ch_msg").style.display = "block";
+  document.querySelector(
+    ".fchatmsg"
+  ).innerHTML = `<span onclick="chatbotOpen()">${botpop}</span> <a class="popanc" onclick='popupclose()'>Close</a>`;
   document.querySelector("audio").play();
-  document.querySelector(".chatbox_closed").style.cssText = "  animation: shake 0.8s; animation-iteration-count: 2;"
-}, 45000)
+  document.querySelector(".chatbox_closed").style.cssText =
+    "  animation: shake 0.8s; animation-iteration-count: 2;";
+}, 45000);
 
-function popupclose(){
+function popupclose() {
   document.querySelector(".ch_msg").style.display = "none";
 }
