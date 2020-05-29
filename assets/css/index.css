@@ -2536,6 +2536,16 @@ canvas {
   height: 100%;
 }
 
+.side_opener{
+  height: 50px;
+  width: 20px;
+  left: 0;
+  top: 55vw;
+  background-color: #3498db;
+  position: fixed;
+  display: none;
+}
+
 .sbar_options {
   width: 100%;
 }
@@ -2575,6 +2585,12 @@ canvas {
   padding-bottom: 50px;
   display: flex;
   flex-direction: column;
+  max-height: 90vh;
+  overflow: scroll;
+}
+
+.fet_det::-webkit-scrollbar{
+  display: none;
 }
 
 .feature_head {
@@ -4132,11 +4148,20 @@ input[type="submit"]:hover {
   /* dashboard-response */
   .dash_wrapper {
     padding-bottom: 500px;
+    max-height: 100vh;
   }
 
   .sidebar {
     width: 0;
     visibility: hidden;
+    opacity: 0;
+  }
+
+  .side_opener{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
   }
 
   .fet_det {

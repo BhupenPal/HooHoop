@@ -54,6 +54,23 @@ else{
   }  
 }
 
-let panesel = document.querySelector(".Panesel")
+function sideopen(){
+  let x = document.querySelector(".sidebar")
+  let y = document.querySelector(".side_opener")
 
-console.log(panesel)
+  let state = y.getAttribute("data-state")
+  
+  if(state=="close"){
+    x.style.cssText = "width: 100vw; visibility: visible; opacity:1"
+    y.innerHTML = `<i class="fal fa-chevron-left"></i>`
+    y.setAttribute("data-state","open")
+    return;
+  }
+
+  if(state=="open"){
+    x.removeAttribute("style")
+    y.innerHTML = `<i class="fal fa-chevron-right"></i>`
+    state="close"
+    y.setAttribute("data-state","close")
+  }
+}
