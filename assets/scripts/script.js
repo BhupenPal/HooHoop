@@ -13,10 +13,11 @@ function activate(j) {
 
 function scrolldiv(j, k) {
   let x = document.getElementsByClassName("cd_content")[k];
+  let y = x.querySelector("a")
   if (j == 0 || j == 2 || j == 4 || j == 6 || j == 8 || j == 10) {
-    x.scrollBy(-x.clientWidth - 40, 0);
+    x.scrollBy(-y.clientWidth-40, 0);
   } else {
-    x.scrollBy(x.clientWidth + 40, 0);
+    x.scrollBy(y.clientWidth+40, 0);
   }
 }
 
