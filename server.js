@@ -12,6 +12,14 @@ require("dotenv").config();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+//Mongoose Intialized
+const mongoose = require('mongoose');
+mongoose.connect("mongodb://localhost:27017/HooHoop", {
+  useNewUrlParser: !0,
+  useUnifiedTopology: !0,
+  useCreateIndex: 1
+});
+
 // Passport Config
 const passport = require("passport");
 require("./controllers/log/passport")(passport);

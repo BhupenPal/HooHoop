@@ -1,12 +1,5 @@
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb://localhost:27017/HooHoop", {
-  useNewUrlParser: !0,
-  useUnifiedTopology: !0,
-  useCreateIndex: 1,
-  useFindAndModify: false
-});
-
 const Schema = mongoose.Schema,
   CarSchema = new Schema({
     Price: {
