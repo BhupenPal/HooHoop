@@ -2585,6 +2585,9 @@ canvas {
   padding-bottom: 50px;
   display: flex;
   flex-direction: column;
+}
+
+.scroll_prevent {
   max-height: 90vh;
   overflow: scroll;
 }
