@@ -9,7 +9,7 @@ const fs = require("fs");
 let errors = [];
 
 const { GenerateRandom, PassCheck } = require("./log/passCheck");
-const { verificationMail, resetMail, discountMail } = require("./mail/allMail");
+const { verificationMail, resetMail, custDiscountMail, dealerDiscountMail } = require("./mail/allMail");
 
 module.exports = {
   getLogin: (req, res, next) => {
@@ -362,11 +362,13 @@ module.exports = {
         .then((doc) => {})
         .catch((err) => console.log(err));
 
-      let mailOptions = {
+
+      //FOR CUSTOMERS EMAIL
+      let custDiscountMail = {
         from: '"HooHoop" <contact@hoohoop.co.nz>', // sender address
         to: email, // list of receivers
         subject: "HooHoop Discount Coupon Code", // Subject line
-        html: discountMail(
+        html: custDiscountMail(
           `${result.Make} - ${result.Model}`,
           discount,
           result.DealerName,
@@ -376,7 +378,27 @@ module.exports = {
         ),
       };
 
-      transporter.sendMail(mailOptions, (error, info) => {
+      transporter.sendMail(custDiscountMail, (error, info) => {
+        if (error) {
+          return console.log(error);
+        }
+      });
+
+      //FOR DEALERS EMAIL
+      let dealerDiscountMail = {
+        from: '"HooHoop" <contact@hoohoop.co.nz>', // sender address
+        to: result.DealerEmail, // list of receivers
+        subject: "HooHoop Discount Coupon", // Subject line
+        html: dealerDiscountMail(
+          `${result.Make} - ${result.Model}`,
+          discount,
+          email,
+          phoneNo,
+          CouponCode
+        ),
+      };
+
+      transporter.sendMail(dealerDiscountMail, (error, info) => {
         if (error) {
           return console.log(error);
         }

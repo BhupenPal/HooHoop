@@ -151,7 +151,7 @@ module.exports = {
     </html>`;
   },
 
-  discountMail: (
+  custDiscountMail: (
     CouponCar,
     deal,
     sellerName,
@@ -212,6 +212,90 @@ module.exports = {
                 <td>
                   <p style="margin: 0px auto; width: 100%;">Here is your $${deal} discount coupoun code. This is valid for up
                   to 72 hours, or if someone else redeems it prior, so be quick! You can contact ${sellerName} on ${sellerPhone}, ${SellerMail}</p>
+                </td>
+              </tr>
+              <tr>
+                <td style="display: flex !important; justify-content: center !important; align-items: center !important;">
+                  <a href="#" style="margin:0 auto"><button id="verify_btn">${CouponCode}</button></a>
+                </td>
+              </tr>
+              <tr>
+                <td><p style="margin: 0 auto; width: 100%; text-align: center;">Visit <a href="https://www.hoohoop.co.nz/" style="margin:0 auto">www.hoohoop.co.nz</a> for any further details.</p></td>
+              </tr>
+              <tr>
+                <td style="display: flex; justify-content: center; align-items: center;"><p style="margin: 0 auto; width: 100%; text-align: center;">https://www.hoohoop.co.nz/</p></td>
+              </tr>
+              <tr>
+                <td></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </body>
+    </html>`;
+  },
+
+  dealerDiscountMail: (
+    CouponCar,
+    deal,
+    custEmail,
+    custPhone,
+    CouponCode
+  ) => {
+    return `<!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <style>
+        #verify_btn{
+          margin: 50px auto; 
+          width: 25%;
+          min-width: 250px; 
+          height: 50px; 
+          border-radius: 50px; 
+          border: none; 
+          text-align: center; 
+          background-color: #1EA1F3; 
+          color: white;
+          font-size: large; 
+          cursor: pointer;
+          transition: 0.2s;
+          outline: 0;
+        }
+        #verify_btn:hover{
+          background-color: white;
+          border: 2px solid #1EA1F3;
+          color: #1EA1F3;
+        }
+      </style>
+    </head>
+    <body>
+      <table width="60%" cellspacing="0" cellpadding="0" style="background-color: #F0F2F5; padding: 80px; margin: 0 auto;">
+        <tr>
+          <td>
+            <table width="100%" cellspacing="0" cellpadding="0" style="background-color: #fff; font-family: Arial; padding: 20px;">
+              <!-- Header -->
+              <tr>
+                <td><img src="https://hoohoop.co.nz/assets/images/Logo.png" alt="HooHoop Logo" style="display: block; margin: 10px auto; padding: 0; width: 300px;"></td>
+              </tr>
+              <tr>
+                <td>
+                  <h1 style="margin: 3vh auto 1vh auto; width: 100%; text-align: center; font-size: 30px;">New Enquiry</h1>
+                  <h3 style="margin: 1vh auto 3vh auto; width: 100%; text-align: center; font-size: 18px;">for <span style="color: #1EA1F3;">${CouponCar}</span></h3>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p style="margin: 0px auto; width: 100%; font-weight: bold; font-size: 20px; margin-bottom: 10px;">Hi there,</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p style="margin: 0px auto; width: 100%;">A discount coupon of $${deal} has been availed by a customer. This discount coupon will be valid for
+                  72 hours. You can contact the customer on ${custEmail}, ${custPhone}</p>
                 </td>
               </tr>
               <tr>
