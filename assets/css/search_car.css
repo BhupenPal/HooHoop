@@ -470,6 +470,11 @@ button[disabled] {
   background-color: #f5bf2b;
   color: #fff;
 }
+.Page_no:hover,
+.page_sel {
+  background-color: #f5bf2b;
+  color: white;
+}
 .no-car {
   font-family: Raleway;
   width: 100%;
