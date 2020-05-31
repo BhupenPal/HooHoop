@@ -1,0 +1,343 @@
+body,
+html {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+}
+a {
+  text-decoration: none;
+  color: #1ea1f3;
+  transition: 0.2s;
+}
+a:hover {
+  color: #f5bf2b;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes heart {
+  0% {
+    transform: scale(1.3) rotate(15deg);
+  }
+  100% {
+    transform: scale(0) rotate(0);
+  }
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #f6b500;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-track-piece {
+  background-color: #fff;
+}
+::-webkit-scrollbar-track {
+  background-color: #fff;
+}
+:focus {
+  outline: 0;
+}
+.Head {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #fff;
+  padding: 0;
+}
+.view-details {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  font-family: Fira;
+  height: 40%;
+  width: 100%;
+  background-color: rgba(255, 255, 255);
+  border-radius: 40%;
+  margin-top: -100px;
+  transition: 0.2s;
+  opacity: 0.85;
+}
+.info_contain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Fira;
+  width: 100%;
+  height: 25%;
+}
+.contact_details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 10px;
+  box-sizing: border-box;
+  font-family: Raleway;
+  font-size: 20px;
+  font-weight: lighter;
+}
+.contact_details div:nth-child(2) {
+  margin: 10px 10px;
+}
+.contact_details div:nth-child(3) {
+  margin: 0 10px;
+}
+.select-tag {
+  height: 42px;
+  width: 300px;
+  border: 2px solid gray;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 0 10px;
+  font-family: Fira;
+  font-size: 16px;
+  box-sizing: border-box;
+  color: gray;
+  text-transform: capitalize;
+  background-color: #fff;
+  cursor: pointer;
+}
+.card {
+  min-height: 550px;
+  width: 400px;
+  margin: 100px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 0 3px 3px #e6e6e6;
+  position: relative;
+}
+.Page_no {
+  width: 55px;
+  height: 55px;
+  border-radius: 5px;
+  margin: 0 10px;
+  display: flex;
+  justify-content: center;
+  font-size: 25px;
+  font-family: Roboto;
+  cursor: pointer;
+  align-items: center;
+  transition: 0.2s;
+}
+.Page_no:hover {
+  background-color: #f5bf2b;
+  color: #fff;
+}
+.id_head {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+  padding: 10px;
+  box-sizing: border-box;
+  font-family: Raleway;
+  font-weight: 700;
+}
+.share_info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f1f1f1;
+  box-shadow: 10px 10px 10px 1px gray;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+.share_data {
+  font-size: 25px;
+  font-family: Raleway;
+  font-weight: 700;
+}
+.share {
+  display: flex;
+  justify-content: flex-end !important;
+}
+.p-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.feature_head {
+  font-size: 50px;
+  font-family: Raleway;
+  padding-left: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 110px;
+  box-sizing: border-box;
+}
+.offer {
+  width: 90%;
+  background-color: #f6b40048;
+  margin: 20px 0;
+  display: flex;
+}
+.share a:nth-child(1) div {
+  background-image: linear-gradient(to right, #e73f70, #4267b2);
+}
+.share a:nth-child(2) div {
+  background-color: #4267b2;
+}
+.share a:nth-child(3) div {
+  background-color: #1ea1f3;
+}
+.about-us-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 200px;
+  background-color: #fff;
+}
+.team {
+  margin: 80px 0 0 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.Privpol-wrapper {
+  width: 60%;
+  margin: 100px auto 0 auto;
+  padding-bottom: 200px;
+}
+.Privpol-wrapper h3 {
+  font-family: Roboto;
+  font-size: 30px;
+}
+#webref {
+  font-family: Roboto;
+}
+.single-policy {
+  font-family: Raleway;
+}
+.single-policy h3 {
+  font-size: 30px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.calleditor {
+  font-family: Poppins;
+  font-weight: 700;
+}
+.calleditor a {
+  color: green;
+}
+.terms_of_use {
+  width: 60%;
+  margin: 100px auto 0 auto;
+  padding-bottom: 200px;
+}
+.terms_of_use h3 {
+  font-size: 30px;
+  font-family: Roboto;
+}
+.terms_of_use h4 {
+  font-size: 24px;
+  font-family: Poppins;
+}
+.terms_of_use p {
+  font-family: Raleway;
+}
+.Disclaimer {
+  font-family: Lato !important;
+}
+.contact-us-wrapper {
+  width: 60%;
+  margin: 100px auto 0 auto;
+  padding-bottom: 200px;
+}
+.contact-us-wrapper h1 {
+  font-family: Lato;
+  font-size: 50px;
+}
+.contact-us-wrapper h2 {
+  font-family: Raleway;
+  font-size: 20px;
+}
+.contact-us-wrapper h2 a {
+  font-family: Roboto;
+  color: green;
+}
+@media only screen and (max-width: 480px) {
+  ::-webkit-scrollbar {
+    display: none !important;
+  }
+  header {
+    padding: 0 !important;
+  }
+  .card {
+    width: 90vw;
+    min-height: 500px;
+  }
+  .Page_no {
+    height: 8vw;
+    width: 8vw;
+    font-size: 5vw;
+    margin: 0 1vw;
+  }
+  .share_info {
+    width: 90vw;
+    margin: 0 auto;
+  }
+  .select-tag {
+    width: 80vw;
+  }
+  .Privpol-wrapper,
+  .about-us-wrapper,
+  .contact-us-wrapper,
+  .terms_of_use {
+    padding-bottom: 600px;
+    width: 90vw !important;
+    margin: 0 auto;
+  }
+  .feature_head {
+    font-size: 10vw;
+    text-align: left;
+  }
+}
+@media only screen and (max-width: 768px) and (min-width: 481px) {
+  ::-webkit-scrollbar {
+    display: none !important;
+  }
+  header {
+    padding: 0 !important;
+  }
+  .share_info {
+    width: 90vw;
+    margin: 0 auto;
+  }
+  .card {
+    width: 400px;
+    min-height: 500px;
+  }
+  .Page_no {
+    height: 5vw;
+    width: 5vw;
+    font-size: 3vw;
+    margin: 0 1vw;
+  }
+}
+@media only screen and (min-width: 2000px) {
+  .id_head {
+    height: 3vw;
+    font-size: 1.5vw;
+  }
+}

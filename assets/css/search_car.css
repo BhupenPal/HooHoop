@@ -1,0 +1,874 @@
+body,
+html {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+}
+a {
+  text-decoration: none;
+  color: #1ea1f3;
+  transition: 0.2s;
+}
+a:hover {
+  color: #f5bf2b;
+}
+#loader {
+  margin: 50px auto;
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #3498db;
+  border-radius: 50%;
+  width: 100px;
+  display: none;
+  height: 100px;
+  animation: spin 2s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes heart {
+  0% {
+    transform: scale(1.3) rotate(15deg);
+  }
+  100% {
+    transform: scale(0) rotate(0);
+  }
+}
+input[type="date"]::-webkit-inner-spin-button {
+  display: none;
+  -webkit-appearance: none;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #f6b500;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-track-piece {
+  background-color: #fff;
+}
+::-webkit-scrollbar-track {
+  background-color: #fff;
+}
+:focus {
+  outline: 0;
+}
+.Head {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #fff;
+  padding: 0;
+}
+.buy-car {
+  height: 85%;
+  width: 400px;
+  background: #fff;
+  position: absolute;
+  border-radius: 10px;
+  left: 50px;
+}
+.card_input_info {
+  height: 100%;
+  width: 90%;
+  display: flex;
+  place-items: center;
+  place-content: center;
+  flex-direction: column;
+}
+.card_input_info input[type="text"] {
+  display: none;
+}
+.card_input_info div select {
+  height: 100%;
+  width: 100%;
+  text-align-last: center;
+  font-size: x-large;
+  color: gray;
+  font-family: Poppins;
+}
+.input_div {
+  height: 15%;
+  width: 80%;
+  cursor: pointer;
+  text-align: center;
+}
+.input_div select {
+  background-color: #fff !important;
+}
+.input_div + .input_div {
+  margin-top: 10px;
+}
+button:disabled,
+button[disabled] {
+  color: #fff;
+  cursor: not-allowed !important;
+}
+.car_info {
+  font-family: Fira;
+  margin: 50px 0;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 0;
+  background-color: #fae29f;
+  border-radius: 10px;
+}
+.vanish {
+  display: none !important;
+}
+#car_a {
+  margin: 10px auto;
+  padding: 0;
+  font-family: Fira;
+}
+.form_head {
+  display: flex;
+  width: 100%;
+  height: 80px;
+  align-items: center;
+  background-color: #f5bf2b;
+  padding-left: 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  margin-bottom: 40px;
+}
+.form_head input {
+  margin-left: 20px;
+  height: 50%;
+  width: 30%;
+  border-radius: 5px;
+  border: 1px solid gray;
+  padding-left: 20px;
+  font-size: 20px;
+  color: gray;
+  font-family: Raleway;
+  box-sizing: border-box;
+}
+.form2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.select-tag {
+  height: 42px;
+  width: 300px;
+  border: 2px solid gray;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 0 10px;
+  font-family: Fira;
+  font-size: 16px;
+  box-sizing: border-box;
+  color: gray;
+  text-transform: capitalize;
+  background-color: #fff;
+  cursor: pointer;
+}
+.card {
+  min-height: 550px;
+  width: 400px;
+  margin: 100px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 0 3px 3px #e6e6e6;
+  position: relative;
+}
+.button-2 {
+  height: 30px;
+  width: 100px;
+  font-size: 20px;
+  color: #fff;
+  background-color: #008ec2;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 200px;
+  margin-right: 20px;
+}
+.button-2:hover {
+  background-color: #f5bf2b;
+}
+.bgset {
+  background-color: #f2f2f2;
+}
+.buy_car_wrap {
+  width: min-content;
+  display: flex;
+  margin: 0 auto;
+  align-items: flex-start;
+  padding-bottom: 100px;
+}
+.filterwrap {
+  min-height: 100vh;
+  width: 20vw;
+  margin: 20px 0;
+  border-radius: 5px;
+}
+.fltr_head {
+  border-bottom: 1px solid #e1e1e1;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+  box-sizing: border-box;
+  height: 50px;
+  background-color: #fff;
+  justify-content: space-between;
+  padding-right: 20px;
+}
+#mobile_fil {
+  display: none;
+  background-color: transparent;
+  border: none;
+}
+#mobile_fil i {
+  transition: 0.2s;
+}
+.contentwrap {
+  background-color: #fff;
+  margin: 20px 10px;
+  border-radius: 5px;
+  display: flex;
+  min-height: 78vh;
+  flex-direction: column;
+  min-width: 65.5vw;
+}
+.cardanchor {
+  color: #000;
+  margin: 20px;
+}
+#bc-card-wrap {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+.bc-card {
+  height: 500px;
+  width: 380px;
+  box-shadow: 0 0 3px 3px #f3f3f3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.cb_img,
+.cb_img img {
+  height: 380px;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  position: relative;
+}
+.vir_tour {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  color: #fff;
+  background-color: #e96c4c;
+  padding: 0 10px 10px 10px;
+  font-family: Raleway;
+  font-weight: 700;
+}
+.vir_tour img {
+  margin-bottom: -12px;
+  margin-right: 10px;
+  width: 40px;
+  height: 40px;
+}
+.cb_info {
+  padding: 10px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 120px;
+}
+.cb_main {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  font-family: Roboto;
+  font-size: 24px;
+  height: 50%;
+  align-items: center;
+  position: relative;
+}
+.cb_views {
+  position: absolute;
+  right: 0;
+  top: -40px;
+  color: #fff;
+  font-size: 1rem;
+}
+.cb_add_info {
+  height: 30%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border-top: 2px solid #f2f2f2;
+  padding-top: 20px;
+  box-sizing: border-box;
+}
+.cb_add_info span {
+  height: 100%;
+  width: 33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Roboto;
+  text-transform: capitalize;
+  text-align: center;
+}
+.filter {
+  margin-top: 40px;
+}
+.filter_option {
+  width: 100%;
+  min-height: 75px;
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.Filter_class:hover {
+  background-color: #f5bf2b;
+}
+.Filter_class {
+  height: 75px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 20px;
+  box-sizing: border-box;
+  transition: 0.2s;
+}
+.Filter_class i {
+  margin-right: 20px;
+  transition: 0.2s;
+}
+.foption {
+  font-size: 18px;
+  font-family: Raleway;
+  font-weight: 700;
+  padding: 0 20px;
+  box-sizing: border-box;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 5px 0;
+  transition: 0.3s;
+}
+.foption input[type="checkbox"] {
+  display: none;
+}
+.foption label::before {
+  content: "";
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  border: 2px solid;
+  position: absolute;
+  top: -10px;
+  left: -20px;
+}
+.foption label::after {
+  content: "";
+  display: inline-block;
+  height: 6px;
+  width: 9px;
+  border-left: 2px solid;
+  border-bottom: 2px solid;
+  transform: rotate(-45deg);
+  position: absolute;
+  left: -16px;
+  top: -7px;
+}
+.foption label {
+  position: relative;
+}
+.foption input[type="checkbox"] + label::after {
+  content: none;
+}
+.foption input[type="checkbox"]:checked + label::after {
+  content: "";
+}
+.foption:hover {
+  background-color: #000;
+  color: #fff;
+}
+.foption_encloser {
+  max-height: 500px;
+  overflow: scroll;
+  display: none;
+}
+#Pagination {
+  margin: 60px auto 20px auto;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#Pagination button {
+  height: 60px;
+  width: 100px;
+  border-radius: 5px;
+  font-weight: 700;
+  font-family: Raleway;
+  font-size: large;
+  cursor: pointer;
+  transition: 0.2s;
+  box-sizing: border-box;
+  color: #f5bf2b;
+  background-color: transparent;
+  border: 3px solid transparent;
+}
+#Pagination button:hover {
+  border: 3px solid #f5bf2b;
+}
+#Pagination a {
+  color: #000;
+}
+.Page_no {
+  width: 55px;
+  height: 55px;
+  border-radius: 5px;
+  margin: 0 10px;
+  display: flex;
+  justify-content: center;
+  font-size: 25px;
+  font-family: Roboto;
+  cursor: pointer;
+  align-items: center;
+  transition: 0.2s;
+}
+.Page_no:hover {
+  background-color: #f5bf2b;
+  color: #fff;
+}
+.no-car {
+  font-family: Raleway;
+  width: 100%;
+  font-size: 32px;
+  text-align: center;
+  margin-top: 35vh;
+  margin-bottom: 20vh;
+}
+.car_name_price {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Fira;
+  font-size: 30px;
+  font-weight: 700;
+}
+.id_head {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+  padding: 10px;
+  box-sizing: border-box;
+  font-family: Raleway;
+  font-weight: 700;
+}
+input[type="submit"] {
+  background-color: orange;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+input[type="submit"]:hover {
+  background-color: orange;
+}
+@media only screen and (max-width: 480px) {
+  ::-webkit-scrollbar {
+    display: none !important;
+  }
+  header {
+    padding: 0 !important;
+  }
+  .buy-car {
+    height: 100vw;
+    width: 80vw;
+    left: 12%;
+  }
+  .card_input_info div select {
+    font-size: 5vw;
+  }
+  .card {
+    width: 90vw;
+    min-height: 500px;
+  }
+  .button-2 {
+    margin: 0;
+  }
+  .buy_car_wrap {
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 500px;
+  }
+  .filterwrap {
+    min-height: min-content;
+    margin-bottom: 0;
+    width: 90vw;
+  }
+  .fltr_head {
+    font-size: 6vw;
+    height: 10vw;
+  }
+  #mobile_fil {
+    display: block;
+    font-size: 4vw;
+  }
+  .filter {
+    margin-top: 8vw;
+    display: none;
+  }
+  .contentwrap {
+    min-height: 110vw;
+  }
+  .bc-card {
+    height: min-content;
+    width: 80vw;
+  }
+  #bc-card-wrap {
+    grid-template-columns: auto;
+  }
+  .cb_img,
+  .cb_img img {
+    height: 70vw;
+  }
+  .cb_main {
+    font-size: 5vw;
+  }
+  .cb_add_info span {
+    font-size: 4vw;
+  }
+  .vir_tour img {
+    margin-bottom: -12px;
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+  }
+  .filter_option {
+    min-height: 20vw;
+    font-size: 4vw;
+  }
+  .Filter_class {
+    height: 15vw;
+    font-size: 5vw;
+  }
+  .Filter_class i {
+    font-size: 4vw;
+  }
+  .foption {
+    font-size: 4vw;
+    height: 5vw;
+  }
+  .foption label::before {
+    height: 3vw;
+    width: 3vw;
+    top: -2.11875vw;
+  }
+  .foption label::after {
+    height: 1vw;
+    width: 1.5vw;
+    top: -1.2125vw;
+  }
+  #Pagination {
+    margin: 20px auto;
+    height: min-content;
+  }
+  #Pagination button {
+    height: 10vw;
+    width: 20vw;
+    font-size: 4vw;
+  }
+  .Page_no {
+    height: 8vw;
+    width: 8vw;
+    font-size: 5vw;
+    margin: 0 1vw;
+  }
+  .car_name_price {
+    font-size: 5vw;
+    height: 20vw;
+    align-items: center;
+  }
+  .form_head {
+    flex-direction: column;
+    padding: 0;
+    min-height: 180px;
+    padding-bottom: 10px;
+    box-sizing: border-box;
+  }
+  .form_head input {
+    width: 90%;
+    margin-left: 0;
+    margin-top: 5px;
+  }
+  .select-tag {
+    width: 80vw;
+  }
+}
+@media only screen and (max-width: 768px) and (min-width: 481px) {
+  ::-webkit-scrollbar {
+    display: none !important;
+  }
+  header {
+    padding: 0 !important;
+  }
+  .buy-car {
+    height: 50vw;
+    width: 40vw;
+    left: 12%;
+  }
+  .card_input_info div select {
+    font-size: 2.5vw !important;
+  }
+  .card_input_info div select {
+    font-size: 5vw;
+  }
+  .car_name_price {
+    font-size: 5vw;
+    height: 20vw;
+    align-items: center;
+  }
+  .card {
+    width: 400px;
+    min-height: 500px;
+  }
+  .button-2 {
+    margin-right: 20px;
+  }
+  .buy_car_wrap {
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 400px;
+  }
+  .fltr_head {
+    font-size: 30px;
+    height: 10vw;
+  }
+  #mobile_fil {
+    display: block !important;
+    font-size: 30px;
+  }
+  .filter {
+    display: none;
+  }
+  .filterwrap {
+    width: 90vw;
+    min-height: min-content;
+    height: min-content;
+  }
+  .contentwrap {
+    width: 90vw;
+    min-height: 60vw !important;
+  }
+  .cb_main {
+    font-size: 20px;
+  }
+  .cb_add_info span {
+    font-size: 18px;
+  }
+  .filter_option {
+    min-height: 15vw;
+    font-size: 20px;
+  }
+  .Filter_class {
+    height: 10vw;
+    font-size: 30px;
+  }
+  .Filter_class i {
+    font-size: 4vw;
+  }
+  .foption {
+    font-size: 25px;
+    height: 5vw;
+  }
+  #bc-card-wrap {
+    grid-template-columns: auto;
+  }
+  .bc-card {
+    height: 80vw;
+    margin: 0 auto;
+    width: 80vw;
+  }
+  .cb_img,
+  .cb_img img {
+    height: 63vw;
+  }
+  .vir_tour img {
+    margin-bottom: -12px;
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+  }
+  .foption label::before {
+    height: 3vw;
+    width: 3vw;
+    top: -1.61875vw;
+  }
+  .foption label::after {
+    height: 1vw;
+    width: 2vw;
+    top: -1.0125vw;
+  }
+  #Pagination {
+    width: 80vw;
+  }
+  #Pagination button {
+    height: 6vw;
+    width: 12vw;
+    font-size: 2vw;
+  }
+  .Page_no {
+    height: 5vw;
+    width: 5vw;
+    font-size: 3vw;
+    margin: 0 1vw;
+  }
+}
+@media only screen and (max-width: 1100px) and (min-width: 769px) {
+  .bc-card {
+    height: 45vw;
+    width: 30vw;
+  }
+  .filterwrap {
+    min-height: min-content;
+    margin-bottom: 0;
+    width: 26vw;
+  }
+  .cb_img,
+  .cb_img img {
+    height: 100%;
+  }
+  #bc-card-wrap {
+    grid-template-columns: auto auto;
+  }
+  .cb_main {
+    font-size: 2.2vw;
+  }
+  .cb_add_info span {
+    font-size: 1.5vw;
+  }
+  .Filter_class {
+    font-size: 2vw;
+  }
+  .Filter_class i {
+    font-size: 2vw;
+  }
+  .foption {
+    font-size: 1.5vw;
+  }
+  .car_name_price {
+    font-size: 3vw;
+    height: 10vw;
+    width: 90vw;
+    align-items: center;
+  }
+}
+@media only screen and (max-width: 1400px) and (min-width: 1101px) {
+  .bc-card {
+    height: 30vw;
+    width: 20vw;
+  }
+  .cb_img,
+  .cb_img img {
+    height: 100%;
+  }
+  .cb_main {
+    font-size: 1.5vw;
+  }
+  .cb_add_info span {
+    font-size: 1.1vw;
+  }
+  .Filter_class {
+    font-size: 1.5vw;
+  }
+  .Filter_class i {
+    font-size: 1.5vw;
+  }
+  .foption {
+    font-size: 1.2vw;
+  }
+  .cb_add_info span {
+    font-size: 1vw;
+  }
+  .car_name_price {
+    width: 60vw;
+  }
+  .car_name_price {
+    font-size: 2.5vw;
+    align-items: center;
+  }
+}
+@media only screen and (max-width: 1610px) and (min-width: 1401px) {
+  .bc-card {
+    height: 33vw;
+    width: 23vw;
+  }
+  .cb_img,
+  .cb_img img {
+    height: 100%;
+  }
+}
+@media only screen and (min-width: 2000px) {
+  .bc-card {
+    height: 32vw;
+    width: 22vw;
+  }
+  .cb_img,
+  .cb_img img {
+    height: 100%;
+  }
+  .cb_main {
+    font-size: 1vw;
+  }
+  .cb_add_info span {
+    font-size: 0.8vw;
+  }
+  .Filter_class {
+    font-size: 1vw;
+  }
+  .Filter_class i {
+    font-size: 1vw;
+  }
+  .foption {
+    font-size: 0.8vw;
+  }
+  .id_head {
+    height: 3vw;
+    font-size: 1.5vw;
+  }
+}

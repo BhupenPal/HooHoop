@@ -1,0 +1,304 @@
+body,
+html {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+}
+a {
+  text-decoration: none;
+  color: #1ea1f3;
+  transition: 0.2s;
+}
+a:hover {
+  color: #f5bf2b;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes heart {
+  0% {
+    transform: scale(1.3) rotate(15deg);
+  }
+  100% {
+    transform: scale(0) rotate(0);
+  }
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #f6b500;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-track-piece {
+  background-color: #fff;
+}
+::-webkit-scrollbar-track {
+  background-color: #fff;
+}
+:focus {
+  outline: 0;
+}
+.Head {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #fff;
+  padding: 0;
+}
+.logo img {
+  width: 250px;
+}
+.sellcar_wrap {
+  width: 100%;
+  display: flex;
+  padding-bottom: 100px;
+  justify-content: center;
+  align-items: center;
+}
+.ad_enclosure {
+  height: 600px;
+  width: 500px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  margin: 50px 0;
+  box-shadow: 0 0 20px 10px #dadada;
+}
+.pakages {
+  font-size: 40px;
+  font-family: Fira;
+}
+.h-logo {
+  height: 100px;
+  width: 400px;
+}
+.h-logo img {
+  height: 100%;
+  width: 100%;
+}
+.pakage_info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.ad_price {
+  display: flex;
+  place-content: center;
+  place-items: center;
+}
+.ad_price {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 50px;
+  width: 50px;
+  font-family: Poppins;
+}
+.ad_price h2 {
+  padding-bottom: 5px;
+}
+.pakage_info {
+  font-family: Fira;
+}
+.pakage_info button {
+  height: 50px;
+  width: 200px;
+  border-radius: 10px;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  font-family: Fira;
+}
+.pakage_info button:hover {
+  width: 250px;
+  background-color: #f6b500;
+}
+button:disabled,
+button[disabled] {
+  color: #fff;
+  cursor: not-allowed !important;
+}
+.sell_head {
+  text-transform: capitalize;
+  font-family: Fira;
+}
+.car_info {
+  font-family: Fira;
+  margin: 50px 0;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 0;
+  background-color: #fae29f;
+  border-radius: 10px;
+}
+.car_info h1 {
+  margin-bottom: 50px;
+  margin-top: 0;
+}
+#car_a {
+  margin: 10px auto;
+  padding: 0;
+  font-family: Fira;
+}
+.button-2 {
+  height: 30px;
+  width: 100px;
+  font-size: 20px;
+  color: #fff;
+  background-color: #008ec2;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 200px;
+  margin-right: 20px;
+}
+.button-2:hover {
+  background-color: #f5bf2b;
+}
+.car_name_price {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Fira;
+  font-size: 30px;
+  font-weight: 700;
+}
+.id_head {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+  padding: 10px;
+  box-sizing: border-box;
+  font-family: Raleway;
+  font-weight: 700;
+}
+@media only screen and (max-width: 480px) {
+  ::-webkit-scrollbar {
+    display: none !important;
+  }
+  .logo img {
+    width: 45vw;
+  }
+  header {
+    padding: 0 !important;
+  }
+  .sellcar_wrap {
+    padding-bottom: 500px;
+  }
+  .ad_enclosure {
+    width: 80vw;
+    height: 100vw;
+  }
+  .pakages {
+    font-size: 6vw;
+  }
+  .h-logo {
+    height: 16vw;
+    width: 65vw;
+  }
+  .pakage_info button {
+    width: 52vw;
+    height: 13vw;
+  }
+  .button-2 {
+    margin: 0;
+  }
+  .car_name_price {
+    font-size: 5vw;
+    height: 20vw;
+    align-items: center;
+  }
+  .sell_head {
+    font-size: 16px;
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 768px) and (min-width: 481px) {
+  ::-webkit-scrollbar {
+    display: none !important;
+  }
+  .logo img {
+    width: 45vw;
+  }
+  header {
+    padding: 0 !important;
+  }
+  .ad_enclosure {
+    width: 80vw;
+    height: 100vw;
+  }
+  .pakages {
+    font-size: 6vw;
+  }
+  .h-logo {
+    height: 16vw;
+    width: 65vw;
+  }
+  .pakage_info button {
+    width: 52vw;
+    height: 13vw;
+  }
+  .sellcar_wrap {
+    padding-bottom: 500px;
+  }
+  .sellcar_wrap {
+    padding-bottom: 400px;
+  }
+  .car_name_price {
+    font-size: 5vw;
+    height: 20vw;
+    align-items: center;
+  }
+  .button-2 {
+    margin-right: 20px;
+  }
+}
+@media only screen and (max-width: 1100px) and (min-width: 769px) {
+  .logo img {
+    width: 30vw;
+  }
+  .car_name_price {
+    font-size: 3vw;
+    height: 10vw;
+    width: 90vw;
+    align-items: center;
+  }
+}
+@media only screen and (max-width: 1400px) and (min-width: 1101px) {
+  .car_name_price {
+    width: 60vw;
+  }
+  .car_name_price {
+    font-size: 2.5vw;
+    align-items: center;
+  }
+}
+@media only screen and (min-width: 2000px) {
+  .id_head {
+    height: 3vw;
+    font-size: 1.5vw;
+  }
+}

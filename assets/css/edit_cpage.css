@@ -1,0 +1,561 @@
+body,
+html {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes heart {
+  0% {
+    transform: scale(1.3) rotate(15deg);
+  }
+  100% {
+    transform: scale(0) rotate(0);
+  }
+}
+input[type="date"]::-webkit-inner-spin-button {
+  display: none;
+  -webkit-appearance: none;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #f6b500;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-track-piece {
+  background-color: #fff;
+}
+::-webkit-scrollbar-track {
+  background-color: #fff;
+}
+:focus {
+  outline: 0;
+}
+.Head {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #fff;
+  padding: 0;
+}
+.input_div {
+  height: 15%;
+  width: 80%;
+  cursor: pointer;
+  text-align: center;
+}
+.input_div + .input_div {
+  margin-top: 10px;
+}
+.img_contain {
+  height: 75%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.img_contain img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+button:disabled,
+button[disabled] {
+  color: #fff;
+  cursor: not-allowed !important;
+}
+.form_head {
+  display: flex;
+  width: 100%;
+  height: 80px;
+  align-items: center;
+  background-color: #f5bf2b;
+  padding-left: 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  margin-bottom: 40px;
+}
+.form_head h1 {
+  text-transform: capitalize;
+  font-family: Fira;
+}
+.form_head input {
+  margin-left: 20px;
+  height: 50%;
+  width: 30%;
+  border-radius: 5px;
+  border: 1px solid gray;
+  padding-left: 20px;
+  font-size: 20px;
+  color: gray;
+  font-family: Raleway;
+  box-sizing: border-box;
+}
+.form_inp {
+  width: 100%;
+  min-height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+.form_inp form {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: space-between;
+  box-sizing: border-box;
+}
+.inp_form_tag {
+  height: 42px;
+  width: 300px;
+  border: 2px solid gray;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 0 10px !important;
+  font-family: Fira;
+  font-size: 16px;
+  box-sizing: border-box;
+  color: gray;
+}
+.inp_form_tag:focus {
+  border: 2px solid #43b4ff;
+}
+.form2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+#t_area {
+  width: 100%;
+  font-size: 20px;
+  box-sizing: border-box;
+  padding: 10px;
+}
+.reg_body {
+  background-color: #f7f7f7;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 150px;
+}
+.button-2 {
+  height: 30px;
+  width: 100px;
+  font-size: 20px;
+  color: #fff;
+  background-color: #008ec2;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 200px;
+  margin-right: 20px;
+}
+.button-2:hover {
+  background-color: #f5bf2b;
+}
+.reg_link {
+  font-family: Lato;
+  transition: 0.2s;
+}
+.th60_container {
+  width: 900px;
+}
+.viewthsxty {
+  height: 600px;
+  width: 100%;
+  position: relative;
+}
+.car_name_price,
+.ecar_name_price {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Fira;
+  font-size: 30px;
+  font-weight: 700;
+}
+.c_price {
+  color: orange;
+}
+.c_price span {
+  font-size: 20px;
+  color: #000;
+  font-weight: 400;
+}
+.Listing_id {
+  width: 350px;
+  background-color: #f5bf2b;
+  margin-bottom: 50px;
+  border-radius: 5px;
+  box-shadow: 10px 10px 10px 1px gray;
+}
+.id_head {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+  padding: 10px;
+  box-sizing: border-box;
+  font-family: Raleway;
+  font-weight: 700;
+}
+.submit-button {
+  height: 40px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: Lato;
+  font-weight: bolder;
+  font-size: 20px;
+  border-radius: 5px;
+  border: none;
+  margin-top: 20px;
+  background-color: #f5bf2b;
+  color: #fff;
+  cursor: pointer;
+}
+th {
+  border: 1px solid #ddd;
+  text-align: center;
+  padding: 8px;
+}
+.edit_pagewrap {
+  padding-bottom: 200px;
+  width: min-content;
+  margin: 0 auto;
+}
+.edit_inp {
+  height: 30px;
+  width: 200px;
+  border-radius: 5px;
+  border: 1px solid #e2e2e2;
+  padding: 0 10px;
+  font-size: 18px;
+  margin: 0 10px;
+  font-family: Raleway;
+  box-sizing: border-box;
+}
+.thumbinfo_contain {
+  display: flex;
+  margin: 10px auto;
+  box-sizing: border-box;
+}
+.det_connect {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+}
+.det_connect + .det_connect {
+  margin: 8px 0;
+  height: min-content;
+}
+.th60_inputup .det_connect .ico_hold {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f1f1f1;
+  width: 40%;
+  font-family: raleway;
+  padding: 5px 10px;
+}
+.ico_hold i {
+  font-size: 30px;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #747474;
+}
+.prop_hold {
+  background-color: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 69px;
+}
+.th60_inputup {
+  margin: 5px 20px;
+  height: min-content;
+}
+.edit_pic {
+  height: 100%;
+  width: 100%;
+}
+.edit_details {
+  margin-top: 20px;
+}
+.edit_description,
+.edit_sa {
+  font-family: Fira;
+  width: 70%;
+}
+.edit_description textarea,
+.edit_sa input {
+  font-family: Raleway;
+  min-width: 300px;
+  margin: 10px;
+}
+.sa_contain {
+  display: flex;
+  flex-direction: column;
+}
+.edit_update {
+  height: 50px;
+  width: 200px;
+  border-radius: 10px;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  background-color: #126e12;
+  cursor: pointer;
+  font-family: raleway;
+  transition: 0.3s;
+}
+.edit_update:hover {
+  background-color: #ca970c;
+}
+.e-up_btn {
+  margin: 10px;
+}
+input[type="submit"] {
+  background-color: orange;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+input[type="submit"]:hover {
+  background-color: orange;
+}
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+@media only screen and (max-width: 480px) {
+  ::-webkit-scrollbar {
+    display: none !important;
+  }
+  header {
+    padding: 0 !important;
+  }
+  .reg_body {
+    padding-bottom: 500px;
+  }
+  .reg_link {
+    width: 90vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0;
+  }
+  .button-2 {
+    margin: 0;
+  }
+  .th60_container {
+    width: 90vw;
+    margin: 0 auto;
+  }
+  .viewthsxty {
+    height: 60vw;
+  }
+  .car_name_price {
+    font-size: 5vw;
+    height: 20vw;
+    align-items: center;
+  }
+  .Listing_id {
+    margin: 10vw auto;
+    width: 90vw;
+  }
+  .form_head {
+    flex-direction: column;
+    padding: 0;
+    min-height: 180px;
+    padding-bottom: 10px;
+    box-sizing: border-box;
+  }
+  .form_head input {
+    width: 90%;
+    margin-left: 0;
+    margin-top: 5px;
+  }
+  .inp_form_tag {
+    width: 80vw;
+  }
+  .edit_pagewrap {
+    padding-bottom: 550px;
+    width: 90vw;
+  }
+  .thumbinfo_contain {
+    flex-direction: column;
+  }
+  .ecar_name_price {
+    flex-direction: column;
+    height: min-content;
+    margin: 30px 0;
+  }
+  .ecar_name_price div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10px;
+  }
+  .th60_inputup {
+    margin: 50px auto;
+    width: 80vw;
+  }
+  .edit_description {
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .edit_description #t_area {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .edit_sa {
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+  }
+  .e-up_btn {
+    display: flex;
+    justify-content: center;
+  }
+  th {
+    min-width: 30vw !important;
+    padding: 5px 0;
+  }
+}
+@media only screen and (max-width: 768px) and (min-width: 481px) {
+  ::-webkit-scrollbar {
+    display: none !important;
+  }
+  header {
+    padding: 0 !important;
+  }
+  .reg_body {
+    padding-bottom: 500px;
+  }
+  .reg_body {
+    padding-bottom: 400px;
+  }
+  .th60_container {
+    width: 90vw;
+    margin: 0 auto;
+  }
+  .viewthsxty {
+    height: 60vw;
+  }
+  .car_name_price {
+    font-size: 5vw;
+    height: 20vw;
+    align-items: center;
+  }
+  .Listing_id {
+    margin: 10vw auto;
+    width: 90vw;
+  }
+  .reg_link {
+    width: 90vw;
+    display: flex;
+    box-sizing: border-box;
+    padding-left: 20px;
+    align-items: center;
+    margin: 5px 0;
+  }
+  .reg_link:nth-child(2) {
+    border-left: 2px solid #e4e4e4;
+  }
+  .button-2 {
+    margin-right: 20px;
+  }
+}
+@media only screen and (max-width: 1100px) and (min-width: 769px) {
+  .th60_container {
+    width: min-content;
+    margin: 0 auto;
+  }
+  .viewthsxty {
+    height: 60vw;
+    width: 90vw;
+  }
+  .car_name_price {
+    font-size: 3vw;
+    height: 10vw;
+    width: 90vw;
+    align-items: center;
+  }
+  .Listing_id {
+    margin: 5vw auto;
+    margin-top: 0;
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 1400px) and (min-width: 1101px) {
+  .viewthsxty {
+    height: 40vw;
+    width: 60vw;
+  }
+  .th60_container {
+    margin: 0 auto;
+    height: min-content;
+  }
+  .car_name_price {
+    width: 60vw;
+  }
+  .car_name_price {
+    font-size: 2.5vw;
+    align-items: center;
+  }
+}
+@media only screen and (min-width: 2000px) {
+  .th60_container {
+    width: min-content;
+  }
+  .viewthsxty {
+    height: 40vw;
+    width: 60vw;
+  }
+  .Listing_id {
+    width: 20vw;
+  }
+  .id_head {
+    height: 3vw;
+    font-size: 1.5vw;
+  }
+}

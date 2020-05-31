@@ -1,0 +1,239 @@
+body,
+html {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+}
+a {
+  text-decoration: none;
+  color: #1ea1f3;
+  transition: 0.2s;
+}
+a:hover {
+  color: #f5bf2b;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes heart {
+  0% {
+    transform: scale(1.3) rotate(15deg);
+  }
+  100% {
+    transform: scale(0) rotate(0);
+  }
+}
+input[type="date"]::-webkit-inner-spin-button {
+  display: none;
+  -webkit-appearance: none;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #f6b500;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-track-piece {
+  background-color: #fff;
+}
+::-webkit-scrollbar-track {
+  background-color: #fff;
+}
+:focus {
+  outline: 0;
+}
+.Head {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #fff;
+  padding: 0;
+}
+.input_div {
+  height: 15%;
+  width: 80%;
+  cursor: pointer;
+  text-align: center;
+}
+.input_div + .input_div {
+  margin-top: 10px;
+}
+.submit_input_info {
+  height: 20%;
+  width: 100%;
+  display: flex;
+  place-content: center;
+  place-items: flex-start;
+}
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.form_head {
+  display: flex;
+  width: 100%;
+  height: 80px;
+  align-items: center;
+  background-color: #f5bf2b;
+  padding-left: 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  margin-bottom: 40px;
+}
+.form_head h1 {
+  text-transform: capitalize;
+  font-family: Fira;
+}
+.form_head input {
+  margin-left: 20px;
+  height: 50%;
+  width: 30%;
+  border-radius: 5px;
+  border: 1px solid gray;
+  padding-left: 20px;
+  font-size: 20px;
+  color: gray;
+  font-family: Raleway;
+  box-sizing: border-box;
+}
+.form2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.id_head {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+  padding: 10px;
+  box-sizing: border-box;
+  font-family: Raleway;
+  font-weight: 700;
+}
+.contact-us-wrapper {
+  width: 60%;
+  margin: 100px auto 0 auto;
+  padding-bottom: 200px;
+}
+.contact-us-wrapper h1 {
+  font-family: Lato;
+  font-size: 50px;
+}
+.contact-us-wrapper h2 {
+  font-family: Raleway;
+  font-size: 20px;
+}
+.contact-us-wrapper h2 a {
+  font-family: Roboto;
+  color: green;
+}
+.contact-us-wrapper form label {
+  font-family: Roboto;
+}
+.contact-us-wrapper input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+  font-family: Raleway;
+  font-size: 20px;
+}
+.contact-us-wrapper input[type="email"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+  font-family: Raleway;
+  font-size: 20px;
+}
+.contact-us-wrapper textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+  font-family: Raleway;
+  font-size: 20px;
+}
+input[type="submit"] {
+  background-color: orange;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+input[type="submit"]:hover {
+  background-color: orange;
+}
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+@media only screen and (max-width: 480px) {
+  ::-webkit-scrollbar {
+    display: none !important;
+  }
+  header {
+    padding: 0 !important;
+  }
+  .form_head {
+    flex-direction: column;
+    padding: 0;
+    min-height: 180px;
+    padding-bottom: 10px;
+    box-sizing: border-box;
+  }
+  .form_head input {
+    width: 90%;
+    margin-left: 0;
+    margin-top: 5px;
+  }
+  .input-wrapper {
+    width: 90vw;
+  }
+  .contact-us-wrapper {
+    padding-bottom: 600px;
+    width: 90vw !important;
+    margin: 0 auto;
+  }
+}
+@media only screen and (max-width: 768px) and (min-width: 481px) {
+  ::-webkit-scrollbar {
+    display: none !important;
+  }
+  header {
+    padding: 0 !important;
+  }
+}
+@media only screen and (min-width: 2000px) {
+  .id_head {
+    height: 3vw;
+    font-size: 1.5vw;
+  }
+}
