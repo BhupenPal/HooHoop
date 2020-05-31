@@ -1,0 +1,16 @@
+.error_screen{
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+}
+
+.error_img_container{
+    margin-right: 100px;
+}
+
+.error_description{
+    font-family: Raleway;
+    font-size: 2rem;
+}
