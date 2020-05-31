@@ -18,10 +18,29 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HooHoop</title>
+    <title>Error <%= ErrorCode %></title>
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <link rel="stylesheet" href="/assets/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/fonts.css">
+    <link rel="stylesheet" href="/assets/css/error.css">
+    <link
+      rel="icon"
+      href="/assets/images/favicon.ico"
+      type="image/ico"
+      sizes="16*16"
+    />
   </head>
   <body>
-    <h1><%= ErrorCode %></h1>
-    <h2><%= ErrorMsg %></h2>
+    <%-include('./Components/Header.ejs') %>
+    <div class="error_screen">
+      <div class="error_img_container">
+        <img src="/assets/images/broken-car-clipart-17.png">
+      </div>
+      <div class="error_description">
+        <h1><%= ErrorCode %></h1>
+        <h2><%= ErrorMsg %></h2>
+      </div>
+    </div>
+    <%-include('./Components/Footer.ejs') %>
   </body>
 </html>
