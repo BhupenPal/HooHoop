@@ -159,14 +159,21 @@ function showform(){
 }
 
 function mobilefilview(){
-  let x = document.getElementsByClassName("filter")[0]
+  let x = document.querySelector(".filter")
   let y = document.getElementById("mobile_fil")
-  if(x.style.display == "block"){
+
+  let state = y.getAttribute("data-state")
+
+  if(state == "open"){
+    y.setAttribute("data-state","close")
     x.style.display = "none"
-    y.children[0].style.transform = "rotate(0deg)"
+    y.style.transform = "rotate(0deg)"
+    return
   }
   else{
+    y.setAttribute("data-state","open")
     x.style.display = "block"
-    y.children[0].style.transform = "rotate(90deg)"
+    y.style.transform = "rotate(90deg)"
+    return
   }
 }
