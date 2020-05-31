@@ -157,10 +157,15 @@
 
             <div class="seller_info">
               <div class="seller_head">Seller Details</div>
-              <div class="seller_spec"><span>Name</span><%= record.DealerName %></div>
-              <div class="seller_spec"><span>Phone No.</span><a href="tel:<%= record.DealerNum %>"><%= record.DealerNum %></a></div>
-              <div class="seller_spec"><span>Email</span><a href="mailto:<%= record.DealerEmail %>" target="__blank"><%= record.DealerEmail %></a></div>
-              <div class="seller_spec"><span>Location</span><span class="locate"><%= record.carAddr %></span></div>
+                <div class="vanish sell_hdet">
+                  <div class="seller_spec"><span>Name</span><%= record.DealerName %></div>
+                  <div class="seller_spec"><span>Phone No.</span><a href="tel:<%= record.DealerNum %>"><%= record.DealerNum %></a></div>
+                  <div class="seller_spec"><span>Email</span><a href="mailto:<%= record.DealerEmail %>" target="__blank"><%= record.DealerEmail %></a></div>
+                  <div class="seller_spec"><span>Location</span><span class="locate"><%= record.carAddr %></span></div>
+                </div>
+                <div class="seller_spec seldet_btn">
+                  <button class="sell_detbtn" onclick="showseller()">Show Details</button>
+                </div>
             </div>
 
             <div class="share_info">

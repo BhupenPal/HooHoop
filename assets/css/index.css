@@ -756,7 +756,8 @@ input[type="date"]::-webkit-inner-spin-button {
 }
 
 .cd_link a:hover {
-  color: green;
+  color: #2886f1;
+  text-decoration: underline;
 }
 
 /* Home-Content */
@@ -1594,6 +1595,15 @@ button[disabled] {
   font-size: 24px;
   height: 50%;
   align-items: center;
+  position: relative;
+}
+
+.cb_views{
+  position: absolute;
+  right: 0;
+  top: -40px;
+  color: white;
+  font-size: 1rem;
 }
 
 .cb_add_info {
@@ -2023,6 +2033,40 @@ canvas {
 .Addinfo_spec,
 .seller_spec {
   border-bottom: 2px solid white;
+}
+
+#sb_anchor{
+  width: 100%;
+  margin: 0 auto;
+}
+
+.sell_detbtn{
+  height: 50px;
+  width: 100%;
+  border-radius: 5px;
+  background-color: #f5bf2b;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: Raleway;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin: 0 auto;
+  cursor: pointer;
+  border: none;
+  opacity: 0.7;
+  transition: 0.2s;
+  padding: 0 10px;
+}
+
+.sell_detbtn:hover{
+  opacity: 1;
+}
+
+.sell_detbtn:active{
+  transform: scale(0.9);
 }
 
 .share_info {

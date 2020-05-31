@@ -10,6 +10,14 @@ userInput.addEventListener("input", function () {
   }
 });
 
+function showseller(){
+  let d = document.querySelector(".sell_hdet")
+  let e = document.querySelector(".seldet_btn")
+
+  d.classList.remove("vanish")
+  e.classList.add("vanish")
+}
+
 chatForm.addEventListener("submit", createMessage);
 
 let status = "GREETING",
