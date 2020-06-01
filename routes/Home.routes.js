@@ -17,4 +17,6 @@ router.post("/buy-car/:id/book-drive", LandingController.bookDrive);
 router.post('/buy-car/:id/check-avail', LandingController.checkAvail);
 router.post('/buy-car/:id/ship-quote', LandingController.shipQuote);
 
+router.patch('/click/:id', LandingController.clickHandle);
+
 module.exports = router;

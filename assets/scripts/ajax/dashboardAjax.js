@@ -31,10 +31,11 @@ myListings = list => {
         <tr class="user-mylist">\
         <td>${inc + 1}</td>\
         <td>${json.list[inc].date}</td>\
-        <td><a href="/buy-car/${json.list[inc]._id}" target="__blank">\
+        <td class="td-left"><a href="/buy-car/${json.list[inc]._id}" target="__blank">\
         <img src="/assets/Uploads/${json.list[inc].vinNum}/thumbnail/Photo30.jpg" style="height:30px;width:30px">\
-        <span>${json.list[inc].Make} - ${json.list[inc].Model}</span></a>\
-        <i class="far fa-eye" style="margin-right: 5px"></i>${json.list[inc].views}\</td>\
+        <span>${json.list[inc].Make} - ${json.list[inc].Model}</span></a></td>\
+        <td><i class="far fa-eye" style="margin-right: 5px"></i>${json.list[inc].views}</td>\
+        <td><i class="fal fa-hand-pointer" style="margin-right: 5px"></i>${json.list[inc].clicks}</td>\
         <td>${json.list[inc].vinNum}</td>\
         <td>$${json.list[inc].Price}</td>
         ${status}<a href="/user/edit-car/${json.list[inc]._id}" target="__blank"><button class="d_edit"><i class="fal fa-edit"></i></button></a>\
@@ -79,10 +80,11 @@ completeListings = list => {
         <tr class="user-completelist">\
         <td>${inc + 1}</td>\
         <td>${json.list[inc].date}</td>\
-        <td><a href="/buy-car/${json.list[inc]._id}" target="__blank">\
+        <td class="td-left"><a href="/buy-car/${json.list[inc]._id}" target="__blank">\
         <img src="/assets/Uploads/${json.list[inc].vinNum}/thumbnail/Photo30.jpg" style="height:30px;width:30px">\
-        <span>${json.list[inc].Make} - ${json.list[inc].Model}</span></a>\
-        <i class="far fa-eye" style="margin-right: 5px"></i>${json.list[inc].views}\</td>\
+        <span>${json.list[inc].Make} - ${json.list[inc].Model}</span></a></td>\
+        <td><i class="far fa-eye" style="margin-right: 5px"></i>${json.list[inc].views}</td>\
+        <td><i class="fal fa-hand-pointer" style="margin-right: 5px"></i>${json.list[inc].clicks}</td>\
         <td>${json.list[inc].vinNum}</td>
         <td>$${json.list[inc].Price}</td>\
         <td>${json.list[inc].authorEmail}</td>\
