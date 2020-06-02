@@ -29,6 +29,7 @@ module.exports = {
   },
 
   postCar: async (req, res, next) => {
+    console.log("POST"+ req.stop)
     if (req.stop) {
       res.send("CAR ALREADY EXISTS");
     } else {

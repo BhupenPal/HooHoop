@@ -37,6 +37,9 @@ module.exports = multer({
     if (req.existence) {
       req.stop = true;
       return cb(null, false);
+    } else {
+      req.stop = false;
+      return cb(null, true)
     }
   },
   storage: storageManager,
