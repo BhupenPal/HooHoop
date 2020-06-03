@@ -207,7 +207,7 @@ input[type="date"]::-webkit-inner-spin-button {
   width: 90%;
   position: relative;
   box-sizing: border-box;
-  overflow-x: scroll;
+  overflow-x: hidden;
   display: flex;
   align-items: center;
   scroll-behavior: smooth;
@@ -222,7 +222,7 @@ input[type="date"]::-webkit-inner-spin-button {
   height: 90%;
   min-width: 300px;
   max-width: 300px;
-  box-shadow: 0 0 2px 2px #e1e1e1;
+  box-shadow: 0 0 2px 2px #f1f1f1;
   margin: 0 20px;
   cursor: pointer;
 }
@@ -271,11 +271,11 @@ input[type="date"]::-webkit-inner-spin-button {
 .cd_btn button {
   height: 75px;
   width: 75px;
-  border-radius: 75px;
+  border-radius: 100%;
   background-color: #fff;
   border: none;
   border: 1px solid #e2e2e2;
-  box-shadow: 0 0 3px 3px #e6e6e6;
+  box-shadow: 0 0 3px 3px #ececec;
   font-size: 30px;
   display: flex;
   justify-content: center;
@@ -521,10 +521,14 @@ input[type="submit"]:hover {
     height: 12vw;
     width: 12vw;
     border-radius: 12vw;
-    font-size: 7vw;
+    font-size: 5vw;
+  }
+  .cd_content{
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
   }
   .cd_car_data {
-    min-width: 55.5vw;
+    min-width: 100%;
   }
   .infowrap80 {
     padding-bottom: 500px;
