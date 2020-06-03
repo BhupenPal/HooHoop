@@ -94,7 +94,7 @@ module.exports = {
     let FrontCheck, RearCheck;
     await carModel.findOneAndUpdate(
       { _id: req.params.id },
-      { $inc: {views: 0.5} },
+      { $inc: {views: 1} },
       async (err, doc) => {
         const popularCars = await carModel
         .find({ adActive: "Active" })
@@ -207,6 +207,17 @@ module.exports = {
       record: result,
       success_msg: "Your query for shipping has been registered", recommended: popularCars, FrontCheck, RearCheck
     });
+  },
+
+  clickHandle: async (req, res, next) => {
+    await carModel.findOneAndUpdate(
+      { _id: req.params.id },
+      { $inc: {clicks: 1} },
+      async (err, doc) => {
+        if(!err){
+          res.send('Done')
+        }
+      })
   }
 };
 

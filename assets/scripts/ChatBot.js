@@ -16,6 +16,10 @@ function showseller(){
 
   d.classList.remove("vanish")
   e.classList.add("vanish")
+
+  const xhr = new XMLHttpRequest;
+  xhr.open("PATCH", `/click/${window.location.href.split('/')[4]}`, true);
+  xhr.send();
 }
 
 chatForm.addEventListener("submit", createMessage);
